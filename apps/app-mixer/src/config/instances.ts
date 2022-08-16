@@ -10,7 +10,7 @@ export const instances: IWidgetInstancesByPageList = {
             position: { y: 1, x: 10 },
             dimension: { y: 48, x: 88 },
             isTransparent: true,
-            allowOverflow: true,
+            allowOverflow: false,
         },
         {
             id: 'MixerPanel',
@@ -42,6 +42,7 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 6, x: 5 },
             isFloating: true,
             hideHeader: false,
+            isHidden: true,
         },
     ],
 };

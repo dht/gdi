@@ -4,11 +4,13 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: LineCtaColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#f1e3e5'};
+    background-color: ${(props) => props.colors.background || '#fff'};
+    height: 400px;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 300px;
+    --grid: rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 25px 25px;
 
     @media (max-width: 768px) {
         height: auto;
@@ -30,44 +32,35 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const Message = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: 44px;
-    padding-left: 80px;
+export const Details = styled.div`
+    flex: 1;
+`;
+
+export const Text = styled.div`
     color: #333;
+    font-size: 50px;
 
     strong {
-        padding-left: 14px;
-    }
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        padding-left: 0;
+        margin-right: 30px;
     }
 `;
 
-export const Button = styled(BaseButton)`
-    color: white;
-    background-color: palevioletred;
-
+export const Actions = styled.div`
     @media (max-width: 768px) {
-        height: auto;
-        width: 300px;
-        background-color: pink;
-        margin-top: 30px;
-        font-size: 30px;
-        color: palevioletred;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
     }
 `;
 
-export const CTA = styled.a<{ colors: LineCtaColors }>`
-    background-color: ${(props) => props.colors.text || '#333'};
+export const Cta = styled.a<{ colors: LineCtaColors }>`
+    background-color: ${(props) => props.colors.text || '#111'};
     font-weight: bold;
-    color: #333;
+    color: #eee;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 24px;
     padding: 10px 50px;
     border: none;
     border-radius: 20px;
@@ -75,7 +68,7 @@ export const CTA = styled.a<{ colors: LineCtaColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#333')};
+            darken(0.1, props.colors.text || '#aaef69')};
     }
 
     &:active {

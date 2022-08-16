@@ -1,12 +1,51 @@
 import styled from 'styled-components';
 
-export const Container = styled.img`
-    flex: 1;
+export const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 
-    max-width: 200px;
+    img.logo {
+        width: 120px;
+        transition: all 120ms linear;
+    }
 
-    svg {
+    span.os {
         color: white;
-        fill: white;
+        position: relative;
+        bottom: 5px;
+        left: 5px;
+        font-size: 13px;
+    }
+
+    &.small {
+        margin-top: 7px;
+        margin-left: 3px;
+
+        img.logo {
+            width: 41px;
+            filter: grayscale(1);
+
+            &:hover {
+                filter: none;
+            }
+        }
+
+        span.os {
+            display: none;
+        }
+    }
+
+    &.clickable {
+        cursor: pointer;
+
+        &:hover {
+            color: gold;
+
+            span.os {
+                color: gold;
+                opacity: 1;
+            }
+        }
     }
 `;

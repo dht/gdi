@@ -1,0 +1,16 @@
+import { params } from './meta/Feature.params';
+import { sampleData } from './meta/Feature.sample';
+import { dimensions } from './meta/Feature.dimensions';
+import { screenshots } from './meta/Feature.screenshots';
+import { IBlockInfo } from '@gdi/web-ui';
+
+export const blockInfo: IBlockInfo = {
+    id: 'com.usegdi.templates.gdi.feature-simple',
+    name: 'feature-simple',
+    description: '',
+    params,
+    sampleData,
+    dimensions,
+    screenshots,
+    tags: ['type-feature'],
+};

@@ -5,7 +5,9 @@ import { screenshots } from './meta/Footer.screenshots';
 import { IBlockInfo } from '@gdi/web-ui';
 
 export const blockInfo: IBlockInfo = {
-    id: 'com.useGdi.templates.gdi.footer-simple',
+    id: 'com.usegdi.templates.gdi.footer-simple',
+    name: 'footer-simple',
+    description: '',
     params,
     sampleData,
     dimensions,

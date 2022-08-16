@@ -4,60 +4,68 @@ export const screenshots: IScreenshotsPerFlavour = {
     simple: {
         desktop: {
             large: {
-                url: '',
                 width: 1000,
                 height: 400,
                 ratio: 2.5,
+                url: 'screenshot.gdi.line cta-simple.simple.desktop.large.webp',
+                urlIsRemote: false,
             },
             thumb: {
-                url: '',
                 width: 1000,
                 height: 400,
                 ratio: 2.5,
+                url: 'screenshot.gdi.line cta-simple.simple.desktop.thumb.webp',
+                urlIsRemote: false,
             },
         },
         mobile: {
             large: {
-                url: '',
                 width: 500,
                 height: 1337,
                 ratio: 0.3739715781600598,
+                url: 'screenshot.gdi.line cta-simple.simple.mobile.large.webp',
+                urlIsRemote: false,
             },
             thumb: {
-                url: '',
                 width: 500,
                 height: 1337,
                 ratio: 0.3739715781600598,
+                url: 'screenshot.gdi.line cta-simple.simple.mobile.thumb.webp',
+                urlIsRemote: false,
             },
         },
     },
     blue: {
         desktop: {
             large: {
-                url: '',
                 width: 1000,
                 height: 400,
                 ratio: 2.5,
+                url: 'screenshot.gdi.line cta-simple.blue.desktop.large.webp',
+                urlIsRemote: false,
             },
             thumb: {
-                url: '',
                 width: 1000,
                 height: 400,
                 ratio: 2.5,
+                url: 'screenshot.gdi.line cta-simple.blue.desktop.thumb.webp',
+                urlIsRemote: false,
             },
         },
         mobile: {
             large: {
-                url: '',
                 width: 500,
                 height: 1383,
                 ratio: 0.3615328994938539,
+                url: 'screenshot.gdi.line cta-simple.blue.mobile.large.webp',
+                urlIsRemote: false,
             },
             thumb: {
-                url: '',
                 width: 500,
                 height: 1383,
                 ratio: 0.3615328994938539,
+                url: 'screenshot.gdi.line cta-simple.blue.mobile.thumb.webp',
+                urlIsRemote: false,
             },
         },
     },

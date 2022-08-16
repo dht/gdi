@@ -27,8 +27,8 @@ function* addElement(_action: ActionAddElement) {
                 text: 'userBar',
             },
             {
-                key: 'textAndImage',
-                text: 'textAndImage',
+                key: 'imageAndText',
+                text: 'imageAndText',
             },
             {
                 key: 'lineCta',

@@ -12,7 +12,7 @@ import {
     Wrapper,
 } from './$CMP.style';
 
-export const id = 'com.useGdi.templates.gdi.$CMPCC-simple';
+export const id = 'com.usegdi.templates.gdi.$CMPCC-simple';
 
 export type $CMPProps = {
     strings: $CMPStrings;
@@ -40,7 +40,7 @@ export type $CMPExtra = {
 export function $CMP(props: $CMPProps) {
     const { strings, colors, extra } = props;
     const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { imageUrl, href = '#' } = extra;
 
     return (
         <Container

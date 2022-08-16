@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-    Container,
-    ContainerItem,
-    ContainerNewItem,
-} from './MixerVisual.style';
-import { SortableList } from '@gdi/web-ui';
+import { Container } from './MixerVisual.style';
+import { EngineEdit } from '@gdi/engine';
 import { IElement } from '@gdi/store-mixer';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
@@ -22,25 +18,8 @@ export type MixerVisualProps = {
 export function MixerVisual(props: MixerVisualProps) {
     const { currentInstanceId, pageStructure, callbacks } = props;
 
-    function renderItem(item: any) {
-        const { elementType } = item as IElement;
-
-        const strings = {
-            slogan: 'morning',
-            h1: 'Wake up each morning to work',
-            ctaPrimary: 'Free month',
-            ctaSecondary: 'Pricing',
-        };
-
-        return <ContainerItem></ContainerItem>;
-    }
-
-    function renderNewItem() {
-        return <ContainerNewItem>[New element]</ContainerNewItem>;
-    }
-
     const style = {
-        zoom: 0.5,
+        zoom: 0.75,
         maxWidth: 1920,
         margin: '0 auto',
     };
@@ -51,16 +30,11 @@ export function MixerVisual(props: MixerVisualProps) {
             data-testid='MixerVisual-container'
             style={style}
         >
-            <SortableList
-                items={pageStructure}
-                renderItem={renderItem}
+            <EngineEdit
                 selectedId={currentInstanceId}
-                onMoveItem={callbacks.onMoveItem}
                 onSelectItem={callbacks.onSelectItem}
-                renderNewItem={renderNewItem}
                 onAction={callbacks.onAction}
-                isFocused={true}
-                disableDragging={true}
+                elements={pageStructure}
             />
         </Container>
     );

@@ -1,8 +1,11 @@
 type BlockId = string;
 type FlavourId = string;
+type TemplateId = string;
 
 export type IBlockInfo = {
     id: BlockId;
+    name: string;
+    description: string;
     params: IBlockParams;
     sampleData: ISampleDataPerFlavour;
     dimensions: IDimensionsPerFlavour;
@@ -56,3 +59,31 @@ export type IScreenshots = {
 
 export type IDimensionsPerFlavour = Record<FlavourId, IDimensions>;
 export type IScreenshotsPerFlavour = Record<FlavourId, IScreenshots>;
+
+export type IAuthor = {
+    name: string;
+    email?: string;
+    url?: string;
+};
+
+export type ITemplateInfo = {
+    id: TemplateId;
+    version: string;
+    author?: IAuthor;
+    blocksCount?: number;
+};
+
+export type IBlock = {
+    id: BlockId;
+    component: React.FC<any>;
+    info: IBlockInfo;
+};
+
+export type IBlocks = Record<BlockId, IBlock>;
+
+export type ITemplate = {
+    blocks: IBlocks;
+    templateInfo: ITemplateInfo;
+};
+
+export type ITemplates = Record<string, ITemplateInfo>;

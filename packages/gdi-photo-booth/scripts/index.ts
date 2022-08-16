@@ -159,7 +159,7 @@ const screenShotsForComponent = async (
     blockName: string,
     cmpName: string
 ) => {
-    const blockKey = `com.useGdi.templates.${templateName}.${blockName}`;
+    const blockKey = `com.usegdi.templates.${templateName}.${blockName}`;
     const block = templates.gdi.blocks[blockKey];
     const outputDir = './screenshots/';
     const outputIndexScreenshots = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.screenshots.ts`;

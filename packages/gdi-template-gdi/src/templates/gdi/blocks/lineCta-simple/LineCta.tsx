@@ -1,10 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, CTA, Wrapper, Message } from './LineCta.style';
+import {
+    Container,
+    Actions,
+    Cta,
+    Details,
+    Wrapper,
+    Text,
+} from './LineCta.style';
 
-export const id = 'com.useGdi.templates.gdi.lineCta-simple';
+export const id = 'com.usegdi.templates.gdi.lineCta-simple';
 
 export type LineCtaProps = {
+    sequence?: number;
     strings: LineCtaStrings;
     colors: LineCtaColors;
     extra: LineCtaExtra;
@@ -23,12 +30,13 @@ export type LineCtaColors = {
 
 export type LineCtaExtra = {
     href: string;
+    imageUrl: string;
 };
 
 export function LineCta(props: LineCtaProps) {
     const { strings, colors, extra } = props;
-    const { textStrong, text, ctaButtonText } = strings;
-    const { href } = extra;
+    const { text, textStrong, ctaButtonText } = strings;
+    const { href = '#' } = extra;
 
     return (
         <Container
@@ -37,13 +45,17 @@ export function LineCta(props: LineCtaProps) {
             colors={colors}
         >
             <Wrapper>
-                <Message>
-                    <strong>{textStrong}</strong>
-                    {text}
-                </Message>
-                <Link to={href}>
-                    <CTA colors={colors}>{ctaButtonText}</CTA>
-                </Link>
+                <Details>
+                    <Text>
+                        <strong>{textStrong}</strong>
+                        {text}
+                    </Text>
+                </Details>
+                <Actions>
+                    <Cta colors={colors} href={href}>
+                        {ctaButtonText}
+                    </Cta>
+                </Actions>
             </Wrapper>
         </Container>
     );

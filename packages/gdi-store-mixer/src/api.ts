@@ -1,16 +1,38 @@
 export const endpointsConfigOverrides: any = {
+    meta: {
+        id: 'meta',
+        connectionType: 'NONE',
+    },
     appStateMixer: {
         id: 'appStateMixer',
         connectionType: 'NONE',
     },
-    instances: {
-        id: 'instances',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
+    currentIds: {
+        id: 'currentIds',
+        connectionType: 'NONE',
     },
-    fonts: {
-        id: 'fonts',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
+    pages: {
+        id: 'pages',
+        connectionType: 'NONE',
+    },
+    libraryWidgets: {
+        id: 'libraryWidgets',
+        connectionType: 'NONE',
+    },
+    libraryTypography: {
+        id: 'libraryTypography',
+        connectionType: 'NONE',
+    },
+    libraryPalettes: {
+        id: 'libraryPalettes',
+        connectionType: 'NONE',
+    },
+    locales: {
+        id: 'locales',
+        connectionType: 'NONE',
+    },
+    packages: {
+        id: 'packages',
+        connectionType: 'NONE',
     },
 };

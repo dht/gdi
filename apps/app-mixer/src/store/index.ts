@@ -1,8 +1,38 @@
-import { mixer as storeEntities } from '@gdi/store-mixer';
+import { mixer } from '@gdi/store-mixer';
+import { site } from '@gdi/store-site';
 
-export const actions = storeEntities.actions;
-export const selectors = storeEntities.selectors;
-export const reducers = storeEntities.reducers;
-export const initialState = storeEntities.initialState;
-export const endpointsConfig = storeEntities.endpointsConfigOverrides;
-export const clearState = storeEntities.clearState;
+export const actions = {
+    ...site.actions,
+    ...mixer.actions,
+};
+
+export const selectors = {
+    raw: {
+        ...mixer.selectors.raw,
+        ...site.selectors.raw,
+    },
+    base: {
+        ...mixer.selectors.base,
+        ...site.selectors.base,
+    },
+};
+
+export const reducers = {
+    ...mixer.reducers,
+    ...site.reducers,
+};
+
+export const initialState = {
+    ...mixer.initialState,
+    ...site.initialState,
+};
+
+export const endpointsConfig = {
+    ...mixer.endpointsConfigOverrides,
+    ...site.endpointsConfigOverrides,
+};
+
+export const clearState = (store: any) => {
+    mixer.clearState(store);
+    site.clearState(store);
+};

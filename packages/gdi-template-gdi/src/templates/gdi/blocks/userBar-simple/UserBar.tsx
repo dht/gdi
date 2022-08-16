@@ -1,70 +1,84 @@
-import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './UserBar.style';
+import React, { useEffect, useState } from 'react';
+import Logo from '../../components/Logo/Logo';
+import TopMenu from '../../components/TopMenu/TopMenu';
+import GithubLink from '../../components/GithubLink/GithubLink';
+import { Container, Actions, Wrapper } from './UserBar.style';
+import classnames from 'classnames';
+import { throttle } from 'lodash';
+import UserBarMobile from './mobile/UserBarMobile';
 
 export const id = 'com.useGdi.templates.gdi.userBar-simple';
 
 export type UserBarProps = {
+    sequence?: number;
     strings: UserBarStrings;
     colors: UserBarColors;
     extra: UserBarExtra;
+    isEditMode?: boolean;
 };
 
-export type UserBarStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type UserBarStrings = {};
 
-export type UserBarColors = {
-    background?: string;
-    text?: string;
-};
+export type UserBarColors = {};
 
 export type UserBarExtra = {
-    href: string;
-    imageUrl: string;
+    logoImageUrl: string;
+    items: any[];
+    githubLink: string;
 };
 
 export function UserBar(props: UserBarProps) {
-    const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { colors, extra, isEditMode } = props;
+    const { items = [], githubLink } = extra;
+
+    const scrollTop = useScroll();
+
+    const className = classnames('UserBar-container', {
+        inverted: scrollTop > 200,
+    });
+
+    if (window.innerWidth < 800) {
+        return <UserBarMobile {...props} />;
+    }
 
     return (
-        <Container
-            className='UserBar-container'
-            data-testid='UserBar-container'
-            colors={colors}
-        >
-            <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
+        <>
+            <Container
+                className={className}
+                data-testid='UserBar-container'
+                colors={colors}
+                editMode={isEditMode}
+            >
+                <Wrapper>
+                    <Logo />
+                    <TopMenu items={items} />
                     <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
+                        {githubLink && <GithubLink href={githubLink} />}
                     </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
-            </Wrapper>
-        </Container>
+                </Wrapper>
+            </Container>
+        </>
     );
+}
+
+function useScroll() {
+    const [scrollTop, setScrollTop] = useState(0);
+
+    useEffect(() => {
+        function onScroll() {
+            setScrollTop(window.scrollY);
+        }
+
+        const onScrollThrottled = throttle(onScroll, 10);
+
+        document.addEventListener('scroll', onScrollThrottled);
+
+        return () => {
+            document.removeEventListener('scroll', onScrollThrottled);
+        };
+    }, []);
+
+    return scrollTop;
 }
 
 export default UserBar;

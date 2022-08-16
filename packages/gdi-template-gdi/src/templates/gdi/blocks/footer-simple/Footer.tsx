@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Wrapper, Links, Copy } from './Footer.style';
+import { Container, Wrapper, Links, Link, Copy } from './Footer.style';
 
-export const id = 'com.useGdi.templates.gdi.footer-simple';
+export const id = 'com.usegdi.templates.gdi.footer-simple';
 
 export type FooterProps = {
+    sequence?: number;
     strings: FooterStrings;
     colors: FooterColors;
     extra: FooterExtra;
@@ -31,11 +31,11 @@ export function Footer(props: FooterProps) {
             colors={colors}
         >
             <Wrapper>
-                <Links>
-                    <Link to='/terms'>Terms of use</Link>
-                    <Link to='/privacy'>Privacy</Link>
-                </Links>
                 <Copy>{copyright}</Copy>
+                <Links>
+                    <Link href='/terms'>Terms of use</Link>
+                    <Link href='/privacy'>Privacy</Link>
+                </Links>
             </Wrapper>
         </Container>
     );
