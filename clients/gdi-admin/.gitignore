@@ -1,0 +1,6 @@
+.DS_Store
+.depcheck
+node_modules
+dist
+coverage
+.env

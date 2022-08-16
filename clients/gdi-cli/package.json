@@ -1,0 +1,44 @@
+{
+    "name": "@gdi/cli",
+    "version": "0.1.0",
+    "description": "",
+    "license": "UNLICENSED",
+    "main": "src/index.js",
+    "bin": {
+        "gdi": "./bin/gdi"
+    },
+    "scripts": {
+        "start": "npm link",
+        "build": "echo \"no build required\"",
+        "rebuild": "al rebuild"
+    },
+    "author": "",
+    "dependencies": {
+        "@types/cli-table": "^0.3.0",
+        "chalk": "^3.0.0",
+        "chokidar": "^3.5.3",
+        "cli-table": "^0.3.11",
+        "cors": "^2.8.5",
+        "enquirer": "^2.3.6",
+        "express": "^4.17.2",
+        "fs-extra": "^9.0.1",
+        "glob": "^7.1.6",
+        "globby": "^11.0.2",
+        "js-yaml": "^4.1.0",
+        "json-server": "^0.17.0",
+        "lodash": "^4.17.21",
+        "nodegit": "^0.27.0",
+        "yargs": "^17.2.1",
+        "yup": "^0.32.11"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@types/js-yaml": "^4.0.5",
+        "@types/lodash": "^4.14.178",
+        "@types/node": "^16.11.12",
+        "@types/nodegit": "^0.27.8",
+        "@types/prettier": "^2.4.4",
+        "dotenv-flow": "^3.2.0",
+        "prettier": "^2.5.1"
+    }
+}

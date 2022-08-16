@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": "../../",
+        "paths": {
+            "@gli/auto-login": ["packages/auto-login/src/index.ts"],
+            "@gli/cli-db": ["packages/cli-db/src/index.ts"],
+            "@gli/data-seeder": ["packages/data-seeder/src/index.ts"],
+            "@gli/generate-data": ["packages/generate-data/src/index.ts"],
+            "@gli/node-logger": ["packages/node-logger/src/index.ts"]
+        }
+    }
+}

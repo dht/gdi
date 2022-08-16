@@ -1,0 +1,69 @@
+@import './normalize.scss';
+
+html {
+    min-height: 100%;
+    display: flex;
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #334;
+    direction: ltr;
+    color: #eee;
+
+    &.rtl {
+        direction: rtl;
+    }
+
+    @media (max-width: 768px) {
+        width: 640px;
+
+        &.no-scroll {
+            max-height: 100vh;
+            overflow: hidden;
+        }
+    }
+}
+
+body,
+#root {
+    display: flex;
+    flex: 1;
+
+    > .theme {
+        display: flex;
+        flex: 1;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.instance-container.transparent {
+    border-color: transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}

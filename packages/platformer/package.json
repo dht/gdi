@@ -1,0 +1,68 @@
+{
+    "name": "@gdi/platformer",
+    "version": "0.0.2",
+    "scripts": {
+        "build": "tsc & vite build && npm run scss",
+        "clean": "rm -rf dist",
+        "prebuild": "npm run clean",
+        "scss": "sass src/index.scss dist/index.css",
+        "test": "jest",
+        "coverage": "jest --coverage=true"
+    },
+    "dependencies": {
+        "@gdi/web-ui": "^0.0.2",
+        "axios": "^0.27.2",
+        "axios-oauth": "^0.0.3",
+        "firebase": "^9.9.1",
+        "i18next": "^21.8.16",
+        "igrid": "^0.0.9",
+        "lodash": "^4.17.21",
+        "react": "^18.2.0",
+        "react-i18next": "^11.18.3",
+        "react-redux": "^8.0.2",
+        "react-router-dom": "^6.3.0",
+        "react-toastify": "^9.0.7",
+        "react-use": "^17.4.0",
+        "redux": "^4.2.0",
+        "redux-connected": "^0.0.97",
+        "redux-store-generator": "^0.9.83",
+        "redux-thunk": "^2.4.1",
+        "reselect": "^4.1.6",
+        "saga-ts": "^0.0.3",
+        "sass": "^1.54.0",
+        "store-builder-redux": "^0.0.72",
+        "styled-components": "^5.3.5",
+        "tslib": "^2.4.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^28.1.6",
+        "@types/react": "^18.0.15",
+        "@vitejs/plugin-react": "^2.0.0",
+        "chalk": "^5.0.1",
+        "jest": "^28.1.3",
+        "jest-cli": "^28.1.3",
+        "rollup-plugin-analyzer": "^4.0.0",
+        "shared-base": "^0.0.3",
+        "testing-base": "^0.0.1",
+        "ts-jest": "^28.0.7",
+        "typescript": "^4.7.4",
+        "vite": "^3.0.4",
+        "vite-plugin-dts": "^1.4.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/platformer.umd.js",
+    "module": "./dist/platformer.es.js",
+    "types": "./dist/dts/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/platformer.es.js",
+            "require": "./dist/platformer.umd.js"
+        },
+        "./dist/index.css": {
+            "import": "./dist/index.css",
+            "require": "./dist/index.css"
+        }
+    }
+}

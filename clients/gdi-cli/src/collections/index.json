@@ -1,0 +1,11 @@
+{
+    "create": {
+        "type": "TS_NODE",
+        "file": "create.ts",
+        "collection": "scaffolding",
+        "shortcuts": [
+            "create"
+        ],
+        "description": "generate scaffolding"
+    }
+}

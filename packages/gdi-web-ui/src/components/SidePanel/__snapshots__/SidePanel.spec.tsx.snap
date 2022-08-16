@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SidePanel snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ WtYQR SidePanel-container"
+  data-testid="SidePanel-container"
+/>
+`;

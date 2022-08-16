@@ -1,0 +1,9 @@
+{
+    "enabled": {
+        "global": true,
+        "scaffolding": true,
+        "seed": true,
+        "proxies": true,
+        "vscode": true
+    }
+}

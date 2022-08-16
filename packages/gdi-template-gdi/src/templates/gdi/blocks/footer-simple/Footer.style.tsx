@@ -1,0 +1,53 @@
+import styled from 'styled-components';
+import { FooterColors } from './Footer';
+import { Link as LinkRouter } from 'react-router-dom';
+
+export const Container = styled.div<{ colors: FooterColors }>`
+    flex: 1;
+    background-color: ${(props) => props.colors.background || 'white'};
+    padding: 20px 0;
+    color: #353;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        padding: 40px 0;
+    }
+`;
+
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    flex: 1;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+`;
+
+export const Links = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 200px;
+
+    @media (max-width: 768px) {
+        margin-left: 20px;
+    }
+`;
+export const Link = styled(LinkRouter)`
+    margin: 0 10px;
+    color: #343;
+    text-decoration: none;
+    transition: all 30ms linear;
+
+    &:hover {
+        color: dodgerblue;
+    }
+`;
+export const Copy = styled.div``;

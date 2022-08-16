@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    width="603px"
+    height="1448px"
+    viewBox="0 0 603 1448"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>Desktop Copy</title>
+    <g
+        id="Desktop-Copy"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+    >
+        <g
+            id="Group"
+            transform="translate(0.126438, 273.000000)"
+            fill="#2D2D44"
+        >
+            <path
+                d="M294.373562,484 C357.664705,484 414.919372,456.507501 456.15929,412.136756 C496.788338,368.423255 521.873562,308.327826 521.873562,242 C521.873562,108.347091 420.018343,0 294.373562,0 C280.601639,0 267.115533,1.30171975 254.018047,3.7958028 C147.623807,24.055879 66.8735616,122.996784 66.8735616,242 C66.8735616,361.176258 147.858814,460.231817 254.48233,480.292078 C267.434167,482.72885 280.764313,484 294.373562,484 Z"
+                id="Oval"
+                fill-rule="nonzero"
+                opacity="0.615118118"
+            ></path>
+            <polygon
+                id="Triangle"
+                opacity="0.62"
+                transform="translate(405.373562, 736.000000) rotate(-6.000000) translate(-405.373562, -736.000000) "
+                points="405.373562 499 557.873562 973 252.873562 973"
+            ></polygon>
+            <polygon
+                id="Triangle"
+                opacity="0.62"
+                transform="translate(250.568874, 694.644531) rotate(30.000000) translate(-250.568874, -694.644531) "
+                points="250.568874 457.644531 403.068874 931.644531 98.0688741 931.644531"
+            ></polygon>
+        </g>
+    </g>
+</svg>

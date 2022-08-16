@@ -1,0 +1,42 @@
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { ModalBase, ModalProps } from './Modal';
+import { BaseComponentDriver } from 'testing-base';
+
+export class ModalDriver extends BaseComponentDriver {
+    private props: Partial<ModalProps> = {};
+
+    constructor() {
+        super('Modal');
+    }
+
+    when: any = {
+        rendered: () => {
+            render(<ModalBase {...(this.props as ModalProps)} />);
+            return this;
+        },
+        clicked: () => {
+            fireEvent.click(this.container);
+            return this;
+        },
+        snapshot: () => {
+            return this.snapshot(<ModalBase {...(this.props as ModalProps)} />);
+        },
+    };
+
+    given: any = {
+        props: (props: Partial<ModalProps>) => {
+            this.props = props;
+            return this;
+        },
+    };
+
+    get = {
+        containerClassName: () => {
+            return this.container.className;
+        },
+        label: () => {
+            return this.container.innerHTML;
+        },
+    };
+}
