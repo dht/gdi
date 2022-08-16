@@ -1,0 +1,21 @@
+{
+    "extends": "./config/tsconfig.paths",
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist/dts",
+        "strict": true,
+        "skipLibCheck": true,
+        "lib": ["WebWorker"],
+        "types": ["types-base", "@gdi/types", "@types/jest", "vite/client"],
+        "jsx": "react-jsx",
+        "baseUrl": "../../"
+    },
+    "include": ["src-admin/*.ts", "test/*.ts"]
+}

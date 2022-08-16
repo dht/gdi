@@ -1,0 +1,42 @@
+[submodule "submodules/axios-oauth"]
+	path = submodules/axios-oauth
+	url = git@github.com:dht/axios-oauth.git
+[submodule "submodules/igrid"]
+	path = submodules/igrid
+	url = git@github.com:dht/igrid.git
+[submodule "submodules/redux-connected"]
+	path = submodules/redux-connected
+	url = git@github.com:dht/redux-connected
+[submodule "submodules/shared-base"]
+	path = submodules/shared-base
+	url = git@github.com:dht/shared-base
+[submodule "submodules/testing-base"]
+	path = submodules/testing-base
+	url = git@github.com:dht/testing-base
+[submodule "submodules/types-base"]
+	path = submodules/types-base
+	url = git@github.com:dht/types-base
+[submodule "submodules/gdi-extra"]
+	path = submodules/gdi-extra
+	url = git@github.com:dht/gdi-extra.git
+[submodule "submodules/redux-connected-devtools"]
+	path = submodules/redux-connected-devtools
+	url = git@github.com:dht/redux-connected-devtools.git
+[submodule "submodules/isokit"]
+	path = submodules/isokit
+	url = git@github.com:dht/isokit.git
+[submodule "submodules/redux-store-generator"]
+	path = submodules/redux-store-generator
+	url = git@github.com:dht/redux-store-generator.git
+[submodule "submodules/firestore-local"]
+	path = submodules/firestore-local
+	url = git@github.com:dht/firestore-local.git
+[submodule "submodules/store-seeder"]
+	path = submodules/store-seeder
+	url = git@github.com:dht/store-seeder.git
+[submodule "submodules/react-gantt-elastic"]
+	path = submodules/react-gantt-elastic
+	url = git@github.com:dht/react-gantt-elastic.git
+[submodule "submodules/gdi-datasets"]
+	path = submodules/gdi-datasets
+	url = git@github.com:dht/gdi-datasets.git

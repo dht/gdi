@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "allowJs": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": "../../",
+        "removeComments": false,
+        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "outDir": "dist"
+    },
+    "exclude": ["src/templates/**", "dist/**"]
+}

@@ -1,0 +1,24 @@
+import React, { useCallback, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { actions, selectors } from '../../store';
+import { Modal } from '@gdi/web-ui';
+import { ContentContainer } from '../ContentContainer';
+
+export const ModalContentContainer = () => {
+    const dispatch = useDispatch();
+    const element = useSelector(selectors.base.$instanceContent);
+
+    function onClose() {
+        dispatch(actions.currentIds.patch({ contentInstanceId: '' }));
+    }
+
+    if (!element) {
+        return null;
+    }
+
+    return (
+        <Modal open={true} title='Content' onClose={onClose}>
+            <ContentContainer />
+        </Modal>
+    );
+};

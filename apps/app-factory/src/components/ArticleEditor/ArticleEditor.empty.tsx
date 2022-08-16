@@ -1,0 +1,23 @@
+export const emptyArticle: IArticle = {
+    id: '1',
+    imageUrl: 'http://localhost:3001/images/game.webp',
+    imageDescription: 'It has revoked server maintenance due to the issue',
+    imageSource: 'Sony',
+    title: 'Gran Turismo 7 has been largely unplayable for days due to server maintenance',
+    authorName: 'David Mclaren',
+    publishDate: '2020-10-10 10:00',
+    lastPublishDate: '2020-10-10 10:00',
+    lastSaveDate: '2020-10-10 10:00',
+    categoryBreadcrumbs: 'games>entertainment>tech',
+    comments: 3,
+    content:
+        'There seems to be a connectivity issue with the game after the latest patch',
+    intro: 'Players go to twitter to vent frustration',
+    isPublished: false,
+    linkPath: 'grnd-turismo',
+    slogan: '',
+    status: 'draft',
+    tags: [],
+    minutesSpentEditing: 0,
+    wordCount: 100,
+};

@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["es2020"],
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "declaration": true,
+        "declarationDir": "dist/dts",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "types": ["types-base", "@gdi/types", "@types/jest"]
+    },
+    "include": ["src/*.ts", "test/*.ts"]
+}

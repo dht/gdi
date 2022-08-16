@@ -1,0 +1,38 @@
+{
+    "create": {
+        "type": "TS_NODE",
+        "file": "create.ts",
+        "collection": "scaffolding",
+        "shortcuts": [
+            "create"
+        ],
+        "description": "generate scaffolding"
+    },
+    "seedAdmin": {
+        "type": "TS_NODE",
+        "file": "seed.admin.ts",
+        "collection": "seeding",
+        "shortcuts": [
+            "seedAdmin"
+        ],
+        "description": "make an existing user an admin"
+    },
+    "seedClearAll": {
+        "type": "SH",
+        "file": "seed.clearAll.sh",
+        "collection": "seeding",
+        "shortcuts": [
+            "seedClearAll"
+        ],
+        "description": "clears all firestore data"
+    },
+    "seedFirestore": {
+        "type": "TS_NODE",
+        "file": "seed.firestore.ts",
+        "collection": "seeding",
+        "shortcuts": [
+            "seed"
+        ],
+        "description": "generate firestore data"
+    }
+}

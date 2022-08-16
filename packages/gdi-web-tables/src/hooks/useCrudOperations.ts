@@ -1,0 +1,124 @@
+import { useContext, useMemo } from 'react';
+import { collection_all } from 'redux-store-generator';
+import { prompt } from '@gdi/web-base-ui';
+import { DispatchContext } from '../context/Dispatch.context';
+import { guid4 } from 'shared-base';
+
+export function useCrudOperations(config: ICrudDefinitions, data: Json) {
+    const { nodeName, formNew, formNewDefault, formEdit } = config;
+    const contextDispatch = useContext(DispatchContext);
+
+    const dispatch = contextDispatch.callbacks.dispatch;
+
+    const actions = useMemo(() => {
+        return collection_all(nodeName);
+    }, []);
+
+    const callbacks = useMemo(
+        () => ({
+            createForm: async () => {
+                console.log('create ->', true);
+                const result = await prompt.form({
+                    title: 'New item',
+                    form: {
+                        config: formNew,
+                        data: { ...formNewDefault },
+                        allOptions: {},
+                        allDetails: {},
+                        allMethods: {},
+                    },
+                });
+
+                if (result.didCancel) {
+                    return;
+                }
+                const { value } = result;
+                dispatch(actions.add(value as Json));
+            },
+            editForm: async (id: string | string[]) => {
+                const editId = Array.isArray(id) ? id[0] : id;
+
+                const itemData = data.find((item: Json) => item.id === editId);
+
+                const result = await prompt.form({
+                    title: 'Edit item',
+                    form: {
+                        config: formEdit,
+                        data: itemData,
+                        allOptions: {},
+                        allDetails: {},
+                        allMethods: {},
+                    },
+                });
+
+                if (result.didCancel) {
+                    return;
+                }
+
+                const { value } = result;
+                dispatch(actions.patch(editId, value as Json));
+            },
+            deleteForm: async (id: string | string[]) => {
+                const deleteIds = Array.isArray(id) ? id : [id];
+                const count = deleteIds.length;
+
+                if (count === 0) {
+                    return;
+                }
+
+                const message = count === 1 ? 'delete this item' : `delete ${count} items`; // prettier-ignore
+                const title = count === 1 ? 'Delete item' : 'Delete items';
+
+                const { didCancel } = await prompt.confirm({
+                    title,
+                    description: `Are you sure you want to ${message}?`,
+                    submitButtonText: "I'm sure",
+                });
+
+                if (didCancel) {
+                    return;
+                }
+
+                for (let itemId of deleteIds) {
+                    dispatch(actions.delete(itemId));
+                }
+            },
+            addTag: (id: string, params: Json) => {
+                const { tag } = params;
+                const item = data.find((item: Json) => item.id === id);
+
+                if (!item) {
+                    return;
+                }
+
+                const tags = [...item.tags, tag];
+                dispatch(actions.patch(id, { tags }));
+            },
+            removeTag: (id: string, params: Json) => {
+                const { tag } = params;
+                const item = data.find((item: Json) => item.id === id);
+
+                if (!item) {
+                    return;
+                }
+
+                const tags = [...item.tags].filter((t) => t !== tag);
+                dispatch(actions.patch(id, { tags }));
+            },
+            create: (params?: Json) => {
+                dispatch(
+                    actions.add({
+                        id: guid4(),
+                        ...params,
+                    })
+                );
+            },
+            change: (id: string, change: Json) => {
+                dispatch(actions.patch(id, change));
+            },
+        }),
+        [data]
+    );
+
+    return callbacks;
+}

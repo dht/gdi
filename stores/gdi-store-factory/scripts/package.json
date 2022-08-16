@@ -1,0 +1,20 @@
+{
+    "name": "@gdi/store-factory-scripts",
+    "version": "1.0.6",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "firestore:reset": "npx ts-node uploadToFirestore.ts",
+        "build": "echo no build needed"
+    },
+    "devDependencies": {
+        "@gdi/types": "^0.0.41",
+        "chalk": "^4.1.2",
+        "firebase": "^9.9.3"
+    },
+    "dependencies": {
+        "@gdi/store-seeder": "^0.0.42",
+        "@gdi/store-site": "^0.0.20",
+        "firestore-local": "^0.0.34"
+    }
+}

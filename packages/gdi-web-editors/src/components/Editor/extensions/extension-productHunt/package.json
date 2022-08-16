@@ -1,0 +1,31 @@
+{
+    "name": "@tiptap/extension-productHunt",
+    "description": "a productHunt embed extension for tiptap",
+    "version": "2.0.0-beta.196",
+    "homepage": "https://tiptap.dev",
+    "keywords": [
+        "tiptap",
+        "tiptap extension"
+    ],
+    "license": "MIT",
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/ueberdosis"
+    },
+    "main": "dist/tiptap-extension-productHunt.cjs.js",
+    "umd": "dist/tiptap-extension-productHunt.umd.js",
+    "module": "dist/tiptap-extension-productHunt.esm.js",
+    "types": "dist/packages/extension-productHunt/src/index.d.ts",
+    "files": [
+        "src",
+        "dist"
+    ],
+    "peerDependencies": {
+        "@tiptap/core": "^2.0.0-beta.193"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ueberdosis/tiptap",
+        "directory": "packages/extension-productHunt"
+    }
+}

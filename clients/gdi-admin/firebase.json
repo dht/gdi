@@ -1,0 +1,65 @@
+{
+    "firestore": {
+        "rules": "firestore.rules",
+        "indexes": "firestore.indexes.json"
+    },
+    "functions": {
+        "predeploy": [
+            "npm --prefix \"$RESOURCE_DIR\" run lint",
+            "npm --prefix \"$RESOURCE_DIR\" run build"
+        ]
+    },
+    "hosting": {
+        "public": "dist",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [
+            {
+                "source": "/admin/**",
+                "destination": "/admin/index.html"
+            },
+            {
+                "source": "/docs/**",
+                "destination": "/docs/index.html"
+            },
+            {
+                "source": "/**",
+                "destination": "/site/index.html"
+            }
+        ],
+        "headers": [
+            {
+                "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+                "headers": [
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(jpg|jpeg|gif|png)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=7200"
+                    }
+                ]
+            },
+            {
+                "source": "404.html",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=300"
+                    }
+                ]
+            }
+        ],
+        "cleanUrls": true,
+        "trailingSlash": false,
+        "appAssociation": "AUTO"
+    },
+    "storage": {
+        "rules": "storage.rules"
+    }
+}

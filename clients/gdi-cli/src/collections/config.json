@@ -1,0 +1,8 @@
+{
+    "enabled": {
+        "firebase": true,
+        "global": true,
+        "scaffolding": true,
+        "seeding": true
+    }
+}

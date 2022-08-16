@@ -1,0 +1,36 @@
+{
+    "extends": "./tsconfig.paths.extra",
+    "compilerOptions": {
+        "paths": {
+            "@gdi/app-login": ["apps/app-login"],
+            "@gdi/app-mixer": ["apps/app-mixer"],
+            "@gdi/app-factory": ["apps/app-factory"],
+
+            "@gdi/store-auth": ["submodules/gdi-extra/stores/gdi-store-auth"],
+            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
+            "@gdi/store-site": ["stores/gdi-store-site"],
+            "@gdi/store-factory": ["stores/gdi-store-factory"],
+
+            "@gdi/template-basic": ["templates/gdi-template-basic"],
+            "@gdi/template-minimalist": ["templates/gdi-template-minimalist"],
+            "@gdi/template-blog": ["templates/gdi-template-blog"],
+
+            "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
+            "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/web-forms": ["packages/gdi-web-forms"],
+            "@gdi/web-tables": ["packages/gdi-web-tables"],
+            "@gdi/web-editors": ["packages/gdi-web-editors"],
+            "@gdi/hooks": ["packages/gdi-hooks"],
+            "@gdi/platformer": ["packages/platformer"],
+            "@gdi/engine": ["packages/gdi-engine"],
+
+            "redux-store-generator": ["submodules/redux-store-generator"],
+            "redux-connected": ["submodules/redux-connected"],
+            "redux-connected-devtools": ["submodules/redux-connected-devtools"],
+            "shared-base": ["submodules/shared-base"],
+            "igrid": ["submodules/igrid"],
+            "isokit": ["submodules/isokit"],
+            "firestore": ["submodules/firestore-local"]
+        }
+    }
+}

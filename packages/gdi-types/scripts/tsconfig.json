@@ -1,0 +1,13 @@
+{
+    "ts-node": {
+        "compilerOptions": {
+            "jsx": "react-jsx",
+            "module": "CommonJS",
+            "allowSyntheticDefaultImports": true,
+            "resolveJsonModule": true
+        }
+    },
+    "compilerOptions": {
+        "skipLibCheck": true
+    }
+}

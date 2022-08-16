@@ -1,0 +1,77 @@
+#!/usr/bin/env node
+const chalk = require('chalk');
+const main = require('../cli/index');
+const getShortcuts = require('../cli/setup').getShortcuts;
+const p = require('../../package.json');
+
+const shortcuts = getShortcuts({ onlyFirstAlias: false });
+console.log('gdi ' + chalk.green(p.version));
+
+let yargs = require('yargs')
+    .command('rebuild', 'rebuild commands list', (argv) => {
+        if (argv.verbose) {
+            console.info(`running: rebuild`);
+        }
+
+        main.rebuild();
+    })
+    .command(
+        'enable',
+        'enable a collection',
+        (yargs) => {
+            yargs.positional('collectionId', {
+                describe: 'the id of the collection',
+            });
+        },
+        (argv) => {
+            if (argv.verbose) {
+                console.info(`enabling collection :${argv.collectionId}`);
+            }
+            main.enable(argv._[1]);
+        }
+    )
+    .command(
+        'disable',
+        'disable a collection',
+        (yargs) => {
+            yargs.positional('collectionId', {
+                describe: 'the id of the collection',
+            });
+        },
+        (argv) => {
+            if (argv.verbose) {
+                console.info(`disabling collection :${argv.collectionId}`);
+            }
+            main.disable(argv._[1]);
+        }
+    )
+    .command('version', 'print CLI version', (argv) => {
+        main.version();
+    })
+    .option('verbose', {
+        alias: 'v',
+        type: 'boolean',
+        description: 'Run with verbose logging',
+    })
+    .completion('completion', function (current, argv) {
+        const names = shortcuts.map((shortcut) => shortcut.name);
+        return ['config', 'rebuild', 'init', ...names];
+    });
+
+shortcuts.forEach((shortcut) => {
+    yargs = yargs.command(
+        shortcut.name,
+        shortcut.description,
+        () => {},
+        (argv) => {
+            if (argv.verbose) {
+                console.log(`running :${chalk.green(shortcut.name)}`);
+                console.log(chalk.cyan(shortcut.description));
+            }
+
+            main.pay(argv);
+        }
+    );
+});
+
+yargs.argv;

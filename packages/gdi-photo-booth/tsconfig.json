@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["dom", "es2020"],
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist/dts",
+        "strict": true,
+        "skipLibCheck": true,
+        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "jsx": "react-jsx",
+        "baseUrl": "../../",
+        "paths": {
+            "@gdi/app-mixer": ["apps/app-mixer"],
+            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
+            "@gdi/template-basic": ["templates/gdi-template-basic"],
+            "@gdi/template-minimalist": ["templates/gdi-template-minimalist"],
+            "@gdi/template-blog": ["templates/gdi-template-blog"],
+            "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
+            "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/web-forms": ["packages/gdi-web-forms"],
+            "@gdi/platformer": ["packages/platformer"],
+            "redux-connected": ["submodules/redux-connected"],
+            "igrid": ["submodules/igrid"]
+        }
+    },
+    "include": ["src-admin/*.ts", "test/*.ts"]
+}

@@ -1,0 +1,64 @@
+import type { StoreStructure } from 'redux-store-generator';
+
+export type IMixerStore = StoreStructure & {
+    appStateMixer: IMixerState;
+    currentIds: ICurrentIds;
+    meta: IMetaMixer;
+    libraryImages: IImages;
+    libraryWidgets: IWidgets;
+    libraryTypography: ITypographyOptions;
+    libraryPalettes: IPaletteOptions;
+    locales: ILocaleOptions;
+    packages: IPackages;
+};
+
+export type IMixerState = {
+    stateKey: string;
+    mode: IViewMode;
+    selectedToolId: string;
+    paletteId: string;
+    showImageUploadModal: boolean;
+    showPlayModeMessage: boolean;
+};
+
+export type ICurrentIds = {
+    pageId: string;
+    selectedInstanceId: string;
+    contentInstanceId: string;
+    libraryInstanceId: string;
+    fieldId: string;
+};
+
+export type IMetaMixer = {
+    schemaVersion: string;
+};
+
+export type ITypography = {
+    id: string;
+    title: string;
+    fontFamily: string;
+    link: string;
+};
+
+export type ITypographyOptions = Record<string, ITypography>;
+
+export type ILocaleOption = {
+    id: string;
+    title: string;
+};
+
+export type ILocaleOptions = Record<string, ILocaleOption>;
+
+export type IPackages = Json;
+
+export type IImageWithWidget = IImage & {
+    widget: IWidget;
+};
+
+export type Option = {
+    id: string;
+    text: string;
+    value?: string | number | boolean;
+    min?: number;
+    max?: number;
+};

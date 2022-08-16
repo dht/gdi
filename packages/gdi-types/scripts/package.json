@@ -1,0 +1,16 @@
+{
+    "name": "@gdi/types-scripts",
+    "version": "1.0.15",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "generate": "npx ts-node index.ts",
+        "build": "echo no build needed"
+    },
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "fs-extra": "^10.1.0",
+        "lodash": "^4.17.21",
+        "prettier": "^2.7.1"
+    }
+}

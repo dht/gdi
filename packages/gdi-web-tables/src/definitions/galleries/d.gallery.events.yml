@@ -1,0 +1,7 @@
+id: EventsGallery
+header: Events
+itemType: events
+actions:
+    - id: new
+      iconName: add
+      title: New event

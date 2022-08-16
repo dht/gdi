@@ -1,0 +1,9 @@
+id: ArticlesGallery
+header: Articles
+itemType: article
+fixedRatio: 1
+columns: 5
+actions:
+    - id: new
+      iconName: add
+      title: New article

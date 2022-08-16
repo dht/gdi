@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WireFrames snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ iSBqnH WireFrames-container"
+  data-testid="WireFrames-container"
+/>
+`;

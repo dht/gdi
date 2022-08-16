@@ -1,0 +1,42 @@
+id: NewLayoutItem
+header: New Layout Item
+layout:
+    flavour: singleColumn
+    width: 300
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: locationId
+      fieldType: text
+      placeholder: Unique locationId
+      label: Location
+      groupId: basic
+    - id: entityType
+      fieldType: select
+      placeholder: Enter type
+      label: Entity Type
+      optionSelector: $flexEntityTypes
+      groupId: basic
+    - id: direction
+      fieldType: select
+      placeholder: Enter direction
+      label: Direction
+      optionSelector: $flexDirection
+      showIf: entityType=container
+      groupId: basic
+    - id: resolution
+      fieldType: select
+      placeholder: Resolution
+      label: Resolution
+      optionSelector: $resolutions
+      groupId: basic
+    - id: parentId
+      fieldType: select
+      placeholder: Select parentId
+      label: Parent
+      optionSelector: $flexEntityParentIds
+      groupId: basic
+submit:
+    title: Save & close

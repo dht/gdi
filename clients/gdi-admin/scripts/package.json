@@ -1,0 +1,20 @@
+{
+    "name": "@gdi/gdi-admin-scripts",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "generate": "npx ts-node index.ts",
+        "build": "echo no build needed"
+    },
+    "devDependencies": {
+        "@types/dotenv-flow": "^3.2.0",
+        "@types/node": "^18.7.13",
+        "dotenv-flow": "^3.2.0",
+        "firebase": "^9.9.3"
+    },
+    "dependencies": {
+        "@gdi/platformer": "^0.0.22",
+        "@gdi/web-ui": "^0.0.26"
+    }
+}

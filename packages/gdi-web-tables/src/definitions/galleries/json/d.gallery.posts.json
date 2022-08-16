@@ -1,0 +1,12 @@
+{
+    "id": "ArticlesGallery",
+    "header": "Articles",
+    "itemType": "article",
+    "actions": [
+        {
+            "id": "new",
+            "iconName": "add",
+            "title": "New article"
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "name": "@gdi/cli",
+    "version": "0.1.20",
+    "description": "",
+    "license": "UNLICENSED",
+    "main": "src/index.js",
+    "bin": {
+        "gdi": "./dist/bin/gdi"
+    },
+    "scripts": {
+        "start": "npm link",
+        "build": "npm run copy:collections && tsc && npm run copy:bin && npm run copy:templates",
+        "rebuild": "al rebuild",
+        "copy:collections": "cp -rp ./src/collections/ ./dist/collections/",
+        "copy:bin": "cp -rp ./bin/ ./dist/bin/",
+        "copy:templates": "cp -rp ./src/templates/ ./dist/templates/",
+        "watch": "nodemon -x \"npm run build\""
+    },
+    "author": "",
+    "dependencies": {
+        "@gdi/types": "^0.0.41",
+        "@types/cli-table": "^0.3.0",
+        "chalk": "^4.1.2",
+        "cli-table": "^0.3.11",
+        "enquirer": "^2.3.6",
+        "fs-extra": "^9.0.1",
+        "globby": "^11.0.2",
+        "lodash": "^4.17.21",
+        "prettier": "^2.5.1",
+        "yargs": "^17.2.1",
+        "yup": "^0.32.11",
+        "firebase": "^9.9.3"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^9.0.13",
+        "@types/lodash": "^4.14.178",
+        "@types/node": "^16.11.12",
+        "@types/prettier": "^2.4.4"
+    }
+}
