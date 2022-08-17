@@ -2,7 +2,7 @@ import { IBlockInfo } from '@gdi/web-ui';
 import React, { FC } from 'react';
 import { Container, Flavour } from './Chair.style';
 
-export const id = 'com.useGdi.templates.gdi.ChairI';
+export const id = 'com.usegdi.templates.gdi.ChairI';
 
 export type ChairProps = {
     component: FC<any>;

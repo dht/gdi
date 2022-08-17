@@ -5,7 +5,7 @@ import { actions, selectors } from '../store';
 
 export const PanelPaletteContainer = () => {
     const dispatch = useDispatch();
-    const paletteOptions = useSelector(selectors.raw.$rawPalettesLibrary);
+    const paletteOptions = useSelector(selectors.raw.$rawLibraryPalettes);
     const selectedPaletteId = useSelector(selectors.raw.$rawMixerState).paletteId; // prettier-ignore
 
     function onSelect(id: string) {

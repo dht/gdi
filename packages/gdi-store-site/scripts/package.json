@@ -1,0 +1,12 @@
+{
+    "name": "scripts",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "firebase": "^9.9.2"
+    },
+    "devDependencies": {
+        "chalk": "^5.0.1"
+    }
+}

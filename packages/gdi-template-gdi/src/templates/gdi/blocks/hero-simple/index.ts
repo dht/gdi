@@ -5,7 +5,9 @@ import { screenshots } from './meta/Hero.screenshots';
 import { IBlockInfo } from '@gdi/web-ui';
 
 export const blockInfo: IBlockInfo = {
-    id: 'com.useGdi.templates.gdi.hero-simple',
+    id: 'com.usegdi.templates.gdi.hero-simple',
+    name: 'hero-simple',
+    description: '',
     params,
     sampleData,
     dimensions,

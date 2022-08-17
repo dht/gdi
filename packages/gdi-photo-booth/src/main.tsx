@@ -10,7 +10,7 @@ const container = document.getElementById('root');
 
 const templateName = 'gdi';
 const blockName = 'hero-simple';
-const blockKey = `com.useGdi.templates.${templateName}.${blockName}`;
+const blockKey = `com.usegdi.templates.${templateName}.${blockName}`;
 const block = templates.gdi.blocks[blockKey];
 
 if (container) {

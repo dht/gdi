@@ -4,6 +4,9 @@ import { getWidgetTypeFromTags } from './utils/widgets';
 import { IElement, IMixerState, IMixerStore, IPages } from './types';
 import { sortBy } from 'shared-base';
 import { IWidgetInstances } from 'igrid';
+import { site } from '@gdi/store-site';
+
+const rawSite = site.selectors.raw;
 
 export const $i = (state: IMixerStore) => state;
 
@@ -15,30 +18,7 @@ export const $page = createSelector(
     }
 );
 
-export const $elements = createSelector(
-    raw.$rawInstances,
-    raw.$rawWidgets,
-    (instances: IWidgetInstances, widgets) => {
-        return Object.values(instances)
-            .sort(sortBy('order'))
-            .map((instance) => {
-                const widget = Object.values(widgets).find(
-                    (item) => item.id === instance.widgetId
-                );
-
-                const { tags = [] } = widget || {};
-
-                const elementType =
-                    getWidgetTypeFromTags(tags) || instance.placeholderType;
-
-                return {
-                    ...instance,
-                    widget,
-                    elementType,
-                };
-            }) as IElement[];
-    }
-);
+export const $elements = site.selectors.base.$elements;
 
 export const $pageStructure = createSelector(
     raw.$rawCurrentIds,
@@ -73,7 +53,7 @@ export const $inspector = createSelector(
 
 export const $content = createSelector(
     raw.$rawCurrentIds,
-    raw.$rawInstances,
+    rawSite.$rawInstances,
     (currentIds, instances: IWidgetInstances) => {
         return instances[currentIds.contentInstanceId];
     }

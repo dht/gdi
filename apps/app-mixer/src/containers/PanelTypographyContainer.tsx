@@ -5,8 +5,10 @@ import { actions, selectors } from '../store';
 
 export const PanelTypographyContainer = () => {
     const dispatch = useDispatch();
-    const typographyOptions = useSelector(selectors.raw.$rawTypographyLibrary);
+    const typographyOptions = useSelector(selectors.raw.$rawLibraryTypography);
     const selectedTypographyId = useSelector(selectors.raw.$rawFonts).typographyId; // prettier-ignore
+
+    console.log('typographyOptions ->', typographyOptions);
 
     function onSelect(id: string) {
         console.log('id ->', id);

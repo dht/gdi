@@ -4,8 +4,7 @@ import { Logo, LogoProps } from './Logo';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LogoDriver extends BaseComponentDriver {
-    private props: Partial<LogoProps> = {
-    };
+    private props: Partial<LogoProps> = {};
 
     constructor() {
         super('Logo');

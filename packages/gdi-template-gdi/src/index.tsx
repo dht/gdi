@@ -1,5 +1,1 @@
-import { gdi } from './templates/gdi';
-
-export const templates = {
-    gdi,
-};
+export { initTemplates } from './config/initTemplates';

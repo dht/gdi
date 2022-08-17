@@ -4,8 +4,7 @@ import { LineCta, LineCtaProps } from './LineCta';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LineCtaDriver extends BaseComponentDriver {
-    private props: Partial<LineCtaProps> = {
-    };
+    private props: Partial<LineCtaProps> = {};
 
     constructor() {
         super('LineCta');

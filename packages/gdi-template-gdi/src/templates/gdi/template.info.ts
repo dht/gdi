@@ -1,9 +1,11 @@
-import { version, author } from '../../../package.json';
 import { blocks } from './blocks';
+import { ITemplateInfo } from '@gdi/web-ui';
 
-export const templateInfo = {
-    id: 'com.useGdi.templates.gdi',
-    version,
-    author,
+export const templateInfo: ITemplateInfo = {
+    id: 'com.usegdi.templates.gdi',
+    version: '',
+    author: {
+        name: '',
+    },
     blocksCount: Object.keys(blocks).length,
 };

@@ -2,14 +2,14 @@ export type { IToolbarItem } from '@gdi/web-ui';
 
 export const items: IToolbarItem[] = [
     {
-        id: 'browse',
-        text: 'Browse',
-        iconName: 'TripleColumn',
-    },
-    {
         id: 'data',
         text: 'Content',
         iconName: 'OfflineStorage',
+    },
+    {
+        id: 'browse',
+        text: 'Browse',
+        iconName: 'TripleColumn',
     },
 ];
 

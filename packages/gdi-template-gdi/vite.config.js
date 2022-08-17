@@ -3,7 +3,7 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import analyze from 'rollup-plugin-analyzer';
-import copy from 'rollup-plugin-copy';
+// import copy from 'rollup-plugin-copy';
 import { externals } from 'shared-base';
 import p from './package.json';
 
@@ -11,15 +11,15 @@ export default defineConfig({
     plugins: [
         react(),
         dts({}),
-        copy({
-            targets: [
-                {
-                    src: path.resolve(__dirname, 'src/**/*.webp'),
-                    dest: 'dist/public/images',
-                },
-            ],
-            hook: 'writeBundle',
-        }),
+        // copy({
+        //     targets: [
+        //         {
+        //             src: path.resolve(__dirname, 'src/**/*.webp'),
+        //             dest: 'dist/public/images',
+        //         },
+        //     ],
+        //     hook: 'writeBundle',
+        // }),
     ],
     build: {
         sourcemap: true,
@@ -31,7 +31,10 @@ export default defineConfig({
         },
         rollupOptions: {
             plugins: [analyze()],
-            ...externals(p.dependencies),
+            ...externals({
+                'react/jsx-runtime': '',
+                ...p.dependencies,
+            }),
         },
     },
 });

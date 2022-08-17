@@ -17,11 +17,13 @@
         "paths": {
             "@gdi/app-mixer": ["apps/app-mixer"],
             "@gdi/store-mixer": ["packages/gdi-store-mixer"],
+            "@gdi/store-site": ["packages/gdi-store-site"],
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],
             "@gdi/web-forms": ["packages/gdi-web-forms"],
             "@gdi/platformer": ["packages/platformer"],
+            "@gdi/engine": ["packages/gdi-engine"],
             "redux-connected": ["submodules/redux-connected"],
             "igrid": ["submodules/igrid"]
         }

@@ -5,7 +5,9 @@ import { screenshots } from './meta/LineCta.screenshots';
 import { IBlockInfo } from '@gdi/web-ui';
 
 export const blockInfo: IBlockInfo = {
-    id: 'com.useGdi.templates.gdi.lineCta-simple',
+    id: 'com.usegdi.templates.gdi.lineCta-simple',
+    name: 'lineCta-simple',
+    description: '',
     params,
     sampleData,
     dimensions,

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { HeroColors } from './Hero';
-import { darken } from 'polished';
+import { darken, invert } from 'polished';
 
 export const Container = styled.div<{ colors: HeroColors }>`
-    flex: 1;
     background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 60vh;
-    max-height: 800px;
+    height: 80vh;
     display: flex;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
 
     @media (max-width: 768px) {
         height: auto;
@@ -29,8 +30,25 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageCredits = styled.div`
     flex: 1;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 4px 10px;
+    border-radius: 3px;
+`;
+
+export const ImageCreditsTitle = styled.div`
+    font-size: 12px;
+    color: #ccd;
+    line-height: 16px;
+`;
+
+export const ImageCreditDescription = styled.div`
+    font-size: 10px;
+    color: #aab;
 `;
 
 export const Image = styled.img`
@@ -43,31 +61,32 @@ export const Details = styled.div`
 `;
 
 export const Slogan = styled.div<{ colors: HeroColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
-    font-size: 42px;
+    color: ${(props) => props.colors.text || '#ff46d1'};
+    font-size: 34px;
     font-weight: bold;
 
     @media (max-width: 768px) {
         text-align: center;
-        font-size: 42px;
+        font-size: 34px;
     }
 `;
 
-export const H1 = styled.h1`
-    font-size: 42px;
+export const H1 = styled.h1<{ size: number }>`
+    font-size: ${(props) => props.size}px;
     max-width: 400px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 
     @media (max-width: 768px) {
         text-align: center;
-        font-size: 45px;
+        font-size: ${(props) => props.size}px;
         line-height: 58px;
     }
 `;
 
 export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
+    font-size: 24px;
+    max-width: 500px;
+    line-height: 34px;
 
     @media (max-width: 768px) {
         line-height: 34px;
@@ -90,11 +109,11 @@ export const Actions = styled.div`
 `;
 
 export const CTA = styled.a<{ colors: HeroColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
+    background-color: ${(props) => props.colors.text || '#ff46d1'};
     font-weight: bold;
-    color: #333;
+    color: #334;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
     padding: 10px 50px;
     border: none;
     border-radius: 20px;
@@ -102,7 +121,36 @@ export const CTA = styled.a<{ colors: HeroColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
+            darken(0.1, props.colors.text || '#ff46d1')};
+    }
+
+    &:active {
+        position: relative;
+        bottom: 2px;
+        left: 2px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        padding: 15px 40px;
+    }
+`;
+
+export const SecondButton = styled.a<{ colors: HeroColors }>`
+    background-color: ${(props) => invert(props.colors.text || '#ff46d1')};
+    font-weight: bold;
+    color: #eee;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: ${(props) =>
+            invert(darken(0.1, props.colors.text || '#ff46d1'))};
     }
 
     &:active {

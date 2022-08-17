@@ -5,6 +5,6 @@ export const data: Json = {
     order: 1,
     name: '',
     description: '',
-    defaultDimension: { x: 10, y: 10 },
+    defaultDimension: { x: 1, y: 1 },
     tags: ['type-hero'],
 };

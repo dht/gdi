@@ -1,0 +1,103 @@
+import styled from 'styled-components';
+import { InstallationColors } from './Installation';
+import { darken } from 'polished';
+
+export const Container = styled.div<{ colors: InstallationColors }>`
+    flex: 1;
+    background-color: ${(props) => props.colors.background || '#ffffff'};
+    height: 600px;
+    display: flex;
+    --grid: rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 25px 25px;
+    color: #334;
+
+    @media (max-width: 768px) {
+        height: auto;
+        max-height: none;
+        padding: 80px 20px;
+    }
+`;
+
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    flex: 1;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+`;
+
+export const Details = styled.div`
+    background-color: black;
+    padding: 20px 40px;
+    border-radius: 3px;
+    width: 1000px;
+`;
+
+export const Text = styled.div`
+    font-size: 30px;
+    color: #eee;
+`;
+
+export const Actions = styled.div`
+    margin-top: 70px;
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+`;
+
+export const CTA = styled.a<{ colors: InstallationColors }>`
+    background-color: ${(props) => props.colors.text || '#aaef69'};
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: ${(props) =>
+            darken(0.1, props.colors.text || '#aaef69')};
+    }
+
+    &:active {
+        position: relative;
+        bottom: 2px;
+        left: 2px;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+        padding: 15px 40px;
+    }
+`;
+
+export const MoreInstructions = styled.div`
+    margin-top: 100px;
+    font-size: 26px;
+`;
+
+export const Link = styled.a`
+    color: dodgerblue;
+    margin-left: 5px;
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+        text-decoration: underline;
+    }
+`;
