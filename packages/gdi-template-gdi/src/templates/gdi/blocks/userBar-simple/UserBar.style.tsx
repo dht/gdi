@@ -4,15 +4,18 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{
     colors: UserBarColors;
-    editMode?: boolean;
+    position: string;
 }>`
     display: flex;
-    position: ${(props) => (props.editMode ? 'absolute' : 'fixed')};
-    top: ${(props) => (props.editMode ? '10px' : 0)};
+    position: ${(props) => props.position};
+    top: ${(props) => (props.position === 'absolute' ? '10px' : 0)};
     z-index: 2;
     left: 0;
     right: 0;
+    min-height: 100px;
     transition: all 150ms ease-out;
+    background-color: ${(props) =>
+        props.colors.backgroundColor || 'transparent'};
 
     @media (max-width: 768px) {
         height: auto;

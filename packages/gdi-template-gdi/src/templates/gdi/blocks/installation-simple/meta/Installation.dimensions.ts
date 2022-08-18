@@ -4,25 +4,13 @@ export const dimensions: IDimensionsPerFlavour = {
     simple: {
         desktop: {
             width: 1000,
-            height: 400,
-            ratio: 2.5,
+            height: 390,
+            ratio: 2.5641025641025643,
         },
         mobile: {
             width: 500,
-            height: 1337,
-            ratio: 0.3739715781600598,
-        },
-    },
-    blue: {
-        desktop: {
-            width: 1000,
-            height: 400,
-            ratio: 2.5,
-        },
-        mobile: {
-            width: 500,
-            height: 1383,
-            ratio: 0.3615328994938539,
+            height: 123,
+            ratio: 4.065040650406504,
         },
     },
 };

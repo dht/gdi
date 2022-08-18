@@ -4,38 +4,38 @@ export const sampleData: ISampleDataPerFlavour = {
     simple: {
         id: 'simple',
         strings: {
-            slogan: 'morning',
-            header: 'Wake up each morning to do',
+            ctaButtonText: 'Get Started',
+            secondButtonText: 'Github',
+            header: 'gDI',
             description:
-                'With morning you are an effective team that gets things done, every minute, every hour, every day',
-            ctaButtonText: 'Join free',
+                'An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //',
         },
         colors: {
-            background: '#1a7870',
-            text: '#aaef69',
+            text: '#fff',
         },
         extra: {
-            imageUrl:
-                'https://cdn.greeninvoice.co.il/public-website/assets/1.0.473/img/d9a9eec.svg',
-            href: '#',
+            href: 'https://github.com/dht/gdi/docs',
+            hrefSecond: 'https://github.com/dht/gdi',
+            imageUrl: 'https://appofthebox.web.app/6.png',
+            headerSize: 70,
         },
     },
     blue: {
         id: 'blue',
         strings: {
-            slogan: 'Try GDI',
-            header: 'Open Source Web Presence',
-            description:
-                'With GDI you can unlock hundreds of custom designs made by people around the world with a passion for elegant, beautiful UI',
-            ctaButtonText: 'Join free',
+            ctaButtonText: 'Join',
+            secondButtonText: 'Pricing',
+            header: 'SuperCharger',
+            description: '',
         },
         colors: {
-            background: 'dodgerblue',
-            text: 'pink',
+            text: '#fff',
         },
         extra: {
-            imageUrl: 'https://picsum.photos/seed/10/400/280',
-            href: '#',
+            href: 'https://github.com/dht/gdi/docs',
+            hrefSecond: 'https://github.com/dht/gdi',
+            imageUrl: 'https://appofthebox.web.app/7.png',
+            headerSize: 70,
         },
     },
 };

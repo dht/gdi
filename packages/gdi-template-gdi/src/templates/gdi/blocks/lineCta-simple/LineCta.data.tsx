@@ -9,6 +9,5 @@ export const lineCtaData: LineCtaProps = {
     colors: {},
     extra: {
         href: 'https://github.com/dht/gdi',
-        imageUrl: '/6.png',
     },
 };

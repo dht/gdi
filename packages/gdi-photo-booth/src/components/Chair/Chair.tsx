@@ -7,15 +7,24 @@ export const id = 'com.usegdi.templates.gdi.ChairI';
 export type ChairProps = {
     component: FC<any>;
     blockInfo: IBlockInfo;
+    sequence: number;
 };
 
 export function Chair(props: ChairProps) {
-    const { component: Cmp, blockInfo } = props;
+    const { component: Cmp, blockInfo, sequence } = props;
+    const { id } = blockInfo;
 
-    function renderFlavour(flavour: string, data: Json) {
+    function renderFlavour(flavour: string, data: Json, index) {
+        const className = `${id}-${flavour}`.replace(/\./g, '_');
+
         return (
-            <Flavour className={`photoBooth-flavour-${flavour}`}>
-                <Cmp key={data.id} {...data} />
+            <Flavour className={className}>
+                <Cmp
+                    sequence={sequence + index}
+                    key={blockInfo.id + '-' + data.id}
+                    {...data}
+                    isScreenshotMode={true}
+                />
             </Flavour>
         );
     }
@@ -23,8 +32,8 @@ export function Chair(props: ChairProps) {
     function renderFlavours() {
         const { sampleData } = blockInfo;
 
-        return Object.keys(sampleData).map((flavour: string) =>
-            renderFlavour(flavour, sampleData[flavour])
+        return Object.keys(sampleData).map((flavour: string, index) =>
+            renderFlavour(flavour, sampleData[flavour], index)
         );
     }
 
