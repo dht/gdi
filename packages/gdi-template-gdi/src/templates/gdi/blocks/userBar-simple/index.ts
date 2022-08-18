@@ -5,7 +5,7 @@ import { screenshots } from './meta/UserBar.screenshots';
 import { IBlockInfo } from '@gdi/web-ui';
 
 export const blockInfo: IBlockInfo = {
-    id: 'com.useGdi.templates.gdi.userBar-simple',
+    id: 'com.usegdi.templates.gdi.userBar-simple',
     params,
     sampleData,
     dimensions,

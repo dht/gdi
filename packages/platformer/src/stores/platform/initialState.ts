@@ -15,7 +15,7 @@ export type IPlatformStore = StoreStructure & {
 
 export const initialState: IPlatformStore = {
     appStatePlatform: {
-        apiUrl: `http://${document.location.hostname}:3001`,
+        apiUrl: `http://localhost:3001`,
         isRootLoading: false,
     },
     logs: [

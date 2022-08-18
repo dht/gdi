@@ -1,17 +1,24 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import * as sharp from 'sharp';
 import { chromium, Page } from 'playwright';
 import { Json } from './types';
 import { set } from 'lodash';
 import { templateDimensions, templateScreenshot } from './templates';
-import { templates } from '@gdi/template-gdi';
+import { initTemplates } from '@gdi/template-gdi';
 import type { OutputInfo } from 'sharp';
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getStorage } from 'firebase-admin/storage';
 import type { UploadResponse } from '@google-cloud/storage';
 import { Metadata } from '@playwright/test';
+import { LibraryBuilder } from '@gdi/engine';
+import { capitalize } from 'lodash';
 
+const DEBUG = true;
+const OUTPUT_DIR = './screenshots/';
 var serviceAccount = require('./service-account.json');
+
+let definitions: Json = {};
 
 initializeApp({
     credential: cert(serviceAccount),
@@ -20,6 +27,12 @@ initializeApp({
 });
 
 const bucket = getStorage().bucket();
+
+const libraryBuilder = new LibraryBuilder();
+initTemplates(libraryBuilder);
+const { blocks } = libraryBuilder.build();
+
+let pageDesktop: Page, pageMobile: Page;
 
 type GenerateFilenameOptions = {
     templateName: string;
@@ -74,6 +87,36 @@ type TakePictureResponse = {
     };
 };
 
+const uploadAllScreenshots = async () => {
+    let promises = [],
+        promise;
+
+    console.time('uploading all screenshots');
+
+    const files = fs
+        .readdirSync(OUTPUT_DIR)
+        .filter((fileName) => fileName.match(/webp$/));
+
+    files.map((file) => {
+        promise = bucket.upload(`${OUTPUT_DIR}/${file}`, {
+            public: true,
+        });
+        promises.push(promise);
+    });
+
+    const responses: Promise<UploadResponse>[] = await Promise.all(promises);
+
+    const responseForFile = files.reduce((output, file, index) => {
+        const metaData: Metadata = responses[index][1];
+        output[file] = metaData;
+        return output;
+    }, {} as Record<string, Metadata>);
+
+    console.timeEnd('uploading all screenshots');
+
+    return responseForFile;
+};
+
 const takePicture = async (
     page: Page,
     options: TakePictureOptions
@@ -93,7 +136,6 @@ const takePicture = async (
     };
 
     let info: OutputInfo;
-    let uploadResponse: UploadResponse, metadata: Metadata;
 
     const { flavour, selector, isDesktop, root, templateName, blockName } =
         options;
@@ -126,73 +168,46 @@ const takePicture = async (
         isDesktop ? 1000 : 500,
         screenshotLargePath
     );
+
     output.large.width = info.width;
     output.large.height = info.height;
     output.large.ratio = info.width / info.height;
     output.fileNames.large = screenshotLargeFileName;
-    uploadResponse = await bucket.upload(screenshotRawPath, {
-        public: true,
-    });
-    metadata = uploadResponse[1];
-    output.urls.large = metadata.mediaLink;
 
     await resizeImage(
         screenshotRawPath,
         isDesktop ? 400 : 200,
         screenshotThumbPath
     );
+
     output.thumb.width = info.width;
     output.thumb.height = info.height;
     output.thumb.ratio = info.width / info.height;
     output.fileNames.thumb = screenshotThumbFileName;
-    uploadResponse = await bucket.upload(screenshotThumbPath, {
-        public: true,
-    });
-    metadata = uploadResponse[1];
-    output.urls.thumb = metadata.mediaLink;
 
     return output;
 };
 
 const screenShotsForComponent = async (
     templateName: string,
-    blockName: string,
-    cmpName: string
+    blockName: string
 ) => {
     const blockKey = `com.usegdi.templates.${templateName}.${blockName}`;
-    const block = templates.gdi.blocks[blockKey];
-    const outputDir = './screenshots/';
-    const outputIndexScreenshots = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.screenshots.ts`;
-    const outputIndexDimensions = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.dimensions.ts`;
-    fs.rmdirSync(outputDir, { recursive: true });
-
-    const outputDimensions: Json = {},
-        outputScreenshots: Json = {};
-
-    const browser = await chromium.launch({});
-    const contextDesktop = await browser.newContext({
-        viewport: { width: 1920, height: 1280 },
-    });
-    const pageDesktop = await contextDesktop.newPage();
-    await pageDesktop.goto('http://localhost:5000');
-
-    const contextMobile = await browser.newContext({
-        viewport: { width: 375, height: 812 },
-        isMobile: true,
-    });
-    const pageMobile = await contextMobile.newPage();
-    await pageMobile.goto('http://localhost:5000');
+    const block = blocks[blockKey];
 
     for (let flavour of Object.keys(block.info.sampleData)) {
-        console.log('flavour ->', flavour);
+        const className = `${blockKey}-${flavour}`.replace(/\./g, '_');
+        const selector = `.${className} > div`;
 
         const base = {
-            root: outputDir,
+            root: OUTPUT_DIR,
             templateName,
             blockName,
             flavour,
-            selector: `.Chair-container > .photoBooth-flavour-${flavour} > div`,
+            selector,
         };
+
+        console.time('taking screenshots for ' + blockName + '-' + flavour);
 
         const responseDesktop = await takePicture(pageDesktop, {
             ...base,
@@ -204,38 +219,16 @@ const screenShotsForComponent = async (
             isDesktop: false,
         });
 
-        set(outputScreenshots, `${flavour}.desktop.large`, {...responseDesktop.large}); // prettier-ignore
-        set(outputScreenshots, `${flavour}.desktop.large.url`, responseDesktop.urls.large); // prettier-ignore
-        set(outputScreenshots, `${flavour}.desktop.large.urlIsRemote`, true); // prettier-ignore
-        set(outputScreenshots, `${flavour}.desktop.thumb`, {...responseDesktop.thumb}); // prettier-ignore
-        set(outputScreenshots, `${flavour}.desktop.thumb.url`, responseDesktop.urls.thumb); // prettier-ignore
-        set(outputScreenshots, `${flavour}.desktop.thumb.urlIsRemote`, true); // prettier-ignore
-        set(outputScreenshots, `${flavour}.mobile.large`, {...responseMobile.large}); // prettier-ignore
-        set(outputScreenshots, `${flavour}.mobile.large.url`, responseMobile.urls.large); // prettier-ignore
-        set(outputScreenshots, `${flavour}.mobile.large.urlIsRemote`, true); // prettier-ignore
-        set(outputScreenshots, `${flavour}.mobile.thumb`, {...responseMobile.thumb}); // prettier-ignore
-        set(outputScreenshots, `${flavour}.mobile.thumb.url`, responseMobile.urls.thumb); // prettier-ignore
-        set(outputScreenshots, `${flavour}.mobile.thumb.urlIsRemote`, true); // prettier-ignore
+        console.timeEnd('taking screenshots for ' + blockName + '-' + flavour);
 
-        set(outputDimensions, `${flavour}.desktop`, responseDesktop.large); // prettier-ignore
-        set(outputDimensions, `${flavour}.mobile`, responseMobile.large); // prettier-ignore
+        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.large`, {...responseDesktop.large}); // prettier-ignore
+        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.thumb`, {...responseDesktop.thumb}); // prettier-ignore
+        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.large`, {...responseMobile.large}); // prettier-ignore
+        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.thumb`, {...responseMobile.thumb}); // prettier-ignore
+
+        set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.desktop`, responseDesktop.large); // prettier-ignore
+        set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.mobile`, responseMobile.large); // prettier-ignore
     }
-
-    const indexScreenshots = templateScreenshot(outputScreenshots);
-    const indexDimensions = templateDimensions(outputDimensions);
-
-    fs.writeFileSync(outputIndexScreenshots, indexScreenshots);
-    fs.writeFileSync(outputIndexDimensions, indexDimensions);
-
-    await browser.close();
-};
-
-const run = async () => {
-    const templateName = 'gdi';
-    const blockName = 'hero-simple';
-    const cmpName = 'Hero';
-
-    await screenShotsForComponent(templateName, blockName, cmpName);
 };
 
 const resizeImage = (
@@ -268,6 +261,126 @@ const getImageInfo = (inputPath): Promise<OutputInfo> => {
             resolve(info);
         });
     });
+};
+
+const blockNameToCmp = (blockName: string) => {
+    const [cmpNameLowercase, cmpFlavour] = blockName.split('-');
+
+    return {
+        cmpName: capitalize(cmpNameLowercase),
+        cmpFlavour,
+    };
+};
+
+export const analyzeBlockId = (blockId: string) => {
+    const [topLevelDomain, domainName, partType, templateName, blockName] =
+        blockId.split('.');
+
+    return {
+        topLevelDomain,
+        domainName,
+        partType,
+        templateName,
+        blockName,
+        ...blockNameToCmp(blockName),
+    };
+};
+
+export const analyzeScreenshotName = (screenshotName: string) => {
+    const [_s, templateName, blockName, sampleName, device, size] =
+        screenshotName.split('.');
+
+    const [cmpNameLowercase, cmpFlavour] = blockName.split('-');
+    const cmpName = capitalize(cmpNameLowercase);
+
+    return {
+        templateName,
+        blockName,
+        sampleName,
+        device,
+        size,
+        cmpName,
+        cmpFlavour,
+    };
+};
+
+const writeDefinitionsFiles = async (
+    uploadResponse: Record<string, Metadata>
+) => {
+    Object.keys(uploadResponse).forEach((screenshotName) => {
+        const info = analyzeScreenshotName(screenshotName);
+        const { templateName, blockName, cmpFlavour, device, size } = info;
+
+        const uploadMetadata = uploadResponse[screenshotName];
+        const { mediaLink } = uploadMetadata;
+
+        const xPathDefinitions = [
+            'screenshots',
+            templateName,
+            blockName,
+            cmpFlavour,
+            device,
+            size,
+        ].join('.');
+
+        set(definitions, xPathDefinitions + '.url', mediaLink);
+        set(definitions, xPathDefinitions + '.urlIsRemote', true);
+    });
+
+    Object.keys(definitions.screenshots).forEach((templateName) => {
+        const screenshotsByBlock = definitions.screenshots[templateName];
+        const dimensionsByBlock = definitions.dimensions[templateName];
+
+        Object.keys(screenshotsByBlock).forEach((blockName) => {
+            const screenshotsForBlock = screenshotsByBlock[blockName];
+            const dimensionsForBlock = dimensionsByBlock[blockName];
+            const { cmpName } = blockNameToCmp(blockName);
+
+            const outputIndexScreenshots = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.screenshots.ts`;
+            const indexScreenshots = templateScreenshot(screenshotsForBlock);
+            fs.writeFileSync(outputIndexScreenshots, indexScreenshots);
+
+            const indexDimensions = templateDimensions(dimensionsForBlock);
+            const outputIndexDimensions = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.dimensions.ts`;
+            fs.writeFileSync(outputIndexDimensions, indexDimensions);
+        });
+    });
+
+    if (DEBUG) {
+        fs.writeFileSync('./debug.uploadResponse.json', JSON.stringify(uploadResponse, null, 4)); // prettier-ignore
+        fs.writeFileSync('./debug.definitions.json', JSON.stringify(definitions, null, 4)); // prettier-ignore
+    }
+};
+
+const run = async () => {
+    fs.rmdirSync(OUTPUT_DIR, { recursive: true });
+
+    console.time('opening browser');
+    const browser = await chromium.launch({});
+    const contextDesktop = await browser.newContext({
+        viewport: { width: 1920, height: 1280 },
+    });
+    pageDesktop = await contextDesktop.newPage();
+    await pageDesktop.goto('http://localhost:5000');
+
+    const contextMobile = await browser.newContext({
+        viewport: { width: 375, height: 812 },
+        isMobile: true,
+    });
+    pageMobile = await contextMobile.newPage();
+    await pageMobile.goto('http://localhost:5000');
+
+    console.timeEnd('opening browser');
+
+    for (let blockId of Object.keys(blocks)) {
+        const { templateName, blockName } = analyzeBlockId(blockId);
+        await screenShotsForComponent(templateName, blockName);
+    }
+
+    const uploadResponse = await uploadAllScreenshots();
+    await writeDefinitionsFiles(uploadResponse);
+
+    await browser.close();
 };
 
 run();

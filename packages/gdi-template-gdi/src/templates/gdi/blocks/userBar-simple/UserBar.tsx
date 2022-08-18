@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import { throttle } from 'lodash';
 import UserBarMobile from './mobile/UserBarMobile';
 
-export const id = 'com.useGdi.templates.gdi.userBar-simple';
+export const id = 'com.usegdi.templates.gdi.userBar-simple';
 
 export type UserBarProps = {
     sequence?: number;
@@ -15,11 +15,14 @@ export type UserBarProps = {
     colors: UserBarColors;
     extra: UserBarExtra;
     isEditMode?: boolean;
+    isScreenshotMode?: boolean;
 };
 
 export type UserBarStrings = {};
 
-export type UserBarColors = {};
+export type UserBarColors = {
+    backgroundColor?: string;
+};
 
 export type UserBarExtra = {
     logoImageUrl: string;
@@ -41,13 +44,19 @@ export function UserBar(props: UserBarProps) {
         return <UserBarMobile {...props} />;
     }
 
+    let position = props.isEditMode ? 'absolute' : 'fixed';
+
+    if (props.isScreenshotMode) {
+        position = 'static';
+    }
+
     return (
         <>
             <Container
                 className={className}
                 data-testid='UserBar-container'
                 colors={colors}
-                editMode={isEditMode}
+                position={position}
             >
                 <Wrapper>
                     <Logo />

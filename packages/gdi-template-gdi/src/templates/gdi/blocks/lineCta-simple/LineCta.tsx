@@ -30,7 +30,6 @@ export type LineCtaColors = {
 
 export type LineCtaExtra = {
     href: string;
-    imageUrl: string;
 };
 
 export function LineCta(props: LineCtaProps) {

@@ -1,25 +1,16 @@
 import React from 'react';
 import './index.scss';
-import { Chair } from './components/Chair/Chair';
-import { templates } from '@gdi/template-gdi';
 import { createRoot } from 'react-dom/client';
 import 'igrid/dist/index.css';
+import App from './components/App/App';
 // import '@gdi/web-ui/index.css';
 
 const container = document.getElementById('root');
 
-const templateName = 'gdi';
-const blockName = 'hero-simple';
-const blockKey = `com.usegdi.templates.${templateName}.${blockName}`;
-const block = templates.gdi.blocks[blockKey];
+const root = createRoot(container!);
 
-if (container) {
-    const root = createRoot(container);
-
-    root.render(
-        <React.StrictMode>
-            <Chair component={block.component} blockInfo={block.info} />
-        </React.StrictMode>
-    );
-}
-0;
+root.render(
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+);

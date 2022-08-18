@@ -21,8 +21,11 @@ export default defineConfig({
             ...externals({
                 ...p.dependencies,
                 '@firebase/auth': '',
+                '@firebase/logger': '',
                 '@firebase/analytics': '',
                 '@firebase/installations': '',
+                '@firebase/firestore': '',
+                '@firebase/firestore/lite': '',
                 '@firebase/app': '',
                 'react/jsx-runtime': '',
             }),
