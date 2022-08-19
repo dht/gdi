@@ -5,10 +5,9 @@ export const Container = styled.div`
     position: relative;
 `;
 
-export const Image = styled.div<{ url: string }>`
+export const ImageWrapper = styled.div`
     position: absolute;
-    background-image: url(${(props) => props.url});
-    background-size: cover;
+    background-color: #112;
 
     &:hover {
         &:after {
@@ -22,6 +21,24 @@ export const Image = styled.div<{ url: string }>`
             border: 1px solid gold;
         }
     }
+
+    &.visible {
+        .masonry-image {
+            display: block;
+        }
+    }
+`;
+
+export const Image = styled.div<{ url: string }>`
+    position: absolute;
+    background-image: url(${(props) => props.url});
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none;
 `;
 
 export const ImageOverlay = styled.div`

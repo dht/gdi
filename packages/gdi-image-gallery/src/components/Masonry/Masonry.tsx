@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMount } from 'react-use';
+import { useInViewPort } from '../../hooks/useInViewPort';
 import { IImage } from '../../types';
-import { Container, Image, ImageOverlay } from './Masonry.style';
+import { Container, Image, ImageOverlay, ImageWrapper } from './Masonry.style';
 
 export type IItem = IImage & {
     style?: Style;
@@ -21,14 +22,17 @@ export type MasonryProps = {
     renderOverlay?: (item: IItem) => JSX.Element;
     onClick?: (id: string) => void;
     onDoubleClick?: (id: string) => void;
+    oneWayReveal?: boolean;
 };
 
 export function Masonry(props: MasonryProps) {
-    const { columns = 3, gutter = 10, items } = props;
+    const { columns = 3, gutter = 10, items, oneWayReveal = true } = props;
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [images, setImages] = useState<IItem[]>([]);
     const ref = useRef<HTMLDivElement>(null);
+
+    useInViewPort(ref, '.masonry-item', oneWayReveal, [items]);
 
     useMount(() => {
         if (!ref.current) {
@@ -74,19 +78,23 @@ export function Masonry(props: MasonryProps) {
     }
 
     function renderItem(item: IItem) {
-        const { imageThumbUrl } = item;
+        const { imageThumbUrl, imageUrl } = item;
 
         return (
-            <Image
-                url={imageThumbUrl}
-                key={item.id}
-                className='item'
+            <ImageWrapper
                 style={item.style}
                 onClick={() => onClick(item.id)}
+                className='masonry-item'
                 onDoubleClick={() => onDoubleClick(item.id)}
             >
+                <Image
+                    url={imageThumbUrl}
+                    key={item.id + '_thumb'}
+                    className='masonry-image'
+                />
+                <Image url={imageUrl} key={item.id} className='masonry-image' />
                 <ImageOverlay>{renderOverlay(item)}</ImageOverlay>
-            </Image>
+            </ImageWrapper>
         );
     }
 
