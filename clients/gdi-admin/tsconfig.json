@@ -21,6 +21,7 @@
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/image-gallery": ["packages/gdi-image-gallery"],
             "@gdi/web-forms": ["packages/gdi-web-forms"],
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],

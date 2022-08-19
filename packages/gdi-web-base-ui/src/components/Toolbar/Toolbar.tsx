@@ -14,11 +14,12 @@ export type IToolbarItem = {
 export type ToolbarProps = {
     items: IToolbarItem[];
     selectedItemId?: string;
+    horizontal?: boolean;
     onClick: (item: IToolbarItem) => void;
 };
 
 export function Toolbar(props: ToolbarProps) {
-    const { items = [], selectedItemId } = props;
+    const { items = [], selectedItemId, horizontal } = props;
 
     useKey(
         (ev) => {
@@ -59,6 +60,7 @@ export function Toolbar(props: ToolbarProps) {
         <Container
             className='Toolbar-container'
             data-testid='Toolbar-container'
+            horizontal={horizontal}
         >
             {renderItems()}
         </Container>

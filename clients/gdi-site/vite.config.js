@@ -25,6 +25,7 @@ export default defineConfig({
             '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi`,
             '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
             '@gdi/web-ui': `${cwd}/packages/gdi-web-ui/src`,
+            '@gdi/image-gallery': `${cwd}/packages/gdi-image-gallery/src`,
             '@gdi/web-forms': `${cwd}/packages/gdi-web-forms/src`,
             '@gdi/engine': `${cwd}/packages/gdi-engine/src`,
             'redux-connected': `${cwd}/submodules/redux-connected/src`,

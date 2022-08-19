@@ -1,4 +1,4 @@
-import { ImageGallery } from '@gdi/web-ui';
+import { ImageGallery } from '@gdi/image-gallery';
 import { IWidgetInstance } from 'igrid';
 import React from 'react';
 import { Container } from './Library.style';

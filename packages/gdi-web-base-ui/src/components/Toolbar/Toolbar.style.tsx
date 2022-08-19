@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ horizontal?: boolean }>`
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;
 `;
 
 export const Item = styled.div`
     font-size: 22px;
     height: 41px;
+    width: 41px;
     display: flex;
     align-items: center;
     justify-content: center;

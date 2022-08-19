@@ -7,7 +7,6 @@ export const Container = styled.div`
 
 export const Image = styled.div<{ url: string }>`
     position: absolute;
-    display: block;
     background-image: url(${(props) => props.url});
     background-size: cover;
 
@@ -23,4 +22,13 @@ export const Image = styled.div<{ url: string }>`
             border: 1px solid gold;
         }
     }
+`;
+
+export const ImageOverlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    user-select: none;
 `;

@@ -7,6 +7,7 @@ export { ColorPicker } from './components/ColorPicker/ColorPicker';
 export { DateInput as Date } from './components/Date/Date';
 export { ImageUpload } from './components/ImageUpload/ImageUpload';
 export { TagsInput } from './components/TagsInput/TagsInput';
+export { Search } from './components/Search/Search';
 export { SpinButton } from './components/SpinButton/SpinButton';
 export { Input } from './components/Input/Input';
 export type { IOption } from './components/Button/Button';

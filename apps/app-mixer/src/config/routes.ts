@@ -9,6 +9,7 @@ import { MixerWidgets } from './widgets';
 
 export const routes: IRoutes = {
     mixer: `${ROOT}`,
+    imageGallery: `${ROOT}/imageGallery`,
 };
 
 export const menuItems: IMenuItem[] = [
@@ -19,6 +20,14 @@ export const menuItems: IMenuItem[] = [
         groupId: 'site',
         showOnSlim: true,
         order: 0,
+    },
+    {
+        path: routes.imageGallery,
+        icon: 'ImageSearch',
+        label: 'Image gallery',
+        groupId: 'site',
+        showOnSlim: true,
+        order: 1,
     },
 ];
 

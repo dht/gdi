@@ -45,4 +45,14 @@ export const instances: IWidgetInstancesByPageList = {
             isHidden: true,
         },
     ],
+    imageGallery: [
+        {
+            id: 'imageGallery',
+            widgetId: MixerWidgets.ImageGallery,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: false,
+            allowOverflow: false,
+        },
+    ],
 };

@@ -26,7 +26,7 @@ export type IOption = {
     text: string;
     iconName?: string;
     secondaryText?: string;
-    shortKey: IShortKey;
+    shortKey?: IShortKey;
 };
 
 export function Button(props: ButtonProps) {
@@ -52,10 +52,12 @@ export function Button(props: ButtonProps) {
     }
 
     const shortKeys = useMemo(() => {
-        return options.map((option) => ({
-            ...option.shortKey,
-            id: option.id,
-        }));
+        return options
+            .filter((option) => option.shortKey)
+            .map((option) => ({
+                ...option.shortKey!,
+                id: option.id,
+            }));
     }, [options]);
 
     const onShortKey = useCallback(

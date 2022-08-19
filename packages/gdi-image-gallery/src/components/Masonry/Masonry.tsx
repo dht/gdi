@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMount } from 'react-use';
-import { Container, Image } from './Masonry.style';
+import { Container, Image, ImageOverlay } from './Masonry.style';
 import { items } from './meta/Masonry.items';
 
 export type IItem = {
@@ -20,6 +20,7 @@ type Style = {
 export type MasonryProps = {
     columns?: number;
     gutter?: number;
+    renderOverlay?: (item: IItem) => JSX.Element;
 };
 
 export function Masonry(props: MasonryProps) {
@@ -48,6 +49,14 @@ export function Masonry(props: MasonryProps) {
         setImages(parsedItems);
     }, [width]);
 
+    function renderOverlay(item: IItem) {
+        if (!props.renderOverlay) {
+            return null;
+        }
+
+        return props.renderOverlay(item);
+    }
+
     function renderItem(item: IItem) {
         const { imageUrl } = item;
 
@@ -57,7 +66,9 @@ export function Masonry(props: MasonryProps) {
                 key={item.id}
                 className='item'
                 style={item.style}
-            />
+            >
+                <ImageOverlay>{renderOverlay(item)}</ImageOverlay>
+            </Image>
         );
     }
 
