@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMount } from 'react-use';
+import { IImage } from '../../types';
 import { Container, Image, ImageOverlay } from './Masonry.style';
-import { items } from './meta/Masonry.items';
 
-export type IItem = {
-    id: string | number;
-    imageUrl: string;
-    ratio: number;
+export type IItem = IImage & {
     style?: Style;
 };
 
@@ -18,13 +15,14 @@ type Style = {
 };
 
 export type MasonryProps = {
+    items: IItem[];
     columns?: number;
     gutter?: number;
     renderOverlay?: (item: IItem) => JSX.Element;
 };
 
 export function Masonry(props: MasonryProps) {
-    const { columns = 3, gutter = 10 } = props;
+    const { columns = 3, gutter = 10, items } = props;
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [images, setImages] = useState<IItem[]>([]);

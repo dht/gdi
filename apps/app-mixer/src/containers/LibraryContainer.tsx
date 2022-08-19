@@ -2,6 +2,8 @@ import React, { useCallback, useMemo } from 'react';
 import Library from '../components/Library/Library';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
+import { GalleryContainer } from './GalleryContainer';
+import { IGalleryState } from '@gdi/store-mixer';
 
 export const LibraryContainer = () => {
     const dispatch = useDispatch();
@@ -21,5 +23,10 @@ export const LibraryContainer = () => {
         // return null;
     }
 
-    return <Library instance={instance} callbacks={callbacks} />;
+    const overwrites: Partial<IGalleryState> = {
+        mode: 'minimal',
+        showTools: false,
+    };
+
+    return <GalleryContainer overwrites={overwrites} columns={2} />;
 };

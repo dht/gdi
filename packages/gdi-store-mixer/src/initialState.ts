@@ -22,7 +22,17 @@ export const initialState: IMixerStore = {
         localeId: 'en',
         isRtl: false,
     },
-
+    galleryState: {
+        stateKey: 'galleryState',
+        mode: 'full',
+        selectedToolId: 'select',
+        search: 'nice',
+        tag: 'good2',
+        showUploadModal: false,
+        showTools: true,
+        editModalImageId: '',
+        selectedIds: [],
+    },
     pages: {
         home: {
             id: 'home',
@@ -30,6 +40,19 @@ export const initialState: IMixerStore = {
             description: 'The home page',
             iconName: 'Home',
             order: 1,
+        },
+    },
+    libraryImages: {
+        id: {
+            id: '1',
+            title: 'Debitis modi explicabo.',
+            imageUrl: 'https://picsum.photos/seed/1/1593/948',
+            imageThumbUrl:
+                'https://picsum.photos/seed/1/200/119.02071563088512',
+            tags: ['people', 'friend'],
+            ratio: 1.6803797468354431,
+            isFavorite: false,
+            isTemporary: false,
         },
     },
     libraryBlocks: {

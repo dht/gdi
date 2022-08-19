@@ -1,5 +1,6 @@
 import { Icon, Tags } from '@gdi/web-ui';
 import React from 'react';
+import { IImage } from '../../types';
 import {
     Asterisk,
     Container,
@@ -12,10 +13,36 @@ import {
 
 export type ImageOverlayProps = {
     isSelected?: boolean;
+    item: IImage;
+    viewMode: 'full' | 'minimal';
 };
 
 export function ImageOverlay(props: ImageOverlayProps) {
-    const { isSelected } = props;
+    const { item, isSelected, viewMode } = props;
+    const { tags, title, isFavorite, isTemporary } = item;
+
+    const isFull = viewMode === 'full';
+
+    function renderIcons() {
+        if (!isFavorite && !isTemporary) {
+            return null;
+        }
+
+        return (
+            <Icons>
+                {isTemporary && (
+                    <Temporary>
+                        <Icon iconName='TestBeakerSolid' />
+                    </Temporary>
+                )}
+                {isFavorite && (
+                    <Asterisk>
+                        <Icon iconName='AsteriskSolid' />
+                    </Asterisk>
+                )}
+            </Icons>
+        );
+    }
 
     return (
         <Container
@@ -23,18 +50,13 @@ export function ImageOverlay(props: ImageOverlayProps) {
             data-testid='ImageOverlay-container'
             selected={isSelected}
         >
-            <TagsWrapper>
-                <Tags tags={['good']} color='cyan' />
-            </TagsWrapper>
-            <Title>Title</Title>
-            <Icons>
-                <Temporary>
-                    <Icon iconName='TestBeakerSolid' />
-                </Temporary>
-                <Asterisk>
-                    <Icon iconName='AsteriskSolid' />
-                </Asterisk>
-            </Icons>
+            {isFull && (
+                <TagsWrapper>
+                    <Tags tags={tags} color='cyan' />
+                </TagsWrapper>
+            )}
+            {isFull && <Title>{title}</Title>}
+            {renderIcons()}
 
             {isSelected && (
                 <Selected>
