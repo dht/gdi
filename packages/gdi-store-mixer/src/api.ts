@@ -15,6 +15,10 @@ export const endpointsConfigOverrides: any = {
         id: 'pages',
         connectionType: 'NONE',
     },
+    libraryImages: {
+        id: 'libraryImages',
+        connectionType: 'NONE',
+    },
     libraryWidgets: {
         id: 'libraryWidgets',
         connectionType: 'NONE',

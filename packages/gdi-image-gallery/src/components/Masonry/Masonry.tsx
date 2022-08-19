@@ -19,6 +19,8 @@ export type MasonryProps = {
     columns?: number;
     gutter?: number;
     renderOverlay?: (item: IItem) => JSX.Element;
+    onClick?: (id: string) => void;
+    onDoubleClick?: (id: string) => void;
 };
 
 export function Masonry(props: MasonryProps) {
@@ -45,7 +47,23 @@ export function Masonry(props: MasonryProps) {
             gutter,
         });
         setImages(parsedItems);
-    }, [width]);
+    }, [width, items]);
+
+    function onClick(id: string) {
+        if (!props.onClick) {
+            return;
+        }
+
+        props.onClick(id);
+    }
+
+    function onDoubleClick(id: string) {
+        if (!props.onDoubleClick) {
+            return;
+        }
+
+        props.onDoubleClick(id);
+    }
 
     function renderOverlay(item: IItem) {
         if (!props.renderOverlay) {
@@ -56,14 +74,16 @@ export function Masonry(props: MasonryProps) {
     }
 
     function renderItem(item: IItem) {
-        const { imageUrl } = item;
+        const { imageThumbUrl } = item;
 
         return (
             <Image
-                url={imageUrl}
+                url={imageThumbUrl}
                 key={item.id}
                 className='item'
                 style={item.style}
+                onClick={() => onClick(item.id)}
+                onDoubleClick={() => onDoubleClick(item.id)}
             >
                 <ImageOverlay>{renderOverlay(item)}</ImageOverlay>
             </Image>

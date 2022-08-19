@@ -1,33 +1,42 @@
 export type { IToolbarItem } from '@gdi/web-ui';
 
-export const items: IToolbarItem[] = [
+export enum ToolId {
+    select = 'select',
+    edit = 'edit',
+    delete = 'delete',
+    favorite = 'favorite',
+    temporary = 'temporary',
+    tag = 'tag',
+}
+
+export const items: any[] = [
     {
-        id: 'select',
+        id: ToolId.select,
         text: 'Select',
         iconName: 'FieldEmpty',
     },
     {
-        id: 'edit',
+        id: ToolId.edit,
         text: 'Edit',
         iconName: 'Edit',
     },
     {
-        id: 'delete',
+        id: ToolId.delete,
         text: 'Delete',
         iconName: 'Delete',
     },
     {
-        id: 'favorite',
+        id: ToolId.favorite,
         text: 'Mark as Favorite',
         iconName: 'AsteriskSolid',
     },
     {
-        id: 'temporary',
+        id: ToolId.temporary,
         text: 'Mark as Temporary',
         iconName: 'TestBeakerSolid',
     },
     {
-        id: 'tag',
+        id: ToolId.tag,
         text: 'Tag',
         iconName: 'Tag',
     },

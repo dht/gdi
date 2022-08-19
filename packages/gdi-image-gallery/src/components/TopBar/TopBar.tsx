@@ -1,8 +1,8 @@
-import { Button, Search, Tag } from '@gdi/web-ui';
 import React from 'react';
+import { Button, Search, Tag } from '@gdi/web-ui';
 import Tools from '../Tools/Tools';
 import Views from '../Views/Views';
-import { Container, Flex, TagWrapper } from './TopBar.style';
+import { Container, TagWrapper } from './TopBar.style';
 
 export type TopBarProps = {
     selectedToolId: string;
@@ -13,18 +13,16 @@ export type TopBarProps = {
     callbacks: {
         onUploadImage: () => void;
         onSelectTool: (toolId: string) => void;
-        onTagClick: (tagId: string) => void;
+        onTagClick: (tag: string) => void;
         onTagClear: () => void;
         onViewChange: (viewId: string) => void;
-        onSearch: (search: string) => void;
+        onSearch: (search?: string) => void;
     };
 };
 
 export function TopBar(props: TopBarProps) {
     const { selectedToolId, search, showTools, viewMode, tag, callbacks } =
         props;
-
-    console.log('callbacks ->', callbacks);
 
     function renderTools() {
         if (!showTools) {
@@ -42,7 +40,7 @@ export function TopBar(props: TopBarProps) {
                         <Tag
                             tag={tag}
                             color='cyan'
-                            onClick={callbacks.onTagClick}
+                            onClick={() => callbacks.onTagClick(tag)}
                             onDelete={callbacks.onTagClear}
                         />
                     )}
@@ -60,10 +58,7 @@ export function TopBar(props: TopBarProps) {
                 onClick={callbacks.onUploadImage}
             />
             {renderTools()}
-            <Views
-                mode={viewMode as string}
-                onChange={callbacks.onViewChange}
-            />
+            <Views mode={viewMode} onChange={callbacks.onViewChange} />
             <Search value={search} width={300} onChange={callbacks.onSearch} />
         </Container>
     );

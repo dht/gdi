@@ -1,5 +1,6 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
+import { images } from './data.images';
 import { IMixerStore } from './types';
 
 export const initialState: IMixerStore = {
@@ -26,12 +27,15 @@ export const initialState: IMixerStore = {
         stateKey: 'galleryState',
         mode: 'full',
         selectedToolId: 'select',
-        search: 'nice',
-        tag: 'good2',
-        showUploadModal: false,
         showTools: true,
-        editModalImageId: '',
+        showUploadModal: false,
+        showTagModal: false,
+        search: '',
+        tag: 'background',
         selectedIds: [],
+        favoriteIds: [],
+        temporaryIds: [],
+        deletedIds: [],
     },
     pages: {
         home: {
@@ -43,7 +47,7 @@ export const initialState: IMixerStore = {
         },
     },
     libraryImages: {
-        id: {
+        '1': {
             id: '1',
             title: 'Debitis modi explicabo.',
             imageUrl: 'https://picsum.photos/seed/1/1593/948',
@@ -51,9 +55,8 @@ export const initialState: IMixerStore = {
                 'https://picsum.photos/seed/1/200/119.02071563088512',
             tags: ['people', 'friend'],
             ratio: 1.6803797468354431,
-            isFavorite: false,
-            isTemporary: false,
         },
+        ...images,
     },
     libraryBlocks: {
         'com.usegdi.templates.gdi.hero-simple': {

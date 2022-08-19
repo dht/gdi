@@ -14,7 +14,7 @@ export function Tag(props: TagProps) {
 
     const tagType = tag.split('-').shift();
 
-    const className = classnames('Tag-container', tagType, color);
+    const className = classnames('Tag-container', `tag-${tag}`, tagType, color);
 
     function renderDelete() {
         if (!props.onDelete) {

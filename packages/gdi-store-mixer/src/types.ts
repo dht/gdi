@@ -94,21 +94,22 @@ export type IGalleryState = {
     selectedToolId: string;
     search: string;
     tag: string;
-    showUploadModal: boolean;
     showTools: boolean;
-    editModalImageId: string;
+    showUploadModal: boolean;
+    showTagModal: boolean;
     selectedIds: string[];
+    favoriteIds: string[];
+    temporaryIds: string[];
+    deletedIds: string[];
 };
 
 export type IImage = {
-    id: string | number;
+    id: string;
     title: string;
     imageUrl: string;
     imageThumbUrl: string;
     ratio: number;
     tags: string[];
-    isFavorite?: boolean;
-    isTemporary?: boolean;
 };
 
 export type IImages = Record<string, IImage>;

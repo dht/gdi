@@ -1,14 +1,61 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ selected?: boolean }>`
+export const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    margin: 3px;
-    background-color: ${(props) =>
-        props.selected ? 'rgba(255,255,255,0.2)' : 'transparent'};
+    margin: 5px;
+    background-color: transparent;
+
+    &.selected {
+        &:after {
+            border: 3px solid gold;
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            bottom: -4px;
+            right: -4px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0.2;
+            background: repeating-linear-gradient(
+                -45deg,
+                goldenrod,
+                goldenrod 10px,
+                gold 10px,
+                gold 20px
+            );
+        }
+    }
+
+    &.deleted {
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0.4;
+            background: repeating-linear-gradient(
+                -45deg,
+                red,
+                red 10px,
+                darkred 10px,
+                darkred 20px
+            );
+        }
+    }
 `;
 
 export const TagsWrapper = styled.div`

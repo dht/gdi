@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Gallery.style';
-import { ImageGallery } from '@gdi/image-gallery';
-import { IImage, IGalleryState } from '@gdi/store-mixer';
+import { ImageActionType, ImageGallery } from '@gdi/image-gallery';
+import { IImage, IGalleryState, IGalleryViewMode } from '@gdi/store-mixer';
 
 export type GalleryProps = {
     items: IImage[];
@@ -9,14 +9,16 @@ export type GalleryProps = {
     columns?: number;
     callbacks: {
         onUploadImage: () => void;
-        onDeleteImage: (id: string) => void;
+        onImageAction: (
+            id: string,
+            action: ImageActionType,
+            data?: Json
+        ) => void;
         onSelectTool: (toolId: string) => void;
         onTagClick: (tag: string) => void;
         onTagClear: () => void;
-        onViewChange: (viewId: string) => void;
-        onSearch: (search: string) => void;
-        onAddTagToImage: (id: string, tag: string) => void;
-        onRemoveTagFromImage: (id: string, tag: string) => void;
+        onViewChange: (viewId: IGalleryViewMode) => void;
+        onSearch: (search?: string) => void;
     };
 };
 
@@ -29,8 +31,10 @@ export function Gallery(props: GalleryProps) {
         search,
         tag,
         showUploadModal,
-        editModalImageId,
         selectedIds,
+        favoriteIds,
+        temporaryIds,
+        deletedIds,
         showTools,
     } = state;
 
@@ -52,6 +56,9 @@ export function Gallery(props: GalleryProps) {
                     showUploadModal={showUploadModal}
                     showTools={showTools}
                     selectedIds={selectedIds}
+                    favoriteIds={favoriteIds}
+                    temporaryIds={temporaryIds}
+                    deletedIds={deletedIds}
                     callbacks={callbacks}
                     columns={columns}
                 />

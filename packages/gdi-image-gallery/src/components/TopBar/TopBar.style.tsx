@@ -9,10 +9,6 @@ export const Container = styled.div`
     justify-content: space-between;
 `;
 
-export const Flex = styled.div`
-    flex: 1;
-`;
-
 export const TagWrapper = styled.div`
     width: 180px;
     display: flex;

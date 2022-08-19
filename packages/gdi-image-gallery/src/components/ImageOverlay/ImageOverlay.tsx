@@ -10,16 +10,21 @@ import {
     Temporary,
     Title,
 } from './ImageOverlay.style';
+import classnames from 'classnames';
 
 export type ImageOverlayProps = {
     isSelected?: boolean;
+    isFavorite?: boolean;
+    isTemporary?: boolean;
+    isDeleted?: boolean;
     item: IImage;
     viewMode: 'full' | 'minimal';
 };
 
 export function ImageOverlay(props: ImageOverlayProps) {
-    const { item, isSelected, viewMode } = props;
-    const { tags, title, isFavorite, isTemporary } = item;
+    const { item, isSelected, isFavorite, isTemporary, isDeleted, viewMode } =
+        props;
+    const { tags, title } = item;
 
     const isFull = viewMode === 'full';
 
@@ -44,12 +49,13 @@ export function ImageOverlay(props: ImageOverlayProps) {
         );
     }
 
+    const className = classnames('ImageOverlay-container', `item-${item.id}`, {
+        selected: isSelected,
+        deleted: isDeleted,
+    });
+
     return (
-        <Container
-            className='ImageOverlay-container'
-            data-testid='ImageOverlay-container'
-            selected={isSelected}
-        >
+        <Container className={className} data-testid='ImageOverlay-container'>
             {isFull && (
                 <TagsWrapper>
                     <Tags tags={tags} color='cyan' />

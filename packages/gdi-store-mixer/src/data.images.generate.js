@@ -13,7 +13,7 @@ const run = async () => {
         const ratio = width / height;
 
         const widthThumb = 200;
-        const heightThumb = 200 / ratio;
+        const heightThumb = Math.floor(200 / ratio);
 
         return {
             id,
@@ -27,7 +27,7 @@ const run = async () => {
         };
     });
 
-    fs.writeFileSync('./Gallery.items.json', JSON.stringify(items, null, 4));
+    fs.writeFileSync('./data.images.json', JSON.stringify(items, null, 4));
 };
 
 const rnd = (min, max) => Math.floor(min + Math.random() * (max - min));

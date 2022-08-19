@@ -2,7 +2,8 @@ import React, { useCallback, useMemo } from 'react';
 import Gallery from '../components/Gallery/Gallery';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
-import { items } from '../components/Gallery/Gallery.items';
+import { IGalleryViewMode } from '@gdi/store-mixer';
+import { ImageActionType } from '@gdi/image-gallery';
 
 type GalleryContainerProps = {
     overwrites?: Json;
@@ -12,7 +13,7 @@ type GalleryContainerProps = {
 export const GalleryContainer = (props: GalleryContainerProps) => {
     const { overwrites, columns = 4 } = props;
     const dispatch = useDispatch();
-    // const items = useSelector(selectors.raw.$rawLibraryImages);
+    const items = useSelector(selectors.base.$libraryImages);
     const galleryState = useSelector(selectors.raw.$rawGalleryState);
 
     const state = useMemo(() => {
@@ -24,9 +25,24 @@ export const GalleryContainer = (props: GalleryContainerProps) => {
 
     const callbacks = useMemo(
         () => ({
-            onUploadImage: () => {},
-            onDeleteImage: (id: string) => {
-                console.log('id ->', id);
+            onUploadImage: () => {
+                dispatch(
+                    actions.galleryState.patch({
+                        showUploadModal: true,
+                    })
+                );
+            },
+            onImageAction: (
+                id: string,
+                action: ImageActionType,
+                data?: Json
+            ) => {
+                dispatch({
+                    type: 'IMAGE_ACTION',
+                    actionType: action,
+                    id,
+                    data,
+                });
             },
             onSelectTool: (toolId: string) => {
                 dispatch(
@@ -35,8 +51,12 @@ export const GalleryContainer = (props: GalleryContainerProps) => {
                     })
                 );
             },
-            onTagClick: (tag: string) => {
-                console.log('tag ->', tag);
+            onTagClick: (_tag: string) => {
+                dispatch(
+                    actions.galleryState.patch({
+                        showTagModal: true,
+                    })
+                );
             },
             onTagClear: () => {
                 dispatch(
@@ -45,25 +65,19 @@ export const GalleryContainer = (props: GalleryContainerProps) => {
                     })
                 );
             },
-            onViewChange: (viewMode: string) => {
+            onViewChange: (viewMode: IGalleryViewMode) => {
                 dispatch(
                     actions.galleryState.patch({
                         mode: viewMode,
                     })
                 );
             },
-            onSearch: (search: string) => {
+            onSearch: (search?: string) => {
                 dispatch(
                     actions.galleryState.patch({
                         search,
                     })
                 );
-            },
-            onAddTagToImage: (id: string, tag: string) => {
-                console.log('id, tag ->', id, tag);
-            },
-            onRemoveTagFromImage: (id: string, tag: string) => {
-                console.log('id, tag ->', id, tag);
             },
         }),
         []
