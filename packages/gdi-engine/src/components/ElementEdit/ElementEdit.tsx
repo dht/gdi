@@ -26,9 +26,10 @@ export function ElementEdit(props: ElementEditProps) {
     const block = blocks[element.widgetId];
 
     if (!block) {
-        throw new Error(
+        console.log(
             `could not find widget '${element.widgetId}' for element '${element.id}'`
         );
+        return null;
     }
 
     function onClick() {

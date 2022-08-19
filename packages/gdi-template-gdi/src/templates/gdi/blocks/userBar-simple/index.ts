@@ -6,6 +6,8 @@ import { IBlockInfo } from '@gdi/web-ui';
 
 export const blockInfo: IBlockInfo = {
     id: 'com.usegdi.templates.gdi.userBar-simple',
+    name: 'userBar-simple',
+    description: '',
     params,
     sampleData,
     dimensions,
