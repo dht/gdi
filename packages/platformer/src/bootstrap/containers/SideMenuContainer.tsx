@@ -85,13 +85,12 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
         );
     }
 
-    return <SideMenu data={menuItemsSorted} groups={menuGroups} />;
+    return (
+        <SideMenu data={menuItemsSorted} groups={menuGroups}>
+            {renderUserMenu()}
+        </SideMenu>
+    );
 }
-
-/*
-renderUserMenu()}
-</SideMenu>
-*/
 
 const UserMenuWrapper = styled.div`
     position: absolute;
