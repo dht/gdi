@@ -1,4 +1,4 @@
-import { mixer as storeEntities } from '@gdi/store-mixer';
+import { auth as storeEntities } from '@gdi/store-auth';
 
 export const actions = storeEntities.actions;
 export const selectors = storeEntities.selectors;

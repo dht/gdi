@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import { Bootstrap } from '@gdi/platformer';
+import { Bootstrap, initFirebase } from '@gdi/platformer';
 import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
 import 'igrid/dist/index.css';

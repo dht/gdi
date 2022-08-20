@@ -1,3 +1,3 @@
-import { mixer } from '@gdi/store-mixer';
+import { auth } from '@gdi/store-auth';
 
-export const selectors = mixer.selectors;
+export const selectors = auth.selectors;

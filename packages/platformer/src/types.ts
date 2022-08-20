@@ -186,3 +186,13 @@ export type IPlatformConfig = {
     activeApps: string[];
     menuSections: string[];
 };
+
+export type GoogleUser = Json & {
+    uid: string;
+    displayName: string | null;
+    email: string | null;
+    emailVerified: boolean;
+    phoneNumber: string | null;
+    photoURL: string | null;
+    providerId: string;
+};

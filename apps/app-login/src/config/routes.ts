@@ -8,7 +8,6 @@ import { ROOT } from './ids';
 
 export const routes: IRoutes = {
     login: `${ROOT}`,
-    vizDrawer: `${ROOT}/viz`,
 };
 
 export const menuItems: IMenuItem[] = [

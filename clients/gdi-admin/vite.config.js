@@ -19,6 +19,8 @@ export default defineConfig({
     resolve: {
         alias: {
             '@gdi/app-mixer': `${cwd}/apps/app-mixer/src`,
+            '@gdi/app-login': `${cwd}/apps/app-login/src`,
+            '@gdi/store-auth': `${cwd}/packages/gdi-store-auth/src`,
             '@gdi/store-mixer': `${cwd}/packages/gdi-store-mixer/src`,
             '@gdi/store-site': `${cwd}/packages/gdi-store-site/src`,
             '@gdi/platformer': `${cwd}/packages/platformer/src`,

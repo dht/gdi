@@ -1,4 +1,5 @@
 import { initApp as initAppMixer } from '@gdi/app-mixer';
+import { initApp as initLogin } from '@gdi/app-login';
 import { firebaseConfig } from './main.firebase';
 import p from '../package.json';
 
@@ -11,7 +12,8 @@ export const config = {
     initialRoute: '/admin/mixer',
     initializers: {
         mixer: initAppMixer,
+        login: initLogin,
     },
-    activeApps: ['mixer'],
+    activeApps: ['login', 'mixer'],
     menuSections: ['site'],
 };

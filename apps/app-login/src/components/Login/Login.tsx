@@ -1,21 +1,24 @@
 import React from 'react';
-import { Container } from './Login.style';
+import { Container, LogoWrapper, Panel } from './Login.style';
+import { useMount } from 'react-use';
+import { firebase } from '@gdi/platformer';
+import { Logo } from '@gdi/web-ui';
 
-export type LoginProps = {
-    title?: string;
-    onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void;
-};
+import 'firebaseui/dist/firebaseui.css';
+
+export type LoginProps = {};
 
 export function Login(props: LoginProps) {
-    const { title } = props;
+    useMount(() => {
+        firebase.initUI('#firebaseui-auth-container');
+    });
 
     return (
-        <Container
-            className="Login-container"
-            data-testid="Login-container"
-            onClick={props.onClick}
-        >
-            {title}
+        <Container className='Login-container' data-testid='Login-container'>
+            <LogoWrapper>
+                <Logo />
+            </LogoWrapper>
+            <Panel id='firebaseui-auth-container'></Panel>
         </Container>
     );
 }

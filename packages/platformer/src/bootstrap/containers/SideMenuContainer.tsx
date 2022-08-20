@@ -2,9 +2,10 @@ import React, { useContext, useMemo } from 'react';
 import { SideMenu, UserMenu } from '@gdi/web-ui';
 import styled from 'styled-components';
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { PlatformContext } from '../../core/platform-context';
 import { IMenuItem } from '../../types';
+import { auth } from '@gdi/store-auth';
 
 type SideMenuContainerProps = {};
 
@@ -39,6 +40,7 @@ const items = [
 export function SideMenuContainer(_props: SideMenuContainerProps) {
     const dispatch = useDispatch();
     const { menuItems, menuGroups } = useContext(PlatformContext);
+    const user = useSelector(auth.selectors.raw.$rawUser);
 
     const onUserMenuClick = useCallback((actionId: string) => {
         switch (actionId) {
@@ -58,7 +60,6 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
                 });
                 break;
             case 'logout':
-                // signOut();
                 dispatch({ type: 'LOGOUT' });
                 break;
         }
@@ -79,11 +80,7 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
     return (
         <SideMenu data={menuItemsSorted} groups={menuGroups}>
             <UserMenuWrapper>
-                <UserMenu
-                    user={{} as any}
-                    items={items}
-                    onClick={onUserMenuClick}
-                />
+                <UserMenu user={user} items={items} onClick={onUserMenuClick} />
             </UserMenuWrapper>
         </SideMenu>
     );

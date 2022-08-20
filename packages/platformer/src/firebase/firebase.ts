@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { FirebaseApp, initializeApp } from 'firebase/app';
 import {
     Analytics,
     getAnalytics,
@@ -7,7 +7,16 @@ import {
     setUserProperties,
 } from 'firebase/analytics';
 import { Firestore, getFirestore } from 'firebase/firestore/lite';
-import { Auth, getAuth, signInAnonymously } from 'firebase/auth';
+import {
+    Auth,
+    getAuth,
+    signInAnonymously,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    signOut,
+} from 'firebase/auth';
+import * as firebaseui from 'firebaseui';
+import { GoogleUser } from '../types';
 
 export type FirebaseConfig = {
     apiKey: string;
@@ -37,18 +46,53 @@ export type EventId =
     | 'tutorial_complete';
 
 export class Firebase {
+    private app: FirebaseApp;
     private analytics: Analytics;
     private db: Firestore;
     private auth: Auth;
+    private ui: firebaseui.auth.AuthUI;
+    private authListeners: AuthListener[] = [];
 
     public uid: string;
+    public clientId: string;
 
     constructor(firebaseConfig: FirebaseConfig) {
-        const app = initializeApp(firebaseConfig);
-        this.analytics = getAnalytics(app);
-        this.db = getFirestore(app);
-        this.auth = getAuth(app);
+        this.app = initializeApp(firebaseConfig);
+        this.analytics = getAnalytics(this.app);
+        this.db = getFirestore(this.app);
+        this.auth = getAuth(this.app);
+        this.ui = new firebaseui.auth.AuthUI(this.auth);
         this.uid = '';
+        this.clientId = firebaseConfig.appId;
+
+        onAuthStateChanged(this.auth, (user) => {
+            console.log(
+                'this.authListeners.length ->',
+                this.authListeners.length
+            );
+
+            if (user) {
+                this.uid = user.uid;
+                this.authListeners.forEach((listener) => {
+                    listener(user);
+                });
+                // ...
+            } else {
+                this.authListeners.forEach((listener) => {
+                    listener(null);
+                });
+            }
+        });
+    }
+
+    addAuthListener(listener: AuthListener) {
+        this.authListeners.push(listener);
+    }
+
+    removeAuthListener(listener: AuthListener) {
+        const index = this.authListeners.indexOf(listener);
+        console.log('index ->', index);
+        this.authListeners.splice(index, 1);
     }
 
     log(eventName: EventId, data?: Json) {
@@ -74,11 +118,43 @@ export class Firebase {
             });
         });
     }
+
+    signOut() {
+        return signOut(this.auth);
+    }
+
+    initUI(selector: string) {
+        const uiConfig: firebaseui.auth.Config = {
+            siteName: 'gDI',
+            signInFlow: 'popup',
+            signInSuccessUrl: '/admin/mixer',
+            signInOptions: [
+                {
+                    provider: GoogleAuthProvider.PROVIDER_ID,
+                    clientId: this.clientId,
+                },
+            ],
+            tosUrl: '/termsOfService',
+            privacyPolicyUrl: function () {
+                window.location.assign('/privacy');
+            },
+        };
+
+        this.ui.start(selector, uiConfig);
+    }
+
+    get value() {
+        return {
+            app: this.app,
+        };
+    }
 }
 
-export let analytics: Firebase;
+export let firebase: Firebase;
 
 export const initFirebase = (firebaseConfig: FirebaseConfig) => {
-    analytics = new Firebase(firebaseConfig);
-    analytics.signIn();
+    firebase = new Firebase(firebaseConfig);
+    return firebase;
 };
+
+type AuthListener = (user: GoogleUser | null) => void;

@@ -24,9 +24,9 @@ type MenuItem = {
 };
 
 type User = {
-    name: string;
+    displayName: string;
     company: string;
-    imageUrl: string;
+    photoURL: string;
 };
 
 export type UserMenuProps = {
@@ -37,7 +37,7 @@ export type UserMenuProps = {
 
 export function UserMenu(props: UserMenuProps) {
     const { user, items } = props;
-    const { name, company, imageUrl } = user;
+    const { displayName, company, photoURL } = user;
 
     const ref = useRef<HTMLDivElement>(null);
 
@@ -79,8 +79,8 @@ export function UserMenu(props: UserMenuProps) {
         >
             <Avatar
                 size={40}
-                name={name}
-                imageUrl={imageUrl}
+                name={displayName}
+                imageUrl={photoURL}
                 onClick={() => toggleMenu()}
             />
 
@@ -89,9 +89,13 @@ export function UserMenu(props: UserMenuProps) {
                 <Content>
                     <Top>
                         <UserImage>
-                            <Avatar size={80} name={name} imageUrl={imageUrl} />
+                            <Avatar
+                                size={80}
+                                name={displayName}
+                                imageUrl={photoURL}
+                            />
                         </UserImage>
-                        <Name>{name}</Name>
+                        <Name>{displayName}</Name>
                         <Company>{company}</Company>
                     </Top>
                     <Menu>{renderItems()}</Menu>

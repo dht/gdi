@@ -36,3 +36,4 @@ export type { IWidget, IWidgets, IWidgetInstancesByPageList } from 'igrid';
 export { BootstrapContainer as Bootstrap } from './bootstrap/components/Bootstrap/Bootstrap';
 export { prompt } from './bootstrap/components/Prompt/Prompt.actions';
 export { useDispatchP } from './hooks/useDispatchP';
+export { firebase } from './firebase/firebase';
