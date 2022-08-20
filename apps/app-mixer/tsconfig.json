@@ -13,7 +13,8 @@
         "skipLibCheck": true,
         "baseUrl": "../../",
         "paths": {
-            "@gdi/template-gdi": ["packages/gdi-template-gdi"]
+            "@gdi/template-gdi": ["packages/gdi-template-gdi"],
+            "@gdi/image-gallery": ["packages/gdi-image-gallery"]
         }
     },
     "include": ["src/*.ts", "test/*.ts"]

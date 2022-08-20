@@ -1,21 +1,37 @@
 import React from 'react';
-import { Container } from './Tag.style';
+import { Container, Delete, Title } from './Tag.style';
 import classnames from 'classnames';
 
 export type TagProps = {
     tag: string;
+    color?: string;
+    onClick?: () => void;
+    onDelete?: () => void;
 };
 
 export function Tag(props: TagProps) {
-    const { tag } = props;
+    const { tag, color } = props;
 
     const tagType = tag.split('-').shift();
 
-    const className = classnames('Tag-container', tagType);
+    const className = classnames('Tag-container', `tag-${tag}`, tagType, color);
+
+    function renderDelete() {
+        if (!props.onDelete) {
+            return null;
+        }
+
+        return <Delete onClick={props.onDelete}>✕</Delete>;
+    }
 
     return (
-        <Container className={className} data-testid='Tag-container'>
-            {tag}
+        <Container
+            className={className}
+            data-testid='Tag-container'
+            onClick={props.onClick}
+        >
+            <Title>{tag}</Title>
+            {renderDelete()}
         </Container>
     );
 }

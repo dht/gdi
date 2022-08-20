@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ horizontal?: boolean }>`
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;
+
+    &.horizontal {
+        .item {
+            width: 41px;
+        }
+    }
 `;
 
 export const Item = styled.div`

@@ -5,6 +5,7 @@ import { IElement, IMixerState, IMixerStore, IPages } from './types';
 import { sortBy } from 'shared-base';
 import { IWidgetInstances } from 'igrid';
 import { site } from '@gdi/store-site';
+import { toArray } from 'shared-base';
 
 const rawSite = site.selectors.raw;
 
@@ -96,5 +97,12 @@ export const $packages = createSelector(
         return elements.find(
             (element) => element.id === currentIds.selectedInstanceId
         );
+    }
+);
+
+export const $libraryImages = createSelector(
+    raw.$rawLibraryImages,
+    (images) => {
+        return Object.values(images);
     }
 );

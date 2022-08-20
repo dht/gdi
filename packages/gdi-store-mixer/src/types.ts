@@ -11,7 +11,9 @@ export type IMixerStore = StoreStructure & {
     currentIds: ICurrentIds;
     meta: IMeta;
     locale: ILocale;
+    galleryState: IGalleryState;
     pages: IPages;
+    libraryImages: IImages;
     libraryBlocks: IWidgets;
     libraryTypography: ITypographyOptions;
     libraryPalettes: IPaletteOptions;
@@ -83,6 +85,34 @@ export type ILocaleOption = {
 export type ILocaleOptions = Record<string, ILocaleOption>;
 
 export type IPackages = Json;
+
+export type IGalleryViewMode = 'full' | 'minimal';
+
+export type IGalleryState = {
+    stateKey: string;
+    mode: IGalleryViewMode;
+    selectedToolId: string;
+    search: string;
+    tag: string;
+    showTools: boolean;
+    showUploadModal: boolean;
+    showTagModal: boolean;
+    selectedIds: string[];
+    favoriteIds: string[];
+    temporaryIds: string[];
+    deletedIds: string[];
+};
+
+export type IImage = {
+    id: string;
+    title: string;
+    imageUrl: string;
+    imageThumbUrl: string;
+    ratio: number;
+    tags: string[];
+};
+
+export type IImages = Record<string, IImage>;
 
 // ======================= SELECTORS OUTPUT =======================
 export type IElement = IWidgetInstance & {

@@ -14,11 +14,12 @@ export type IToolbarItem = {
 export type ToolbarProps = {
     items: IToolbarItem[];
     selectedItemId?: string;
+    horizontal?: boolean;
     onClick: (item: IToolbarItem) => void;
 };
 
 export function Toolbar(props: ToolbarProps) {
-    const { items = [], selectedItemId } = props;
+    const { items = [], selectedItemId, horizontal } = props;
 
     useKey(
         (ev) => {
@@ -35,7 +36,7 @@ export function Toolbar(props: ToolbarProps) {
 
     function renderItem(item: IToolbarItem) {
         const { id, text, iconName } = item;
-        const className = classnames({
+        const className = classnames('item', {
             selected: selectedItemId === id,
         });
 
@@ -55,10 +56,13 @@ export function Toolbar(props: ToolbarProps) {
         return items.map((item: IToolbarItem) => renderItem(item));
     }
 
+    const className = classnames('Toolbar-container', { horizontal });
+
     return (
         <Container
-            className='Toolbar-container'
+            className={className}
             data-testid='Toolbar-container'
+            horizontal={horizontal}
         >
             {renderItems()}
         </Container>

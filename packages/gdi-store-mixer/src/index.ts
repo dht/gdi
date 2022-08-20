@@ -20,4 +20,7 @@ export type {
     ITypography,
     ILocaleOption,
     IColorPalette,
+    IGalleryViewMode,
+    IImage,
+    IGalleryState,
 } from './types';

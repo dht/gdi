@@ -7,11 +7,9 @@ export { ColorPalette } from './components/ColorPalette/ColorPalette';
 export type { IColorPalette } from './components/ColorPalette/ColorPalette';
 export { Drawer } from './components/Drawer/Drawer';
 export { Editor } from './components/Editor/Editor';
-export { ImageGallery } from './components/ImageGallery/ImageGallery';
 export { KeyValue } from './components/KeyValue/KeyValue';
 export { List } from './components/List/List';
 export { Logo } from './components/Logo/Logo';
-export { Masonry } from './components/Masonry/Masonry';
 export { Modal } from './components/Modal/Modal';
 export { ScreenLoader } from './components/ScreenLoader/ScreenLoader';
 export { SideMenu } from './components/SideMenu/SideMenu';
@@ -38,6 +36,7 @@ export {
     ImageUpload,
     TagsInput,
     SpinButton,
+    Search,
 } from '@gdi/web-base-ui';
 export type {
     SwitchOption,

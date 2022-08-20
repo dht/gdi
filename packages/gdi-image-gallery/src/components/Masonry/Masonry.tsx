@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMount } from 'react-use';
-import { Container, Image } from './Masonry.style';
-import { items } from './meta/Masonry.items';
+import { useInViewPort } from '../../hooks/useInViewPort';
+import { IImage } from '../../types';
+import { Container, Image, ImageOverlay, ImageWrapper } from './Masonry.style';
 
-export type IItem = {
-    id: string | number;
-    imageUrl: string;
-    ratio: number;
+export type IItem = IImage & {
     style?: Style;
 };
 
@@ -18,16 +16,23 @@ type Style = {
 };
 
 export type MasonryProps = {
+    items: IItem[];
     columns?: number;
     gutter?: number;
+    renderOverlay?: (item: IItem) => JSX.Element;
+    onClick?: (id: string) => void;
+    onDoubleClick?: (id: string) => void;
+    oneWayReveal?: boolean;
 };
 
 export function Masonry(props: MasonryProps) {
-    const { columns = 3, gutter = 10 } = props;
+    const { columns = 3, gutter = 10, items, oneWayReveal = true } = props;
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [images, setImages] = useState<IItem[]>([]);
     const ref = useRef<HTMLDivElement>(null);
+
+    useInViewPort(ref, '.masonry-item', oneWayReveal, [items]);
 
     useMount(() => {
         if (!ref.current) {
@@ -46,18 +51,50 @@ export function Masonry(props: MasonryProps) {
             gutter,
         });
         setImages(parsedItems);
-    }, [width]);
+    }, [width, items]);
+
+    function onClick(id: string) {
+        if (!props.onClick) {
+            return;
+        }
+
+        props.onClick(id);
+    }
+
+    function onDoubleClick(id: string) {
+        if (!props.onDoubleClick) {
+            return;
+        }
+
+        props.onDoubleClick(id);
+    }
+
+    function renderOverlay(item: IItem) {
+        if (!props.renderOverlay) {
+            return null;
+        }
+
+        return props.renderOverlay(item);
+    }
 
     function renderItem(item: IItem) {
-        const { imageUrl } = item;
+        const { imageThumbUrl, imageUrl } = item;
 
         return (
-            <Image
-                url={imageUrl}
-                key={item.id}
-                className='item'
+            <ImageWrapper
                 style={item.style}
-            />
+                onClick={() => onClick(item.id)}
+                className='masonry-item'
+                onDoubleClick={() => onDoubleClick(item.id)}
+            >
+                <Image
+                    url={imageThumbUrl}
+                    key={item.id + '_thumb'}
+                    className='masonry-image'
+                />
+                <Image url={imageUrl} key={item.id} className='masonry-image' />
+                <ImageOverlay>{renderOverlay(item)}</ImageOverlay>
+            </ImageWrapper>
         );
     }
 

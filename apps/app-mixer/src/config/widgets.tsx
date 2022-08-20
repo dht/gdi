@@ -6,6 +6,7 @@ import { ToolsContainer } from '../containers/ToolsContainer';
 import { ViewsContainer } from '../containers/ViewsContainer';
 import { PagesContainer } from '../containers/PagesContainer';
 import { ImportExportContainer } from '../containers/ImportExportContainer';
+import { GalleryContainer } from '../containers/GalleryContainer';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -13,7 +14,7 @@ export enum MixerWidgets {
     Tools = 'mixer.Tools',
     Views = 'mixer.Views',
     Pages = 'mixer.Pages',
-    Code = 'mixer.Code',
+    ImageGallery = 'mixer.ImageGallery',
     ImportExport = 'mixer.ImportExport',
 }
 export const widgets: IWidget[] = [
@@ -76,5 +77,15 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <ImportExportContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.ImageGallery,
+        name: 'ImageGallery',
+        description: 'ImageGallery',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <GalleryContainer {...props} />,
     },
 ];
