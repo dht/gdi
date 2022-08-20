@@ -8,7 +8,7 @@ export const PanelContentContainer = () => {
 
     return (
         <>
-            <ContentContainer instance={instance} />
+            <ContentContainer instance={instance} panel />
         </>
     );
 };

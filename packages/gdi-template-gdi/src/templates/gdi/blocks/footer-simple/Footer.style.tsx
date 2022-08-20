@@ -52,3 +52,13 @@ export const Link = styled.a`
     }
 `;
 export const Copy = styled.div``;
+
+export const GDI = styled.div`
+    margin-left: 30px;
+
+    &:before {
+        content: '•';
+        position: relative;
+        right: 15px;
+    }
+`;

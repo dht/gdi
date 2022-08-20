@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import Mixer from '../components/Mixer/Mixer';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import Views from '../components/Views/Views';
@@ -11,8 +10,6 @@ export const ViewsContainer = () => {
 
     const onChange = useCallback(
         (mode: IViewMode) => {
-            console.log('mode ->', mode);
-
             dispatch(actions.appStateMixer.patch({ mode }));
         },
         [mode]

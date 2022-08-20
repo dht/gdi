@@ -6,6 +6,7 @@ import {
     EngineContextProvider,
 } from '../../context/Engine.context';
 import { Container, Loading } from './EngineView.style';
+import { SiteContextProvider } from '../../context/Site.context';
 
 export type EngineViewProps = {
     elements: IElement[];
@@ -46,9 +47,13 @@ export function EngineInner(props: EngineViewProps) {
 }
 
 export function EngineView(props: EngineViewProps) {
+    const { elements } = props;
+
     return (
         <EngineContextProvider>
-            <EngineInner {...props} />
+            <SiteContextProvider elements={elements}>
+                <EngineInner {...props} />
+            </SiteContextProvider>
         </EngineContextProvider>
     );
 }

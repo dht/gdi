@@ -77,14 +77,21 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
         return output;
     }, []);
 
-    return (
-        <SideMenu data={menuItemsSorted} groups={menuGroups}>
+    function renderUserMenu() {
+        return (
             <UserMenuWrapper>
                 <UserMenu user={user} items={items} onClick={onUserMenuClick} />
             </UserMenuWrapper>
-        </SideMenu>
-    );
+        );
+    }
+
+    return <SideMenu data={menuItemsSorted} groups={menuGroups} />;
 }
+
+/*
+renderUserMenu()}
+</SideMenu>
+*/
 
 const UserMenuWrapper = styled.div`
     position: absolute;

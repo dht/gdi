@@ -5,17 +5,22 @@ export const params: IBlockParams = {
     id,
     schema: {
         strings: {
-            slogan: false,
-            header: true,
-            description: false,
-            ctaButtonText: true,
+            slogan: 'text?',
+            header: 'text',
+            description: 'text?',
+            ctaButtonText: 'text',
+            imageCreditsTitle: 'text?',
+            imageCreditsDescription: 'text?',
         },
         colors: {
-            background: '#1a7870',
+            background: 'color?',
+            text: 'color?',
         },
         extra: {
+            headerFontSize: 'number',
             href: 'url',
-            imageUrl: 'url',
+            hrefSecond: 'url?',
+            imageUrl: 'image',
         },
     },
 };

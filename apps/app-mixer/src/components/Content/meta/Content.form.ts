@@ -4,9 +4,9 @@ export const formConfig: IFormConfig = {
     id: 'Update Person',
     sequence: 1,
     layout: {
-        flavour: 'twoColumns',
-        width: 600,
-        flex: [2, 3],
+        flavour: 'threeColumns',
+        width: 880,
+        flex: [2, 2, 1],
         labelSize: 'compact',
     },
     groups: [
@@ -15,8 +15,12 @@ export const formConfig: IFormConfig = {
             layoutColumnIndex: 0,
         },
         {
-            id: 'colors',
+            id: 'extra',
             layoutColumnIndex: 1,
+        },
+        {
+            id: 'colors',
+            layoutColumnIndex: 2,
         },
     ],
     fields: [
@@ -51,7 +55,7 @@ export const formConfig: IFormConfig = {
             fieldType: 'text',
             label: 'CTA Button',
             placeholder: "Button's text",
-            groupId: 'basic',
+            groupId: 'extra',
         },
         {
             id: 'backgroundColor',

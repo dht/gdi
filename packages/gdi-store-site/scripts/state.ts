@@ -230,10 +230,13 @@ export default {
                 'An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //',
             strings_ctaButtonText: 'Get Started',
             strings_secondButtonText: 'Github',
+            strings_imageCreditsTitle: 'MidJourney AI-generated image',
+            strings_imageCreditsDescription:
+                'futuristic phone concept neon colorful abstract --ar 3:2',
             colors_text: 'white',
             extra_href: 'https://github.com/dht/gdi/docs',
             extra_hrefSecond: 'https://github.com/dht/gdi/docs',
-            extra_headerSize: 70,
+            extra_headerFontSize: 70,
             extra_imageUrl: 'https://appofthebox.web.app/6.png',
         },
         'home-userBar-simple-1': {
@@ -336,7 +339,7 @@ export default {
             strings_ctaButtonText: 'How to join?',
             strings_header: 'People who joined recently',
             strings_description:
-                'Start adding your own templates and blocks, contribute your thoughts and idea, join the discussion //',
+                'Start adding your own templates and blocks, contribute your thoughts and ideas, join the discussion //',
             extra_href: 'https://github.com/dht/gdi',
             extra_backgroundImageUrl: 'https://appofthebox.web.app/1.png',
         },

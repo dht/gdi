@@ -14,7 +14,7 @@ export const heroData: HeroProps = {
     extra: {
         href: 'https://github.com/dht/gdi/docs',
         hrefSecond: 'https://github.com/dht/gdi',
-        imageUrl: 'https://appofthebox.web.app/6.png',
+        imageUrl: '/6.png',
         headerSize: 70,
     },
 };
