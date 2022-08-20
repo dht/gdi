@@ -1,7 +1,7 @@
 import { createPage } from '../Page/Page';
 import { OverlayContainer } from '../../containers/OverlayContainer';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { useContext, useMemo } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 import {
     IWidgetInstance,
     IWidgetInstancesByPageDictionary,
@@ -11,6 +11,9 @@ import useMount from 'react-use/lib/useMount';
 import { useDispatch } from 'react-redux';
 import { PlatformContext } from '../../../core/platform-context';
 import { PlatformLifeCycleEvents } from '../../../core/platform-lifecycle';
+import { ICommandBarItem } from '../../../types';
+import { SideMenuContainer } from '../../containers/SideMenuContainer';
+import { CommandBar, ContextBar } from '@gdi/web-ui';
 
 export const MainRoutes = () => {
     const { routes, initialRoute = '/home' } = useContext(PlatformContext);
@@ -42,15 +45,30 @@ export const MainRoutes = () => {
 
 export const App = () => {
     const dispatch = useDispatch();
+    const { store, contextBarItems, widgetLibrary, commandBarItems } =
+        useContext(PlatformContext);
 
     useMount(() => {
         dispatch({ type: PlatformLifeCycleEvents.AUTHENTICATION_START });
     });
 
+    const onCommandBar = useCallback(
+        (command: ICommandBarItem) => {
+            store.dispatch(command.action);
+        },
+        [store]
+    );
+
     return (
         <>
             <MainRoutes />
             <OverlayRoutes />
+            <SideMenuContainer />
+            <ContextBar
+                contextBarItems={contextBarItems}
+                widgetLibrary={widgetLibrary}
+            />
+            <CommandBar items={commandBarItems} onRun={onCommandBar} />
         </>
     );
 };
@@ -65,6 +83,7 @@ export const AllRoutes = () => {
                 .map((pageId) => {
                     const path = routes[pageId];
                     const Cmp = createPage(pageId);
+
                     return (
                         <Route
                             key={path}

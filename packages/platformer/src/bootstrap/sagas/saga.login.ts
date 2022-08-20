@@ -43,7 +43,7 @@ type OnLoginCompletedAction = {
 };
 
 type LogoutAction = {
-    type: 'LOGOUT';
+    type: 'LOGOUT2';
 };
 
 function* loginCheck() {
@@ -97,5 +97,5 @@ export function* root() {
     yield takeEvery('ON_LOGIN_COMPLETED', onLoginCompleted);
     yield takeEvery('ON_LOGIN_ERROR', onLoginError);
     yield takeEvery('ON_LOGOUT', onLogout);
-    yield takeEvery('LOGOUT', logout);
+    yield takeEvery('LOGOUT2', logout);
 }

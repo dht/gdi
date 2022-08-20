@@ -16,6 +16,8 @@
         "baseUrl": "../../",
         "paths": {
             "@gdi/app-mixer": ["apps/app-mixer"],
+            "@gdi/app-login": ["apps/app-login"],
+            "@gdi/store-auth": ["packages/gdi-store-auth"],
             "@gdi/store-mixer": ["packages/gdi-store-mixer"],
             "@gdi/store-site": ["packages/gdi-store-site"],
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],

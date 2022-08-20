@@ -22,26 +22,11 @@ export type BootstrapProps = {
 };
 
 export const Bootstrap = (props: BootstrapProps) => {
-    const {
-        store,
-        isReady,
-        contextBarItems,
-        widgetLibrary,
-        commandBarItems,
-        patchContext,
-        isRtl,
-    } = useContext(PlatformContext);
+    const { store, isReady, patchContext, isRtl } = useContext(PlatformContext);
 
     useMount(() => {
         bootstrapApp(props, patchContext);
     });
-
-    const onCommandBar = useCallback(
-        (command: ICommandBarItem) => {
-            store.dispatch(command.action);
-        },
-        [store]
-    );
 
     if (!isReady) {
         return <ScreenLoader darkMode={true} />;
@@ -52,18 +37,10 @@ export const Bootstrap = (props: BootstrapProps) => {
             <Provider store={store}>
                 <I18nProvider>
                     <Router>
-                        <SideMenuContainer />
                         <Content isRtl={isRtl}>
                             <AllRoutes />
                         </Content>
-                        <ContextBar
-                            contextBarItems={contextBarItems}
-                            widgetLibrary={widgetLibrary}
-                        />
-                        <CommandBar
-                            items={commandBarItems}
-                            onRun={onCommandBar}
-                        />
+
                         <History />
                     </Router>
                     <ToastBarContainer />

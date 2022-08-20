@@ -21,6 +21,7 @@ import { ApiConfigBuilder } from './api-builder/ApiConfigBuilder';
 import { PlatformLifeCycleEvents } from './core/platform-lifecycle';
 import { I18nBuilder } from './i18n/builders/I18nBuilder';
 import { initI18n } from './i18n/i18n.instance';
+import { firebase } from './firebase/firebase';
 
 const DEBUG = false;
 
@@ -118,15 +119,7 @@ export async function initPlatform<T extends StoreStructure>(
         axios,
     });
 
-    const firestoreAdapter = new FirestoreAdapter({
-        apiKey: 'AIzaSyCf029JwrJoA-9CHtweZHqD0z-KXGNVnX8',
-        authDomain: 'amazing-de4d0.firebaseapp.com',
-        databaseURL: 'https://amazing-de4d0.firebaseio.com',
-        projectId: 'amazing-de4d0',
-        storageBucket: 'amazing-de4d0.appspot.com',
-        messagingSenderId: '114773355011',
-        appId: '1:114773355011:web:15a08553322f1cfa8c7c36',
-    });
+    const firestoreAdapter = new FirestoreAdapter(firebase.value.app);
 
     logger('platform: configuring API', {
         default: DEFAULT_ENDPOINT_CONFIG,
