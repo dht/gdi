@@ -14,8 +14,7 @@ export const Container = styled.div<{
     right: 0;
     min-height: 100px;
     transition: all 150ms ease-out;
-    background-color: ${(props) =>
-        props.colors.backgroundColor || 'transparent'};
+    background-color: ${(props) => props.colors.background || 'transparent'};
 
     @media (max-width: 768px) {
         height: auto;

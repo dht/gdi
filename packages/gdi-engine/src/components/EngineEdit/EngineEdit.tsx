@@ -6,6 +6,7 @@ import {
     EngineContextProvider,
 } from '../../context/Engine.context';
 import { Container, Loading } from './EngineEdit.style';
+import { SiteContextProvider } from '../../context/Site.context';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
 
@@ -58,10 +59,14 @@ export function EngineInner(props: EngineEditProps) {
 }
 
 export function EngineEdit(props: EngineEditProps) {
+    const { elements } = props;
+
     return (
-        <EngineContextProvider>
-            <EngineInner {...props} />
-        </EngineContextProvider>
+        <SiteContextProvider elements={elements}>
+            <EngineContextProvider>
+                <EngineInner {...props} />
+            </EngineContextProvider>
+        </SiteContextProvider>
     );
 }
 

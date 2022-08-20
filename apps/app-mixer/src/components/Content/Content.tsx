@@ -12,10 +12,11 @@ export type ContentProps = {
     callbacks: {
         onSave: (data: Json) => Promise<any>;
     };
+    panel?: boolean;
 };
 
 export function Content(props: ContentProps) {
-    const { instance, callbacks } = props;
+    const { instance, callbacks, panel } = props;
 
     function onChange(change: Json) {
         console.log('change ->', change);

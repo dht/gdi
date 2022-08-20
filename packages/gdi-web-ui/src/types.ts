@@ -27,10 +27,28 @@ export type ISampleData = {
 
 export type ISampleDataPerFlavour = Record<FlavourId, ISampleData>;
 
+export type FieldType =
+    | 'number'
+    | 'number?'
+    | 'text'
+    | 'text?'
+    | 'url'
+    | 'url?'
+    | 'checkbox'
+    | 'checkbox?'
+    | 'image'
+    | 'image?';
+
+export type FieldTypeColor = 'color' | 'color?';
+
+export type IBlockSchemaStrings = Record<string, FieldType>;
+export type IBlockSchemaColors = Record<string, FieldTypeColor>;
+export type IBlockSchemaExtra = Record<string, FieldType>;
+
 export type IBlockSchema = {
-    strings: Json;
-    colors: Json;
-    extra: Json;
+    strings: IBlockSchemaStrings;
+    colors: IBlockSchemaColors;
+    extra: IBlockSchemaExtra;
 };
 
 export type IImageInfo = {

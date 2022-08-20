@@ -165,7 +165,7 @@ export const initialState: ISiteStore = {
             colors_text: 'white',
             extra_href: 'https://github.com/dht/gdi/docs',
             extra_hrefSecond: 'https://github.com/dht/gdi/docs',
-            extra_headerSize: 70,
+            extra_headerFontSize: 70,
             extra_imageUrl: 'https://appofthebox.web.app/6.png',
         },
     },

@@ -9,6 +9,9 @@ export const sampleData: ISampleDataPerFlavour = {
             header: 'gDI',
             description:
                 'An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //',
+            imageCreditsTitle: 'MidJourney AI-generated image',
+            imageCreditsDescription:
+                'futuristic phone concept neon colorful abstract --ar 3:2',
         },
         colors: {
             text: '#fff',
@@ -17,7 +20,7 @@ export const sampleData: ISampleDataPerFlavour = {
             href: 'https://github.com/dht/gdi/docs',
             hrefSecond: 'https://github.com/dht/gdi',
             imageUrl: 'https://appofthebox.web.app/6.png',
-            headerSize: 70,
+            headerFontSize: 70,
         },
     },
     blue: {
@@ -35,7 +38,7 @@ export const sampleData: ISampleDataPerFlavour = {
             href: 'https://github.com/dht/gdi/docs',
             hrefSecond: 'https://github.com/dht/gdi',
             imageUrl: 'https://appofthebox.web.app/7.png',
-            headerSize: 70,
+            headerFontSize: 70,
         },
     },
 };

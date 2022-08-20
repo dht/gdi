@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Logo from '../../components/Logo/Logo';
 import TopMenu from '../../components/TopMenu/TopMenu';
 import GithubLink from '../../components/GithubLink/GithubLink';
@@ -6,6 +6,8 @@ import { Container, Actions, Wrapper } from './UserBar.style';
 import classnames from 'classnames';
 import { throttle } from 'lodash';
 import UserBarMobile from './mobile/UserBarMobile';
+import { SiteContext } from '@gdi/engine';
+import { IMenuItem } from '@gdi/platformer';
 
 export const id = 'com.usegdi.templates.gdi.userBar-simple';
 
@@ -21,18 +23,24 @@ export type UserBarProps = {
 export type UserBarStrings = {};
 
 export type UserBarColors = {
-    backgroundColor?: string;
+    background?: string;
 };
 
 export type UserBarExtra = {
     logoImageUrl: string;
-    items: any[];
     githubLink: string;
+    items: any[];
 };
 
 export function UserBar(props: UserBarProps) {
-    const { colors, extra, isEditMode } = props;
-    const { items = [], githubLink } = extra;
+    const { colors, extra, isScreenshotMode } = props;
+    const { githubLink, items = [] } = extra;
+    let { menuItems } = useContext(SiteContext);
+
+    // for screenshots
+    if (!menuItems || menuItems.length === 0) {
+        menuItems = items;
+    }
 
     const scrollTop = useScroll();
 
@@ -46,7 +54,7 @@ export function UserBar(props: UserBarProps) {
 
     let position = props.isEditMode ? 'absolute' : 'fixed';
 
-    if (props.isScreenshotMode) {
+    if (isScreenshotMode) {
         position = 'static';
     }
 
@@ -60,7 +68,7 @@ export function UserBar(props: UserBarProps) {
             >
                 <Wrapper>
                     <Logo />
-                    <TopMenu items={items} />
+                    <TopMenu items={menuItems} />
                     <Actions>
                         {githubLink && <GithubLink href={githubLink} />}
                     </Actions>

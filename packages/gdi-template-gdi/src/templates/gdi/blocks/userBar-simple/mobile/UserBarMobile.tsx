@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import classnames from 'classnames';
 import {
     Container,
@@ -13,6 +13,7 @@ import {
 import { useToggle } from 'react-use';
 import { Logo } from '@gdi/web-ui';
 import TopMenu from '../../../components/TopMenu/TopMenu';
+import { SiteContext } from '@gdi/engine';
 
 export type UserBarMobileProps = {
     sequence?: number;
@@ -27,14 +28,14 @@ export type UserBarColors = {};
 
 export type UserBarExtra = {
     logoImageUrl: string;
-    items: any[];
     githubLink: string;
 };
 
 export function UserBarMobile(props: UserBarMobileProps) {
     const { colors, extra } = props;
-    const { items = [], githubLink } = extra;
+    const { githubLink } = extra;
     const [isMenuOn, toggleMenu] = useToggle(false);
+    const { menuItems } = useContext(SiteContext);
 
     const className = classnames('UserBarMobile-container');
 
@@ -62,7 +63,7 @@ export function UserBarMobile(props: UserBarMobileProps) {
                 </Link>
                 <Flex />
                 <Menu>
-                    <TopMenu items={items} />
+                    <TopMenu items={menuItems} />
                 </Menu>
                 <Flex />
                 <Actions></Actions>

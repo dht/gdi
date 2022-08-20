@@ -46,46 +46,6 @@ export const Text = styled.div`
     color: #eee;
 `;
 
-export const Actions = styled.div`
-    margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-`;
-
-export const CTA = styled.a<{ colors: InstallationColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
-    }
-
-    &:active {
-        position: relative;
-        bottom: 2px;
-        left: 2px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
-    }
-`;
-
 export const MoreInstructions = styled.div`
     margin-top: 100px;
     font-size: 26px;

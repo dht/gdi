@@ -29,6 +29,8 @@ export type HeroStrings = {
     description?: string;
     ctaButtonText: string;
     secondButtonText?: string;
+    imageCreditsTitle?: string;
+    imageCreditsDescription?: string;
 };
 
 export type HeroColors = {
@@ -37,7 +39,7 @@ export type HeroColors = {
 };
 
 export type HeroExtra = {
-    headerSize: number;
+    headerFontSize: number;
     href: string;
     hrefSecond?: string;
     imageUrl: string;
@@ -45,9 +47,21 @@ export type HeroExtra = {
 
 export function Hero(props: HeroProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText, secondButtonText } =
-        strings;
-    const { imageUrl, href = '#', hrefSecond = '#', headerSize = 42 } = extra;
+    const {
+        slogan,
+        header,
+        description,
+        ctaButtonText,
+        secondButtonText,
+        imageCreditsTitle,
+        imageCreditsDescription,
+    } = strings;
+    const {
+        imageUrl,
+        href = '#',
+        hrefSecond = '#',
+        headerFontSize = 42,
+    } = extra;
 
     const style = {
         backgroundImage: `url(${imageUrl})`,
@@ -63,7 +77,7 @@ export function Hero(props: HeroProps) {
             <Wrapper>
                 <Details>
                     {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1 size={headerSize}>{header}</H1>
+                    <H1 size={headerFontSize}>{header}</H1>
                     {description && <P>{description}</P>}
                     <Actions>
                         <CTA colors={colors} href={href}>
@@ -76,14 +90,16 @@ export function Hero(props: HeroProps) {
                         )}
                     </Actions>
                 </Details>
-                <ImageCredits>
-                    <ImageCreditsTitle>
-                        MidJourney AI-generated image
-                    </ImageCreditsTitle>
-                    <ImageCreditDescription>
-                        futuristic phone concept neon colorful abstract --ar 3:2
-                    </ImageCreditDescription>
-                </ImageCredits>
+                {imageCreditsTitle && (
+                    <ImageCredits>
+                        <ImageCreditsTitle>
+                            {imageCreditsTitle}
+                        </ImageCreditsTitle>
+                        <ImageCreditDescription>
+                            {imageCreditsDescription}
+                        </ImageCreditDescription>
+                    </ImageCredits>
+                )}
             </Wrapper>
         </Container>
     );

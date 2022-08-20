@@ -6,7 +6,7 @@ export const imageAndTextData: ImageAndTextProps = {
         ctaButtonText: 'How to join?',
         header: 'People who joined recently',
         description:
-            'Start adding your own templates and blocks, contribute your thoughts and idea, join the discussion //',
+            'Start adding your own templates and blocks, contribute your thoughts and ideas, join the discussion //',
     },
     colors: {},
     extra: {

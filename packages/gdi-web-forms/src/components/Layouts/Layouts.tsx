@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, RefObject, useRef } from 'react';
+import { useMount } from 'react-use';
 import { IFormLayoutGroup, LayoutFlavour } from '../../types';
 import { Column, Container } from './Layouts.style';
 
@@ -11,7 +12,7 @@ export type LayoutProps = {
 };
 
 export function LayoutSingleColumn(props: LayoutProps) {
-    const { groups, width, padding = 0 } = props;
+    const { groups, width, padding = 10 } = props;
 
     function renderColumn(columnIndex: number) {
         const style = {
@@ -40,7 +41,7 @@ export function LayoutSingleColumn(props: LayoutProps) {
 }
 
 export function LayoutTwoColumns(props: LayoutProps) {
-    const { groups, width, flex = [], padding = 0 } = props;
+    const { groups, width, flex = [], padding = 10 } = props;
 
     function renderColumn(columnIndex: number) {
         const style = {
@@ -70,7 +71,7 @@ export function LayoutTwoColumns(props: LayoutProps) {
 }
 
 export function LayoutThreeColumns(props: LayoutProps) {
-    const { groups, width, flex = [], padding = 0 } = props;
+    const { groups, width, flex = [], padding = 10 } = props;
 
     function renderColumn(columnIndex: number) {
         const style = {

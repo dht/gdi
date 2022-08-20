@@ -8,7 +8,7 @@ export const sampleData: ISampleDataPerFlavour = {
             ctaButtonText: 'How to join?',
             header: 'People who joined recently',
             description:
-                'Start adding your own templates and blocks, contribute your thoughts and idea, join the discussion //',
+                'With morning you are an effective team that gets things done, every minute, every hour, every day',
         },
         colors: {},
         extra: {

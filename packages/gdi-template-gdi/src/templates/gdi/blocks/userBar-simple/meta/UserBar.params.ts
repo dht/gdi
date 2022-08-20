@@ -4,18 +4,13 @@ import { id } from '../UserBar';
 export const params: IBlockParams = {
     id,
     schema: {
-        strings: {
-            slogan: false,
-            header: true,
-            description: false,
-            ctaButtonText: true,
-        },
+        strings: {},
         colors: {
-            background: '#1a7870',
+            background: 'color?',
         },
         extra: {
-            href: 'url',
-            imageUrl: 'url',
+            logoImageUrl: 'url',
+            githubLink: 'url',
         },
     },
 };

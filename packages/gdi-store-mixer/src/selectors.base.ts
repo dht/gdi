@@ -8,6 +8,7 @@ import { site } from '@gdi/store-site';
 import { toArray } from 'shared-base';
 
 const rawSite = site.selectors.raw;
+const baseSite = site.selectors.base;
 
 export const $i = (state: IMixerStore) => state;
 
@@ -54,9 +55,11 @@ export const $inspector = createSelector(
 
 export const $content = createSelector(
     raw.$rawCurrentIds,
-    rawSite.$rawInstances,
-    (currentIds, instances: IWidgetInstances) => {
-        return instances[currentIds.contentInstanceId];
+    baseSite.$elements,
+    (currentIds, elements: IElement[]) => {
+        return elements.find(
+            (element) => element.id === currentIds.contentInstanceId
+        );
     }
 );
 

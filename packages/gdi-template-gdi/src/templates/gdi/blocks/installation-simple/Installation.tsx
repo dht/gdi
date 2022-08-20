@@ -1,8 +1,6 @@
 import React from 'react';
 import {
     Container,
-    Actions,
-    CTA,
     MoreInstructions,
     Details,
     Text,

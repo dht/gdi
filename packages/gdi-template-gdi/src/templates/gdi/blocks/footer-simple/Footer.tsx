@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Wrapper, Links, Link, Copy } from './Footer.style';
+import { Container, Wrapper, Links, Link, Copy, GDI } from './Footer.style';
 
 export const id = 'com.usegdi.templates.gdi.footer-simple';
 
@@ -35,6 +35,12 @@ export function Footer(props: FooterProps) {
                 <Links>
                     <Link href='/terms'>Terms of use</Link>
                     <Link href='/privacy'>Privacy</Link>
+                    <GDI>
+                        Powered by{' '}
+                        <a href='https://usegdi.com' target='_blank'>
+                            gDI
+                        </a>
+                    </GDI>
                 </Links>
             </Wrapper>
         </Container>

@@ -13,17 +13,17 @@ type IMenuItem = {
 export function TopMenu(props: TopMenuProps) {
     const { items } = props;
 
-    function renderItem(item: IMenuItem) {
+    function renderItem(item: IMenuItem, index: number) {
         const { title, href } = item;
         return (
-            <Link key={item.title} className='item' href={href}>
+            <Link key={item.title + index} className='item' href={href}>
                 {title}
             </Link>
         );
     }
 
     function renderItems() {
-        return items.map((item: IMenuItem) => renderItem(item));
+        return items.map((item: IMenuItem, index) => renderItem(item, index));
     }
 
     return (
