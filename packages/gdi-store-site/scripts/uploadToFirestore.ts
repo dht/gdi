@@ -10,7 +10,7 @@ import {
     addDoc,
     writeBatch,
 } from 'firebase/firestore/lite';
-import state from './state';
+import { state } from './state';
 
 type Json = Record<string, any>;
 
@@ -127,7 +127,9 @@ const nodeTypes = {
     spacing: 'single',
     fonts: 'single',
     instances: 'collection',
-    widgets: 'collection',
+    blocks: 'collection',
+    images: 'collection',
+    pages: 'collection',
     instancesMapColors: 'collection',
     instancesMapStrings: 'collection',
     instancesProps: 'collection',
@@ -140,7 +142,7 @@ const getByType = (nodeType: string) => {
         .map((key) => {
             const nodeData = state[key];
             return [key, nodeData];
-        });
+        }) as [string, Json][];
 };
 
 const run = async () => {

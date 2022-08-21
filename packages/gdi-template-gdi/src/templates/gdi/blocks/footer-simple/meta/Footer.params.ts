@@ -1,11 +1,11 @@
-import { IBlockParams } from '@gdi/web-ui';
+import { IBlockParams } from '@gdi/engine';
 import { id } from '../Footer';
 
 export const params: IBlockParams = {
     id,
     schema: {
         strings: {
-            copyright: 'text',
+            copyright: { fieldType: 'text', isRequired: true, order: 0 },
         },
         colors: {},
         extra: {},

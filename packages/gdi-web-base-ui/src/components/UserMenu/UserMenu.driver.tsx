@@ -5,11 +5,6 @@ import { BaseComponentDriver } from 'testing-base';
 
 export class UserMenuDriver extends BaseComponentDriver {
     private props: Partial<UserMenuProps> = {
-        user: {
-            name: '',
-            company: '',
-            imageUrl: '',
-        },
         items: [],
         onClick: (id: string) => {},
     };

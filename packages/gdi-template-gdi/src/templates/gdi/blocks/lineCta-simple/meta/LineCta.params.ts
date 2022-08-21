@@ -1,20 +1,20 @@
-import { IBlockParams } from '@gdi/web-ui';
+import { IBlockParams } from '@gdi/engine';
 import { id } from '../LineCta';
 
 export const params: IBlockParams = {
     id,
     schema: {
         strings: {
-            textStrong: 'text?',
-            text: 'text',
-            ctaButtonText: 'text',
+            textStrong: { fieldType: 'text', order: 0 },
+            text: { fieldType: 'text', isRequired: true, order: 1 },
+            ctaButtonText: { fieldType: 'text', isRequired: true, order: 2 },
         },
         colors: {
-            background: 'color?',
-            text: 'color?',
+            background: { fieldType: 'color', order: 0 },
+            text: { fieldType: 'color', order: 1 },
         },
         extra: {
-            href: 'text',
+            href: { fieldType: 'url', isRequired: true, order: 0 },
         },
     },
 };

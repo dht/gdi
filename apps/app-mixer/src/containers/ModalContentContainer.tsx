@@ -6,19 +6,19 @@ import { ContentContainer } from './ContentContainer';
 
 export const ModalContentContainer = () => {
     const dispatch = useDispatch();
-    const instance = useSelector(selectors.base.$content);
+    const element = useSelector(selectors.base.$elementContent);
 
     function onClose() {
         dispatch(actions.currentIds.patch({ contentInstanceId: '' }));
     }
 
-    if (!instance) {
+    if (!element) {
         return null;
     }
 
     return (
         <Modal open={true} title='Content' onClose={onClose}>
-            <ContentContainer instance={instance} />
+            <ContentContainer />
         </Modal>
     );
 };

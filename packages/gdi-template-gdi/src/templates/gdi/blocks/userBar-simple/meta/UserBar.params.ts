@@ -1,4 +1,4 @@
-import { IBlockParams } from '@gdi/web-ui';
+import { IBlockParams } from '@gdi/engine';
 import { id } from '../UserBar';
 
 export const params: IBlockParams = {
@@ -6,11 +6,11 @@ export const params: IBlockParams = {
     schema: {
         strings: {},
         colors: {
-            background: 'color?',
+            background: { fieldType: 'color', order: 0 },
         },
         extra: {
-            logoImageUrl: 'url',
-            githubLink: 'url',
+            logoImageUrl: { fieldType: 'url', isRequired: true, order: 0 },
+            githubLink: { fieldType: 'url', isRequired: true, order: 1 },
         },
     },
 };

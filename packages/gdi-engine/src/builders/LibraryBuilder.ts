@@ -1,4 +1,4 @@
-import { IBlocks, ITemplates } from '@gdi/web-ui';
+import { IBlocks, ITemplates } from '../types';
 
 type LibraryBuilderResponse = {
     templates: ITemplates;

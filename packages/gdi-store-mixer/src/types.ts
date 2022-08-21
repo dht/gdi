@@ -5,16 +5,15 @@ import type {
     IWidgets,
 } from 'igrid';
 import type { StoreStructure } from 'redux-store-generator';
+import { IBlockInfo } from '@gdi/engine';
 
 export type IMixerStore = StoreStructure & {
     appStateMixer: IMixerState;
     currentIds: ICurrentIds;
     meta: IMeta;
-    locale: ILocale;
     galleryState: IGalleryState;
-    pages: IPages;
     libraryImages: IImages;
-    libraryBlocks: IWidgets;
+    libraryBlocks: Record<string, IBlockInfo>;
     libraryTypography: ITypographyOptions;
     libraryPalettes: IPaletteOptions;
     locales: ILocaleOptions;
@@ -40,21 +39,6 @@ export type ICurrentIds = {
 export type IMeta = {
     schemaVersion: string;
 };
-
-export type ILocale = {
-    localeId: string;
-    isRtl: boolean;
-};
-
-export type IPage = {
-    id: string;
-    title: string;
-    description: string;
-    iconName?: string;
-    order?: number;
-};
-
-export type IPages = Record<string, IPage>;
 
 export type ITypography = {
     id: string;

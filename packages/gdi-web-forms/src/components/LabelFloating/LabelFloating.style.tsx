@@ -7,8 +7,8 @@ export const Container = styled.div`
 `;
 
 export const LabelValue = styled.label`
-    font-size: 11px;
-    color: gold;
+    font-size: 12px;
+    color: #778;
     margin-bottom: 12px;
     display: block;
 
@@ -48,8 +48,9 @@ export const Row = styled.div`
 
 export const Asterisk = styled.div`
     color: red;
-    font-size: 20px;
+    font-size: 18px;
     margin: 0 5px;
+    line-height: 0px;
 
     @media (max-width: 768px) {
         font-size: 25px;

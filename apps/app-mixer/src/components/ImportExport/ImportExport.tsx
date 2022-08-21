@@ -22,12 +22,12 @@ export function ImportExport(props: ImportExportProps) {
             data-testid='ImportExport-container'
         >
             <Button primary iconName='OpenInNewTab' tooltip='Show preview' />
-            <Button
+            {/* <Button
                 iconName='TestBeaker'
                 selectedOptionId={mode as string}
                 onMenuClick={onMenuClick}
                 options={options}
-            />
+            /> */}
 
             <Button iconName='Download' tooltip='Download JSON' />
             <Button iconName='World' tooltip='Load JSON from URL' />

@@ -18,42 +18,8 @@ import { FormProvider, useForm, UseFormWatch } from 'react-hook-form';
 import { useMount, useSetState } from 'react-use';
 import { Submit } from '../Submit/Submit';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 import { get, isEmpty } from 'lodash';
-
-import { setLocale } from 'yup';
-
-setLocale({
-    mixed: {
-        default: 'field_invalid',
-        required: () => ({ key: 'field_required' }),
-    },
-    string: {
-        email: () => ({ key: 'field_valid_email' }),
-    },
-    number: {
-        min: ({ min }) => ({ key: 'field_too_small', values: { min } }),
-        max: ({ max }) => ({ key: 'field_too_big', values: { max } }),
-    },
-    date: {},
-    boolean: {},
-    object: {},
-    array: {
-        min: ({ min }) => ({ key: 'field_required', values: { min } }),
-    },
-});
-
-const schema = yup.object({
-    preferredDays: yup.array().of(yup.string()).min(1),
-    preferredDayParts: yup.array().of(yup.string()).min(1),
-    preferredCommunicationMethod: yup.array().of(yup.string()).min(1),
-    email: yup.string().email().required(),
-    businessName: yup.string().required(),
-    fullName: yup.string().required(),
-    businessType: yup.string().required(),
-    phoneNumber: yup.string().required(),
-    notes: yup.string().max(500),
-});
+import { rulesToYup } from '../../utils/yup';
 
 export type FormProps = {
     config: IFormConfig;
@@ -62,7 +28,7 @@ export type FormProps = {
     allDetails: AllDetails;
     autoFocus?: boolean;
     showGroup?: (groupId: string, data: Json) => boolean;
-    onSave: (change: Json) => Promise<boolean>;
+    onSave: (change: Json, allData: Json) => Promise<boolean>;
     onChange: (change: Json) => void;
     onClose?: () => void;
     children?: JSX.Element | JSX.Element[];
@@ -76,6 +42,9 @@ export function Form(props: FormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { groupId: submitGroupId } = submit;
     const { flavour, labelSize } = layout;
+
+    const schema = rulesToYup(config);
+
     const methods = useForm({
         defaultValues: data,
         resolver: yupResolver(schema),
@@ -150,11 +119,24 @@ export function Form(props: FormProps) {
         return () => subscription.unsubscribe();
     }, [watch]);
 
-    const onSubmit = async (data: Json) => {
-        setIsSubmitting(true);
-        const response = await props.onSave(data);
-        setIsSubmitting(false);
-    };
+    const onSubmit = useCallback(
+        async (allData: Json) => {
+            setIsSubmitting(true);
+
+            const { dirtyFields } = formState;
+
+            const change = Object.keys(dirtyFields)
+                .filter((key) => dirtyFields[key])
+                .reduce((output, key) => {
+                    output[key] = allData[key];
+                    return output;
+                }, {} as Json);
+
+            const response = await props.onSave(change, allData);
+            setIsSubmitting(false);
+        },
+        [formState.dirtyFields]
+    );
 
     function renderField(field: IFormField) {
         const { id } = field;

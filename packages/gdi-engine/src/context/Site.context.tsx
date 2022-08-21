@@ -1,5 +1,4 @@
 import { IElement } from '@gdi/store-mixer';
-import { IBlocks } from '@gdi/web-ui';
 import React, { useContext } from 'react';
 import { createContext, useEffect } from 'react';
 import { useSetState } from 'react-use';

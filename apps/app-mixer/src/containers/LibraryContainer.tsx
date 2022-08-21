@@ -7,7 +7,7 @@ import { IGalleryState } from '@gdi/store-mixer';
 
 export const LibraryContainer = () => {
     const dispatch = useDispatch();
-    const instance = useSelector(selectors.base.$content);
+    const instance = useSelector(selectors.base.$elementContent);
 
     const callbacks = useMemo(
         () => ({

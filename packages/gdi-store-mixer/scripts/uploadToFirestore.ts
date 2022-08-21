@@ -10,7 +10,7 @@ import {
     addDoc,
     writeBatch,
 } from 'firebase/firestore/lite';
-import state from './state';
+import { state } from './state';
 
 type Json = Record<string, any>;
 
@@ -124,8 +124,8 @@ const nodeTypes = {
     appStateMixer: 'single',
     meta: 'single',
     currentIds: 'single',
-    pages: 'collection',
-    libraryWidgets: 'collection',
+    libraryImages: 'collection',
+    libraryBlocks: 'collection',
     libraryTypography: 'collection',
     libraryPalettes: 'collection',
     locales: 'collection',
@@ -138,19 +138,21 @@ const getByType = (nodeType: string) => {
         .map((key) => {
             const nodeData = state[key];
             return [key, nodeData];
-        });
+        }) as [string, Json][];
 };
 
 const run = async () => {
     let promises: Promise<any>[];
 
     promises = getByType('single').map(([key, data]) => {
+        console.log(key + '->', 'single');
         return singlePatch(key, { id: key, ...data });
     });
 
     await Promise.all(promises);
 
     promises = getByType('collection').map(([key, data]) => {
+        console.log(key + '->', 'collection');
         return collectionAddMany(key, data);
     });
 

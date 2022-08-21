@@ -1,7 +1,7 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { getWidgetTypeFromTags } from './utils/widgets';
-import { IElement, IMixerState, IMixerStore, IPages } from './types';
+import { IElement, IMixerState, IMixerStore } from './types';
 import { sortBy } from 'shared-base';
 import { IWidgetInstances } from 'igrid';
 import { site } from '@gdi/store-site';
@@ -9,18 +9,17 @@ import { toArray } from 'shared-base';
 
 const rawSite = site.selectors.raw;
 const baseSite = site.selectors.base;
+export const $elements = site.selectors.base.$elements;
 
 export const $i = (state: IMixerStore) => state;
 
 export const $page = createSelector(
     raw.$rawCurrentIds,
-    raw.$rawPages,
-    (currentIds, pages: IPages) => {
+    rawSite.$rawPages,
+    (currentIds, pages) => {
         return pages[currentIds.pageId];
     }
 );
-
-export const $elements = site.selectors.base.$elements;
 
 export const $pageStructure = createSelector(
     raw.$rawCurrentIds,
@@ -34,7 +33,7 @@ export const $pageStructure = createSelector(
 
 export const $nextElementOrder = createSelector(
     $pageStructure,
-    (elementsInPage: IElement[]) => {
+    (elementsInPage) => {
         const maxOrder = elementsInPage.reduce((output, element) => {
             return Math.max(output, element.order || 0);
         }, 0);
@@ -53,10 +52,10 @@ export const $inspector = createSelector(
     }
 );
 
-export const $content = createSelector(
+export const $elementContent = createSelector(
     raw.$rawCurrentIds,
     baseSite.$elements,
-    (currentIds, elements: IElement[]) => {
+    (currentIds, elements) => {
         return elements.find(
             (element) => element.id === currentIds.contentInstanceId
         );

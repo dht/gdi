@@ -29,24 +29,24 @@ export const $instancesProps = createSelector(
 
 export const $elements = createSelector(
     raw.$rawInstances,
-    raw.$rawWidgets,
+    raw.$rawBlocks,
     $instancesProps,
-    (instances: IWidgetInstances, widgets, instanceProps: Json) => {
+    (instances: IWidgetInstances, blocks, instanceProps: Json) => {
         return Object.values(instances)
             .sort(sortBy('order'))
             .map((instance) => {
-                const widget = Object.values(widgets).find(
+                const block = Object.values(blocks).find(
                     (item) => item.id === instance.widgetId
                 );
 
-                const { tags = [] } = widget || {};
+                const { tags = [] } = block || {};
 
                 const elementType =
                     getWidgetTypeFromTags(tags) || instance.placeholderType;
 
                 return {
                     ...instance,
-                    widget,
+                    block,
                     elementType,
                     instanceProps: instanceProps[instance.id],
                 };

@@ -1,20 +1,20 @@
-import { IBlockParams } from '@gdi/web-ui';
+import { IBlockParams } from '@gdi/engine';
 import { id } from '../Installation';
 
 export const params: IBlockParams = {
     id,
     schema: {
         strings: {
-            command: 'text',
-            nextStage: 'text',
-            nextStageLink: 'text',
+            command: { fieldType: 'text', isRequired: true, order: 0 },
+            nextStage: { fieldType: 'text', isRequired: true, order: 1 },
+            nextStageLink: { fieldType: 'text', isRequired: true, order: 2 },
         },
         colors: {
-            background: 'color?',
-            text: 'color?',
+            background: { fieldType: 'color', order: 0 },
+            text: { fieldType: 'color', order: 1 },
         },
         extra: {
-            hrefNextStage: 'url',
+            hrefNextStage: { fieldType: 'url', isRequired: true, order: 0 },
         },
     },
 };

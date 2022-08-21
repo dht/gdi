@@ -1,18 +1,17 @@
-import type {
-    IWidget,
-    IWidgets,
-    IWidgetInstance,
-    IWidgetInstances,
-} from 'igrid';
+import type { IWidgetInstance, IWidgetInstances } from 'igrid';
 import type { StoreStructure } from 'redux-store-generator';
+import { IBlockInfo } from '@gdi/engine';
 
 export type ISiteStore = StoreStructure & {
     meta: IMeta;
+    locale: ILocale;
+    pages: IPages;
     palette: IPalette;
     fontSizes: IFontSizes;
+    images: IImages;
     spacing: ISpacing;
     fonts: IFonts;
-    widgets: IWidgets;
+    blocks: Record<string, IBlockInfo>;
     instances: IWidgetInstances;
     instancesMapColors: Json;
     instancesMapStrings: Json;
@@ -23,6 +22,21 @@ export type ISiteStore = StoreStructure & {
 export type IMeta = {
     schemaVersion: string;
 };
+
+export type ILocale = {
+    localeId: string;
+    isRtl: boolean;
+};
+
+export type IPage = {
+    id: string;
+    title: string;
+    description: string;
+    iconName?: string;
+    order?: number;
+};
+
+export type IPages = Record<string, IPage>;
 
 export type IPalette = {
     themeDarker: string;
@@ -108,9 +122,20 @@ export type IFonts = {
     fontWeight: string;
 };
 
+export type IImage = {
+    id: string;
+    title: string;
+    imageUrl: string;
+    imageThumbUrl: string;
+    ratio: number;
+    tags: string[];
+};
+
+export type IImages = Record<string, IImage>;
+
 // ======================= SELECTORS OUTPUT =======================
 export type IElement = IWidgetInstance & {
-    widget: IWidget;
+    block: IBlockInfo;
     elementType: string;
     instanceProps: Json;
 };

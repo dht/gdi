@@ -1,4 +1,4 @@
-import { IBlockParams } from '@gdi/web-ui';
+import { IBlockParams } from '@gdi/engine';
 import { id } from '../$CMP';
 
 export const params: IBlockParams = {
