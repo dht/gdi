@@ -66,3 +66,10 @@ export const blocks: IBlocks = {
         info: userBarInfo,
     },
 };
+
+// const i = Object.values(blocks).reduce((output, i) => {
+//     output[i.id] = i.info;
+//     return output;
+// }, {} as Json);
+
+// console.log(JSON.stringify(i, null, 4));

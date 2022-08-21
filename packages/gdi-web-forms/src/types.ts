@@ -46,6 +46,7 @@ export type IFormField = {
     isRequired?: boolean;
     optionSelector?: string;
     params?: Json;
+    order?: number;
 };
 
 export type IFormSubmit = {

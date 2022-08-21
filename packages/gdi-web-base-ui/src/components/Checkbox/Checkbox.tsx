@@ -9,7 +9,7 @@ export type CheckboxProps = {
         ev?: React.FormEvent<HTMLInputElement | HTMLElement>,
         checked?: boolean
     ) => void;
-    children: JSX.Element;
+    children?: JSX.Element;
 };
 
 export function Checkbox(props: CheckboxProps) {
@@ -25,7 +25,7 @@ export function Checkbox(props: CheckboxProps) {
                 defaultChecked={value}
                 onChange={props.onChange}
             />
-            <Content>{props.children}</Content>
+            {props.children && <Content>{props.children}</Content>}
         </Container>
     );
 }

@@ -13,30 +13,30 @@ export const endpointsConfigOverrides: any = {
     },
     pages: {
         id: 'pages',
-        connectionType: 'NONE',
+        connectionType: 'FIRESTORE',
     },
     libraryImages: {
         id: 'libraryImages',
-        connectionType: 'NONE',
+        connectionType: 'FIRESTORE',
     },
-    libraryWidgets: {
-        id: 'libraryWidgets',
-        connectionType: 'NONE',
+    libraryBlocks: {
+        id: 'libraryBlocks',
+        connectionType: 'FIRESTORE',
     },
     libraryTypography: {
         id: 'libraryTypography',
-        connectionType: 'NONE',
+        connectionType: 'FIRESTORE',
     },
     libraryPalettes: {
         id: 'libraryPalettes',
-        connectionType: 'NONE',
+        connectionType: 'FIRESTORE',
     },
     locales: {
         id: 'locales',
-        connectionType: 'NONE',
+        connectionType: 'FIRESTORE',
     },
     packages: {
         id: 'packages',
-        connectionType: 'NONE',
+        connectionType: 'FIRESTORE',
     },
 };

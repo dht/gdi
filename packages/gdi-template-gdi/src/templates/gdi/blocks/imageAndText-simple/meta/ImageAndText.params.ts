@@ -1,23 +1,23 @@
-import { IBlockParams } from '@gdi/web-ui';
+import { IBlockParams } from '@gdi/engine';
 import { id } from '../ImageAndText';
 
 export const params: IBlockParams = {
     id,
     schema: {
         strings: {
-            slogan: 'text?',
-            header: 'text',
-            description: 'text?',
-            ctaButtonText: 'text',
+            slogan: { fieldType: 'text', order: 0 },
+            header: { fieldType: 'text', isRequired: true, order: 1 },
+            description: { fieldType: 'longText', order: 2 },
+            ctaButtonText: { fieldType: 'text', isRequired: true, order: 3 },
         },
         colors: {
-            background: 'color?',
-            text: 'color?',
+            background: { fieldType: 'color', order: 0 },
+            text: { fieldType: 'color', order: 1 },
         },
         extra: {
-            href: 'url',
-            imageUrl: 'url?',
-            backgroundImageUrl: 'url?',
+            href: { fieldType: 'url', isRequired: true, order: 0 },
+            imageUrl: { fieldType: 'image', order: 1 },
+            backgroundImage: { fieldType: 'image', order: 2 },
         },
     },
 };

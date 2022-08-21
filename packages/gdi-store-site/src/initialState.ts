@@ -6,6 +6,19 @@ export const initialState: ISiteStore = {
     meta: {
         schemaVersion: '1.0.1',
     },
+    locale: {
+        localeId: 'en',
+        isRtl: false,
+    },
+    pages: {
+        home: {
+            id: 'home',
+            title: 'Home',
+            description: 'The home page',
+            iconName: 'Home',
+            order: 1,
+        },
+    },
     palette: {
         themeDarker: '#004578',
         themeDark: '#005a9e',
@@ -94,62 +107,34 @@ export const initialState: ISiteStore = {
             order: 1,
         },
     },
-    widgets: {
-        'com.usegdi.templates.gdi.userBar-simple': {
-            id: 'com.usegdi.templates.gdi.userBar-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-userBar'],
-        },
+    blocks: {
         'com.usegdi.templates.gdi.hero-simple': {
             id: 'com.usegdi.templates.gdi.hero-simple',
-            name: '',
+            name: 'hero-simple',
             description: '',
-            defaultDimension: { x: 1, y: 1 },
+            params: {
+                id: 'com.usegdi.templates.gdi.hero-simple',
+                schema: {
+                    strings: {},
+                    colors: {},
+                    extra: {},
+                },
+            },
+            sampleData: {},
+            dimensions: {},
+            screenshots: {},
             tags: ['type-hero'],
         },
-        'com.usegdi.templates.gdi.sectionHeader-simple': {
-            id: 'com.usegdi.templates.gdi.sectionHeader-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-sectionHeader'],
-        },
-        'com.usegdi.templates.gdi.installation-simple': {
-            id: 'com.usegdi.templates.gdi.installation-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-installation'],
-        },
-        'com.usegdi.templates.gdi.feature-simple': {
-            id: 'com.usegdi.templates.gdi.feature-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-feature'],
-        },
-        'com.usegdi.templates.gdi.lineCta-simple': {
-            id: 'com.usegdi.templates.gdi.lineCta-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-lineCta'],
-        },
-        'com.usegdi.templates.gdi.imageAndText-simple': {
-            id: 'com.usegdi.templates.gdi.imageAndText-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-imageAndText'],
-        },
-        'com.usegdi.templates.gdi.footer-simple': {
-            id: 'com.usegdi.templates.gdi.footer-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-footer'],
+    },
+    images: {
+        '1': {
+            id: '1',
+            title: 'Debitis modi explicabo.',
+            imageUrl: 'https://picsum.photos/seed/1/1593/948',
+            imageThumbUrl:
+                'https://picsum.photos/seed/1/200/119.02071563088512',
+            tags: ['people', 'friend'],
+            ratio: 1.6803797468354431,
         },
     },
     instancesMapColors: {},
@@ -176,6 +161,7 @@ export const reducers = generateReducersForStore<ISiteStore>(initialState);
 
 export const clearState = (store: any) => {
     store.dispatch(actions.instances.setAll({}));
-    store.dispatch(actions.widgets.setAll({}));
+    store.dispatch(actions.blocks.setAll({}));
+    store.dispatch(actions.instancesProps.setAll({}));
     return store;
 };

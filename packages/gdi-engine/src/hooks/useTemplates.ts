@@ -2,7 +2,7 @@ import { useMount, useSetState } from 'react-use';
 import { initTemplates } from '@gdi/template-gdi';
 import { LibraryBuilder } from '../builders/LibraryBuilder';
 import { useState } from 'react';
-import { IBlocks, ITemplates } from '@gdi/web-ui';
+import { IBlocks, ITemplates } from '../types';
 
 export function useTemplates() {
     const [isReady, setIsReady] = useState(false);

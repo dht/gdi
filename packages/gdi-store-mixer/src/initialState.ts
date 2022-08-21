@@ -19,10 +19,6 @@ export const initialState: IMixerStore = {
         contentInstanceId: '',
         libraryInstanceId: '',
     },
-    locale: {
-        localeId: 'en',
-        isRtl: false,
-    },
     galleryState: {
         stateKey: 'galleryState',
         mode: 'full',
@@ -37,15 +33,6 @@ export const initialState: IMixerStore = {
         temporaryIds: [],
         deletedIds: [],
     },
-    pages: {
-        home: {
-            id: 'home',
-            title: 'Home',
-            description: 'The home page',
-            iconName: 'Home',
-            order: 1,
-        },
-    },
     libraryImages: {
         '1': {
             id: '1',
@@ -59,47 +46,22 @@ export const initialState: IMixerStore = {
         ...images,
     },
     libraryBlocks: {
-        'com.usegdi.templates.gdi.hero-simple': {
-            id: 'com.usegdi.templates.gdi.hero-simple',
-            name: '',
+        'com.usegdi.templates.gdi.sample-simple': {
+            id: 'com.usegdi.templates.gdi.sample-simple',
+            name: 'hero-simple',
             description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-hero'],
-        },
-        'com.usegdi.templates.gdi.threePoints-simple': {
-            id: 'com.usegdi.templates.gdi.threePoints-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-threePoints'],
-        },
-        'com.usegdi.templates.gdi.userBar-simple': {
-            id: 'com.usegdi.templates.gdi.userBar-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-userBar'],
-        },
-        'com.usegdi.templates.gdi.imageAndText-simple': {
-            id: 'com.usegdi.templates.gdi.imageAndText-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-imageAndText'],
-        },
-        'com.usegdi.templates.gdi.lineCta-simple': {
-            id: 'com.usegdi.templates.gdi.lineCta-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-lineCta'],
-        },
-        'com.usegdi.templates.gdi.footer-simple': {
-            id: 'com.usegdi.templates.gdi.footer-simple',
-            name: '',
-            description: '',
-            defaultDimension: { x: 1, y: 1 },
-            tags: ['type-footer'],
+            params: {
+                id: 'com.usegdi.templates.gdi.sample-simple',
+                schema: {
+                    strings: {},
+                    colors: {},
+                    extra: {},
+                },
+            },
+            sampleData: {},
+            dimensions: {},
+            screenshots: {},
+            tags: ['type-sample'],
         },
     },
     libraryTypography: {
@@ -193,5 +155,7 @@ export const initialState: IMixerStore = {
 export const reducers = generateReducersForStore<IMixerStore>(initialState);
 
 export const clearState = (store: any) => {
+    store.dispatch(actions.libraryBlocks.setAll({}));
+    store.dispatch(actions.libraryImages.setAll({}));
     return store;
 };

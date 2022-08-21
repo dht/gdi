@@ -14,7 +14,8 @@
         "baseUrl": "../../",
         "paths": {
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],
-            "@gdi/image-gallery": ["packages/gdi-image-gallery"]
+            "@gdi/image-gallery": ["packages/gdi-image-gallery"],
+            "@gdi/store-mixer": ["packages/gdi-store-mixer"]
         }
     },
     "include": ["src/*.ts", "test/*.ts"]

@@ -1,25 +1,21 @@
 import React from 'react';
 import { Container } from './Content.style';
-import { Modal, Form } from '@gdi/web-ui';
-import { IWidgetInstance } from 'igrid';
-import { formConfig } from './meta/Content.form';
-import { formData } from './meta/Content.data';
-import { allOptions } from './meta/Content.options';
+import { Modal, Form, IFormConfig } from '@gdi/web-ui';
 import { allDetails } from './meta/Content.details';
 
 export type ContentProps = {
-    instance: IWidgetInstance;
+    formConfig: IFormConfig;
+    formData: Json;
+    formOptions: Json;
     callbacks: {
-        onSave: (data: Json) => Promise<any>;
+        onSave: (change: Json, allData: Json) => Promise<boolean>;
     };
-    panel?: boolean;
 };
 
 export function Content(props: ContentProps) {
-    const { instance, callbacks, panel } = props;
+    const { callbacks, formConfig, formData, formOptions } = props;
 
-    function onChange(change: Json) {
-        console.log('change ->', change);
+    function onChange(_change: Json) {
         return Promise.resolve(true);
     }
 
@@ -31,7 +27,7 @@ export function Content(props: ContentProps) {
             <Form
                 config={formConfig}
                 data={formData}
-                allOptions={allOptions}
+                allOptions={formOptions}
                 onSave={callbacks.onSave}
                 onChange={onChange}
                 allDetails={allDetails}

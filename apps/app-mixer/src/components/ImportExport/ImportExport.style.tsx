@@ -7,6 +7,6 @@ export const Container = styled.div`
     align-items: center;
 
     > button {
-        margin: 2px 0;
+        margin: 4px 0;
     }
 `;

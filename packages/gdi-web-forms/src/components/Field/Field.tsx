@@ -13,6 +13,7 @@ import {
     TagsInput,
     BarSelect,
     ColorPicker,
+    Checkbox,
 } from '@gdi/web-ui';
 import { useController, Control, useFormContext } from 'react-hook-form';
 import { sortBy } from '../../utils/sortBy';
@@ -365,6 +366,18 @@ export function FieldColor(props: FieldProps) {
     );
 }
 
+export function FieldCheckbox(props: FieldProps) {
+    const { field, control } = props;
+    const { label, placeholder } = field;
+
+    const { field: fieldMethods } = useController({
+        name: field.id,
+        control,
+    });
+
+    return <Checkbox onChange={fieldMethods.onChange} />;
+}
+
 export function FieldDetails(props: FieldProps) {
     const { field, control, allOptions, allDetails } = props;
     const { params } = field;
@@ -383,7 +396,7 @@ export function FieldDetails(props: FieldProps) {
 }
 
 const map: Record<FieldType, FC<FieldProps>> = {
-    checkbox: FieldDate,
+    checkbox: FieldCheckbox,
     text: FieldInput,
     choice: FieldDate,
     date: FieldDate,
