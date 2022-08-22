@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     flex: 1;
-    margin: 0 30px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
 `;
 
 export const Link = styled.a`

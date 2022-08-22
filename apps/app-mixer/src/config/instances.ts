@@ -39,7 +39,7 @@ export const instances: IWidgetInstancesByPageList = {
             title: 'ImportExport',
             widgetId: MixerWidgets.ImportExport,
             position: { y: 7, x: 80 },
-            dimension: { y: 6, x: 5 },
+            dimension: { y: 5, x: 5 },
             isFloating: true,
             hideHeader: false,
         },

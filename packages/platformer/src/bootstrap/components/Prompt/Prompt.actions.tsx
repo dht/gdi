@@ -4,6 +4,7 @@ type PromptRequest = {
     title: string;
     label?: string;
     description?: string;
+    warning?: string;
     options?: IOption[];
     placeholder?: string;
     submitButtonText?: string;
@@ -55,7 +56,7 @@ const invokePromptAndListen = (data: Json): Promise<PromptResponse> => {
 const confirm = async (
     promptRequest: PromptRequest
 ): Promise<PromptResponse> => {
-    const { title, submitButtonText, description } = promptRequest;
+    const { title, submitButtonText, description, warning } = promptRequest;
 
     return invokePromptAndListen({
         flavour: 'confirm',
@@ -63,13 +64,20 @@ const confirm = async (
         submitButtonText,
         params: {
             description,
+            warning,
         },
     });
 };
 
 const input = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
-    const { title, submitButtonText, description, label, placeholder } =
-        promptRequest;
+    const {
+        title,
+        submitButtonText,
+        description,
+        label,
+        placeholder,
+        warning,
+    } = promptRequest;
 
     return invokePromptAndListen({
         flavour: 'input',
@@ -80,6 +88,7 @@ const input = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
             label,
             description,
             placeholder,
+            warning,
         },
     });
 };
@@ -101,6 +110,7 @@ const select = async (
         options,
         label,
         placeholder,
+        warning,
     } = promptRequest;
 
     return invokePromptAndListen({
@@ -113,6 +123,7 @@ const select = async (
             label,
             placeholder,
             options,
+            warning,
         },
     });
 };

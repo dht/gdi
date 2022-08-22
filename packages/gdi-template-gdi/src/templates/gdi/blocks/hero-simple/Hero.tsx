@@ -12,6 +12,7 @@ import {
     ImageCreditsTitle,
     ImageCreditDescription,
     SecondButton,
+    Beta,
 } from './Hero.style';
 
 export const id = 'com.usegdi.templates.gdi.hero-simple';
@@ -43,6 +44,7 @@ export type HeroExtra = {
     href: string;
     hrefSecond?: string;
     imageUrl: string;
+    showBeta?: boolean;
 };
 
 export function Hero(props: HeroProps) {
@@ -61,6 +63,7 @@ export function Hero(props: HeroProps) {
         href = '#',
         hrefSecond = '#',
         headerFontSize = 42,
+        showBeta,
     } = extra;
 
     const style = {
@@ -77,7 +80,10 @@ export function Hero(props: HeroProps) {
             <Wrapper>
                 <Details>
                     {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1 size={headerFontSize}>{header}</H1>
+                    <H1 size={headerFontSize}>
+                        {header}
+                        {showBeta && <Beta>beta</Beta>}
+                    </H1>
                     {description && <P>{description}</P>}
                     <Actions>
                         <CTA colors={colors} href={href}>

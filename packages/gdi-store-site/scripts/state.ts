@@ -510,6 +510,10 @@ export const state: ISiteStore = {
                             isRequired: true,
                             order: 3,
                         },
+                        showBeta: {
+                            fieldType: 'checkbox',
+                            order: 4,
+                        },
                     },
                 },
             },
@@ -1203,6 +1207,7 @@ export const state: ISiteStore = {
             extra_hrefSecond: 'https://github.com/dht/gdi/docs',
             extra_headerFontSize: 70,
             extra_imageUrl: 'https://appofthebox.web.app/6.png',
+            extra_showBeta: true,
         },
         'home-userBar-simple-1': {
             id: 'home-userBar-simple-1',

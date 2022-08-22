@@ -21,6 +21,7 @@ export const params: IBlockParams = {
             imageUrl: { fieldType: 'image', isRequired: true, order: 1 },
             hrefSecond: { fieldType: 'url', order: 2 },
             headerFontSize: { fieldType: 'number', isRequired: true, order: 3 },
+            showBeta: { fieldType: 'checkbox', order: 4 },
         },
     },
 };

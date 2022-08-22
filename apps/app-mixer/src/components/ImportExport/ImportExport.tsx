@@ -7,6 +7,8 @@ import type { IViewMode } from '@gdi/store-mixer';
 export type ImportExportProps = {
     callbacks: {
         openPreview: () => void;
+        downloadSiteJson: () => void;
+        importSite: () => void;
     };
 };
 
@@ -28,6 +30,7 @@ export function ImportExport(props: ImportExportProps) {
                 tooltip='Show preview'
                 onClick={callbacks.openPreview}
             />
+
             {/* <Button
                 iconName='TestBeaker'
                 selectedOptionId={mode as string}
@@ -35,8 +38,17 @@ export function ImportExport(props: ImportExportProps) {
                 options={options}
             /> */}
 
-            <Button iconName='Download' tooltip='Download JSON' />
-            <Button iconName='World' tooltip='Load JSON from URL' />
+            <Button
+                iconName='Download'
+                tooltip='Download JSON'
+                onClick={callbacks.downloadSiteJson}
+            />
+
+            {/* <Button
+                iconName='World'
+                tooltip='Load JSON from URL'
+                onClick={callbacks.importSite}
+            /> */}
         </Container>
     );
 }

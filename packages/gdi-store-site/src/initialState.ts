@@ -100,20 +100,20 @@ export const initialState: ISiteStore = {
         fontWeight: 'regular',
     },
     instances: {
-        'home-hero-simple-1': {
-            id: 'home-hero-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.hero-simple',
+        'home-placeholder-simple-1': {
+            id: 'home-placeholder-simple-1',
+            widgetId: 'com.usegdi.templates.gdi.placeholder-simple',
             pageId: 'home',
             order: 1,
         },
     },
     blocks: {
-        'com.usegdi.templates.gdi.hero-simple': {
-            id: 'com.usegdi.templates.gdi.hero-simple',
-            name: 'hero-simple',
+        'com.usegdi.templates.gdi.placeholder-simple': {
+            id: 'com.usegdi.templates.gdi.placeholder-simple',
+            name: 'placeholder-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.hero-simple',
+                id: 'com.usegdi.templates.gdi.placeholder-simple',
                 schema: {
                     strings: {},
                     colors: {},
@@ -123,7 +123,7 @@ export const initialState: ISiteStore = {
             sampleData: {},
             dimensions: {},
             screenshots: {},
-            tags: ['type-hero'],
+            tags: ['type-placeholder'],
         },
     },
     images: {
@@ -140,8 +140,8 @@ export const initialState: ISiteStore = {
     instancesMapColors: {},
     instancesMapStrings: {},
     instancesProps: {
-        'home-hero-simple-1': {
-            id: 'home-hero-simple-1',
+        'home-placeholder-simple-1': {
+            id: 'home-placeholder-simple-1',
             strings_header: 'gDI',
             strings_description:
                 'An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //',
@@ -163,5 +163,6 @@ export const clearState = (store: any) => {
     store.dispatch(actions.instances.setAll({}));
     store.dispatch(actions.blocks.setAll({}));
     store.dispatch(actions.instancesProps.setAll({}));
+    store.dispatch(actions.images.setAll({}));
     return store;
 };

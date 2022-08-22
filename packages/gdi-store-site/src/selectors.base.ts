@@ -53,3 +53,53 @@ export const $elements = createSelector(
             }) as IElement[];
     }
 );
+
+export const $siteData = createSelector(
+    raw.$rawMeta,
+    raw.$rawLocale,
+    raw.$rawPages,
+    raw.$rawPalette,
+    raw.$rawFontSizes,
+    raw.$rawSpacing,
+    raw.$rawFonts,
+    raw.$rawInstances,
+    raw.$rawImages,
+    raw.$rawBlocks,
+    raw.$rawInstancesMapColors,
+    raw.$rawInstancesMapStrings,
+    raw.$rawInstancesProps,
+    raw.$rawStrings,
+    (
+        meta,
+        locale,
+        pages,
+        palette,
+        fontSizes,
+        images,
+        spacing,
+        fonts,
+        blocks,
+        instances,
+        instancesMapColors,
+        instancesMapStrings,
+        instancesProps,
+        strings
+    ) => {
+        return {
+            meta,
+            locale,
+            pages,
+            palette,
+            fontSizes,
+            images,
+            spacing,
+            fonts,
+            blocks,
+            instances,
+            instancesMapColors,
+            instancesMapStrings,
+            instancesProps,
+            strings,
+        };
+    }
+);

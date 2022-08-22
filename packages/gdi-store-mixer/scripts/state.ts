@@ -361,6 +361,10 @@ export const state: IMixerStore = {
                             isRequired: true,
                             order: 3,
                         },
+                        showBeta: {
+                            fieldType: 'checkbox',
+                            order: 4,
+                        },
                     },
                 },
             },

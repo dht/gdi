@@ -4,7 +4,7 @@ import { darken, invert } from 'polished';
 
 export const Container = styled.div<{ colors: HeroColors }>`
     background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 80vh;
+    height: 90vh;
     display: flex;
     background-size: cover;
     background-position: center center;
@@ -33,21 +33,21 @@ export const Wrapper = styled.div`
 export const ImageCredits = styled.div`
     flex: 1;
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
     background-color: rgba(0, 0, 0, 0.4);
-    padding: 4px 10px;
+    padding: 6px 10px;
     border-radius: 3px;
 `;
 
 export const ImageCreditsTitle = styled.div`
-    font-size: 12px;
+    font-size: 14px;
     color: #ccd;
-    line-height: 16px;
+    line-height: 18px;
 `;
 
 export const ImageCreditDescription = styled.div`
-    font-size: 10px;
+    font-size: 13px;
     color: #aab;
 `;
 
@@ -75,12 +75,23 @@ export const H1 = styled.h1<{ size: number }>`
     font-size: ${(props) => props.size}px;
     max-width: 400px;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 
     @media (max-width: 768px) {
         text-align: center;
         font-size: ${(props) => props.size}px;
         line-height: 58px;
     }
+`;
+
+export const Beta = styled.div`
+    font-size: 22px;
+    margin-left: 14px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    color: gold;
 `;
 
 export const P = styled.p`

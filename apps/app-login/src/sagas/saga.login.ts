@@ -2,6 +2,7 @@ import { actions } from '../store';
 import { call, delay, fork, takeEvery } from 'saga-ts';
 import { authChangeChannel } from './channels/channel.authChange';
 import { put } from 'redux-saga/effects';
+import { PlatformLifeCycleEvents } from '@gdi/platformer';
 
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 
@@ -25,6 +26,7 @@ function* authChange({ user }: any) {
             isLoggedIn: true,
         })
     );
+    yield put({ type: PlatformLifeCycleEvents.AUTHENTICATION_COMPLETED });
 
     const { uid, displayName, email, emailVerified, phoneNumber, photoURL } =
         user;
