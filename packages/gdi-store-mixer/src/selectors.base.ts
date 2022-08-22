@@ -6,6 +6,7 @@ import { sortBy } from 'shared-base';
 import { IWidgetInstances } from 'igrid';
 import { site } from '@gdi/store-site';
 import { toArray } from 'shared-base';
+import { pickBy } from 'lodash';
 
 const rawSite = site.selectors.raw;
 const baseSite = site.selectors.base;
@@ -92,19 +93,13 @@ export const $locale = createSelector(
     }
 );
 
-export const $packages = createSelector(
-    raw.$rawCurrentIds,
-    $elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.selectedInstanceId
-        );
-    }
-);
-
 export const $libraryImages = createSelector(
     raw.$rawLibraryImages,
     (images) => {
         return Object.values(images);
     }
 );
+
+export const $packages = createSelector(raw.$rawPackages, (packages) => {
+    return pickBy(packages, (value) => value.split('.').length === 3);
+});

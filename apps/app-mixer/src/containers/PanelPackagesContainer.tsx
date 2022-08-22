@@ -4,5 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../store';
 
 export const PanelPackagesContainer = () => {
-    return <Packages />;
+    const packages = useSelector(selectors.base.$packages);
+
+    return <Packages items={packages} />;
 };

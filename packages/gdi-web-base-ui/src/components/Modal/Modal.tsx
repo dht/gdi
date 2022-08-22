@@ -45,6 +45,14 @@ export function ModalBase(props: ModalProps) {
             onDismiss={props.onClose}
             isBlocking={false}
             className='modal-root'
+            styles={{
+                scrollableContent: {
+                    overflowY: 'visible',
+                },
+                main: {
+                    border: '3px solid purple',
+                },
+            }}
             containerClassName='modal-container'
             dragOptions={dragOptions}
             isDarkOverlay={true}

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import { AllDetails, FieldType, IFormField, LabelSize } from '../../types';
-import { Container } from './Field.style';
+import { Container, PaddingTop } from './Field.style';
 import { Label } from '../Label/Label';
 import {
     DateInput as DateUI,
@@ -349,7 +349,7 @@ export function FieldBarSelect(props: FieldProps) {
 export function FieldColor(props: FieldProps) {
     const { field, control } = props;
     const { params = {} } = field;
-    const { size } = params;
+    const { size = 40 } = params;
 
     const { field: fieldMethods } = useController({
         name: field.id,
@@ -375,7 +375,11 @@ export function FieldCheckbox(props: FieldProps) {
         control,
     });
 
-    return <Checkbox onChange={fieldMethods.onChange} />;
+    return (
+        <PaddingTop>
+            <Checkbox onChange={fieldMethods.onChange} />
+        </PaddingTop>
+    );
 }
 
 export function FieldDetails(props: FieldProps) {

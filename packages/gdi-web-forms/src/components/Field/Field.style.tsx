@@ -8,3 +8,8 @@ export const Container = styled.div`
         margin: 50px 0;
     }
 `;
+
+export const PaddingTop = styled.div`
+    padding-top: 15px;
+    padding-left: 10px;
+`;

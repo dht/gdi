@@ -10,6 +10,7 @@ import { MixerWidgets } from './widgets';
 export const routes: IRoutes = {
     mixer: `${ROOT}`,
     imageGallery: `${ROOT}/imageGallery`,
+    preview_static: `/preview`,
 };
 
 export const menuItems: IMenuItem[] = [

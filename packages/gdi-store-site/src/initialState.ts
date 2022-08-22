@@ -95,7 +95,7 @@ export const initialState: ISiteStore = {
         l2: '32px',
     },
     fonts: {
-        typographyId: 'Inter',
+        typographyId: 'inter',
         fontFamily: "'Inter', sans-serif",
         fontWeight: 'regular',
     },
