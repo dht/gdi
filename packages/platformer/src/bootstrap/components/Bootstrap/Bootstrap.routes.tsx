@@ -14,6 +14,7 @@ import { PlatformLifeCycleEvents } from '../../../core/platform-lifecycle';
 import { ICommandBarItem } from '../../../types';
 import { SideMenuContainer } from '../../containers/SideMenuContainer';
 import { CommandBar, ContextBar } from '@gdi/web-ui';
+import { AppContent } from './Bootstrap.style';
 
 export const MainRoutes = () => {
     const { routes, initialRoute = '/home' } = useContext(PlatformContext);
@@ -60,7 +61,7 @@ export const App = () => {
     );
 
     return (
-        <>
+        <AppContent>
             <MainRoutes />
             <OverlayRoutes />
             <SideMenuContainer />
@@ -69,7 +70,7 @@ export const App = () => {
                 widgetLibrary={widgetLibrary}
             />
             <CommandBar items={commandBarItems} onRun={onCommandBar} />
-        </>
+        </AppContent>
     );
 };
 

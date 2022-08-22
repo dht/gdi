@@ -6,6 +6,8 @@ import { selectors } from '../store';
 let popup;
 
 export const ImportExportContainer = () => {
+    const dispatch = useDispatch();
+
     const callbacks = useMemo(
         () => ({
             openPreview: () => {
@@ -13,6 +15,12 @@ export const ImportExportContainer = () => {
                     document.location.origin + '/preview',
                     '_blank'
                 );
+            },
+            downloadSiteJson: () => {
+                dispatch({ type: 'EXPORT_SITE' });
+            },
+            importSite: () => {
+                dispatch({ type: 'IMPORT_SITE' });
             },
         }),
         []

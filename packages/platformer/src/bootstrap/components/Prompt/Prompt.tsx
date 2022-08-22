@@ -1,6 +1,14 @@
-import React, { useState } from 'react';
-import { Actions, Container, Content, P } from './Prompt.style';
-import { Modal, Input, Dropdown, Button } from '@gdi/web-ui';
+import React, { useRef, useState } from 'react';
+import {
+    Actions,
+    Container,
+    Content,
+    P,
+    Warning,
+    WarningIcon,
+    WarningText,
+} from './Prompt.style';
+import { Modal, Input, Dropdown, Button, Icon } from '@gdi/web-ui';
 
 export type PromptProps = {
     title: string;
@@ -14,14 +22,43 @@ export type PromptProps = {
 export function Prompt(props: PromptProps) {
     const [value, setValue] = useState('');
     const { title, flavour, params, submitButtonText } = props;
-    const { description } = params;
+    const { description, warning } = params;
+    const ref = useRef<HTMLDivElement>(null);
 
     function onClose() {
         props.onCancel();
     }
 
     function onSubmit() {
+        if (!value) {
+            if (ref.current) {
+                const el = ref.current.querySelector('input');
+                if (el) {
+                    el.focus();
+                }
+            }
+            return;
+        }
         props.onSubmit(value);
+    }
+
+    function renderDescription() {
+        return <P>{description}</P>;
+    }
+
+    function renderWarning() {
+        if (!warning) {
+            return null;
+        }
+
+        return (
+            <Warning>
+                <WarningIcon>
+                    <Icon iconName='Warning'></Icon>
+                </WarningIcon>
+                <WarningText>{warning}</WarningText>
+            </Warning>
+        );
     }
 
     function renderInner() {
@@ -29,34 +66,39 @@ export function Prompt(props: PromptProps) {
             case 'confirm':
                 return (
                     <Content>
-                        <P>{description}</P>
+                        {renderDescription()}
+                        {renderWarning()}
                     </Content>
                 );
 
             case 'input':
                 return (
                     <Content>
-                        <P>{description}</P>
+                        {renderDescription()}
                         <Input
-                            placeholder={params.params}
+                            placeholder={params.placeholder}
                             label={params.label}
-                            onChange={(_event: any, newValue?: string) =>
-                                setValue(newValue || '')
-                            }
+                            value={value}
+                            onChange={(ev: any) => {
+                                setValue(ev.target.value || '');
+                            }}
                         />
+                        {renderWarning()}
                     </Content>
                 );
 
             case 'select':
                 return (
                     <Content>
-                        <P>{description}</P>
+                        {renderDescription()}
                         <Dropdown
-                            placeholder={params.params}
+                            placeholder={params.placeholder}
                             label={params.label}
+                            ref={ref}
                             options={params.options}
                             onChange={setValue}
                         />
+                        {renderWarning()}
                     </Content>
                 );
         }
@@ -67,6 +109,7 @@ export function Prompt(props: PromptProps) {
             <Container
                 className='Prompt-container'
                 data-testid='Prompt-container'
+                ref={ref}
             >
                 {renderInner()}
                 <Actions>

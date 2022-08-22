@@ -27,3 +27,25 @@ export const Actions = styled.div`
         margin: 0 5px;
     }
 `;
+
+export const Warning = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid orange;
+    margin: 20px 0 5px;
+    padding: 10px;
+    border-radius: 5px;
+    color: orange;
+    max-width: 500px;
+    line-height: 22px;
+`;
+
+export const WarningIcon = styled.div`
+    font-size: 20px;
+    margin-right: 8px;
+`;
+
+export const WarningText = styled.div`
+    font-size: 16px;
+`;

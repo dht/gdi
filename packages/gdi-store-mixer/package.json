@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/store-site": "^0.0.1",
         "@gdi/engine": "^0.0.3",
+        "@gdi/store-site": "^0.0.1",
         "igrid": "^0.0.9",
         "lodash": "^4.17.21",
         "redux-store-generator": "^0.9.83",
