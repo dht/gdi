@@ -1,9 +1,10 @@
 import React from 'react';
-import { items } from './meta/Packages.items';
 import { Container } from './Packages.style';
 import { KeyValue } from '@gdi/web-ui';
 
-export type PackagesProps = {};
+export type PackagesProps = {
+    items: Json;
+};
 
 export type IPackage = {
     name: string;
@@ -11,6 +12,8 @@ export type IPackage = {
 };
 
 export function Packages(props: PackagesProps) {
+    const { items } = props;
+
     return (
         <Container
             className='Packages-container'

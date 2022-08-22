@@ -5,6 +5,7 @@ import { root as logout } from './saga.logout';
 import { PlatformLifeCycleEvents } from '@gdi/platformer';
 
 function* root() {
+    yield take(PlatformLifeCycleEvents.AUTHENTICATION_START);
     yield* fork(login);
     yield* fork(logout);
     yield* fork(ping);

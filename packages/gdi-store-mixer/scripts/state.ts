@@ -8,7 +8,7 @@ export const state: IMixerStore = {
         stateKey: 'mixer',
         mode: 'structure',
         selectedToolId: 'browse',
-        paletteId: 'blue',
+        paletteId: 'green',
     },
     galleryState: {
         stateKey: 'galleryState',
@@ -1048,12 +1048,6 @@ export const state: IMixerStore = {
         },
     },
     libraryTypography: {
-        andadaPro: {
-            id: 'andadaPro',
-            title: 'Andada Pro',
-            fontFamily: "'Andada Pro', serif",
-            link: 'Andada+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800',
-        },
         encodeSans: {
             id: 'encodeSans',
             title: 'EncodeSans',
@@ -1078,41 +1072,14 @@ export const state: IMixerStore = {
             fontFamily: "'Inter', sans-serif",
             link: 'Inter:wght@100;200;300;400;500;600;700;800;900',
         },
-        jetBrainsMono: {
-            id: 'jetBrainsMono',
-            title: 'JetBrains Mono',
-            fontFamily: "'Hahmlet', serif",
-            link: 'JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800',
-        },
         manrope: {
             id: 'manrope',
             title: 'Manrope',
             fontFamily: "'Manrope', sans-serif",
             link: 'Manrope:wght@200;300;400;500;600;700;800',
         },
-        lora: {
-            id: 'lora',
-            title: 'Lora',
-            fontFamily: "'Lora', serif",
-            link: 'Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
-        },
-        sora: {
-            id: 'sora',
-            title: 'Sora',
-            fontFamily: "'Sora', sans-serif",
-            link: 'Sora:wght@100;200;300;400;500;600;700;800',
-        },
     },
     libraryPalettes: {
-        blue: {
-            id: 'blue',
-            title: 'Blue',
-            color1: '#1d3557',
-            color2: '#457b9d',
-            color3: '#a8dadc',
-            color4: '#f1faee',
-            color5: '#e63946',
-        },
         green: {
             id: 'green',
             title: 'Green',
@@ -1131,6 +1098,7 @@ export const state: IMixerStore = {
     },
     packages: {
         '@gdi/template-gdi': '0.0.2',
-        '@gdi/store-business-base': '0.0.1',
+        '@gdi/store-mixer': '0.0.1',
+        '@gdi/store-site': '0.0.1',
     },
 };

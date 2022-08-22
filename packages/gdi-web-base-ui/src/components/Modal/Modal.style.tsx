@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    .ms-Modal-scrollableContent {
+        overflow-y: visible;
+    }
+`;
 
 export const Header = styled.div`
     flex: 1;

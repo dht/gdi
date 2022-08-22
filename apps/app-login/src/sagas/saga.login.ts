@@ -1,5 +1,5 @@
 import { actions } from '../store';
-import { delay, fork, takeEvery } from 'saga-ts';
+import { call, delay, fork, takeEvery } from 'saga-ts';
 import { authChangeChannel } from './channels/channel.authChange';
 import { put } from 'redux-saga/effects';
 
@@ -15,7 +15,7 @@ function* authChange({ user }: any) {
             })
         );
 
-        navigate('/login');
+        yield call(navigateToLogin);
 
         return;
     }
@@ -47,19 +47,18 @@ function* authChange({ user }: any) {
     });
 
     const to = localStorage.getItem(REQUESTED_PATH_KEY) || '/';
-    navigate(to);
+    yield* call(navigate, to);
 }
 
-function navigate(to: string) {
+function* navigateToLogin() {
     const { pathname } = document.location;
-    console.log('to ->', to);
+    localStorage.setItem(REQUESTED_PATH_KEY, pathname);
+    yield put({ type: 'NAVIGATE', path: '/login' });
+}
 
-    if (pathname !== to) {
-        if (pathname !== '/login') {
-            localStorage.setItem(REQUESTED_PATH_KEY, pathname);
-        }
-        document.location.href = to;
-    }
+function* navigate(to: string) {
+    localStorage.removeItem(REQUESTED_PATH_KEY);
+    yield put({ type: 'NAVIGATE', path: to });
 }
 
 export function* root() {

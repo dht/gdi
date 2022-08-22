@@ -5,15 +5,16 @@ import { Button } from '@gdi/web-ui';
 import type { IViewMode } from '@gdi/store-mixer';
 
 export type ImportExportProps = {
-    mode: IViewMode;
-    onChange: (mode: IViewMode) => void;
+    callbacks: {
+        openPreview: () => void;
+    };
 };
 
 export function ImportExport(props: ImportExportProps) {
-    const { mode } = props;
+    const { callbacks } = props;
 
     function onMenuClick(option: any) {
-        props.onChange(option.id as IViewMode);
+        // props.onChange(option.id as IViewMode);
     }
 
     return (
@@ -21,7 +22,12 @@ export function ImportExport(props: ImportExportProps) {
             className='ImportExport-container'
             data-testid='ImportExport-container'
         >
-            <Button primary iconName='OpenInNewTab' tooltip='Show preview' />
+            <Button
+                primary
+                iconName='OpenInNewTab'
+                tooltip='Show preview'
+                onClick={callbacks.openPreview}
+            />
             {/* <Button
                 iconName='TestBeaker'
                 selectedOptionId={mode as string}

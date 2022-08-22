@@ -7,6 +7,7 @@ import { ViewsContainer } from '../containers/ViewsContainer';
 import { PagesContainer } from '../containers/PagesContainer';
 import { ImportExportContainer } from '../containers/ImportExportContainer';
 import { GalleryContainer } from '../containers/GalleryContainer';
+import { PreviewContainer } from '../containers/PreviewContainer';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -16,6 +17,7 @@ export enum MixerWidgets {
     Pages = 'mixer.Pages',
     ImageGallery = 'mixer.ImageGallery',
     ImportExport = 'mixer.ImportExport',
+    Preview = 'mixer.Preview',
 }
 export const widgets: IWidget[] = [
     {
@@ -87,5 +89,15 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <GalleryContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.Preview,
+        name: 'Preview',
+        description: 'Preview',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <PreviewContainer {...props} />,
     },
 ];

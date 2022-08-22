@@ -5,6 +5,7 @@ export const Container = styled.div`
 `;
 
 export const Rect = styled.div<{ size: number }>`
+    margin-bottom: 40px;
     width: ${(props) => props.size}px;
     height: ${(props) => props.size}px;
     border-radius: 5px;
@@ -13,8 +14,11 @@ export const Rect = styled.div<{ size: number }>`
 
 export const PickerWrapper = styled.div`
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 40px;
+    right: 0px;
     z-index: 999;
     width: 290px;
+    background-color: rgba(40, 40, 60, 0.95);
+    border-radius: 10px;
+    border: 2px solid #445;
 `;
