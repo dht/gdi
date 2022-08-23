@@ -9,7 +9,7 @@ import { ModalContentContainer } from './ModalContentContainer';
 
 export const MixerContainer = () => {
     const dispatch = useDispatch();
-    const pageStructure = useSelector(selectors.base.$pageStructure);
+    const pageStructure = useSelector(selectors.base.$elementsForCurrentPage);
     const currentInstanceId = useSelector(selectors.raw.$rawCurrentIds).selectedInstanceId; // prettier-ignore
     const selectedToolId = useSelector(selectors.raw.$rawMixerState).selectedToolId; // prettier-ignore
     const mode = useSelector(selectors.raw.$rawMixerState).mode;

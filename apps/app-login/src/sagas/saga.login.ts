@@ -7,8 +7,6 @@ import { PlatformLifeCycleEvents } from '@gdi/platformer';
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 
 function* authChange({ user }: any) {
-    console.log('user ->', user);
-
     if (!user) {
         yield put(
             actions.authState.patch({

@@ -160,9 +160,11 @@ export const initialState: ISiteStore = {
 export const reducers = generateReducersForStore<ISiteStore>(initialState);
 
 export const clearState = (store: any) => {
-    store.dispatch(actions.instances.setAll({}));
-    store.dispatch(actions.blocks.setAll({}));
-    store.dispatch(actions.instancesProps.setAll({}));
-    store.dispatch(actions.images.setAll({}));
+    setTimeout(() => {
+        store.dispatch(actions.instances.setAll({}));
+        store.dispatch(actions.blocks.setAll({}));
+        store.dispatch(actions.instancesProps.setAll({}));
+        store.dispatch(actions.images.setAll({}));
+    });
     return store;
 };

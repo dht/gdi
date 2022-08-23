@@ -1,44 +1,22 @@
 import { actions, selectors } from '../store';
 import { call, put, select, takeEvery } from 'saga-ts';
 import { prompt } from '@gdi/platformer';
+import { guid4 } from 'shared-base';
 
 type ActionAddElement = {
     type: 'ADD_ELEMENT';
 };
 
 function* addElement(_action: ActionAddElement) {
-    const pageId = yield* select(selectors.base.$currentPage);
+    const currentIds = yield* select(selectors.raw.$rawCurrentIds);
+    const pageId = currentIds.pageId;
     const order = yield* select(selectors.base.$nextElementOrder);
+    const options = yield* select(selectors.options.$elementTypes);
 
     const { didCancel, value } = yield prompt.select({
         title: 'New instance',
         label: 'Select a type',
-        options: [
-            {
-                key: 'hero',
-                text: 'hero',
-            },
-            {
-                key: 'threePoints',
-                text: 'threePoints',
-            },
-            {
-                key: 'userBar',
-                text: 'userBar',
-            },
-            {
-                key: 'imageAndText',
-                text: 'imageAndText',
-            },
-            {
-                key: 'lineCta',
-                text: 'lineCta',
-            },
-            {
-                key: 'footer',
-                text: 'footer',
-            },
-        ],
+        options,
         placeholder: 'Element type',
         submitButtonText: 'Create',
     });
@@ -47,11 +25,12 @@ function* addElement(_action: ActionAddElement) {
         return;
     }
 
-    const id = `${value}_${order}`;
+    const id = `${pageId}-${value}-${guid4()}`;
+
     const placeholderType = value;
 
     yield put(
-        actions.instances.set(id, {
+        actions.instances.add({
             id,
             pageId,
             isPlaceholder: true,
@@ -72,6 +51,8 @@ function* deleteElement(action: ActionDeleteElement) {
         description: 'Are you sure you want to delete this instance?',
         submitButtonText: "I'm sure",
     });
+
+    console.log('didCancel ->', didCancel);
 
     if (didCancel) {
         return;

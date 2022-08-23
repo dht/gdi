@@ -30,7 +30,7 @@ export function Prompt(props: PromptProps) {
     }
 
     function onSubmit() {
-        if (!value) {
+        if (flavour === 'input' && !value) {
             if (ref.current) {
                 const el = ref.current.querySelector('input');
                 if (el) {

@@ -2,6 +2,8 @@ import { IElement } from '@gdi/store-mixer';
 import React, { useContext } from 'react';
 import { EngineContext } from '../../context/Engine.context';
 import { ActionType } from '../EngineEdit/EngineEdit';
+import Error from '../Error/Error';
+import Placeholder from '../Placeholder/Placeholder';
 import { Container } from './ElementEdit.style';
 
 export type ElementEditProps = {
@@ -25,13 +27,6 @@ export function ElementEdit(props: ElementEditProps) {
 
     const block = blocks[element.widgetId];
 
-    if (!block) {
-        console.log(
-            `could not find widget '${element.widgetId}' for element '${element.id}'`
-        );
-        return null;
-    }
-
     function onClick() {
         props.onSelect(element.id);
     }
@@ -45,6 +40,14 @@ export function ElementEdit(props: ElementEditProps) {
     }
 
     function renderBlock() {
+        if (!block) {
+            if (element.isPlaceholder) {
+                return <Placeholder element={element} />;
+            } else {
+                return <Error element={element} />;
+            }
+        }
+
         const CmpBlock = block.component;
 
         return (

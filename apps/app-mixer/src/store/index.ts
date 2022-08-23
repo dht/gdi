@@ -18,6 +18,9 @@ export const selectors = {
     forms: {
         ...mixer.selectors.forms,
     },
+    options: {
+        ...mixer.selectors.options,
+    },
 };
 
 export const reducers = {
