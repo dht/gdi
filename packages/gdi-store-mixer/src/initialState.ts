@@ -99,9 +99,11 @@ export const initialState: IMixerStore = {
 export const reducers = generateReducersForStore<IMixerStore>(initialState);
 
 export const clearState = (store: any) => {
-    store.dispatch(actions.libraryBlocks.setAll({}));
-    store.dispatch(actions.libraryImages.setAll({}));
-    store.dispatch(actions.libraryPalettes.setAll({}));
-    store.dispatch(actions.libraryTypography.setAll({}));
+    setTimeout(() => {
+        store.dispatch(actions.libraryBlocks.setAll({}));
+        store.dispatch(actions.libraryImages.setAll({}));
+        store.dispatch(actions.libraryPalettes.setAll({}));
+        store.dispatch(actions.libraryTypography.setAll({}));
+    });
     return store;
 };

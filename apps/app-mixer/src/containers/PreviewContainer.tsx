@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../store';
 
 export const PreviewContainer = () => {
-    const elements = useSelector(selectors.base.$pageStructure);
+    const elements = useSelector(selectors.base.$elementsForCurrentPage);
 
     return <Preview elements={elements} />;
 };

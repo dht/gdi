@@ -6,7 +6,6 @@ import { sortBy } from 'shared-base';
 import { IWidgetInstances } from 'igrid';
 import { site } from '@gdi/store-site';
 import { toArray } from 'shared-base';
-import { pickBy } from 'lodash';
 
 const rawSite = site.selectors.raw;
 const baseSite = site.selectors.base;
@@ -22,7 +21,7 @@ export const $page = createSelector(
     }
 );
 
-export const $pageStructure = createSelector(
+export const $elementsForCurrentPage = createSelector(
     raw.$rawCurrentIds,
     $elements,
     (currentIds, elements) => {
@@ -33,7 +32,7 @@ export const $pageStructure = createSelector(
 );
 
 export const $nextElementOrder = createSelector(
-    $pageStructure,
+    $elementsForCurrentPage,
     (elementsInPage) => {
         const maxOrder = elementsInPage.reduce((output, element) => {
             return Math.max(output, element.order || 0);
@@ -93,6 +92,16 @@ export const $locale = createSelector(
     }
 );
 
+export const $packages = createSelector(
+    raw.$rawCurrentIds,
+    $elements,
+    (currentIds, elements) => {
+        return elements.find(
+            (element) => element.id === currentIds.selectedInstanceId
+        );
+    }
+);
+
 export const $libraryImages = createSelector(
     raw.$rawLibraryImages,
     (images) => {
@@ -100,6 +109,22 @@ export const $libraryImages = createSelector(
     }
 );
 
-export const $packages = createSelector(raw.$rawPackages, (packages) => {
-    return pickBy(packages, (value) => value.split('.').length === 3);
+export const $elementTypes = createSelector(raw.$rawLibraryBlocks, (blocks) => {
+    const output: string[] = [];
+
+    Object.values(blocks).forEach((block) => {
+        const { tags } = block;
+
+        tags.filter((item) => item.match(/^type-/)).forEach((tag) => {
+            const elementType = tag.split('-').pop();
+
+            if (elementType) {
+                output.push(elementType);
+            }
+        });
+    });
+
+    output.sort();
+
+    return output;
 });

@@ -1,6 +1,8 @@
 import i18next from 'i18next';
 import { changeLanguage, getLanguage } from './i18n.provider';
 
+const DEBUG = false;
+
 export let i18n: any;
 
 export const initI18n = (resources: any) => {
@@ -16,7 +18,7 @@ export const initI18n = (resources: any) => {
 
     const promise = i18next.init({
         lng,
-        debug: true,
+        debug: DEBUG,
         resources,
     });
 

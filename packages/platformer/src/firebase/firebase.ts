@@ -66,17 +66,11 @@ export class Firebase {
         this.clientId = firebaseConfig.appId;
 
         onAuthStateChanged(this.auth, (user) => {
-            console.log(
-                'this.authListeners.length ->',
-                this.authListeners.length
-            );
-
             if (user) {
                 this.uid = user.uid;
                 this.authListeners.forEach((listener) => {
                     listener(user);
                 });
-                // ...
             } else {
                 this.authListeners.forEach((listener) => {
                     listener(null);
@@ -91,7 +85,6 @@ export class Firebase {
 
     removeAuthListener(listener: AuthListener) {
         const index = this.authListeners.indexOf(listener);
-        console.log('index ->', index);
         this.authListeners.splice(index, 1);
     }
 

@@ -23,9 +23,9 @@ export function EngineInner(props: EngineViewProps) {
     }
 
     function renderElements() {
-        return elements.map((element: IElement, index) =>
-            renderElement(element, index)
-        );
+        return elements
+            .filter((element) => !element.isPlaceholder)
+            .map((element: IElement, index) => renderElement(element, index));
     }
 
     function renderInner() {
