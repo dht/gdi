@@ -1,12 +1,15 @@
 {
-    "name": "scripts",
+    "name": "@gdi/store-site-scripts",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "scripts": {
+        "firestore:reset": "npx ts-node uploadToFirestore.ts"
+    },
     "dependencies": {
         "firebase": "^9.9.2"
     },
     "devDependencies": {
-        "chalk": "^5.0.1"
+        "chalk": "^4.1.2"
     }
 }

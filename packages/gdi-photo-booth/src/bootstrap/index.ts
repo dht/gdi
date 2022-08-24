@@ -1,8 +1,10 @@
 import { LibraryBuilder } from '@gdi/engine';
-import { initTemplates } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 
 const libraryBuilder = new LibraryBuilder();
 
-initTemplates(libraryBuilder);
+initTemplatesGdi(libraryBuilder);
+initTemplatesBlog(libraryBuilder);
 
 export const { blocks, templates } = libraryBuilder.build();

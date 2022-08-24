@@ -1,11 +1,9 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { getWidgetTypeFromTags } from './utils/widgets';
-import { IElement, IMixerState, IMixerStore } from './types';
-import { sortBy } from 'shared-base';
-import { IWidgetInstances } from 'igrid';
+import { IImageWithBlock, IMixerStore } from './types';
+import { pickBy } from 'lodash';
 import { site } from '@gdi/store-site';
-import { toArray } from 'shared-base';
+import { getBlockTypeFromElement, getBlockTypeFromTags } from './utils/blocks';
 
 const rawSite = site.selectors.raw;
 const baseSite = site.selectors.base;
@@ -42,9 +40,9 @@ export const $nextElementOrder = createSelector(
     }
 );
 
-export const $inspector = createSelector(
+export const $elementSelected = createSelector(
     raw.$rawCurrentIds,
-    $elements,
+    baseSite.$elements,
     (currentIds, elements) => {
         return elements.find(
             (element) => element.id === currentIds.selectedInstanceId
@@ -92,15 +90,9 @@ export const $locale = createSelector(
     }
 );
 
-export const $packages = createSelector(
-    raw.$rawCurrentIds,
-    $elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.selectedInstanceId
-        );
-    }
-);
+export const $packages = createSelector(raw.$rawPackages, (packages) => {
+    return pickBy(packages, (_value, key) => key.includes('@gdi'));
+});
 
 export const $libraryImages = createSelector(
     raw.$rawLibraryImages,
@@ -110,7 +102,7 @@ export const $libraryImages = createSelector(
 );
 
 export const $elementTypes = createSelector(raw.$rawLibraryBlocks, (blocks) => {
-    const output: string[] = [];
+    const set = new Set<string>();
 
     Object.values(blocks).forEach((block) => {
         const { tags } = block;
@@ -119,12 +111,93 @@ export const $elementTypes = createSelector(raw.$rawLibraryBlocks, (blocks) => {
             const elementType = tag.split('-').pop();
 
             if (elementType) {
-                output.push(elementType);
+                set.add(elementType);
             }
         });
     });
 
+    const output = Array.from(set);
+
     output.sort();
 
     return output;
+});
+
+export const $libraryBlocks = createSelector(
+    raw.$rawLibraryBlocks,
+    raw.$rawBlocksGalleryState,
+    $elementSelected,
+    (blocks, galleryState, element) => {
+        const selectedElementType = getBlockTypeFromElement(element);
+
+        const output: IImageWithBlock[] = [];
+        const { filter } = galleryState;
+
+        console.log('filter ->', filter);
+        console.log('selectedElementType ->', selectedElementType);
+
+        Object.values(blocks).forEach((block) => {
+            const { id, name, tags, screenshots } = block;
+            const elementType = getBlockTypeFromTags(tags);
+
+            const isFilterOff = filter === 'all';
+            const isElementSelected = selectedElementType !== '';
+            const doTypesMatch = selectedElementType === elementType;
+
+            const shouldShow =
+                isFilterOff || !isElementSelected || doTypesMatch;
+
+            const firstKey = Object.keys(screenshots).pop();
+
+            if (firstKey && shouldShow) {
+                const firstValue = screenshots[firstKey];
+                const { desktop } = firstValue || {};
+                const { large, thumb } = desktop || {};
+
+                if (large && thumb) {
+                    output.push({
+                        id,
+                        title: name,
+                        imageUrl: large.url as string,
+                        imageThumbUrl: thumb.url as string,
+                        ratio: large.ratio,
+                        tags,
+                        block,
+                    });
+                }
+            }
+        });
+
+        return output;
+    }
+);
+
+export const $inspector = createSelector($elementSelected, (element) => {
+    if (!element) {
+        return;
+    }
+
+    const {
+        id,
+        blockId,
+        pageId,
+        order,
+        isPlaceholder,
+        placeholderType,
+        block,
+    } = element;
+
+    const { tags, description, name } = block || ({} as any);
+
+    return {
+        id,
+        blockId,
+        pageId,
+        order,
+        isPlaceholder,
+        placeholderType,
+        name,
+        description,
+        tags,
+    };
 });

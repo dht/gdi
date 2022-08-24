@@ -12,7 +12,7 @@ export type ISiteStore = StoreStructure & {
     spacing: ISpacing;
     fonts: IFonts;
     blocks: Record<string, IBlockInfo>;
-    instances: IWidgetInstances;
+    instancesBlocks: IBlockInstances;
     instancesMapColors: Json;
     instancesMapStrings: Json;
     instancesProps: Json;
@@ -133,8 +133,21 @@ export type IImage = {
 
 export type IImages = Record<string, IImage>;
 
+export type IBlockInstance = {
+    id: string;
+    blockId: string;
+    title?: string;
+    flavour?: string;
+    isPlaceholder?: boolean;
+    placeholderType?: string;
+    pageId?: string;
+    order?: number;
+};
+
+export type IBlockInstances = Record<string, IBlockInstance>;
+
 // ======================= SELECTORS OUTPUT =======================
-export type IElement = IWidgetInstance & {
+export type IElement = IBlockInstance & {
     block: IBlockInfo;
     elementType: string;
     instanceProps: Json;

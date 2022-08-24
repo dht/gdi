@@ -5,7 +5,7 @@ import { screenshots } from './meta/$CMP.screenshots';
 import { IBlockInfo } from '@gdi/engine';
 
 export const blockInfo: IBlockInfo = {
-    id: 'com.usegdi.templates.gdi.$CMPCC-simple',
+    id: 'com.usegdi.templates.futuristic.$CMPCC-simple',
     name: '$CMPCC-simple',
     description: '',
     params,

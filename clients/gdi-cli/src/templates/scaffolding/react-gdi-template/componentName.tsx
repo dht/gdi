@@ -12,7 +12,7 @@ import {
     Wrapper,
 } from './$CMP.style';
 
-export const id = 'com.usegdi.templates.gdi.$CMPCC-simple';
+export const id = 'com.usegdi.templates.futuristic.$CMPCC-simple';
 
 export type $CMPProps = {
     strings: $CMPStrings;

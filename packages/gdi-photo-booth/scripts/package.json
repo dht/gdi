@@ -1,14 +1,19 @@
 {
-    "name": "scripts",
+    "name": "@gdi/photo-booth-scripts",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "scripts": {
+        "screenshots:take": "npx ts-node index.ts",
+        "screenshots:updateState": "npx ts-node updateState.ts"
+    },
     "devDependencies": {
         "@playwright/test": "^1.25.0",
         "@types/sharp": "^0.30.5",
         "dotenv-flow": "^3.2.0"
     },
     "dependencies": {
+        "chalk": "^4.1.2",
         "firebase-admin": "^11.0.1",
         "lodash": "^4.17.21",
         "playwright": "^1.25.0",

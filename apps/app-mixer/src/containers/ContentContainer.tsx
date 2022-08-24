@@ -41,6 +41,10 @@ export const ContentContainer = (props: ContentContainerProps) => {
         [element]
     );
 
+    if (!formConfig) {
+        return null;
+    }
+
     return (
         <Content
             formConfig={formConfig}

@@ -16,11 +16,10 @@ export type {
     IMixerStore,
     IMixerState,
     IViewMode,
-    IElement,
     ITypography,
     ILocaleOption,
     IColorPalette,
     IGalleryViewMode,
-    IImage,
     IGalleryState,
+    IImageWithBlock,
 } from './types';

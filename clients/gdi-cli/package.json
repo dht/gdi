@@ -15,7 +15,7 @@
     "author": "",
     "dependencies": {
         "@types/cli-table": "^0.3.0",
-        "chalk": "^3.0.0",
+        "chalk": "^4.1.2",
         "chokidar": "^3.5.3",
         "cli-table": "^0.3.11",
         "cors": "^2.8.5",

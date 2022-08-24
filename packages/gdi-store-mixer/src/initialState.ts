@@ -1,6 +1,5 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
-import { images } from './data.images';
 import { IMixerStore } from './types';
 
 export const initialState: IMixerStore = {
@@ -33,6 +32,12 @@ export const initialState: IMixerStore = {
         temporaryIds: [],
         deletedIds: [],
     },
+    blocksGalleryState: {
+        stateKey: 'blocksGalleryState',
+        mode: 'minimal',
+        filter: 'byType',
+        search: '',
+    },
     libraryImages: {
         '1': {
             id: '1',
@@ -43,15 +48,14 @@ export const initialState: IMixerStore = {
             tags: ['people', 'friend'],
             ratio: 1.6803797468354431,
         },
-        ...images,
     },
     libraryBlocks: {
-        'com.usegdi.templates.gdi.sample-simple': {
-            id: 'com.usegdi.templates.gdi.sample-simple',
+        'com.usegdi.templates.futuristic.sample-simple': {
+            id: 'com.usegdi.templates.futuristic.sample-simple',
             name: 'hero-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.sample-simple',
+                id: 'com.usegdi.templates.futuristic.sample-simple',
                 schema: {
                     strings: {},
                     colors: {},
@@ -84,13 +88,14 @@ export const initialState: IMixerStore = {
         },
     },
     locales: {
-        en: {
-            id: 'en',
-            title: 'English',
+        'en-us': {
+            id: 'en-us',
+            title: 'English (US)',
         },
     },
     packages: {
         '@gdi/template-gdi': '0.0.2',
+        '@gdi/template-blog': '0.0.2',
         '@gdi/store-mixer': '0.0.1',
         '@gdi/store-site': '0.0.1',
     },

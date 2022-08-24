@@ -1,8 +1,8 @@
 import { IBlockInfo } from '@gdi/web-ui';
 import React, { FC } from 'react';
-import { Container, Flavour } from './Chair.style';
+import { Container, Flavour, FlavourTitle } from './Chair.style';
 
-export const id = 'com.usegdi.templates.gdi.ChairI';
+export const id = 'com.usegdi.templates.futuristic.ChairI';
 
 export type ChairProps = {
     component: FC<any>;
@@ -18,14 +18,17 @@ export function Chair(props: ChairProps) {
         const className = `${id}-${flavour}`.replace(/\./g, '_');
 
         return (
-            <Flavour className={className}>
-                <Cmp
-                    sequence={sequence + index}
-                    key={blockInfo.id + '-' + data.id}
-                    {...data}
-                    isScreenshotMode={true}
-                />
-            </Flavour>
+            <>
+                <FlavourTitle>{flavour}</FlavourTitle>
+                <Flavour className={className}>
+                    <Cmp
+                        sequence={sequence + index}
+                        key={blockInfo.id + '-' + data.id}
+                        {...data}
+                        isScreenshotMode={true}
+                    />
+                </Flavour>
+            </>
         );
     }
 

@@ -8,11 +8,11 @@ export type ErrorProps = {
 
 export function Error(props: ErrorProps) {
     const { element } = props;
-    const { widgetId } = element;
+    const { blockId } = element;
 
     return (
         <Container className='Error-container' data-testid='Error-container'>
-            <Header>Could not find block {widgetId}</Header>
+            <Header>Could not find block {blockId}</Header>
             <P>Install required dependencies</P>
         </Container>
     );

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { EngineContext } from '../context/Engine.context';
-import { IElement } from '@gdi/store-mixer';
+import { IElement } from '@gdi/store-site';
 import { IMenuItem } from '../types';
 import { flattenInstanceProps } from '../utils/data';
 
@@ -31,7 +31,7 @@ export function useSiteMenu(elements: IElement[]) {
 const findBlockPropsByTag = (elements: IElement[], tag: string) => {
     return elements
         .filter((element) => {
-            return element.widget?.tags?.includes(tag);
+            return element.block?.tags?.includes(tag);
         })
         .map((element) => {
             return flattenInstanceProps(element.instanceProps);

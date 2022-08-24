@@ -84,82 +84,82 @@ export const state: ISiteStore = {
         fontFamily: "'Inter', sans-serif",
         fontWeight: 'regular',
     },
-    instances: {
+    instancesBlocks: {
         'home-userBar-simple-1': {
             id: 'home-userBar-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.userBar-simple',
+            blockId: 'com.usegdi.templates.futuristic.userBar-simple',
             pageId: 'home',
             order: 1,
         },
         'home-hero-simple-1': {
             id: 'home-hero-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.hero-simple',
+            blockId: 'com.usegdi.templates.futuristic.hero-simple',
             pageId: 'home',
             order: 2,
         },
         'home-sectionHeader-simple-1': {
             id: 'home-sectionHeader-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.sectionHeader-simple',
+            blockId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             pageId: 'home',
             order: 3,
         },
         'home-installation-simple-1': {
             id: 'home-installation-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.installation-simple',
+            blockId: 'com.usegdi.templates.futuristic.installation-simple',
             pageId: 'home',
             order: 4,
         },
         'home-sectionHeader-simple-2': {
             id: 'home-sectionHeader-simple-2',
-            widgetId: 'com.usegdi.templates.gdi.sectionHeader-simple',
+            blockId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             pageId: 'home',
             order: 5,
         },
         'home-feature-simple-1': {
             id: 'home-feature-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.feature-simple',
+            blockId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 6,
         },
         'home-feature-simple-2': {
             id: 'home-feature-simple-2',
-            widgetId: 'com.usegdi.templates.gdi.feature-simple',
+            blockId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 7,
         },
         'home-feature-simple-3': {
             id: 'home-feature-simple-3',
-            widgetId: 'com.usegdi.templates.gdi.feature-simple',
+            blockId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 8,
         },
         'home-feature-simple-4': {
             id: 'home-feature-simple-4',
-            widgetId: 'com.usegdi.templates.gdi.feature-simple',
+            blockId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 9,
         },
         'home-lineCta-simple-1': {
             id: 'home-lineCta-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.lineCta-simple',
+            blockId: 'com.usegdi.templates.futuristic.lineCta-simple',
             pageId: 'home',
             order: 10,
         },
         'home-sectionHeader-simple-3': {
             id: 'home-sectionHeader-simple-3',
-            widgetId: 'com.usegdi.templates.gdi.sectionHeader-simple',
+            blockId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             pageId: 'home',
             order: 11,
         },
         'home-imageAndText-simple-1': {
             id: 'home-imageAndText-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.imageAndText-simple',
+            blockId: 'com.usegdi.templates.futuristic.imageAndText-simple',
             pageId: 'home',
             order: 12,
         },
         'home-footer-simple-1': {
             id: 'home-footer-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.footer-simple',
+            blockId: 'com.usegdi.templates.futuristic.footer-simple',
             pageId: 'home',
             order: 13,
         },
@@ -185,16 +185,16 @@ export const state: ISiteStore = {
         },
     },
     locale: {
-        localeId: 'en',
+        localeId: 'en-us',
         isRtl: false,
     },
     blocks: {
-        'com.usegdi.templates.gdi.feature-simple': {
-            id: 'com.usegdi.templates.gdi.feature-simple',
+        'com.usegdi.templates.futuristic.feature-simple': {
+            id: 'com.usegdi.templates.futuristic.feature-simple',
             name: 'feature-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.feature-simple',
+                id: 'com.usegdi.templates.futuristic.feature-simple',
                 schema: {
                     strings: {
                         slogan: {
@@ -365,12 +365,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-feature'],
         },
-        'com.usegdi.templates.gdi.footer-simple': {
-            id: 'com.usegdi.templates.gdi.footer-simple',
+        'com.usegdi.templates.futuristic.footer-simple': {
+            id: 'com.usegdi.templates.futuristic.footer-simple',
             name: 'footer-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.footer-simple',
+                id: 'com.usegdi.templates.futuristic.footer-simple',
                 schema: {
                     strings: {
                         copyright: {
@@ -445,12 +445,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-footer'],
         },
-        'com.usegdi.templates.gdi.hero-simple': {
-            id: 'com.usegdi.templates.gdi.hero-simple',
+        'com.usegdi.templates.futuristic.hero-simple': {
+            id: 'com.usegdi.templates.futuristic.hero-simple',
             name: 'hero-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.hero-simple',
+                id: 'com.usegdi.templates.futuristic.hero-simple',
                 schema: {
                     strings: {
                         slogan: {
@@ -649,12 +649,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-hero'],
         },
-        'com.usegdi.templates.gdi.imageAndText-simple': {
-            id: 'com.usegdi.templates.gdi.imageAndText-simple',
+        'com.usegdi.templates.futuristic.imageAndText-simple': {
+            id: 'com.usegdi.templates.futuristic.imageAndText-simple',
             name: 'imageAndText-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.imageAndText-simple',
+                id: 'com.usegdi.templates.futuristic.imageAndText-simple',
                 schema: {
                     strings: {
                         slogan: {
@@ -772,12 +772,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-imageAndText'],
         },
-        'com.usegdi.templates.gdi.installation-simple': {
-            id: 'com.usegdi.templates.gdi.installation-simple',
+        'com.usegdi.templates.futuristic.installation-simple': {
+            id: 'com.usegdi.templates.futuristic.installation-simple',
             name: 'installation-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.installation-simple',
+                id: 'com.usegdi.templates.futuristic.installation-simple',
                 schema: {
                     strings: {
                         command: {
@@ -883,12 +883,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-installation'],
         },
-        'com.usegdi.templates.gdi.lineCta-simple': {
-            id: 'com.usegdi.templates.gdi.lineCta-simple',
+        'com.usegdi.templates.futuristic.lineCta-simple': {
+            id: 'com.usegdi.templates.futuristic.lineCta-simple',
             name: 'lineCta-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.lineCta-simple',
+                id: 'com.usegdi.templates.futuristic.lineCta-simple',
                 schema: {
                     strings: {
                         textStrong: {
@@ -991,12 +991,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-lineCta'],
         },
-        'com.usegdi.templates.gdi.sectionHeader-simple': {
-            id: 'com.usegdi.templates.gdi.sectionHeader-simple',
+        'com.usegdi.templates.futuristic.sectionHeader-simple': {
+            id: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             name: 'sectionHeader-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.sectionHeader-simple',
+                id: 'com.usegdi.templates.futuristic.sectionHeader-simple',
                 schema: {
                     strings: {
                         text: {
@@ -1081,12 +1081,12 @@ export const state: ISiteStore = {
             },
             tags: ['type-sectionHeader'],
         },
-        'com.usegdi.templates.gdi.userBar-simple': {
-            id: 'com.usegdi.templates.gdi.userBar-simple',
+        'com.usegdi.templates.futuristic.userBar-simple': {
+            id: 'com.usegdi.templates.futuristic.userBar-simple',
             name: 'userBar-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.userBar-simple',
+                id: 'com.usegdi.templates.futuristic.userBar-simple',
                 schema: {
                     strings: {},
                     colors: {

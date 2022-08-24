@@ -5,7 +5,7 @@ import MixerStructure, {
     ActionType,
 } from '../components/MixerStructure/MixerStructure';
 import MixerVisual from '../components/MixerVisual/MixerVisual';
-import { ModalContentContainer } from './ModalContentContainer';
+import { ModalContentContainer } from './modals/ModalContentContainer';
 
 export const MixerContainer = () => {
     const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export const MixerContainer = () => {
             },
             onMoveItem: (instanceId: string, newOrderValue: number) => {
                 dispatch(
-                    actions.instances.patch(instanceId, {
+                    actions.instancesBlocks.patch(instanceId, {
                         order: newOrderValue,
                     })
                 );
