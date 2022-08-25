@@ -13,7 +13,6 @@ import {
     Title,
 } from './UserMenu.style';
 import { Avatar } from '../Avatar/Avatar';
-import { Path18 } from './Path18';
 import { Icon } from '@fluentui/react';
 import { useClickAway, useToggle } from 'react-use';
 
@@ -24,9 +23,9 @@ type MenuItem = {
 };
 
 type User = {
-    displayName: string;
-    company: string;
-    photoURL: string;
+    displayName?: string | null;
+    company?: string | null;
+    photoURL?: string | null;
 };
 
 export type UserMenuProps = {
@@ -37,7 +36,7 @@ export type UserMenuProps = {
 
 export function UserMenu(props: UserMenuProps) {
     const { user, items } = props;
-    const { displayName, company, photoURL } = user;
+    const { displayName = '', company, photoURL = '' } = user;
 
     const ref = useRef<HTMLDivElement>(null);
 
@@ -79,8 +78,8 @@ export function UserMenu(props: UserMenuProps) {
         >
             <Avatar
                 size={40}
-                name={displayName}
-                imageUrl={photoURL}
+                name={displayName || ''}
+                imageUrl={photoURL || ''}
                 onClick={() => toggleMenu()}
             />
 
@@ -91,8 +90,8 @@ export function UserMenu(props: UserMenuProps) {
                         <UserImage>
                             <Avatar
                                 size={80}
-                                name={displayName}
-                                imageUrl={photoURL}
+                                name={displayName || ''}
+                                imageUrl={photoURL || ''}
                             />
                         </UserImage>
                         <Name>{displayName}</Name>

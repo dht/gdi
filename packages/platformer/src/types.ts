@@ -56,6 +56,7 @@ export type IShortKey = {
     withAlt?: boolean;
     withShift?: boolean;
     withCtrl?: boolean;
+    description?: string;
 };
 
 export type IMenuItems = IMenuItem[];

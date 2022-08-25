@@ -8,6 +8,7 @@ import { PagesContainer } from '../containers/singles/PagesContainer';
 import { ImportExportContainer } from '../containers/singles/ImportExportContainer';
 import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
+import { KeyboardShortcutsContainer } from '../containers/singles/KeyboardShortcutsContainer';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -18,6 +19,7 @@ export enum MixerWidgets {
     ImageGallery = 'mixer.ImageGallery',
     ImportExport = 'mixer.ImportExport',
     Preview = 'mixer.Preview',
+    KeyboardShortcuts = 'mixer.KeyboardShortcuts',
 }
 export const widgets: IWidget[] = [
     {
@@ -99,5 +101,15 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <PreviewContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.KeyboardShortcuts,
+        name: 'KeyboardShortcuts',
+        description: 'KeyboardShortcuts',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <KeyboardShortcutsContainer {...props} />,
     },
 ];

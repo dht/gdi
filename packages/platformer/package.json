@@ -10,10 +10,12 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
+        "@gdi/store-auth": "^0.0.2",
         "@gdi/web-ui": "^0.0.2",
         "axios": "^0.27.2",
         "axios-oauth": "^0.0.3",
         "firebase": "^9.9.1",
+        "firebaseui": "^6.0.1",
         "i18next": "^21.8.16",
         "igrid": "^0.0.9",
         "lodash": "^4.17.21",
