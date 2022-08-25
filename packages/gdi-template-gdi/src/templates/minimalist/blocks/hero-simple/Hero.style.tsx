@@ -97,7 +97,7 @@ export const Beta = styled.div`
     margin-left: 14px;
     opacity: 0.85;
     text-transform: uppercase;
-    color: gold;
+    color: goldenrod;
 `;
 
 export const P = styled.p`

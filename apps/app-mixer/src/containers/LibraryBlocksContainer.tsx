@@ -15,7 +15,10 @@ export const LibraryBlocksContainer = () => {
     const callbacks = useMemo(
         () => ({
             onSelectBlock: (blockId: string) => {
-                console.log('blockId ->', blockId);
+                dispatch({
+                    type: 'ELEMENT_BLOCK_SELECT',
+                    blockId,
+                });
             },
             onViewChange: (viewMode: string) => {
                 dispatch(

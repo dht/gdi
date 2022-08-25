@@ -4,6 +4,7 @@ import { root as api } from './saga.api';
 import { root as elements } from './saga.elements';
 import { root as gallery } from './saga.gallery';
 import { root as importExport } from './saga.importExport';
+import { root as mixer } from './saga.mixer';
 import { PlatformLifeCycleEvents } from '@gdi/platformer';
 
 function* root() {
@@ -12,6 +13,7 @@ function* root() {
     yield* fork(elements);
     yield* fork(gallery);
     yield* fork(importExport);
+    yield* fork(mixer);
     yield* fork(ping);
 }
 

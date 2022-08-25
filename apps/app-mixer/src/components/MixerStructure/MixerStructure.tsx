@@ -43,7 +43,7 @@ export function MixerStructure(props: MixerStructureProps) {
     function renderNewItem() {
         return (
             <ContainerNewItem>
-                <Title>[New element]</Title>
+                <Title>[New Block]</Title>
             </ContainerNewItem>
         );
     }

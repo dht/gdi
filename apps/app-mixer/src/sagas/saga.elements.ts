@@ -30,7 +30,7 @@ function* addElement(_action: ActionAddElement) {
     const placeholderType = value;
 
     yield put(
-        actions.instances.add({
+        actions.instancesBlocks.add({
             id,
             pageId,
             isPlaceholder: true,
@@ -58,7 +58,7 @@ function* deleteElement(action: ActionDeleteElement) {
         return;
     }
 
-    yield put(actions.instances.delete(action.id));
+    yield put(actions.instancesBlocks.delete(action.id));
 }
 
 export function* root() {

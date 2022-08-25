@@ -23,3 +23,5 @@ export type {
     IGalleryState,
     IImageWithBlock,
 } from './types';
+
+export { getSchemaPropertiesByType } from './utils/blocks';
