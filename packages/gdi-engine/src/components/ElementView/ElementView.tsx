@@ -19,11 +19,11 @@ export function ElementView(props: ElementViewProps) {
     const { instanceProps = emptyInstanceProps } = element;
     const { blocks } = useContext(EngineContext);
 
-    const block = blocks[element.widgetId];
+    const block = blocks[element.blockId];
 
     if (!block) {
         throw new Error(
-            `could not find widget '${element.widgetId}' for element '${element.id}'`
+            `could not find widget '${element.blockId}' for element '${element.id}'`
         );
     }
 

@@ -126,7 +126,7 @@ const nodeTypes = {
     fontSizes: 'single',
     spacing: 'single',
     fonts: 'single',
-    instances: 'collection',
+    instancesBlocks: 'collection',
     blocks: 'collection',
     images: 'collection',
     pages: 'collection',

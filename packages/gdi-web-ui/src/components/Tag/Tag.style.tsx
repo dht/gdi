@@ -29,6 +29,11 @@ export const Container = styled.div`
         background-color: paleturquoise;
         color: #333;
     }
+
+    &.pink {
+        background-color: palevioletred;
+        color: #333;
+    }
 `;
 
 export const Title = styled.div`

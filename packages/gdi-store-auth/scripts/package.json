@@ -1,5 +1,5 @@
 {
-    "name": "scripts",
+    "name": "@gdi/store-auth-scripts",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
@@ -7,6 +7,6 @@
         "firebase": "^9.9.2"
     },
     "devDependencies": {
-        "chalk": "^5.0.1"
+        "chalk": "^4.1.2"
     }
 }

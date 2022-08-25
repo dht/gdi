@@ -25,7 +25,7 @@ export function ElementEdit(props: ElementEditProps) {
     const { instanceProps = emptyInstanceProps } = element;
     const { blocks } = useContext(EngineContext);
 
-    const block = blocks[element.widgetId];
+    const block = blocks[element.blockId];
 
     function onClick() {
         props.onSelect(element.id);

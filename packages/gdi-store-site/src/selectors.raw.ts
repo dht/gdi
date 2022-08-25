@@ -12,7 +12,7 @@ export const $rawPalette = createSelector($i, (state: ISiteStore) => state.palet
 export const $rawFontSizes = createSelector($i, (state: ISiteStore) => state.fontSizes); // prettier-ignore
 export const $rawSpacing = createSelector($i, (state: ISiteStore) => state.spacing); // prettier-ignore
 export const $rawFonts = createSelector($i, (state: ISiteStore) => state.fonts); // prettier-ignore
-export const $rawInstances = createSelector($i, (state: ISiteStore) => state.instances); // prettier-ignore
+export const $rawInstancesBlocks = createSelector($i, (state: ISiteStore) => state.instancesBlocks); // prettier-ignore
 export const $rawImages = createSelector($i, (state: ISiteStore) => state.images); // prettier-ignore
 export const $rawBlocks = createSelector($i, (state: ISiteStore) => state.blocks); // prettier-ignore
 export const $rawInstancesMapColors = createSelector($i, (state: ISiteStore) => state.instancesMapColors); // prettier-ignore

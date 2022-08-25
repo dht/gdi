@@ -9,6 +9,7 @@
     "dependencies": {
         "@gdi/store-mixer": "^0.0.1",
         "@gdi/template-gdi": "^0.0.2",
+        "@gdi/template-blog": "^0.0.2",
         "@gdi/web-ui": "^0.0.2",
         "lodash": "^4.17.21",
         "react": "^18.2.0",

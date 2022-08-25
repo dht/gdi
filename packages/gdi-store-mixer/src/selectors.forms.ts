@@ -1,15 +1,15 @@
 import * as base from './selectors.base';
 import { createSelector } from 'reselect';
-import { IMixerStore } from './types';
+import { FieldType } from '@gdi/web-forms';
 import { IFormConfig, IFormField } from '@gdi/web-forms';
+import { IMixerStore } from './types';
+import { sortBy } from 'shared-base';
+import { upperFirst } from 'lodash';
 import {
     SchemaFieldType,
     flattenInstanceProps,
     IBlockSchemaGroup,
 } from '@gdi/engine';
-import { FieldType } from '@gdi/web-forms';
-import { upperFirst } from 'lodash';
-import { sortBy } from 'shared-base';
 
 export const $i = (state: IMixerStore) => state;
 

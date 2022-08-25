@@ -1,6 +1,8 @@
 import { ITemplate } from '@gdi/web-ui';
-import { gdi } from './gdi';
+import { futuristic } from './futuristic';
+import { minimalist } from './minimalist';
 
 export const templates: Record<string, ITemplate> = {
-    gdi,
+    futuristic,
+    minimalist,
 };

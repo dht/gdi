@@ -5,7 +5,8 @@ import { chromium, Page } from 'playwright';
 import { Json } from './types';
 import { set } from 'lodash';
 import { templateDimensions, templateScreenshot } from './templates';
-import { initTemplates } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 import type { OutputInfo } from 'sharp';
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getStorage } from 'firebase-admin/storage';
@@ -13,12 +14,16 @@ import type { UploadResponse } from '@google-cloud/storage';
 import { Metadata } from '@playwright/test';
 import { LibraryBuilder } from '@gdi/engine';
 import { capitalize } from 'lodash';
+import { IBlock, IBlocks } from '@gdi/web-ui';
+import * as chalk from 'chalk';
 
 const DEBUG = true;
 const OUTPUT_DIR = './screenshots/';
 var serviceAccount = require('./service-account.json');
 
 let definitions: Json = {};
+
+let blocks: IBlocks;
 
 initializeApp({
     credential: cert(serviceAccount),
@@ -27,10 +32,6 @@ initializeApp({
 });
 
 const bucket = getStorage().bucket();
-
-const libraryBuilder = new LibraryBuilder();
-initTemplates(libraryBuilder);
-const { blocks } = libraryBuilder.build();
 
 let pageDesktop: Page, pageMobile: Page;
 
@@ -188,12 +189,9 @@ const takePicture = async (
     return output;
 };
 
-const screenShotsForComponent = async (
-    templateName: string,
-    blockName: string
-) => {
+const screenShotsForComponent = async (block: IBlock) => {
+    const { templateName, blockName } = analyzeBlockId(block.id);
     const blockKey = `com.usegdi.templates.${templateName}.${blockName}`;
-    const block = blocks[blockKey];
 
     for (let flavour of Object.keys(block.info.sampleData)) {
         const className = `${blockKey}-${flavour}`.replace(/\./g, '_');
@@ -207,27 +205,36 @@ const screenShotsForComponent = async (
             selector,
         };
 
-        console.time('taking screenshots for ' + blockName + '-' + flavour);
+        const selectorExists = await pageDesktop.$(selector);
+        if (selectorExists) {
+            console.time(
+                'taking screenshots for ' + chalk.cyan(block.id) + '-' + flavour
+            );
 
-        const responseDesktop = await takePicture(pageDesktop, {
-            ...base,
-            isDesktop: true,
-        });
+            const responseDesktop = await takePicture(pageDesktop, {
+                ...base,
+                isDesktop: true,
+            });
 
-        const responseMobile = await takePicture(pageMobile, {
-            ...base,
-            isDesktop: false,
-        });
+            const responseMobile = await takePicture(pageMobile, {
+                ...base,
+                isDesktop: false,
+            });
 
-        console.timeEnd('taking screenshots for ' + blockName + '-' + flavour);
+            console.timeEnd(
+                'taking screenshots for ' + chalk.cyan(block.id) + '-' + flavour
+            );
 
-        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.large`, {...responseDesktop.large}); // prettier-ignore
-        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.thumb`, {...responseDesktop.thumb}); // prettier-ignore
-        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.large`, {...responseMobile.large}); // prettier-ignore
-        set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.thumb`, {...responseMobile.thumb}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.large`, {...responseDesktop.large}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.thumb`, {...responseDesktop.thumb}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.large`, {...responseMobile.large}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.thumb`, {...responseMobile.thumb}); // prettier-ignore
 
-        set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.desktop`, responseDesktop.large); // prettier-ignore
-        set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.mobile`, responseMobile.large); // prettier-ignore
+            set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.desktop`, responseDesktop.large); // prettier-ignore
+            set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.mobile`, responseMobile.large); // prettier-ignore
+        } else {
+            console.log(`no selector for ${selector}`);
+        }
     }
 };
 
@@ -305,7 +312,8 @@ export const analyzeScreenshotName = (screenshotName: string) => {
 };
 
 const writeDefinitionsFiles = async (
-    uploadResponse: Record<string, Metadata>
+    uploadResponse: Record<string, Metadata>,
+    packagePath: string
 ) => {
     Object.keys(uploadResponse).forEach((screenshotName) => {
         const info = analyzeScreenshotName(screenshotName);
@@ -323,7 +331,9 @@ const writeDefinitionsFiles = async (
             size,
         ].join('.');
 
-        set(definitions, xPathDefinitions + '.url', mediaLink);
+        const mediaLinkClean = mediaLink.replace(/\?.+$/g, '');
+
+        set(definitions, xPathDefinitions + '.url', mediaLinkClean + '?alt=media'); // prettier-ignore
         set(definitions, xPathDefinitions + '.urlIsRemote', true);
     });
 
@@ -336,12 +346,12 @@ const writeDefinitionsFiles = async (
             const dimensionsForBlock = dimensionsByBlock[blockName];
             const { cmpName } = blockNameToCmp(blockName);
 
-            const outputIndexScreenshots = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.screenshots.ts`;
+            const outputIndexScreenshots = `../../${packagePath}/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.screenshots.ts`;
             const indexScreenshots = templateScreenshot(screenshotsForBlock);
             fs.writeFileSync(outputIndexScreenshots, indexScreenshots);
 
             const indexDimensions = templateDimensions(dimensionsForBlock);
-            const outputIndexDimensions = `../../gdi-template-gdi/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.dimensions.ts`;
+            const outputIndexDimensions = `../../${packagePath}/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.dimensions.ts`;
             fs.writeFileSync(outputIndexDimensions, indexDimensions);
         });
     });
@@ -352,9 +362,24 @@ const writeDefinitionsFiles = async (
     }
 };
 
-const run = async () => {
+const screenShotsForPackage = async (method: any, packagePath: string) => {
     fs.rmdirSync(OUTPUT_DIR, { recursive: true });
 
+    definitions = {};
+
+    const libraryBuilder = new LibraryBuilder();
+    method(libraryBuilder);
+    blocks = libraryBuilder.build().blocks;
+
+    for (let block of Object.values(blocks)) {
+        await screenShotsForComponent(block);
+    }
+
+    const uploadResponse = await uploadAllScreenshots();
+    await writeDefinitionsFiles(uploadResponse, packagePath);
+};
+
+const run = async () => {
     console.time('opening browser');
     const browser = await chromium.launch({});
     const contextDesktop = await browser.newContext({
@@ -372,13 +397,8 @@ const run = async () => {
 
     console.timeEnd('opening browser');
 
-    for (let blockId of Object.keys(blocks)) {
-        const { templateName, blockName } = analyzeBlockId(blockId);
-        await screenShotsForComponent(templateName, blockName);
-    }
-
-    const uploadResponse = await uploadAllScreenshots();
-    await writeDefinitionsFiles(uploadResponse);
+    await screenShotsForPackage(initTemplatesGdi, 'gdi-template-gdi');
+    await screenShotsForPackage(initTemplatesBlog, 'gdi-template-blog');
 
     await browser.close();
 };

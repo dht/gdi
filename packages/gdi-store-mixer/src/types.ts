@@ -1,17 +1,13 @@
-import type {
-    IWidget,
-    IWidgetInstance,
-    IWidgetInstances,
-    IWidgets,
-} from 'igrid';
 import type { StoreStructure } from 'redux-store-generator';
 import { IBlockInfo } from '@gdi/engine';
+import type { IImage, IImages } from '@gdi/store-site';
 
 export type IMixerStore = StoreStructure & {
     appStateMixer: IMixerState;
     currentIds: ICurrentIds;
     meta: IMeta;
     galleryState: IGalleryState;
+    blocksGalleryState: IBlocksGalleryState;
     libraryImages: IImages;
     libraryBlocks: Record<string, IBlockInfo>;
     libraryTypography: ITypographyOptions;
@@ -87,20 +83,15 @@ export type IGalleryState = {
     deletedIds: string[];
 };
 
-export type IImage = {
-    id: string;
-    title: string;
-    imageUrl: string;
-    imageThumbUrl: string;
-    ratio: number;
-    tags: string[];
+export type IBlocksFilter = 'all' | 'byType';
+
+export type IBlocksGalleryState = {
+    stateKey: string;
+    mode: IGalleryViewMode;
+    filter: IBlocksFilter;
+    search: string;
 };
 
-export type IImages = Record<string, IImage>;
-
-// ======================= SELECTORS OUTPUT =======================
-export type IElement = IWidgetInstance & {
-    widget: IWidget;
-    elementType: string;
-    instanceProps?: Json;
+export type IImageWithBlock = IImage & {
+    block: IBlockInfo;
 };

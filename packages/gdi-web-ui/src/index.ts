@@ -7,6 +7,7 @@ export { ColorPalette } from './components/ColorPalette/ColorPalette';
 export type { IColorPalette } from './components/ColorPalette/ColorPalette';
 export { Drawer } from './components/Drawer/Drawer';
 export { Editor } from './components/Editor/Editor';
+export { Empty } from './components/Empty/Empty';
 export { KeyValue } from './components/KeyValue/KeyValue';
 export { List } from './components/List/List';
 export { Logo } from './components/Logo/Logo';

@@ -4,7 +4,7 @@ import { delay, fork, put } from 'saga-ts';
 function* api() {
     const promises = [
         yield* put(actions.appStateMixer.get()),
-        yield* put(actions.instances.get({})),
+        yield* put(actions.instancesBlocks.get({})),
         yield* put(actions.blocks.get({})),
         yield* put(actions.instancesProps.get({})),
         yield* put(actions.fonts.get()),

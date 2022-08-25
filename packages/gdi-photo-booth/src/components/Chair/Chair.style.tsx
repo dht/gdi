@@ -5,3 +5,11 @@ export const Container = styled.div`
 `;
 
 export const Flavour = styled.div``;
+
+export const FlavourTitle = styled.div`
+    color: #333;
+    font-size: 20px;
+    font-family: monospace;
+    text-align: center;
+    border: 1px solid gray;
+`;

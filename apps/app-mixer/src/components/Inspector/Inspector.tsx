@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container } from './Inspector.style';
-import { data } from './meta/Inspector.data';
 import { KeyValue, Tags } from '@gdi/web-ui';
+import { IElement } from '@gdi/store-site';
 
-export type InspectorProps = {};
+export type InspectorProps = {
+    data: Json;
+};
 
-export function Inspector(_props: InspectorProps) {
+export function Inspector(props: InspectorProps) {
+    const { data } = props;
+
     function renderCustomField(fieldName: string, value: any) {
         switch (fieldName) {
             case 'tags':

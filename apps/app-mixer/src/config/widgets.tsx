@@ -1,12 +1,12 @@
 import React from 'react';
 import { IWidget } from '@gdi/platformer';
 import { MixerContainer } from '../containers/MixerContainer';
-import { MixerPanelContainer } from '../containers/MixerPanelContainer';
-import { ToolsContainer } from '../containers/ToolsContainer';
-import { ViewsContainer } from '../containers/ViewsContainer';
-import { PagesContainer } from '../containers/PagesContainer';
-import { ImportExportContainer } from '../containers/ImportExportContainer';
-import { GalleryContainer } from '../containers/GalleryContainer';
+import { MixerPanel } from '../components/MixerPanel/MixerPanel';
+import { ToolsContainer } from '../containers/singles/ToolsContainer';
+import { ViewsContainer } from '../containers/singles/ViewsContainer';
+import { PagesContainer } from '../containers/singles/PagesContainer';
+import { ImportExportContainer } from '../containers/singles/ImportExportContainer';
+import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
 
 export enum MixerWidgets {
@@ -38,7 +38,7 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MixerPanelContainer {...props} />,
+        component: (props: any) => <MixerPanel {...props} />,
     },
     {
         id: MixerWidgets.Tools,
@@ -88,7 +88,7 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <GalleryContainer {...props} />,
+        component: (props: any) => <LibraryImagesContainer {...props} />,
     },
     {
         id: MixerWidgets.Preview,

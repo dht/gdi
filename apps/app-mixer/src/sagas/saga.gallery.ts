@@ -1,7 +1,7 @@
 import { actions, selectors } from '../store';
 import { call, put, select, takeEvery } from 'saga-ts';
 import { prompt } from '@gdi/platformer';
-import type { ImageActionType } from '@gdi/image-gallery';
+import type { ImageActionType } from '@gdi/galleries';
 
 type ActionImage = {
     type: 'IMAGE_ACTION';

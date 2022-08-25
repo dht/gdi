@@ -7,7 +7,7 @@ export const initialState: ISiteStore = {
         schemaVersion: '1.0.1',
     },
     locale: {
-        localeId: 'en',
+        localeId: 'en-us',
         isRtl: false,
     },
     pages: {
@@ -99,21 +99,21 @@ export const initialState: ISiteStore = {
         fontFamily: "'Inter', sans-serif",
         fontWeight: 'regular',
     },
-    instances: {
+    instancesBlocks: {
         'home-placeholder-simple-1': {
             id: 'home-placeholder-simple-1',
-            widgetId: 'com.usegdi.templates.gdi.placeholder-simple',
+            blockId: 'com.usegdi.templates.futuristic.placeholder-simple',
             pageId: 'home',
             order: 1,
         },
     },
     blocks: {
-        'com.usegdi.templates.gdi.placeholder-simple': {
-            id: 'com.usegdi.templates.gdi.placeholder-simple',
+        'com.usegdi.templates.futuristic.placeholder-simple': {
+            id: 'com.usegdi.templates.futuristic.placeholder-simple',
             name: 'placeholder-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.gdi.placeholder-simple',
+                id: 'com.usegdi.templates.futuristic.placeholder-simple',
                 schema: {
                     strings: {},
                     colors: {},
@@ -161,7 +161,7 @@ export const reducers = generateReducersForStore<ISiteStore>(initialState);
 
 export const clearState = (store: any) => {
     setTimeout(() => {
-        store.dispatch(actions.instances.setAll({}));
+        store.dispatch(actions.instancesBlocks.setAll({}));
         store.dispatch(actions.blocks.setAll({}));
         store.dispatch(actions.instancesProps.setAll({}));
         store.dispatch(actions.images.setAll({}));

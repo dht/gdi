@@ -1,23 +1,26 @@
 import { IBlock } from '@gdi/web-ui';
 import React from 'react';
-import { Container } from './App.style';
+import { BlockTitle, BlockWrapper, Container } from './App.style';
 import { Chair } from '../Chair/Chair';
 import { blocks } from '../../bootstrap';
 
 export function App() {
     function renderBlock(block: IBlock, index) {
         return (
-            <Chair
-                key={block.id}
-                component={block.component}
-                blockInfo={block.info}
-                sequence={index}
-            />
+            <>
+                <BlockTitle>{block.id}</BlockTitle>
+                <Chair
+                    key={block.id}
+                    component={block.component}
+                    blockInfo={block.info}
+                    sequence={index}
+                />
+            </>
         );
     }
 
     function renderBlocks() {
-        return Object.values(blocks).map((block: IBlock, index) =>
+        return Object.values(blocks as IBlock[]).map((block: IBlock, index) =>
             renderBlock(block, index)
         );
     }
