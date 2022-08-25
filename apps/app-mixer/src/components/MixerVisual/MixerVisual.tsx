@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './MixerVisual.style';
+import { Container, ContainerNewItem, Title } from './MixerVisual.style';
 import { EngineEdit } from '@gdi/engine';
 import { IElement } from '@gdi/store-mixer';
 
@@ -24,6 +24,17 @@ export function MixerVisual(props: MixerVisualProps) {
         margin: '0 auto',
     };
 
+    function renderNewItem() {
+        return (
+            <ContainerNewItem
+                selected={currentInstanceId === '<NEW>'}
+                onClick={() => callbacks.onSelectItem('<NEW>')}
+            >
+                <Title>[New Block]</Title>
+            </ContainerNewItem>
+        );
+    }
+
     return (
         <Container
             className='MixerVisual-container'
@@ -36,6 +47,7 @@ export function MixerVisual(props: MixerVisualProps) {
                 onAction={callbacks.onAction}
                 elements={pageStructure}
             />
+            {renderNewItem()}
         </Container>
     );
 }
