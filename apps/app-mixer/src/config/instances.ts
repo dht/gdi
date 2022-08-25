@@ -23,7 +23,7 @@ export const instances: IWidgetInstancesByPageList = {
             id: 'Tools',
             widgetId: MixerWidgets.Tools,
             position: { y: 5, x: 5 },
-            dimension: { y: 20, x: 3 },
+            dimension: { y: 12, x: 3 },
             isFloating: true,
         },
         {
@@ -42,6 +42,14 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 5, x: 5 },
             isFloating: true,
             hideHeader: false,
+        },
+        {
+            id: 'KeyboardShortcuts',
+            title: 'KeyboardShortcuts',
+            widgetId: MixerWidgets.KeyboardShortcuts,
+            position: { y: 18, x: 5 },
+            dimension: { y: 2, x: 3 },
+            isFloating: true,
         },
     ],
     imageGallery: [
