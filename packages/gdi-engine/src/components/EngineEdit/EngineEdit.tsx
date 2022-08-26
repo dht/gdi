@@ -1,4 +1,4 @@
-import { IElement } from '@gdi/store-mixer';
+import { IElement } from '@gdi/store-site';
 import React, { useContext } from 'react';
 import ElementEdit from '../ElementEdit/ElementEdit';
 import {

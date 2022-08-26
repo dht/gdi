@@ -4,21 +4,21 @@ export const shortKeys: IShortKey[] = [
     {
         key: '`',
         withCtrl: true,
-        description: 'Switch to next tool',
+        description: 'Next tool',
     },
     {
         key: '1',
         withCtrl: true,
-        description: 'Visual view',
+        description: 'View: Visual',
     },
     {
         key: '2',
         withCtrl: true,
-        description: 'Structure view',
+        description: 'View: Structure',
     },
     {
-        key: 'k',
+        key: 'K',
         withCommand: true,
-        description: 'Devtools',
+        description: 'Devtools & commands',
     },
 ];

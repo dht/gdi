@@ -5,3 +5,5 @@ dist
 coverage
 .vscode
 submodules
+firebaseConfig.ts
+clients/gdi-admin/.firebaserc

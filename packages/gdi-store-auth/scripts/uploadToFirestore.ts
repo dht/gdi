@@ -10,19 +10,10 @@ import {
     addDoc,
     writeBatch,
 } from 'firebase/firestore/lite';
-import state from './state';
+import { state } from './state';
+import { firebaseConfig } from '../../../firebaseConfig';
 
 type Json = Record<string, any>;
-
-const firebaseConfig = {
-    apiKey: 'AIzaSyCf029JwrJoA-9CHtweZHqD0z-KXGNVnX8',
-    authDomain: 'amazing-de4d0.firebaseapp.com',
-    databaseURL: 'https://amazing-de4d0.firebaseio.com',
-    projectId: 'amazing-de4d0',
-    storageBucket: 'amazing-de4d0.appspot.com',
-    messagingSenderId: '114773355011',
-    appId: '1:114773355011:web:15a08553322f1cfa8c7c36',
-};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -121,17 +112,8 @@ function collectionAddItem(nodeName: string, data: Json) {
 }
 
 const nodeTypes = {
-    meta: 'single',
-    palette: 'single',
-    fontSizes: 'single',
-    spacing: 'single',
-    fonts: 'single',
-    instances: 'collection',
-    widgets: 'collection',
-    instancesMapColors: 'collection',
-    instancesMapStrings: 'collection',
-    instancesProps: 'collection',
-    strings: 'single',
+    users: 'collection',
+    roles: 'collection',
 };
 
 const getByType = (nodeType: string) => {
@@ -140,7 +122,7 @@ const getByType = (nodeType: string) => {
         .map((key) => {
             const nodeData = state[key];
             return [key, nodeData];
-        });
+        }) as [string, Json][];
 };
 
 const run = async () => {
