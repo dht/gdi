@@ -15,6 +15,10 @@ export const Container = styled.div<{ colors: HeroColors }>`
         max-height: none;
         padding: 80px 20px;
     }
+
+    @media (min-height: 1400px) {
+        height: 50vh;
+    }
 `;
 
 export const Wrapper = styled.div`

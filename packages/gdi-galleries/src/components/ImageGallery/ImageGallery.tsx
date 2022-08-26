@@ -203,7 +203,7 @@ export function ImageGallery(props: ImageGalleryProps) {
                 callbacks={callbacks}
             >
                 <Button
-                    title='Upload Image'
+                    title='Upload'
                     iconName='Add'
                     primary
                     onClick={callbacks.onUploadImage}

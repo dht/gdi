@@ -46,10 +46,12 @@ export const LibraryBlocksContainer = () => {
         []
     );
 
+    const columns = window.innerWidth > 1700 ? 2 : 1;
+
     return (
         <LibraryBlocks
             state={galleryState}
-            columns={2}
+            columns={columns}
             items={libraryBlocks}
             callbacks={callbacks}
         />

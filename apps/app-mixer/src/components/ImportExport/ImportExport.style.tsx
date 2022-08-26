@@ -8,5 +8,7 @@ export const Container = styled.div`
 
     > button {
         margin: 4px 0;
+        min-width: auto;
+        border: none;
     }
 `;
