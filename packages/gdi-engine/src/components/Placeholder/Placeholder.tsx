@@ -1,4 +1,4 @@
-import { IElement } from '@gdi/store-mixer';
+import { IElement } from '@gdi/store-site';
 import React from 'react';
 import { Container, Header, P } from './Placeholder.style';
 

@@ -40,7 +40,7 @@ const items = [
 export function SideMenuContainer(_props: SideMenuContainerProps) {
     const dispatch = useDispatch();
     const { menuItems, menuGroups } = useContext(PlatformContext);
-    const user = useSelector(auth.selectors.raw.$rawUser);
+    const me = useSelector(auth.selectors.raw.$rawMe);
 
     const onUserMenuClick = useCallback((actionId: string) => {
         switch (actionId) {
@@ -80,7 +80,7 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
     function renderUserMenu() {
         return (
             <UserMenuWrapper>
-                <UserMenu user={user} items={items} onClick={onUserMenuClick} />
+                <UserMenu user={me} items={items} onClick={onUserMenuClick} />
             </UserMenuWrapper>
         );
     }

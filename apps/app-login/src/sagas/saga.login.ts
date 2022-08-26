@@ -30,7 +30,7 @@ function* authChange({ user }: any) {
         user;
 
     yield put(
-        actions.user.patch({
+        actions.me.patch({
             uid,
             displayName,
             email,
@@ -45,6 +45,20 @@ function* authChange({ user }: any) {
         message: `Logged in as ${displayName}`,
         flavour: 'success',
     });
+
+    yield put(
+        actions.users.patch(uid, {
+            id: uid,
+            uid,
+            displayName,
+            email,
+            emailVerified,
+            phoneNumber,
+            photoURL,
+        })
+    );
+
+    console.log('2 ->', 2);
 
     const to = localStorage.getItem(REQUESTED_PATH_KEY) || '/';
     yield* call(navigate, to);

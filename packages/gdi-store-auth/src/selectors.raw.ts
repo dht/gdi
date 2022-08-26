@@ -5,5 +5,7 @@ export const $i = (state: IAuthStore) => state;
 const $n = (): null => null;
 const $o = (): void => {};
 
-export const $rawUser = createSelector($i, (state: IAuthStore) => state.user); // prettier-ignore
 export const $rawAuthState = createSelector($i, (state: IAuthStore) => state.authState); // prettier-ignore
+export const $rawMe = createSelector($i, (state: IAuthStore) => state.me); // prettier-ignore
+export const $rawUsers = createSelector($i, (state: IAuthStore) => state.users); // prettier-ignore
+export const $rawAdmins = createSelector($i, (state: IAuthStore) => state.admins); // prettier-ignore

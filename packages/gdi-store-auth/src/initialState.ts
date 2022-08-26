@@ -6,7 +6,8 @@ export const initialState: IAuthStore = {
     authState: {
         isLoggedIn: false,
     },
-    user: {
+    me: {
+        id: '',
         uid: '',
         displayName: '',
         company: '',
@@ -16,10 +17,27 @@ export const initialState: IAuthStore = {
         photoURL: '',
         providerId: '',
     },
+    users: {
+        '1': {
+            id: '1',
+            email: 'email@example.com',
+        },
+    },
+    roles: {
+        '1': {
+            id: '1',
+            role: 'admin',
+        },
+    },
 };
 
 export const reducers = generateReducersForStore<IAuthStore>(initialState);
 
 export const clearState = (store: any) => {
+    setTimeout(() => {
+        store.dispatch(actions.users.setAll({}));
+        store.dispatch(actions.roles.setAll({}));
+    });
+
     return store;
 };

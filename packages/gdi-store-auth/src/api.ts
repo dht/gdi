@@ -1,56 +1,11 @@
 export const endpointsConfigOverrides: any = {
-    meta: {
-        id: 'instances',
+    users: {
+        id: 'users',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },
-    palette: {
-        id: 'palette',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    fontSizes: {
-        id: 'fontSizes',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    spacing: {
-        id: 'spacing',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    fonts: {
-        id: 'fonts',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    instances: {
-        id: 'instances',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    widgets: {
-        id: 'widgets',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    instancesMapColors: {
-        id: 'instancesMapColors',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    instancesMapStrings: {
-        id: 'instancesMapStrings',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    instancesProps: {
-        id: 'instancesProps',
-        connectionType: 'FIRESTORE',
-        optimistic: true,
-    },
-    strings: {
-        id: 'strings',
+    admins: {
+        id: 'admins',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },

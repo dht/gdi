@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, ContainerNewItem, Title } from './MixerVisual.style';
 import { EngineEdit } from '@gdi/engine';
-import { IElement } from '@gdi/store-mixer';
+import { IElement } from '@gdi/store-site';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
 
