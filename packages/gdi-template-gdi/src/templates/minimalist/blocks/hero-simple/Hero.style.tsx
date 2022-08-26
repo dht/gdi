@@ -4,7 +4,7 @@ import { darken, invert } from 'polished';
 
 export const Container = styled.div<{ colors: HeroColors }>`
     background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 80vh;
+    height: 90vh;
     display: flex;
     background-size: cover;
     background-position: center center;
@@ -14,6 +14,10 @@ export const Container = styled.div<{ colors: HeroColors }>`
         height: auto;
         max-height: none;
         padding: 80px 20px;
+    }
+
+    @media (min-height: 1400px) {
+        height: 50vh;
     }
 `;
 

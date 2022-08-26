@@ -19,7 +19,12 @@ export function MixerVisual(props: MixerVisualProps) {
     const { currentInstanceId, pageStructure, callbacks } = props;
 
     const style = {
-        zoom: 0.75,
+        zoom:
+            window.innerWidth > 3000
+                ? 1.3
+                : window.innerWidth > 1700
+                ? 0.75
+                : 0.55,
         maxWidth: 1920,
         margin: '0 auto',
     };

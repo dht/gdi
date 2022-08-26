@@ -1,11 +1,11 @@
 import { FirebaseApp, initializeApp } from 'firebase/app';
-import {
-    Analytics,
-    getAnalytics,
-    logEvent,
-    setUserId,
-    setUserProperties,
-} from 'firebase/analytics';
+// import {
+//     Analytics,
+//     getAnalytics,
+//     logEvent,
+//     setUserId,
+//     setUserProperties,
+// } from 'firebase/analytics';
 import { Firestore, getFirestore } from 'firebase/firestore/lite';
 import {
     Auth,
@@ -47,7 +47,7 @@ export type EventId =
 
 export class Firebase {
     private app: FirebaseApp;
-    private analytics: Analytics;
+    // private analytics: Analytics;
     private db: Firestore;
     private auth: Auth;
     private ui: firebaseui.auth.AuthUI;
@@ -58,7 +58,7 @@ export class Firebase {
 
     constructor(firebaseConfig: FirebaseConfig) {
         this.app = initializeApp(firebaseConfig);
-        this.analytics = getAnalytics(this.app);
+        // this.analytics = getAnalytics(this.app);
         this.db = getFirestore(this.app);
         this.auth = getAuth(this.app);
         this.ui = new firebaseui.auth.AuthUI(this.auth);
@@ -89,15 +89,15 @@ export class Firebase {
     }
 
     log(eventName: EventId, data?: Json) {
-        logEvent(this.analytics, eventName as string, data);
+        // logEvent(this.analytics, eventName as string, data);
     }
 
     setUserId(userId: string) {
-        setUserId(this.analytics, userId);
+        // setUserId(this.analytics, userId);
     }
 
     setUserProperties(data: Json) {
-        setUserProperties(this.analytics, data);
+        // setUserProperties(this.analytics, data);
     }
 
     signIn() {

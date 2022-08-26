@@ -22,13 +22,15 @@ export const PanelLibraryContainer = (props: any) => {
 
     switch (toolId) {
         case 'data':
+            const columns = window.innerWidth > 1700 ? 2 : 1;
+
             return (
                 <LibraryImagesContainer
                     overwrites={{
                         mode: 'minimal',
                         showTools: false,
                     }}
-                    columns={2}
+                    columns={columns}
                 />
             );
         case 'browse':

@@ -2,7 +2,7 @@ import { PartialTheme } from '@gdi/web-base-ui';
 
 export const theme: PartialTheme = {
     defaultFontStyle: {
-        fontFamily: 'Rubik',
+        fontFamily: 'Inter',
         fontWeight: 'regular',
     },
     palette: {
