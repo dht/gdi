@@ -11,6 +11,7 @@ export const initialState: IMixerStore = {
         mode: 'visual',
         selectedToolId: 'data',
         paletteId: 'green',
+        showImageUploadModal: false,
     },
     currentIds: {
         pageId: 'home',
@@ -23,7 +24,6 @@ export const initialState: IMixerStore = {
         mode: 'full',
         selectedToolId: 'select',
         showTools: true,
-        showUploadModal: false,
         showTagModal: false,
         search: '',
         tag: 'background',

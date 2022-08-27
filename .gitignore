@@ -6,4 +6,5 @@ coverage
 .vscode
 submodules
 firebaseConfig.ts
+firebaseServiceAccount.json
 clients/gdi-admin/.firebaserc

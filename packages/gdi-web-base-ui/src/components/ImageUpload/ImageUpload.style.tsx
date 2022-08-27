@@ -8,13 +8,14 @@ export const Container = styled.div`
 
 export const Label = styled.label``;
 
-export const Image = styled.div`
+export const ImageWrapper = styled.div`
     height: 200px;
     width: 254px;
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
     margin: auto;
+    position: relative;
 `;
 
 export const File = styled.input`
@@ -29,9 +30,28 @@ export const Empty = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     i {
         font-size: 54px;
         opacity: 0.3;
     }
+`;
+
+export const Loader = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+`;
+
+export const ImageData = styled.div`
+    color: gold;
+    font-family: monospace;
 `;

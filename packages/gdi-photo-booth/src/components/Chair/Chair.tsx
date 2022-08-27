@@ -1,4 +1,4 @@
-import { IBlockInfo } from '@gdi/web-ui';
+import { IBlockInfo } from '@gdi/engine';
 import React, { FC } from 'react';
 import { Container, Flavour, FlavourTitle } from './Chair.style';
 

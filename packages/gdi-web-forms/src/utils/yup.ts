@@ -30,6 +30,7 @@ const fieldTypeToYupMethod: Record<FieldType, any> = {
     color: yup.string(),
     date: yup.date(),
     details: yup.string(),
+    hidden: yup.string(),
     email: yup.string().email(),
     imageUpload: yup.string(),
     number: yup.number(),

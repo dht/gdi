@@ -6,6 +6,12 @@ import { FirebaseApp, initializeApp } from 'firebase/app';
 //     setUserId,
 //     setUserProperties,
 // } from 'firebase/analytics';
+import {
+    FirebaseStorage,
+    getStorage,
+    uploadBytes,
+    ref,
+} from 'firebase/storage';
 import { Firestore, getFirestore } from 'firebase/firestore/lite';
 import {
     Auth,
@@ -52,6 +58,7 @@ export class Firebase {
     private auth: Auth;
     private ui: firebaseui.auth.AuthUI;
     private authListeners: AuthListener[] = [];
+    private storage: FirebaseStorage;
 
     public uid: string;
     public clientId: string;
@@ -63,6 +70,7 @@ export class Firebase {
         this.auth = getAuth(this.app);
         this.ui = new firebaseui.auth.AuthUI(this.auth);
         this.uid = '';
+        this.storage = getStorage();
         this.clientId = firebaseConfig.appId;
 
         onAuthStateChanged(this.auth, (user) => {
@@ -134,6 +142,33 @@ export class Firebase {
         };
 
         this.ui.start(selector, uiConfig);
+    }
+
+    uploadImage(path: string, file: File) {
+        const storageRef = ref(this.storage, path);
+        return uploadBytes(storageRef, file).then((snapshot) => {
+            const metadata = snapshot.metadata;
+
+            const { bucket, fullPath, contentType, name } = metadata;
+
+            const fullPathEncoded = encodeURIComponent(fullPath);
+
+            const url = `https://firebasestorage.googleapis.com/v0/b/${bucket}/o/${fullPathEncoded}?alt=media`;
+
+            const data = {
+                bucket,
+                fullPath,
+                contentType,
+                name,
+                url,
+            };
+
+            return {
+                success: true,
+                errorMessage: '',
+                data,
+            };
+        });
     }
 
     get value() {

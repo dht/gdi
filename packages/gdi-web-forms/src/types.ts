@@ -25,6 +25,7 @@ export type FieldType =
     | 'color'
     | 'date'
     | 'select'
+    | 'hidden'
     | 'imageUpload'
     | 'number'
     | 'boolean'
@@ -80,3 +81,7 @@ export type IDetailsProps = {
 };
 
 export type AllDetails = Record<string, FC<IDetailsProps>>;
+
+type Method = (...args: any[]) => any | Promise<any>;
+
+export type AllMethods = Record<string, Method>;

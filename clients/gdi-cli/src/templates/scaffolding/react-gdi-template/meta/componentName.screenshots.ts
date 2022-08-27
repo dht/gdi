@@ -1,4 +1,4 @@
-import type { IScreenshotsPerFlavour } from '@gdi/web-ui';
+import type { IScreenshotsPerFlavour } from '@gdi/engine';
 
 export const screenshots: IScreenshotsPerFlavour = {
     simple: {

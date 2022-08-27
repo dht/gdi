@@ -10,7 +10,7 @@ import { blockInfo as heroInfo } from './hero-simple';
 import { ImageAndText } from './imageAndText-simple/ImageAndText';
 import { blockInfo as imageAndTextInfo } from './imageAndText-simple';
 
-import { IBlocks } from '@gdi/web-ui';
+import { IBlocks } from '@gdi/engine';
 
 export const blocks: IBlocks = {
     'com.usegdi.templates.minimalist.feature-simple': {

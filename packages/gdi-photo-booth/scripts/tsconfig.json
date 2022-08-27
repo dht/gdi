@@ -6,5 +6,8 @@
             "allowSyntheticDefaultImports": true,
             "resolveJsonModule": true
         }
+    },
+    "compilerOptions": {
+        "skipLibCheck": true
     }
 }

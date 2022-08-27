@@ -23,6 +23,7 @@ export default defineConfig({
                 '@firebase/auth': '',
                 '@firebase/logger': '',
                 '@firebase/analytics': '',
+                '@firebase/storage': '',
                 '@firebase/installations': '',
                 '@firebase/firestore': '',
                 '@firebase/firestore/lite': '',

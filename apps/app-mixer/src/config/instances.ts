@@ -51,6 +51,14 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 2, x: 3 },
             isFloating: true,
         },
+        {
+            id: 'ImageUpload',
+            widgetId: MixerWidgets.ImageUpload,
+            position: { y: 1, x: 1 },
+            dimension: { y: 1, x: 1 },
+            isTransparent: true,
+            allowOverflow: true,
+        },
     ],
     imageGallery: [
         {
@@ -60,6 +68,14 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 48, x: window.innerWidth > 1700 ? 88 : 120 },
             isTransparent: false,
             allowOverflow: false,
+        },
+        {
+            id: 'ImageUpload',
+            widgetId: MixerWidgets.ImageUpload,
+            position: { y: 1, x: 1 },
+            dimension: { y: 1, x: 1 },
+            isTransparent: true,
+            allowOverflow: true,
         },
     ],
     preview_static: [

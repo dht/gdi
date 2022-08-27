@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import { IGalleryViewMode } from '@gdi/store-mixer';
 import { ImageActionType } from '@gdi/galleries';
+import { ModalImageUploadContainer } from './modals/ModalImageUploadContainer';
 
 type LibraryImagesContainerProps = {
     overwrites?: Json;
@@ -27,8 +28,8 @@ export const LibraryImagesContainer = (props: LibraryImagesContainerProps) => {
         () => ({
             onUploadImage: () => {
                 dispatch(
-                    actions.galleryState.patch({
-                        showUploadModal: true,
+                    actions.appStateMixer.patch({
+                        showImageUploadModal: true,
                     })
                 );
             },

@@ -1,5 +1,6 @@
+import { IBlockInfo } from '@gdi/engine';
 import { IImageWithBlock } from '@gdi/store-mixer';
-import { IBlockInfo, Tag, Tags } from '@gdi/web-ui';
+import { Tag, Tags } from '@gdi/web-ui';
 import React, { useEffect, useRef, useState } from 'react';
 import { Container, TagsWrapper, TemplateWrapper } from './BlockOverlay.style';
 

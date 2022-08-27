@@ -1,4 +1,4 @@
-import { ISampleDataPerFlavour } from '@gdi/web-ui';
+import { ISampleDataPerFlavour } from '@gdi/engine';
 
 export const sampleData: ISampleDataPerFlavour = {
     simple: {

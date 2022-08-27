@@ -1,5 +1,11 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import { AllDetails, FieldType, IFormField, LabelSize } from '../../types';
+import {
+    AllDetails,
+    AllMethods,
+    FieldType,
+    IFormField,
+    LabelSize,
+} from '../../types';
 import { Container, PaddingTop } from './Field.style';
 import { Label } from '../Label/Label';
 import {
@@ -7,6 +13,7 @@ import {
     Dropdown,
     ImageUpload,
     Input,
+    InputHidden,
     PhoneInput,
     Slider,
     SpinButton,
@@ -23,8 +30,10 @@ export type FieldProps = {
     control: Control;
     allOptions: Json;
     allDetails: AllDetails;
+    allMethods: AllMethods;
     errorMessage?: string;
     labelSize?: LabelSize;
+    onExtraChange: (change?: Json) => void;
 };
 
 export function Field(props: FieldProps) {
@@ -33,8 +42,12 @@ export function Field(props: FieldProps) {
 
     const Cmp = map[fieldType];
 
-    return (
-        <Container className='Field-container' data-testid='Field-container'>
+    function renderLabel() {
+        if (fieldType === 'hidden') {
+            return null;
+        }
+
+        return (
             <Label
                 value={label}
                 description={description}
@@ -42,6 +55,12 @@ export function Field(props: FieldProps) {
                 errorMessage={errorMessage}
                 size={labelSize}
             />
+        );
+    }
+
+    return (
+        <Container className='Field-container' data-testid='Field-container'>
+            {renderLabel()}
             <Cmp {...props} />
         </Container>
     );
@@ -94,7 +113,7 @@ export function FieldInput(props: FieldProps) {
 }
 
 export function FieldImageUpload(props: FieldProps) {
-    const { field, control } = props;
+    const { field, control, allMethods } = props;
     const { label, placeholder } = field;
 
     const { field: fieldMethods } = useController({
@@ -102,10 +121,17 @@ export function FieldImageUpload(props: FieldProps) {
         control,
     });
 
+    function onChange(value: string, extra?: Json) {
+        fieldMethods.onChange(value);
+        console.log('extra ->', extra);
+        props.onExtraChange(extra);
+    }
+
     return (
         <ImageUpload
             value={fieldMethods.value}
-            onChange={fieldMethods.onChange}
+            onChange={onChange}
+            onUpload={allMethods['onUpload']}
         />
     );
 }
@@ -259,6 +285,23 @@ export function FieldEmail(props: FieldProps) {
     );
 }
 
+export function FieldHidden(props: FieldProps) {
+    const { field, control } = props;
+
+    const { field: fieldMethods } = useController({
+        name: field.id,
+        control,
+    });
+
+    return (
+        <InputHidden
+            value={fieldMethods.value}
+            onChange={fieldMethods.onChange}
+            ref={fieldMethods.ref}
+        />
+    );
+}
+
 export function FieldPhone(props: FieldProps) {
     const { field, control } = props;
     const { placeholder, params = {} } = field;
@@ -406,6 +449,7 @@ const map: Record<FieldType, FC<FieldProps>> = {
     date: FieldDate,
     tags: FieldTags,
     select: FieldDropdown,
+    hidden: FieldHidden,
     color: FieldColor,
     number: FieldNumber,
     imageUpload: FieldImageUpload,

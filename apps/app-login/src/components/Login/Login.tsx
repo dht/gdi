@@ -18,7 +18,7 @@ export function Login(props: LoginProps) {
             <LogoWrapper>
                 <Logo />
             </LogoWrapper>
-            <Panel id='firebaseui-auth-container'></Panel>
+            <Panel id='firebaseui-auth-container' />
         </Container>
     );
 }
