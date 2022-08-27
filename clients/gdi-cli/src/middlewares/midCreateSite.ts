@@ -6,7 +6,7 @@ import { CreateMiddlewares } from '../types';
 import { Command } from '../utils/command';
 
 const MONO_REPO_LAYOUT_CONFIGURATION_FILENAME = '.layout.json';
-const NON_COMPONENT_TEMPLATES: string[] = [];
+const NON_SITE_TEMPLATES: string[] = ['react-gdi-template'];
 
 const preRun = () => async (command: Command, next: any) => {
     const { local } = command;
@@ -16,8 +16,7 @@ const preRun = () => async (command: Command, next: any) => {
     const templates = fs
         .readdirSync(templatesPath)
         .filter(
-            (templateName: string) =>
-                !NON_COMPONENT_TEMPLATES.includes(templateName)
+            (templateName: string) => !NON_SITE_TEMPLATES.includes(templateName)
         );
 
     if (!entityName) {
@@ -50,7 +49,7 @@ const preRun = () => async (command: Command, next: any) => {
         outputDir = `${packageConfig.path}/${entityName}`;
     } else {
         template = await autoComplete('Pick a site template', templates);
-        outputDir = cases.upperFirst(entityName);
+        outputDir = cases.lowerCase(entityName);
     }
 
     if (outputDir) {

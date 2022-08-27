@@ -1,0 +1,17 @@
+{
+    "name": "good1",
+    "private": true,
+    "version": "0.0.1",
+    "scripts": {
+        "build:admin": "npm run build --workspace=@gdi/gdi-admin",
+        "build:site": "npm run build --workspace=@gdi/gdi-site",
+        "build": "npm run build:admin && npm run build:site",
+        "deploy": "./deploy.sh"
+    },
+    "workspaces": [
+        "gdi-admin",
+        "gdi-site",
+        "gdi-admin/functions"
+    ],
+    "devDependencies": {}
+}
