@@ -9,6 +9,7 @@ import { ImportExportContainer } from '../containers/singles/ImportExportContain
 import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
 import { KeyboardShortcutsContainer } from '../containers/singles/KeyboardShortcutsContainer';
+import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -17,6 +18,7 @@ export enum MixerWidgets {
     Views = 'mixer.Views',
     Pages = 'mixer.Pages',
     ImageGallery = 'mixer.ImageGallery',
+    ImageUpload = 'mixer.ImageUpload',
     ImportExport = 'mixer.ImportExport',
     Preview = 'mixer.Preview',
     KeyboardShortcuts = 'mixer.KeyboardShortcuts',
@@ -91,6 +93,16 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <LibraryImagesContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.ImageUpload,
+        name: 'ImageUpload',
+        description: 'ImageUpload',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <ModalImageUploadContainer {...props} />,
     },
     {
         id: MixerWidgets.Preview,

@@ -14,7 +14,6 @@ export type ImageGalleryProps = {
     selectedToolId: string;
     search: string;
     tag: string;
-    showUploadModal: boolean;
     showTools: boolean;
     selectedIds: string[];
     favoriteIds: string[];
@@ -44,7 +43,6 @@ export function ImageGallery(props: ImageGalleryProps) {
         selectedToolId,
         search,
         tag,
-        showUploadModal,
         showTools,
         selectedIds,
         favoriteIds,
@@ -164,14 +162,6 @@ export function ImageGallery(props: ImageGalleryProps) {
         );
     }
 
-    function renderUploadModal() {
-        if (!showUploadModal) {
-            return null;
-        }
-
-        return <div>upload modal</div>;
-    }
-
     function renderContent() {
         if (filteredItems.length === 0) {
             return <Empty message='no images' withIcon />;
@@ -210,8 +200,6 @@ export function ImageGallery(props: ImageGalleryProps) {
                 />
             </TopBar>
             <Content>{renderContent()}</Content>
-
-            {renderUploadModal()}
         </Container>
     );
 }

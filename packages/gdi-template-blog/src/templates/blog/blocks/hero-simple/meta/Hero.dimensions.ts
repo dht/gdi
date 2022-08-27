@@ -1,4 +1,4 @@
-import { IDimensionsPerFlavour } from '@gdi/web-ui';
+import { IDimensionsPerFlavour } from '@gdi/engine';
 
 export const dimensions: IDimensionsPerFlavour = {
     simple: {

@@ -1,8 +1,23 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth!=null;
+   function isAdmin() {
+      return request.auth.uid == 'PAHxuEzso8Ti68eYzgaEEjQlRns1'
+    }
+    
+    match /uploads/{allPaths=**} {
+      allow read;
+      allow write: if isAdmin();
+    }
+
+    match /libraryImages/{allPaths=**} {
+      allow read;
+      allow write: if isAdmin();
+    }
+    
+   	match /images/{allPaths=**} {
+      allow read;
+      allow write: if isAdmin();
     }
   }
 }

@@ -1,34 +1,32 @@
+import * as chalk from 'chalk';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as sharp from 'sharp';
+import { capitalize } from 'lodash';
+import { cert, initializeApp } from 'firebase-admin/app';
 import { chromium, Page } from 'playwright';
-import { Json } from './types';
-import { set } from 'lodash';
-import { templateDimensions, templateScreenshot } from './templates';
+import { getStorage } from 'firebase-admin/storage';
+import { IBlock, IBlocks, LibraryBuilder } from '@gdi/engine';
 import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
-import type { OutputInfo } from 'sharp';
-import { initializeApp, cert } from 'firebase-admin/app';
-import { getStorage } from 'firebase-admin/storage';
-import type { UploadResponse } from '@google-cloud/storage';
+import { Json } from './types';
 import { Metadata } from '@playwright/test';
-import { LibraryBuilder } from '@gdi/engine';
-import { capitalize } from 'lodash';
-import { IBlock, IBlocks } from '@gdi/web-ui';
-import * as chalk from 'chalk';
+import { set } from 'lodash';
+import { templateDimensions, templateScreenshot } from './templates';
+import type { OutputInfo } from 'sharp';
+import type { UploadResponse } from '@google-cloud/storage';
 
 const DEBUG = true;
 const OUTPUT_DIR = './screenshots/';
-var serviceAccount = require('./service-account.json');
 
 let definitions: Json = {};
 
 let blocks: IBlocks;
 
 initializeApp({
-    credential: cert(serviceAccount),
-    databaseURL: 'https://amazing-de4d0.firebaseio.com',
-    storageBucket: 'gs://amazing-de4d0.appspot.com',
+    credential: cert('../../../firebaseServiceAccount.json'),
+    databaseURL: 'https://temp-9fccd.firebaseio.com',
+    storageBucket: 'gs://temp-9fccd.appspot.com',
 });
 
 const bucket = getStorage().bucket();
@@ -99,8 +97,9 @@ const uploadAllScreenshots = async () => {
         .filter((fileName) => fileName.match(/webp$/));
 
     files.map((file) => {
-        promise = bucket.upload(`${OUTPUT_DIR}/${file}`, {
+        promise = bucket.upload(`${OUTPUT_DIR}${file}`, {
             public: true,
+            destination: `screenshots/${file}`,
         });
         promises.push(promise);
     });
@@ -123,9 +122,9 @@ const takePicture = async (
     options: TakePictureOptions
 ): Promise<TakePictureResponse> => {
     const output = {
-        raw: { width: 10, height: 10, ratio: 1 },
-        large: { width: 10, height: 10, ratio: 1 },
-        thumb: { width: 10, height: 10, ratio: 1 },
+        raw: { width: 1, height: 1, ratio: 1 },
+        large: { width: 1, height: 1, ratio: 1 },
+        thumb: { width: 1, height: 1, ratio: 1 },
         fileNames: {
             large: '',
             thumb: '',
@@ -363,7 +362,11 @@ const writeDefinitionsFiles = async (
 };
 
 const screenShotsForPackage = async (method: any, packagePath: string) => {
-    fs.rmdirSync(OUTPUT_DIR, { recursive: true });
+    if (fs.existsSync(OUTPUT_DIR)) {
+        fs.rmdirSync(OUTPUT_DIR, { recursive: true });
+    }
+
+    fs.mkdirSync(OUTPUT_DIR);
 
     definitions = {};
 
@@ -377,6 +380,7 @@ const screenShotsForPackage = async (method: any, packagePath: string) => {
 
     const uploadResponse = await uploadAllScreenshots();
     await writeDefinitionsFiles(uploadResponse, packagePath);
+    await delay(2000);
 };
 
 const run = async () => {
@@ -404,3 +408,6 @@ const run = async () => {
 };
 
 run();
+
+const delay = (duration: number) =>
+    new Promise((resolve) => setTimeout(resolve, duration));

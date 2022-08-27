@@ -23,6 +23,7 @@ export type IMixerState = {
     mode: IViewMode;
     selectedToolId: string;
     paletteId: string;
+    showImageUploadModal: boolean;
 };
 
 export type ICurrentIds = {
@@ -75,7 +76,6 @@ export type IGalleryState = {
     search: string;
     tag: string;
     showTools: boolean;
-    showUploadModal: boolean;
     showTagModal: boolean;
     selectedIds: string[];
     favoriteIds: string[];

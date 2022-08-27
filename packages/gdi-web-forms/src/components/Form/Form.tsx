@@ -9,6 +9,7 @@ import React, {
 import { Container, FormContainer, Group } from './Form.style';
 import {
     AllDetails,
+    AllMethods,
     IFormConfig,
     IFormField,
     IFormLayoutGroup,
@@ -24,20 +25,31 @@ import { rulesToYup } from '../../utils/yup';
 export type FormProps = {
     config: IFormConfig;
     data: Json;
-    allOptions: Json;
-    allDetails: AllDetails;
+    allOptions?: Json;
+    allDetails?: AllDetails;
+    allMethods?: AllMethods;
     autoFocus?: boolean;
     showGroup?: (groupId: string, data: Json) => boolean;
     onSave: (change: Json, allData: Json) => Promise<boolean>;
-    onChange: (change: Json) => void;
+    onChange?: (change: Json) => void;
     onClose?: () => void;
     children?: JSX.Element | JSX.Element[];
+    methods?: Record<string, Method>;
     t?: (key: string) => string;
 };
 
+type Method = (...arg: any[]) => any;
+
 export function Form(props: FormProps) {
     const ref = useRef<HTMLFormElement>(null);
-    const { config, data, allOptions, autoFocus, allDetails } = props;
+    const {
+        config,
+        data,
+        allOptions = {},
+        allDetails = {},
+        allMethods = {},
+        autoFocus,
+    } = props;
     const { layout, groups, fields, submit } = config;
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { groupId: submitGroupId } = submit;
@@ -108,7 +120,7 @@ export function Form(props: FormProps) {
         const subscription = watch((data: Json, change) => {
             const { name } = change;
 
-            if (!name) {
+            if (!name || !props.onChange) {
                 return;
             }
 
@@ -138,6 +150,12 @@ export function Form(props: FormProps) {
         [formState.dirtyFields]
     );
 
+    function onExtraChange(change: Json = {}) {
+        Object.keys(change).forEach((key) => {
+            setValue(key, change[key]);
+        });
+    }
+
     function renderField(field: IFormField) {
         const { id } = field;
 
@@ -151,8 +169,10 @@ export function Form(props: FormProps) {
                 field={field}
                 allOptions={allOptions}
                 allDetails={allDetails}
+                allMethods={allMethods}
                 errorMessage={errorMessage}
                 labelSize={labelSize}
+                onExtraChange={onExtraChange}
             />
         );
     }

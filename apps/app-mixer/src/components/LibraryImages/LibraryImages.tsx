@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './LibraryImages.style';
-import { ImageActionType, ImageGallery } from '@gdi/galleries';
+import { IImage, ImageActionType, ImageGallery } from '@gdi/galleries';
 import { IGalleryState, IGalleryViewMode } from '@gdi/store-mixer';
 
 export type LibraryImagesProps = {
@@ -30,7 +30,6 @@ export function LibraryImages(props: LibraryImagesProps) {
         selectedToolId,
         search,
         tag,
-        showUploadModal,
         selectedIds,
         favoriteIds,
         temporaryIds,
@@ -49,7 +48,6 @@ export function LibraryImages(props: LibraryImagesProps) {
                 selectedToolId={selectedToolId}
                 search={search}
                 tag={tag}
-                showUploadModal={showUploadModal}
                 showTools={showTools}
                 selectedIds={selectedIds}
                 favoriteIds={favoriteIds}
