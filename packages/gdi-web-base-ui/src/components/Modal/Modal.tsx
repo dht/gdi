@@ -50,7 +50,7 @@ export function ModalBase(props: ModalProps) {
                     overflowY: 'visible',
                 },
                 main: {
-                    border: '3px solid purple',
+                    border: '3px solid gold',
                 },
             }}
             containerClassName='modal-container'

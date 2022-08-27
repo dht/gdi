@@ -1,9 +1,7 @@
-import type { IWidgetInstance, IWidgetInstances } from 'igrid';
 import type { StoreStructure } from 'redux-store-generator';
-import { IBlockInfo } from '@gdi/engine';
 
 export type ISiteStore = StoreStructure & {
-    meta: IMeta;
+    meta: IMetaStore;
     locale: ILocale;
     pages: IPages;
     palette: IPalette;
@@ -19,7 +17,7 @@ export type ISiteStore = StoreStructure & {
     strings: Json;
 };
 
-export type IMeta = {
+export type IMetaStore = {
     schemaVersion: string;
 };
 
@@ -120,35 +118,4 @@ export type IFonts = {
     typographyId: string;
     fontFamily: string;
     fontWeight: string;
-};
-
-export type IImage = {
-    id: string;
-    title: string;
-    imageUrl: string;
-    imageThumbUrl: string;
-    ratio: number;
-    tags: string[];
-};
-
-export type IImages = Record<string, IImage>;
-
-export type IBlockInstance = {
-    id: string;
-    blockId: string;
-    title?: string;
-    flavour?: string;
-    isPlaceholder?: boolean;
-    placeholderType?: string;
-    pageId?: string;
-    order?: number;
-};
-
-export type IBlockInstances = Record<string, IBlockInstance>;
-
-// ======================= SELECTORS OUTPUT =======================
-export type IElement = IBlockInstance & {
-    block: IBlockInfo;
-    elementType: string;
-    instanceProps: Json;
 };

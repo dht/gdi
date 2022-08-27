@@ -10,14 +10,20 @@ import {
 import useMount from 'react-use/lib/useMount';
 import { useDispatch } from 'react-redux';
 import { PlatformContext } from '../../../core/platform-context';
-import { PlatformLifeCycleEvents } from '../../../core/platform-lifecycle';
 import { ICommandBarItem } from '../../../types';
 import { SideMenuContainer } from '../../containers/SideMenuContainer';
-import { CommandBar, ContextBar } from '@gdi/web-ui';
+import { CommandBar } from '@gdi/web-ui';
 import { AppContent } from './Bootstrap.style';
+import ContextBarContainer from '../../containers/ContextBarContainer';
+import { PlatformLifeCycleEvents } from '@gdi/types';
+import { $s } from 'shared-base';
 
 export const MainRoutes = () => {
     const { routes, initialRoute = '/home' } = useContext(PlatformContext);
+
+    useMount(() => {
+        $s('main routes');
+    });
 
     return (
         <Routes>
@@ -65,7 +71,7 @@ export const App = () => {
             <MainRoutes />
             <OverlayRoutes />
             <SideMenuContainer />
-            <ContextBar
+            <ContextBarContainer
                 contextBarItems={contextBarItems}
                 widgetLibrary={widgetLibrary}
             />
@@ -76,6 +82,10 @@ export const App = () => {
 
 export const AllRoutes = () => {
     const { routes } = useContext(PlatformContext);
+
+    useMount(() => {
+        $s('all routes');
+    });
 
     return (
         <Routes>

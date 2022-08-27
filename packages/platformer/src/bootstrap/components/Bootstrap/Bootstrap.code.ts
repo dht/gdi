@@ -8,6 +8,7 @@ import type { BootstrapProps } from './Bootstrap';
 import { PatchContextMethod } from '../../../types';
 import { getStore, initPlatform } from '../../../initPlatform';
 import { initFirebase } from '../../../firebase/firebase';
+import { $s, systemEvent } from 'shared-base';
 
 type AllSaps = {};
 
@@ -29,6 +30,8 @@ export const bootstrapApp = async (
 
     didBootstrap = true;
 
+    systemEvent('bootstrapApp');
+
     const { config } = props;
     const { baseURL, activeApps, initializers, menuSections, firebaseConfig } =
         config;
@@ -43,6 +46,7 @@ export const bootstrapApp = async (
         getStore
     );
 
+    systemEvent('initFirebase', firebaseConfig);
     initFirebase(firebaseConfig);
 
     await initPlatform<any>(
@@ -54,6 +58,7 @@ export const bootstrapApp = async (
             initSapMethods,
             sagas,
             menuSections,
+            logger: (message, data) => $s(message, data),
         },
         patchContext
     );

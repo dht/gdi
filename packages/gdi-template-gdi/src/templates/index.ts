@@ -1,4 +1,3 @@
-import { ITemplate } from '@gdi/engine';
 import { futuristic } from './futuristic';
 import { minimalist } from './minimalist';
 

@@ -1,10 +1,9 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { getBlockTypeFromTags } from './utils/blocks';
-import { IBlockInstances, IElement, ISiteStore } from './types';
+import { ISiteStore } from './types';
 import { mapValues, set } from 'lodash';
 import { sortBy } from 'shared-base';
-import type { IBlockInfo } from '@gdi/engine';
 
 export const $i = (state: ISiteStore) => state;
 

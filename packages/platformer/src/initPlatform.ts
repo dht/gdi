@@ -18,10 +18,11 @@ import {
 import type { IReduxConnectedConfig } from 'redux-connected';
 import type { StoreStructure } from 'redux-store-generator';
 import { ApiConfigBuilder } from './api-builder/ApiConfigBuilder';
-import { PlatformLifeCycleEvents } from './core/platform-lifecycle';
 import { I18nBuilder } from './i18n/builders/I18nBuilder';
 import { initI18n } from './i18n/i18n.instance';
 import { firebase } from './firebase/firebase';
+import { PlatformLifeCycleEvents } from '@gdi/types';
+import { $s } from 'shared-base';
 
 const DEBUG = false;
 

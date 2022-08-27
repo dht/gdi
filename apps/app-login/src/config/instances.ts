@@ -1,5 +1,3 @@
-import { IWidgetInstancesByPageList } from '@gdi/platformer';
-import { routes } from './routes';
 import { LoginWidgets } from './widgets';
 
 export const instances: IWidgetInstancesByPageList = {

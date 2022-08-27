@@ -1,4 +1,4 @@
-@import '@gdi/web-base-ui/dist/index.css';
+@import '@gdi/web-base-ui/index.css';
 @import url('//fonts.googleapis.com/icon?family=Material+Icons');
 .ScreenLoader-container.dark {
     background-color: rgb(31, 31, 47);

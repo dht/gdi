@@ -57,7 +57,7 @@ export function SortableList(props: SortableListProps) {
                 return;
             }
             // nudging item instead
-            if (event.altKey) {
+            if (event.withAlt) {
                 const newOrder = moveItemWithArrows(
                     items,
                     selectedId,

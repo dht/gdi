@@ -1,5 +1,3 @@
-import { IFormConfig } from '@gdi/web-forms';
-
 export const formConfig: IFormConfig = {
     id: 'Update Person',
     sequence: 1,

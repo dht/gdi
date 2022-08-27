@@ -1,5 +1,3 @@
-import { IShortKey } from '@gdi/platformer';
-
 export const shortKeys: IShortKey[] = [
     {
         key: '`',

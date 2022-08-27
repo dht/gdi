@@ -1,5 +1,4 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
 import { LoginContainer } from '../containers/LoginContainer';
 
 export enum LoginWidgets {

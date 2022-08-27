@@ -1,6 +1,7 @@
 import { EndpointsConfigOverrides } from 'redux-connected';
+import { IApiConfigBuilder } from '../types';
 
-export class ApiConfigBuilder {
+export class ApiConfigBuilder implements IApiConfigBuilder {
     private configOverrides: EndpointsConfigOverrides = {};
 
     withEndpointsConfigOverrides(overrides: EndpointsConfigOverrides = {}) {

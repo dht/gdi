@@ -72,7 +72,7 @@ export function TopBar(props: TopBarProps) {
             {props.children}
             {renderTools()}
             <Views mode={viewMode} onChange={callbacks.onViewChange} />
-            <Search value={search} width={300} onChange={callbacks.onSearch} />
+            <Search value={search} onChange={callbacks.onSearch} />
         </Container>
     );
 }

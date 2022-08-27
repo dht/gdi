@@ -32,12 +32,13 @@ export default defineConfig({
             '@gdi/web-forms': `${cwd}/packages/gdi-web-forms/src`,
             '@gdi/engine': `${cwd}/packages/gdi-engine/src`,
             'redux-connected': `${cwd}/submodules/redux-connected/src`,
+            'shared-base': `${cwd}/submodules/shared-base/src`,
             igrid: `${cwd}/submodules/igrid/src`,
         },
     },
     define: {},
     server: {
         host: true,
-        port: 3002,
+        port: 3000,
     },
 });

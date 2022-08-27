@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 export type LayoutFlavour = 'singleColumn' | 'twoColumns' | 'threeColumns';
 export type LabelSize = 'base' | 'compact';

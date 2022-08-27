@@ -60,7 +60,7 @@ const scanTemplateFiles =
 
         command.local.params.templatePath = templatePath;
         command.local.filesToCreate = globby
-            .sync('**/*', { cwd: templatePath })
+            .sync('**/*', { cwd: templatePath, dot: true })
             .map((file) => {
                 const content = fs
                     .readFileSync(`${templatePath}/${file}`)

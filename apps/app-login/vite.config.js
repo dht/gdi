@@ -1,8 +1,9 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { externals } from 'shared-base';
+import analyze from 'rollup-plugin-analyzer';
 import p from './package.json';
+import { externals } from 'shared-base';
 
 export default defineConfig({
     plugins: [
@@ -19,7 +20,11 @@ export default defineConfig({
             fileName: (format) => `app-login.${format}.js`,
         },
         rollupOptions: {
-            ...externals(p.dependencies),
+            plugins: [analyze()],
+            ...externals({
+                'react/jsx-runtime': '',
+                ...p.dependencies,
+            }),
         },
     },
 });

@@ -1,5 +1,3 @@
-import { IBlockInfo, IBlockSchemaGroup } from '@gdi/engine';
-import { IElement } from '@gdi/store-site';
 import { get, sample } from 'lodash';
 
 export const getBlockTypeFromTags = (tags: string[] = []) => {

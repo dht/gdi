@@ -1,4 +1,5 @@
 import { put, delay, takeLatest } from 'saga-ts';
+import { $s } from 'shared-base';
 import { actions } from '../../stores/platform/actions';
 
 let _navigate = (_params: any) => {};
@@ -8,6 +9,8 @@ export const init = (value: any) => {
 };
 
 export function* navigate(action: any): any {
+    $s('navigation', action);
+
     yield delay(0);
 
     try {

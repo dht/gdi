@@ -2,7 +2,6 @@ import { params } from './meta/Footer.params';
 import { sampleData } from './meta/Footer.sample';
 import { dimensions } from './meta/Footer.dimensions';
 import { screenshots } from './meta/Footer.screenshots';
-import { IBlockInfo } from '@gdi/engine';
 
 export const blockInfo: IBlockInfo = {
     id: 'com.usegdi.templates.futuristic.footer-simple',

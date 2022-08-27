@@ -1,5 +1,3 @@
-import { IDimensionsPerFlavour } from '@gdi/engine';
-
 export const dimensions: IDimensionsPerFlavour = {
     simple: {
         desktop: {

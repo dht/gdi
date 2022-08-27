@@ -5,11 +5,7 @@ import { IFormConfig, IFormField } from '@gdi/web-forms';
 import { IMixerStore } from './types';
 import { sortBy } from 'shared-base';
 import { upperFirst } from 'lodash';
-import {
-    SchemaFieldType,
-    flattenInstanceProps,
-    IBlockSchemaGroup,
-} from '@gdi/engine';
+import { flattenInstanceProps } from 'shared-base';
 
 export const $i = (state: IMixerStore) => state;
 

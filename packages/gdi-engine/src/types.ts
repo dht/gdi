@@ -113,16 +113,16 @@ export type IEngineContextState = {
 };
 
 export type ISiteContext = {
-    menuItems: IMenuItem[];
+    menuItems: ITopMenuItem[];
     patchContext: (change: Partial<ISiteContext>) => void;
 };
 
-export type IMenuItem = {
+export type ITopMenuItem = {
     href: string;
     title: string;
 };
 
-export declare type IBlockInstance = {
+export type IBlockInstance = {
     id: string;
     blockId: string;
     title?: string;
@@ -139,3 +139,21 @@ export declare type IBlockInstance = {
     pageId?: string;
     order?: number;
 };
+
+export type IBlockInstances = Record<string, IBlockInstance>;
+
+export type IElement = IBlockInstance & {
+    block: IBlockInfo;
+    elementType: string;
+    instanceProps: Json;
+};
+
+export type LibraryBuilderResponse = {
+    templates: ITemplates;
+    blocks: IBlocks;
+};
+export interface ILibraryBuilder {
+    withTemplates: (templates: ITemplates) => ILibraryBuilder;
+    withBlocks: (blocks: IBlocks) => ILibraryBuilder;
+    build: () => LibraryBuilderResponse;
+}

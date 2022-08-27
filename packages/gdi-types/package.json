@@ -1,21 +1,13 @@
 {
     "name": "@gdi/types",
-    "version": "0.0.3",
+    "version": "0.0.14",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/store-mixer": "^0.0.1",
-        "@gdi/template-gdi": "^0.0.2",
-        "@gdi/template-blog": "^0.0.2",
-        "@gdi/web-ui": "^0.0.2",
-        "lodash": "^4.17.21",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-use": "^17.4.0",
-        "styled-components": "^5.3.5"
+        "react": "^18.0.0"
     },
     "devDependencies": {
         "@testing-library/react": "^13.3.0",
@@ -29,7 +21,7 @@
         "jest-cli": "^28.1.3",
         "jest-environment-jsdom": "^28.1.3",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.3",
+        "shared-base": "^0.0.7",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

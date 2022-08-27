@@ -1,6 +1,6 @@
 {
     "name": "@gdi/photo-booth",
-    "version": "0.0.1",
+    "version": "0.0.10",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
@@ -8,16 +8,19 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/web-ui": "^0.0.2",
+        "@gdi/engine": "0.0.15",
+        "@gdi/template-blog": "0.0.15",
+        "@gdi/template-gdi": "0.0.16",
+        "@gdi/types": "0.0.14",
+        "@gdi/web-ui": "0.0.18",
         "@playwright/experimental-ct-react": "^1.25.0",
         "chance": "^1.1.8",
-        "dotenv-flow": "^3.2.0",
-        "igrid": "^0.0.9",
+        "igrid": "0.0.15",
         "polished": "^4.2.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-use": "^17.4.0",
-        "shared-base": "^0.0.2",
+        "shared-base": "^0.0.7",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",
         "types-base": "^0.0.2"

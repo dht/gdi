@@ -13,6 +13,7 @@
     "workspaces": [
         "apps/*",
         "clients/*",
+        "clients/*/scripts",
         "packages/*",
         "packages/*/scripts",
         "servers/*",

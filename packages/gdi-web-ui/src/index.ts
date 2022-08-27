@@ -1,10 +1,9 @@
 export { CommandBar } from './components/CommandBar/CommandBar';
-export { ContextBarContainer as ContextBar } from './components/ContextBar/ContextBarContainer';
+export { ContextBar } from './components/ContextBar/ContextBar';
 export { BarSelect } from './components/BarSelect/BarSelect';
 export { BigAutoComplete } from './components/BigAutoComplete/BigAutoComplete';
 export { Code } from './components/Code/Code';
 export { ColorPalette } from './components/ColorPalette/ColorPalette';
-export type { IColorPalette } from './components/ColorPalette/ColorPalette';
 export { Drawer } from './components/Drawer/Drawer';
 export { Editor } from './components/Editor/Editor';
 export { Empty } from './components/Empty/Empty';
@@ -17,6 +16,7 @@ export { ScreenLoader } from './components/ScreenLoader/ScreenLoader';
 export { SideMenu } from './components/SideMenu/SideMenu';
 export { SidePanel } from './components/SidePanel/SidePanel';
 export { SortableList } from './components/SortableList/SortableList';
+export { SystemLogs } from './components/SystemLogs/SystemLogs';
 export { Tag } from './components/Tag/Tag';
 export { Tags } from './components/Tags/Tags';
 export { Theme } from './components/Theme/Theme';
@@ -56,5 +56,4 @@ export type {
     IRawStyle,
 } from '@gdi/web-base-ui';
 
-export { Form } from '@gdi/web-forms';
-export type { IFormConfig } from '@gdi/web-forms';
+export * as types from './types';

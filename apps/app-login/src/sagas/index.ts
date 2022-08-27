@@ -2,7 +2,7 @@ import ping from './ping';
 import { fork, take } from 'saga-ts';
 import { root as login } from './saga.login';
 import { root as logout } from './saga.logout';
-import { PlatformLifeCycleEvents } from '@gdi/platformer';
+import { PlatformLifeCycleEvents } from '@gdi/types';
 
 function* root() {
     yield take(PlatformLifeCycleEvents.AUTHENTICATION_START);

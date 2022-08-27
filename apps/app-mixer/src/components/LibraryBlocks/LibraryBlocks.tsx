@@ -1,10 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Container } from './LibraryBlocks.style';
-import { IImage, ImageActionType, ImageGallery, Masonry } from '@gdi/galleries';
-import { IBlockInfo, Switch, Tag, Tags } from '@gdi/web-ui';
-import { IGalleryViewMode, IImageWithBlock } from '@gdi/store-mixer';
 import { BlockGallery } from '@gdi/galleries';
-import { IBlocksGalleryState } from 'packages/gdi-store-mixer/dist/types';
 
 export type LibraryBlocksProps = {
     state: IBlocksGalleryState;

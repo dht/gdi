@@ -12,7 +12,6 @@ import {
 } from 'react';
 import { colorize, Part } from '../../utils/colorize';
 import { useMount, useBoolean, useCounter, useKey } from 'react-use';
-import { ICommandBarItem, ICommandBarItems, IShortKey } from '@gdi/platformer';
 import {
     Container,
     Bar,

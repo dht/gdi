@@ -6,10 +6,9 @@
     "scripts": {
         "firestore:reset": "npx ts-node uploadToFirestore.ts"
     },
-    "dependencies": {
-        "firebase": "^9.9.2"
-    },
     "devDependencies": {
-        "chalk": "^4.1.2"
+        "@gdi/types": "^0.0.14",
+        "chalk": "^4.1.2",
+        "firebase": "^9.9.3"
     }
 }

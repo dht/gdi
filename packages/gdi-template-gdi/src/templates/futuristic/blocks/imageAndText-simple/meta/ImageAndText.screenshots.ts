@@ -1,5 +1,3 @@
-import type { IScreenshotsPerFlavour } from '@gdi/engine';
-
 export const screenshots: IScreenshotsPerFlavour = {
     simple: {
         desktop: {

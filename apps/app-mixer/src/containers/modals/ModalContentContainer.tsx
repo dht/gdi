@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../../store';
-import { Modal, Form } from '@gdi/web-ui';
+import { Modal } from '@gdi/web-ui';
 import { ContentContainer } from '../ContentContainer';
 
 export const ModalContentContainer = () => {

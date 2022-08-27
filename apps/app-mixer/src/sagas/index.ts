@@ -6,7 +6,7 @@ import { root as elements } from './saga.elements';
 import { root as gallery } from './saga.gallery';
 import { root as importExport } from './saga.importExport';
 import { root as mixer } from './saga.mixer';
-import { PlatformLifeCycleEvents } from '@gdi/platformer';
+import { PlatformLifeCycleEvents } from '@gdi/types';
 
 function* root() {
     yield* fork(apiPublic);

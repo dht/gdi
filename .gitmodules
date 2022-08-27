@@ -1,18 +1,18 @@
-[submodule "submodules/testing-base"]
-	path = submodules/testing-base
-	url = git@github.com:dht/testing-base.git
-[submodule "submodules/shared-base"]
-	path = submodules/shared-base
-	url = git@github.com:dht/shared-base.git
+[submodule "submodules/axios-oauth"]
+	path = submodules/axios-oauth
+	url = git@github.com:dht/axios-oauth.git
 [submodule "submodules/igrid"]
 	path = submodules/igrid
 	url = git@github.com:dht/igrid.git
 [submodule "submodules/redux-connected"]
 	path = submodules/redux-connected
-	url = git@github.com:dht/redux-connected.git
+	url = git@github.com:dht/redux-connected
+[submodule "submodules/shared-base"]
+	path = submodules/shared-base
+	url = git@github.com:dht/shared-base
+[submodule "submodules/testing-base"]
+	path = submodules/testing-base
+	url = git@github.com:dht/testing-base
 [submodule "submodules/types-base"]
 	path = submodules/types-base
-	url = git@github.com:dht/types-base.git
-[submodule "submodules/axios-oauth"]
-	path = submodules/axios-oauth
-	url = git@github.com:dht/axios-oauth.git
+	url = git@github.com:dht/types-base

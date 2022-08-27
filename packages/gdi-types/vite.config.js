@@ -11,7 +11,7 @@ export default defineConfig({
     build: {
         sourcemap: true,
         lib: {
-            entry: path.resolve(__dirname, 'src/index.tsx'),
+            entry: path.resolve(__dirname, 'src/index.ts'),
             name: 'GdiTypes',
             formats: ['es', 'umd'],
             fileName: (format) => `gdi-types.${format}.js`,

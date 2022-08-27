@@ -1,4 +1,6 @@
-export class I18nBuilder {
+import { II18nBuilder } from '../../types';
+
+export class I18nBuilder implements II18nBuilder {
     private resources: Json = {};
 
     getScopedKey(appId: string, key: string) {
@@ -25,6 +27,8 @@ export class I18nBuilder {
             const data = keysByLanguage[language];
             this.withLanguage(appId, language, data);
         }
+
+        return this;
     }
 
     build(): Json {

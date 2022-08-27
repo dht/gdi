@@ -1,0 +1,117 @@
+import {
+    doc,
+    getFirestore,
+    setDoc,
+    writeBatch,
+    deleteDoc,
+    collection,
+    getDocs,
+} from 'firebase/firestore/lite';
+import type { Firestore } from 'firebase/firestore/lite';
+import { initializeApp } from 'firebase/app';
+
+let db: Firestore;
+
+// ================================================
+
+type FirebaseConfig = {
+    apiKey: string;
+    authDomain: string;
+    databaseURL: string;
+    projectId: string;
+    storageBucket: string;
+    messagingSenderId: string;
+    appId: string;
+    measurementId: string;
+};
+
+export const initFirebase = (config: FirebaseConfig) => {
+    const app = initializeApp(config);
+    db = getFirestore(app);
+};
+
+export const initFirebaseVite = (env: Json) => {
+    const firebaseConfig: FirebaseConfig = {
+        apiKey: env['VITE_FIREBASE_API_KEY'],
+        authDomain: env['VITE_FIREBASE_AUTH_DOMAIN'],
+        databaseURL: env['VITE_FIREBASE_DATABASE_URL'],
+        projectId: env['VITE_FIREBASE_PROJECT_ID'],
+        storageBucket: env['VITE_FIREBASE_STORAGE_BUCKET'],
+        messagingSenderId: env['VITE_FIREBASE_MESSAGING_SENDER_ID'],
+        appId: env['VITE_FIREBASE_APP_ID'],
+        measurementId: env['VITE_FIREBASE_MEASUREMENT_ID'],
+    };
+
+    initFirebase(firebaseConfig);
+};
+
+const ts = () => new Date().toISOString();
+
+const generateCreatedDate = () => ({
+    _createdDate: ts(),
+});
+
+const generateModifiedDate = () => ({
+    _modifiedDate: ts(),
+});
+
+const withDates = (
+    data: Json,
+    withCreatedDate: boolean,
+    withModifiedDate: boolean
+) => {
+    let output = { ...data };
+
+    if (withCreatedDate) {
+        output = { ...output, ...generateCreatedDate() };
+    }
+
+    if (withModifiedDate) {
+        output = { ...output, ...generateModifiedDate() };
+    }
+
+    return output;
+};
+
+export function singlePatch(nodeName: string, data: Json) {
+    const ref = doc(db, 'singles', nodeName);
+    return setDoc(ref, withDates(data, false, true), { merge: true });
+}
+
+export function collectionPatchItem(nodeName: string, id: string, data: Json) {
+    const ref = doc(db, nodeName, id);
+    return setDoc(ref, withDates(data, false, true), { merge: true });
+}
+
+export function collectionAddMany(nodeName: string, data: Json) {
+    const batch = writeBatch(db);
+
+    Object.keys(data).forEach((id) => {
+        const ref = doc(db, nodeName, id);
+        batch.set(ref, data[id]);
+    });
+
+    return batch.commit();
+}
+
+export function collectionDeleteMany(nodeName: string, ids: string[]) {
+    const batch = writeBatch(db);
+
+    ids.forEach((id) => {
+        const ref = doc(db, nodeName, id);
+        batch.delete(ref);
+    });
+
+    return batch.commit();
+}
+
+export function collectionDeleteItem(nodeName: string, id: string) {
+    const ref = doc(db, nodeName, id);
+    return deleteDoc(ref);
+}
+
+export async function collectionGet(nodeName: string) {
+    const ref = collection(db, nodeName);
+    const snapshot = await getDocs(ref);
+    return snapshot.docs.map((doc) => doc.data());
+}

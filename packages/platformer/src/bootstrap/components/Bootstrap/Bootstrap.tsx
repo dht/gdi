@@ -16,6 +16,7 @@ import {
 } from '../../../core/platform-context';
 import { I18nProvider } from '../../../i18n/i18n.provider';
 import PromptContainer from '../../containers/PromptContainer';
+import { $s } from 'shared-base';
 
 export type BootstrapProps = {
     config: IPlatformConfig;
@@ -29,7 +30,10 @@ export const Bootstrap = (props: BootstrapProps) => {
     });
 
     if (!isReady) {
+        $s('<Bootstrap /> not ready');
         return <ScreenLoader darkMode={true} />;
+    } else {
+        $s('<Bootstrap /> ready');
     }
 
     return (
@@ -40,7 +44,6 @@ export const Bootstrap = (props: BootstrapProps) => {
                         <Content isRtl={isRtl}>
                             <AllRoutes />
                         </Content>
-
                         <History />
                     </Router>
                     <ToastBarContainer />

@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "target": "es2016",
+        "target": "es2017",
         "module": "ESNext",
         "jsx": "react-jsx",
         "moduleResolution": "node",
@@ -10,7 +10,8 @@
         "declaration": true,
         "declarationDir": "dist/dts",
         "strict": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "types": ["types-base", "@gdi/types", "@types/jest"]
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

@@ -6,11 +6,10 @@ export type SearchProps = {
     placeholder?: string;
     value?: string;
     onChange: (newValue?: string) => void;
-    width?: number;
 };
 
 export function Search(props: SearchProps) {
-    const { value = '', placeholder = 'Search', width } = props;
+    const { value = '', placeholder = 'Search' } = props;
 
     function onChange(
         _event?: React.ChangeEvent<HTMLInputElement>,
@@ -19,16 +18,8 @@ export function Search(props: SearchProps) {
         props.onChange(newValue);
     }
 
-    const style = {
-        width: width ? `${width}px` : 'auto',
-    };
-
     return (
-        <Container
-            className='Search-container'
-            data-testid='Search-container'
-            style={style}
-        >
+        <Container className='Search-container' data-testid='Search-container'>
             <SearchBox
                 value={value}
                 onChange={onChange}

@@ -1,0 +1,52 @@
+{
+    "gdi-engine": {
+        "id": "gdi-engine",
+        "path": "packages/gdi-engine",
+        "types": "src/types.ts"
+    },
+    "gdi-galleries": {
+        "id": "gdi-galleries",
+        "path": "packages/gdi-galleries",
+        "types": "src/types.ts"
+    },
+    "gdi-store-auth": {
+        "id": "gdi-store-auth",
+        "path": "packages/gdi-store-auth",
+        "types": "src/types.ts"
+    },
+    "gdi-store-mixer": {
+        "id": "gdi-store-mixer",
+        "path": "packages/gdi-store-mixer",
+        "types": "src/types.ts"
+    },
+    "gdi-store-site": {
+        "id": "gdi-store-site",
+        "path": "packages/gdi-store-site",
+        "types": "src/types.ts"
+    },
+    "gdi-web-forms": {
+        "id": "gdi-web-forms",
+        "path": "packages/gdi-web-forms",
+        "types": "src/types.ts"
+    },
+    "gdi-web-base-ui": {
+        "id": "gdi-web-base-ui",
+        "path": "packages/gdi-web-base-ui",
+        "types": "src/types.ts"
+    },
+    "gdi-web-ui": {
+        "id": "gdi-web-ui",
+        "path": "packages/gdi-web-ui",
+        "types": "src/types.ts"
+    },
+    "platformer": {
+        "id": "platformer",
+        "path": "packages/platformer",
+        "types": "src/types.ts"
+    },
+    "igrid": {
+        "id": "igrid",
+        "path": "submodules/igrid",
+        "types": "src/types.ts"
+    }
+}

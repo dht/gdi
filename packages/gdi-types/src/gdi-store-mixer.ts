@@ -1,0 +1,89 @@
+// AUTO-GENERATED
+
+import type { StoreStructure } from 'redux-store-generator';
+
+export const A3 = {};
+
+declare global {
+    export type IMixerStore = StoreStructure & {
+        appStateMixer: IMixerState;
+        currentIds: ICurrentIds;
+        meta: IMetaMixer;
+        galleryState: IGalleryState;
+        blocksGalleryState: IBlocksGalleryState;
+        libraryImages: IImages;
+        libraryBlocks: Record<string, IBlockInfo>;
+        libraryTypography: ITypographyOptions;
+        libraryPalettes: IPaletteOptions;
+        locales: ILocaleOptions;
+        packages: IPackages;
+    };
+
+    export type IViewMode = 'visual' | 'structure' | 'wireframe' | 'code';
+
+    export type IMixerState = {
+        stateKey: string;
+        mode: IViewMode;
+        selectedToolId: string;
+        paletteId: string;
+        showImageUploadModal: boolean;
+    };
+
+    export type ICurrentIds = {
+        pageId: string;
+        selectedInstanceId: string;
+        contentInstanceId: string;
+        libraryInstanceId: string;
+    };
+
+    export type IMetaMixer = {
+        schemaVersion: string;
+    };
+
+    export type ITypography = {
+        id: string;
+        title: string;
+        fontFamily: string;
+        link: string;
+    };
+
+    export type ITypographyOptions = Record<string, ITypography>;
+
+    export type ILocaleOption = {
+        id: string;
+        title: string;
+    };
+
+    export type ILocaleOptions = Record<string, ILocaleOption>;
+
+    export type IPackages = Json;
+
+    export type IGalleryViewMode = 'full' | 'minimal';
+
+    export type IGalleryState = {
+        stateKey: string;
+        mode: IGalleryViewMode;
+        selectedToolId: string;
+        search: string;
+        tag: string;
+        showTools: boolean;
+        showTagModal: boolean;
+        selectedIds: string[];
+        favoriteIds: string[];
+        temporaryIds: string[];
+        deletedIds: string[];
+    };
+
+    export type IBlocksFilter = 'all' | 'byType';
+
+    export type IBlocksGalleryState = {
+        stateKey: string;
+        mode: IGalleryViewMode;
+        filter: IBlocksFilter;
+        search: string;
+    };
+
+    export type IImageWithBlock = IImage & {
+        block: IBlockInfo;
+    };
+}

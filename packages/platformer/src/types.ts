@@ -1,67 +1,19 @@
-import { StoreBuilder } from 'redux-connected';
-import { Action } from 'redux-store-generator';
-import { SelectorsBuilder } from './store-builder/builders/SelectorsBuilder';
-import type { ISelectorsByApp } from './store-builder/builders/SelectorsBuilder';
-import { RouterBuilder } from './router/builders/RouterBuilder';
-import {
-    IWidgetInstancesByPageDictionary,
-    IWidgets,
-    WidgetLibraryBuilder,
-} from 'igrid';
-import { ApiConfigBuilder } from './api-builder/ApiConfigBuilder';
-import { I18nBuilder } from './i18n/builders/I18nBuilder';
+import { EndpointsConfigOverrides } from 'redux-connected';
 
 export type IAppConfig = {
     menuPresentation: IMenuItem;
 };
 
-type PageId = string;
-type WidgetId = string;
+export type Action = {
+    type: string;
+    id?: string;
+    payload?: Json;
+};
 
 /*************** ROUTING ***************/
 
 export type IRoute = string;
 export type IRoutes = Record<PageId, IRoute>;
-
-export type IMenuItem = {
-    path: string;
-    label: string;
-    icon?: string;
-    hidden?: boolean;
-    disabled?: boolean;
-    showOnSlim?: boolean;
-    groupId?: string;
-    order?: number;
-    children?: IMenuItem[];
-};
-
-export type IContextBarItem = {
-    id: string;
-    label: string;
-    widgetId: string;
-    responsive?: boolean;
-    icon?: string;
-};
-
-export type ICommandBarItem = {
-    id: string;
-    label: string;
-    action: Action;
-    shortKeys?: IShortKey[];
-};
-
-export type IShortKey = {
-    key: string;
-    withCommand?: boolean;
-    withAlt?: boolean;
-    withShift?: boolean;
-    withCtrl?: boolean;
-    description?: string;
-};
-
-export type IMenuItems = IMenuItem[];
-export type IContextBarItems = IContextBarItem[];
-export type ICommandBarItems = ICommandBarItem[];
 
 /*************** SAGA-MANAGER ***************/
 export enum SagaStatus {
@@ -81,6 +33,10 @@ export type ISagaState = {
 
 export type ISagasState = Record<string, ISagaState>;
 
+export type SagaStore = {
+    sagas: ISagasState;
+};
+
 export enum ActionTypes {
     SAGA_START = 'SAGA_START',
     SAGA_STOP = 'SAGA_STOP',
@@ -89,13 +45,13 @@ export enum ActionTypes {
 export type ISaga = any;
 export type ISagas = Record<string, ISaga>;
 
-export type ErrorCallback = (sagaId: string, error: string) => void;
+export type IErrorCallback = (sagaId: string, error: string) => void;
 
 export type Configuration = {
     sagas: ISagas;
     autoStart: string[];
     autoStartAll: boolean;
-    onError: ErrorCallback;
+    onError: IErrorCallback;
     logger: Logger;
 };
 
@@ -110,21 +66,27 @@ export type Logger = {
 
 /*************** GLOBAL ***************/
 export type AppBuilders = {
-    storeBuilder: StoreBuilder;
-    selectorsBuilder: SelectorsBuilder;
-    routerBuilder: RouterBuilder;
-    widgetBuilder: WidgetLibraryBuilder;
-    apiConfigBuilder: ApiConfigBuilder;
-    i18nBuilder: I18nBuilder;
+    storeBuilder: IStoreBuilder;
+    selectorsBuilder: ISelectorsBuilder;
+    routerBuilder: IRouterBuilder;
+    widgetBuilder: IWidgetLibraryBuilder;
+    apiConfigBuilder: IApiConfigBuilder;
+    i18nBuilder: II18nBuilder;
 };
 
 export type SapBuilders = {
-    storeBuilder: StoreBuilder;
-    selectorsBuilder: SelectorsBuilder;
+    storeBuilder: IStoreBuilder;
+    selectorsBuilder: ISelectorsBuilder;
 };
 
 export type InitAppMethod = (builders: AppBuilders) => void;
 export type InitSapMethod = (builders: SapBuilders) => void;
+
+export enum PlatformLifeCycleEvents {
+    PLATFORM_IS_READY = 'PLATFORM_IS_READY',
+    AUTHENTICATION_START = 'AUTHENTICATION_START',
+    AUTHENTICATION_COMPLETED = 'AUTHENTICATION_COMPLETED',
+}
 
 export type IFirebaseConfig = {
     apiKey: string;
@@ -197,3 +159,123 @@ export type GoogleUser = Json & {
     photoURL: string | null;
     providerId: string;
 };
+
+/*************** SelectorsBuilder ***************/
+export type ISelector = (state: any) => any;
+export type ISelectors = Record<SelectorName, ISelector>;
+export type ISelectorsBucket = Record<CategoryId, ISelectors>;
+export type ISelectorsByApp = Record<AppId, ISelectorsBucket>;
+
+export type AppId = string;
+export type CategoryId = string;
+export type SelectorName = string;
+
+export interface ISelectorsBuilder {
+    withSelectors: (
+        appId: string,
+        selectorsBucket: ISelectorsBucket
+    ) => ISelectorsBuilder;
+    build: () => ISelectorsByApp;
+}
+
+/*************** StoreBuilder ***************/
+export type HookCallback = (store: any) => void;
+
+export interface IStoreBuilder {
+    withInitialState: (initialState?: Json) => IStoreBuilder;
+    withPreBuildHook: (callback: HookCallback) => IStoreBuilder;
+    withPostBuildHook: (callback: HookCallback) => IStoreBuilder;
+    withReducers: (reducers: any) => IStoreBuilder;
+    withMiddlewares: (middlewares: any | any[]) => IStoreBuilder;
+    withEnhancers: (enhancers: any | any[]) => IStoreBuilder;
+    withPreMiddlewares: (...middlewares: any) => IStoreBuilder;
+    withPostMiddlewares: (...middlewares: any) => IStoreBuilder;
+    withSagas: (...sagas: any) => IStoreBuilder;
+    withSagaMonitor: (sagaMonitor: any) => IStoreBuilder;
+    withSagaContext: (context: any) => IStoreBuilder;
+    clearSagas: () => IStoreBuilder;
+    withDevtoolsExtensions: (enable?: boolean) => IStoreBuilder;
+    build<T = any>(): T;
+}
+
+/*************** RouteBuilder ***************/
+export interface IRouterBuilder {
+    withRoutes: (appId: string, routes: IRoutes) => IRouterBuilder;
+    withInstances:(appId: string, instances: IWidgetInstancesByPageList, options?: any) => IRouterBuilder; // prettier-ignore
+    withMenu: (menuItems: IMenuItems) => IRouterBuilder;
+    withContextBar: (appId: string, contextBarItems: IContextBarItems) => IRouterBuilder; // prettier-ignore
+    withCommandBar: (appId: string, commandBarItems: ICommandBarItems) => IRouterBuilder; // prettier-ignore
+    build: () => RouterBuilderResponse;
+}
+
+export type RouterBuilderResponse = {
+    routes: IRoutes;
+    menuItems: IMenuItems;
+    menuGroups: string[];
+    contextBarItems: IContextBarItems;
+    commandBarItems: ICommandBarItems;
+    instancesByPage: IWidgetInstancesByPageDictionary;
+};
+
+export type CommandBarAction = {
+    type: string;
+    payload?: {
+        contextBarItemId?: string;
+    };
+};
+
+/*************** I18nBuilder ***************/
+export interface II18nBuilder {
+    withLanguage: (appId: string, language: string, data: Json) => II18nBuilder;
+    withKeysByLanguage: (appId: string, keysByLanguage: Json) => II18nBuilder;
+    build: () => Json;
+}
+
+/*************** IApiConfigBuilder ***************/
+export interface IApiConfigBuilder {
+    withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
+    build: () => EndpointsConfigOverrides;
+}
+
+/*************** Menu & ContextBar ***************/
+export type IContextBarItem = {
+    id: string;
+    label: string;
+    widgetId: string;
+    responsive?: boolean;
+    icon?: string;
+};
+
+export type ICommandBarItem = {
+    id: string;
+    label: string;
+    action: Action;
+    shortKeys?: IShortKey[];
+};
+
+export type IShortKey = {
+    key: string;
+    id?: string;
+    withCommand?: boolean;
+    withAlt?: boolean;
+    withShift?: boolean;
+    withCtrl?: boolean;
+    description?: string;
+};
+
+export type IContextBarItems = IContextBarItem[];
+export type ICommandBarItems = ICommandBarItem[];
+
+export type IMenuItem = {
+    path: string;
+    label: string;
+    icon?: string;
+    hidden?: boolean;
+    disabled?: boolean;
+    showOnSlim?: boolean;
+    groupId?: string;
+    order?: number;
+    children?: IMenuItem[];
+};
+
+export type IMenuItems = IMenuItem[];

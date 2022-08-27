@@ -2,7 +2,6 @@ import { get, isBoolean, isNumber, isString } from 'lodash';
 import { PlatformContext } from './platform-context';
 import { useMemo, useContext } from 'react';
 import { useSelector, useStore } from 'react-redux';
-import { ISelectorsByApp } from '../store-builder/builders/SelectorsBuilder';
 
 type StructureType = 'form' | 'detail' | 'table' | 'filter';
 

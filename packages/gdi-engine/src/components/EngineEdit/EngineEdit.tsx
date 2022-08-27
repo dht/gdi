@@ -1,4 +1,3 @@
-import { IElement } from '@gdi/store-site';
 import React, { useContext } from 'react';
 import ElementEdit from '../ElementEdit/ElementEdit';
 import {
@@ -15,6 +14,7 @@ export type EngineEditProps = {
     selectedId?: string;
     onSelectItem: (id: string) => void;
     onAction?: (action: ActionType, id: string) => void;
+    libraryBuilder: ILibraryBuilder;
 };
 
 export function EngineInner(props: EngineEditProps) {
@@ -59,11 +59,11 @@ export function EngineInner(props: EngineEditProps) {
 }
 
 export function EngineEdit(props: EngineEditProps) {
-    const { elements } = props;
+    const { elements, libraryBuilder } = props;
 
     return (
         <SiteContextProvider elements={elements}>
-            <EngineContextProvider>
+            <EngineContextProvider libraryBuilder={libraryBuilder}>
                 <EngineInner {...props} />
             </EngineContextProvider>
         </SiteContextProvider>

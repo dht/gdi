@@ -1,7 +1,6 @@
 import classnames from 'classnames';
 import { useCallback, useEffect } from 'react';
 import { useKey } from 'react-use';
-import { ICommandBarItem, ICommandBarItems, IShortKey } from '@gdi/platformer';
 import { Container, Bar } from './CommandBar.style';
 import { useToggle } from 'react-use';
 import BigAutoComplete from '../BigAutoComplete/BigAutoComplete';

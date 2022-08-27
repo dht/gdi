@@ -9,8 +9,6 @@ export const PanelPaletteContainer = () => {
     const selectedPaletteId = useSelector(selectors.raw.$rawMixerState).paletteId; // prettier-ignore
 
     function onSelect(id: string) {
-        console.log('id ->', id);
-
         dispatch(
             actions.mixerState.patch({
                 paletteId: id,

@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from './ImportExport.style';
 import { options } from './ImportExport.options';
 import { Button } from '@gdi/web-ui';
-import type { IViewMode } from '@gdi/store-mixer';
 
 export type ImportExportProps = {
     callbacks: {
@@ -16,7 +15,7 @@ export function ImportExport(props: ImportExportProps) {
     const { callbacks } = props;
 
     function onMenuClick(option: any) {
-        // props.onChange(option.id as IViewMode);
+        // props.onChange(option.id );
     }
 
     return (

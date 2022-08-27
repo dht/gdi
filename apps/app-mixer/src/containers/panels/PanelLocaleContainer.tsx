@@ -9,8 +9,6 @@ export const PanelLocaleContainer = () => {
     const selectedLocaleId = useSelector(selectors.raw.$rawLocale).localeId; // prettier-ignore
 
     function onSelect(id: string) {
-        console.log('id ->', id);
-
         dispatch(
             actions.locale.patch({
                 localeId: id,

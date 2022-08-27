@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Title } from './Palette.style';
 import { ColorPalette, List } from '@gdi/web-ui';
 import classnames from 'classnames';
-import type { IColorPalette } from '@gdi/web-ui';
 
 export type PaletteProps = {
     options: IColorPalette[];

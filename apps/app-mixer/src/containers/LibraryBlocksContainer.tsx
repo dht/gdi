@@ -2,15 +2,11 @@ import React, { useMemo } from 'react';
 import LibraryBlocks from '../components/LibraryBlocks/LibraryBlocks';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
-import { IGalleryViewMode } from '@gdi/store-mixer';
-import { IBlocksFilter } from 'packages/gdi-store-mixer/dist/types';
 
 export const LibraryBlocksContainer = () => {
     const dispatch = useDispatch();
     const libraryBlocks = useSelector(selectors.base.$libraryBlocks);
     const galleryState = useSelector(selectors.raw.$rawBlocksGalleryState);
-
-    console.log('libraryBlocks ->', libraryBlocks);
 
     const callbacks = useMemo(
         () => ({

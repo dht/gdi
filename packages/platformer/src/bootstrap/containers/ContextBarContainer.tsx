@@ -1,11 +1,13 @@
-import ContextBar from './ContextBar';
 import React, { useCallback, useReducer } from 'react';
-import { IContextBarItems, IWidgets, useAction } from '@gdi/platformer';
+import { ContextBar } from '@gdi/web-ui';
+import { IWidgets } from 'igrid';
 import {
     generateReducersForStore,
     generateActionsForStore,
     Action,
 } from 'redux-store-generator';
+import { useAction } from '../../hooks/useAction';
+import { IContextBarItems } from '../../types';
 
 export type ContextBarProps = {
     contextBarItems: IContextBarItems;

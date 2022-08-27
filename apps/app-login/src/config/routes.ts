@@ -1,9 +1,3 @@
-import {
-    ICommandBarItem,
-    IContextBarItem,
-    IMenuItem,
-    IRoutes,
-} from '@gdi/platformer';
 import { ROOT } from './ids';
 
 export const routes: IRoutes = {

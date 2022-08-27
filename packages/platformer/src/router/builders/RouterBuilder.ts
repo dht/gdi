@@ -1,10 +1,11 @@
 import {
-    ICommandBarItem,
+    CommandBarAction,
     ICommandBarItems,
-    IContextBarItem,
     IContextBarItems,
     IMenuItems,
+    IRouterBuilder,
     IRoutes,
+    RouterBuilderResponse,
 } from '../../types';
 import { sortBy } from '../utils/sort';
 import {
@@ -13,16 +14,7 @@ import {
     IWidgetInstancesByPageList,
 } from 'igrid';
 
-type RouterBuilderResponse = {
-    routes: IRoutes;
-    menuItems: IMenuItems;
-    menuGroups: string[];
-    contextBarItems: IContextBarItems;
-    commandBarItems: ICommandBarItems;
-    instancesByPage: IWidgetInstancesByPageDictionary;
-};
-
-export class RouterBuilder {
+export class RouterBuilder implements IRouterBuilder {
     private routes: IRoutes = {};
     private menuItems: IMenuItems = [];
     private contextBarItems: IContextBarItems = [];
@@ -148,10 +140,3 @@ export class RouterBuilder {
         };
     }
 }
-
-type CommandBarAction = {
-    type: string;
-    payload?: {
-        contextBarItemId?: string;
-    };
-};

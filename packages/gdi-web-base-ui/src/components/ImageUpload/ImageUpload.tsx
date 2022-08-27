@@ -11,12 +11,7 @@ import {
     ImageData,
 } from './ImageUpload.style';
 import bytes from 'bytes';
-
-export type IUploadResult = {
-    success: boolean;
-    errorMessage?: string;
-    data: Json;
-};
+import { IUploadResult } from '../../types';
 
 type Json = Record<string, any>;
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from './LibraryImages.style';
 import { IImage, ImageActionType, ImageGallery } from '@gdi/galleries';
-import { IGalleryState, IGalleryViewMode } from '@gdi/store-mixer';
 
 export type LibraryImagesProps = {
     items: IImage[];

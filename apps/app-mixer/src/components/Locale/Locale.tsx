@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Title } from './Locale.style';
 import { List } from '@gdi/web-ui';
 import classnames from 'classnames';
-import type { ILocaleOption } from '@gdi/store-mixer';
 
 export type LocaleProps = {
     options: ILocaleOption[];

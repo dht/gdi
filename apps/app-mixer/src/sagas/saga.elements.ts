@@ -52,8 +52,6 @@ function* deleteElement(action: ActionDeleteElement) {
         submitButtonText: "I'm sure",
     });
 
-    console.log('didCancel ->', didCancel);
-
     if (didCancel) {
         return;
     }

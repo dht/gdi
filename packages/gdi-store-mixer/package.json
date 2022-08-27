@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-mixer",
-    "version": "0.0.1",
+    "version": "0.0.15",
     "scripts": {
         "build": "tsc & vite build",
         "build:rollup": "rollup -c",
@@ -8,9 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.3",
-        "@gdi/store-site": "^0.0.1",
-        "igrid": "^0.0.9",
+        "@gdi/store-site": "0.0.15",
+        "@gdi/types": "0.0.14",
         "lodash": "^4.17.21",
         "redux-store-generator": "^0.9.83",
         "reselect": "^4.1.6"
@@ -20,7 +19,7 @@
         "jest": "^28.1.3",
         "jest-cli": "^28.1.3",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.3",
+        "shared-base": "^0.0.7",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
         "vite": "^3.0.3",

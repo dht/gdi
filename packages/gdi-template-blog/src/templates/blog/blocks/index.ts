@@ -1,8 +1,6 @@
 import { Hero } from './hero-simple/Hero';
 import { blockInfo as heroInfo } from './hero-simple';
 
-import { IBlocks } from '@gdi/engine';
-
 export const blocks: IBlocks = {
     'com.usegdi.templates.blog.hero-simple': {
         id: 'com.usegdi.templates.blog.hero-simple',

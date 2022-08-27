@@ -1,7 +1,19 @@
 import { actions } from '../store';
 import { delay, fork, put } from 'saga-ts';
+import { $s } from 'shared-base';
 
 function* apiPublic() {
+    $s('apiPublic', {
+        nodes: [
+            'blocks',
+            'fonts',
+            'instanceBlocks',
+            'instanceProps',
+            'pages',
+            'palette',
+        ],
+    });
+
     const promises = [
         yield* put(actions.blocks.get({})),
         yield* put(actions.fonts.get()),

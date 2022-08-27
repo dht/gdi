@@ -4,7 +4,8 @@ import {
     IContextualMenuProps,
     PrimaryButton,
 } from '@fluentui/react';
-import { IShortKey, useShortKey, useShortKeys } from '../../hooks/useShortKeys';
+import { useShortKey, useShortKeys } from '../../hooks/useShortKeys';
+import { IOption } from '../../types';
 
 export type ButtonProps = {
     title?: string;
@@ -19,14 +20,6 @@ export type ButtonProps = {
     onMenuClick?: (option: IOption) => void;
     shortKey?: IShortKey;
     tooltip?: string;
-};
-
-export type IOption = {
-    id: string;
-    text: string;
-    iconName?: string;
-    secondaryText?: string;
-    shortKey?: IShortKey;
 };
 
 export function Button(props: ButtonProps) {

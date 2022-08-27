@@ -3,13 +3,7 @@ import React from 'react';
 import { Container, Item } from './Toolbar.style';
 import classnames from 'classnames';
 import { useKey } from '../../hooks/useKey';
-
-export type IToolbarItem = {
-    id: string;
-    text: string;
-    iconName?: string;
-    secondaryText?: string;
-};
+import { IToolbarItem } from '../../types';
 
 export type ToolbarProps = {
     items: IToolbarItem[];
@@ -23,7 +17,7 @@ export function Toolbar(props: ToolbarProps) {
 
     useKey(
         (ev) => {
-            if (!ev.ctrlKey) {
+            if (!ev.withCtrl) {
                 return;
             }
             const index = items.findIndex((i) => i.id === selectedItemId);

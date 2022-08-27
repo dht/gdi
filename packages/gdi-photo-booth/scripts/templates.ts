@@ -2,7 +2,7 @@ import { Json } from './types';
 import { format } from 'prettier';
 
 export const templateScreenshot = (json: Json) => {
-    const code = `import type { IScreenshotsPerFlavour } from '@gdi/engine';
+    const code = `
 
     export const screenshots: IScreenshotsPerFlavour = ${JSON.stringify(
         json,
@@ -15,7 +15,7 @@ export const templateScreenshot = (json: Json) => {
 };
 
 export const templateDimensions = (json: Json) => {
-    const code = `import { IDimensionsPerFlavour } from '@gdi/engine';
+    const code = `
 
     export const dimensions: IDimensionsPerFlavour = ${JSON.stringify(
         json,

@@ -22,8 +22,6 @@ import { blockInfo as sectionHeaderInfo } from './sectionHeader-simple';
 import { UserBar } from './userBar-simple/UserBar';
 import { blockInfo as userBarInfo } from './userBar-simple';
 
-import { IBlocks } from '@gdi/engine';
-
 export const blocks: IBlocks = {
     'com.usegdi.templates.futuristic.feature-simple': {
         id: 'com.usegdi.templates.futuristic.feature-simple',

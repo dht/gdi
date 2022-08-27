@@ -9,7 +9,6 @@ import {
     WidgetThumb,
 } from './MixerStructure.style';
 import { SortableList } from '@gdi/web-ui';
-import { IElement } from '@gdi/store-site';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Title } from './Typography.style';
 import { List } from '@gdi/web-ui';
 import classnames from 'classnames';
-import type { ITypography } from '@gdi/store-mixer';
 
 export type TypographyProps = {
     options: ITypography[];

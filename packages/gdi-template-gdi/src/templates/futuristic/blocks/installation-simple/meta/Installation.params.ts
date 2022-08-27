@@ -1,4 +1,3 @@
-import { IBlockParams } from '@gdi/engine';
 import { id } from '../Installation';
 
 export const params: IBlockParams = {

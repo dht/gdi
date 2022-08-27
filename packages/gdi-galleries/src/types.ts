@@ -9,6 +9,8 @@ export type IImage = {
     isTemporary?: boolean;
 };
 
+export type IImages = Record<string, IImage>;
+
 export type ImageActionType =
     | 'select'
     | 'unselect'

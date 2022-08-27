@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from './Views.style';
 import { options } from './Views.options';
 import { Button } from '@gdi/web-ui';
-import type { IViewMode } from '@gdi/store-mixer';
 
 export type ViewsProps = {
     mode: IViewMode;

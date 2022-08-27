@@ -1,11 +1,14 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { externals } from 'shared-base';
+import analyze from 'rollup-plugin-analyzer';
 import p from './package.json';
+import { externals } from 'shared-base';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
     plugins: [
+        react(),
         dts({
             insertTypesEntry: true,
         }),
@@ -19,7 +22,11 @@ export default defineConfig({
             fileName: (format) => `app-mixer.${format}.js`,
         },
         rollupOptions: {
-            ...externals(p.dependencies),
+            plugins: [analyze()],
+            ...externals({
+                'react/jsx-runtime': '',
+                ...p.dependencies,
+            }),
         },
     },
 });

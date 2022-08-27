@@ -7,7 +7,7 @@ export const options: IOption[] = [
         iconName: 'Photo2',
         shortKey: {
             key: '1',
-            ctrlKey: true,
+            withCtrl: true,
         },
         secondaryText: '^1',
     },
@@ -17,7 +17,7 @@ export const options: IOption[] = [
         iconName: 'AlignJustify',
         shortKey: {
             key: '2',
-            ctrlKey: true,
+            withCtrl: true,
         },
         secondaryText: '^2',
     },

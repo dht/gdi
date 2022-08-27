@@ -4,7 +4,8 @@ node_modules
 dist
 coverage
 .vscode
-submodules
 firebaseConfig.ts
 firebaseServiceAccount.json
 clients/gdi-admin/.firebaserc
+scripts/publishAll.sh
+scripts/updateDependencies.js

@@ -1,10 +1,7 @@
-import { IElement } from '@gdi/store-site';
 import React, { useContext } from 'react';
-import { createContext, useEffect } from 'react';
+import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import { ISiteContext } from '../types';
-import { EngineContext } from './Engine.context';
-import { set } from 'lodash';
 import { useSiteMenu } from '../hooks/useSiteMenu';
 
 const initialState: ISiteContext = {

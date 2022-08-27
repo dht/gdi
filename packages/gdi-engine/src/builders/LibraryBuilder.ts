@@ -1,11 +1,11 @@
-import { IBlocks, ITemplates } from '../types';
+import {
+    IBlocks,
+    ILibraryBuilder,
+    ITemplates,
+    LibraryBuilderResponse,
+} from '../types';
 
-type LibraryBuilderResponse = {
-    templates: ITemplates;
-    blocks: IBlocks;
-};
-
-export class LibraryBuilder {
+export class LibraryBuilder implements ILibraryBuilder {
     private library: LibraryBuilderResponse = {
         templates: {},
         blocks: {},

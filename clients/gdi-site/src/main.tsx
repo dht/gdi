@@ -3,7 +3,8 @@ import './index.scss';
 import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
 import 'igrid/dist/index.css';
-// import '@gdi/web-ui/index.css';
+import '@gdi/web-base-ui/dist/index.css';
+import '@gdi/web-ui/dist/index.css';
 
 const container = document.getElementById('root');
 
@@ -12,4 +13,3 @@ if (container) {
 
     root.render(<React.StrictMode>static</React.StrictMode>);
 }
-0;

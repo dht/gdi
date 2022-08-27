@@ -1,5 +1,5 @@
-import initialState, { SagaStore } from './initialState';
-import { ActionTypes, SagaAction } from '../../types';
+import initialState from './initialState';
+import { ActionTypes, SagaAction, SagaStore } from '../../types';
 import { generateActionsForStore } from 'redux-store-generator';
 
 export const startSaga = (sagaId: string): SagaAction => {

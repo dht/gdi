@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container, ContainerNewItem, Title } from './MixerVisual.style';
-import { EngineEdit } from '@gdi/engine';
-import { IElement } from '@gdi/store-site';
+import { EngineEdit, LibraryBuilder } from '@gdi/engine';
+import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
 
@@ -29,6 +30,13 @@ export function MixerVisual(props: MixerVisualProps) {
         margin: '0 auto',
     };
 
+    const libraryBuilder = useMemo(() => {
+        const instance = new LibraryBuilder();
+        initTemplatesGdi(instance as any);
+        initTemplatesBlog(instance as any);
+        return instance;
+    }, []);
+
     function renderNewItem() {
         return (
             <ContainerNewItem
@@ -51,6 +59,7 @@ export function MixerVisual(props: MixerVisualProps) {
                 onSelectItem={callbacks.onSelectItem}
                 onAction={callbacks.onAction}
                 elements={pageStructure}
+                libraryBuilder={libraryBuilder}
             />
             {renderNewItem()}
         </Container>

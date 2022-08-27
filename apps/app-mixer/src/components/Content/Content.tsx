@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './Content.style';
-import { Modal, Form, IFormConfig } from '@gdi/web-ui';
+import { Form } from '@gdi/web-forms';
 import { allDetails } from './meta/Content.details';
 
 export type ContentProps = {

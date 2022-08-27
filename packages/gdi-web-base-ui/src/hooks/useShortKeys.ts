@@ -1,14 +1,5 @@
 import { useCallback } from 'react';
-import { IKeyboardEvent, useKey } from './useKey';
-
-export type IShortKey = {
-    id?: string;
-    key: string;
-    metaKey?: boolean;
-    ctrlKey?: boolean;
-    altKey?: boolean;
-    shiftKey?: boolean;
-};
+import { useKey } from './useKey';
 
 type CallbackWithId = (id: string) => void;
 
@@ -17,7 +8,7 @@ export function useShortKeys(
     callback: CallbackWithId,
     depArray: any[] = []
 ) {
-    const onKey = useCallback((event: IKeyboardEvent) => {
+    const onKey = useCallback((event: IShortKey) => {
         const matchingShortKey = shortKeys.find((shortKey) =>
             isMatching(event, shortKey)
         );
@@ -35,7 +26,7 @@ export function useShortKey(
     callback?: CallbackWithId,
     depArray: any[] = []
 ) {
-    const onKey = useCallback((event: IKeyboardEvent) => {
+    const onKey = useCallback((event: IShortKey) => {
         if (shortKey && isMatching(event, shortKey) && callback) {
             callback(shortKey.id || '');
         }
@@ -44,13 +35,13 @@ export function useShortKey(
     useKey(onKey, {}, depArray);
 }
 
-const isMatching = (event: IKeyboardEvent, shortKey: IShortKey) => {
+const isMatching = (event: IShortKey, shortKey: IShortKey) => {
     return (
         event.key === shortKey.key &&
-        compare(event.altKey, shortKey.altKey) &&
-        compare(event.ctrlKey, shortKey.ctrlKey) &&
-        compare(event.metaKey, shortKey.metaKey) &&
-        compare(event.shiftKey, shortKey.shiftKey)
+        compare(event.withAlt, shortKey.withAlt) &&
+        compare(event.withCtrl, shortKey.withCtrl) &&
+        compare(event.withCommand, shortKey.withCommand) &&
+        compare(event.withShift, shortKey.withShift)
     );
 };
 

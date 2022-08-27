@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { createContext, useEffect } from 'react';
+import { createContext } from 'react';
 import { useSetState } from 'react-use';
-import { ActionType } from '../components/EngineEdit/EngineEdit';
 import { useTemplates } from '../hooks/useTemplates';
 import { IEngineContextState } from '../types';
 
@@ -15,14 +14,16 @@ export const EngineContext = createContext<IEngineContextState>(initialState); /
 
 type EngineProps = {
     children: JSX.Element | JSX.Element[];
+    libraryBuilder: ILibraryBuilder;
 };
 
 export const EngineContextProvider = (props: EngineProps) => {
+    const { libraryBuilder } = props;
     const [state, patchState] = useSetState<IEngineContextState>({
         ...initialState,
     });
 
-    const { isReady, blocks } = useTemplates();
+    const { isReady, blocks } = useTemplates(libraryBuilder);
 
     return (
         <EngineContext.Provider

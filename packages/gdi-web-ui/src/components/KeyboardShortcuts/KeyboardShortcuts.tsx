@@ -1,5 +1,4 @@
 import React from 'react';
-import { IShortKey } from '@gdi/platformer';
 import {
     Container,
     Key,

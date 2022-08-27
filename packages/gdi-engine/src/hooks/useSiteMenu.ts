@@ -1,11 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { EngineContext } from '../context/Engine.context';
-import { IElement } from '@gdi/store-site';
-import { IMenuItem } from '../types';
-import { flattenInstanceProps } from '../utils/data';
+import { useEffect, useState } from 'react';
+import { flattenInstanceProps } from 'shared-base';
 
 export function useSiteMenu(elements: IElement[]) {
-    const [menuItems, setMenuItems] = useState<IMenuItem[]>([]);
+    const [menuItems, setMenuItems] = useState<ITopMenuItem[]>([]);
 
     useEffect(() => {
         const headerElements = findBlockPropsByTag(

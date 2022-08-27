@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { Logo } from '../Logo/Logo';
 import { Icon } from '@gdi/web-base-ui';
 import { Link } from 'react-router-dom';
-import { IMenuItem } from '@gdi/platformer';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useSetState, useToggle } from 'react-use';
 import { upperFirst } from 'lodash';

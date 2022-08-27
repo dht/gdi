@@ -1,4 +1,3 @@
-import { IBlockInfo } from '@gdi/engine';
 import { IImageWithBlock } from '@gdi/store-mixer';
 import { Tag, Tags } from '@gdi/web-ui';
 import React, { useEffect, useRef, useState } from 'react';
@@ -13,7 +12,7 @@ export function BlockOverlay(props: BlockOverlayProps) {
     const { item, viewMode } = props;
     const { block } = item;
     const ref = useRef<HTMLDivElement>(null);
-    const { tags, id } = block as IBlockInfo;
+    const { tags, id } = block;
     const [height, setHeight] = useState(0);
 
     const regexTemplate = /templates.([a-z]+)/g;

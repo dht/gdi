@@ -119,7 +119,7 @@ export function Prompt(props: PromptProps) {
                         title={submitButtonText}
                         onClick={onSubmit}
                         shortKey={{
-                            ctrlKey: true,
+                            withCtrl: true,
                             key: '5',
                         }}
                     />

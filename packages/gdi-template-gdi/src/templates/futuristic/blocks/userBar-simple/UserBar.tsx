@@ -7,7 +7,6 @@ import classnames from 'classnames';
 import { throttle } from 'lodash';
 import UserBarMobile from './mobile/UserBarMobile';
 import { SiteContext } from '@gdi/engine';
-import { IMenuItem } from '@gdi/platformer';
 
 export const id = 'com.usegdi.templates.futuristic.userBar-simple';
 

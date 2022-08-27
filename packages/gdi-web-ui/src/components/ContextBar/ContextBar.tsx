@@ -1,6 +1,5 @@
 import React from 'react';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
-import { IPopoi, PopoiState } from './ContextBarContainer';
 import { useCallback } from 'react';
 import { useLocalStorage } from 'react-use';
 import { useRef } from 'react';
@@ -19,6 +18,23 @@ import {
     PopoiWrapper,
 } from './ContextBar.style';
 import classnames from 'classnames';
+
+export enum PopoiState {
+    CLOSED = 'CLOSED',
+    OPEN = 'OPEN',
+    FLOATING = 'FLOATING',
+}
+
+export type IPopoi = {
+    id: string;
+    order?: number;
+    state: PopoiState;
+    title: string;
+    iconUrl?: string;
+    widgetId?: string;
+};
+
+export type IPopois = Record<string, IPopoi>;
 
 export type ContextBarProps = {
     items: Record<string, IPopoi>;

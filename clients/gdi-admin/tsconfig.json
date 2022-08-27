@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "target": "es2016",
+        "target": "es2017",
         "module": "ESNext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
@@ -11,7 +11,7 @@
         "declarationDir": "dist/dts",
         "strict": true,
         "skipLibCheck": true,
-        "types": ["types-base"],
+        "types": ["types-base", "@gdi/types", "@types/jest"],
         "jsx": "react-jsx",
         "baseUrl": "../../",
         "paths": {
@@ -29,6 +29,7 @@
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],
             "redux-connected": ["submodules/redux-connected"],
+            "shared-base": ["submodules/shared-base"],
             "igrid": ["submodules/igrid"]
         }
     },

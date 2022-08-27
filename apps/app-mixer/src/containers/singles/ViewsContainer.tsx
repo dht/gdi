@@ -2,7 +2,6 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../../store';
 import Views from '../../components/Views/Views';
-import type { IViewMode } from '@gdi/store-mixer';
 
 export const ViewsContainer = () => {
     const dispatch = useDispatch();

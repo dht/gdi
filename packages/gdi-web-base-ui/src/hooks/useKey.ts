@@ -1,14 +1,6 @@
 import { useEffect } from 'react';
 
-export type IKeyboardEvent = {
-    key: string;
-    altKey: boolean;
-    ctrlKey: boolean;
-    shiftKey: boolean;
-    metaKey: boolean;
-};
-
-export type Callback = (event: IKeyboardEvent) => void;
+export type Callback = (event: IShortKey) => void;
 
 export type UseKeyOptions = {
     filterKeys?: string[];
@@ -29,7 +21,15 @@ export function useKey(
                 return;
             }
 
-            callback({ altKey, ctrlKey, shiftKey, metaKey, key });
+            const event: IShortKey = {
+                key,
+                withAlt: altKey,
+                withCommand: metaKey,
+                withCtrl: ctrlKey,
+                withShift: shiftKey,
+            };
+
+            callback(event);
         };
 
         document.addEventListener('keydown', onKeyDown);

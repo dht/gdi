@@ -19,8 +19,6 @@ export const addAppToViteConfig = (vitePath: string, appId: string) => {
 };
 
 export const updatePlatformSaga = (sagaPath: string, newAppId: string) => {
-    console.log('111 ->', 111);
-
     if (!fs.existsSync(sagaPath)) {
         console.log(`could not find platform saga in ${sagaPath}`);
         return;

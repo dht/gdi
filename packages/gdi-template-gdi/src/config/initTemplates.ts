@@ -1,7 +1,6 @@
-import { LibraryBuilder } from '@gdi/engine';
 import { templates } from '../templates';
 
-export const initTemplates = (libraryBuilder: LibraryBuilder) => {
+export const initTemplates = (libraryBuilder: ILibraryBuilder) => {
     Object.keys(templates).forEach((key) => {
         const template = templates[key];
 

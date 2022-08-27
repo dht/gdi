@@ -22,7 +22,7 @@ const run = async () => {
     }, {} as Json);
 
     const fileContent = format(
-        `import { IBlockInfo } from '@gdi/engine';
+        `
 
     export const libraryBlocks: Record<string, IBlockInfo> = ${JSON.stringify(
         saveBlocks,

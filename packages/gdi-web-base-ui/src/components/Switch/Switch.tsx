@@ -1,12 +1,7 @@
 import { useMount } from 'react-use';
 import React, { useRef, useState } from 'react';
 import { Bk, Container, Option } from './Switch.style';
-
-export type SwitchOption = {
-    id: string;
-    label?: string;
-    iconName?: string;
-};
+import { SwitchOption } from '../../types';
 
 export type SwitchProps = {
     options: SwitchOption[];

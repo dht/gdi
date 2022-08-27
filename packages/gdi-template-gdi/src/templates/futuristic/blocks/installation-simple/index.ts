@@ -2,7 +2,6 @@ import { params } from './meta/Installation.params';
 import { sampleData } from './meta/Installation.sample';
 import { dimensions } from './meta/Installation.dimensions';
 import { screenshots } from './meta/Installation.screenshots';
-import { IBlockInfo } from '@gdi/engine';
 
 export const blockInfo: IBlockInfo = {
     id: 'com.usegdi.templates.futuristic.installation-simple',

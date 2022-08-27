@@ -1,4 +1,3 @@
-import { IBlockParams } from '@gdi/engine';
 import { id } from '../UserBar';
 
 export const params: IBlockParams = {

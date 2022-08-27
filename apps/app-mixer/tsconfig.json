@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "outDir": "dist",
-        "target": "es2016",
+        "target": "es2017",
         "module": "ESNext",
         "moduleResolution": "node",
         "esModuleInterop": true,
@@ -12,6 +12,7 @@
         "strict": true,
         "skipLibCheck": true,
         "baseUrl": "../../",
+        "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],
             "@gdi/template-blog": ["packages/gdi-template-blog"],

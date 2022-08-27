@@ -4,7 +4,6 @@ import Fuse from 'fuse.js';
 import Masonry, { IItem } from '../Masonry/Masonry';
 import TopBar from '../TopBar/TopBar';
 import { Container, Content } from './BlockGallery.style';
-import { IImageWithBlock } from '@gdi/store-mixer';
 import { options } from './BlockGallery.options';
 import { Empty, Switch, SwitchOption } from '@gdi/web-ui';
 

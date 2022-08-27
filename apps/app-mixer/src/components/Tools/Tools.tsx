@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from './Tools.style';
 import { items } from './Tools.items';
 import { Toolbar } from '@gdi/web-ui';
-import type { IToolbarItem } from '@gdi/web-ui';
 
 export type ToolsProps = {
     selectedItemId?: string;

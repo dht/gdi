@@ -2,11 +2,14 @@ import { actions } from '../store';
 import { call, delay, fork, takeEvery } from 'saga-ts';
 import { authChangeChannel } from './channels/channel.authChange';
 import { put } from 'redux-saga/effects';
-import { PlatformLifeCycleEvents } from '@gdi/platformer';
+import { PlatformLifeCycleEvents } from '@gdi/types';
+import { $s } from 'shared-base';
 
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 
 function* authChange({ user }: any) {
+    $s('authChange', { user });
+
     if (!user) {
         yield put(
             actions.authState.patch({
@@ -57,8 +60,6 @@ function* authChange({ user }: any) {
             photoURL,
         })
     );
-
-    console.log('2 ->', 2);
 
     const to = localStorage.getItem(REQUESTED_PATH_KEY) || '/';
     yield* call(navigate, to);

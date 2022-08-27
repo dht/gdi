@@ -1,5 +1,3 @@
-import { IBlockInfo } from '@gdi/engine';
-
 export const libraryBlocks: Record<string, IBlockInfo> = {
     'com.usegdi.templates.futuristic.feature-simple': {
         id: 'com.usegdi.templates.futuristic.feature-simple',

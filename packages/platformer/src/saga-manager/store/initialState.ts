@@ -1,8 +1,4 @@
-import { ISagasState } from '../../types';
-
-export type SagaStore = {
-    sagas: ISagasState;
-};
+import { SagaStore } from '../../types';
 
 export const initialState: SagaStore = {
     sagas: {

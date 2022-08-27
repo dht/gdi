@@ -2,9 +2,6 @@ import { useMemo } from 'react';
 import LibraryImages from '../components/LibraryImages/LibraryImages';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
-import { IGalleryViewMode } from '@gdi/store-mixer';
-import { ImageActionType } from '@gdi/galleries';
-import { ModalImageUploadContainer } from './modals/ModalImageUploadContainer';
 
 type LibraryImagesContainerProps = {
     overwrites?: Json;
@@ -66,10 +63,10 @@ export const LibraryImagesContainer = (props: LibraryImagesContainerProps) => {
                     })
                 );
             },
-            onViewChange: (viewMode: IGalleryViewMode) => {
+            onViewChange: (viewMode: string) => {
                 dispatch(
                     actions.galleryState.patch({
-                        mode: viewMode,
+                        mode: viewMode as IGalleryViewMode,
                     })
                 );
             },

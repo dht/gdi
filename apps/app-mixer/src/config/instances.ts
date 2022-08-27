@@ -1,4 +1,3 @@
-import { IWidgetInstancesByPageList } from '@gdi/platformer';
 import { routes } from './routes';
 import { MixerWidgets } from './widgets';
 
@@ -31,9 +30,10 @@ export const instances: IWidgetInstancesByPageList = {
             widgetId: MixerWidgets.Views,
             position: { y: 2, x: 5 },
             dimension: { y: 2, x: 6 },
-            isFloating: true,
+            isFloating: false,
             isTransparent: true,
         },
+        
         {
             id: 'ImportExport',
             title: 'ImportExport',
@@ -51,6 +51,7 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 2, x: 3 },
             isFloating: true,
         },
+       
         {
             id: 'ImageUpload',
             widgetId: MixerWidgets.ImageUpload,

@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { Container } from './ImageUpload.style';
 import { formConfig } from './meta/ImageUpload.form';
 import { allDetails } from './meta/ImageUpload.details';
-import { IUploadResult } from '@gdi/web-ui';
 import { Form } from '@gdi/web-forms';
 import { guid8 } from 'shared-base';
 

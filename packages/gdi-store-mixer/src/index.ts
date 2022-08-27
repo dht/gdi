@@ -18,10 +18,10 @@ export type {
     IViewMode,
     ITypography,
     ILocaleOption,
-    IColorPalette,
     IGalleryViewMode,
     IGalleryState,
     IImageWithBlock,
+    IBlocksFilter,
 } from './types';
 
 export { getSchemaPropertiesByType } from './utils/blocks';

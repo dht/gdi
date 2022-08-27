@@ -4,9 +4,10 @@ import cases from '../utils/cases';
 import { autoComplete } from '../utils/prompt';
 import { CreateMiddlewares } from '../types';
 import { Command } from '../utils/command';
+import { run } from '../cli/cli';
 
 const MONO_REPO_LAYOUT_CONFIGURATION_FILENAME = '.layout.json';
-const NON_COMPONENT_TEMPLATES: string[] = [];
+const NON_SITE_TEMPLATES: string[] = ['react-gdi-template'];
 
 const preRun = () => async (command: Command, next: any) => {
     const { local } = command;
@@ -16,8 +17,7 @@ const preRun = () => async (command: Command, next: any) => {
     const templates = fs
         .readdirSync(templatesPath)
         .filter(
-            (templateName: string) =>
-                !NON_COMPONENT_TEMPLATES.includes(templateName)
+            (templateName: string) => !NON_SITE_TEMPLATES.includes(templateName)
         );
 
     if (!entityName) {
@@ -49,8 +49,13 @@ const preRun = () => async (command: Command, next: any) => {
         template = packageConfig.template;
         outputDir = `${packageConfig.path}/${entityName}`;
     } else {
-        template = await autoComplete('Pick a site template', templates);
-        outputDir = cases.upperFirst(entityName);
+        if (templates.length === 1) {
+            template = templates[0];
+        } else {
+            template = await autoComplete('Pick a site template', templates);
+        }
+
+        outputDir = entityName.toLocaleLowerCase();
     }
 
     if (outputDir) {
@@ -70,9 +75,7 @@ const preRun = () => async (command: Command, next: any) => {
     };
 
     command.local.rulesReplaceContent = {
-        '\\$CMPLC': ({ entityName }) => cases.lowerCase(entityName),
-        '\\$CMPCC': ({ entityName }) => cases.camelCase(entityName),
-        '\\$CMP': ({ entityName }) => entityName,
+        '\\$SITE': ({ entityName }) => entityName.toLowerCase(),
     };
 
     next();
@@ -83,6 +86,16 @@ const parseInstructions = () => (command: Command, next: any) => {
 };
 
 const postRun = () => (command: Command, next: any) => {
+    const { local } = command;
+    const { params } = local;
+    const { outputDir } = params;
+
+    const cwdInstall = `${outputDir}/scripts`;
+
+    run('chmod', ['+x', 'install.sh'], cwdInstall).then(() => {
+        run('./scripts/install.sh', [], outputDir, { stdOutMode: true });
+    });
+
     next();
 };
 

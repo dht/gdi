@@ -2,7 +2,6 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import { CommandBar, CommandBarProps } from './CommandBar';
 import { BaseComponentDriver } from 'testing-base';
-import { ICommandBarItem } from '@gdi/platformer';
 
 export class CommandBarDriver extends BaseComponentDriver {
     private props: Partial<CommandBarProps> = {

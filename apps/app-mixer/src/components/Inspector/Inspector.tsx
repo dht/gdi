@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from './Inspector.style';
 import { KeyValue, Tags } from '@gdi/web-ui';
-import { IElement } from '@gdi/store-site';
 
 export type InspectorProps = {
     data: Json;

@@ -8,6 +8,7 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "baseUrl": "../../",
+        "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
             "@gli/auto-login": ["packages/auto-login/src/index.ts"],
             "@gli/cli-db": ["packages/cli-db/src/index.ts"],

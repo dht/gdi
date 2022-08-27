@@ -1,4 +1,4 @@
-import { IBlockParams } from '@gdi/engine';
+
 import { id } from '../ImageAndText';
 
 export const params: IBlockParams = {

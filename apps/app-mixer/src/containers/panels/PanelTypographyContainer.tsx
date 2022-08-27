@@ -8,11 +8,7 @@ export const PanelTypographyContainer = () => {
     const typographyOptions = useSelector(selectors.raw.$rawLibraryTypography);
     const selectedTypographyId = useSelector(selectors.raw.$rawFonts).typographyId; // prettier-ignore
 
-    console.log('typographyOptions ->', typographyOptions);
-
     function onSelect(id: string) {
-        console.log('id ->', id);
-
         dispatch(
             actions.fonts.patch({
                 typographyId: id,

@@ -1,11 +1,9 @@
 import type { StoreStructure } from 'redux-store-generator';
-import { IBlockInfo } from '@gdi/engine';
-import type { IImage, IImages } from '@gdi/store-site';
 
 export type IMixerStore = StoreStructure & {
     appStateMixer: IMixerState;
     currentIds: ICurrentIds;
-    meta: IMeta;
+    meta: IMetaMixer;
     galleryState: IGalleryState;
     blocksGalleryState: IBlocksGalleryState;
     libraryImages: IImages;
@@ -33,7 +31,7 @@ export type ICurrentIds = {
     libraryInstanceId: string;
 };
 
-export type IMeta = {
+export type IMetaMixer = {
     schemaVersion: string;
 };
 
@@ -45,18 +43,6 @@ export type ITypography = {
 };
 
 export type ITypographyOptions = Record<string, ITypography>;
-
-export type IColorPalette = {
-    id: string;
-    title: string;
-    color1: string;
-    color2: string;
-    color3: string;
-    color4: string;
-    color5: string;
-};
-
-export type IPaletteOptions = Record<string, IColorPalette>;
 
 export type ILocaleOption = {
     id: string;

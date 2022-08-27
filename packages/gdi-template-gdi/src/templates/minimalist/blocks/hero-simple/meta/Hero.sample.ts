@@ -1,5 +1,3 @@
-import { ISampleDataPerFlavour } from '@gdi/engine';
-
 export const sampleData: ISampleDataPerFlavour = {
     simple: {
         id: 'simple',

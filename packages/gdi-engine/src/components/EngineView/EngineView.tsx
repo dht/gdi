@@ -1,4 +1,3 @@
-import { IElement } from '@gdi/store-site';
 import React, { useContext } from 'react';
 import ElementView from '../ElementView/ElementView';
 import {
@@ -10,6 +9,7 @@ import { SiteContextProvider } from '../../context/Site.context';
 
 export type EngineViewProps = {
     elements: IElement[];
+    libraryBuilder: ILibraryBuilder;
 };
 
 export function EngineInner(props: EngineViewProps) {
@@ -47,10 +47,10 @@ export function EngineInner(props: EngineViewProps) {
 }
 
 export function EngineView(props: EngineViewProps) {
-    const { elements } = props;
+    const { elements, libraryBuilder } = props;
 
     return (
-        <EngineContextProvider>
+        <EngineContextProvider libraryBuilder={libraryBuilder}>
             <SiteContextProvider elements={elements}>
                 <EngineInner {...props} />
             </SiteContextProvider>
