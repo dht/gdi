@@ -10,7 +10,7 @@ export const sampleData: ISampleDataPerFlavour = {
         colors: {},
         extra: {
             href: '#',
-            imageUrl: 'https://appofthebox.web.app/s1.png',
+            imageUrl: 'https://appofthebox.web.app/s1.webp',
             animated: false,
         },
     },

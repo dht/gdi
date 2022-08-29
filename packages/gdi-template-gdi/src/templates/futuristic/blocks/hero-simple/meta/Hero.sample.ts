@@ -17,7 +17,7 @@ export const sampleData: ISampleDataPerFlavour = {
         extra: {
             href: 'https://github.com/dht/gdi/docs',
             hrefSecond: 'https://github.com/dht/gdi',
-            imageUrl: 'https://appofthebox.web.app/6.png',
+            imageUrl: 'https://appofthebox.web.app/6.webp',
             headerFontSize: 70,
         },
     },
@@ -35,7 +35,7 @@ export const sampleData: ISampleDataPerFlavour = {
         extra: {
             href: 'https://github.com/dht/gdi/docs',
             hrefSecond: 'https://github.com/dht/gdi',
-            imageUrl: 'https://appofthebox.web.app/7.png',
+            imageUrl: 'https://appofthebox.web.app/7.webp',
             headerFontSize: 70,
         },
     },

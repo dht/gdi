@@ -10,7 +10,7 @@ export const sampleData: ISampleDataPerFlavour = {
             text: '#fff',
         },
         extra: {
-            imageUrl: 'https://appofthebox.web.app/neon.png',
+            imageUrl: 'https://appofthebox.web.app/neon.webp',
             headerFontSize: 120,
         },
     },

@@ -209,7 +209,7 @@ export const state: ISiteStore = {
             extra_href: 'https://github.com/dht/gdi/docs',
             extra_hrefSecond: 'https://github.com/dht/gdi/docs',
             extra_headerFontSize: 70,
-            extra_imageUrl: 'https://appofthebox.web.app/6.png',
+            extra_imageUrl: 'https://appofthebox.web.app/6.webp',
             extra_showBeta: true,
         },
         'home-userBar-simple-1': {
@@ -259,7 +259,7 @@ export const state: ISiteStore = {
             strings_description:
                 'Schema-based definition for all entities make page-structure manipulation easy and straight-forward //',
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s1.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s1.webp',
             extra_animated: true,
         },
         'home-feature-simple-2': {
@@ -269,7 +269,7 @@ export const state: ISiteStore = {
             strings_description:
                 'Add new NPM packages which contain new blocks & templates. Easily switch between blocks to keep block data //',
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s2.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s2.webp',
             extra_animated: true,
         },
         'home-feature-simple-3': {
@@ -279,7 +279,7 @@ export const state: ISiteStore = {
             strings_description:
                 "With a form-based admin-panel you can allow non-techies to edit the page's content //",
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s3.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s3.webp',
             extra_animated: true,
         },
         'home-feature-simple-4': {
@@ -289,7 +289,7 @@ export const state: ISiteStore = {
             strings_description:
                 'Use the preview to see the current page structure & design, change typography, color palettes and content //',
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s4.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s4.webp',
             extra_animated: true,
         },
         'home-lineCta-simple-1': {
@@ -298,7 +298,7 @@ export const state: ISiteStore = {
             strings_text: 'the power of Firebase ©',
             strings_ctaButtonText: 'Visit Github',
             extra_href: 'https://github.com/dht/gdi',
-            extra_imageUrl: 'https://appofthebox.web.app/6.png',
+            extra_imageUrl: 'https://appofthebox.web.app/6.webp',
         },
         'home-sectionHeader-simple-3': {
             id: 'home-sectionHeader-simple-3',
@@ -314,7 +314,7 @@ export const state: ISiteStore = {
             strings_description:
                 'Start adding your own templates and blocks, contribute your thoughts and ideas, join the discussion //',
             extra_href: 'https://github.com/dht/gdi',
-            extra_backgroundImageUrl: 'https://appofthebox.web.app/1.png',
+            extra_backgroundImageUrl: 'https://appofthebox.web.app/1.webp',
         },
         'home-footer-simple-1': {
             id: 'home-footer-simple-1',

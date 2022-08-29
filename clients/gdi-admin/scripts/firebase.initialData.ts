@@ -124,7 +124,7 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: '#',
-                        imageUrl: 'https://appofthebox.web.app/s1.png',
+                        imageUrl: 'https://appofthebox.web.app/s1.webp',
                         animated: false,
                     },
                 },
@@ -139,7 +139,7 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: '#',
-                        imageUrl: 'https://appofthebox.web.app/s2.png',
+                        imageUrl: 'https://appofthebox.web.app/s2.webp',
                         animated: false,
                     },
                 },
@@ -405,7 +405,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi/docs',
                         hrefSecond: 'https://github.com/dht/gdi',
-                        imageUrl: 'https://appofthebox.web.app/6.png',
+                        imageUrl: 'https://appofthebox.web.app/6.webp',
                         headerFontSize: 70,
                     },
                 },
@@ -423,7 +423,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi/docs',
                         hrefSecond: 'https://github.com/dht/gdi',
-                        imageUrl: 'https://appofthebox.web.app/7.png',
+                        imageUrl: 'https://appofthebox.web.app/7.webp',
                         headerFontSize: 70,
                     },
                 },
@@ -585,7 +585,8 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: 'https://github.com/dht/gdi',
-                        backgroundImageUrl: 'https://appofthebox.web.app/1.png',
+                        backgroundImageUrl:
+                            'https://appofthebox.web.app/1.webp',
                     },
                 },
             },
@@ -1123,7 +1124,7 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: '#',
-                        imageUrl: 'https://appofthebox.web.app/s1.png',
+                        imageUrl: 'https://appofthebox.web.app/s1.webp',
                         animated: false,
                     },
                 },
@@ -1351,7 +1352,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi/docs',
                         hrefSecond: 'https://github.com/dht/gdi',
-                        imageUrl: 'https://appofthebox.web.app/white_bk.png',
+                        imageUrl: 'https://appofthebox.web.app/white_bk.webp',
                         headerFontSize: 70,
                     },
                 },
@@ -1476,7 +1477,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi',
                         backgroundImageUrl:
-                            'https://appofthebox.web.app/gray_bk.png',
+                            'https://appofthebox.web.app/gray_bk.webp',
                     },
                 },
             },
@@ -1613,7 +1614,7 @@ export const initialData: Json = {
                         text: '#fff',
                     },
                     extra: {
-                        imageUrl: 'https://appofthebox.web.app/neon.png',
+                        imageUrl: 'https://appofthebox.web.app/neon.webp',
                         headerFontSize: 120,
                     },
                 },
@@ -1991,7 +1992,7 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: '#',
-                        imageUrl: 'https://appofthebox.web.app/s1.png',
+                        imageUrl: 'https://appofthebox.web.app/s1.webp',
                         animated: false,
                     },
                 },
@@ -2006,7 +2007,7 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: '#',
-                        imageUrl: 'https://appofthebox.web.app/s2.png',
+                        imageUrl: 'https://appofthebox.web.app/s2.webp',
                         animated: false,
                     },
                 },
@@ -2272,7 +2273,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi/docs',
                         hrefSecond: 'https://github.com/dht/gdi',
-                        imageUrl: 'https://appofthebox.web.app/6.png',
+                        imageUrl: 'https://appofthebox.web.app/6.webp',
                         headerFontSize: 70,
                     },
                 },
@@ -2290,7 +2291,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi/docs',
                         hrefSecond: 'https://github.com/dht/gdi',
-                        imageUrl: 'https://appofthebox.web.app/7.png',
+                        imageUrl: 'https://appofthebox.web.app/7.webp',
                         headerFontSize: 70,
                     },
                 },
@@ -2452,7 +2453,8 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: 'https://github.com/dht/gdi',
-                        backgroundImageUrl: 'https://appofthebox.web.app/1.png',
+                        backgroundImageUrl:
+                            'https://appofthebox.web.app/1.webp',
                     },
                 },
             },
@@ -2990,7 +2992,7 @@ export const initialData: Json = {
                     colors: {},
                     extra: {
                         href: '#',
-                        imageUrl: 'https://appofthebox.web.app/s1.png',
+                        imageUrl: 'https://appofthebox.web.app/s1.webp',
                         animated: false,
                     },
                 },
@@ -3218,7 +3220,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi/docs',
                         hrefSecond: 'https://github.com/dht/gdi',
-                        imageUrl: 'https://appofthebox.web.app/white_bk.png',
+                        imageUrl: 'https://appofthebox.web.app/white_bk.webp',
                         headerFontSize: 70,
                     },
                 },
@@ -3343,7 +3345,7 @@ export const initialData: Json = {
                     extra: {
                         href: 'https://github.com/dht/gdi',
                         backgroundImageUrl:
-                            'https://appofthebox.web.app/gray_bk.png',
+                            'https://appofthebox.web.app/gray_bk.webp',
                     },
                 },
             },
@@ -3480,7 +3482,7 @@ export const initialData: Json = {
                         text: '#fff',
                     },
                     extra: {
-                        imageUrl: 'https://appofthebox.web.app/neon.png',
+                        imageUrl: 'https://appofthebox.web.app/neon.webp',
                         headerFontSize: 120,
                     },
                 },
@@ -3555,7 +3557,7 @@ export const initialData: Json = {
             extra_href: 'https://github.com/dht/gdi/docs',
             extra_hrefSecond: 'https://github.com/dht/gdi/docs',
             extra_headerFontSize: 70,
-            extra_imageUrl: 'https://appofthebox.web.app/6.png',
+            extra_imageUrl: 'https://appofthebox.web.app/6.webp',
             extra_showBeta: true,
         },
         'home-userBar-simple-1': {
@@ -3605,7 +3607,7 @@ export const initialData: Json = {
             strings_description:
                 'Schema-based definition for all entities make page-structure manipulation easy and straight-forward //',
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s1.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s1.webp',
             extra_animated: true,
         },
         'home-feature-simple-2': {
@@ -3615,7 +3617,7 @@ export const initialData: Json = {
             strings_description:
                 'Add new NPM packages which contain new blocks & templates. Easily switch between blocks to keep block data //',
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s2.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s2.webp',
             extra_animated: true,
         },
         'home-feature-simple-3': {
@@ -3625,7 +3627,7 @@ export const initialData: Json = {
             strings_description:
                 "With a form-based admin-panel you can allow non-techies to edit the page's content //",
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s3.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s3.webp',
             extra_animated: true,
         },
         'home-feature-simple-4': {
@@ -3635,7 +3637,7 @@ export const initialData: Json = {
             strings_description:
                 'Use the preview to see the current page structure & design, change typography, color palettes and content //',
             extra_href: '#',
-            extra_imageUrl: 'https://appofthebox.web.app/s4.png',
+            extra_imageUrl: 'https://appofthebox.web.app/s4.webp',
             extra_animated: true,
         },
         'home-lineCta-simple-1': {
@@ -3644,7 +3646,7 @@ export const initialData: Json = {
             strings_text: 'the power of Firebase ©',
             strings_ctaButtonText: 'Visit Github',
             extra_href: 'https://github.com/dht/gdi',
-            extra_imageUrl: 'https://appofthebox.web.app/6.png',
+            extra_imageUrl: 'https://appofthebox.web.app/6.webp',
         },
         'home-sectionHeader-simple-3': {
             id: 'home-sectionHeader-simple-3',
@@ -3660,7 +3662,7 @@ export const initialData: Json = {
             strings_description:
                 'Start adding your own templates and blocks, contribute your thoughts and ideas, join the discussion //',
             extra_href: 'https://github.com/dht/gdi',
-            extra_backgroundImageUrl: 'https://appofthebox.web.app/1.png',
+            extra_backgroundImageUrl: 'https://appofthebox.web.app/1.webp',
         },
         'home-footer-simple-1': {
             id: 'home-footer-simple-1',

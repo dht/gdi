@@ -16,7 +16,7 @@ export const sampleData: ISampleDataPerFlavour = {
         extra: {
             href: 'https://github.com/dht/gdi/docs',
             hrefSecond: 'https://github.com/dht/gdi',
-            imageUrl: 'https://appofthebox.web.app/white_bk.png',
+            imageUrl: 'https://appofthebox.web.app/white_bk.webp',
             headerFontSize: 70,
         },
     },
