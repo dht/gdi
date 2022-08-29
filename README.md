@@ -3,14 +3,10 @@
 An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //
 
 - [Installation](#installation)
-- [Dev mode](#dev-mode)
-  - [Admin UI](#admin-ui)
-  - [Site](#site)
-- [Building](#building)
-  - [Admin UI](#admin-ui-1)
-  - [Site](#site-1)
+- [Admin UI](#admin-ui)
+- [Site](#site)
 - [Deploying](#deploying)
-  - [Image upload](#image-upload)
+- [Cloud Functions](#cloud-functions)
 
 ## Installation
 
@@ -38,7 +34,7 @@ An open-source & extendable content management system (CMS) written in ReactJS, 
     VITE_FIREBASE_MEASUREMENT_ID=******
     ```
 
-    > Note: this information is available once you've create a new web app in your [Firebase console](https://console.firebase.google.com/). Settings => Project settings => Add app
+    > Note: this information is available once you create a new web app in your [Firebase console](https://console.firebase.google.com/). Settings => Project settings => Add app
 
 4. In your [Firebase console](https://console.firebase.google.com/) enable Firestore Database by pressing "Get started". Choose `Test mode` so you can seed your database.
 5. Connect your Firebase project to the directory:
@@ -86,9 +82,9 @@ An open-source & extendable content management system (CMS) written in ReactJS, 
 
     > Expected result: you should be able to choose your account's email from a list
 
-## Dev mode
+## Admin UI
 
-### Admin UI
+**Dev Mode**
 
 To run your `Admin UI` in dev mode:
 
@@ -98,21 +94,9 @@ Within the `gdi-admin` folder run:
 npm run dev
 ```
 
-### Site
-
-To run your `site` in dev mode:
-
-Within the `gdi-site` folder run:
-
-```sh
-npm run dev
-```
-
-## Building
-
 > Note: deploying from `root` runs the build process. You can build manually if you want to test the output of the build or perhaps investigate build issues
 
-### Admin UI
+**Building**
 
 To build your `Admin UI`:
 
@@ -122,7 +106,19 @@ Within the `gdi-admin` folder run:
 npm run build
 ```
 
-### Site
+## Site
+
+**Dev Mode**
+
+To run your `site` in dev mode:
+
+Within the `gdi-site` folder run:
+
+```sh
+npm run dev
+```
+
+**Building**
 
 To build your `site`:
 
@@ -159,9 +155,9 @@ The site will be served from:
 > To solve this issue, either upgrade your plan or delete the `Cloud functions`.
 > <br />To `enable` image upload => upgrade to the `Blaze plan`.
 > <br />To `disable` image upload => delete the `/gdi-admin/functions` folder.
-> <br /> Read more [here](#image-upload)
+> <br /> Read more [here](#cloud-functions)
 
-### Image upload
+## Cloud Functions
 
 The `image upload feature` requires [Cloud functions](https://firebase.google.com/docs/functions). They:
 
