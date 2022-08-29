@@ -2,8 +2,15 @@
 
 An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //
 
--   Extendable: install NPM packages for more blocks
--   Descriptive: simple JSON objects for anything
+- [Installation](#installation)
+- [Dev mode](#dev-mode)
+  - [Admin UI](#admin-ui)
+  - [Site](#site)
+- [Building](#building)
+  - [Admin UI](#admin-ui-1)
+  - [Site](#site-1)
+- [Deploying](#deploying)
+  - [Image upload](#image-upload)
 
 ## Installation
 
@@ -134,10 +141,31 @@ In the `root` of the project run:
 npm run deploy
 ```
 
--   The admin console will be served from
+The admin console will be served from:
 
-    [https://firebasedomain.com/admin](https://firebasedomain.com/admin)
+[https://firebasedomain.com/admin](https://firebasedomain.com/admin)
 
--   The site will be served from
+The site will be served from:
 
-    [https://firebasedomain.com](https://firebasedomain.com)
+[https://firebasedomain.com](https://firebasedomain.com)
+
+> Note: when deploying you might receive this message:
+>
+> ```
+> Error: Your project [ProjectId] must be on the Blaze (pay-as-you-go) plan > to complete this command. Required API cloudbuild.googleapis.com can't be > enabled until the upgrade is complete. To upgrade, visit the following URL:
+> https://console.firebase.google.com/project/[ProjectId]/usage/details
+> ```
+>
+> To solve this issue, either upgrade your plan or delete the `Cloud functions`.
+> <br />To `enable` image upload => upgrade to the `Blaze plan`.
+> <br />To `disable` image upload => delete the `/gdi-admin/functions` folder.
+> <br /> Read more [here](#image-upload)
+
+### Image upload
+
+The `image upload feature` requires [Cloud functions](https://firebase.google.com/docs/functions). They:
+
+-   Generate thumbnails
+-   Transform uploaded images to the `webp` format.
+
+`Cloud functions` requires an active billing account which means upgrading your Firebase plan to [Blaze](https://firebase.google.com/pricing). If you wish to stay with the `free plan` you can simply delete the `/gdi-admin/functions` folder in this repo. This will disable image uploading.
