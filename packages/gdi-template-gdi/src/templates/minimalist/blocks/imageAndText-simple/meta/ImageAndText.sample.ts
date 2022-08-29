@@ -11,7 +11,7 @@ export const sampleData: ISampleDataPerFlavour = {
         colors: {},
         extra: {
             href: 'https://github.com/dht/gdi',
-            backgroundImageUrl: 'https://appofthebox.web.app/gray_bk.png',
+            backgroundImageUrl: 'https://appofthebox.web.app/gray_bk.webp',
         },
     },
 };

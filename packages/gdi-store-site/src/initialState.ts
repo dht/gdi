@@ -151,7 +151,7 @@ export const initialState: ISiteStore = {
             extra_href: 'https://github.com/dht/gdi/docs',
             extra_hrefSecond: 'https://github.com/dht/gdi/docs',
             extra_headerFontSize: 70,
-            extra_imageUrl: 'https://appofthebox.web.app/6.png',
+            extra_imageUrl: 'https://appofthebox.web.app/6.webp',
         },
     },
     strings: {},

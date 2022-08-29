@@ -10,7 +10,7 @@ export const featureData1: FeatureProps = {
     colors: {},
     extra: {
         href: '#',
-        imageUrl: 'https://appofthebox.web.app/s1.png',
+        imageUrl: 'https://appofthebox.web.app/s1.webp',
         animated: true,
     },
 };
@@ -25,7 +25,7 @@ export const featureData2: FeatureProps = {
     colors: {},
     extra: {
         href: '#',
-        imageUrl: 'https://appofthebox.web.app/s2.png',
+        imageUrl: 'https://appofthebox.web.app/s2.webp',
         animated: true,
     },
 };

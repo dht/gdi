@@ -65,7 +65,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 colors: {},
                 extra: {
                     href: '#',
-                    imageUrl: 'https://appofthebox.web.app/s1.png',
+                    imageUrl: 'https://appofthebox.web.app/s1.webp',
                     animated: false,
                 },
             },
@@ -80,7 +80,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 colors: {},
                 extra: {
                     href: '#',
-                    imageUrl: 'https://appofthebox.web.app/s2.png',
+                    imageUrl: 'https://appofthebox.web.app/s2.webp',
                     animated: false,
                 },
             },
@@ -346,7 +346,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 extra: {
                     href: 'https://github.com/dht/gdi/docs',
                     hrefSecond: 'https://github.com/dht/gdi',
-                    imageUrl: 'https://appofthebox.web.app/6.png',
+                    imageUrl: 'https://appofthebox.web.app/6.webp',
                     headerFontSize: 70,
                 },
             },
@@ -364,7 +364,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 extra: {
                     href: 'https://github.com/dht/gdi/docs',
                     hrefSecond: 'https://github.com/dht/gdi',
-                    imageUrl: 'https://appofthebox.web.app/7.png',
+                    imageUrl: 'https://appofthebox.web.app/7.webp',
                     headerFontSize: 70,
                 },
             },
@@ -526,7 +526,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 colors: {},
                 extra: {
                     href: 'https://github.com/dht/gdi',
-                    backgroundImageUrl: 'https://appofthebox.web.app/1.png',
+                    backgroundImageUrl: 'https://appofthebox.web.app/1.webp',
                 },
             },
         },
@@ -1064,7 +1064,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 colors: {},
                 extra: {
                     href: '#',
-                    imageUrl: 'https://appofthebox.web.app/s1.png',
+                    imageUrl: 'https://appofthebox.web.app/s1.webp',
                     animated: false,
                 },
             },
@@ -1292,7 +1292,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 extra: {
                     href: 'https://github.com/dht/gdi/docs',
                     hrefSecond: 'https://github.com/dht/gdi',
-                    imageUrl: 'https://appofthebox.web.app/white_bk.png',
+                    imageUrl: 'https://appofthebox.web.app/white_bk.webp',
                     headerFontSize: 70,
                 },
             },
@@ -1417,7 +1417,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                 extra: {
                     href: 'https://github.com/dht/gdi',
                     backgroundImageUrl:
-                        'https://appofthebox.web.app/gray_bk.png',
+                        'https://appofthebox.web.app/gray_bk.webp',
                 },
             },
         },
@@ -1553,7 +1553,7 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                     text: '#fff',
                 },
                 extra: {
-                    imageUrl: 'https://appofthebox.web.app/neon.png',
+                    imageUrl: 'https://appofthebox.web.app/neon.webp',
                     headerFontSize: 120,
                 },
             },

@@ -1,15 +1,19 @@
 import React from 'react';
 import './index.scss';
-import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
 import 'igrid/dist/index.css';
 import '@gdi/web-base-ui/dist/index.css';
 import '@gdi/web-ui/dist/index.css';
+import App from './components/App/App';
 
 const container = document.getElementById('root');
 
 if (container) {
     const root = createRoot(container);
 
-    root.render(<React.StrictMode>static</React.StrictMode>);
+    root.render(
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    );
 }

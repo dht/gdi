@@ -11,6 +11,6 @@ export const imageAndTextData: ImageAndTextProps = {
     colors: {},
     extra: {
         href: 'https://github.com/dht/gdi',
-        backgroundImageUrl: 'https://appofthebox.web.app/1.png',
+        backgroundImageUrl: 'https://appofthebox.web.app/1.webp',
     },
 };
