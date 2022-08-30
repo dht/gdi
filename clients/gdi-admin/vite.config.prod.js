@@ -4,8 +4,10 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/admin',
     build: {
         sourcemap: true,
+        outDir: 'dist/admin',
     },
     plugins: [
         tsconfigPaths({

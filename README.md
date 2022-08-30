@@ -2,11 +2,14 @@
 
 An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //
 
-- [Installation](#installation)
-- [Admin UI](#admin-ui)
-- [Site](#site)
-- [Deploying](#deploying)
-- [Cloud Functions](#cloud-functions)
+-   [Installation](#installation)
+-   [Admin UI](#admin-ui)
+-   [Site](#site)
+-   [Deploying](#deploying)
+    -   [First run](#first-run)
+    -   [Troubleshooting](#troubleshooting)
+        -   [Blaze plan](#blaze-plan)
+-   [Cloud Functions](#cloud-functions)
 
 ## Installation
 
@@ -94,9 +97,9 @@ Within the `gdi-admin` folder run:
 npm run dev
 ```
 
-> Note: deploying from `root` runs the build process. You can build manually if you want to test the output of the build or perhaps investigate build issues
-
 **Building**
+
+> Note: deploying from `root` runs the build process. You can build manually if you want to test the output of the build or perhaps investigate build issues
 
 To build your `Admin UI`:
 
@@ -145,21 +148,35 @@ The site will be served from:
 
 [https://firebasedomain.com](https://firebasedomain.com)
 
-> Note: when deploying you might receive this message:
->
-> ```
-> Error: Your project [ProjectId] must be on the Blaze (pay-as-you-go) plan > to complete this command. Required API cloudbuild.googleapis.com can't be > enabled until the upgrade is complete. To upgrade, visit the following URL:
-> https://console.firebase.google.com/project/[ProjectId]/usage/details
-> ```
->
-> To solve this issue, either upgrade your plan or delete the `Cloud functions`.
-> <br />To `enable` image upload => upgrade to the `Blaze plan`.
-> <br />To `disable` image upload => delete the `/gdi-admin/functions` folder.
-> <br /> Read more [here](#cloud-functions)
+### First run
+
+For the first run you'd need to deploy the `Cloud functions` by running in the `root`:
+
+```sh
+npm run deploy:functions
+```
+
+### Troubleshooting
+
+#### Blaze plan
+
+If you receive the following message:
+
+```md
+Error: Your project [ProjectId] must be on the Blaze (pay-as-you-go) plan > to complete this command. Required API cloudbuild.googleapis.com can't be > enabled until the upgrade is complete. To upgrade, visit the following URL:
+https://console.firebase.google.com/project/[ProjectId]/usage/details
+```
+
+Your can either upgrade your plan or delete the project's `Cloud functions`. This will have effects on the `image gallery`, particularly on the `image upload` feature.
+
+-   To `enable` image upload => upgrade to the `Blaze plan`.
+-   To `disable` image upload => delete the `/gdi-admin/functions` folder.
+
+Read more [below](#cloud-functions).
 
 ## Cloud Functions
 
-The `image upload feature` requires [Cloud functions](https://firebase.google.com/docs/functions). They:
+The `image upload` feature requires [Cloud functions](https://firebase.google.com/docs/functions). They:
 
 -   Generate thumbnails
 -   Transform uploaded images to the `webp` format.
