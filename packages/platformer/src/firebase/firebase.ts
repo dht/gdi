@@ -20,6 +20,7 @@ import {
     GoogleAuthProvider,
     onAuthStateChanged,
     signOut,
+    EmailAuthProvider,
 } from 'firebase/auth';
 import * as firebaseui from 'firebaseui';
 import { GoogleUser } from '../types';
@@ -132,6 +133,10 @@ export class Firebase {
             signInOptions: [
                 {
                     provider: GoogleAuthProvider.PROVIDER_ID,
+                    clientId: this.clientId,
+                },
+                {
+                    provider: EmailAuthProvider.PROVIDER_ID,
                     clientId: this.clientId,
                 },
             ],

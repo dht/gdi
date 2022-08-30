@@ -33,7 +33,6 @@ export const instances: IWidgetInstancesByPageList = {
             isFloating: false,
             isTransparent: true,
         },
-        
         {
             id: 'ImportExport',
             title: 'ImportExport',
@@ -51,11 +50,18 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 2, x: 3 },
             isFloating: true,
         },
-       
         {
             id: 'ImageUpload',
             widgetId: MixerWidgets.ImageUpload,
             position: { y: 1, x: 1 },
+            dimension: { y: 1, x: 1 },
+            isTransparent: true,
+            allowOverflow: true,
+        },
+        {
+            id: 'PlayMode',
+            widgetId: MixerWidgets.PlayMode,
+            position: { y: 1, x: 50 },
             dimension: { y: 1, x: 1 },
             isTransparent: true,
             allowOverflow: true,

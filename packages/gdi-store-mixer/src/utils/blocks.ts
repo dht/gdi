@@ -23,7 +23,8 @@ export const getBlockTypeFromElement = (element?: IElement) => {
 
 export const getSchemaPropertiesByType = (
     block: IBlockInfo,
-    propertyType: string | string[]
+    propertyType: string | string[],
+    includeEmpty: boolean
 ) => {
     const typeArr = Array.isArray(propertyType) ? propertyType : [propertyType];
     const output: Json = {};
@@ -39,7 +40,7 @@ export const getSchemaPropertiesByType = (
                 const xPath = `${prefix}.${key}`;
                 const value = get(firstSampleData, xPath);
 
-                if (typeof value !== 'undefined') {
+                if (typeof value !== 'undefined' || includeEmpty) {
                     output[xPath] = value;
                 }
             }

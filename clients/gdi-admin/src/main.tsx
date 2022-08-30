@@ -1,13 +1,14 @@
 import React from 'react';
-import './index.scss';
-import { Bootstrap, initFirebase } from '@gdi/platformer';
+import { $s } from 'shared-base';
+import { Bootstrap } from '@gdi/platformer';
 import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
+import { SystemLogs } from '@gdi/web-ui';
+import './index.scss';
 import 'igrid/dist/index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '@gdi/web-ui/dist/index.css';
-import { SystemLogs } from '@gdi/web-ui';
-import { $s } from 'shared-base';
+import 'firebaseui/dist/firebaseui.css';
 
 const DEBUG = false;
 const container = document.getElementById('root');

@@ -101,8 +101,9 @@ export type IFirebaseConfig = {
 
 export type IPlatformContextState = {
     isReady: boolean;
-    isRtl: boolean;
+    noServerMode?: boolean;
     locale: string;
+    isRtl: boolean;
     routes: IRoutes;
     initialRoute: string;
     menuItems: IMenuItems;
@@ -148,6 +149,7 @@ export type IPlatformConfig = {
     initializers: Record<string, InitAppMethod>;
     activeApps: string[];
     menuSections: string[];
+    noServerMode?: boolean;
 };
 
 export type GoogleUser = Json & {

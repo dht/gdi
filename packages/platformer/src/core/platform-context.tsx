@@ -6,9 +6,10 @@ import { emptyStore } from '../store-builder/data/emptyStore';
 
 const initialState: IPlatformContextState = {
     isReady: false,
+    noServerMode: false,
+    locale: 'en',
     isRtl: false,
     initialRoute: '',
-    locale: 'he',
     navigate: () => {},
     store: emptyStore,
     routes: {},
@@ -27,14 +28,16 @@ export const PlatformContext = createContext<IPlatformContextState>(initialState
 type PlatformProps = {
     children: JSX.Element | JSX.Element[];
     initialRoute: string;
+    noServerMode?: boolean;
 };
 
 export const PlatformContextProvider = (props: PlatformProps) => {
-    const { initialRoute } = props;
+    const { initialRoute, noServerMode } = props;
 
     const [state, patchState] = useSetState<IPlatformContextState>({
         ...initialState,
         initialRoute,
+        noServerMode,
     });
 
     return (

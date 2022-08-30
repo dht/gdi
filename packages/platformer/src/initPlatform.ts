@@ -22,7 +22,6 @@ import { I18nBuilder } from './i18n/builders/I18nBuilder';
 import { initI18n } from './i18n/i18n.instance';
 import { firebase } from './firebase/firebase';
 import { PlatformLifeCycleEvents } from '@gdi/types';
-import { $s } from 'shared-base';
 
 const DEBUG = false;
 
@@ -34,6 +33,7 @@ type Params = {
     initSapMethods: Record<string, InitSapMethod>;
     sagas: any[];
     logger: LogMethod;
+    noServerMode?: boolean;
 };
 
 const DEFAULT_ENDPOINT_CONFIG: EndpointConfig = {
@@ -58,6 +58,7 @@ export async function initPlatform<T extends StoreStructure>(
         menuSections = [],
         sagas = [],
         logger = defaultLogger,
+        noServerMode,
     } = params;
 
     logger('platform: init');
@@ -114,7 +115,9 @@ export async function initPlatform<T extends StoreStructure>(
         });
     }
 
-    const endpointsConfigOverrides = apiConfigBuilder.build();
+    const endpointsConfigOverrides = apiConfigBuilder
+        .withNoServer(noServerMode) //
+        .build();
 
     const restAdapter = new RestAdapter({
         axios,

@@ -11,10 +11,10 @@
         "deploy:functions": "firebase deploy --only functions"
     },
     "dependencies": {
-        "@gdi/app-login": "0.0.19",
-        "@gdi/app-mixer": "0.0.21",
-        "@gdi/platformer": "0.0.18",
-        "@gdi/types": "0.0.15",
+        "@gdi/app-login": "^0.0.19",
+        "@gdi/app-mixer": "^0.0.21",
+        "@gdi/platformer": "^0.0.18",
+        "@gdi/types": "^0.0.15",
         "date-fns": "^2.29.2",
         "igrid": "0.0.15",
         "lodash": "^4.17.21",

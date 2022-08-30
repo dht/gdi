@@ -1,5 +1,5 @@
 import { IMixerStore } from '../src/types';
-import { libraryBlocks } from './state.libraryBlocks';
+import { libraryBlocks } from '../src/mock.libraryBlocks';
 
 export const state: IMixerStore = {
     meta: {
@@ -11,6 +11,7 @@ export const state: IMixerStore = {
         selectedToolId: 'browse',
         paletteId: 'green',
         showImageUploadModal: false,
+        showPlayModeMessage: false,
     },
     galleryState: {
         stateKey: 'galleryState',
@@ -36,6 +37,7 @@ export const state: IMixerStore = {
         selectedInstanceId: '',
         contentInstanceId: '',
         libraryInstanceId: '',
+        fieldId: '',
     },
     pages: {
         home: {

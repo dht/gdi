@@ -9,6 +9,7 @@ import {
     collectionPatchItem,
     initFirebaseVite,
 } from '../../utils/firestore';
+import * as fs from 'fs';
 
 const argv = parseArgv(process.argv);
 const { cwd } = argv;
@@ -50,7 +51,27 @@ const run = async () => {
         role: 'admin',
     });
 
+    updateStorageRules(id);
+
     console.log(chalk.green('done'));
+};
+
+const updateStorageRules = (userId: string) => {
+    const pathStorageRules = `${cwd}/storage.rules`;
+    if (!fs.existsSync(pathStorageRules)) {
+        generalError('ERROR: could not find "storage.rules" in this path');
+        return;
+    }
+
+    const content = fs.readFileSync(pathStorageRules).toString();
+    const newContent = content.replace(
+        /request\.auth\.uid == '([a-zA-Z0-9_]+)'/,
+        (all: string, match: string) => {
+            return all.replace(match, userId);
+        }
+    );
+
+    fs.writeFileSync(pathStorageRules, newContent);
 };
 
 const generalError = (message: string) => {

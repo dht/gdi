@@ -31,6 +31,7 @@ export const initialData: Json = {
         selectedToolId: 'browse',
         paletteId: 'green',
         showImageUploadModal: false,
+        showPlayModeMessage: false,
     },
     galleryState: {
         stateKey: 'galleryState',
@@ -56,6 +57,7 @@ export const initialData: Json = {
         selectedInstanceId: '',
         contentInstanceId: '',
         libraryInstanceId: '',
+        fieldId: '',
     },
     libraryBlocks: {
         'com.usegdi.templates.futuristic.feature-simple': {

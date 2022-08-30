@@ -4,7 +4,7 @@ import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import { Theme, CommandBar, ContextBar, ScreenLoader } from '@gdi/web-ui';
 import { Content, Version } from './Bootstrap.style';
 import { init as initNavigation } from '../../sagas/saga.router';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { SideMenuContainer } from '../../containers/SideMenuContainer';
 import { ToastBarContainer } from '../../containers/ToastBarContainer';
 import { useCallback, useContext } from 'react';
@@ -68,10 +68,13 @@ function History() {
 
 export const BootstrapContainer = (props: BootstrapProps) => {
     const { config } = props;
-    const { version, initialRoute } = config;
+    const { version, initialRoute, noServerMode } = config;
 
     return (
-        <PlatformContextProvider initialRoute={initialRoute}>
+        <PlatformContextProvider
+            initialRoute={initialRoute}
+            noServerMode={noServerMode}
+        >
             <Bootstrap {...props} />
             <Version>{version}</Version>
         </PlatformContextProvider>

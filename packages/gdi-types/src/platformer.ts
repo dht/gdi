@@ -153,6 +153,7 @@ declare global {
         initializers: Record<string, InitAppMethod>;
         activeApps: string[];
         menuSections: string[];
+        noServerMode: boolean;
     };
 
     export type GoogleUser = Json & {
