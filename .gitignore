@@ -9,3 +9,4 @@ firebaseServiceAccount.json
 clients/gdi-admin/.firebaserc
 scripts/publishAll.sh
 scripts/updateDependencies.js
+firebase-debug.log

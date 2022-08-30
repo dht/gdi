@@ -6,7 +6,9 @@
         "build": "vite build",
         "test": "jest",
         "coverage": "jest --coverage=true",
-        "deploy": "firebase deploy"
+        "deploy:all": "firebase deploy",
+        "deploy:content": "firebase deploy --only hosting,storage,firestore",
+        "deploy:functions": "firebase deploy --only functions"
     },
     "dependencies": {
         "@gdi/app-login": "0.0.19",

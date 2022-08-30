@@ -4,11 +4,12 @@
     "version": "0.0.1",
     "scripts": {
         "build:admin": "cd gdi-admin && npm run build",
-        "build:site": "cd gdi-admin && npm run build",
+        "build:site": "cd gdi-site && npm run build",
         "build": "npm run build:admin && npm run build:site",
         "dev": "cd gdi-admin && npm run dev",
         "preview": "cd gdi-site && npm run dev",
-        "deploy": "npm run build && cd gdi-admin && npm run deploy"
+        "deploy": "npm run build && cd gdi-admin && npm run deploy:content",
+        "deploy:functions": "cd gdi-admin && npm run deploy:content"
     },
     "devDependencies": {}
 }

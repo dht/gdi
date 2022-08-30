@@ -1,14 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import * as path from 'path';
-
-const cwd = path.resolve(process.cwd(), '../../');
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: '/',
     build: {
         sourcemap: true,
+        outDir: 'dist/site',
     },
     plugins: [
         tsconfigPaths({
@@ -16,24 +15,6 @@ export default defineConfig({
         }),
         react(),
     ],
-    resolve: {
-        alias: {
-            '@gdi/app-mixer': `${cwd}/apps/app-mixer/src`,
-            '@gdi/store-auth': `${cwd}/packages/gdi-store-auth/src`,
-            '@gdi/store-mixer': `${cwd}/packages/gdi-store-mixer/src`,
-            '@gdi/store-site': `${cwd}/packages/gdi-store-site/src`,
-            '@gdi/platformer': `${cwd}/packages/platformer/src`,
-            '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi`,
-            '@gdi/template-blog': `${cwd}/packages/gdi-template-blog`,
-            '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
-            '@gdi/web-ui': `${cwd}/packages/gdi-web-ui/src`,
-            '@gdi/galleries': `${cwd}/packages/gdi-galleries/src`,
-            '@gdi/web-forms': `${cwd}/packages/gdi-web-forms/src`,
-            '@gdi/engine': `${cwd}/packages/gdi-engine/src`,
-            'redux-connected': `${cwd}/submodules/redux-connected/src`,
-            igrid: `${cwd}/submodules/igrid/src`,
-        },
-    },
     define: {},
     server: {
         host: true,
