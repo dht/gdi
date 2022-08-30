@@ -22,6 +22,7 @@ export type IMixerState = {
     selectedToolId: string;
     paletteId: string;
     showImageUploadModal: boolean;
+    showPlayModeMessage: boolean;
 };
 
 export type ICurrentIds = {
@@ -29,6 +30,7 @@ export type ICurrentIds = {
     selectedInstanceId: string;
     contentInstanceId: string;
     libraryInstanceId: string;
+    fieldId: string;
 };
 
 export type IMetaMixer = {

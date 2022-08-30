@@ -10,6 +10,7 @@ import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
 import { KeyboardShortcutsContainer } from '../containers/singles/KeyboardShortcutsContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
+import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -19,6 +20,7 @@ export enum MixerWidgets {
     Pages = 'mixer.Pages',
     ImageGallery = 'mixer.ImageGallery',
     ImageUpload = 'mixer.ImageUpload',
+    PlayMode = 'mixer.PlayMode',
     ImportExport = 'mixer.ImportExport',
     Preview = 'mixer.Preview',
     KeyboardShortcuts = 'mixer.KeyboardShortcuts',
@@ -123,5 +125,15 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <KeyboardShortcutsContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.PlayMode,
+        name: 'PlayMode',
+        description: 'PlayMode',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <ModalPlayModeContainer {...props} />,
     },
 ];

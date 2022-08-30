@@ -1,9 +1,13 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { IImageWithBlock, IMixerStore } from './types';
-import { pickBy } from 'lodash';
+import { get, pickBy } from 'lodash';
 import { site } from '@gdi/store-site';
-import { getBlockTypeFromElement, getBlockTypeFromTags } from './utils/blocks';
+import {
+    getBlockTypeFromElement,
+    getBlockTypeFromTags,
+    getSchemaPropertiesByType,
+} from './utils/blocks';
 
 const rawSite = site.selectors.raw;
 const baseSite = site.selectors.base;
@@ -133,9 +137,6 @@ export const $libraryBlocks = createSelector(
         const output: IImageWithBlock[] = [];
         const { filter } = galleryState;
 
-        console.log('filter ->', filter);
-        console.log('selectedElementType ->', selectedElementType);
-
         Object.values(blocks).forEach((block) => {
             const { id, name, tags, screenshots } = block;
             const elementType = getBlockTypeFromTags(tags);
@@ -201,3 +202,30 @@ export const $inspector = createSelector($elementSelected, (element) => {
         tags,
     };
 });
+
+export const $elementSelectedSchema = createSelector(
+    $elementSelected,
+    (element) => {
+        return get(element, 'block.params.schema');
+    }
+);
+
+export const $imageFieldsForCurrentElement = createSelector(
+    $elementSelected,
+    (element) => {
+        if (!element) {
+            return [];
+        }
+
+        const fields = getSchemaPropertiesByType(element.block, 'image', true);
+
+        return Object.keys(fields).map((key) => {
+            const text = key.split('.').pop() || key;
+
+            return {
+                key,
+                text,
+            };
+        });
+    }
+);

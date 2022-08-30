@@ -1,5 +1,5 @@
 import { ISiteStore } from '../src/types';
-import { libraryBlocks } from './state.libraryBlocks';
+import { libraryBlocks } from '../src/mock.libraryBlocks';
 
 export const state: ISiteStore = {
     meta: {

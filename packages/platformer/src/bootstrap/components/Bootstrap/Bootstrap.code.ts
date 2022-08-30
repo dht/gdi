@@ -33,8 +33,14 @@ export const bootstrapApp = async (
     systemEvent('bootstrapApp');
 
     const { config } = props;
-    const { baseURL, activeApps, initializers, menuSections, firebaseConfig } =
-        config;
+    const {
+        baseURL,
+        activeApps,
+        initializers,
+        menuSections,
+        firebaseConfig,
+        noServerMode,
+    } = config;
 
     const { axiosInstance } = await initAuth(
         {
@@ -59,6 +65,7 @@ export const bootstrapApp = async (
             sagas,
             menuSections,
             logger: (message, data) => $s(message, data),
+            noServerMode,
         },
         patchContext
     );

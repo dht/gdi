@@ -4,8 +4,6 @@ import { useMount } from 'react-use';
 import { firebase } from '@gdi/platformer';
 import { Logo } from '@gdi/web-ui';
 
-import 'firebaseui/dist/firebaseui.css';
-
 export type LoginProps = {};
 
 export function Login(props: LoginProps) {

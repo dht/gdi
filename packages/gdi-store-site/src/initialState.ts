@@ -1,5 +1,6 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
+import { libraryBlocks } from './mock.libraryBlocks';
 import { ISiteStore } from './types';
 
 export const initialState: ISiteStore = {
@@ -125,6 +126,7 @@ export const initialState: ISiteStore = {
             screenshots: {},
             tags: ['type-placeholder'],
         },
+        ...libraryBlocks,
     },
     images: {
         '1': {

@@ -27,6 +27,7 @@ declare global {
         selectedToolId: string;
         paletteId: string;
         showImageUploadModal: boolean;
+        showPlayModeMessage: boolean;
     };
 
     export type ICurrentIds = {
@@ -34,6 +35,7 @@ declare global {
         selectedInstanceId: string;
         contentInstanceId: string;
         libraryInstanceId: string;
+        fieldId: string;
     };
 
     export type IMetaMixer = {

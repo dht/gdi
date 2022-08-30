@@ -1,5 +1,6 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
+import { libraryBlocks } from './mock.libraryBlocks';
 import { IMixerStore } from './types';
 
 export const initialState: IMixerStore = {
@@ -12,12 +13,14 @@ export const initialState: IMixerStore = {
         selectedToolId: 'data',
         paletteId: 'green',
         showImageUploadModal: false,
+        showPlayModeMessage: false,
     },
     currentIds: {
         pageId: 'home',
         selectedInstanceId: '',
         contentInstanceId: '',
         libraryInstanceId: '',
+        fieldId: '',
     },
     galleryState: {
         stateKey: 'galleryState',
@@ -67,6 +70,7 @@ export const initialState: IMixerStore = {
             screenshots: {},
             tags: ['type-sample'],
         },
+        ...libraryBlocks,
     },
     libraryTypography: {
         inter: {

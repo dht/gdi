@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@fluentui/react": "^8.86.4",
-        "@gdi/types": "0.0.15",
+        "@gdi/types": "^0.0.15",
         "bytes": "^3.1.2",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.1",

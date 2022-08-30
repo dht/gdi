@@ -19,10 +19,23 @@ import { PlatformLifeCycleEvents } from '@gdi/types';
 import { $s } from 'shared-base';
 
 export const MainRoutes = () => {
-    const { routes, initialRoute = '/home' } = useContext(PlatformContext);
+    const dispatch = useDispatch();
+    const {
+        routes,
+        initialRoute = '/home',
+        noServerMode,
+    } = useContext(PlatformContext);
 
     useMount(() => {
         $s('main routes');
+
+        if (noServerMode) {
+            console.log('noServerMode ->', noServerMode);
+
+            setTimeout(() => {
+                dispatch({ type: 'DEMO' });
+            }, 500);
+        }
     });
 
     return (

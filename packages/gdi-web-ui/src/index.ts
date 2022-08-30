@@ -6,11 +6,13 @@ export { Code } from './components/Code/Code';
 export { ColorPalette } from './components/ColorPalette/ColorPalette';
 export { Drawer } from './components/Drawer/Drawer';
 export { Editor } from './components/Editor/Editor';
+export { ElementSelector } from './components/ElementSelector/ElementSelector';
 export { Empty } from './components/Empty/Empty';
 export { KeyboardShortcuts } from './components/KeyboardShortcuts/KeyboardShortcuts';
 export { KeyValue } from './components/KeyValue/KeyValue';
 export { List } from './components/List/List';
 export { Logo } from './components/Logo/Logo';
+export { MessageModal } from './components/MessageModal/MessageModal';
 export { Modal } from './components/Modal/Modal';
 export { ScreenLoader } from './components/ScreenLoader/ScreenLoader';
 export { SideMenu } from './components/SideMenu/SideMenu';
@@ -20,6 +22,7 @@ export { SystemLogs } from './components/SystemLogs/SystemLogs';
 export { Tag } from './components/Tag/Tag';
 export { Tags } from './components/Tags/Tags';
 export { Theme } from './components/Theme/Theme';
+export { WindowHeader } from './components/WindowHeader/WindowHeader';
 export {
     Accordion,
     Avatar,

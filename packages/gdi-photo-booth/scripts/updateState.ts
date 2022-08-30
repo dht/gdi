@@ -42,12 +42,12 @@ const run = async () => {
     );
 
     fs.writeFileSync(
-        '../../gdi-store-mixer/scripts/state.libraryBlocks.ts',
+        '../../gdi-store-mixer/src/mock.libraryBlocks.ts',
         fileContent
     );
 
     fs.writeFileSync(
-        '../../gdi-store-site/scripts/state.libraryBlocks.ts',
+        '../../gdi-store-site/src/mock.libraryBlocks.ts',
         fileContent
     );
 
