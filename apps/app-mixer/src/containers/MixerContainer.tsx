@@ -39,12 +39,9 @@ export const MixerContainer = () => {
                         dispatch({ type: 'ELEMENT_DELETE', id });
                         break;
                     case 'drillDown':
-                        const fieldName =
-                            selectedToolId === 'browse'
-                                ? 'libraryInstanceId'
-                                : 'contentInstanceId';
-
-                        dispatch(actions.currentIds.patch({ [fieldName]: id }));
+                        dispatch(
+                            actions.currentIds.patch({ contentInstanceId: id })
+                        );
                         break;
                 }
             },
