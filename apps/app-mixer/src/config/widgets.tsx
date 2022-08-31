@@ -11,6 +11,7 @@ import { PreviewContainer } from '../containers/PreviewContainer';
 import { KeyboardShortcutsContainer } from '../containers/singles/KeyboardShortcutsContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
+import { WindowSize } from '../components/WindowSize/WindowSize';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -24,6 +25,7 @@ export enum MixerWidgets {
     ImportExport = 'mixer.ImportExport',
     Preview = 'mixer.Preview',
     KeyboardShortcuts = 'mixer.KeyboardShortcuts',
+    WindowSize = 'mixer.WindowSize',
 }
 export const widgets: IWidget[] = [
     {
@@ -135,5 +137,15 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <ModalPlayModeContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.WindowSize,
+        name: 'WindowSize',
+        description: 'WindowSize',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <WindowSize {...props} />,
     },
 ];

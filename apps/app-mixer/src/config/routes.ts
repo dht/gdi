@@ -1,4 +1,5 @@
 import { ROOT } from './ids';
+import { MixerWidgets } from './widgets';
 
 export const routes: IRoutes = {
     mixer: `${ROOT}`,
@@ -25,6 +26,29 @@ export const menuItems: IMenuItem[] = [
     },
 ];
 
-export const contextBarItems: IContextBarItem[] = [];
+export const contextBarItems: IContextBarItem[] = [
+    {
+        id: 'devtoolsWindowSize',
+        label: 'Window Size',
+        widgetId: MixerWidgets.WindowSize,
+        responsive: false,
+    },
+];
 
-export const commandBarItems: ICommandBarItem[] = [];
+export const commandBarItems: ICommandBarItem[] = [
+    {
+        id: 'devtoolsWindowSize',
+        label: 'Show Window Size',
+        action: {
+            type: 'ADD_ITEM_TO_CONTEXT_BAR',
+            payload: {
+                contextBarItemId: 'devtoolsWindowSize',
+            },
+        },
+        shortKeys: [
+            {
+                key: '`',
+            },
+        ],
+    },
+];

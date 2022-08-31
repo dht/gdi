@@ -9,7 +9,7 @@ export const ModalPlayModeContainer = () => {
     const showPlayModeMessage = mixerState.showPlayModeMessage;
 
     if (!showPlayModeMessage) {
-        return;
+        return null;
     }
 
     function onClose() {
