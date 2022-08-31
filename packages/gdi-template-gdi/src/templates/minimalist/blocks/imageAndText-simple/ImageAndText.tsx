@@ -5,8 +5,6 @@ import {
     CTA,
     Details,
     H1,
-    Image,
-    ImageWrapper,
     P,
     Slogan,
     Wrapper,
@@ -35,14 +33,13 @@ export type ImageAndTextColors = {
 
 export type ImageAndTextExtra = {
     href: string;
-    imageUrl?: string;
     backgroundImageUrl?: string;
 };
 
 export function ImageAndText(props: ImageAndTextProps) {
     const { strings, colors, extra } = props;
     const { slogan, header, description, ctaButtonText } = strings;
-    const { backgroundImageUrl, imageUrl, href = '#' } = extra;
+    const { backgroundImageUrl, href = '#' } = extra;
 
     let style: Json = {};
 
@@ -58,11 +55,6 @@ export function ImageAndText(props: ImageAndTextProps) {
             style={style}
         >
             <Wrapper>
-                {imageUrl && (
-                    <ImageWrapper>
-                        <Image src={imageUrl} />
-                    </ImageWrapper>
-                )}
                 <Details>
                     {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
                     <H1>{header}</H1>

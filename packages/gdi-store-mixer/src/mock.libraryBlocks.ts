@@ -502,13 +502,9 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                         isRequired: true,
                         order: 0,
                     },
-                    imageUrl: {
+                    backgroundImageUrl: {
                         fieldType: 'image',
                         order: 1,
-                    },
-                    backgroundImage: {
-                        fieldType: 'image',
-                        order: 2,
                     },
                 },
             },
@@ -1392,13 +1388,9 @@ export const libraryBlocks: Record<string, IBlockInfo> = {
                         isRequired: true,
                         order: 0,
                     },
-                    imageUrl: {
+                    backgroundImageUrl: {
                         fieldType: 'image',
                         order: 1,
-                    },
-                    backgroundImage: {
-                        fieldType: 'image',
-                        order: 2,
                     },
                 },
             },

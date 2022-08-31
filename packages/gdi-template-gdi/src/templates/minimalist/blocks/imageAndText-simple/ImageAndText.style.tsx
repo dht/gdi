@@ -30,14 +30,6 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ImageWrapper = styled.div`
-    flex: 1;
-`;
-
-export const Image = styled.img`
-    max-width: 500px;
-`;
-
 export const Details = styled.div``;
 
 export const Slogan = styled.div<{ colors: ImageAndTextColors }>`

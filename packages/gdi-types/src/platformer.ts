@@ -106,8 +106,9 @@ declare global {
 
     export type IPlatformContextState = {
         isReady: boolean;
-        isRtl: boolean;
+        noServerMode?: boolean;
         locale: string;
+        isRtl: boolean;
         routes: IRoutes;
         initialRoute: string;
         menuItems: IMenuItems;
@@ -153,7 +154,7 @@ declare global {
         initializers: Record<string, InitAppMethod>;
         activeApps: string[];
         menuSections: string[];
-        noServerMode: boolean;
+        noServerMode?: boolean;
     };
 
     export type GoogleUser = Json & {
