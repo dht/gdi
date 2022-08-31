@@ -30,6 +30,7 @@ export function EngineInner(props: EngineEditProps) {
                 element={element}
                 onSelect={props.onSelectItem}
                 onAction={props.onAction}
+                instanceProps={element.instanceProps}
             />
         );
     }

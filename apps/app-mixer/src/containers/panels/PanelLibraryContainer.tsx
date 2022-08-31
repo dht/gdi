@@ -10,9 +10,8 @@ export const PanelLibraryContainer = (_props: any) => {
     const dispatch = useDispatch();
     const mixerState = useSelector(selectors.raw.$rawMixerState);
     const currentIds = useSelector(selectors.raw.$rawCurrentIds);
-    const imageFieldsForCurrentElement = useSelector(
-        selectors.base.$imageFieldsForCurrentElement
-    );
+    const imageFields = useSelector(selectors.options.$imageFields);
+
     const toolId = mixerState.selectedToolId;
 
     const callbacks = useMemo(
@@ -47,7 +46,7 @@ export const PanelLibraryContainer = (_props: any) => {
                     <ElementSelector
                         onChange={callbacks.onFieldChange}
                         value={currentIds.fieldId}
-                        options={imageFieldsForCurrentElement}
+                        options={imageFields}
                     />
                     <LibraryImagesContainer
                         overwrites={{

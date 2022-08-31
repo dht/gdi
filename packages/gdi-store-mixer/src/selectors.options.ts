@@ -41,13 +41,28 @@ export const $imageTags = createSelector(
     }
 );
 
+export const $imageFields = createSelector(
+    base.$imageFieldsForCurrentElement,
+    (imageFields): Option[] => {
+        return Object.keys(imageFields).map((key) => {
+            const text = key.split('.').pop() || key;
+            return {
+                key,
+                text,
+            };
+        });
+    }
+);
+
 export const $allOptions = createSelector(
     $elementTypes,
     $imageTags,
-    (elementTypes, imageTags) => {
+    $imageFields,
+    (elementTypes, imageTags, imageFields) => {
         return {
             $elementTypes: elementTypes,
             $imageTags: imageTags,
+            $imageFields: imageFields,
         };
     }
 );

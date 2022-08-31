@@ -563,13 +563,9 @@ export const initialData: Json = {
                             isRequired: true,
                             order: 0,
                         },
-                        imageUrl: {
+                        backgroundImageUrl: {
                             fieldType: 'image',
                             order: 1,
-                        },
-                        backgroundImage: {
-                            fieldType: 'image',
-                            order: 2,
                         },
                     },
                 },
@@ -1454,13 +1450,9 @@ export const initialData: Json = {
                             isRequired: true,
                             order: 0,
                         },
-                        imageUrl: {
+                        backgroundImageUrl: {
                             fieldType: 'image',
                             order: 1,
-                        },
-                        backgroundImage: {
-                            fieldType: 'image',
-                            order: 2,
                         },
                     },
                 },
@@ -2431,13 +2423,9 @@ export const initialData: Json = {
                             isRequired: true,
                             order: 0,
                         },
-                        imageUrl: {
+                        backgroundImageUrl: {
                             fieldType: 'image',
                             order: 1,
-                        },
-                        backgroundImage: {
-                            fieldType: 'image',
-                            order: 2,
                         },
                     },
                 },
@@ -3322,13 +3310,9 @@ export const initialData: Json = {
                             isRequired: true,
                             order: 0,
                         },
-                        imageUrl: {
+                        backgroundImageUrl: {
                             fieldType: 'image',
                             order: 1,
-                        },
-                        backgroundImage: {
-                            fieldType: 'image',
-                            order: 2,
                         },
                     },
                 },

@@ -34,7 +34,16 @@ function* deleteImage(action: ActionImage) {
 
 function* selectImage(action: ActionImage) {
     const galleryState = yield* select(selectors.raw.$rawGalleryState);
-    const selectedIds = galleryState.selectedIds;
+    const isImageSwitch = yield* select(selectors.base.$isImageSwitch);
+
+    const selectedIds = isImageSwitch ? [] : galleryState.selectedIds;
+
+    if (isImageSwitch) {
+        yield* put({
+            type: 'SWITCH_IMAGE_ACTION',
+            imageId: action.id,
+        });
+    }
 
     yield put(
         actions.galleryState.patch({
@@ -46,8 +55,17 @@ function* selectImage(action: ActionImage) {
 function* unselectImage(action: ActionImage) {
     const galleryState = yield* select(selectors.raw.$rawGalleryState);
     const selectedIds = galleryState.selectedIds;
+    const isImageSwitch = yield* select(selectors.base.$isImageSwitch);
 
     const newSelectedIds = selectedIds.filter((id) => id !== action.id);
+
+    if (isImageSwitch) {
+        yield* put({
+            type: 'SWITCH_IMAGE_ACTION',
+            imageId: action.id,
+            unselect: true,
+        });
+    }
 
     yield put(
         actions.galleryState.patch({

@@ -9,6 +9,7 @@ export type ElementEditProps = {
     sequence?: number;
     element: IElement;
     isSelected: boolean;
+    instanceProps: Json;
     onSelect: (id: string) => void;
     onAction?: (action: ActionType, id: string) => void;
 };
@@ -20,8 +21,12 @@ const emptyInstanceProps = {
 };
 
 export function ElementEdit(props: ElementEditProps) {
-    const { element, isSelected, sequence } = props;
-    const { instanceProps = emptyInstanceProps } = element;
+    const {
+        element,
+        isSelected,
+        sequence,
+        instanceProps = emptyInstanceProps,
+    } = props;
     const { blocks } = useContext(EngineContext);
 
     const block = blocks[element.blockId];

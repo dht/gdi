@@ -1,4 +1,3 @@
-
 import { id } from '../ImageAndText';
 
 export const params: IBlockParams = {
@@ -16,8 +15,7 @@ export const params: IBlockParams = {
         },
         extra: {
             href: { fieldType: 'url', isRequired: true, order: 0 },
-            imageUrl: { fieldType: 'image', order: 1 },
-            backgroundImage: { fieldType: 'image', order: 2 },
+            backgroundImageUrl: { fieldType: 'image', order: 1 },
         },
     },
 };

@@ -217,15 +217,45 @@ export const $imageFieldsForCurrentElement = createSelector(
             return [];
         }
 
-        const fields = getSchemaPropertiesByType(element.block, 'image', true);
+        return getSchemaPropertiesByType(element.block, 'image', true);
+    }
+);
 
-        return Object.keys(fields).map((key) => {
-            const text = key.split('.').pop() || key;
+export const $selectedElementImageId = createSelector(
+    raw.$rawCurrentIds,
+    $elementSelected,
+    $libraryImages,
+    (currentIds, element, images) => {
+        const { selectedInstanceId: instanceId, fieldId } = currentIds;
 
-            return {
-                key,
-                text,
-            };
-        });
+        const output = {
+            instanceId,
+            fieldId,
+            imageUrl: '',
+            imageId: '',
+        };
+
+        if (element && fieldId) {
+            const { instanceProps } = element;
+            const imageUrl = get(instanceProps, fieldId);
+            output.imageUrl = imageUrl;
+            const image = images.find((i) => i.imageUrl === imageUrl);
+
+            if (image) {
+                output.imageId = image.id;
+            }
+        }
+
+        return output;
+    }
+);
+
+export const $isImageSwitch = createSelector(
+    $selectedElementImageId,
+    (selectedElementImageId) => {
+        const { instanceId, fieldId } = selectedElementImageId;
+        return (
+            instanceId && fieldId && instanceId.length > 0 && fieldId.length > 0
+        );
     }
 );
