@@ -39,9 +39,7 @@ export const MixerContainer = () => {
                         dispatch({ type: 'ELEMENT_DELETE', id });
                         break;
                     case 'drillDown':
-                        dispatch(
-                            actions.currentIds.patch({ contentInstanceId: id })
-                        );
+                        dispatch({ type: 'ELEMENT_CONTENT', id });
                         break;
                 }
             },

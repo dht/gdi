@@ -43,6 +43,13 @@ export {
     TagsInput,
     SpinButton,
     Search,
+    useArrows,
+    useDelete,
+    useEnter,
+    useKey,
+    useShortKey,
+    useShortKeys,
+    useSpace,
 } from '@gdi/web-base-ui';
 export type {
     SwitchOption,

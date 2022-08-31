@@ -28,6 +28,11 @@ export const getSchemaPropertiesByType = (
 ) => {
     const typeArr = Array.isArray(propertyType) ? propertyType : [propertyType];
     const output: Json = {};
+
+    if (!block) {
+        return {};
+    }
+
     const { params, sampleData } = block;
     const { schema } = params;
 

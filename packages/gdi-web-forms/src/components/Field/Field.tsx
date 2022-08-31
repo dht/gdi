@@ -123,7 +123,6 @@ export function FieldImageUpload(props: FieldProps) {
 
     function onChange(value: string, extra?: Json) {
         fieldMethods.onChange(value);
-        console.log('extra ->', extra);
         props.onExtraChange(extra);
     }
 

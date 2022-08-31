@@ -41,7 +41,6 @@ export function ImageUpload(props: ImageUploadProps) {
 
         const reader = new FileReader();
 
-        console.log('file ->', file);
         patchImageData({ size: file.size });
 
         reader.onload = (ev: any) => {
@@ -54,7 +53,6 @@ export function ImageUpload(props: ImageUploadProps) {
                 });
 
                 const ratio = image.width / image.height;
-                console.log('ratio ->', ratio);
 
                 setIsLoading(true);
 
