@@ -263,8 +263,6 @@ export const $isImageSwitch = createSelector(
 export const $isSelectedPlaceholder = createSelector(
     $elementSelected,
     (element) => {
-        console.log('element ->', element);
-
         if (!element) {
             return false;
         }

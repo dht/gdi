@@ -39,6 +39,7 @@ export function* root() {
 }
 
 const _fetch = (path: string) => {
+    // @ts-expect-error
     const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID;
     const url = `https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents${path}`;
 
@@ -68,7 +69,7 @@ export const parseDocument = (value: Json) => {
     if (prop === 'doubleValue' || prop === 'integerValue') {
         newVal = Number(newVal[prop]);
     } else if (prop === 'arrayValue') {
-        newVal = ((newVal[prop] && newVal[prop].values) || []).map((v) =>
+        newVal = ((newVal[prop] && newVal[prop].values) || []).map((v: Json) =>
             parseDocument(v)
         );
     } else if (prop === 'mapValue') {

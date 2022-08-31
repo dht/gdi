@@ -1,6 +1,6 @@
 {
     "name": "@gdi/platformer",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "clean": "rm -rf dist",
@@ -10,9 +10,9 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/store-auth": "^0.0.16",
-        "@gdi/types": "^0.0.15",
-        "@gdi/web-ui": "^0.0.19",
+        "@gdi/store-auth": "^0.0.17",
+        "@gdi/types": "^0.0.16",
+        "@gdi/web-ui": "^0.0.20",
         "axios": "^0.27.2",
         "axios-oauth": "^0.0.3",
         "firebase": "^9.9.1",
@@ -27,7 +27,7 @@
         "react-toastify": "^9.0.7",
         "react-use": "^17.4.0",
         "redux": "^4.2.0",
-        "redux-connected": "0.0.100",
+        "redux-connected": "^0.0.100",
         "redux-store-generator": "^0.9.83",
         "redux-thunk": "^2.4.1",
         "reselect": "^4.1.6",

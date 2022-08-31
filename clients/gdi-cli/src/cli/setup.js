@@ -1,16 +1,16 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const path = require('path');
-const glob = require('glob');
+const globby = require('globby');
 const { collectionsPath, indexJsonPath } = require('./paths');
 const { getCommands } = require('./commands');
 const { getConfig } = require('./config');
 const { SCRIPT_TYPES } = require('./types');
 const camelCase = require('lodash/camelCase');
 
-const twoFirstLines = (file) => {
+const getCommentLines = (file) => {
     const content = fs.readFileSync(file).toString();
-    const lines = content.split('\n');
+    const lines = content.split('\n').filter((line) => line.match(/^\/\//));
     return lines.splice(0, 2).join('\n');
 };
 
@@ -40,7 +40,7 @@ const parseShortcutsFromFile = (file) => {
     const regex = /^[#\/]+ shortcuts: ?([a-zA-Z ,-]+)/gm;
     let output;
 
-    const content = twoFirstLines(file);
+    const content = getCommentLines(file);
     const match = regex.exec(content);
 
     if (match) {
@@ -57,7 +57,7 @@ const getDescription = (file) => {
     const regex = /^[#\/]+ desc: ?([a-zA-Z ,-0-9:;'".]+)/gm;
     let output;
 
-    const content = twoFirstLines(file);
+    const content = getCommentLines(file);
     const match = regex.exec(content);
 
     if (match) {
@@ -75,7 +75,7 @@ const rebuild = () => {
         (collection) => config.enabled[collection]
     );
 
-    const files = glob
+    const files = globby
         .sync(collectionsPath + '/**/*', {
             ignore: [
                 collectionsPath + '/config.json',

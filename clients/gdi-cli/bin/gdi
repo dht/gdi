@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
-const main = require('../src/cli/index');
-const getShortcuts = require('../src/cli/setup').getShortcuts;
-const package = require('../package.json');
+const main = require('../cli/index');
+const getShortcuts = require('../cli/setup').getShortcuts;
+const p = require('../../package.json');
 
 const shortcuts = getShortcuts({ onlyFirstAlias: false });
-console.log('gdi ' + chalk.green(package.version));
+console.log('gdi ' + chalk.green(p.version));
 
 let yargs = require('yargs')
     .command('rebuild', 'rebuild commands list', (argv) => {

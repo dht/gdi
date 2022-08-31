@@ -1,13 +1,13 @@
 {
     "name": "@gdi/engine",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.15",
+        "@gdi/types": "^0.0.16",
         "lodash": "^4.17.21",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

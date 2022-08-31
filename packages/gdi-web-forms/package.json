@@ -1,14 +1,14 @@
 {
     "name": "@gdi/web-forms",
-    "version": "0.0.16",
+    "version": "0.0.17",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.15",
-        "@gdi/web-ui": "^0.0.19",
+        "@gdi/types": "^0.0.16",
+        "@gdi/web-ui": "^0.0.20",
         "@hookform/resolvers": "^2.9.7",
         "lodash": "^4.17.21",
         "react": "^18.2.0",
