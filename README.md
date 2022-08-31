@@ -2,21 +2,27 @@
 
 An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //
 
--   [Installation](#installation)
--   [Admin UI](#admin-ui)
--   [Site](#site)
--   [Deploying](#deploying)
-    -   [First run](#first-run)
-    -   [Troubleshooting](#troubleshooting)
-        -   [Blaze plan](#blaze-plan)
--   [Cloud Functions](#cloud-functions)
+- [Installation](#installation)
+- [Admin UI](#admin-ui)
+- [Site](#site)
+- [Deploying](#deploying)
+  - [First run](#first-run)
+  - [Troubleshooting](#troubleshooting)
+    - [Blaze plan](#blaze-plan)
+- [Cloud Functions](#cloud-functions)
 
 ## Installation
 
 1. Install the CLI:
 
     ```sh
-    npm install -g @gli/cli
+    npm install -g @gdi/cli
+    ```
+
+    and rebuild the CLI's commands index:
+
+    ```sh
+    gdi rebuild
     ```
 
 2. Create a new project:
