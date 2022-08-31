@@ -8,13 +8,9 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "baseUrl": "../../",
+        "removeComments": false,
         "types": ["types-base", "@gdi/types", "@types/jest"],
-        "paths": {
-            "@gli/auto-login": ["packages/auto-login/src/index.ts"],
-            "@gli/cli-db": ["packages/cli-db/src/index.ts"],
-            "@gli/data-seeder": ["packages/data-seeder/src/index.ts"],
-            "@gli/generate-data": ["packages/generate-data/src/index.ts"],
-            "@gli/node-logger": ["packages/node-logger/src/index.ts"]
-        }
-    }
+        "outDir": "dist"
+    },
+    "exclude": ["src/templates/**", "dist/**"]
 }

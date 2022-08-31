@@ -1,4 +1,3 @@
-require('dotenv-flow').config({ path: __dirname });
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const files = require('./files');
@@ -36,8 +35,8 @@ const saveVersion = (path, json, version) => {
 };
 
 const printVersion = (path) => {
-    const package = getPackage(path);
-    console.log(`Al ${chalk.cyan(package.version)} ${chalk.gray("(" + path + ")")}`); // prettier-ignore
+    const p = getPackage(path);
+    console.log(`Al ${chalk.cyan(p.version)} ${chalk.gray("(" + path + ")")}`); // prettier-ignore
 };
 
 const getAllPackageInDirectoryTree = (path) => {
