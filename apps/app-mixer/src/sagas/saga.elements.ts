@@ -5,29 +5,35 @@ import { guid4 } from 'shared-base';
 
 type ActionAddElement = {
     type: 'ADD_ELEMENT';
+    placeholderType?: string;
 };
 
-function* addElement(_action: ActionAddElement) {
+function* addElement(action: ActionAddElement) {
+    let { placeholderType } = action;
     const currentIds = yield* select(selectors.raw.$rawCurrentIds);
     const pageId = currentIds.pageId;
     const order = yield* select(selectors.base.$nextElementOrder);
     const options = yield* select(selectors.options.$elementTypes);
 
-    const { didCancel, value } = yield prompt.select({
-        title: 'New instance',
-        label: 'Select a type',
-        options,
-        placeholder: 'Element type',
-        submitButtonText: 'Create',
-    });
+    if (!placeholderType) {
+        const { didCancel, value } = yield prompt.select({
+            title: 'New instance',
+            label: 'Select a type',
+            options,
+            placeholder: 'Element type',
+            submitButtonText: 'Create',
+        });
 
-    if (didCancel) {
-        return;
+        if (didCancel) {
+            return;
+        }
+
+        placeholderType = value;
     }
 
-    const id = `${pageId}-${value}-${guid4()}`;
+    const id = `${pageId}-${placeholderType}-${guid4()}`;
 
-    const placeholderType = value;
+    console.log('id ->', id);
 
     yield put(
         actions.instancesBlocks.add({
@@ -36,6 +42,12 @@ function* addElement(_action: ActionAddElement) {
             isPlaceholder: true,
             placeholderType,
             order,
+        })
+    );
+
+    yield put(
+        actions.currentIds.patch({
+            selectedInstanceId: id,
         })
     );
 }
@@ -59,7 +71,24 @@ function* deleteElement(action: ActionDeleteElement) {
     yield put(actions.instancesBlocks.delete(action.id));
 }
 
+type ActionShowContentModal = {
+    type: 'ELEMENT_CONTENT';
+    id: string;
+};
+
+function* showContentModal(action: ActionShowContentModal) {
+    const { id } = action;
+    const element = yield* select(selectors.base.$elementSelected);
+
+    if (element?.isPlaceholder) {
+        return;
+    }
+
+    yield* put(actions.currentIds.patch({ contentInstanceId: id }));
+}
+
 export function* root() {
     yield takeEvery('ELEMENT_ADD', addElement);
     yield takeEvery('ELEMENT_DELETE', deleteElement);
+    yield takeEvery('ELEMENT_CONTENT', showContentModal);
 }

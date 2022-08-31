@@ -30,8 +30,6 @@ export const MainRoutes = () => {
         $s('main routes');
 
         if (noServerMode) {
-            console.log('noServerMode ->', noServerMode);
-
             setTimeout(() => {
                 dispatch({ type: 'DEMO' });
             }, 500);

@@ -3,8 +3,11 @@ import { Container, ContainerNewItem, Title } from './MixerVisual.style';
 import { EngineEdit, LibraryBuilder } from '@gdi/engine';
 import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
+import { useDelete } from '@gdi/web-ui';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
+
+const NEW_ID = '<NEW>';
 
 export type MixerVisualProps = {
     currentInstanceId: string;
@@ -37,11 +40,20 @@ export function MixerVisual(props: MixerVisualProps) {
         return instance;
     }, []);
 
+    useDelete(() => {
+        if (currentInstanceId === NEW_ID) {
+            return;
+        }
+
+        callbacks.onAction('delete', currentInstanceId);
+    }, [currentInstanceId]);
+
     function renderNewItem() {
         return (
             <ContainerNewItem
                 selected={currentInstanceId === '<NEW>'}
                 onClick={() => callbacks.onSelectItem('<NEW>')}
+                onDoubleClick={() => callbacks.onAction('new', '')}
             >
                 <Title>[New Block]</Title>
             </ContainerNewItem>
