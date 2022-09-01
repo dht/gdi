@@ -1,6 +1,6 @@
 {
     "name": "@gdi/cli",
-    "version": "0.1.7",
+    "version": "0.1.9",
     "description": "",
     "license": "UNLICENSED",
     "main": "src/index.js",
@@ -24,14 +24,15 @@
         "fs-extra": "^9.0.1",
         "globby": "^11.0.2",
         "lodash": "^4.17.21",
-        "yargs": "^17.2.1",
         "prettier": "^2.5.1",
+        "yargs": "^17.2.1",
         "yup": "^0.32.11"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",
         "@types/lodash": "^4.14.178",
         "@types/node": "^16.11.12",
-        "@types/prettier": "^2.4.4"
+        "@types/prettier": "^2.4.4",
+        "firebase": "^9.9.3"
     }
 }
