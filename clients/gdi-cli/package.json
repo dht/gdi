@@ -28,13 +28,13 @@
         "lodash": "^4.17.21",
         "prettier": "^2.5.1",
         "yargs": "^17.2.1",
-        "yup": "^0.32.11"
+        "yup": "^0.32.11",
+        "firebase": "^9.9.3"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",
         "@types/lodash": "^4.14.178",
         "@types/node": "^16.11.12",
-        "@types/prettier": "^2.4.4",
-        "firebase": "^9.9.3"
+        "@types/prettier": "^2.4.4"
     }
 }
