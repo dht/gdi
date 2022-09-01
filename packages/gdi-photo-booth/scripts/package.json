@@ -5,7 +5,8 @@
     "license": "MIT",
     "scripts": {
         "screenshots:take": "npx ts-node index.ts",
-        "screenshots:updateState": "npx ts-node updateState.ts"
+        "screenshots:updateState": "npx ts-node updateState.ts",
+        "build": "echo no build needed"
     },
     "devDependencies": {
         "@playwright/test": "^1.25.0",

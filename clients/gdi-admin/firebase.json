@@ -18,6 +18,10 @@
                 "destination": "/admin/index.html"
             },
             {
+                "source": "/docs/**",
+                "destination": "/docs/index.html"
+            },
+            {
                 "source": "/**",
                 "destination": "/site/index.html"
             }

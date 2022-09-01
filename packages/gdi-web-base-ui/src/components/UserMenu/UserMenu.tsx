@@ -84,7 +84,7 @@ export function UserMenu(props: UserMenuProps) {
             />
 
             <Overlay style={style} show={showMenu}>
-                <TopArc src='/Menu.svg' />
+                <TopArc src='//raw.githubusercontent.com/dht/gdi/main/clients/gdi-admin/public/Menu.svg' />
                 <Content>
                     <Top>
                         <UserImage>

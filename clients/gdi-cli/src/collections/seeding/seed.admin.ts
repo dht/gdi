@@ -1,4 +1,4 @@
-// shortcuts: seedAdmin
+// shortcuts: setAdmin
 // desc: make an existing user an admin
 import chalk from 'chalk';
 import { autoComplete } from '../../utils/prompt';
@@ -29,15 +29,15 @@ const run = async () => {
     const users = await collectionGet('users');
 
     const choices = users
-        .map((user) => user.email)
-        .filter((email) => !email.match(/example\.com$/));
+        .map((user: any) => user.email)
+        .filter((email: string) => !email.match(/example\.com$/));
 
     const answer = await autoComplete(
         'Choose the user to make an admin:',
         choices
     );
 
-    const user = users.find((i) => i.email === answer);
+    const user = users.find((i: any) => i.email === answer);
 
     if (!user) {
         generalError(`could not find user ${answer}`);

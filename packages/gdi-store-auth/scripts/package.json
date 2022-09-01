@@ -1,8 +1,11 @@
 {
     "name": "@gdi/store-auth-scripts",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "main": "index.js",
     "license": "MIT",
+    "scripts": {
+        "build": "echo no build needed"
+    },
     "dependencies": {
         "firebase": "^9.9.2"
     },

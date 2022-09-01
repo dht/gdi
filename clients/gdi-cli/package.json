@@ -1,6 +1,6 @@
 {
     "name": "@gdi/cli",
-    "version": "0.1.9",
+    "version": "0.1.10",
     "description": "",
     "license": "UNLICENSED",
     "main": "src/index.js",
@@ -9,14 +9,16 @@
     },
     "scripts": {
         "start": "npm link",
-        "build": "tsc && npm run copy:bin && npm run copy:templates",
+        "build": "npm run copy:collections && tsc && npm run copy:bin && npm run copy:templates",
         "rebuild": "al rebuild",
-        "copy:bin": "cp -r ./bin/ ./dist/bin/",
-        "copy:templates": "cp -r ./src/templates/ ./dist/templates/"
+        "copy:collections": "cp -rp ./src/collections/ ./dist/collections/",
+        "copy:bin": "cp -rp ./bin/ ./dist/bin/",
+        "copy:templates": "cp -rp ./src/templates/ ./dist/templates/",
+        "watch": "nodemon -x \"npm run build\""
     },
     "author": "",
     "dependencies": {
-        "@gdi/types": "^0.0.16",
+        "@gdi/types": "^0.0.19",
         "@types/cli-table": "^0.3.0",
         "chalk": "^4.1.2",
         "cli-table": "^0.3.11",
