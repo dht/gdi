@@ -12,7 +12,9 @@ import {
 import * as fs from 'fs';
 
 const argv = parseArgv(process.argv);
-const { cwd } = argv;
+let { cwd } = argv;
+
+cwd += '/gdi-admin';
 
 // ================================================
 
