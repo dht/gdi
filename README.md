@@ -67,7 +67,7 @@ In the `root` create a `firebase.json` file with your `firebase` configuration:
 
 > Note: To retrieve this information follow the [create a new firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project) guide.
 
-Once your `firebase.json` is saved you can connect `firebase`.
+Once your `firebase.json` is saved you can connect `firebase` to this site.
 
 In the project's `root`:
 

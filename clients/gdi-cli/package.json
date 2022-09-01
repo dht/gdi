@@ -1,6 +1,6 @@
 {
     "name": "@gdi/cli",
-    "version": "0.1.11",
+    "version": "0.1.15",
     "description": "",
     "license": "UNLICENSED",
     "main": "src/index.js",

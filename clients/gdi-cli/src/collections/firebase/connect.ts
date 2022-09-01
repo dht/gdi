@@ -28,6 +28,7 @@ const run = async () => {
     const { projectId } = firebaseConfig;
     writeEnvVite(`${cwd}/gdi-admin`, firebaseConfig);
     writeEnvVite(`${cwd}/gdi-site`, firebaseConfig);
+    writeEnvVite(cwd, firebaseConfig);
 
     const result = await cli.run(
         'firebase',

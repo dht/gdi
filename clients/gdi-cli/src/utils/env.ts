@@ -15,7 +15,7 @@ export const readEnv = (cwd: string, requiredKeys: string[] = []) => {
 
     if (!envExists) {
         output.success = false;
-        output.error = 'could not find .env file';
+        output.error = `could not find '.env' file in ${chalk.yellow(cwd)}`;
         return output;
     }
 
