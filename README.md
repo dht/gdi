@@ -1,190 +1,134 @@
-![gDI Logo](https://raw.githubusercontent.com/dht/gdi/main/clients/gdi-admin/public/Logo.webp)
+<p align="center">
+  <br />
+  <a href="https://usegdi.com/" target="blank"><img src="https://raw.githubusercontent.com/dht/gdi/main/clients/gdi-admin/public/Logo.webp" width="160" alt="gdi Logo" /></a>
+</p>
+<p align="center">
+  An open-source & extendable content management system (CMS) written in ReactJS, hosted on <a href="https://firebase.google.com" target="_blank">Firebase</a>
+</p>
+<p align="center">
+  <a href="https://usegdi.com/docs/docs/getting-started/installation" target="_blank">Getting Started</a>&nbsp;//&nbsp;
+  <a href="https://usegdi.com/admin/demo" target="_blank">Demo</a>&nbsp;//&nbsp;
+  <a href="https://usegdi.com/docs/" target="_blank">Documentation</a>&nbsp;//&nbsp;
+  <a href="https://usegdi.com" target="_blank">Homepage</a>
+</p>
 
-An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //
+# Installation
 
-- [Installation](#installation)
-- [Admin UI](#admin-ui)
-- [Site](#site)
-- [Deploying](#deploying)
-  - [First run](#first-run)
-  - [Troubleshooting](#troubleshooting)
-    - [Blaze plan](#blaze-plan)
-- [Cloud Functions](#cloud-functions)
+> Note: make sure you have all the [prerequisites](https://usegdi.com/docs/docs/getting-started/prerequisites) prepared before installation
 
-## Installation
-
-1. Install the CLI:
-
-    ```sh
-    npm install -g @gdi/cli
-    ```
-
-    and rebuild the CLI's commands index:
-
-    ```sh
-    gdi rebuild
-    ```
-
-2. Create a new project:
-    ```sh
-    gdi create site [project-name]
-    ```
-    > Note: this will clone the template and install dependencies and may take a few moments
-3. Create an `.env` file in both `gdi-admin` and `gdi-site` folder with the following format:
-
-    ```env
-    VITE_FIREBASE_API_KEY=******
-    VITE_FIREBASE_AUTH_DOMAIN=******
-    VITE_FIREBASE_DATABASE_URL=******
-    VITE_FIREBASE_PROJECT_ID=******
-    VITE_FIREBASE_STORAGE_BUCKET=******
-    VITE_FIREBASE_MESSAGING_SENDER_ID=******
-    VITE_FIREBASE_APP_ID=******
-    VITE_FIREBASE_MEASUREMENT_ID=******
-    ```
-
-    > Note: this information is available once you create a new web app in your [Firebase console](https://console.firebase.google.com/). Settings => Project settings => Add app
-
-4. In your [Firebase console](https://console.firebase.google.com/) enable Firestore Database by pressing "Get started". Choose `Test mode` so you can seed your database.
-5. Connect your Firebase project to the directory:
-
-    - See the list of available projects:
-
-        Inside `gdi-admin` run:
-
-        ```sh
-        firebase projects:list
-        ```
-
-        > Expected result: A table will appear with the relevant project IDs
-
-    - Connect the project to the directory:
-        ```sh
-        firebase use [projectId]
-        ```
-
-6. Seed your Firestore database:
-
-    ```sh
-    gdi seed
-    ```
-
-7. Enable `authentication` and setup `Google-Signin` authentication in [Firebase console](https://console.firebase.google.com/).
-8. Run the `Admin UI`:
-
-    Inside `gdi-admin` run:
-
-    ```sh
-    npm run dev
-    ```
-
-    Navigate to [http://localhost:3000](http://localhost:3000).
-
-9. Login with your `Google Account`
-10. Set your account as admin.
-
-    Inside `gdi-admin` run:
-
-    ```sh
-    gdi seedAdmin
-    ```
-
-    > Expected result: you should be able to choose your account's email from a list
-
-## Admin UI
-
-**Dev Mode**
-
-To run your `Admin UI` in dev mode:
-
-Within the `gdi-admin` folder run:
+## Install the CLI
 
 ```sh
-npm run dev
+npm install -g @gdi/cli
 ```
 
-**Building**
-
-> Note: deploying from `root` runs the build process. You can build manually if you want to test the output of the build or perhaps investigate build issues
-
-To build your `Admin UI`:
-
-Within the `gdi-admin` folder run:
+and rebuild the CLI's commands index:
 
 ```sh
-npm run build
+gdi rebuild
 ```
 
-## Site
+## Create a new site
 
-**Dev Mode**
-
-To run your `site` in dev mode:
-
-Within the `gdi-site` folder run:
+> Note: Make sure you have your Firebase web configuration ready for this stage
 
 ```sh
-npm run dev
+gdi create site [site-name]
 ```
 
-**Building**
+> Note: this clones the template and installs dependencies and may take a few moments
 
-To build your `site`:
+This will create a new folder with two main packages:
 
-Within the `gdi-site` folder run:
+-   `gdi-admin`: holds the admin UI
+-   `gdi-site`: holds the public facing site
+
+Change your `cwd` to your newly created `root` folder:
 
 ```sh
-npm run build
+cd [site-name]
+```
+
+## Connect Firebase
+
+In the `root` create a `firebase.json` file with your `firebase` configuration:
+
+```json title="firebase.json"
+{
+    "apiKey": "******",
+    "authDomain": "******",
+    "projectId": "******",
+    "storageBucket": "******",
+    "messagingSenderId": "******",
+    "appId": "******",
+    "measurementId": "******"
+}
+```
+
+> Note: To retrieve this information follow the [create a new firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project) guide.
+
+Once your `firebase.json` is saved try running in the project's `root`:
+
+```sh
+gdi connect
+```
+
+## Seeding initial database
+
+In the project's `root` run:
+
+```sh
+gdi seed --data
+```
+
+## Running the Admin
+
+Inside `gdi-admin` run:
+
+```sh
+gdi start
+```
+
+Navigate to [http://localhost:3000](http://localhost:3000)
+
+## Admin user
+
+Once you log in with your `Google` account, you'' be able to choose the site's admin.
+
+To do so, in the project's `root`, run:
+
+```sh
+gdi admin
 ```
 
 ## Deploying
 
-To deploy your admin console and site:
-In the `root` of the project run:
+To deploy your `admin` console and `site` run
+in the project's `root`:
 
 ```sh
-npm run deploy
+gdi deploy
 ```
 
-The admin console will be served from:
+After a successful deployment, the `admin` console will be served from:
 
-[https://firebasedomain.com/admin](https://firebasedomain.com/admin)
+[https://FIREBASE_PROJECT_DOMAIN/admin](https://FIREBASE_PROJECT_DOMAIN/admin)
 
-The site will be served from:
+The `site` will be served from:
 
-[https://firebasedomain.com](https://firebasedomain.com)
+[https://FIREBASE_PROJECT_DOMAIN](https://FIREBASE_PROJECT_DOMAIN)
 
-### First run
+> Note: `gdi` image upload feature requires `cloud functions`, which in turn requires upgrading Firebase to the `Blaze` plan. If you wish to stay on the `Spark plan` (the free plan) and not use `image upload`, please refer to [these](https://usegdi.com/docs/docs/topics/image-upload#disabling-cloud-function) instructions.
 
-For the first run you'd need to deploy the `Cloud functions` by running in the `root`:
+## CLI commands
 
-```sh
-npm run deploy:functions
-```
-
-### Troubleshooting
-
-#### Blaze plan
-
-If you receive the following message:
-
-```md
-Error: Your project [ProjectId] must be on the Blaze (pay-as-you-go) plan > to complete this command. Required API cloudbuild.googleapis.com can't be > enabled until the upgrade is complete. To upgrade, visit the following URL:
-https://console.firebase.google.com/project/[ProjectId]/usage/details
-```
-
-Your can either upgrade your plan or delete the project's `Cloud functions`. This will have effects on the `image gallery`, particularly on the `image upload` feature.
-
--   To `enable` image upload => upgrade to the `Blaze plan`.
--   To `disable` image upload => delete the `/gdi-admin/functions` folder.
-
-Read more [below](#cloud-functions).
-
-## Cloud Functions
-
-The `image upload` feature requires [Cloud functions](https://firebase.google.com/docs/functions). They:
-
--   Generate thumbnails
--   Transform uploaded images to the `webp` format.
-
-`Cloud functions` requires an active billing account which means upgrading your Firebase plan to [Blaze](https://firebase.google.com/pricing). If you wish to stay with the `free plan` you can simply delete the `/gdi-admin/functions` folder in this repo. This will disable image uploading.
+| Command                     | Description                                                     |
+| --------------------------- | --------------------------------------------------------------- |
+| gdi create site [site-name] | Create a new gDI repo with admin + site packages                |
+| gdi connect                 | Validates and links site to Firebase                            |
+| gdi seed --data             | Seeds the current site with data                                |
+| gdi admin                   | Choose an admin for the current site                            |
+| gdi list projects           | Shows Firebase projects. A wrapper for `firebase projects:list` |
+| gdi start                   | Start `gdi-admin` in development mode                           |
+| gdi preview                 | Start `gdi-site` in development mode                            |
+| gdi deploy                  | Builds & deploys both `gdi-admin` and `gdi-site`                |
