@@ -22,7 +22,7 @@ export function Logo(props: LogoProps) {
             <img
                 draggable={false}
                 className='logo'
-                src='/logo.png'
+                src='//raw.githubusercontent.com/dht/gdi/main/clients/gdi-admin/public/Logo.webp'
                 alt='logo'
             />
             <span className='os'>{caps.toUpperCase()}</span>

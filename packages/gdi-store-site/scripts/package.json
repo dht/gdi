@@ -1,10 +1,11 @@
 {
     "name": "@gdi/store-site-scripts",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "firestore:reset": "npx ts-node uploadToFirestore.ts"
+        "firestore:reset": "npx ts-node uploadToFirestore.ts",
+        "build": "echo no build needed"
     },
     "dependencies": {
         "firebase": "^9.9.2"

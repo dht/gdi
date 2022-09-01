@@ -34,4 +34,3 @@ export type Local = {
     rulesReplaceContent: ReplaceMap;
     filesToCreate: File[];
 } & Json;
-

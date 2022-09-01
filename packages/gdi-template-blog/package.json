@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-blog",
-    "version": "0.0.17",
+    "version": "0.0.20",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -10,8 +10,8 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.16",
-        "@gdi/web-ui": "^0.0.20",
+        "@gdi/types": "^0.0.19",
+        "@gdi/web-ui": "^0.0.23",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",
         "lodash": "^4.17.21",

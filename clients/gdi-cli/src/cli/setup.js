@@ -10,7 +10,11 @@ const camelCase = require('lodash/camelCase');
 
 const getCommentLines = (file) => {
     const content = fs.readFileSync(file).toString();
-    const lines = content.split('\n').filter((line) => line.match(/^\/\//));
+
+    const lines = content
+        .split('\n')
+        .filter((line) => line.match(/^\/\//) || line.match(/^#/));
+
     return lines.splice(0, 2).join('\n');
 };
 
@@ -76,7 +80,7 @@ const rebuild = () => {
     );
 
     const files = globby
-        .sync(collectionsPath + '/**/*', {
+        .sync([collectionsPath + '/**/*.js', collectionsPath + '/**/*.sh'], {
             ignore: [
                 collectionsPath + '/config.json',
                 collectionsPath + '/index.json',

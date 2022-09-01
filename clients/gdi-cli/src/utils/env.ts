@@ -53,6 +53,33 @@ export const readEnvVite = (cwd: string) => {
     ]);
 };
 
+export const writeEnvVite = (cwd: string, config: Json) => {
+    const envContent = configToViteEnv(config);
+    fs.writeFileSync(cwd + '/.env', envContent);
+};
+
+const configToViteEnv = (firebaseConfig: Json) => {
+    const {
+        apiKey,
+        authDomain,
+        projectId,
+        storageBucket,
+        messagingSenderId,
+        appId,
+        measurementId,
+    } = firebaseConfig;
+
+    return `VITE_FIREBASE_API_KEY=${apiKey}
+VITE_FIREBASE_AUTH_DOMAIN=${authDomain}
+VITE_FIREBASE_DATABASE_URL=https://${projectId}.firebaseio.com
+VITE_FIREBASE_PROJECT_ID=${projectId}
+VITE_FIREBASE_STORAGE_BUCKET=${storageBucket}
+VITE_FIREBASE_MESSAGING_SENDER_ID=${messagingSenderId}
+VITE_FIREBASE_APP_ID=${appId}
+VITE_FIREBASE_MEASUREMENT_ID=${measurementId}
+`;
+};
+
 const checkMissingKeys = (object: Json, keys: string[]) => {
     const output: string[] = [];
 
