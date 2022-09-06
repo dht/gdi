@@ -1,0 +1,28 @@
+{
+    "extends": "./tsconfig.paths.extra",
+    "compilerOptions": {
+        "paths": {
+            "@gdi/app-login": ["apps/app-login"],
+            "@gdi/app-mixer": ["apps/app-mixer"],
+
+            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
+            "@gdi/store-auth": ["submodules/gdi-extra/stores/gdi-store-auth"],
+            "@gdi/store-site": ["stores/gdi-store-site"],
+
+            "@gdi/template-gdi": ["templates/gdi-template-gdi"],
+            "@gdi/template-blog": ["templates/gdi-template-blog"],
+
+            "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
+            "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/galleries": ["packages/gdi-galleries"],
+            "@gdi/web-forms": ["packages/gdi-web-forms"],
+            "@gdi/platformer": ["packages/platformer"],
+            "@gdi/engine": ["packages/gdi-engine"],
+            "redux-connected": ["submodules/redux-connected"],
+            "redux-connected-devtools": ["submodules/redux-connected-devtools"],
+            "shared-base": ["submodules/shared-base"],
+            "igrid": ["submodules/igrid"],
+            "isokit": ["submodules/isokit"]
+        }
+    }
+}

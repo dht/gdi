@@ -12,6 +12,12 @@ const { cwd } = argv;
 const adminPath = path.resolve(cwd, 'clients/gdi-admin');
 const adminSrcPath = path.resolve(adminPath, 'src');
 
+const outputFilePaths = {
+    tsConfigExtra: path.resolve(adminPath, 'config/tsconfig.paths.extra.json'),
+    viteExtra: path.resolve(adminPath, 'config/vite.extra.ts'),
+    appsExtra: path.resolve(adminPath, 'src/extra/main.extra.ts'),
+};
+
 type Lines = {
     imports: string[];
     initializers: string[];
@@ -31,24 +37,21 @@ const run = async () => {
         `generating ${chalk.cyan('main.apps.ts')} package with those apps...`
     );
 
-    const linesMain = appsToMainLines(apps.all);
+    const linesMain = appsToMainLines(apps.extra);
     fs.writeFileSync(
-        `${adminSrcPath}/main.apps.ts`,
+        outputFilePaths.appsExtra,
         templateInitializers(linesMain)
     );
 
     const linesVite = appsAndStoresToLinesVite(apps.extra, stores.extra);
-    fs.writeFileSync(
-        `${adminPath}/configs/vite.config.alias.js`,
-        templateVite(linesVite)
-    );
+    fs.writeFileSync(outputFilePaths.viteExtra, templateVite(linesVite));
 
     const linesTsConfig = appsAndStoresToLinesTsConfig(
         apps.extra,
         stores.extra
     );
     fs.writeJsonSync(
-        `${adminPath}/configs/tsconfig.alias.json`,
+        outputFilePaths.tsConfigExtra,
         {
             compilerOptions: {
                 paths: linesTsConfig,
@@ -86,14 +89,16 @@ const appsAndStoresToLinesVite = (apps: string[], stores: string[]) => {
 
     apps.forEach((fullAppName) => {
         const key = `@gdi/${fullAppName}`;
-        output[key] = `\`${cwd}/submodules/gdi-extra/apps/${fullAppName}/src\``;
+        output[
+            key
+        ] = `\`\${cwd}/submodules/gdi-extra/apps/${fullAppName}/src\``;
     });
 
     stores.forEach((fullStoreName) => {
         const key = `@gdi/${fullStoreName}`.replace(/gdi-/, '');
         output[
             key
-        ] = `\`${cwd}/submodules/gdi-extra/stores/${fullStoreName}/src\``;
+        ] = `\`\${cwd}/submodules/gdi-extra/stores/${fullStoreName}/src\``;
     });
 
     return output;
@@ -166,7 +171,7 @@ const templateInitializers = (lines: Lines) => {
         imports.join('\n') +
         `
 
-export const initializers = {
+export const initializersExtra = {
     ${initializers.join(',\n\t')}
 };
 `
