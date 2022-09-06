@@ -36,8 +36,8 @@ export default defineConfig({
 
             '@gdi/store-auth': `${cwd}/stores/gdi-store-auth/src`,
             '@gdi/store-mixer': `${cwd}/stores/gdi-store-mixer/src`,
-            '@gdi/store-site': `${cwd}/submodules/gdi-extra/stores/gdi-store-site/src`,
-            '@gdi/store-biblo': `${cwd}/submodules/gdi-extra/stores/gdi-s/tore-biblo/src`,
+            '@gdi/store-site': `${cwd}/stores/gdi-store-site/src`,
+            '@gdi/store-biblo': `${cwd}/submodules/gdi-extra/stores/gdi-store-biblo/src`,
             '@gdi/store-deb': `${cwd}/submodules/gdi-extra/stores/gdi-store-deb/src`,
             '@gdi/store-devtools': `${cwd}/submodules/gdi-extra/stores/gdi-store-devtools/src`,
             '@gdi/store-events': `${cwd}/submodules/gdi-extra/stores/gdi-store-events/src`,
@@ -61,6 +61,7 @@ export default defineConfig({
             '@gdi/engine': `${cwd}/packages/gdi-engine/src`,
             'redux-connected': `${cwd}/submodules/redux-connected/src`,
             'shared-base': `${cwd}/submodules/shared-base/src`,
+            'redux-connected-devtools': `${cwd}/submodules/redux-connected-devtools/src`,
             igrid: `${cwd}/submodules/igrid/src`,
             isokit: `${cwd}/submodules/isokit/src`,
         },

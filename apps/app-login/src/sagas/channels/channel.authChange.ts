@@ -7,6 +7,8 @@ export function authChangeChannel() {
             emitter({ user });
         }
 
+        console.log('firebase ->', firebase);
+
         firebase.addAuthListener(onAuthStateChanged);
 
         return () => {

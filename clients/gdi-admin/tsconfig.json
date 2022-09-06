@@ -45,7 +45,7 @@
                 "submodules/gdi-extra/stores/gdi-store-knowledge"
             ],
             "@gdi/store-ppl": ["submodules/gdi-extra/stores/gdi-store-ppl"],
-            "@gdi/store-site": ["submodules/gdi-extra/stores/gdi-store-site"],
+            "@gdi/store-site": ["stores/gdi-store-site"],
             "@gdi/store-soundboard": [
                 "submodules/gdi-extra/stores/gdi-store-soundboard"
             ],
@@ -68,6 +68,7 @@
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],
             "redux-connected": ["submodules/redux-connected"],
+            "redux-connected-devtools": ["submodules/redux-connected-devtools"],
             "shared-base": ["submodules/shared-base"],
             "igrid": ["submodules/igrid"],
             "isokit": ["submodules/isokit"]
