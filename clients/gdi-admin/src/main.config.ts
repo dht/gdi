@@ -1,7 +1,7 @@
-import { initializers } from '@gdi/apps';
 import { firebaseConfig } from './main.firebase';
 import p from '../package.json';
 import { IPlatformConfig } from '@gdi/platformer';
+import { initializers } from './main.apps';
 
 const baseURL = import.meta.env.VITE_API_SERVER_DOMAIN + '/v1';
 const activeApps = import.meta.env.VITE_FIREBASE_ACTIVE_APPS.split(',');

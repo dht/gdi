@@ -9,7 +9,8 @@ import { upperFirst } from 'lodash';
 
 const argv = parseArgv(process.argv);
 const { cwd } = argv;
-const packagePath = path.resolve(cwd, 'node_modules/@gdi/apps');
+const adminPath = path.resolve(cwd, 'clients/gdi-admin');
+const adminSrcPath = path.resolve(adminPath, 'src');
 
 type Lines = {
     imports: string[];
@@ -18,28 +19,48 @@ type Lines = {
 
 const run = async () => {
     const apps = scanForApps();
+    const stores = scanForStores();
 
-    console.log(`${chalk.yellow(apps.length)} apps available:`);
+    console.log(`${chalk.yellow(apps.all.length)} apps available:`);
 
-    apps.forEach((appName) => {
+    apps.all.forEach((appName) => {
         console.log(`- ${chalk.magenta(appName)}`);
     });
 
     process.stdout.write(
-        `generating ${chalk.cyan(
-            'node_modules/@gdi/apps'
-        )} package with those apps...`
+        `generating ${chalk.cyan('main.apps.ts')} package with those apps...`
     );
 
-    generatePackageDirectory();
+    const linesMain = appsToMainLines(apps.all);
+    fs.writeFileSync(
+        `${adminSrcPath}/main.apps.ts`,
+        templateInitializers(linesMain)
+    );
 
-    const lines = appsToLines(apps);
-    fs.writeFileSync(`${packagePath}/index.js`, template(lines));
+    const linesVite = appsAndStoresToLinesVite(apps.extra, stores.extra);
+    fs.writeFileSync(
+        `${adminPath}/configs/vite.config.alias.js`,
+        templateVite(linesVite)
+    );
+
+    const linesTsConfig = appsAndStoresToLinesTsConfig(
+        apps.extra,
+        stores.extra
+    );
+    fs.writeJsonSync(
+        `${adminPath}/configs/tsconfig.alias.json`,
+        {
+            compilerOptions: {
+                paths: linesTsConfig,
+            },
+        },
+        { spaces: 4 }
+    );
 
     console.log(chalk.green('done'));
 };
 
-const appsToLines = (apps: string[]) => {
+const appsToMainLines = (apps: string[]) => {
     return apps.reduce(
         (output: Lines, fullAppName) => {
             const appName = fullAppName.split('-').pop();
@@ -60,43 +81,85 @@ const appsToLines = (apps: string[]) => {
     );
 };
 
-const generatePackageDirectory = () => {
-    if (!fs.existsSync(packagePath)) {
-        fs.mkdirSync(packagePath);
-    }
+const appsAndStoresToLinesVite = (apps: string[], stores: string[]) => {
+    const output = {} as Json;
 
-    fs.writeJsonSync(
-        `${packagePath}/package.json`,
-        {
-            name: '@gdi/apps',
-            private: true,
-            version: '1.0.0',
-            main: './index.js',
-        },
-        { spaces: 4 }
-    );
+    apps.forEach((fullAppName) => {
+        const key = `@gdi/${fullAppName}`;
+        output[key] = `\`${cwd}/submodules/gdi-extra/apps/${fullAppName}/src\``;
+    });
+
+    stores.forEach((fullStoreName) => {
+        const key = `@gdi/${fullStoreName}`.replace(/gdi-/, '');
+        output[
+            key
+        ] = `\`${cwd}/submodules/gdi-extra/stores/${fullStoreName}/src\``;
+    });
+
+    return output;
+};
+
+const appsAndStoresToLinesTsConfig = (apps: string[], stores: string[]) => {
+    const output = {} as Json;
+
+    apps.forEach((fullAppName) => {
+        const key = `@gdi/${fullAppName}`;
+        output[key] = [`submodules/gdi-extra/apps/${fullAppName}`];
+    });
+
+    stores.forEach((fullStoreName) => {
+        const key = `@gdi/${fullStoreName}`.replace(/gdi-/, '');
+        output[key] = [`submodules/gdi-extra/stores/${fullStoreName}`];
+    });
+
+    return output;
 };
 
 const scanForApps = () => {
-    const output = [];
-    let apps: string[] = [];
+    const output = {
+        base: [] as string[],
+        extra: [] as string[],
+        all: [] as string[],
+    };
 
-    apps = globby.sync('*', {
+    output.base = globby.sync('*', {
         cwd: `${cwd}/apps`,
         onlyDirectories: true,
     });
-    output.push(...apps);
 
-    apps = globby.sync('*', {
+    output.extra = globby.sync('*', {
         cwd: `${cwd}/submodules/gdi-extra/apps`,
         onlyDirectories: true,
     });
 
-    output.push(...apps);
+    output.all = [...output.base, ...output.extra];
+
     return output;
 };
 
-const template = (lines: Lines) => {
+const scanForStores = () => {
+    const output = {
+        base: [] as string[],
+        extra: [] as string[],
+        all: [] as string[],
+    };
+
+    output.base = globby.sync('*', {
+        cwd: `${cwd}/stores`,
+        onlyDirectories: true,
+    });
+
+    output.extra = globby.sync('*', {
+        cwd: `${cwd}/submodules/gdi-extra/stores`,
+        onlyDirectories: true,
+    });
+
+    output.all = [...output.base, ...output.extra];
+
+    return output;
+};
+
+const templateInitializers = (lines: Lines) => {
     const { imports, initializers } = lines;
 
     return (
@@ -108,6 +171,20 @@ export const initializers = {
 };
 `
     );
+};
+
+const templateVite = (map: Json) => {
+    return `import * as path from 'path';
+
+const cwd = path.resolve(process.cwd(), '../../');
+
+export const alias = {
+    ${Object.keys(map)
+        .map((key) => `'${key}': ${map[key]}`)
+        .join(',\n\t')}
+   
+};
+`;
 };
 
 run();
