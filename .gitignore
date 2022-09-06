@@ -10,3 +10,6 @@ clients/gdi-admin/.firebaserc
 scripts/publishAll.sh
 scripts/updateDependencies.js
 firebase-debug.log
+clients/gdi-admin/config/tsconfig.paths.extra.json
+clients/gdi-admin/config/vite.extra.ts
+clients/gdi-admin/src/extra/main.extra.ts

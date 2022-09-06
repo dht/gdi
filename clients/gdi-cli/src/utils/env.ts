@@ -1,6 +1,10 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import chalk from 'chalk';
+import { snakeCase } from 'lodash';
+
+const cobolCase = (str: string) =>
+    snakeCase(str).replace(/-/g, '_').toUpperCase();
 
 export const readEnv = (cwd: string, requiredKeys: string[] = []) => {
     const output = {
@@ -53,9 +57,18 @@ export const readEnvVite = (cwd: string) => {
     ]);
 };
 
-export const writeEnvVite = (cwd: string, config: Json) => {
+export const writeEnvVite = (cwd: string, config: Json, extra: Json = {}) => {
     const envContent = configToViteEnv(config);
-    fs.writeFileSync(cwd + '/.env', envContent);
+
+    const extraString = Object.keys(extra)
+        .reduce((output, key) => {
+            const keyVite = cobolCase(`vite-${key}`);
+            output.push(`${keyVite}=${extra[key]}`);
+            return output;
+        }, [] as string[])
+        .join('\n');
+
+    fs.writeFileSync(cwd + '/.env', envContent + '\n' + extraString);
 };
 
 const configToViteEnv = (firebaseConfig: Json) => {

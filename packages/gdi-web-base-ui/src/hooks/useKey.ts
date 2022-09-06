@@ -1,9 +1,14 @@
 import { useEffect } from 'react';
 
-export type Callback = (event: IShortKey) => void;
+export type IEvent = IShortKey & {
+    ev: KeyboardEvent;
+};
+
+export type Callback = (event: IEvent) => void;
 
 export type UseKeyOptions = {
     filterKeys?: string[];
+    filterRegex?: RegExp;
 };
 
 export function useKey(
@@ -11,7 +16,7 @@ export function useKey(
     options: UseKeyOptions = {},
     depArray: any[] = []
 ) {
-    const { filterKeys = [] } = options;
+    const { filterKeys = [], filterRegex } = options;
 
     useEffect(() => {
         const onKeyDown = (ev: KeyboardEvent) => {
@@ -21,12 +26,27 @@ export function useKey(
                 return;
             }
 
-            const event: IShortKey = {
+            if (filterRegex) {
+                if (!ev.key.match(filterRegex)) {
+                    return;
+                }
+
+                if (key.length > 1) {
+                    return;
+                }
+
+                if (ev.altKey || ev.metaKey || ev.ctrlKey) {
+                    return;
+                }
+            }
+
+            const event: IEvent = {
                 key,
                 withAlt: altKey,
                 withCommand: metaKey,
                 withCtrl: ctrlKey,
                 withShift: shiftKey,
+                ev,
             };
 
             callback(event);

@@ -4,16 +4,7 @@ export const routes: IRoutes = {
     login: `${ROOT}`,
 };
 
-export const menuItems: IMenuItem[] = [
-    {
-        path: routes.login,
-        icon: 'Microphone',
-        label: 'Login',
-        groupId: 'general',
-        showOnSlim: true,
-        order: 6,
-    },
-];
+export const menuItems: IMenuItem[] = [];
 
 export const contextBarItems: IContextBarItem[] = [];
 

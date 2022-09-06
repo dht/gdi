@@ -5,7 +5,6 @@ export const Container = styled.div`
 `;
 
 export const Rect = styled.div<{ size: number }>`
-    margin-bottom: 40px;
     width: ${(props) => props.size}px;
     height: ${(props) => props.size}px;
     border-radius: 5px;

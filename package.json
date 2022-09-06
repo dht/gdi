@@ -17,7 +17,10 @@
         "packages/*",
         "packages/*/scripts",
         "servers/*",
-        "submodules/*"
+        "submodules/*",
+        "submodules/gdi-extra/stores/*",
+        "submodules/gdi-extra/stores/*/scripts",
+        "submodules/gdi-extra/apps/*"
     ],
     "devDependencies": {
         "@types/jest": "^27.5.1",

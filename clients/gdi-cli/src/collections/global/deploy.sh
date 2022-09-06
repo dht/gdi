@@ -1,4 +1,4 @@
 # shortcuts: deploy
-# desc: deploys both gdi-admin and gdisite
+# desc: deploys both gdi-admin and gdi site
 
 npm run deploy

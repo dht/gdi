@@ -5,14 +5,14 @@ import { addCompilerOptionsPaths, addViteAlias } from './configFiles';
 
 export const addAppToTsConfig = (tsconfigPath: string, appId: string) => {
     const change = {
-        [`@gli/app-${appId}`]: [`apps/${appId}`],
+        [`@gdi/app-${appId}`]: [`apps/${appId}`],
     };
 
     addCompilerOptionsPaths(tsconfigPath, change);
 };
 
 export const addAppToViteConfig = (vitePath: string, appId: string) => {
-    const key = `'@gli/app-${appId}'`;
+    const key = `'@gdi/app-${appId}'`;
     const value = `\`\${cwd}/apps/${appId}\``;
 
     addViteAlias(vitePath, key, value);
@@ -27,7 +27,7 @@ export const updatePlatformSaga = (sagaPath: string, newAppId: string) => {
     let data = fs.readFileSync(sagaPath).toString();
 
     const withPrefix = `app-${newAppId}`;
-    const packageName = `@gli/${withPrefix}`;
+    const packageName = `@gdi/${withPrefix}`;
     const upperFirst = _.upperFirst(newAppId);
 
     // 1. add import

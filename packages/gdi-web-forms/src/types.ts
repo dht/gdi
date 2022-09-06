@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
 export type LayoutFlavour = 'singleColumn' | 'twoColumns' | 'threeColumns';
+
 export type LabelSize = 'base' | 'compact';
 
 export type IFormLayout = {
@@ -85,3 +86,8 @@ export type AllDetails = Record<string, FC<IDetailsProps>>;
 type Method = (...args: any[]) => any | Promise<any>;
 
 export type AllMethods = Record<string, Method>;
+
+export type Coords = {
+    rowIndex: number;
+    columnIndex: number;
+};

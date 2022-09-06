@@ -16,9 +16,9 @@
         "baseUrl": "../../",
         "paths": {
             "@gdi/app-mixer": ["apps/app-mixer"],
-            "@gdi/store-mixer": ["packages/gdi-store-mixer"],
-            "@gdi/template-gdi": ["packages/gdi-template-gdi"],
-            "@gdi/template-blog": ["packages/gdi-template-blog"],
+            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
+            "@gdi/template-gdi": ["templates/gdi-template-gdi"],
+            "@gdi/template-blog": ["templates/gdi-template-blog"],
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],
             "@gdi/web-forms": ["packages/gdi-web-forms"],
