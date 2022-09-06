@@ -1,6 +1,6 @@
 {
     "name": "@gdi/types-scripts",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "main": "index.js",
     "license": "MIT",
     "scripts": {

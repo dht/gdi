@@ -16,3 +16,12 @@
 [submodule "submodules/types-base"]
 	path = submodules/types-base
 	url = git@github.com:dht/types-base
+[submodule "submodules/gdi-extra"]
+	path = submodules/gdi-extra
+	url = git@github.com:dht/gdi-extra.git
+[submodule "submodules/redux-connected-devtools"]
+	path = submodules/redux-connected-devtools
+	url = git@github.com:dht/redux-connected-devtools.git
+[submodule "submodules/isokit"]
+	path = submodules/isokit
+	url = git@github.com:dht/isokit.git

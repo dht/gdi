@@ -11,17 +11,52 @@
     },
     "gdi-store-auth": {
         "id": "gdi-store-auth",
-        "path": "packages/gdi-store-auth",
+        "path": "stores/gdi-store-auth",
+        "types": "src/types.ts"
+    },
+    "gdi-store-devtools": {
+        "id": "gdi-store-devtools",
+        "path": "stores/gdi-store-devtools",
         "types": "src/types.ts"
     },
     "gdi-store-mixer": {
         "id": "gdi-store-mixer",
-        "path": "packages/gdi-store-mixer",
+        "path": "stores/gdi-store-mixer",
+        "types": "src/types.ts"
+    },
+    "gdi-store-money": {
+        "id": "gdi-store-money",
+        "path": "stores/gdi-store-money",
+        "types": "src/types.ts"
+    },
+    "gdi-store-ppl": {
+        "id": "gdi-store-ppl",
+        "path": "stores/gdi-store-ppl",
+        "types": "src/types.ts"
+    },
+    "gdi-store-soundboard": {
+        "id": "gdi-store-soundboard",
+        "path": "stores/gdi-store-soundboard",
+        "types": "src/types.ts"
+    },
+    "gdi-store-studio": {
+        "id": "gdi-store-studio",
+        "path": "stores/gdi-store-studio",
+        "types": "src/types.ts"
+    },
+    "gdi-store-tasks": {
+        "id": "gdi-store-tasks",
+        "path": "stores/gdi-store-tasks",
+        "types": "src/types.ts"
+    },
+    "gdi-store-voice": {
+        "id": "gdi-store-voice",
+        "path": "stores/gdi-store-voice",
         "types": "src/types.ts"
     },
     "gdi-store-site": {
         "id": "gdi-store-site",
-        "path": "packages/gdi-store-site",
+        "path": "stores/gdi-store-site",
         "types": "src/types.ts"
     },
     "gdi-web-forms": {

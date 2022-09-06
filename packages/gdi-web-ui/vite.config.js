@@ -20,6 +20,7 @@ export default defineConfig({
             plugins: [analyze()],
             ...externals({
                 'react/jsx-runtime': '',
+                'date-fns/locale': '',
                 ...p.dependencies,
             }),
         },

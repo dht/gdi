@@ -19,7 +19,7 @@ export { Drawer } from './components/Drawer/Drawer';
 export { Switch } from './components/Switch/Switch';
 export { Toolbar } from './components/Toolbar/Toolbar';
 export { CircularProgress } from './components/CircularProgress/CircularProgress';
-export { Breadcrumb, Icon, IconButton, Pivot } from '@fluentui/react';
+export { Breadcrumb, Icon, IconButton, Pivot, Callout } from '@fluentui/react';
 export { initializeIcons, ThemeProvider } from '@fluentui/react';
 export type {
     PartialTheme,
@@ -36,5 +36,8 @@ export { useKey } from './hooks/useKey';
 export { useSpace } from './hooks/useSpace';
 export { useDelete } from './hooks/useDelete';
 export { useEnter } from './hooks/useEnter';
+export { useEscape } from './hooks/useEscape';
+export { useStartTyping } from './hooks/useStartTyping';
+export { useNudge } from './hooks/useNudge';
 export { useShortKeys, useShortKey } from './hooks/useShortKeys';
 export * from './types';

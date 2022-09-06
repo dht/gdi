@@ -1,0 +1,43 @@
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { JsonEditor, JsonEditorProps } from './JsonEditor';
+import { BaseComponentDriver } from 'testing-base';
+
+export class JsonEditorDriver extends BaseComponentDriver {
+    private props: Partial<JsonEditorProps> = {
+    };
+
+    constructor() {
+        super('JsonEditor');
+    }
+
+    when: any = {
+        rendered: () => {
+            render(<JsonEditor {...(this.props as JsonEditorProps)} />);
+            return this;
+        },
+        clicked: () => {
+            fireEvent.click(this.container);
+            return this;
+        },
+        snapshot: () => {
+            return this.snapshot(<JsonEditor {...(this.props as JsonEditorProps)} />);
+        },
+    };
+
+    given: any = {
+        props: (props: Partial<JsonEditorProps>) => {
+            this.props = props;
+            return this;
+        },
+    };
+
+    get = {
+        containerClassName: () => {
+            return this.container.className;
+        },
+        label: () => {
+            return this.container.innerHTML;
+        },
+    };
+}

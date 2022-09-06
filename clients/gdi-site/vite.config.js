@@ -19,12 +19,12 @@ export default defineConfig({
     resolve: {
         alias: {
             '@gdi/app-mixer': `${cwd}/apps/app-mixer/src`,
-            '@gdi/store-auth': `${cwd}/packages/gdi-store-auth/src`,
-            '@gdi/store-mixer': `${cwd}/packages/gdi-store-mixer/src`,
-            '@gdi/store-site': `${cwd}/packages/gdi-store-site/src`,
+            '@gdi/store-auth': `${cwd}/stores/gdi-store-auth/src`,
+            '@gdi/store-mixer': `${cwd}/stores/gdi-store-mixer/src`,
+            '@gdi/store-site': `${cwd}/stores/gdi-store-site/src`,
             '@gdi/platformer': `${cwd}/packages/platformer/src`,
-            '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi`,
-            '@gdi/template-blog': `${cwd}/packages/gdi-template-blog`,
+            '@gdi/template-gdi': `${cwd}/templates/gdi-template-gdi`,
+            '@gdi/template-blog': `${cwd}/templates/gdi-template-blog`,
             '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
             '@gdi/web-ui': `${cwd}/packages/gdi-web-ui/src`,
             '@gdi/galleries': `${cwd}/packages/gdi-galleries/src`,

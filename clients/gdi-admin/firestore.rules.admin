@@ -1,0 +1,289 @@
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {  	
+
+        function isAdmin() {
+            return get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.role == "admin";
+        }
+        
+        match /singles/{name} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();    
+        }
+
+        match /appStateBiblo/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateDeb/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateDevtools/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateEvents/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateKnowledge/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateMixer/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateMoney/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStatePpl/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateScheduler/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateSoundboard/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateSpotify/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateStudio/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateTasks/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateThings/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /appStateVoice/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /authState/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /blocksGalleryState/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /galleryState/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /actualManas/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /assets/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /blocks/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /boards/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /buildings/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /cameras/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /expectedManas/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /grounds/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /images/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /instancesProps/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /instancesBlocks/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /instancesMapColors/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /instancesMapStrings/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /items/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /libraryBlocks/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /libraryImages/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /libraryPalettes/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /libraryTypography/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /lights/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /locales/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /moneyBehaviors/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /moneyLines/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /pages/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /particles/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /persons/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /projects/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /recentSessions/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /roles/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /scheduleBlocks/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /scheduleItems/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /sessions/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /tickets/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /users/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /weatherDailyItems/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /weatherHourlyItems/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /weatherLocations/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /worklogs/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+    }
+}

@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A6 = {};
+export const A13 = {};
 
 declare global {
     export type IUploadResult = {
