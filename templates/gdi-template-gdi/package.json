@@ -1,6 +1,6 @@
 {
-    "name": "@gdi/template-blog",
-    "version": "0.0.20",
+    "name": "@gdi/template-gdi",
+    "version": "0.0.21",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -10,7 +10,7 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.19",
+        "@gdi/types": "^0.0.24",
         "@gdi/web-ui": "^0.0.23",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",
@@ -38,7 +38,7 @@
         "rollup-plugin-analyzer": "^4.0.0",
         "rollup-plugin-copy": "^3.4.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.7",
+        "shared-base": "^0.0.12",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
@@ -48,13 +48,13 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/template-blog.umd.js",
-    "module": "./dist/template-blog.es.js",
+    "main": "./dist/template-gdi.umd.js",
+    "module": "./dist/template-gdi.es.js",
     "types": "./dist/dts/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/template-blog.es.js",
-            "require": "./dist/template-blog.umd.js"
+            "import": "./dist/template-gdi.es.js",
+            "require": "./dist/template-gdi.umd.js"
         },
         "./dist/public/": {
             "import": "./dist/public/",

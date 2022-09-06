@@ -15,36 +15,48 @@
         "jsx": "react-jsx",
         "baseUrl": "../../",
         "paths": {
-            "@gdi/app-biblo": ["apps/app-biblo"],
-            "@gdi/app-debdb": ["apps/app-debdb"],
-            "@gdi/app-devtools": ["apps/app-devtools"],
-            "@gdi/app-events": ["apps/app-events"],
-            "@gdi/app-knowledge": ["apps/app-knowledge"],
             "@gdi/app-login": ["apps/app-login"],
             "@gdi/app-mixer": ["apps/app-mixer"],
-            "@gdi/app-money": ["apps/app-money"],
-            "@gdi/app-ppl": ["apps/app-ppl"],
-            "@gdi/app-soundboard": ["apps/app-soundboard"],
-            "@gdi/app-spotify": ["apps/app-spotify"],
-            "@gdi/app-studio": ["apps/app-studio"],
-            "@gdi/app-tasks": ["apps/app-tasks"],
-            "@gdi/app-things": ["apps/app-things"],
-            "@gdi/app-voice": ["apps/app-voice"],
+            "@gdi/app-biblo": ["submodules/gdi-extra/apps/app-biblo"],
+            "@gdi/app-debdb": ["submodules/gdi-extra/apps/app-debdb"],
+            "@gdi/app-devtools": ["submodules/gdi-extra/apps/app-devtools"],
+            "@gdi/app-events": ["submodules/gdi-extra/apps/app-events"],
+            "@gdi/app-knowledge": ["submodules/gdi-extra/apps/app-knowledge"],
+            "@gdi/app-money": ["submodules/gdi-extra/apps/app-money"],
+            "@gdi/app-ppl": ["submodules/gdi-extra/apps/app-ppl"],
+            "@gdi/app-soundboard": ["submodules/gdi-extra/apps/app-soundboard"],
+            "@gdi/app-spotify": ["submodules/gdi-extra/apps/app-spotify"],
+            "@gdi/app-studio": ["submodules/gdi-extra/apps/app-studio"],
+            "@gdi/app-tasks": ["submodules/gdi-extra/apps/app-tasks"],
+            "@gdi/app-things": ["submodules/gdi-extra/apps/app-things"],
+            "@gdi/app-voice": ["submodules/gdi-extra/apps/app-voice"],
 
-            "@gdi/store-auth": ["stores/gdi-store-auth"],
-            "@gdi/store-biblo": ["stores/gdi-store-biblo"],
-            "@gdi/store-devtools": ["stores/gdi-store-devtools"],
-            "@gdi/store-events": ["stores/gdi-store-events"],
-            "@gdi/store-knowledge": ["stores/gdi-store-knowledge"],
             "@gdi/store-mixer": ["stores/gdi-store-mixer"],
             "@gdi/store-money": ["stores/gdi-store-money"],
-            "@gdi/store-ppl": ["stores/gdi-store-ppl"],
-            "@gdi/store-site": ["stores/gdi-store-site"],
-            "@gdi/store-soundboard": ["stores/gdi-store-soundboard"],
-            "@gdi/store-studio": ["stores/gdi-store-studio"],
-            "@gdi/store-tasks": ["stores/gdi-store-tasks"],
-            "@gdi/store-things": ["stores/gdi-store-things"],
-            "@gdi/store-voice": ["stores/gdi-store-voice"],
+            "@gdi/store-auth": ["submodules/gdi-extra/stores/gdi-store-auth"],
+            "@gdi/store-biblo": ["submodules/gdi-extra/stores/gdi-store-biblo"],
+            "@gdi/store-devtools": [
+                "submodules/gdi-extra/stores/gdi-store-devtools"
+            ],
+            "@gdi/store-events": [
+                "submodules/gdi-extra/stores/gdi-store-events"
+            ],
+            "@gdi/store-knowledge": [
+                "submodules/gdi-extra/stores/gdi-store-knowledge"
+            ],
+            "@gdi/store-ppl": ["submodules/gdi-extra/stores/gdi-store-ppl"],
+            "@gdi/store-site": ["submodules/gdi-extra/stores/gdi-store-site"],
+            "@gdi/store-soundboard": [
+                "submodules/gdi-extra/stores/gdi-store-soundboard"
+            ],
+            "@gdi/store-studio": [
+                "submodules/gdi-extra/stores/gdi-store-studio"
+            ],
+            "@gdi/store-tasks": ["submodules/gdi-extra/stores/gdi-store-tasks"],
+            "@gdi/store-things": [
+                "submodules/gdi-extra/stores/gdi-store-things"
+            ],
+            "@gdi/store-voice": ["submodules/gdi-extra/stores/gdi-store-voice"],
 
             "@gdi/template-gdi": ["templates/gdi-template-gdi"],
             "@gdi/template-blog": ["templates/gdi-template-blog"],
