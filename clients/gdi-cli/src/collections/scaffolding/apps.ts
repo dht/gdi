@@ -183,7 +183,7 @@ const templateVite = (map: Json) => {
 
 const cwd = path.resolve(process.cwd(), '../../');
 
-export const alias = {
+export const aliasExtra = {
     ${Object.keys(map)
         .map((key) => `'${key}': ${map[key]}`)
         .join(',\n\t')}
