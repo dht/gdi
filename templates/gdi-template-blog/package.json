@@ -10,7 +10,7 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.24",
+        "@gdi/types": "^0.0.25",
         "@gdi/web-ui": "^0.0.23",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",

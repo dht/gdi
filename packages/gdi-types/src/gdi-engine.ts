@@ -40,7 +40,8 @@ declare global {
         | 'url'
         | 'checkbox'
         | 'image'
-        | 'color';
+        | 'color'
+        | 'json';
 
     export type FieldParams = {
         fieldType: SchemaFieldType;

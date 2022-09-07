@@ -4,6 +4,7 @@ import { MixerWidgets } from './widgets';
 export const routes: IRoutes = {
     mixer: `${ROOT}`,
     imageGallery: `${ROOT}/imageGallery`,
+    layoutGallery: `${ROOT}/layoutGallery`,
     preview_static: `/preview`,
 };
 
@@ -23,6 +24,14 @@ export const menuItems: IMenuItem[] = [
         groupId: 'site',
         showOnSlim: true,
         order: 1,
+    },
+    {
+        path: routes.layoutGallery,
+        icon: 'ViewDashboard',
+        label: 'Layout gallery',
+        groupId: 'site',
+        showOnSlim: false,
+        order: 2,
     },
 ];
 

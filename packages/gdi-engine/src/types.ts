@@ -35,7 +35,8 @@ export type SchemaFieldType =
     | 'url'
     | 'checkbox'
     | 'image'
-    | 'color';
+    | 'color'
+    | 'json';
 
 export type FieldParams = {
     fieldType: SchemaFieldType;

@@ -57,10 +57,13 @@ const run = async () => {
 };
 
 const updateStorageRules = (userId: string) => {
-    const pathStorageRules = `${cwd}/storage.rules`;
+    let pathStorageRules = `${cwd}/storage.rules`;
     if (!fs.existsSync(pathStorageRules)) {
-        generalError('ERROR: could not find "storage.rules" in this path');
-        return;
+        pathStorageRules = `${cwd}/gdi-admin/storage.rules`;
+        if (!fs.existsSync(pathStorageRules)) {
+            generalError('ERROR: could not find "storage.rules" in this path');
+            return;
+        }
     }
 
     const content = fs.readFileSync(pathStorageRules).toString();

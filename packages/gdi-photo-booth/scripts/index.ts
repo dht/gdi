@@ -25,8 +25,8 @@ let blocks: IBlocks;
 
 initializeApp({
     credential: cert('../../../firebaseServiceAccount.json'),
-    databaseURL: 'https://temp-9fccd.firebaseio.com',
-    storageBucket: 'gs://temp-9fccd.appspot.com',
+    databaseURL: 'https://usegdi-a56c4.firebaseio.com',
+    storageBucket: 'gs://usegdi-a56c4.appspot.com',
 });
 
 const bucket = getStorage().bucket();

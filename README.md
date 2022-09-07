@@ -14,7 +14,7 @@
 
 # Installation
 
-> Note: make sure you have all the [prerequisites](https://usegdi.com/docs/docs/getting-started/prerequisites) prepared before installation
+> Note: make sure you have all the [prerequisites](https://usegdi.com/docs/docs/getting-started/prerequisites.md) prepared before installation
 
 ## Install the CLI
 
@@ -51,7 +51,13 @@ cd [site-name]
 
 ## Connect Firebase
 
-In the `root` create a `firebase.json` file with your `firebase` configuration:
+In the `root` create a `/firebase.json` file with your `firebase` configuration:
+
+:::note
+
+`measurementId` can be excluded. It will only appear if you enabled `Google Analytics` in the Firebase project
+
+:::
 
 ```json title="firebase.json"
 {
@@ -65,7 +71,11 @@ In the `root` create a `firebase.json` file with your `firebase` configuration:
 }
 ```
 
-> Note: To retrieve this information follow the [create a new firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project) guide.
+:::info
+
+To retrieve this information follow the [Create a new firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project) guide
+
+:::
 
 Once your `firebase.json` is saved you can connect `firebase` to this site.
 
@@ -77,10 +87,28 @@ gdi connect
 
 ## Seeding initial database
 
+:::info
+
+Make sure you have [enables Firestore Database](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project#enable-firestore-database) in `Test mode`. If you receive a `permission error` or `bad request` while running the following command, try waiting around **2 minutes** for the rules to kick in
+
+:::
+
 In the project's `root` run:
 
 ```sh
 gdi seed --data
+```
+
+## Bootstrapping apps
+
+:::note
+
+This command refreshes the `vite` and `tsconfig` configuration for the installed apps. Every time you install a new `gdi` app, run this
+
+:::
+
+```sh
+gdi apps
 ```
 
 ## Running the Admin
@@ -92,6 +120,13 @@ gdi start
 ```
 
 Navigate to [http://localhost:3000](http://localhost:3000)
+
+:::info
+
+If you receive `Firebase: Error(auth/configuration-not-found)` while trying to sign in with `Google`, follow the [Enable Sign-in with Google](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project#enable-sign-in-with-Google)
+section in the `Create & setup a Firebase project` how-to
+
+:::
 
 ## Setting the admin user
 
@@ -120,17 +155,21 @@ The `site` will be served from:
 
 [https://FIREBASE_PROJECT_DOMAIN](https://FIREBASE_PROJECT_DOMAIN)
 
-> Note: `gdi` image upload feature requires `cloud functions`, which in turn requires upgrading Firebase to the `Blaze` plan. If you wish to stay on the `Spark plan` (the free plan) and not use `image upload`, please refer to [these](https://usegdi.com/docs/docs/topics/image-upload#disabling-cloud-function) instructions.
+:::info
+`gdi` image upload feature requires `cloud functions`, which in turn requires upgrading Firebase to the `Blaze` plan. If you wish to stay on the `Spark plan` (the free plan) and not use `image upload`, please refer to [these](https://usegdi.com/docs/docs/topics/image-upload#disabling-cloud-function) instructions.
+
+:::
 
 ## CLI commands
 
 | Command                     | Description                                                     |
 | --------------------------- | --------------------------------------------------------------- |
-| gdi create site [site-name] | Create a new gDI repo with admin + site packages                |
+| gdi create site [site-name] | Creates a new gDI repo with admin + site packages               |
 | gdi connect                 | Validates and links site to Firebase                            |
 | gdi seed --data             | Seeds the current site with data                                |
 | gdi setAdmin                | Choose an admin for the current site                            |
 | gdi list projects           | Shows Firebase projects. A wrapper for `firebase projects:list` |
-| gdi start                   | Start `gdi-admin` in development mode                           |
-| gdi preview                 | Start `gdi-site` in development mode                            |
-| gdi deploy                  | Builds & deploys both `gdi-admin` and `gdi-site`                |
+| gdi start                   | Starts `gdi-admin` in development mode                          |
+| gdi preview                 | Starts `gdi-site` in development mode                           |
+| gdi deploy                  | Builds & deploy both `gdi-admin` and `gdi-site`                 |
+| gdi apps                    | Scans for new apps and sets up the `vite` and `tsconfig` files  |

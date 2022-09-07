@@ -24,6 +24,11 @@ export const endpointsConfigOverrides: any = {
         connectionType: 'FIRESTORE',
         optimistic: true,
     },
+    breakpoints: {
+        id: 'breakpoints',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+    },
     instancesBlocks: {
         id: 'instancesBlocks',
         connectionType: 'FIRESTORE',

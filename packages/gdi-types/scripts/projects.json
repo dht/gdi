@@ -16,7 +16,7 @@
     },
     "gdi-store-devtools": {
         "id": "gdi-store-devtools",
-        "path": "stores/gdi-store-devtools",
+        "path": "submodules/gdi-extra/stores/gdi-store-devtools",
         "types": "src/types.ts"
     },
     "gdi-store-mixer": {
@@ -26,32 +26,32 @@
     },
     "gdi-store-money": {
         "id": "gdi-store-money",
-        "path": "stores/gdi-store-money",
+        "path": "submodules/gdi-extra/stores/gdi-store-money",
         "types": "src/types.ts"
     },
     "gdi-store-ppl": {
         "id": "gdi-store-ppl",
-        "path": "stores/gdi-store-ppl",
+        "path": "submodules/gdi-extra/stores/gdi-store-ppl",
         "types": "src/types.ts"
     },
     "gdi-store-soundboard": {
         "id": "gdi-store-soundboard",
-        "path": "stores/gdi-store-soundboard",
+        "path": "submodules/gdi-extra/stores/gdi-store-soundboard",
         "types": "src/types.ts"
     },
     "gdi-store-studio": {
         "id": "gdi-store-studio",
-        "path": "stores/gdi-store-studio",
+        "path": "submodules/gdi-extra/stores/gdi-store-studio",
         "types": "src/types.ts"
     },
     "gdi-store-tasks": {
         "id": "gdi-store-tasks",
-        "path": "stores/gdi-store-tasks",
+        "path": "submodules/gdi-extra/stores/gdi-store-tasks",
         "types": "src/types.ts"
     },
     "gdi-store-voice": {
         "id": "gdi-store-voice",
-        "path": "stores/gdi-store-voice",
+        "path": "submodules/gdi-extra/stores/gdi-store-voice",
         "types": "src/types.ts"
     },
     "gdi-store-site": {

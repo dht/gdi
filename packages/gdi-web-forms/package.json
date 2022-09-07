@@ -7,7 +7,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.24",
+        "@gdi/types": "^0.0.25",
         "@gdi/web-ui": "^0.0.23",
         "@hookform/resolvers": "^2.9.7",
         "lodash": "^4.17.21",

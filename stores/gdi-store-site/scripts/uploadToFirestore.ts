@@ -118,6 +118,7 @@ const nodeTypes = {
     spacing: 'single',
     fonts: 'single',
     instancesBlocks: 'collection',
+    breakpoints: 'collection',
     blocks: 'collection',
     images: 'collection',
     pages: 'collection',

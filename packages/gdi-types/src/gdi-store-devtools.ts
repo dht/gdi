@@ -29,6 +29,7 @@ declare global {
         store: string;
         nodeType: string;
         fieldTypes: Record<string, string>;
+        isHidden?: boolean;
     };
 
     export type INodes = Record<string, INode>;

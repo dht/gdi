@@ -6,6 +6,7 @@ export const A12 = {};
 
 declare global {
     export type LayoutFlavour = 'singleColumn' | 'twoColumns' | 'threeColumns';
+
     export type LabelSize = 'base' | 'compact';
 
     export type IFormLayout = {
@@ -90,4 +91,9 @@ declare global {
     type Method = (...args: any[]) => any | Promise<any>;
 
     export type AllMethods = Record<string, Method>;
+
+    export type Coords = {
+        rowIndex: number;
+        columnIndex: number;
+    };
 }
