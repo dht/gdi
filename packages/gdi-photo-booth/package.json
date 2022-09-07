@@ -11,7 +11,7 @@
         "@gdi/engine": "^0.0.20",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
-        "@gdi/types": "^0.0.24",
+        "@gdi/types": "^0.0.25",
         "@gdi/web-ui": "^0.0.23",
         "@playwright/experimental-ct-react": "^1.25.0",
         "chance": "^1.1.8",

@@ -7,6 +7,7 @@ function* apiPublic() {
         nodes: [
             'blocks',
             'fonts',
+            'breakpoints',
             'instanceBlocks',
             'instanceProps',
             'pages',

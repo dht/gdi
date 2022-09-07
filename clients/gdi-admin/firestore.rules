@@ -31,6 +31,11 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
+     match /breakpoints/{document=**} {
+      allow read;
+      allow write: if isAdmin();
+    }
+
     match /instancesBlocks/{document=**} {
       allow read;
       allow write: if isAdmin();

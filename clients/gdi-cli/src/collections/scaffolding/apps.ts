@@ -9,8 +9,20 @@ import { upperFirst } from 'lodash';
 
 const argv = parseArgv(process.argv);
 const { cwd } = argv;
-const adminPath = path.resolve(cwd, 'clients/gdi-admin');
-const adminSrcPath = path.resolve(adminPath, 'src');
+
+let adminPath = path.resolve(cwd, 'clients/gdi-admin');
+
+if (!fs.existsSync(adminPath)) {
+    adminPath = path.resolve(cwd, 'gdi-admin');
+    if (!fs.existsSync(adminPath)) {
+        console.log(chalk.red('could not find "gdi-admin" folder'));
+        process.exit();
+    }
+}
+
+if (!fs.existsSync(`${adminPath}/src/extra`)) {
+    fs.mkdirSync(`${adminPath}/src/extra`);
+}
 
 const outputFilePaths = {
     tsConfigExtra: path.resolve(adminPath, 'config/tsconfig.paths.extra.json'),
@@ -27,14 +39,19 @@ const run = async () => {
     const apps = scanForApps();
     const stores = scanForStores();
 
-    console.log(`${chalk.yellow(apps.all.length)} apps available:`);
+    let extraText = '';
+
+    if (apps.all.length > 0) {
+        console.log(`${chalk.yellow(apps.all.length)} extra apps available:`);
+        extraText = 'with those apps';
+    }
 
     apps.all.forEach((appName) => {
         console.log(`- ${chalk.magenta(appName)}`);
     });
 
     process.stdout.write(
-        `generating ${chalk.cyan('main.apps.ts')} package with those apps...`
+        `generating ${chalk.cyan('main.apps.ts')} package${extraText}...`
     );
 
     const linesMain = appsToMainLines(apps.extra);

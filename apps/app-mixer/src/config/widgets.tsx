@@ -11,6 +11,9 @@ import { PreviewContainer } from '../containers/PreviewContainer';
 import { KeyboardShortcutsContainer } from '../containers/singles/KeyboardShortcutsContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
+import { FlexDesignerContainer } from '../containers/FlexDesignerContainer';
+import { FlowDesignerContainer } from '../containers/FlowDesignerContainer';
+import { GridDesignerContainer } from '../containers/GridDesignerContainer';
 import { WindowSize } from '../components/WindowSize/WindowSize';
 
 export enum MixerWidgets {
@@ -26,6 +29,9 @@ export enum MixerWidgets {
     Preview = 'mixer.Preview',
     KeyboardShortcuts = 'mixer.KeyboardShortcuts',
     WindowSize = 'mixer.WindowSize',
+    FlexDesigner = 'mixer.FlexDesigner',
+    FlowDesigner = 'mixer.FlowDesigner',
+    GridDesigner = 'mixer.GridDesigner',
 }
 export const widgets: IWidget[] = [
     {
@@ -147,5 +153,35 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <WindowSize {...props} />,
+    },
+    {
+        id: MixerWidgets.FlexDesigner,
+        name: 'FlexDesigner',
+        description: 'FlexDesigner',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <FlexDesignerContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.FlowDesigner,
+        name: 'FlowDesigner',
+        description: 'FlowDesigner',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <FlowDesignerContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.GridDesigner,
+        name: 'GridDesigner',
+        description: 'GridDesigner',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <GridDesignerContainer {...props} />,
     },
 ];

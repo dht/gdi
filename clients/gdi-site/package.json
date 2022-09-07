@@ -4,13 +4,13 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build && npm run copy && npm run copy:assets",
-        "copy": "cp -r dist/ ../gdi-admin/dist/site/",
-        "copy:assets": "cp -r dist/assets/ ../gdi-admin/dist/assets/",
+        "copy": "cp -r dist/site/ ../gdi-admin/dist/site/",
+        "copy:assets": "cp -r dist/site/assets/ ../gdi-admin/dist/assets/",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.24",
+        "@gdi/types": "^0.0.25",
         "@gdi/engine": "^0.0.20",
         "@gdi/store-site": "^0.0.20",
         "@gdi/template-blog": "^0.0.20",

@@ -32,6 +32,7 @@ declare global {
         avatarUrls?: IAvatarUrls;
         projectType?: string;
         color?: string;
+        order?: number;
     };
 
     export type ITicket = {
@@ -51,6 +52,7 @@ declare global {
         blockId?: string;
         projectId: string;
         projectKey: string;
+        order?: number;
     };
 
     export type ISession = {
@@ -74,6 +76,7 @@ declare global {
         timeSpentSeconds: number;
         comment: any;
         author: string;
+        order?: number;
     };
 
     export type IRecentSession = {
