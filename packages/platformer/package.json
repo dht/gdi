@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@gdi/store-auth": "^0.0.20",
-        "@gdi/types": "^0.0.25",
+        "@gdi/types": "^0.0.28",
         "@gdi/web-ui": "^0.0.23",
         "axios": "^0.27.2",
         "axios-oauth": "^0.0.3",
@@ -28,7 +28,7 @@
         "react-use": "^17.4.0",
         "redux": "^4.2.0",
         "redux-connected": "^0.0.100",
-        "redux-store-generator": "^0.9.83",
+        "redux-store-generator": "^0.9.85",
         "redux-thunk": "^2.4.1",
         "reselect": "^4.1.6",
         "saga-ts": "^0.0.3",

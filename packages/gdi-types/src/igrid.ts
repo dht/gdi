@@ -44,6 +44,7 @@ declare global {
         isPlaceholder?: boolean;
         placeholderType?: string;
         pageId?: string;
+        locationId?: string;
         order?: number;
     };
 

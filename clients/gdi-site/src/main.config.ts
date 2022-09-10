@@ -8,7 +8,7 @@ export const config = {
     version: p.version,
     baseURL,
     firebaseConfig,
-    initialRoute: '/admin/devtools/sheets',
+    initialRoute: '/',
     initializers: {
         mixer: initAppMixer,
     },

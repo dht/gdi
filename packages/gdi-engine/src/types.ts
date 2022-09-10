@@ -11,6 +11,8 @@ export type IBlockInfo = {
     dimensions: IDimensionsPerFlavour;
     screenshots: IScreenshotsPerFlavour;
     tags: string[];
+    blockType?: string;
+    isWidget?: boolean;
 };
 
 export type IBlockParams = {

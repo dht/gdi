@@ -15,7 +15,7 @@
         "@gdi/store-site": "^0.0.20",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
-        "@gdi/types": "^0.0.25",
+        "@gdi/types": "^0.0.28",
         "@gdi/web-forms": "^0.0.20",
         "@gdi/web-ui": "^0.0.23",
         "@testing-library/react": "^13.3.0",

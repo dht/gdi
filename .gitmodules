@@ -25,3 +25,6 @@
 [submodule "submodules/isokit"]
 	path = submodules/isokit
 	url = git@github.com:dht/isokit.git
+[submodule "submodules/redux-store-generator"]
+	path = submodules/redux-store-generator
+	url = git@github.com:dht/redux-store-generator.git

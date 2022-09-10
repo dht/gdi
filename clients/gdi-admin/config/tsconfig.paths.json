@@ -4,10 +4,12 @@
         "paths": {
             "@gdi/app-login": ["apps/app-login"],
             "@gdi/app-mixer": ["apps/app-mixer"],
+            "@gdi/app-factory": ["apps/app-factory"],
 
             "@gdi/store-mixer": ["stores/gdi-store-mixer"],
             "@gdi/store-auth": ["submodules/gdi-extra/stores/gdi-store-auth"],
             "@gdi/store-site": ["stores/gdi-store-site"],
+            "@gdi/store-factory": ["stores/gdi-store-factory"],
 
             "@gdi/template-gdi": ["templates/gdi-template-gdi"],
             "@gdi/template-blog": ["templates/gdi-template-blog"],
@@ -18,6 +20,8 @@
             "@gdi/web-forms": ["packages/gdi-web-forms"],
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],
+
+            "redux-store-generator": ["submodules/redux-store-generator"],
             "redux-connected": ["submodules/redux-connected"],
             "redux-connected-devtools": ["submodules/redux-connected-devtools"],
             "shared-base": ["submodules/shared-base"],

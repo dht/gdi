@@ -14,6 +14,7 @@ declare global {
         images: IImages;
         spacing: ISpacing;
         fonts: IFonts;
+        breakpoints: IBreakpoints;
         blocks: Record<string, IBlockInfo>;
         instancesBlocks: IBlockInstances;
         instancesMapColors: Json;
@@ -124,4 +125,15 @@ declare global {
         fontFamily: string;
         fontWeight: string;
     };
+
+    export type IBreakpoint = {
+        id: string;
+        screenWidth: number;
+        screenHeight: number;
+        minWidth: number;
+        maxWidth?: number;
+        containerWidth: number;
+    };
+
+    export type IBreakpoints = Record<string, IBreakpoint>;
 }

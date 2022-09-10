@@ -8,9 +8,9 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.25",
+        "@gdi/types": "^0.0.28",
         "lodash": "^4.17.21",
-        "redux-store-generator": "^0.9.83",
+        "redux-store-generator": "^0.9.85",
         "reselect": "^4.1.6"
     },
     "devDependencies": {
