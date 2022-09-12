@@ -2,7 +2,7 @@ import { Icon } from '@fluentui/react';
 import React from 'react';
 import { Container, Item } from './Toolbar.style';
 import classnames from 'classnames';
-import { useKey } from '../../hooks/useKey';
+import { useKey } from '@gdi/hooks';
 import { IToolbarItem } from '../../types';
 
 export type ToolbarProps = {

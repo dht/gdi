@@ -1,5 +1,6 @@
 import { Hero } from './hero-simple/Hero';
 import { blockInfo as heroInfo } from './hero-simple';
+import { widgets } from '../widgets';
 
 export const blocks: IBlocks = {
     'com.usegdi.templates.blog.hero-simple': {
@@ -7,11 +8,5 @@ export const blocks: IBlocks = {
         component: Hero,
         info: heroInfo,
     },
+    ...widgets,
 };
-
-// const i = Object.values(blocks).reduce((output, i) => {
-//     output[i.id] = i.info;
-//     return output;
-// }, {} as Json);
-
-// console.log(JSON.stringify(i, null, 4));

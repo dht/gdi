@@ -21,7 +21,7 @@ import {
     BarSelect,
     ColorPicker,
     Checkbox,
-} from '@gdi/web-ui';
+} from '@gdi/web-base-ui';
 import { useController, Control, useFormContext } from 'react-hook-form';
 import { sortBy } from '../../utils/sortBy';
 

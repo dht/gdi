@@ -5,6 +5,7 @@ export const routes: IRoutes = {
     mixer: `${ROOT}`,
     imageGallery: `${ROOT}/imageGallery`,
     layoutGallery: `${ROOT}/layoutGallery`,
+    flexDesigner: `${ROOT}/flexDesigner`,
     preview_static: `/preview`,
 };
 
@@ -32,6 +33,14 @@ export const menuItems: IMenuItem[] = [
         groupId: 'site',
         showOnSlim: false,
         order: 2,
+    },
+    {
+        path: routes.flexDesigner,
+        icon: 'ViewDashboard',
+        label: 'Flex Designer',
+        groupId: 'site',
+        showOnSlim: true,
+        order: 3,
     },
 ];
 

@@ -66,14 +66,6 @@ export const instances: IWidgetInstancesByPageList = {
             isTransparent: true,
             allowOverflow: true,
         },
-        {
-            id: 'FlexDesigner',
-            widgetId: MixerWidgets.FlexDesigner,
-            position: { y: 1, x: 1 },
-            dimension: { y: 1, x: 1 },
-            isTransparent: true,
-            allowOverflow: true,
-        },
     ],
     imageGallery: [
         {

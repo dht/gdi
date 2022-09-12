@@ -7,7 +7,7 @@ import {
     Span,
     Link,
 } from './Submit.style';
-import { Button, Checkbox } from '@gdi/web-ui';
+import { Button, Checkbox } from '@gdi/web-base-ui';
 import { IFormSubmit, ISubmitAgreement } from '../../types';
 import { useSetState } from 'react-use';
 

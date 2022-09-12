@@ -3,7 +3,7 @@ import { Container, ContainerNewItem, Title } from './MixerVisual.style';
 import { EngineEdit, LibraryBuilder } from '@gdi/engine';
 import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
-import { useDelete } from '@gdi/web-ui';
+import { useDelete } from '@gdi/hooks';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
 

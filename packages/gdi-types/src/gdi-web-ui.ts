@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A14 = {};
+export const A18 = {};
 
 declare global {
     export type IColorPalette = {
@@ -20,27 +20,4 @@ declare global {
         timestamp?: number;
         timestampText?: string;
     } & Json;
-
-    export type CellType =
-        | 'image'
-        | 'person'
-        | 'number'
-        | 'text'
-        | 'tags'
-        | 'date'
-        | 'social';
-
-    export type DataGridField = {
-        id: string;
-        title?: string;
-        cellType: CellType;
-        mapFields?: Json;
-        flex?: number;
-        params?: Json;
-    };
-
-    export type DataGridConfig = {
-        id: string;
-        fields: DataGridField[];
-    };
 }

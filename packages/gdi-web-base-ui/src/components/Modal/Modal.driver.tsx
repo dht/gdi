@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { ModalBase, ModalProps } from './Modal';
+import { Modal, ModalProps } from './Modal';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ModalDriver extends BaseComponentDriver {
@@ -12,7 +12,7 @@ export class ModalDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ModalBase {...(this.props as ModalProps)} />);
+            render(<Modal {...(this.props as ModalProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,7 +20,7 @@ export class ModalDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ModalBase {...(this.props as ModalProps)} />);
+            return this.snapshot(<Modal {...(this.props as ModalProps)} />);
         },
     };
 

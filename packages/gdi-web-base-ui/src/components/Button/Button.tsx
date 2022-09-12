@@ -4,7 +4,7 @@ import {
     IContextualMenuProps,
     PrimaryButton,
 } from '@fluentui/react';
-import { useShortKey, useShortKeys } from '../../hooks/useShortKeys';
+import { useShortKey, useShortKeys } from '@gdi/hooks';
 import { IOption } from '../../types';
 
 export type ButtonProps = {

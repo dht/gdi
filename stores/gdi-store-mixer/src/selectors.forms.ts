@@ -1,7 +1,5 @@
 import * as base from './selectors.base';
 import { createSelector } from 'reselect';
-import { FieldType } from '@gdi/web-forms';
-import { IFormConfig, IFormField } from '@gdi/web-forms';
 import { IMixerStore } from './types';
 import { sortBy } from 'shared-base';
 import { upperFirst } from 'lodash';

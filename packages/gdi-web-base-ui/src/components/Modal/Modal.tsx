@@ -30,7 +30,7 @@ const dragOptions: IDragOptions = {
     dragHandleSelector: '.header',
 };
 
-export function ModalBase(props: ModalProps) {
+export function Modal(props: ModalProps) {
     const { open = false, title, ariaLabel } = props;
     const ref = useRef(null);
 
@@ -53,7 +53,7 @@ export function ModalBase(props: ModalProps) {
                     border: '3px solid gold',
                 },
             }}
-            containerClassName='modal-container'
+            containerClassName='Modal-container'
             dragOptions={dragOptions}
             isDarkOverlay={true}
         >
@@ -72,4 +72,4 @@ export function ModalBase(props: ModalProps) {
     );
 }
 
-export default ModalBase;
+export default Modal;

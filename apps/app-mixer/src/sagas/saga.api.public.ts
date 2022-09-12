@@ -3,6 +3,8 @@ import { delay, fork, put } from 'saga-ts';
 import { $s } from 'shared-base';
 
 function* apiPublic() {
+    return;
+
     $s('apiPublic', {
         nodes: [
             'blocks',
