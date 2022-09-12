@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
+import { Modal } from '@gdi/web-base-ui';
 import { Button, Checkbox, Icon } from '@gdi/web-base-ui';
 import { useLocalStorage, useToggle } from 'react-use';
 import {

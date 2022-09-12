@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@gdi/store-site": "^0.0.20",
-        "@gdi/types": "^0.0.28",
+        "@gdi/types": "^0.0.29",
         "lodash": "^4.17.21",
         "redux-store-generator": "^0.9.85",
         "reselect": "^4.1.6"

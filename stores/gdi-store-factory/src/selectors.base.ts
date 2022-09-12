@@ -10,7 +10,7 @@ export const $layouts = createSelector(
 
         return Object.values(layouts).reduce((output, layout) => {
             const { id } = layout;
-            const items = layout.items.filter(
+            const items = (layout.items || []).filter(
                 (i) => i.resolution === resolutionId
             );
 

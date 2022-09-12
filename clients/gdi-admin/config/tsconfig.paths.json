@@ -18,6 +18,10 @@
             "@gdi/web-ui": ["packages/gdi-web-ui"],
             "@gdi/galleries": ["packages/gdi-galleries"],
             "@gdi/web-forms": ["packages/gdi-web-forms"],
+            "@gdi/web-tables": ["packages/gdi-web-tables"],
+            "@gdi/web-sheets": ["packages/gdi-web-sheets"],
+            "@gdi/web-editors": ["packages/gdi-web-editors"],
+            "@gdi/hooks": ["packages/gdi-hooks"],
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],
 

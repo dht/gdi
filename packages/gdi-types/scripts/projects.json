@@ -64,9 +64,29 @@
         "path": "packages/gdi-web-forms",
         "types": "src/types.ts"
     },
+    "gdi-web-tables": {
+        "id": "gdi-web-tables",
+        "path": "packages/gdi-web-tables",
+        "types": "src/types.ts"
+    },
     "gdi-web-base-ui": {
         "id": "gdi-web-base-ui",
         "path": "packages/gdi-web-base-ui",
+        "types": "src/types.ts"
+    },
+    "gdi-web-editors": {
+        "id": "gdi-web-editors",
+        "path": "packages/gdi-web-editors",
+        "types": "src/types.ts"
+    },
+    "gdi-hooks": {
+        "id": "gdi-hooks",
+        "path": "packages/gdi-hooks",
+        "types": "src/types.ts"
+    },
+    "gdi-web-sheets": {
+        "id": "gdi-web-sheets",
+        "path": "packages/gdi-web-sheets",
         "types": "src/types.ts"
     },
     "gdi-web-ui": {

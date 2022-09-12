@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './Content.style';
-import { Form } from '@gdi/web-forms';
+import { Form } from '@gdi/web-ui';
 import { allDetails } from './meta/Content.details';
 
 export type ContentProps = {

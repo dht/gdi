@@ -36,6 +36,8 @@ function* deleteFlex() {
 }
 
 export function* root() {
+    yield put(actions.layouts.getItems('l1', {}));
+
     yield takeEvery('SPLIT_FLEX', splitFlex);
     yield takeEvery('DELETE_FLEX', deleteFlex);
 }

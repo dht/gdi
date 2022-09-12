@@ -7,36 +7,18 @@ export const endpointsConfigOverrides: any = {
         id: 'appStateFactory',
         connectionType: 'NONE',
     },
-    currentIds: {
+    currentIdsFactory: {
         id: 'currentIds',
         connectionType: 'NONE',
     },
-    pages: {
-        id: 'pages',
+    layouts: {
+        id: 'layouts',
         connectionType: 'FIRESTORE',
+        optimistic: true,
     },
-    libraryImages: {
-        id: 'libraryImages',
+    customBlocks: {
+        id: 'customBlocks',
         connectionType: 'FIRESTORE',
-    },
-    libraryBlocks: {
-        id: 'libraryBlocks',
-        connectionType: 'FIRESTORE',
-    },
-    libraryTypography: {
-        id: 'libraryTypography',
-        connectionType: 'FIRESTORE',
-    },
-    libraryPalettes: {
-        id: 'libraryPalettes',
-        connectionType: 'FIRESTORE',
-    },
-    locales: {
-        id: 'locales',
-        connectionType: 'FIRESTORE',
-    },
-    packages: {
-        id: 'packages',
-        connectionType: 'FIRESTORE',
+        optimistic: true,
     },
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Logo } from '../Logo/Logo';
-import { Icon } from '@gdi/web-base-ui';
+import { Icon, Logo } from '@gdi/web-base-ui';
 import { Link } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useSetState, useToggle } from 'react-use';

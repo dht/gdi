@@ -9,8 +9,8 @@ export const initialState: IFactoryStore = {
         selectedToolId: 'data',
     },
     currentIdsFactory: {
-        layoutId: '1',
-        customBlockId: '1',
+        layoutId: 'l1',
+        customBlockId: 'b1',
         flexEntityId: '',
         widgetId: '',
         resolutionId: '1080p',
@@ -59,8 +59,8 @@ export const reducers = generateReducersForStore<IFactoryStore>(initialState);
 
 export const clearState = (store: any) => {
     setTimeout(() => {
-        // store.dispatch(actions.layouts.setAll({}));
-        // store.dispatch(actions.customBlocks.setAll({}));
+        store.dispatch(actions.layouts.setAll({}));
+        store.dispatch(actions.customBlocks.setAll({}));
     });
     return store;
 };

@@ -14,20 +14,20 @@ export const state: IFactoryStore = {
         resolutionId: '',
     },
     layouts: {
-        '1': {
-            id: '1',
+        l1: {
+            id: 'l1',
             name: 'two columns',
             items: [
                 {
-                    id: 1,
-                    parentId: 0,
+                    id: 'i1',
+                    parentId: '0',
                     entityType: 'container',
                     resolution: '1080p',
                     locationId: 'left_1',
                 },
                 {
-                    id: 2,
-                    parentId: 1,
+                    id: 'i2',
+                    parentId: '1',
                     entityType: 'item',
                     resolution: '1080p',
                     locationId: 'left_2',
@@ -36,13 +36,13 @@ export const state: IFactoryStore = {
         },
     },
     customBlocks: {
-        '1': {
-            id: '1',
+        b1: {
+            id: 'b1',
             name: '',
-            layoutId: '1',
+            layoutId: 'l1',
             items: [
                 {
-                    id: '1',
+                    id: 'i1',
                     widgetId: 'widget',
                     locationId: 'left_1',
                 },

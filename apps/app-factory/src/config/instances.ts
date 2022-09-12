@@ -38,4 +38,24 @@ export const instances: IWidgetInstancesByPageList = {
             isTransparent: true,
         },
     ],
+    layouts: [
+        {
+            id: 'Factory',
+            widgetId: FactoryWidgets.Layouts,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: false,
+            allowOverflow: false,
+        },
+    ],
+    customBlocks: [
+        {
+            id: 'Factory',
+            widgetId: FactoryWidgets.CustomBlocks,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: false,
+            allowOverflow: false,
+        },
+    ],
 };

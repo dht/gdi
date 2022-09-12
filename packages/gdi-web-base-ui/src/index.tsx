@@ -1,24 +1,35 @@
 export { Accordion } from './components/Accordion/Accordion';
 export { Avatar } from './components/Avatar/Avatar';
+export { BarSelect } from './components/BarSelect/BarSelect';
 export { Button } from './components/Button/Button';
-export { Dropdown } from './components/Dropdown/Dropdown';
 export { Checkbox } from './components/Checkbox/Checkbox';
+export { CircularProgress } from './components/CircularProgress/CircularProgress';
 export { ColorPicker } from './components/ColorPicker/ColorPicker';
-export { DateInput as Date } from './components/Date/Date';
+export { DateInput } from './components/DateInput/DateInput';
+export { Drawer } from './components/Drawer/Drawer';
+export { Dropdown } from './components/Dropdown/Dropdown';
+export { Empty } from './components/Empty/Empty';
+export { GliLogo } from './components/GliLogo/GliLogo';
 export { ImageUpload } from './components/ImageUpload/ImageUpload';
-export { TagsInput } from './components/TagsInput/TagsInput';
-export { Search } from './components/Search/Search';
-export { SpinButton } from './components/SpinButton/SpinButton';
 export { Input } from './components/Input/Input';
 export { InputHidden } from './components/InputHidden/InputHidden';
-export { UserMenu } from './components/UserMenu/UserMenu';
-export { Slider } from './components/Slider/Slider';
+export { KeyValue } from './components/KeyValue/KeyValue';
+export { Logo } from './components/Logo/Logo';
+export { Modal } from './components/Modal/Modal';
 export { PhoneInput } from './components/PhoneInput/PhoneInput';
-export { ModalBase } from './components/Modal/Modal';
-export { Drawer } from './components/Drawer/Drawer';
+export { ProgressBar } from './components/ProgressBar/ProgressBar';
+export { ProgressBarVertical } from './components/ProgressBarVertical/ProgressBarVertical';
+export { Search } from './components/Search/Search';
+export { Slider } from './components/Slider/Slider';
+export { SocialIcon } from './components/SocialIcon/SocialIcon';
+export { SpinButton } from './components/SpinButton/SpinButton';
 export { Switch } from './components/Switch/Switch';
+export { Tag } from './components/Tag/Tag';
+export { Tags } from './components/Tags/Tags';
+export { TagsInput } from './components/TagsInput/TagsInput';
 export { Toolbar } from './components/Toolbar/Toolbar';
-export { CircularProgress } from './components/CircularProgress/CircularProgress';
+export { UserMenu } from './components/UserMenu/UserMenu';
+export { WireFrames } from './components/WireFrames/WireFrames';
 export { Breadcrumb, Icon, IconButton, Pivot, Callout } from '@fluentui/react';
 export { initializeIcons, ThemeProvider } from '@fluentui/react';
 export type {
@@ -31,13 +42,5 @@ export type {
     IEffects,
     IRawStyle,
 } from '@fluentui/react';
-export { useArrows } from './hooks/useArrows';
-export { useKey } from './hooks/useKey';
-export { useSpace } from './hooks/useSpace';
-export { useDelete } from './hooks/useDelete';
-export { useEnter } from './hooks/useEnter';
-export { useEscape } from './hooks/useEscape';
-export { useStartTyping } from './hooks/useStartTyping';
-export { useNudge } from './hooks/useNudge';
-export { useShortKeys, useShortKey } from './hooks/useShortKeys';
+
 export * from './types';

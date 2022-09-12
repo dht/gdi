@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
-import { useDelete, useKey } from '@gdi/web-base-ui';
+import { useDelete, useKey } from '@gdi/hooks';
 import { max } from 'lodash';
 
 export type ILayoutDesignerContext = {

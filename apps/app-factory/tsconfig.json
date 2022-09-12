@@ -9,6 +9,7 @@
         "forceConsistentCasingInFileNames": true,
         "declaration": true,
         "declarationDir": "dist/dts",
+        "resolveJsonModule": true,
         "strict": true,
         "skipLibCheck": true,
         "baseUrl": "../../",

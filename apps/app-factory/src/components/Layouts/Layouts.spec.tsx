@@ -1,0 +1,53 @@
+import { LayoutsDriver } from './Layouts.driver';
+import Chance from 'chance';
+
+const chance = new Chance();
+
+describe('Layouts', () => {
+    let driver: LayoutsDriver;
+
+    beforeAll(() => {
+        driver = new LayoutsDriver();
+    });
+
+    it('should render button', () => {
+        const label = chance.word();
+
+        const element = driver.given
+            .props({
+                title: label,
+            })
+            .when.rendered();
+
+        const containerClassName = element.get.containerClassName();
+        const innerText = element.get.label();
+
+        expect(containerClassName).toContain('Layouts-container');
+        expect(innerText).toBe(label);
+    });
+
+    it('should click button', () => {
+        const callback = jest.fn();
+
+        driver.given
+            .props({
+                onClick: callback,
+            })
+            .when.rendered()
+            .when.clicked();
+
+        expect(callback).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('Layouts snapshots', () => {
+    let driver: LayoutsDriver;
+
+    beforeAll(() => {
+        driver = new LayoutsDriver();
+    });
+
+    it('should match snapshot', () => {
+        expect(driver.when.snapshot()).toMatchSnapshot();
+    });
+});

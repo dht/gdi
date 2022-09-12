@@ -1,0 +1,57 @@
+id: PeopleTable
+fields:
+    - id: imageUrl
+      title: Image
+      cellType: image
+      mapFields: { imageUrl: thumbUrl }
+      flex: 1
+    - id: name
+      title: Name
+      cellType: person
+      mapFields:
+          firstName: firstName
+          lastName: lastName
+          description: shortDescription
+      flex: 3
+    - id: age
+      title: Age
+      cellType: number
+      mapFields: { value: age }
+      flex: 1
+    - id: dateOfBirth
+      title: Date of birth
+      cellType: date
+      mapFields: { value: dateOfBirth }
+      flex: 2
+    - id: social
+      cellType: social
+      title: Social
+      mapFields:
+          twitter: socialTwitterUrl
+          facebook: socialFacebookUrl
+          instagram: socialInstagramUrl
+          linkedIn: socialLinkedInUrl
+          wikipedia: wikipediaUrl
+          web: website,
+      flex: 3
+    - id: tags
+      title: Tags
+      cellType: tags
+      mapFields: { value: tags }
+      flex: 5
+    - id: lastContact
+      title: Last contact
+      cellType: date
+      mapFields: { value: dateOfBirth }
+      flex: 2
+    - id: company
+      title: Position
+      cellType: text
+      mapFields: { value: company, value2: jobTitle }
+      flex: 4
+    - id: netWorth
+      cellType: number
+      title: Net worth
+      mapFields: { value: netWorth }
+      flex: 3
+      params: { units: 'M$' }

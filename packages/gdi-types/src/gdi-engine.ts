@@ -16,6 +16,8 @@ declare global {
         dimensions: IDimensionsPerFlavour;
         screenshots: IScreenshotsPerFlavour;
         tags: string[];
+        blockType?: string;
+        isWidget?: boolean;
     };
 
     export type IBlockParams = {

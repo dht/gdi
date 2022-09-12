@@ -5,7 +5,7 @@ import { LayoutContextProvider } from '../../context/LayoutDesigner.context';
 import TopBar from '../TopBar/TopBar';
 import classnames from 'classnames';
 import { sortBy } from 'shared-base';
-import { useDelete, useKey } from '@gdi/web-ui';
+import { useDelete, useKey } from '@gdi/hooks';
 
 type ActionType = 'splitVertically' | 'splitHorizontally' | 'delete';
 

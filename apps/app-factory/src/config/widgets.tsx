@@ -4,12 +4,16 @@ import { FactoryContainer } from '../containers/FactoryContainer';
 import { FactoryPanel } from '../components/FactoryPanel/FactoryPanel';
 import { ImportExportContainer } from '../containers/singles/ImportExportContainer';
 import { DesignerTreeContainer } from '../containers/singles/DesignerTreeContainer';
+import { LayoutsContainer } from '../containers/LayoutsContainer';
+import { CustomBlocksContainer } from '../containers/CustomBlocksContainer';
 
 export enum FactoryWidgets {
     Factory = 'factory.Factory',
     FactoryPanel = 'factory.FactoryPanel',
     ImportExport = 'factory.ImportExport',
     DesignerTree = 'factory.DesignerTree',
+    Layouts = 'factory.Layouts',
+    CustomBlocks = 'factory.CustomBlocks',
 }
 export const widgets: IWidget[] = [
     {
@@ -51,5 +55,25 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <DesignerTreeContainer {...props} />,
+    },
+    {
+        id: FactoryWidgets.Layouts,
+        name: 'Layouts',
+        description: 'Layouts',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <LayoutsContainer {...props} />,
+    },
+    {
+        id: FactoryWidgets.CustomBlocks,
+        name: 'CustomBlocks',
+        description: 'CustomBlocks',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <CustomBlocksContainer {...props} />,
     },
 ];

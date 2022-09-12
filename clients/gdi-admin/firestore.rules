@@ -16,6 +16,16 @@ service cloud.firestore {
     }
     
     
+       match /layouts/{document=**} {
+      		allow read;
+      		allow write: if isAdmin();
+    		}
+        
+          match /customBlocks/{document=**} {
+      		allow read;
+      		allow write: if isAdmin();
+    		}
+        
      match /singles/{name} {
       allow read: if isPublic(name) || isAdmin();
       allow write: if isAdmin();
