@@ -10,12 +10,12 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.29",
+        "@gdi/types": "^0.0.30",
         "@gdi/engine": "^0.0.20",
         "@gdi/store-site": "^0.0.20",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
-        "@gdi/web-ui": "^0.0.24",
+        "@gdi/web-ui": "^0.0.25",
         "firebaseui": "^6.0.1",
         "redux-connected": "^0.0.100",
         "igrid": "^0.0.15",
@@ -25,7 +25,7 @@
         "react-toastify": "^9.0.7",
         "react-use": "^17.4.0",
         "saga-ts": "^0.0.3",
-        "shared-base": "^0.0.12",
+        "shared-base": "^0.0.16",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",
         "types-base": "^0.0.2"

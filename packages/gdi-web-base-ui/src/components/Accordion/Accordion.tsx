@@ -1,17 +1,25 @@
 import React, { Key, useCallback } from 'react';
-import { Chevron, Container, Header, Title, Content } from './Accordion.style';
-import { useSetState, useMount } from 'react-use';
+import { Chevron, Container, Content, Header, Title } from './Accordion.style';
 import { Icon } from '@fluentui/react';
+import { useMount, useSetState } from 'react-use';
 
 export type AccordionProps = {
-    children: JSX.Element[];
+    children: JSX.Element | JSX.Element[];
+    initialPanel?: string;
 };
 
 export function Accordion(props: AccordionProps) {
+    const { initialPanel } = props;
     const [state, patchState] = useSetState<Record<string, boolean>>({});
 
+    const children = Array.isArray(props.children)
+        ? props.children
+        : [props.children];
+
     useMount(() => {
-        patchState({ Library: true });
+        if (initialPanel) {
+            patchState({ [initialPanel]: true });
+        }
     });
 
     const togglePanel = useCallback(
@@ -19,7 +27,7 @@ export function Accordion(props: AccordionProps) {
             const solo = ev.altKey || ev.metaKey || ev.ctrlKey;
 
             if (solo) {
-                const keys = props.children.map((item) => item.key);
+                const keys = children.map((item) => item.key);
                 const change = keys.reduce(
                     (output, key) => ({ ...output, [key || '']: false }),
                     {}
@@ -62,7 +70,7 @@ export function Accordion(props: AccordionProps) {
             className='Accordion-container'
             data-testid='Accordion-container'
         >
-            {renderPanels(props.children)}
+            {renderPanels(children)}
         </Container>
     );
 }

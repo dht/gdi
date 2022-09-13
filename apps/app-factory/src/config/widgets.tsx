@@ -1,30 +1,39 @@
 import React from 'react';
 import { IWidget } from '@gdi/platformer';
-import { FactoryContainer } from '../containers/FactoryContainer';
 import { FactoryPanel } from '../components/FactoryPanel/FactoryPanel';
-import { ImportExportContainer } from '../containers/singles/ImportExportContainer';
+import { ImportExportLayoutContainer } from '../containers/singles/ImportExportLayoutContainer';
 import { DesignerTreeContainer } from '../containers/singles/DesignerTreeContainer';
+import { ModalFlexPropertiesContainer } from '../containers/modals/ModalFlexPropertiesContainer';
 import { LayoutsContainer } from '../containers/LayoutsContainer';
+import { LayoutContainer } from '../containers/LayoutContainer';
 import { CustomBlocksContainer } from '../containers/CustomBlocksContainer';
+import { CustomBlocksSubContainer } from '../containers/CustomBlocksSubContainer';
+import { CurrentIdsHoc } from '@gdi/platformer';
+import { actions } from '../store';
 
 export enum FactoryWidgets {
-    Factory = 'factory.Factory',
     FactoryPanel = 'factory.FactoryPanel',
-    ImportExport = 'factory.ImportExport',
+    ImportExportLayouts = 'factory.ImportExportLayouts',
     DesignerTree = 'factory.DesignerTree',
     Layouts = 'factory.Layouts',
+    Layout = 'factory.Layout',
+    Properties = 'factory.Properties',
     CustomBlocks = 'factory.CustomBlocks',
+    CustomBlock = 'factory.CustomBlock',
 }
 export const widgets: IWidget[] = [
     {
-        id: FactoryWidgets.Factory,
-        name: 'Factory',
-        description: 'Factory',
+        id: FactoryWidgets.Layout,
+        name: 'Layout',
+        description: 'Layout',
         defaultDimension: {
             y: 16,
             x: 12,
         },
-        component: (props: any) => <FactoryContainer {...props} />,
+        component: (props: any) =>
+            CurrentIdsHoc(actions.currentIdsFactory.patch)(
+                <LayoutContainer {...props} />
+            ),
     },
     {
         id: FactoryWidgets.FactoryPanel,
@@ -37,14 +46,14 @@ export const widgets: IWidget[] = [
         component: (props: any) => <FactoryPanel {...props} />,
     },
     {
-        id: FactoryWidgets.ImportExport,
+        id: FactoryWidgets.ImportExportLayouts,
         name: 'Export',
-        description: 'ImportExport',
+        description: 'ImportExportLayouts',
         defaultDimension: {
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ImportExportContainer {...props} />,
+        component: (props: any) => <ImportExportLayoutContainer {...props} />,
     },
     {
         id: FactoryWidgets.DesignerTree,
@@ -75,5 +84,25 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <CustomBlocksContainer {...props} />,
+    },
+    {
+        id: FactoryWidgets.CustomBlock,
+        name: 'CustomBlock',
+        description: 'CustomBlock',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <CustomBlocksSubContainer {...props} />,
+    },
+    {
+        id: FactoryWidgets.Properties,
+        name: 'PropertiesModal',
+        description: 'PropertiesModal',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <ModalFlexPropertiesContainer {...props} />,
     },
 ];

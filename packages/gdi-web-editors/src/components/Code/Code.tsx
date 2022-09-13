@@ -1,38 +1,42 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Container } from './Code.style';
 import MonacoEditor, { Monaco } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 
-export type CodeProps = {};
+export type CodeProps = {
+    value?: string;
+    onChange: (value?: string) => void;
+    height: string | number;
+    schema?: Schema | Schema[];
+};
+
+export type Schema = {
+    uri: string;
+    fileMatch?: string[];
+    schema?: Json;
+};
 
 export function Code(props: CodeProps) {
-    const [code, setCode] = useState('');
+    const { value, height, schema } = props;
 
     function onEditorMount(editor: any, monaco: Monaco) {
-        var schema1 = {
-            uri: 'http://myserver/foo-schema.json', // id of the first schema
-            fileMatch: ['*'],
-            schema: {
-                type: 'object',
-                properties: {
-                    p1: {
-                        enum: ['v1', 'v2'],
-                    },
-                },
-            },
-        };
+        if (schema) {
+            monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+                validate: true,
+                schemas: Array.isArray(schema) ? schema : [schema],
+            });
+        }
 
-        monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-            validate: true,
-            schemas: [schema1],
+        setTimeout(() => {
+            editor.focus();
         });
     }
 
     function onChange(
         value: string | undefined,
-        ev: monaco.editor.IModelContentChangedEvent
+        _ev: monaco.editor.IModelContentChangedEvent
     ) {
-        console.log('onChange', ev, value);
+        props.onChange(value);
     }
 
     const options: monaco.editor.IStandaloneEditorConstructionOptions = {
@@ -44,10 +48,10 @@ export function Code(props: CodeProps) {
         <Container className='Code-container' data-testid='Code-container'>
             <MonacoEditor
                 defaultLanguage='json'
-                height='90vh'
                 onMount={onEditorMount}
                 theme='vs-dark'
-                value={code}
+                defaultValue={value}
+                height={typeof height === 'number' ? height + 'px' : height}
                 options={options}
                 onChange={onChange}
             />

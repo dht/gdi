@@ -172,6 +172,8 @@ const map: Record<CellType, FC<TableCellProps>> = {
     person: TableCellPerson,
     number: TableCellNumber,
     text: TableCellText,
+    id: TableCellText,
+    timeAgo: TableCellText,
     tags: TableCellTags,
     date: TableCellDate,
     social: TableCellSocial,

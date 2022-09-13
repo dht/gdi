@@ -11,10 +11,11 @@
         "deploy:functions": "firebase deploy --only functions"
     },
     "dependencies": {
+        "@babylonjs/core": "^5.23.0",
         "@gdi/app-login": "^0.0.23",
         "@gdi/app-mixer": "^0.0.25",
         "@gdi/platformer": "^0.0.22",
-        "@gdi/types": "^0.0.29",
+        "@gdi/types": "^0.0.30",
         "date-fns": "^2.29.2",
         "igrid": "^0.0.15",
         "lodash": "^4.17.21",
@@ -22,7 +23,7 @@
         "react-dom": "^18.2.0",
         "react-toastify": "^9.0.7",
         "react-use": "^17.4.0",
-        "shared-base": "^0.0.12",
+        "shared-base": "^0.0.16",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",
         "types-base": "^0.0.2"

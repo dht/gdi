@@ -10,17 +10,19 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.29",
-        "@gdi/web-ui": "^0.0.24",
+        "@gdi/types": "^0.0.30",
+        "@gdi/web-ui": "^0.0.25",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",
         "lodash": "^4.17.21",
         "polished": "^4.2.2",
-        "react": "^18.2.0",
         "react-draggable": "^4.4.5",
         "react-router-dom": "^6.3.0",
         "react-use": "^17.4.0",
         "styled-components": "^5.3.5"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
     },
     "devDependencies": {
         "@testing-library/react": "^13.3.0",
@@ -38,7 +40,7 @@
         "rollup-plugin-analyzer": "^4.0.0",
         "rollup-plugin-copy": "^3.4.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.12",
+        "shared-base": "^0.0.16",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

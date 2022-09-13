@@ -3,7 +3,9 @@ import { Container } from './TableFilters.style';
 import { TableContext } from '../Table/Table.context';
 import Filters from '../Filters/Filters';
 
-export type TableFiltersProps = {};
+export type TableFiltersProps = {
+    config: ITableConfig;
+};
 
 export function TableFilters(_props: TableFiltersProps) {
     const context = useContext(TableContext);

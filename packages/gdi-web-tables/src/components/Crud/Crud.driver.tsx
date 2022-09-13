@@ -1,11 +1,11 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Crud, CrudProps } from './Crud';
+import { Crud } from './Crud';
 import { BaseComponentDriver } from 'testing-base';
+import { CrudProps } from './Crud.context';
 
 export class CrudDriver extends BaseComponentDriver {
-    private props: Partial<CrudProps> = {
-    };
+    private props: Partial<CrudProps> = {};
 
     constructor() {
         super('Crud');

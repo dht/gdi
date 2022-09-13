@@ -8,7 +8,7 @@ import {
     WarningIcon,
     WarningText,
 } from './Prompt.style';
-import { Modal, Input, Dropdown, Button, Icon } from '@gdi/web-ui';
+import { Modal, AutoComplete, Input, Button, Icon } from '@gdi/web-ui';
 
 export type PromptProps = {
     title: string;
@@ -20,10 +20,19 @@ export type PromptProps = {
 };
 
 export function Prompt(props: PromptProps) {
-    const [value, setValue] = useState('');
-    const { title, flavour, params, submitButtonText } = props;
-    const { description, warning } = params;
+    const {
+        title,
+        flavour,
+        params,
+
+        submitButtonText,
+    } = props;
+
+    const { description, warning, defaultValue = '' } = params;
+    const [value, setValue] = useState(defaultValue);
     const ref = useRef<HTMLDivElement>(null);
+
+    const focusOnSubmit = flavour === 'confirm';
 
     function onClose() {
         props.onCancel();
@@ -39,7 +48,18 @@ export function Prompt(props: PromptProps) {
             }
             return;
         }
+
         props.onSubmit(value);
+    }
+
+    function onKeyDown(ev: React.KeyboardEvent<HTMLInputElement>) {
+        if (ev.code !== 'Enter') {
+            return;
+        }
+
+        if (flavour === 'input' || (flavour === 'select' && ev.altKey)) {
+            onSubmit();
+        }
     }
 
     function renderDescription() {
@@ -79,6 +99,7 @@ export function Prompt(props: PromptProps) {
                             placeholder={params.placeholder}
                             label={params.label}
                             value={value}
+                            onKeyDown={onKeyDown}
                             onChange={(ev: any) => {
                                 setValue(ev.target.value || '');
                             }}
@@ -91,11 +112,12 @@ export function Prompt(props: PromptProps) {
                 return (
                     <Content>
                         {renderDescription()}
-                        <Dropdown
+                        <AutoComplete
                             placeholder={params.placeholder}
                             label={params.label}
                             ref={ref}
                             options={params.options}
+                            onKeyDown={onKeyDown}
                             onChange={setValue}
                         />
                         {renderWarning()}
@@ -104,8 +126,16 @@ export function Prompt(props: PromptProps) {
         }
     }
 
+    const focusOnClassName = focusOnSubmit ? '.ms-Button--primary' : '';
+
     return (
-        <Modal title={title} open={true} ariaLabel={title} onClose={onClose}>
+        <Modal
+            title={title}
+            open={true}
+            ariaLabel={title}
+            onClose={onClose}
+            focusOnClassName={focusOnClassName}
+        >
             <Container
                 className='Prompt-container'
                 data-testid='Prompt-container'

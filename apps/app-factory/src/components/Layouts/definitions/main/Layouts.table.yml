@@ -1,0 +1,28 @@
+id: LayoutsTable
+header: Layouts
+fields:
+    - id: id
+      title: Id
+      cellType: id
+    - id: name
+      title: Name
+      cellType: text
+      flex: 2
+    - id: _modifiedDate
+      title: Modified
+      cellType: timeAgo
+      flex: 1
+rowActions:
+    - id: drillDown
+      iconName: List
+      title: Show items
+    - id: edit
+      iconName: Edit
+      title: Edit
+    - id: delete
+      iconName: Delete
+      title: Delete
+tableActions:
+    - id: new
+      iconName: add
+      title: New item

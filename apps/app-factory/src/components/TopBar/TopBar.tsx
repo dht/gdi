@@ -1,81 +1,85 @@
 import React, { useContext } from 'react';
-import { Button, IToolbarItem, Tag } from '@gdi/web-ui';
-import { LayoutContext } from '../../context/LayoutDesigner.context';
+import { Button, IconButton } from '@gdi/web-ui';
 import Tools from '../Tools/Tools';
-import { options } from './TopBar.flex';
-import { Container, TagWrapper, ToolsWrapper } from './TopBar.style';
+import { options as optionsFlex } from './TopBar.options.flex';
+import { options as optionsReset } from './TopBar.options.reset';
+import { Container, H1, MindTheGap, ToggleView } from './TopBar.style';
 
 export type TopBarProps = {
-    selectedToolId?: string;
-    search: string;
-    viewMode: string;
-    tag?: string;
-    showTools: boolean;
+    header: string;
     children?: JSX.Element;
     callbacks: {
-        onViewChange: (viewId: string) => void;
-        onSearch: (search?: string) => void;
-        onSelectTool?: (toolId: string) => void;
-        onTagClick?: (tag: string) => void;
-        onTagClear?: () => void;
+        onAction: (action: string) => void;
+        onSeed: (whichId: string) => void;
+        onFlexChange: (flex: number) => void;
     };
+    flex?: number;
 };
 
 export function TopBar(props: TopBarProps) {
-    const context = useContext(LayoutContext);
-    const { selectedToolId, search, showTools, viewMode, tag, callbacks } =
-        props;
+    const { header, callbacks, flex = 1 } = props;
 
-    function onSelectTool(option: IToolbarItem) {
-        if (!callbacks.onSelectTool) {
-            return;
-        }
-        callbacks.onSelectTool(option.id);
+    function onMenuClickFlex(option: any) {
+        const flex = parseInt(option.id);
+        callbacks.onFlexChange(flex);
     }
 
-    function onTagClick() {
-        if (!callbacks.onTagClick) {
-            return;
-        }
-        callbacks.onTagClick(tag || '');
+    function onMenuClickReset(option: any) {
+        callbacks.onSeed(option.id);
     }
 
-    function onTagClear() {
-        if (!callbacks.onTagClear) {
-            return;
+    function onClick(item: any) {
+        switch (item.id) {
+            case 'edit':
+                callbacks.onAction('edit');
+                break;
+            case 'delete':
+                callbacks.onAction('delete');
+                break;
+            case 'splitHorizontally':
+                callbacks.onAction('splitHorizontally');
+                break;
+            case 'splitVertically':
+                callbacks.onAction('splitVertically');
+                break;
         }
-        callbacks.onTagClear();
-    }
-
-    function onMenuClick(option: any) {
-        console.log('option ->', option);
     }
 
     function renderTools() {
-        if (!showTools) {
-            return null;
-        }
-
         return (
             <>
-                <Tools selectedItemId={selectedToolId} onClick={onSelectTool} />
+                <H1 onDoubleClick={() => callbacks.onAction('renameLayout')}>
+                    {header}
+                </H1>
+                <Tools onClick={onClick} />
+                <ToggleView>
+                    <IconButton
+                        iconName='Back'
+                        onClick={() => callbacks.onAction('back')}
+                    />
+                    <IconButton
+                        iconName='ViewList'
+                        onClick={() => callbacks.onAction('mode')}
+                    />
+                </ToggleView>
+
                 <Button
+                    title={String(flex)}
                     selectedOptionId={'1'}
-                    onMenuClick={onMenuClick}
-                    options={options}
+                    onMenuClick={onMenuClickFlex}
+                    options={optionsFlex}
                     tooltip='Change Flex'
                 />
 
-                <TagWrapper>
-                    {tag && (
-                        <Tag
-                            tag={tag}
-                            color='cyan'
-                            onClick={onTagClick}
-                            onDelete={onTagClear}
-                        />
-                    )}
-                </TagWrapper>
+                <MindTheGap />
+
+                <Button
+                    iconName='Previous'
+                    selectedOptionId={'1'}
+                    onMenuClick={onMenuClickReset}
+                    options={optionsReset}
+                    tooltip='Reset structure'
+                />
             </>
         );
     }

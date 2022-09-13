@@ -6,6 +6,7 @@ const $n = (): null => null;
 const $o = (): void => {};
 
 export const $rawMeta = createSelector($i, (state: ISiteStore) => state.meta); // prettier-ignore
+export const $rawBreakpoints = createSelector($i, (state: ISiteStore) => state.breakpoints); // prettier-ignore
 export const $rawLocale = createSelector($i, (state: ISiteStore) => state.locale); // prettier-ignore
 export const $rawPages = createSelector($i, (state: ISiteStore) => state.pages); // prettier-ignore
 export const $rawPalette = createSelector($i, (state: ISiteStore) => state.palette); // prettier-ignore

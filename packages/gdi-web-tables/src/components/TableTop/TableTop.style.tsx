@@ -26,6 +26,7 @@ export const Action = styled.i<{ isOn?: boolean }>`
     font-size: 20px;
     background-color: #334;
     padding: 5px;
+    margin: 5px;
     border-radius: 5px;
     color: ${(props) => (props.isOn ? 'gold' : '#aab')};
     cursor: pointer;

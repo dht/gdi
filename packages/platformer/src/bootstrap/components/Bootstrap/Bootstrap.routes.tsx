@@ -28,7 +28,6 @@ export const MainRoutes = () => {
 
     useMount(() => {
         $s('main routes');
-
         if (noServerMode) {
             setTimeout(() => {
                 dispatch({ type: 'DEMO' });

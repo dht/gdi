@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Key, Pair, Value } from './KeyValue.style';
+import { Container, Key, Pair, Pre, Value } from './KeyValue.style';
 
 export type KeyValueProps = {
     data: Json;
@@ -11,11 +11,14 @@ export type KeyValueProps = {
 export function KeyValue(props: KeyValueProps) {
     const { data, customFields = [], flex = [1, 2] } = props;
 
+    function renderJson(json: Json) {
+        return <Pre>{JSON.stringify(json, null, 2)}</Pre>;
+    }
+
     function renderField(field: string) {
-        let value: string | JSX.Element =
-            typeof data[field] === 'string'
-                ? data[field]
-                : JSON.stringify(data[field]);
+        const isJson = typeof data[field] !== 'string';
+
+        let value: string | JSX.Element = data[field];
 
         if (customFields.includes(field) && props.renderCustomField) {
             value = props.renderCustomField(field, data[field]);
@@ -23,6 +26,10 @@ export function KeyValue(props: KeyValueProps) {
 
         if (!value && value !== 'false') {
             return null;
+        }
+
+        if (isJson) {
+            value = renderJson(data[field]);
         }
 
         return (

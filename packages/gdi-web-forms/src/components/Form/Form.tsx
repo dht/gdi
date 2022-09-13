@@ -48,7 +48,7 @@ export function Form(props: FormProps) {
         allOptions = {},
         allDetails = {},
         allMethods = {},
-        autoFocus,
+        autoFocus = true,
     } = props;
     const { layout, groups, fields, submit } = config;
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -62,7 +62,8 @@ export function Form(props: FormProps) {
         resolver: yupResolver(schema),
     });
 
-    const { handleSubmit, control, formState, watch, setValue } = methods;
+    const { handleSubmit, control, formState, watch, setValue, getValues } =
+        methods;
 
     useEffect(() => {
         const fillForm = (ev: any) => {
@@ -156,8 +157,23 @@ export function Form(props: FormProps) {
         });
     }
 
+    function checkShowIf(showIf: string, _field: IFormField) {
+        const [fieldId, fieldValue] = showIf.split('=');
+
+        const values = getValues();
+        const value = get(values, fieldId);
+
+        return value === fieldValue;
+    }
+
     function renderField(field: IFormField) {
-        const { id } = field;
+        const { id, showIf } = field;
+
+        if (showIf) {
+            if (!checkShowIf(showIf, field)) {
+                return;
+            }
+        }
 
         const errorKey = get(formState, `errors.${id}.message.key`);
         const errorMessage = props.t && errorKey ? props.t(errorKey) : errorKey;

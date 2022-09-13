@@ -15,6 +15,10 @@ export const Actions = styled.div`
     justify-content: flex-end;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 15px 18px 10px;
+
+    > button {
+        margin-left: 10px;
+    }
 `;
 
 export const Agreements = styled.div``;

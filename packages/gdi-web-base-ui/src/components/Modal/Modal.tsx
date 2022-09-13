@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useClickAway } from 'react-use';
+import React, { useEffect, useRef } from 'react';
+import { useClickAway, useMount } from 'react-use';
 import './Modal.scss';
 import {
     Modal as ModalFluent,
@@ -20,6 +20,7 @@ export type ModalProps = {
     open?: boolean;
     onClose: () => void;
     ariaLabel?: string;
+    focusOnClassName?: string;
 };
 
 const dragOptions: IDragOptions = {
@@ -31,11 +32,28 @@ const dragOptions: IDragOptions = {
 };
 
 export function Modal(props: ModalProps) {
-    const { open = false, title, ariaLabel } = props;
-    const ref = useRef(null);
+    const { open = false, title, ariaLabel, focusOnClassName } = props;
+    const ref = useRef<HTMLDivElement>(null);
 
-    useClickAway(ref, () => {
-        props.onClose();
+    useMount(() => {
+        if (!focusOnClassName) {
+            return;
+        }
+
+        setTimeout(() => {
+            if (!ref.current) {
+                return;
+            }
+
+            const el: HTMLButtonElement | null =
+                ref.current.querySelector(focusOnClassName);
+
+            if (!el) {
+                return;
+            }
+
+            el.focus();
+        }, 50);
     });
 
     return (
@@ -43,7 +61,6 @@ export function Modal(props: ModalProps) {
             titleAriaId={ariaLabel}
             isOpen={open}
             onDismiss={props.onClose}
-            isBlocking={false}
             className='modal-root'
             styles={{
                 scrollableContent: {
@@ -56,8 +73,9 @@ export function Modal(props: ModalProps) {
             containerClassName='Modal-container'
             dragOptions={dragOptions}
             isDarkOverlay={true}
+            isBlocking={false}
         >
-            <Container>
+            <Container ref={ref}>
                 <Header className='header'>
                     <Title>{title}</Title>
                     <HeaderActions>

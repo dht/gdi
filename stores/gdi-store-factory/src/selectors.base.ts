@@ -1,6 +1,8 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { ICustomBlockWithLayout, ILayouts } from './types';
+import { sortBy } from 'shared-base';
+import { cloneDeep } from 'lodash';
 
 export const $layouts = createSelector(
     raw.$rawCurrentIds,
@@ -26,10 +28,71 @@ export const $layouts = createSelector(
 
 export const $layout = createSelector(
     raw.$rawCurrentIds,
+    $layouts,
+    (currentIds, layouts) => {
+        const { layoutId } = currentIds;
+        return layouts[layoutId];
+    }
+);
+
+export const $layoutWithAllItems = createSelector(
+    raw.$rawCurrentIds,
     raw.$rawLayouts,
     (currentIds, layouts) => {
         const { layoutId } = currentIds;
         return layouts[layoutId];
+    }
+);
+
+export const $flexEntity = createSelector(
+    raw.$rawCurrentIds,
+    $layout,
+    (currentIds, layout) => {
+        if (!layout || !layout.items) {
+            return;
+        }
+
+        const { flexEntityId } = currentIds;
+        return layout.items.find((i) => i.id === flexEntityId);
+    }
+);
+
+export const $flexEntityFlex = createSelector($flexEntity, (flexEntity) => {
+    if (!flexEntity) {
+        return;
+    }
+
+    const { flex } = flexEntity;
+    return flex;
+});
+
+export const $layoutRoot = createSelector($layout, (layout) => {
+    if (!layout || !layout.items) {
+        return;
+    }
+
+    return layout.items.find((item) => item.parentId === '');
+});
+
+export const $resolutions = createSelector(
+    raw.$breakpoints,
+    $layoutWithAllItems,
+    (breakpoints, layout) => {
+        const { items = [] } = layout || {};
+        return Object.values(breakpoints)
+            .sort(sortBy('order'))
+            .map((breakpoint: IBreakpoint) => {
+                const itemsForBreakpoint = items.filter(
+                    (i) =>
+                        i.entityType === 'item' &&
+                        i.resolution === breakpoint.id
+                );
+
+                return {
+                    ...breakpoint,
+                    count: itemsForBreakpoint.length,
+                };
+            });
     }
 );
 
@@ -57,12 +120,41 @@ export const $customBlock = createSelector(
 );
 
 export const $inspector = createSelector(
-    raw.$rawCurrentIds,
-    raw.$rawCustomBlocks,
-    raw.$rawLayouts,
-    (currentIds, blocks, layouts) => {
+    $flexEntity,
+
+    (flexEntity) => {
+        if (!flexEntity) {
+            return;
+        }
+
+        const { id, locationId, flex, order, props, style } = flexEntity;
+
         return {
-            a: 5,
+            id,
+            locationId,
+            flex,
+            order,
+            props,
+            style,
         };
     }
 );
+
+export const $layoutClean = createSelector($layout, (layout) => {
+    if (!layout || !layout.items) {
+        return;
+    }
+
+    const layoutClone: any = cloneDeep(layout);
+
+    delete layoutClone['_modifiedDate'];
+    delete layoutClone['_createdDate'];
+    delete layoutClone['index'];
+
+    layoutClone.items.forEach((item: any) => {
+        delete item['_modifiedDate'];
+        delete item['_createdDate'];
+    });
+
+    return layoutClone;
+});

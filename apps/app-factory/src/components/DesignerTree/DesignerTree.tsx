@@ -1,51 +1,70 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef, useState } from 'react';
+import classnames from 'classnames';
 import Draggable from 'react-draggable';
-import { LayoutContext } from '../../context/LayoutDesigner.context';
+import { Button, Icon } from '@gdi/web-ui';
+import { FlexDesignerEmpty } from '../FlexDesignerEmpty/FlexDesignerEmpty';
+import { ILayout, IResolution } from '@gdi/store-factory';
+import { sortBy } from 'shared-base';
 import {
+    Column,
     Container,
     ContainerResolutions,
+    Info,
     Item,
     Resolution,
+    ResolutionCount,
+    ResolutionDimensions,
+    ResolutionName,
+    ResolutionTitle,
     Title,
     Tree,
 } from './DesignerTree.style';
-import classnames from 'classnames';
-import { sortBy } from 'shared-base';
-import { resolutions } from './DesignerTree.resolutions';
 
 export type DesignerTreeProps = {
     layout: ILayout;
+    flexEntityId?: string;
+    resolutionId?: string;
+    resolutions: IBreakpoints;
+    callbacks: {
+        selectEntity: (entityId: string) => void;
+        onAction: (actionType: FlexAction) => void;
+        onResolutionChange: (resolutionId: string) => void;
+        onSeed: (withId: string) => void;
+    };
 };
 
 export function DesignerTree(props: DesignerTreeProps) {
-    const { layout } = props;
-    const context = useContext(LayoutContext);
-    const { items, selectedItemId } = context;
+    const { layout, flexEntityId, resolutionId, callbacks, resolutions } =
+        props;
+    const [hoveredResolution, setHoveredResolution] = useState<IBreakpoint>();
+    const { items = [] } = layout || {};
     const ref = useRef(null);
 
-    console.log('layout ->', layout);
-
     function renderItem(item: IFlexEntity) {
-        const name = item.entityType === 'container' ? item.direction : 'item';
+        const { id, entityType, locationId, flex, direction } = item;
+        const name = entityType === 'container' ? direction : 'item';
 
-        const className = classnames({
-            selected: item.id === selectedItemId,
+        const className = classnames(entityType, {
+            selected: id === flexEntityId,
         });
 
+        const title = locationId ? locationId : `${name}-${id}`;
+
         return (
-            <Item key={item.id} className='item'>
+            <Item key={id} className='item'>
                 <Title
                     className={className}
-                    onClick={() => context.selectEntity(item.id)}
+                    onClick={() => callbacks.selectEntity(item.id)}
+                    onDoubleClick={() => callbacks.onAction('rename')}
                 >
-                    - {name}-{item.id} <span>({item.order})</span>
+                    - {title} <span>({flex})</span>
                 </Title>
-                {renderItems(item.id)}
+                {renderItems(id)}
             </Item>
         );
     }
 
-    function renderItems(parentId: number) {
+    function renderItems(parentId: string) {
         const sortedAndFilteredItems = items
             .filter((item) => item.parentId === parentId)
             .sort(sortBy('order'));
@@ -55,6 +74,35 @@ export function DesignerTree(props: DesignerTreeProps) {
         );
     }
 
+    function renderResolutionInfo() {
+        const selectedResolution = Object.values(resolutions).find(
+            (res: IBreakPoint) => res.id === resolutionId
+        );
+
+        const resolution = hoveredResolution || selectedResolution;
+
+        if (!resolution) {
+            return null;
+        }
+
+        return (
+            <Info>
+                <ResolutionTitle>{resolution.id}</ResolutionTitle>
+                <ResolutionDimensions>
+                    {resolution.screenWidth}x{resolution.screenHeight}px
+                </ResolutionDimensions>
+            </Info>
+        );
+    }
+
+    function renderTree() {
+        if (items.length === 0) {
+            return <FlexDesignerEmpty onSeed={callbacks.onSeed} />;
+        }
+
+        return <Tree>{renderItems('')}</Tree>;
+    }
+
     return (
         <Draggable nodeRef={ref}>
             <Container
@@ -62,24 +110,62 @@ export function DesignerTree(props: DesignerTreeProps) {
                 className='DesignerTree-container'
                 data-testid='DesignerTree-container'
             >
-                <Tree>{renderItems(0)}</Tree>
-                <Resolutions />
+                <Column>
+                    {renderTree()}
+                    {renderResolutionInfo()}
+                </Column>
+                <Resolutions
+                    resolutions={resolutions}
+                    currentResolutionId={resolutionId}
+                    onHover={setHoveredResolution}
+                    onClick={(resolution) =>
+                        callbacks.onResolutionChange(resolution.id)
+                    }
+                />
             </Container>
         </Draggable>
     );
 }
 
-export const Resolutions = () => {
-    function renderResolution(resolution: string) {
+type ResolutionsProps = {
+    resolutions: IBreakpoints;
+    currentResolutionId?: string;
+    onHover: (resolution: IBreakpoint) => void;
+    onClick: (resolution: IBreakpoint) => void;
+};
+
+export const Resolutions = (props: ResolutionsProps) => {
+    const { resolutions, currentResolutionId } = props;
+
+    function renderResolution(resolution: IBreakpoint) {
+        const { id, isDefault, count } = resolution;
+
+        const className = classnames('resolution', {
+            selected: id === currentResolutionId,
+            empty: count === 0,
+        });
+
         return (
-            <Resolution key={resolution} className='resolution'>
-                {resolution}
+            <Resolution
+                key={resolution.id}
+                className={className}
+                onMouseDown={() => props.onClick(resolution)}
+                onMouseOver={() => props.onHover(resolution)}
+                onMouseOut={() => props.onHover(null)}
+            >
+                <ResolutionName>
+                    {resolution.id}
+                    {isDefault && (
+                        <Icon className='star' iconName='FavoriteStarFill' />
+                    )}
+                </ResolutionName>
+                {count ? <ResolutionCount>{count}</ResolutionCount> : null}
             </Resolution>
         );
     }
 
     function renderResolutions() {
-        return resolutions.map((resolution: string) =>
+        return Object.values(resolutions).map((resolution: IBreakpoint) =>
             renderResolution(resolution)
         );
     }

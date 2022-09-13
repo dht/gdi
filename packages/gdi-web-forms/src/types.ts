@@ -47,6 +47,7 @@ export type IFormField = {
     description?: string;
     isRequired?: boolean;
     optionSelector?: string;
+    showIf?: string;
     params?: Json;
     order?: number;
 };
@@ -69,7 +70,8 @@ export type I18n = 'none' | 'useTranslation';
 
 export type IFormConfig = {
     id: string;
-    sequence: number;
+    sequence?: number;
+    header?: string;
     i18n?: I18n;
     layout: IFormLayout;
     groups: IFormLayoutGroup[];

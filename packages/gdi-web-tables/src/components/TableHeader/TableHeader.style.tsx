@@ -18,3 +18,7 @@ export const Th = styled.div`
     text-indent: 5px;
     box-sizing: border-box;
 `;
+
+export const ThActions = styled(Th)`
+    max-width: 200px;
+`;

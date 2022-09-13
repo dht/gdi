@@ -21,6 +21,12 @@ export const Text = styled.div<{ opacity?: number }>`
     line-height: 24px;
 `;
 
+export const SubText = styled.div`
+    line-height: 24px;
+    font-size: 16px;
+    color: #778;
+`;
+
 export const Social = styled.div`
     display: flex;
     flex-direction: row;
@@ -51,4 +57,11 @@ export const Description = styled.div<{ opacity?: number }>`
     white-space: nowrap;
     opacity: ${(props) => props.opacity || 1};
     line-height: 24px;
+`;
+
+export const Id = styled.div`
+    line-height: 24px;
+    color: gold;
+    max-width: 100px;
+    opacity: 0.5;
 `;

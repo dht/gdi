@@ -133,6 +133,8 @@ declare global {
         minWidth: number;
         maxWidth?: number;
         containerWidth: number;
+        isDefault?: boolean;
+        count?: number;
     };
 
     export type IBreakpoints = Record<string, IBreakpoint>;

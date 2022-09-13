@@ -5,7 +5,7 @@ import { SheetProps } from './Sheet';
 import { sortBy } from 'shared-base';
 import { Coords } from '../../types';
 import { useDelete, useNudge } from '@gdi/hooks';
-import { invokeEvent } from '../../utils/events';
+import { invokeEvent } from 'shared-base';
 
 type SheetContext = {
     selectedCoords: Coords | null;

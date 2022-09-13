@@ -2,7 +2,17 @@ import { routes } from './routes';
 import { FactoryWidgets } from './widgets';
 
 export const instances: IWidgetInstancesByPageList = {
-    factory: [
+    layouts: [
+        {
+            id: 'layouts',
+            widgetId: FactoryWidgets.Layouts,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: false,
+            allowOverflow: false,
+        },
+    ],
+    layout: [
         {
             id: 'FactoryPanel',
             widgetId: FactoryWidgets.FactoryPanel,
@@ -11,8 +21,8 @@ export const instances: IWidgetInstancesByPageList = {
             isTransparent: false,
         },
         {
-            id: 'Factory',
-            widgetId: FactoryWidgets.Factory,
+            id: 'Layout',
+            widgetId: FactoryWidgets.Layout,
             position: { y: 1, x: 10 },
             dimension: { y: 48, x: 88 },
             isTransparent: false,
@@ -20,11 +30,11 @@ export const instances: IWidgetInstancesByPageList = {
         },
 
         {
-            id: 'ImportExport',
-            title: 'ImportExport',
-            widgetId: FactoryWidgets.ImportExport,
+            id: 'ImportExportLayouts',
+            title: 'Export',
+            widgetId: FactoryWidgets.ImportExportLayouts,
             position: { y: 7, x: 80 },
-            dimension: { y: 5, x: 5 },
+            dimension: { y: 3, x: 5 },
             isFloating: true,
             hideHeader: false,
         },
@@ -37,15 +47,13 @@ export const instances: IWidgetInstancesByPageList = {
             allowOverflow: true,
             isTransparent: true,
         },
-    ],
-    layouts: [
         {
-            id: 'Factory',
-            widgetId: FactoryWidgets.Layouts,
-            position: { y: 1, x: 10 },
-            dimension: { y: 48, x: 88 },
-            isTransparent: false,
-            allowOverflow: false,
+            id: 'PropertiesModal',
+            widgetId: FactoryWidgets.Properties,
+            position: { y: 1, x: 1 },
+            dimension: { y: 1, x: 1 },
+            allowOverflow: true,
+            isTransparent: true,
         },
     ],
     customBlocks: [

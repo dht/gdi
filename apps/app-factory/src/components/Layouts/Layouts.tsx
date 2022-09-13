@@ -3,22 +3,16 @@ import { Container } from './Layouts.style';
 import { Crud } from '@gdi/web-tables';
 
 export type LayoutsProps = ICrudDefinitions & {
-    data: {
-        main: Json;
-        sub?: Json;
-    };
+    data: Json[];
     callbacks: {
-        main: {
-            onSave: (id: string, data: Json) => void;
-            onNew: (data: Json) => void;
-            onDelete: (id: string) => void;
-        };
-        sub?: {
-            onSave: (id: string, data: Json) => void;
-            onNew: (data: Json) => void;
-            onDelete: (id: string) => void;
-        };
+        onAction: (actionId: string) => void;
+        onDrillDown: (itemId: string) => void;
+        onSave: (id: string, data: Json) => void;
+        onNew: (data: Json) => void;
+        onDelete: (id: string) => void;
     };
+    doubleClickActionId?: string;
+    allOptions?: Json;
 };
 export function Layouts(props: LayoutsProps) {
     return (

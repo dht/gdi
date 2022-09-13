@@ -12,7 +12,7 @@ export class TableFiltersDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<TableFilters {...this.props} />);
+            render(<TableFilters {...(this.props as TableFiltersProps)} />);
             return this;
         },
         click: () => {

@@ -5,6 +5,8 @@ export type CellType =
     | 'text'
     | 'tags'
     | 'date'
+    | 'timeAgo'
+    | 'id'
     | 'social';
 
 export type ITableField = {
@@ -20,18 +22,27 @@ export type ITableConfig = {
     id: string;
     header: string;
     fields: ITableField[];
+    tableActions?: ITableAction[];
+    rowActions?: ITableRowAction[];
 };
 
-export type ICrudTrio = {
-    tableConfig: ITableConfig;
-    newForm: IFormConfig;
-    editForm: IFormConfig;
+export type ITableAction = {
+    id: string;
+    iconName: string;
+    title: string;
+};
+
+export type ITableRowAction = {
+    id: string;
+    iconName: string;
+    title: string;
 };
 
 export type ICrudDefinitions = {
-    withSubCollection: boolean;
-    mainTrio: ICrudTrio;
-    subTrio?: ICrudTrio;
+    tableConfig: ITableConfig;
+    newForm: IFormConfig;
+    editForm: IFormConfig;
+    dataNewDefault?: Json;
 };
 
 export type DataGridField = {

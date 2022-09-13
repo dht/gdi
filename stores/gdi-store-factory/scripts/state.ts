@@ -5,6 +5,8 @@ export const state: IFactoryStore = {
         stateKey: 'factory',
         mode: 'visual',
         selectedToolId: 'data',
+        showItemsInTable: false,
+        showPropertiesModal: false,
     },
     currentIdsFactory: {
         layoutId: '',
@@ -20,17 +22,19 @@ export const state: IFactoryStore = {
             items: [
                 {
                     id: 'i1',
-                    parentId: '0',
+                    parentId: '',
                     entityType: 'container',
                     resolution: '1080p',
+                    direction: 'row',
                     locationId: 'left_1',
                 },
                 {
                     id: 'i2',
-                    parentId: '1',
+                    parentId: 'i1',
                     entityType: 'item',
                     resolution: '1080p',
                     locationId: 'left_2',
+                    order: 1,
                 },
             ],
         },

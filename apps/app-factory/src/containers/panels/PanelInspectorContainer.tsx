@@ -4,7 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../../store';
 import { Empty } from '@gdi/web-ui';
 
-export const PanelInspectorContainer = () => {
+export type PanelInspectorContainerProps = {
+    flex?: boolean;
+};
+
+export const PanelInspectorContainer = (
+    _props: PanelInspectorContainerProps
+) => {
     const inspector = useSelector(selectors.base.$inspector);
 
     if (!inspector) {
