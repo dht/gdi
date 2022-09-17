@@ -10,11 +10,16 @@ export const LayoutVisualContainer = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const currentIds = useSelector(selectors.raw.$rawCurrentIds);
+    const appState = useSelector(selectors.raw.$rawFactoryState);
     const layout = useSelector(selectors.base.$layout);
     const flex = useSelector(selectors.base.$flexEntityFlex);
 
-    useAuthMount(() => {
-        dispatch(actions.layouts.getItems(layout.id, {}));
+    const { isLoadingLayoutItems } = appState;
+
+    useAuthMount(async () => {
+        dispatch(actions.appStateFactory.patch({ isLoadingLayoutItems: true }));
+        await dispatch(actions.layouts.getItems(layout.id, {}));
+        dispatch(actions.appStateFactory.patch({ isLoadingLayoutItems: false })); // prettier-ignore
     }, layout);
 
     const callbacks = useMemo(
@@ -101,6 +106,7 @@ export const LayoutVisualContainer = () => {
             items={layout.items}
             selectedItemId={currentIds.flexEntityId}
             callbacks={callbacks}
+            isLoading={isLoadingLayoutItems}
             flex={flex}
         />
     );

@@ -7,6 +7,7 @@ export const state: IFactoryStore = {
         selectedToolId: 'data',
         showItemsInTable: false,
         showPropertiesModal: false,
+        isLoadingLayoutItems: false,
     },
     currentIdsFactory: {
         layoutId: '',

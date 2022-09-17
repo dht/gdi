@@ -9,6 +9,7 @@ export const initialState: IFactoryStore = {
         selectedToolId: 'data',
         showItemsInTable: false,
         showPropertiesModal: false,
+        isLoadingLayoutItems: false,
     },
     currentIdsFactory: {
         layoutId: '',
