@@ -6,8 +6,8 @@
             "@gdi/app-mixer": ["apps/app-mixer"],
             "@gdi/app-factory": ["apps/app-factory"],
 
-            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
             "@gdi/store-auth": ["submodules/gdi-extra/stores/gdi-store-auth"],
+            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
             "@gdi/store-site": ["stores/gdi-store-site"],
             "@gdi/store-factory": ["stores/gdi-store-factory"],
 
@@ -30,7 +30,8 @@
             "redux-connected-devtools": ["submodules/redux-connected-devtools"],
             "shared-base": ["submodules/shared-base"],
             "igrid": ["submodules/igrid"],
-            "isokit": ["submodules/isokit"]
+            "isokit": ["submodules/isokit"],
+            "firestore": ["submodules/firestore-local"]
         }
     }
 }

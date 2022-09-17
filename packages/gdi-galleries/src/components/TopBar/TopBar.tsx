@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, IToolbarItem, Search, Tag } from '@gdi/web-ui';
+import { Button, Search, Tag } from '@gdi/web-ui';
 import Tools from '../Tools/Tools';
 import Views from '../Views/Views';
 import { Container, TagWrapper } from './TopBar.style';

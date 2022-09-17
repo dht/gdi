@@ -1,5 +1,3 @@
-export type { IToolbarItem } from '@gdi/web-ui';
-
 export enum ToolId {
     select = 'select',
     edit = 'edit',

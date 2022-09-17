@@ -6,8 +6,6 @@ import { DesignerTreeContainer } from '../containers/singles/DesignerTreeContain
 import { ModalFlexPropertiesContainer } from '../containers/modals/ModalFlexPropertiesContainer';
 import { LayoutsContainer } from '../containers/LayoutsContainer';
 import { LayoutContainer } from '../containers/LayoutContainer';
-import { CustomBlocksContainer } from '../containers/CustomBlocksContainer';
-import { CustomBlocksSubContainer } from '../containers/CustomBlocksSubContainer';
 import { CurrentIdsHoc } from '@gdi/platformer';
 import { actions } from '../store';
 
@@ -18,8 +16,6 @@ export enum FactoryWidgets {
     Layouts = 'factory.Layouts',
     Layout = 'factory.Layout',
     Properties = 'factory.Properties',
-    CustomBlocks = 'factory.CustomBlocks',
-    CustomBlock = 'factory.CustomBlock',
 }
 export const widgets: IWidget[] = [
     {
@@ -74,26 +70,6 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <LayoutsContainer {...props} />,
-    },
-    {
-        id: FactoryWidgets.CustomBlocks,
-        name: 'CustomBlocks',
-        description: 'CustomBlocks',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => <CustomBlocksContainer {...props} />,
-    },
-    {
-        id: FactoryWidgets.CustomBlock,
-        name: 'CustomBlock',
-        description: 'CustomBlock',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => <CustomBlocksSubContainer {...props} />,
     },
     {
         id: FactoryWidgets.Properties,

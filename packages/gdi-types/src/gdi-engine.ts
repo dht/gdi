@@ -3,88 +3,7 @@
 export const A0 = {};
 
 declare global {
-    type BlockId = string;
-    type FlavourId = string;
     type TemplateId = string;
-
-    export type IBlockInfo = {
-        id: BlockId;
-        name: string;
-        description: string;
-        params: IBlockParams;
-        sampleData: ISampleDataPerFlavour;
-        dimensions: IDimensionsPerFlavour;
-        screenshots: IScreenshotsPerFlavour;
-        tags: string[];
-        blockType?: string;
-        isWidget?: boolean;
-    };
-
-    export type IBlockParams = {
-        id: BlockId;
-        schema: IBlockSchema;
-    };
-
-    export type ISampleData = {
-        id: string;
-
-        strings: Json;
-        colors: Json;
-        extra: Json;
-    };
-
-    export type ISampleDataPerFlavour = Record<FlavourId, ISampleData>;
-
-    export type SchemaFieldType =
-        | 'number'
-        | 'text'
-        | 'longText'
-        | 'url'
-        | 'checkbox'
-        | 'image'
-        | 'color'
-        | 'json';
-
-    export type FieldParams = {
-        fieldType: SchemaFieldType;
-        isRequired?: boolean;
-        order: number;
-    };
-
-    export type IBlockSchemaGroup = Record<string, FieldParams>;
-
-    export type IBlockSchema = {
-        strings: IBlockSchemaGroup;
-        colors: IBlockSchemaGroup;
-        extra: IBlockSchemaGroup;
-    };
-
-    export type IImageInfo = {
-        url?: string;
-        width: number;
-        height: number;
-        ratio: number;
-        urlIsRemote?: boolean;
-    };
-
-    export type IDimensions = {
-        desktop: IImageInfo;
-        mobile: IImageInfo;
-    };
-
-    export type IScreenshots = {
-        desktop: {
-            large: IImageInfo;
-            thumb: IImageInfo;
-        };
-        mobile: {
-            large: IImageInfo;
-            thumb: IImageInfo;
-        };
-    };
-
-    export type IDimensionsPerFlavour = Record<FlavourId, IDimensions>;
-    export type IScreenshotsPerFlavour = Record<FlavourId, IScreenshots>;
 
     export type IAuthor = {
         name: string;
@@ -96,19 +15,11 @@ declare global {
         id: TemplateId;
         version: string;
         author?: IAuthor;
-        blocksCount?: number;
+        widgetsCount?: number;
     };
-
-    export type IBlock = {
-        id: BlockId;
-        component: React.FC<any>;
-        info: IBlockInfo;
-    };
-
-    export type IBlocks = Record<BlockId, IBlock>;
 
     export type ITemplate = {
-        blocks: IBlocks;
+        widgets: IWidgets;
         templateInfo: ITemplateInfo;
     };
 
@@ -116,7 +27,7 @@ declare global {
 
     export type IEngineContextState = {
         isReady: boolean;
-        blocks: IBlocks;
+        widgets: IWidgets;
         patchContext: (change: Partial<IEngineContextState>) => void;
     };
 
@@ -130,39 +41,13 @@ declare global {
         title: string;
     };
 
-    export type IBlockInstance = {
-        id: string;
-        blockId: string;
-        title?: string;
-        overlayRoute?: string;
-        hideHeader?: boolean;
-        isTransparent?: boolean;
-        allowOverflow?: boolean;
-        flavour?: string;
-        isHidden?: boolean;
-        isFullPage?: boolean;
-        isFloating?: boolean;
-        isPlaceholder?: boolean;
-        placeholderType?: string;
-        pageId?: string;
-        order?: number;
-    };
-
-    export type IBlockInstances = Record<string, IBlockInstance>;
-
-    export type IElement = IBlockInstance & {
-        block: IBlockInfo;
-        elementType: string;
-        instanceProps: Json;
-    };
-
     export type LibraryBuilderResponse = {
         templates: ITemplates;
-        blocks: IBlocks;
+        widgets: IWidgets;
     };
     export interface ILibraryBuilder {
         withTemplates: (templates: ITemplates) => ILibraryBuilder;
-        withBlocks: (blocks: IBlocks) => ILibraryBuilder;
+        withWidgets: (widgets: IWidgets) => ILibraryBuilder;
         build: () => LibraryBuilderResponse;
     }
 }

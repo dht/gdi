@@ -9,7 +9,7 @@ import { streamer } from '../../utils/streamer';
 
 const argv = parseArgv(process.argv);
 
-type ValidTypes = 'block' | 'site';
+type ValidTypes = 'widget' | 'site';
 
 const entityType = argv._[0] as ValidTypes;
 const isScaffolding = scaffoldingVerbs[entityType];

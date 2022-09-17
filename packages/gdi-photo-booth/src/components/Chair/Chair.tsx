@@ -5,13 +5,13 @@ export const id = 'com.usegdi.templates.futuristic.ChairI';
 
 export type ChairProps = {
     component: FC<any>;
-    blockInfo: IBlockInfo;
+    widget: IWidget;
     sequence: number;
 };
 
 export function Chair(props: ChairProps) {
-    const { component: Cmp, blockInfo, sequence } = props;
-    const { id } = blockInfo;
+    const { component: Cmp, widget, sequence } = props;
+    const { id } = widget;
 
     function renderFlavour(flavour: string, data: Json, index) {
         const className = `${id}-${flavour}`.replace(/\./g, '_');
@@ -22,7 +22,7 @@ export function Chair(props: ChairProps) {
                 <Flavour className={className}>
                     <Cmp
                         sequence={sequence + index}
-                        key={blockInfo.id + '-' + data.id}
+                        key={widget.id + '-' + data.id}
                         {...data}
                         isScreenshotMode={true}
                     />
@@ -32,7 +32,7 @@ export function Chair(props: ChairProps) {
     }
 
     function renderFlavours() {
-        const { sampleData } = blockInfo;
+        const { sampleData } = widget;
 
         return Object.keys(sampleData).map((flavour: string, index) =>
             renderFlavour(flavour, sampleData[flavour], index)

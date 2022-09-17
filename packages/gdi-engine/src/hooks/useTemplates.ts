@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { IBlocks, ITemplates } from '../types';
+import { ITemplates } from '../types';
 
 export function useTemplates(libraryBuilder: ILibraryBuilder) {
     const [isReady, setIsReady] = useState(false);
-    const [blocks, setBlocks] = useState<IBlocks>({});
+    const [widgets, setWidgets] = useState<IWidgets>({});
     const [templates, setTemplates] = useState<ITemplates>({});
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export function useTemplates(libraryBuilder: ILibraryBuilder) {
 
         const library = libraryBuilder.build();
 
-        setBlocks(library.blocks);
+        setWidgets(library.widgets);
         setTemplates(library.templates);
 
         setIsReady(true);
@@ -21,7 +21,7 @@ export function useTemplates(libraryBuilder: ILibraryBuilder) {
 
     return {
         isReady,
-        blocks,
+        widgets,
         templates,
     };
 }

@@ -96,29 +96,6 @@ export const $resolutions = createSelector(
     }
 );
 
-export const $customBlock = createSelector(
-    raw.$rawCurrentIds,
-    raw.$rawCustomBlocks,
-    $layouts,
-    (currentIds, blocks, layouts) => {
-        const { customBlockId } = currentIds;
-        const block = Object.values(blocks).find((b) => b.id === customBlockId);
-
-        if (!block) {
-            return;
-        }
-
-        const { layoutId } = block;
-
-        const layout = Object.values(layouts).find((l) => l.id === layoutId);
-
-        return {
-            ...block,
-            layout,
-        } as ICustomBlockWithLayout;
-    }
-);
-
 export const $inspector = createSelector(
     $flexEntity,
 

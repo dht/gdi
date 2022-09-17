@@ -1,10 +1,9 @@
 import { state } from './state';
-import { upload } from './methodsFirebase';
+import { upload } from './methods.firebase.nodes';
 
 const nodeTypes = {
     appStateFactory: 'single',
     layouts: 'groupedList',
-    customBlocks: 'groupedList',
 };
 
 upload(state, nodeTypes);

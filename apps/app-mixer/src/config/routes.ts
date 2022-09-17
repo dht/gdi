@@ -26,22 +26,6 @@ export const menuItems: IMenuItem[] = [
         showOnSlim: true,
         order: 1,
     },
-    {
-        path: routes.layoutGallery,
-        icon: 'ViewDashboard',
-        label: 'Layout gallery',
-        groupId: 'site',
-        showOnSlim: false,
-        order: 2,
-    },
-    {
-        path: routes.flexDesigner,
-        icon: 'ViewDashboard',
-        label: 'Flex Designer',
-        groupId: 'site',
-        showOnSlim: true,
-        order: 3,
-    },
 ];
 
 export const contextBarItems: IContextBarItem[] = [

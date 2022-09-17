@@ -27,13 +27,13 @@ export const endpointsConfigOverrides: EndpointsConfigOverrides = {
         connectionType: ConnectionType.FIRESTORE,
         optimistic: true,
     },
-    instancesBlocks: {
-        id: 'instancesBlocks',
+    instances: {
+        id: 'instances',
         connectionType: ConnectionType.FIRESTORE,
         optimistic: true,
     },
-    blocks: {
-        id: 'blocks',
+    widgets: {
+        id: 'widgets',
         connectionType: ConnectionType.FIRESTORE,
         optimistic: true,
     },

@@ -21,7 +21,7 @@ service cloud.firestore {
       		allow write: if isAdmin();
     		}
         
-          match /customBlocks/{document=**} {
+          match /customWidgets/{document=**} {
       		allow read;
       		allow write: if isAdmin();
     		}
@@ -31,7 +31,7 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    match /blocks/{document=**} {
+    match /widgets/{document=**} {
       allow read;
       allow write: if isAdmin();
     }
@@ -46,7 +46,7 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    match /instancesBlocks/{document=**} {
+    match /instances/{document=**} {
       allow read;
       allow write: if isAdmin();
     }
@@ -56,7 +56,7 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    match /libraryBlocks/{document=**} {
+    match /libraryWidgets/{document=**} {
       allow read: if isAdmin();
       allow write: if isAdmin();
     }

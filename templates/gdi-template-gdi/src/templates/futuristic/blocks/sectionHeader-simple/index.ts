@@ -3,7 +3,7 @@ import { sampleData } from './meta/SectionHeader.sample';
 import { dimensions } from './meta/SectionHeader.dimensions';
 import { screenshots } from './meta/SectionHeader.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.futuristic.sectionHeader-simple',
     name: 'sectionHeader-simple',
     description: '',

@@ -10,8 +10,8 @@ export type ISiteStore = StoreStructure & {
     spacing: ISpacing;
     fonts: IFonts;
     breakpoints: IBreakpoints;
-    blocks: Record<string, IBlockInfo>;
-    instancesBlocks: IBlockInstances;
+    widgets: IWidgets;
+    instances: IWidgetInstances;
     instancesMapColors: Json;
     instancesMapStrings: Json;
     instancesProps: Json;

@@ -3,7 +3,7 @@ import { sampleData } from './meta/ImageAndText.sample';
 import { dimensions } from './meta/ImageAndText.dimensions';
 import { screenshots } from './meta/ImageAndText.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.futuristic.imageAndText-simple',
     name: 'imageAndText-simple',
     description: '',

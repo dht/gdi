@@ -9,7 +9,7 @@ export type ElementEditProps = {
     sequence?: number;
     element: IElement;
     isSelected: boolean;
-    instanceProps: Json;
+    instanceProps?: Json;
     onSelect: (id: string) => void;
     onAction?: (action: ActionType, id: string) => void;
 };
@@ -27,9 +27,9 @@ export function ElementEdit(props: ElementEditProps) {
         sequence,
         instanceProps = emptyInstanceProps,
     } = props;
-    const { blocks } = useContext(EngineContext);
+    const { widgets } = useContext(EngineContext);
 
-    const block = blocks[element.blockId];
+    const widget = widgets[element.widgetId];
 
     function onClick() {
         props.onSelect(element.id);
@@ -43,8 +43,8 @@ export function ElementEdit(props: ElementEditProps) {
         props.onAction('drillDown', element.id);
     }
 
-    function renderBlock() {
-        if (!block) {
+    function renderWidget() {
+        if (!widget) {
             if (element.isPlaceholder) {
                 return <Placeholder element={element} />;
             } else {
@@ -52,10 +52,14 @@ export function ElementEdit(props: ElementEditProps) {
             }
         }
 
-        const CmpBlock = block.component;
+        const CmpWidget = widget.component;
+
+        if (!CmpWidget) {
+            return null;
+        }
 
         return (
-            <CmpBlock
+            <CmpWidget
                 {...instanceProps}
                 sequence={sequence}
                 isEditMode={true}
@@ -71,7 +75,7 @@ export function ElementEdit(props: ElementEditProps) {
             onDoubleClick={onDblClick}
             selected={isSelected}
         >
-            {renderBlock()}
+            {renderWidget()}
         </Container>
     );
 }

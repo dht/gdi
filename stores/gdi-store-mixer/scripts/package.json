@@ -7,8 +7,11 @@
         "firestore:reset": "npx ts-node uploadToFirestore.ts",
         "build": "echo no build needed"
     },
+    "dependencies": {
+        "firestore-local": "^0.0.34"
+    },
     "devDependencies": {
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "chalk": "^4.1.2",
         "firebase": "^9.9.3"
     }

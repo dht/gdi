@@ -3,7 +3,7 @@ import { sampleData } from './meta/LineCta.sample';
 import { dimensions } from './meta/LineCta.dimensions';
 import { screenshots } from './meta/LineCta.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.futuristic.lineCta-simple',
     name: 'lineCta-simple',
     description: '',

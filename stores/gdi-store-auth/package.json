@@ -3,12 +3,11 @@
     "version": "0.0.20",
     "scripts": {
         "build": "tsc & vite build",
-        "build:rollup": "rollup -c",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "lodash": "^4.17.21",
         "redux-store-generator": "^0.9.85",
         "reselect": "^4.1.6"

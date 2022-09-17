@@ -19,6 +19,7 @@ export default defineConfig({
         rollupOptions: {
             plugins: [analyze()],
             ...externals({
+                react: '',
                 ...p.dependencies,
                 '@firebase/auth': '',
                 '@firebase/logger': '',

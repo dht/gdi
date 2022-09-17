@@ -2,7 +2,11 @@
     "compilerOptions": {
         "target": "es2017",
         "moduleResolution": "node",
-        "types": ["types-base", "@gdi/types", "@types/jest"]
+        "baseUrl": "../../../",
+        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "paths": {
+            "firestore": ["submodules/firestore-local"]
+        }
     },
     "ts-node": {
         "compilerOptions": {

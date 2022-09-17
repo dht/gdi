@@ -7,11 +7,11 @@ export type ErrorProps = {
 
 export function Error(props: ErrorProps) {
     const { element } = props;
-    const { blockId } = element;
+    const { widgetId } = element;
 
     return (
         <Container className='Error-container' data-testid='Error-container'>
-            <Header>Could not find block {blockId}</Header>
+            <Header>Could not find widget {widgetId}</Header>
             <P>Install required dependencies</P>
         </Container>
     );

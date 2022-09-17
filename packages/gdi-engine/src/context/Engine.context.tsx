@@ -6,7 +6,7 @@ import { IEngineContextState } from '../types';
 
 const initialState: IEngineContextState = {
     isReady: false,
-    blocks: {},
+    widgets: {},
     patchContext: () => {},
 };
 
@@ -23,14 +23,14 @@ export const EngineContextProvider = (props: EngineProps) => {
         ...initialState,
     });
 
-    const { isReady, blocks } = useTemplates(libraryBuilder);
+    const { isReady, widgets } = useTemplates(libraryBuilder);
 
     return (
         <EngineContext.Provider
             value={{
                 ...state,
                 isReady,
-                blocks,
+                widgets,
                 patchContext: patchState,
             }}
         >

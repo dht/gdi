@@ -28,3 +28,6 @@
 [submodule "submodules/redux-store-generator"]
 	path = submodules/redux-store-generator
 	url = git@github.com:dht/redux-store-generator.git
+[submodule "submodules/firestore-local"]
+	path = submodules/firestore-local
+	url = git@github.com:dht/firestore-local.git

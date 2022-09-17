@@ -13,7 +13,7 @@ declare global {
         cameras: ICameras;
         lights: ILights;
         grounds: IGrounds;
-        items: IItems;
+        studioItems: IStudioItems;
         particles: IParticles;
     };
 
@@ -158,15 +158,15 @@ declare global {
         | IPrism
         | IPyramid;
 
-    export type IItem = IPrimitives | IIso | IVideo;
-    export type IItems = Record<string, IItem>;
+    export type IStudioItem = IPrimitives | IIso | IVideo;
+    export type IStudioItems = Record<string, IStudioItem>;
 
     export type IData = {
-        ground: IItem;
+        ground: IStudioItem;
         cameras: ICamera[];
         particles: IParticle[];
         lights: ILight[];
-        items: IItem[];
+        items: IStudioItem[];
     };
 
     export type IParticle = {
@@ -248,7 +248,7 @@ declare global {
 
     export type ILights = Record<string, ILight>;
 
-    export type BuildMethod = (itemData: IItem) => any;
+    export type BuildMethod = (itemData: IStudioItem) => any;
 
     export type BuildMap = Record<string, BuildMethod>;
 
@@ -276,7 +276,7 @@ declare global {
         cameras: ICameras;
         lights: ILights;
         grounds: IGrounds;
-        items: IItems;
+        items: IStudioItems;
         particles: IParticles;
         boards: IBoards;
     };

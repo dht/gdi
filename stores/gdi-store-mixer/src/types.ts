@@ -5,9 +5,9 @@ export type IMixerStore = StoreStructure & {
     currentIds: ICurrentIds;
     meta: IMetaMixer;
     galleryState: IGalleryState;
-    blocksGalleryState: IBlocksGalleryState;
+    widgetGalleryState: IWidgetGalleryState;
     libraryImages: IImages;
-    libraryBlocks: Record<string, IBlockInfo>;
+    libraryWidgets: IWidgets;
     libraryTypography: ITypographyOptions;
     libraryPalettes: IPaletteOptions;
     locales: ILocaleOptions;
@@ -71,15 +71,15 @@ export type IGalleryState = {
     deletedIds: string[];
 };
 
-export type IBlocksFilter = 'all' | 'byType';
+export type IWidgetsFilter = 'all' | 'byType';
 
-export type IBlocksGalleryState = {
+export type IWidgetGalleryState = {
     stateKey: string;
     mode: IGalleryViewMode;
-    filter: IBlocksFilter;
+    filter: IWidgetsFilter;
     search: string;
 };
 
-export type IImageWithBlock = IImage & {
-    block: IBlockInfo;
+export type IImageWithWidget = IImage & {
+    widget: IWidget;
 };

@@ -4,7 +4,7 @@ export const Container = styled.div`
     position: relative;
 `;
 
-export const BlockTitle = styled.div`
+export const WidgetTitle = styled.div`
     color: #333;
     font-size: 24px;
     font-family: monospace;

@@ -3,25 +3,23 @@ import { ROOT } from './ids';
 export const routes: IRoutes = {
     layouts: `${ROOT}/layouts`,
     layout: `${ROOT}/layouts/:layoutId`,
-    customBlocks: `${ROOT}/customBlocks`,
-    customBlock: `${ROOT}/customBlocks/:blockId`,
+    customWidgets: `${ROOT}/customWidgets`,
+    customWidget: `${ROOT}/customWidgets/:widgetId`,
 };
 
 export const menuItems: IMenuItem[] = [
     {
         path: routes.layouts,
-        icon: 'Manufacturing',
+        icon: 'ViewDashboard',
         label: 'Layouts',
         groupId: 'site',
-        showOnSlim: true,
         order: 1,
     },
     {
-        path: routes.customBlocks,
+        path: routes.customWidgets,
         icon: 'Manufacturing',
-        label: 'CustomBlocks',
+        label: 'Custom Widgets',
         groupId: 'site',
-        showOnSlim: true,
         order: 2,
     },
 ];

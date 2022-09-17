@@ -1,21 +1,15 @@
-import { IBlockParams } from '@gdi/web-ui';
 import { id } from '../LayoutFlex';
 
-export const params: IBlockParams = {
+export const params: IWidgetParams = {
     id,
     schema: {
-        strings: {
-            slogan: false,
-            header: true,
-            description: false,
-            ctaButtonText: true,
-        },
+        strings: {},
         colors: {
-            background: '#1a7870',
+            background: { fieldType: 'color', order: 0 },
         },
         extra: {
-            href: 'url',
-            imageUrl: 'url',
+            logoImageUrl: { fieldType: 'url', isRequired: true, order: 0 },
+            githubLink: { fieldType: 'url', isRequired: true, order: 1 },
         },
     },
 };

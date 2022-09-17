@@ -6,7 +6,7 @@ import { capitalize } from 'lodash';
 import { cert, initializeApp } from 'firebase-admin/app';
 import { chromium, Page } from 'playwright';
 import { getStorage } from 'firebase-admin/storage';
-import { IBlock, IBlocks, LibraryBuilder } from '@gdi/engine';
+import { IWidget, IWidgets, LibraryBuilder } from '@gdi/engine';
 import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 import { Json } from './types';
@@ -21,7 +21,7 @@ const OUTPUT_DIR = './screenshots/';
 
 let definitions: Json = {};
 
-let blocks: IBlocks;
+let widgets: IWidgets;
 
 initializeApp({
     credential: cert('../../../firebaseServiceAccount.json'),
@@ -35,7 +35,7 @@ let pageDesktop: Page, pageMobile: Page;
 
 type GenerateFilenameOptions = {
     templateName: string;
-    blockName: string;
+    widgetName: string;
     flavour: string;
     size: 'raw' | 'thumb' | 'large';
     isDesktop: boolean;
@@ -43,13 +43,13 @@ type GenerateFilenameOptions = {
 };
 
 const generateFileName = (options: GenerateFilenameOptions) => {
-    const { templateName, blockName, flavour, size, isDesktop, fileType } =
+    const { templateName, widgetName, flavour, size, isDesktop, fileType } =
         options;
 
     return [
         'screenshot',
         templateName,
-        blockName,
+        widgetName,
         flavour,
         isDesktop ? 'desktop' : 'mobile',
         size,
@@ -63,7 +63,7 @@ type TakePictureOptions = {
     isDesktop: boolean;
     root: string;
     templateName: string;
-    blockName: string;
+    widgetName: string;
 };
 
 type ImageInfo = {
@@ -137,7 +137,7 @@ const takePicture = async (
 
     let info: OutputInfo;
 
-    const { flavour, selector, isDesktop, root, templateName, blockName } =
+    const { flavour, selector, isDesktop, root, templateName, widgetName } =
         options;
 
     const base = {
@@ -145,7 +145,7 @@ const takePicture = async (
         flavour,
         isDesktop,
         templateName,
-        blockName,
+        widgetName,
     };
 
     const screenshotRawFileName = generateFileName({ ...base, size: 'raw', fileType: 'png' }); // prettier-ignore
@@ -188,18 +188,18 @@ const takePicture = async (
     return output;
 };
 
-const screenShotsForComponent = async (block: IBlock) => {
-    const { templateName, blockName } = analyzeBlockId(block.id);
-    const blockKey = `com.usegdi.templates.${templateName}.${blockName}`;
+const screenShotsForComponent = async (widget: IWidget) => {
+    const { templateName, widgetName } = analyzeWidgetId(widget.id);
+    const widgetKey = `com.usegdi.templates.${templateName}.${widgetName}`;
 
-    for (let flavour of Object.keys(block.info.sampleData)) {
-        const className = `${blockKey}-${flavour}`.replace(/\./g, '_');
+    for (let flavour of Object.keys(widget.info.sampleData)) {
+        const className = `${widgetKey}-${flavour}`.replace(/\./g, '_');
         const selector = `.${className} > div`;
 
         const base = {
             root: OUTPUT_DIR,
             templateName,
-            blockName,
+            widgetName,
             flavour,
             selector,
         };
@@ -207,7 +207,10 @@ const screenShotsForComponent = async (block: IBlock) => {
         const selectorExists = await pageDesktop.$(selector);
         if (selectorExists) {
             console.time(
-                'taking screenshots for ' + chalk.cyan(block.id) + '-' + flavour
+                'taking screenshots for ' +
+                    chalk.cyan(widget.id) +
+                    '-' +
+                    flavour
             );
 
             const responseDesktop = await takePicture(pageDesktop, {
@@ -221,16 +224,19 @@ const screenShotsForComponent = async (block: IBlock) => {
             });
 
             console.timeEnd(
-                'taking screenshots for ' + chalk.cyan(block.id) + '-' + flavour
+                'taking screenshots for ' +
+                    chalk.cyan(widget.id) +
+                    '-' +
+                    flavour
             );
 
-            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.large`, {...responseDesktop.large}); // prettier-ignore
-            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.desktop.thumb`, {...responseDesktop.thumb}); // prettier-ignore
-            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.large`, {...responseMobile.large}); // prettier-ignore
-            set(definitions, `screenshots.${templateName}.${blockName}.${flavour}.mobile.thumb`, {...responseMobile.thumb}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${widgetName}.${flavour}.desktop.large`, {...responseDesktop.large}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${widgetName}.${flavour}.desktop.thumb`, {...responseDesktop.thumb}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${widgetName}.${flavour}.mobile.large`, {...responseMobile.large}); // prettier-ignore
+            set(definitions, `screenshots.${templateName}.${widgetName}.${flavour}.mobile.thumb`, {...responseMobile.thumb}); // prettier-ignore
 
-            set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.desktop`, responseDesktop.large); // prettier-ignore
-            set(definitions, `dimensions.${templateName}.${blockName}.${flavour}.mobile`, responseMobile.large); // prettier-ignore
+            set(definitions, `dimensions.${templateName}.${widgetName}.${flavour}.desktop`, responseDesktop.large); // prettier-ignore
+            set(definitions, `dimensions.${templateName}.${widgetName}.${flavour}.mobile`, responseMobile.large); // prettier-ignore
         } else {
             console.log(`no selector for ${selector}`);
         }
@@ -269,8 +275,8 @@ const getImageInfo = (inputPath): Promise<OutputInfo> => {
     });
 };
 
-const blockNameToCmp = (blockName: string) => {
-    const [cmpNameLowercase, cmpFlavour] = blockName.split('-');
+const widgetNameToCmp = (widgetName: string) => {
+    const [cmpNameLowercase, cmpFlavour] = widgetName.split('-');
 
     return {
         cmpName: capitalize(cmpNameLowercase),
@@ -278,30 +284,30 @@ const blockNameToCmp = (blockName: string) => {
     };
 };
 
-export const analyzeBlockId = (blockId: string) => {
-    const [topLevelDomain, domainName, partType, templateName, blockName] =
-        blockId.split('.');
+export const analyzeWidgetId = (widgetId: string) => {
+    const [topLevelDomain, domainName, partType, templateName, widgetName] =
+        widgetId.split('.');
 
     return {
         topLevelDomain,
         domainName,
         partType,
         templateName,
-        blockName,
-        ...blockNameToCmp(blockName),
+        widgetName,
+        ...widgetNameToCmp(widgetName),
     };
 };
 
 export const analyzeScreenshotName = (screenshotName: string) => {
-    const [_s, templateName, blockName, sampleName, device, size] =
+    const [_s, templateName, widgetName, sampleName, device, size] =
         screenshotName.split('.');
 
-    const [cmpNameLowercase, cmpFlavour] = blockName.split('-');
+    const [cmpNameLowercase, cmpFlavour] = widgetName.split('-');
     const cmpName = capitalize(cmpNameLowercase);
 
     return {
         templateName,
-        blockName,
+        widgetName,
         sampleName,
         device,
         size,
@@ -316,7 +322,7 @@ const writeDefinitionsFiles = async (
 ) => {
     Object.keys(uploadResponse).forEach((screenshotName) => {
         const info = analyzeScreenshotName(screenshotName);
-        const { templateName, blockName, cmpFlavour, device, size } = info;
+        const { templateName, widgetName, cmpFlavour, device, size } = info;
 
         const uploadMetadata = uploadResponse[screenshotName];
         const { mediaLink } = uploadMetadata;
@@ -324,7 +330,7 @@ const writeDefinitionsFiles = async (
         const xPathDefinitions = [
             'screenshots',
             templateName,
-            blockName,
+            widgetName,
             cmpFlavour,
             device,
             size,
@@ -337,20 +343,20 @@ const writeDefinitionsFiles = async (
     });
 
     Object.keys(definitions.screenshots).forEach((templateName) => {
-        const screenshotsByBlock = definitions.screenshots[templateName];
-        const dimensionsByBlock = definitions.dimensions[templateName];
+        const screenshotsByWidget = definitions.screenshots[templateName];
+        const dimensionsByWidget = definitions.dimensions[templateName];
 
-        Object.keys(screenshotsByBlock).forEach((blockName) => {
-            const screenshotsForBlock = screenshotsByBlock[blockName];
-            const dimensionsForBlock = dimensionsByBlock[blockName];
-            const { cmpName } = blockNameToCmp(blockName);
+        Object.keys(screenshotsByWidget).forEach((widgetName) => {
+            const screenshotsForWidget = screenshotsByWidget[widgetName];
+            const dimensionsForWidget = dimensionsByWidget[widgetName];
+            const { cmpName } = widgetNameToCmp(widgetName);
 
-            const outputIndexScreenshots = `../../${packagePath}/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.screenshots.ts`;
-            const indexScreenshots = templateScreenshot(screenshotsForBlock);
+            const outputIndexScreenshots = `../../${packagePath}/src/templates/${templateName}/widgets/${widgetName}/meta/${cmpName}.screenshots.ts`;
+            const indexScreenshots = templateScreenshot(screenshotsForWidget);
             fs.writeFileSync(outputIndexScreenshots, indexScreenshots);
 
-            const indexDimensions = templateDimensions(dimensionsForBlock);
-            const outputIndexDimensions = `../../${packagePath}/src/templates/${templateName}/blocks/${blockName}/meta/${cmpName}.dimensions.ts`;
+            const indexDimensions = templateDimensions(dimensionsForWidget);
+            const outputIndexDimensions = `../../${packagePath}/src/templates/${templateName}/widgets/${widgetName}/meta/${cmpName}.dimensions.ts`;
             fs.writeFileSync(outputIndexDimensions, indexDimensions);
         });
     });
@@ -372,10 +378,10 @@ const screenShotsForPackage = async (method: any, packagePath: string) => {
 
     const libraryBuilder = new LibraryBuilder();
     method(libraryBuilder);
-    blocks = libraryBuilder.build().blocks;
+    widgets = libraryBuilder.build().widgets;
 
-    for (let block of Object.values(blocks)) {
-        await screenShotsForComponent(block);
+    for (let widget of Object.values(widgets)) {
+        await screenShotsForComponent(widget);
     }
 
     const uploadResponse = await uploadAllScreenshots();

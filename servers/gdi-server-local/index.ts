@@ -19,8 +19,8 @@ app.post('/saveLibraryBlocks', (req: any, res: any) => {
     const body = req.body;
 
     fs.writeFileSync(
-        '../../packages/gdi-store-mixer/src/mock.libraryBlocks.ts',
-        `export const libraryBlocks = ${JSON.stringify(body, null, 4)};`
+        '../../packages/gdi-store-mixer/src/mock.libraryWidgets.ts',
+        `export const libraryWidgets = ${JSON.stringify(body, null, 4)};`
     );
 
     console.timeEnd('saving');

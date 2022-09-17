@@ -3,7 +3,7 @@ import { sampleData } from './meta/Feature.sample';
 import { dimensions } from './meta/Feature.dimensions';
 import { screenshots } from './meta/Feature.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.futuristic.feature-simple',
     name: 'feature-simple',
     description: '',

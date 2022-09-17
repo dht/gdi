@@ -1,17 +1,17 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { IImageWithBlock, IMixerStore } from './types';
+import { IImageWithWidget, IMixerStore } from './types';
 import { get, pickBy } from 'lodash';
 import { site } from '@gdi/store-site';
 import {
-    getBlockTypeFromElement,
-    getBlockTypeFromTags,
+    getWidgetTypeFromElement,
+    getWidgetTypeFromTags,
     getSchemaPropertiesByType,
-} from './utils/blocks';
+} from './utils/widgets';
 
 const rawSite = site.selectors.raw;
 const baseSite = site.selectors.base;
-export const $elements = site.selectors.base.$elements;
+export const $instances = site.selectors.base.$instances;
 
 export const $i = (state: IMixerStore) => state;
 
@@ -23,73 +23,73 @@ export const $page = createSelector(
     }
 );
 
-export const $elementsForCurrentPage = createSelector(
+export const $instancesForCurrentPage = createSelector(
     raw.$rawCurrentIds,
-    $elements,
-    (currentIds, elements) => {
-        return elements.filter(
+    $instances,
+    (currentIds, instances) => {
+        return instances.filter(
             (instance) => instance.pageId === currentIds.pageId
         );
     }
 );
 
 export const $nextElementOrder = createSelector(
-    $elementsForCurrentPage,
-    (elementsInPage) => {
-        const maxOrder = elementsInPage.reduce((output, element) => {
-            return Math.max(output, element.order || 0);
+    $instancesForCurrentPage,
+    (instancesInPage) => {
+        const maxOrder = instancesInPage.reduce((output, instance) => {
+            return Math.max(output, instance.order || 0);
         }, 0);
 
         return maxOrder + 1;
     }
 );
 
-export const $elementSelected = createSelector(
+export const $instanceSelected = createSelector(
     raw.$rawCurrentIds,
-    baseSite.$elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.selectedInstanceId
+    $instances,
+    (currentIds, instances) => {
+        return instances.find(
+            (instance) => instance.id === currentIds.selectedInstanceId
         );
     }
 );
 
-export const $elementContent = createSelector(
+export const $instanceContent = createSelector(
     raw.$rawCurrentIds,
-    baseSite.$elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.contentInstanceId
+    $instances,
+    (currentIds, instances) => {
+        return instances.find(
+            (instance) => instance.id === currentIds.contentInstanceId
         );
     }
 );
 
 export const $typography = createSelector(
     raw.$rawCurrentIds,
-    $elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.selectedInstanceId
+    $instances,
+    (currentIds, instances) => {
+        return instances.find(
+            (instance) => instance.id === currentIds.selectedInstanceId
         );
     }
 );
 
 export const $palette = createSelector(
     raw.$rawCurrentIds,
-    $elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.selectedInstanceId
+    $instances,
+    (currentIds, instances) => {
+        return instances.find(
+            (instance) => instance.id === currentIds.selectedInstanceId
         );
     }
 );
 
 export const $locale = createSelector(
     raw.$rawCurrentIds,
-    $elements,
-    (currentIds, elements) => {
-        return elements.find(
-            (element) => element.id === currentIds.selectedInstanceId
+    $instances,
+    (currentIds, instances) => {
+        return instances.find(
+            (instance) => instance.id === currentIds.selectedInstanceId
         );
     }
 );
@@ -105,45 +105,48 @@ export const $libraryImages = createSelector(
     }
 );
 
-export const $elementTypes = createSelector(raw.$rawLibraryBlocks, (blocks) => {
-    const set = new Set<string>();
+export const $instanceTypes = createSelector(
+    raw.$rawLibraryWidgets,
+    (widgets) => {
+        const set = new Set<string>();
 
-    Object.values(blocks).forEach((block) => {
-        const { tags } = block;
+        Object.values(widgets).forEach((widget) => {
+            const { tags = [] } = widget;
 
-        tags.filter((item) => item.match(/^type-/)).forEach((tag) => {
-            const elementType = tag.split('-').pop();
+            tags.filter((item) => item.match(/^type-/)).forEach((tag) => {
+                const instanceType = tag.split('-').pop();
 
-            if (elementType) {
-                set.add(elementType);
-            }
+                if (instanceType) {
+                    set.add(instanceType);
+                }
+            });
         });
-    });
 
-    const output = Array.from(set);
+        const output = Array.from(set);
 
-    output.sort();
+        output.sort();
 
-    return output;
-});
+        return output;
+    }
+);
 
-export const $libraryBlocks = createSelector(
-    raw.$rawLibraryBlocks,
-    raw.$rawBlocksGalleryState,
-    $elementSelected,
-    (blocks, galleryState, element) => {
-        const selectedElementType = getBlockTypeFromElement(element);
+export const $libraryWidgets = createSelector(
+    raw.$rawLibraryWidgets,
+    raw.$rawWidgetGalleryState,
+    $instanceSelected,
+    (widgets, galleryState, instance) => {
+        const selectedElementType = getWidgetTypeFromElement(instance);
 
-        const output: IImageWithBlock[] = [];
+        const output: IImageWithWidget[] = [];
         const { filter } = galleryState;
 
-        Object.values(blocks).forEach((block) => {
-            const { id, name, tags, screenshots } = block;
-            const elementType = getBlockTypeFromTags(tags);
+        Object.values(widgets).forEach((widget) => {
+            const { id, name, tags = [], screenshots = {} } = widget;
+            const instanceType = getWidgetTypeFromTags(tags);
 
             const isFilterOff = filter === 'all';
             const isElementSelected = selectedElementType !== '';
-            const doTypesMatch = selectedElementType === elementType;
+            const doTypesMatch = selectedElementType === instanceType;
 
             const shouldShow =
                 isFilterOff || !isElementSelected || doTypesMatch;
@@ -163,7 +166,7 @@ export const $libraryBlocks = createSelector(
                         imageThumbUrl: thumb.url as string,
                         ratio: large.ratio,
                         tags,
-                        block,
+                        widget,
                     });
                 }
             }
@@ -173,26 +176,26 @@ export const $libraryBlocks = createSelector(
     }
 );
 
-export const $inspector = createSelector($elementSelected, (element) => {
-    if (!element) {
+export const $inspector = createSelector($instanceSelected, (instance) => {
+    if (!instance) {
         return;
     }
 
     const {
         id,
-        blockId,
+        widgetId,
         pageId,
         order,
         isPlaceholder,
         placeholderType,
-        block,
-    } = element;
+        widget,
+    } = instance;
 
-    const { tags, description, name } = block || ({} as any);
+    const { tags, description, name } = widget || ({} as any);
 
     return {
         id,
-        blockId,
+        widgetId,
         pageId,
         order,
         isPlaceholder,
@@ -203,29 +206,29 @@ export const $inspector = createSelector($elementSelected, (element) => {
     };
 });
 
-export const $elementSelectedSchema = createSelector(
-    $elementSelected,
-    (element) => {
-        return get(element, 'block.params.schema');
+export const $instanceSelectedSchema = createSelector(
+    $instanceSelected,
+    (instance) => {
+        return get(instance, 'widget.params.schema');
     }
 );
 
 export const $imageFieldsForCurrentElement = createSelector(
-    $elementSelected,
-    (element) => {
-        if (!element) {
+    $instanceSelected,
+    (instance) => {
+        if (!instance) {
             return [];
         }
 
-        return getSchemaPropertiesByType(element.block, 'image', true);
+        return getSchemaPropertiesByType(instance.widget, 'image', true);
     }
 );
 
 export const $selectedElementImageId = createSelector(
     raw.$rawCurrentIds,
-    $elementSelected,
+    $instanceSelected,
     $libraryImages,
-    (currentIds, element, images) => {
+    (currentIds, instance, images) => {
         const { selectedInstanceId: instanceId, fieldId } = currentIds;
 
         const output = {
@@ -235,8 +238,8 @@ export const $selectedElementImageId = createSelector(
             imageId: '',
         };
 
-        if (element && fieldId) {
-            const { instanceProps } = element;
+        if (instance && fieldId) {
+            const { instanceProps } = instance;
             const imageUrl = get(instanceProps, fieldId);
             output.imageUrl = imageUrl;
             const image = images.find((i) => i.imageUrl === imageUrl);
@@ -261,12 +264,12 @@ export const $isImageSwitch = createSelector(
 );
 
 export const $isSelectedPlaceholder = createSelector(
-    $elementSelected,
-    (element) => {
-        if (!element) {
+    $instanceSelected,
+    (instance) => {
+        if (!instance) {
             return false;
         }
 
-        return element.isPlaceholder;
+        return instance.isPlaceholder;
     }
 );

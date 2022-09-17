@@ -11,7 +11,7 @@
         "@dnd-kit/core": "^6.0.5",
         "@dnd-kit/sortable": "^7.0.1",
         "@dnd-kit/utilities": "^3.2.0",
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "@gdi/web-base-ui": "^0.0.27",
         "@gdi/web-editors": "^0.0.22",
         "@gdi/web-forms": "^0.0.23",

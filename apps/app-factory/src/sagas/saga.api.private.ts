@@ -4,12 +4,11 @@ import { $s } from 'shared-base';
 
 function* apiPrivate() {
     $s('apiPrivate', {
-        nodes: ['appStateFactory', 'layouts', 'customBlocks'],
+        nodes: ['appStateFactory', 'layouts'],
     });
 
     const promises = [
         yield* put(actions.appStateFactory.get()),
-        yield* put(actions.customBlocks.get({})),
         yield* put(actions.layouts.get({})),
     ];
 

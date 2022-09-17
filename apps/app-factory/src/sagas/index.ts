@@ -1,7 +1,6 @@
 import ping from './ping';
 import { fork, take } from 'saga-ts';
 import { root as apiPrivate } from './saga.api.private';
-import { root as contentImages } from './saga.content.images';
 import { root as flexSplit } from './saga.flex.split';
 import { root as flexKeyboard } from './saga.flex.keyboard';
 import { root as flexSeed } from './saga.flex.seed';
@@ -13,7 +12,6 @@ function* root() {
     yield take(PlatformLifeCycleEvents.AUTHENTICATION_COMPLETED);
     yield* fork(apiPrivate);
     yield* fork(flexExport);
-    yield* fork(contentImages);
     yield* fork(flexSplit);
     yield* fork(flexProps);
     yield* fork(flexKeyboard);

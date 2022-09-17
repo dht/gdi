@@ -5,6 +5,7 @@ export const A20 = {};
 declare global {
     export type PageId = string;
     export type WidgetId = string;
+    export type FlavourId = string;
 
     export type ICoordinates = {
         x: number;
@@ -19,10 +20,16 @@ declare global {
     export type IWidget = {
         id: WidgetId;
         name: string;
-        description: string;
+        description?: string;
         component?: (props?: any) => JSX.Element;
-        defaultDimension: IDimension;
+        defaultDimension?: IDimension;
         tags?: string[];
+        widgetType?: string;
+        params?: IWidgetParams;
+        sampleData?: ISampleDataPerFlavour;
+        dimensions?: IDimensionsPerFlavour;
+        screenshots?: IScreenshotsPerFlavour;
+        isBlock?: boolean;
     };
 
     export type IWidgets = Record<string, IWidget>;
@@ -46,7 +53,12 @@ declare global {
         pageId?: string;
         locationId?: string;
         order?: number;
+        // transient
+        widget?: IWidget;
+        instanceProps?: Json;
     };
+
+    export type IElement = IWidgetInstance;
 
     export type IWidgetHeaderDetails = {
         title?: string;
@@ -104,4 +116,77 @@ declare global {
         withWidgets: (widgets: IWidget[]) => IWidgetLibraryBuilder;
         build: () => IWidgets;
     }
+
+    export type IWidgetParams = {
+        id: WidgetId;
+        schema: IWidgetSchema;
+    };
+
+    export type IWidgetSchemaGroup = Record<string, FieldParams>;
+
+    export type IWidgetSchema = {
+        strings: IWidgetSchemaGroup;
+        colors: IWidgetSchemaGroup;
+        extra: IWidgetSchemaGroup;
+    };
+
+    export type SchemaFieldType =
+        | 'number'
+        | 'text'
+        | 'longText'
+        | 'url'
+        | 'checkbox'
+        | 'image'
+        | 'color'
+        | 'json';
+
+    export type FieldParams = {
+        fieldType: SchemaFieldType;
+        isRequired?: boolean;
+        order: number;
+    };
+
+    export type ISampleData = {
+        id: string;
+
+        strings: Json;
+        colors: Json;
+        extra: Json;
+    };
+
+    export type ISampleDataPerFlavour = Record<FlavourId, ISampleData>;
+
+    export type IWidthHeight = {
+        width: number;
+        height: number;
+        ratio: number;
+    };
+
+    export type IDimensions = {
+        desktop: IWidthHeight;
+        mobile: IWidthHeight;
+    };
+
+    export type IDimensionsPerFlavour = Record<FlavourId, IDimensions>;
+
+    export type IScreenshots = {
+        desktop: {
+            large: IImageInfo;
+            thumb: IImageInfo;
+        };
+        mobile: {
+            large: IImageInfo;
+            thumb: IImageInfo;
+        };
+    };
+
+    export type IImageInfo = {
+        url?: string;
+        width: number;
+        height: number;
+        ratio: number;
+        urlIsRemote?: boolean;
+    };
+
+    export type IScreenshotsPerFlavour = Record<FlavourId, IScreenshots>;
 }

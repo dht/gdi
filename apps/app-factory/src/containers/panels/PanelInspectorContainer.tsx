@@ -16,7 +16,7 @@ export const PanelInspectorContainer = (
     if (!inspector) {
         return (
             <Empty
-                message='Select a block'
+                message='Select a widget'
                 iconName='AppIconDefault'
                 withIcon
             />

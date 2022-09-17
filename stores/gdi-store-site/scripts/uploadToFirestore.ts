@@ -1,5 +1,5 @@
 import { state } from './state';
-import { upload } from './methodsFirebase';
+import { upload } from './methods.firebase.nodes';
 
 const nodeTypes = {
     meta: 'single',
@@ -7,9 +7,9 @@ const nodeTypes = {
     fontSizes: 'single',
     spacing: 'single',
     fonts: 'single',
-    instancesBlocks: 'collection',
+    instances: 'collection',
     breakpoints: 'collection',
-    blocks: 'collection',
+    widgets: 'collection',
     images: 'collection',
     pages: 'collection',
     instancesMapColors: 'collection',

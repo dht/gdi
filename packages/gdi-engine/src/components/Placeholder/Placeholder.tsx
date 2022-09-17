@@ -7,15 +7,16 @@ export type PlaceholderProps = {
 
 export function Placeholder(props: PlaceholderProps) {
     const { element } = props;
-    const { elementType } = element;
+    const { widget } = element;
+    const { widgetType = '' } = widget || {};
 
     return (
         <Container
             className='Placeholder-container'
             data-testid='Placeholder-container'
         >
-            <Header>Placeholder for {elementType}</Header>
-            <P>Populate with a block from the library</P>
+            <Header>Placeholder for {widgetType}</Header>
+            <P>Populate with a widget from the library</P>
         </Container>
     );
 }

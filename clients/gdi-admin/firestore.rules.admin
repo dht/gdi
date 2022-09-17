@@ -91,7 +91,7 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /blocksGalleryState/{document=**} {
+        match /widgetGalleryState/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -111,7 +111,7 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /blocks/{document=**} {
+        match /widgets/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -151,7 +151,7 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /instancesBlocks/{document=**} {
+        match /instances/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -166,12 +166,12 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /items/{document=**} {
+        match /studioItems/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
 
-        match /libraryBlocks/{document=**} {
+        match /libraryWidgets/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
