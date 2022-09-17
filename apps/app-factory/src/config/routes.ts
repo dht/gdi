@@ -1,20 +1,13 @@
 import { ROOT } from './ids';
 
 export const routes: IRoutes = {
-    factory: `${ROOT}`,
     layouts: `${ROOT}/layouts`,
+    layout: `${ROOT}/layouts/:layoutId`,
     customBlocks: `${ROOT}/customBlocks`,
+    customBlock: `${ROOT}/customBlocks/:blockId`,
 };
 
 export const menuItems: IMenuItem[] = [
-    {
-        path: routes.factory,
-        icon: 'Manufacturing',
-        label: 'Factory',
-        groupId: 'site',
-        showOnSlim: true,
-        order: 0,
-    },
     {
         path: routes.layouts,
         icon: 'Manufacturing',

@@ -1,0 +1,21 @@
+{
+    "name": "new layout",
+    "items": [
+        {
+            "id": "i1",
+            "parentId": "",
+            "entityType": "container",
+            "resolution": "1080p",
+            "direction": "row",
+            "order": 1
+        },
+        {
+            "id": "i2",
+            "parentId": "i1",
+            "entityType": "item",
+            "resolution": "1080p",
+            "locationId": "main",
+            "order": 2
+        }
+    ]
+}

@@ -12,6 +12,7 @@ export type ButtonProps = {
     onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void;
     iconName?: string;
     primary?: boolean;
+    toolbar?: boolean;
     disabled?: boolean;
     isSubmit?: boolean;
     isSubmitting?: boolean;
@@ -26,6 +27,7 @@ export function Button(props: ButtonProps) {
     let {
         title,
         primary,
+        toolbar,
         disabled,
         iconName,
         options = [],

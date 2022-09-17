@@ -2,26 +2,28 @@ import React from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 
-type TableContext = {
+type ITableContext = {
     widths: number[];
     showFilters: boolean;
-    patchState: (change: Partial<TableContext>) => void;
+    selectedId: string;
+    patchState: (change: Partial<ITableContext>) => void;
 };
 
-const initialState: TableContext = {
+const initialState: ITableContext = {
     widths: [],
     showFilters: false,
+    selectedId: '',
     patchState: () => {},
 };
 
-export const TableContext = createContext<TableContext>(initialState);
+export const TableContext = createContext<ITableContext>(initialState);
 
 type TableProps = {
     children: JSX.Element;
 };
 
 export const TableContextProvider = (props: TableProps) => {
-    const [state, patchState] = useSetState<TableContext>(initialState);
+    const [state, patchState] = useSetState<ITableContext>(initialState);
 
     return (
         <TableContext.Provider

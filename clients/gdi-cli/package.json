@@ -18,7 +18,7 @@
     },
     "author": "",
     "dependencies": {
-        "@gdi/types": "^0.0.29",
+        "@gdi/types": "^0.0.30",
         "@types/cli-table": "^0.3.0",
         "chalk": "^4.1.2",
         "cli-table": "^0.3.11",

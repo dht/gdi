@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     flex: 1;
     margin-top: 10px;
+    user-select: none;
 
     img {
         width: 160px;

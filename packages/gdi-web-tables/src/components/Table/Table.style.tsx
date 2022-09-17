@@ -9,10 +9,5 @@ export const Container = styled.div`
 export const Content = styled.div`
     background-color: #223;
     flex: 1;
-`;
-
-export const Row = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: center;
 `;

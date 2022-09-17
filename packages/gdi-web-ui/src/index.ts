@@ -23,6 +23,7 @@ export { WindowHeader } from './components/WindowHeader/WindowHeader';
 
 export {
     Accordion,
+    AutoComplete,
     Avatar,
     BarSelect,
     Button,
@@ -55,7 +56,14 @@ export {
     UserMenu,
     WireFrames,
 } from '@gdi/web-base-ui';
-export { Breadcrumb, Icon, IconButton, Pivot, Callout } from '@gdi/web-base-ui';
+export {
+    Breadcrumb,
+    Icon,
+    IconButton,
+    Pivot,
+    PivotItem,
+    Callout,
+} from '@gdi/web-base-ui';
 export { initializeIcons, ThemeProvider } from '@gdi/web-base-ui';
 export type {
     PartialTheme,
@@ -77,7 +85,7 @@ export {
     Crud,
 } from '@gdi/web-tables';
 
-export { Form, AutoForm } from '@gdi/web-forms';
+export { Form, FormModal, AutoForm } from '@gdi/web-forms';
 export {
     translateForm,
     translateOptions,

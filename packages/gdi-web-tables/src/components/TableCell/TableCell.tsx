@@ -2,14 +2,17 @@ import React, { FC, useContext, useMemo } from 'react';
 import { CellType, ITableField } from '../../types';
 import { TableContext } from '../Table/Table.context';
 import { SocialIcon } from '@gdi/web-base-ui';
+import { timeAgo, shortDate } from 'shared-base';
 import { format } from 'date-fns';
 import {
     Container,
     Description,
+    Id,
     Image,
     Name,
     Number,
     Social,
+    SubText,
     Tag,
     Tags,
     Text,
@@ -26,9 +29,15 @@ export function TableCell(props: TableCellProps) {
     const { field, data, index } = props;
     const context = useContext(TableContext);
 
-    const { id, cellType, mapFields = {} } = field;
+    const { id, cellType, mapFields } = field;
 
     const cellData = useMemo(() => {
+        if (!mapFields) {
+            return {
+                value: data[id],
+            };
+        }
+
         return Object.keys(mapFields).reduce((output, key) => {
             const value = mapFields[key];
 
@@ -152,6 +161,37 @@ export function TableCellDate(props: TableCellProps) {
     );
 }
 
+export function TableCellTimeAgo(props: TableCellProps) {
+    const { data } = props;
+    const { value } = data;
+
+    const dateText = useMemo(() => {
+        return shortDate(value);
+    }, [value]);
+
+    const timeAgoText = useMemo(() => {
+        return timeAgo(value);
+    }, [value]);
+
+    return (
+        <>
+            <Text>{dateText}</Text>
+            <SubText>{timeAgoText}</SubText>
+        </>
+    );
+}
+
+export function TableCellId(props: TableCellProps) {
+    const { data } = props;
+    const { value } = data;
+
+    return (
+        <>
+            <Id>{value}</Id>
+        </>
+    );
+}
+
 export function TableCellSocial(props: TableCellProps) {
     const { data } = props;
     const { twitter, facebook, instagram, linkedIn, wikipedia } = data;
@@ -175,6 +215,8 @@ const map: Record<CellType, FC<TableCellProps>> = {
     tags: TableCellTags,
     date: TableCellDate,
     social: TableCellSocial,
+    timeAgo: TableCellTimeAgo,
+    id: TableCellId,
 };
 
 export default TableCell;

@@ -1,4 +1,5 @@
 export { Accordion } from './components/Accordion/Accordion';
+export { AutoComplete } from './components/AutoComplete/AutoComplete';
 export { Avatar } from './components/Avatar/Avatar';
 export { BarSelect } from './components/BarSelect/BarSelect';
 export { Button } from './components/Button/Button';
@@ -10,6 +11,7 @@ export { Drawer } from './components/Drawer/Drawer';
 export { Dropdown } from './components/Dropdown/Dropdown';
 export { Empty } from './components/Empty/Empty';
 export { GliLogo } from './components/GliLogo/GliLogo';
+export { IconButton } from './components/IconButton/IconButton';
 export { ImageUpload } from './components/ImageUpload/ImageUpload';
 export { Input } from './components/Input/Input';
 export { InputHidden } from './components/InputHidden/InputHidden';
@@ -30,7 +32,7 @@ export { TagsInput } from './components/TagsInput/TagsInput';
 export { Toolbar } from './components/Toolbar/Toolbar';
 export { UserMenu } from './components/UserMenu/UserMenu';
 export { WireFrames } from './components/WireFrames/WireFrames';
-export { Breadcrumb, Icon, IconButton, Pivot, Callout } from '@fluentui/react';
+export { Breadcrumb, Icon, Pivot, PivotItem, Callout } from '@fluentui/react';
 export { initializeIcons, ThemeProvider } from '@fluentui/react';
 export type {
     PartialTheme,

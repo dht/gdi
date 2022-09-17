@@ -52,6 +52,7 @@ declare global {
         description?: string;
         isRequired?: boolean;
         optionSelector?: string;
+        showIf?: string;
         params?: Json;
         order?: number;
     };
@@ -74,7 +75,8 @@ declare global {
 
     export type IFormConfig = {
         id: string;
-        sequence: number;
+        sequence?: number;
+        header?: string;
         i18n?: I18n;
         layout: IFormLayout;
         groups: IFormLayoutGroup[];

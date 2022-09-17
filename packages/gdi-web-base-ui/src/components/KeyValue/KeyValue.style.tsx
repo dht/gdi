@@ -24,3 +24,5 @@ export const Value = styled.div`
     color: gold;
     font-size: 16px;
 `;
+
+export const Pre = styled.pre``;

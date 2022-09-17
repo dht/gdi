@@ -19,6 +19,7 @@ export type DropdownProps = {
     placeholder?: string;
     value?: string;
     onChange: (newValue: string) => void;
+    onKeyDown?: (ev: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
@@ -61,6 +62,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
                 options={fluentOptions}
                 selectedKey={value}
                 onChange={onChange}
+                onKeyDown={props.onKeyDown}
             />
         </Container>
     );

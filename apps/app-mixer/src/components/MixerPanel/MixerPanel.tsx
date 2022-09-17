@@ -19,7 +19,7 @@ export function MixerPanel(props: MixerPanelProps) {
             className='MixerPanel-container'
             data-testid='MixerPanel-container'
         >
-            <Accordion>
+            <Accordion initialPanel='Library'>
                 <PanelInspectorContainer key='Inspector' flex />
                 <PanelLibraryContainer key='Library' flex />
                 <PanelContentContainer key='Data' flex />

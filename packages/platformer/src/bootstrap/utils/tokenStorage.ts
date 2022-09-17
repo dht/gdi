@@ -1,5 +1,5 @@
 import { ITokenStorage, Tokens } from 'axios-oauth';
-import { getString, setString } from './localStorage';
+import { getString, setString } from 'shared-base';
 
 const ACCESS_TOKEN_KEY = 'MAIN_ACCESS_TOKEN';
 const REFRESH_TOKEN_KEY = 'MAIN_REFRESH_TOKEN';

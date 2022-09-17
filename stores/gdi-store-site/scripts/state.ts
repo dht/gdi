@@ -93,6 +93,7 @@ export const state: ISiteStore = {
             minWidth: 0,
             maxWidth: 600,
             containerWidth: 0,
+            order: 0,
         },
         tablet: {
             id: 'tablet',
@@ -101,6 +102,7 @@ export const state: ISiteStore = {
             minWidth: 600,
             maxWidth: 1100,
             containerWidth: 720,
+            order: 1,
         },
         '720p': {
             id: '720p',
@@ -109,6 +111,7 @@ export const state: ISiteStore = {
             minWidth: 1100,
             maxWidth: 1300,
             containerWidth: 1024,
+            order: 2,
         },
         HD: {
             id: 'HD',
@@ -117,6 +120,7 @@ export const state: ISiteStore = {
             minWidth: 1300,
             maxWidth: 1440,
             containerWidth: 1280,
+            order: 3,
         },
         'HD+': {
             id: 'HD+',
@@ -125,6 +129,7 @@ export const state: ISiteStore = {
             minWidth: 1440,
             maxWidth: 1700,
             containerWidth: 1360,
+            order: 4,
         },
         '1080p': {
             id: '1080p',
@@ -133,6 +138,8 @@ export const state: ISiteStore = {
             minWidth: 1700,
             maxWidth: 2000,
             containerWidth: 1600,
+            isDefault: true,
+            order: 5,
         },
         '2k': {
             id: '2k',
@@ -141,6 +148,7 @@ export const state: ISiteStore = {
             minWidth: 2000,
             maxWidth: 2600,
             containerWidth: 1920,
+            order: 6,
         },
         '4k': {
             id: '4k',
@@ -148,6 +156,7 @@ export const state: ISiteStore = {
             screenHeight: 2160,
             minWidth: 2600,
             containerWidth: 2560,
+            order: 7,
         },
     },
     instancesBlocks: {

@@ -11,6 +11,8 @@ export type IFactoryState = {
     stateKey: string;
     mode: IViewMode;
     selectedToolId: string;
+    showItemsInTable: boolean;
+    showPropertiesModal: boolean;
 };
 
 export type ICurrentIdsFactory = {

@@ -8,8 +8,11 @@
         "build": "echo no build needed"
     },
     "devDependencies": {
-        "@gdi/types": "^0.0.29",
+        "@gdi/types": "^0.0.30",
         "chalk": "^4.1.2",
         "firebase": "^9.9.3"
+    },
+    "dependencies": {
+        "@gdi/store-site": "^0.0.20"
     }
 }

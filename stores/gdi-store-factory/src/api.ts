@@ -15,6 +15,7 @@ export const endpointsConfigOverrides: any = {
         id: 'layouts',
         connectionType: 'FIRESTORE',
         optimistic: true,
+        optimisticPosts: true,
     },
     customBlocks: {
         id: 'customBlocks',

@@ -4,6 +4,7 @@ type PromptRequest = {
     title: string;
     label?: string;
     description?: string;
+    defaultValue?: string;
     warning?: string;
     options?: IOption[];
     placeholder?: string;
@@ -74,6 +75,7 @@ const input = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
         title,
         submitButtonText,
         description,
+        defaultValue,
         label,
         placeholder,
         warning,
@@ -87,6 +89,7 @@ const input = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
             title,
             label,
             description,
+            defaultValue,
             placeholder,
             warning,
         },
@@ -107,6 +110,7 @@ const select = async (
         title,
         submitButtonText,
         description,
+        defaultValue,
         options,
         label,
         placeholder,
@@ -120,6 +124,7 @@ const select = async (
         params: {
             title,
             description,
+            defaultValue,
             label,
             placeholder,
             options,

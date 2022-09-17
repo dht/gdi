@@ -12,7 +12,7 @@ export class TableTopDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<TableTop {...this.props} />);
+            render(<TableTop {...(this.props as TableTopProps)} />);
             return this;
         },
         click: () => {

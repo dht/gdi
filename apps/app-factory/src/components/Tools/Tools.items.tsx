@@ -1,5 +1,3 @@
-export type { IToolbarItem } from '@gdi/web-ui';
-
 export enum ToolId {
     edit = 'edit',
     delete = 'delete',
@@ -23,7 +21,6 @@ export const items: any[] = [
         text: 'Delete',
         iconName: 'Delete',
     },
-
     {
         id: ToolId.edit,
         text: 'Edit',

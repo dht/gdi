@@ -8,6 +8,7 @@ export type InputProps = {
     label?: string;
     onChange: (ev: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => void; // prettier-ignore
     onBlur?: () => void;
+    onKeyDown?: (ev: React.KeyboardEvent<HTMLInputElement>) => void;
     rows?: number;
     multiline?: boolean;
     isNumeric?: boolean;
@@ -44,6 +45,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
     return (
         <Container className='Input-container' data-testid='Input-container'>
             <TextField
+                itemRef={ref}
                 autoComplete='none'
                 type={type}
                 rows={rows}
@@ -52,6 +54,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
                 multiline={multiline}
                 onBlur={props.onBlur}
                 onChange={onChange}
+                onKeyDown={props.onKeyDown}
                 styles={{
                     root: {
                         padding: '10',

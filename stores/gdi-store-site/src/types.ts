@@ -128,6 +128,9 @@ export type IBreakpoint = {
     minWidth: number;
     maxWidth?: number;
     containerWidth: number;
+    isDefault?: boolean;
+    count?: number;
+    order?: number;
 };
 
 export type IBreakpoints = Record<string, IBreakpoint>;

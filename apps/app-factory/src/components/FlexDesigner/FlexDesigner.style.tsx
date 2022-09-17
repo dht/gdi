@@ -30,6 +30,12 @@ export const Item = styled.div`
     margin: 5px;
     margin-right: 0;
     position: relative;
+    color: #ccd;
+    user-select: none;
+
+    &.empty {
+        color: #778;
+    }
 
     &.selected {
         &::after {
@@ -49,4 +55,9 @@ export const Content = styled.div`
     flex: 1;
     min-height: 400px;
     display: flex;
+`;
+
+export const ItemTitle = styled.div`
+    padding: 10px;
+    font-family: monospace;
 `;

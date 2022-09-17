@@ -6,3 +6,7 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
 `;
+
+export const KeyboardWrapper = styled.div`
+    margin-left: 30px;
+`;
