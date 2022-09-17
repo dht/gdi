@@ -13,7 +13,7 @@
         "@gdi/hooks": "^0.0.24",
         "@gdi/platformer": "^0.0.22",
         "@gdi/store-factory": "^0.0.21",
-        "@gdi/store-site": "^0.0.20",
+        "@gdi/store-site": "^0.0.22",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
         "@gdi/types": "^0.0.30",

@@ -1926,7 +1926,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-biblo" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -1953,7 +1953,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-deb" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -1980,7 +1980,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-devtools" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2007,7 +2007,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-events" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2035,7 +2035,7 @@
     "@gdi/hooks" "^0.0.24"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-factory" "^0.0.21"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2062,7 +2062,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-knowledge" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2110,7 +2110,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-mixer" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2136,7 +2136,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-money" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2162,7 +2162,7 @@
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-ppl" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2188,7 +2188,7 @@
     "@gdi/engine" "^0.0.20"
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2213,7 +2213,7 @@
     "@gdi/engine" "^0.0.20"
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/store-spotify" "^0.0.20"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
@@ -2238,7 +2238,7 @@
   dependencies:
     "@babylonjs/gui" "^5.22.1"
     "@babylonjs/materials" "^5.22.1"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/store-studio" "^0.0.20"
     "@gdi/types" "^0.0.30"
     "@gdi/web-ui" "^0.0.25"
@@ -2263,7 +2263,7 @@
     "@gdi/engine" "^0.0.20"
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/store-tasks" "^0.0.20"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
@@ -2289,7 +2289,7 @@
     "@gdi/engine" "^0.0.20"
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/store-things" "^0.0.20"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
@@ -2316,7 +2316,7 @@
     "@gdi/engine" "^0.0.20"
     "@gdi/galleries" "^0.0.20"
     "@gdi/platformer" "^0.0.22"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/store-voice" "^0.0.20"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
@@ -2405,7 +2405,7 @@
   "version" "0.0.1"
   dependencies:
     "@gdi/engine" "^0.0.20"
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-gdi" "^0.0.21"
     "@gdi/types" "^0.0.30"
@@ -2513,7 +2513,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-biblo"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2527,7 +2527,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-deb"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2541,7 +2541,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-devtools"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2555,7 +2555,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-events"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2571,7 +2571,7 @@
   "resolved" "file:stores/gdi-store-factory"
   "version" "0.0.21"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2585,7 +2585,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-knowledge"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2599,7 +2599,7 @@
   "resolved" "file:stores/gdi-store-mixer"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2624,7 +2624,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-money"
   "version" "0.0.21"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2638,7 +2638,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-ppl"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2646,7 +2646,7 @@
 
 "@gdi/store-site-scripts@file:/Users/dht/projects/gdi/stores/gdi-store-site/scripts":
   "resolved" "file:stores/gdi-store-site/scripts"
-  "version" "1.0.4"
+  "version" "1.0.5"
   dependencies:
     "firebase" "^9.9.2"
 
@@ -2660,9 +2660,9 @@
     "redux-store-generator" "^0.9.83"
     "reselect" "^4.1.6"
 
-"@gdi/store-site@file:/Users/dht/projects/gdi/stores/gdi-store-site":
+"@gdi/store-site@^0.0.22", "@gdi/store-site@file:/Users/dht/projects/gdi/stores/gdi-store-site":
   "resolved" "file:stores/gdi-store-site"
-  "version" "0.0.21"
+  "version" "0.0.22"
   dependencies:
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
@@ -2682,7 +2682,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-soundboard"
   "version" "0.0.23"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/store-tasks" "^0.0.21"
     "@gdi/types" "^0.0.30"
     "chroma-js" "^2.4.2"
@@ -2715,7 +2715,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-spotify"
   "version" "0.0.23"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "date-fns" "^2.29.2"
     "lodash" "^4.17.21"
@@ -2731,7 +2731,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-studio"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2761,7 +2761,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-tasks"
   "version" "0.0.21"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "date-fns" "^2.29.2"
     "lodash" "^4.17.21"
@@ -2777,7 +2777,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-things"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -2791,7 +2791,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-voice"
   "version" "0.0.20"
   dependencies:
-    "@gdi/store-site" "^0.0.20"
+    "@gdi/store-site" "^0.0.22"
     "@gdi/types" "^0.0.30"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.85"
@@ -4778,21 +4778,13 @@
     "expect" "^29.0.0"
     "pretty-format" "^29.0.0"
 
-"@types/jest@^27.0.0", "@types/jest@^27.0.2", "@types/jest@^27.4.1", "@types/jest@^27.5.1":
+"@types/jest@^27.0.0", "@types/jest@^27.0.2", "@types/jest@^27.4.1", "@types/jest@^27.5.1", "@types/jest@^28.1.6":
   "integrity" "sha512-mpT8LJJ4CMeeahobofYWIjFo0xonRS/HfxnVEPMPFSQdGUt1uHCnoPT7Zhb+sjDU2wz0oKV0OLUR0WzrHNgfeA=="
   "resolved" "https://registry.npmjs.org/@types/jest/-/jest-27.5.2.tgz"
   "version" "27.5.2"
   dependencies:
     "jest-matcher-utils" "^27.0.0"
     "pretty-format" "^27.0.0"
-
-"@types/jest@^28.1.6":
-  "integrity" "sha512-8TJkV++s7B6XqnDrzR1m/TT0A0h948Pnl/097veySPN67VRAgQ4gZ7n2KfJo2rVq6njQjdxU3GCCyDvAeuHoiw=="
-  "resolved" "https://registry.npmjs.org/@types/jest/-/jest-28.1.8.tgz"
-  "version" "28.1.8"
-  dependencies:
-    "expect" "^28.0.0"
-    "pretty-format" "^28.0.0"
 
 "@types/jest@^28.1.8":
   "integrity" "sha512-8TJkV++s7B6XqnDrzR1m/TT0A0h948Pnl/097veySPN67VRAgQ4gZ7n2KfJo2rVq6njQjdxU3GCCyDvAeuHoiw=="

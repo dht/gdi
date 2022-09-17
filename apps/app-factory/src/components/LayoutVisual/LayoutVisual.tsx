@@ -17,10 +17,18 @@ export type LayoutVisualProps = {
         onResolutionChange: (resolutionIndex: number) => void;
     };
     flex?: number;
+    isLoading?: boolean;
 };
 
 export function LayoutVisual(props: LayoutVisualProps) {
-    const { items = [], selectedItemId, callbacks, layout, flex } = props;
+    const {
+        items = [],
+        selectedItemId,
+        callbacks,
+        layout,
+        flex,
+        isLoading,
+    } = props;
     const { id = '', name = '' } = layout || {};
 
     return (
@@ -33,6 +41,7 @@ export function LayoutVisual(props: LayoutVisualProps) {
                 items={items}
                 selectedItemId={selectedItemId}
                 callbacks={callbacks}
+                isLoading={isLoading}
             />
 
             <Id>{id}</Id>

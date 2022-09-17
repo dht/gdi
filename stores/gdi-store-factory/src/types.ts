@@ -13,6 +13,7 @@ export type IFactoryState = {
     selectedToolId: string;
     showItemsInTable: boolean;
     showPropertiesModal: boolean;
+    isLoadingLayoutItems: boolean;
 };
 
 export type ICurrentIdsFactory = {

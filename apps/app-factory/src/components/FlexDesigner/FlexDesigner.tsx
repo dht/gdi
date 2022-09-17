@@ -1,4 +1,11 @@
 import React, { useContext } from 'react';
+import classnames from 'classnames';
+import FlexDesignerEmpty from '../FlexDesignerEmpty/FlexDesignerEmpty';
+import TopBar from '../TopBar/TopBar';
+import { findRoot } from '../../utils/flex';
+import { FlexDesignerLoader } from '../FlexDesignerLoader/FlexDesignerLoader';
+import { IFlexEntity } from 'stores/gdi-store-factory/dist';
+import { sortBy } from 'shared-base';
 import {
     Container,
     Content,
@@ -6,9 +13,6 @@ import {
     ItemTitle,
     Wrapper,
 } from './FlexDesigner.style';
-import TopBar from '../TopBar/TopBar';
-import classnames from 'classnames';
-import { sortBy } from 'shared-base';
 import {
     useArrows,
     useDelete,
@@ -17,9 +21,6 @@ import {
     useEnter,
     useKey,
 } from '@gdi/hooks';
-import { IFlexEntity } from 'stores/gdi-store-factory/dist';
-import FlexDesignerEmpty from '../FlexDesignerEmpty/FlexDesignerEmpty';
-import { findRoot } from '../../utils/flex';
 
 export type FlexAction =
     | 'splitVertically'
@@ -39,10 +40,11 @@ export type FlexDesignerProps = {
         onFlexChange: (flex: number) => void;
         onResolutionChange: (resolutionIndex: number) => void;
     };
+    isLoading: boolean;
 };
 
 export function FlexDesigner(props: FlexDesignerProps) {
-    const { items, selectedItemId, callbacks } = props;
+    const { items, selectedItemId, callbacks, isLoading } = props;
 
     useKey(
         (ev) => {
@@ -170,6 +172,10 @@ export function FlexDesigner(props: FlexDesignerProps) {
     const rootItem = findRoot(items);
 
     if (!rootItem) {
+        if (isLoading) {
+            return <FlexDesignerLoader />;
+        }
+
         return <FlexDesignerEmpty onSeed={callbacks.onSeed} />;
     }
 
