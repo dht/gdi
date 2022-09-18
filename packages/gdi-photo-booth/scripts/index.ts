@@ -6,8 +6,9 @@ import { capitalize } from 'lodash';
 import { cert, initializeApp } from 'firebase-admin/app';
 import { chromium, Page } from 'playwright';
 import { getStorage } from 'firebase-admin/storage';
-import { IWidget, IWidgets, LibraryBuilder } from '@gdi/engine';
-import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { LibraryBuilder } from '@gdi/engine';
+import { initTemplates as initTemplatesBasic } from '@gdi/template-basic';
+import { initTemplates as initTemplatesMinimalist } from '@gdi/template-minimalist';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 import { Json } from './types';
 import { Metadata } from '@playwright/test';
@@ -407,7 +408,11 @@ const run = async () => {
 
     console.timeEnd('opening browser');
 
-    await screenShotsForPackage(initTemplatesGdi, 'gdi-template-gdi');
+    await screenShotsForPackage(initTemplatesBasic, 'gdi-template-basic');
+    await screenShotsForPackage(
+        initTemplatesMinimalist,
+        'gdi-template-minimalist'
+    );
     await screenShotsForPackage(initTemplatesBlog, 'gdi-template-blog');
 
     await browser.close();

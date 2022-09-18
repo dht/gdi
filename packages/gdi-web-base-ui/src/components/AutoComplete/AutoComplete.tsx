@@ -37,7 +37,7 @@ export const AutoComplete = React.forwardRef(
             >
                 <Creatable
                     ref={ref}
-                    options={optionsParsed}
+                    options={optionsParsed as any}
                     onChange={onChange}
                     value={value}
                     onBlur={props.onBlur}

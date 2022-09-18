@@ -1,4 +1,5 @@
-import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesBasic } from '@gdi/template-basic';
+import { initTemplates as initTemplatesMinimalist } from '@gdi/template-minimalist';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 import { LibraryBuilder } from '@gdi/engine';
 import * as fs from 'fs';
@@ -11,7 +12,8 @@ const run = async () => {
     console.time('updating state');
 
     const libraryBuilder = new LibraryBuilder();
-    initTemplatesGdi(libraryBuilder as any);
+    initTemplatesBasic(libraryBuilder as any);
+    initTemplatesMinimalist(libraryBuilder as any);
     initTemplatesBlog(libraryBuilder as any);
 
     const library = libraryBuilder.build();

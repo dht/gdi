@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Container, Flavour, FlavourTitle } from './Chair.style';
 
-export const id = 'com.usegdi.templates.futuristic.ChairI';
+export const id = 'com.usegdi.templates.basic.ChairI';
 
 export type ChairProps = {
     component: FC<any>;

@@ -26,11 +26,12 @@ export function MixerStructure(props: MixerStructureProps) {
     const { currentInstanceId, pageStructure, callbacks } = props;
 
     function renderItem(item: any) {
-        const { elementType } = item as IElement;
+        const { widget } = item as IElement;
+        const { widgetType = '' } = widget || {};
 
         return (
             <ContainerItem>
-                <Title>{elementType}</Title>
+                <Title>{widgetType}</Title>
                 <StatusRow>
                     <StatusContent>D</StatusContent>
                     <WidgetThumb />

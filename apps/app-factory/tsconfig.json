@@ -15,7 +15,8 @@
         "baseUrl": "../../",
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
-            "@gdi/template-gdi": ["packages/gdi-template-gdi"],
+            "@gdi/template-basic": ["packages/gdi-template-basic"],
+            "@gdi/template-minimalist": ["packages/gdi-template-minimalist"],
             "@gdi/template-blog": ["packages/gdi-template-blog"],
             "@gdi/galleries": ["packages/gdi-galleries"],
             "@gdi/store-factory": ["packages/gdi-store-factory"]

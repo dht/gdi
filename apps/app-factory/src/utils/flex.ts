@@ -1,7 +1,6 @@
 import { max } from 'lodash';
 import { sortBy } from 'shared-base';
-import { IFlexEntity } from 'stores/gdi-store-factory/dist';
-import { guid, guid4 } from 'shared-base';
+import { guid4 } from 'shared-base';
 
 export type IItemInfo = {
     item?: IFlexEntity;

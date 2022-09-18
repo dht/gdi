@@ -53,12 +53,12 @@ export const initialState: IMixerStore = {
         },
     },
     libraryWidgets: {
-        'com.usegdi.templates.futuristic.sample-simple': {
-            id: 'com.usegdi.templates.futuristic.sample-simple',
+        'com.usegdi.templates.basic.sample-simple': {
+            id: 'com.usegdi.templates.basic.sample-simple',
             name: 'hero-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.futuristic.sample-simple',
+                id: 'com.usegdi.templates.basic.sample-simple',
                 schema: {
                     strings: {},
                     colors: {},
@@ -98,7 +98,8 @@ export const initialState: IMixerStore = {
         },
     },
     packages: {
-        '@gdi/template-gdi': '0.0.2',
+        '@gdi/template-basic': '0.0.2',
+        '@gdi/template-minimalist': '0.0.2',
         '@gdi/template-blog': '0.0.2',
         '@gdi/store-mixer': '0.0.1',
         '@gdi/store-site': '0.0.1',

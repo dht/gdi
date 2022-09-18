@@ -20,6 +20,7 @@ export default defineConfig({
             plugins: [analyze()],
             ...externals({
                 react: '',
+                'react-dom': '',
                 'react/jsx-runtime': '',
                 'react-select/creatable': '',
                 ...p.dependencies,

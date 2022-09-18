@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import { Container, ContainerNewItem, Title } from './MixerVisual.style';
 import { EngineEdit, LibraryBuilder } from '@gdi/engine';
-import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesBasic } from '@gdi/template-basic';
+import { initTemplates as initTemplatesMinimalist } from '@gdi/template-minimalist';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 import { useDelete } from '@gdi/hooks';
 
@@ -35,7 +36,8 @@ export function MixerVisual(props: MixerVisualProps) {
 
     const libraryBuilder = useMemo(() => {
         const instance = new LibraryBuilder();
-        initTemplatesGdi(instance as any);
+        initTemplatesBasic(instance as any);
+        initTemplatesMinimalist(instance as any);
         initTemplatesBlog(instance as any);
         return instance;
     }, []);

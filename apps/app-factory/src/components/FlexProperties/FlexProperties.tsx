@@ -6,7 +6,7 @@ import {
     ErrorMessage,
     ErrorWrapper,
 } from './FlexProperties.style';
-import { Code } from '@gdi/web-editors';
+import { Code } from '@gdi/web-ui';
 import { Button, Pivot, PivotItem } from '@gdi/web-ui';
 import { useEnter } from '@gdi/hooks';
 import { isEqual } from 'lodash';

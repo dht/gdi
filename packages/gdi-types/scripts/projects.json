@@ -9,6 +9,11 @@
         "path": "packages/gdi-galleries",
         "types": "src/types.ts"
     },
+    "gdi-hooks": {
+        "id": "gdi-hooks",
+        "path": "packages/gdi-hooks",
+        "types": "src/types.ts"
+    },
     "gdi-store-auth": {
         "id": "gdi-store-auth",
         "path": "stores/gdi-store-auth",
@@ -59,6 +64,11 @@
         "path": "stores/gdi-store-site",
         "types": "src/types.ts"
     },
+    "gdi-store-factory": {
+        "id": "gdi-store-factory",
+        "path": "stores/gdi-store-factory",
+        "types": "src/types.ts"
+    },
     "gdi-web-forms": {
         "id": "gdi-web-forms",
         "path": "packages/gdi-web-forms",
@@ -77,11 +87,6 @@
     "gdi-web-editors": {
         "id": "gdi-web-editors",
         "path": "packages/gdi-web-editors",
-        "types": "src/types.ts"
-    },
-    "gdi-hooks": {
-        "id": "gdi-hooks",
-        "path": "packages/gdi-hooks",
         "types": "src/types.ts"
     },
     "gdi-web-sheets": {
