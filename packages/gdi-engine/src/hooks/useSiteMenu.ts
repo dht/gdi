@@ -5,7 +5,7 @@ export function useSiteMenu(elements: IElement[]) {
     const [menuItems, setMenuItems] = useState<ITopMenuItem[]>([]);
 
     useEffect(() => {
-        const headerElements = findBlockPropsByTag(
+        const headerElements = findWidgetPropsByTag(
             elements,
             'type-sectionHeader'
         );
@@ -25,10 +25,10 @@ export function useSiteMenu(elements: IElement[]) {
     return menuItems;
 }
 
-const findBlockPropsByTag = (elements: IElement[], tag: string) => {
+const findWidgetPropsByTag = (elements: IElement[], tag: string) => {
     return elements
         .filter((element) => {
-            return element.block?.tags?.includes(tag);
+            return element.widget?.tags?.includes(tag);
         })
         .map((element) => {
             return flattenInstanceProps(element.instanceProps);

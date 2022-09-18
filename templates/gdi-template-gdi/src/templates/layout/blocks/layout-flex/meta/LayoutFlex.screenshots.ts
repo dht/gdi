@@ -1,5 +1,3 @@
-import type { IScreenshotsPerFlavour } from '@gdi/web-ui';
-
 export const screenshots: IScreenshotsPerFlavour = {
     simple: {
         desktop: {

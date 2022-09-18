@@ -2,32 +2,32 @@ import { actions, selectors } from '../store';
 import { call, fork, put, select, takeEvery, delay, take } from 'saga-ts';
 import { prompt } from '@gdi/platformer';
 import { guid4 } from 'shared-base';
-import LibraryBlocks from '../components/LibraryBlocks/LibraryBlocks';
+import LibraryWidgets from '../components/LibraryWidgets/LibraryWidgets';
 import { getSchemaPropertiesByType } from '@gdi/store-mixer';
 
-type ActionBlockSelect = {
-    type: 'ELEMENT_BLOCK_SELECT';
-    blockId: string;
+type ActionWidgetSelect = {
+    type: 'ELEMENT_WIDGET_SELECT';
+    widgetId: string;
 };
 
-function* duplicateBlockFromLibrary(blockId: string) {
-    const blocks = yield* select(selectors.raw.$rawBlocks);
+function* duplicateWidgetFromLibrary(widgetId: string) {
+    const widgets = yield* select(selectors.raw.$rawWidgets);
 
-    if (blocks[blockId]) {
+    if (widgets[widgetId]) {
         return;
     }
 
-    const libraryBlocks = yield* select(selectors.raw.$rawLibraryBlocks);
-    const libraryBlock = libraryBlocks[blockId];
+    const libraryWidgets = yield* select(selectors.raw.$rawLibraryWidgets);
+    const libraryWidget = libraryWidgets[widgetId];
 
-    yield put(actions.blocks.add(libraryBlock));
+    yield put(actions.widgets.add(libraryWidget));
 }
 
-function* imagesFromSampleData(blockId: string, instanceId: string) {
-    const libraryBlocks = yield* select(selectors.raw.$rawLibraryBlocks);
-    const libraryBlock = libraryBlocks[blockId];
+function* imagesFromSampleData(widgetId: string, instanceId: string) {
+    const libraryWidgets = yield* select(selectors.raw.$rawLibraryWidgets);
+    const libraryWidget = libraryWidgets[widgetId];
 
-    const sampleDataByType = getSchemaPropertiesByType(libraryBlock, [
+    const sampleDataByType = getSchemaPropertiesByType(libraryWidget, [
         'image',
         'color',
     ]);
@@ -41,11 +41,11 @@ function* imagesFromSampleData(blockId: string, instanceId: string) {
     yield put(actions.instancesProps.patch(instanceId, change));
 }
 
-function* dataFromSampleData(blockId: string, instanceId: string) {
-    const libraryBlocks = yield* select(selectors.raw.$rawLibraryBlocks);
-    const libraryBlock = libraryBlocks[blockId];
+function* dataFromSampleData(widgetId: string, instanceId: string) {
+    const libraryWidgets = yield* select(selectors.raw.$rawLibraryWidgets);
+    const libraryWidget = libraryWidgets[widgetId];
 
-    const sampleDataByType = getSchemaPropertiesByType(libraryBlock, [
+    const sampleDataByType = getSchemaPropertiesByType(libraryWidget, [
         'number',
         'text',
         'longText',
@@ -67,10 +67,10 @@ function* dataFromSampleData(blockId: string, instanceId: string) {
     yield put(actions.instancesProps.patch(instanceId, change));
 }
 
-function* switchBlockForElement(action: ActionBlockSelect) {
-    const { blockId } = action;
+function* switchWidgetForElement(action: ActionWidgetSelect) {
+    const { widgetId } = action;
 
-    yield call(duplicateBlockFromLibrary, blockId);
+    yield call(duplicateWidgetFromLibrary, widgetId);
 
     const currentIds = yield* select(selectors.raw.$rawCurrentIds);
     const selectedInstanceId = currentIds.selectedInstanceId;
@@ -82,31 +82,31 @@ function* switchBlockForElement(action: ActionBlockSelect) {
     console.log('isPlaceholder ->', isPlaceholder);
 
     if (isPlaceholder) {
-        yield call(dataFromSampleData, blockId, selectedInstanceId);
+        yield call(dataFromSampleData, widgetId, selectedInstanceId);
     }
 
-    yield call(imagesFromSampleData, blockId, selectedInstanceId);
+    yield call(imagesFromSampleData, widgetId, selectedInstanceId);
 
     yield put(
-        actions.instancesBlocks.patch(selectedInstanceId, {
-            blockId,
+        actions.instancesWidgets.patch(selectedInstanceId, {
+            widgetId,
             isPlaceholder: false,
         })
     );
 }
 
-function* addElementWithBlock(action: ActionBlockSelect) {
-    const { blockId } = action;
-    const blocks = yield* select(selectors.raw.$rawLibraryBlocks);
-    const block = blocks[blockId];
+function* addElementWithWidget(action: ActionWidgetSelect) {
+    const { widgetId } = action;
+    const widgets = yield* select(selectors.raw.$rawLibraryWidgets);
+    const widget = widgets[widgetId];
 
-    if (!block) {
+    if (!widget) {
         return;
     }
 
-    const { tags } = block;
+    const { tags } = widget;
 
-    const placeholderType = getBlockTypeFromTags(tags) || '';
+    const placeholderType = getWidgetTypeFromTags(tags) || '';
 
     yield* put({
         type: 'ELEMENT_ADD',
@@ -115,13 +115,13 @@ function* addElementWithBlock(action: ActionBlockSelect) {
 
     yield take('SET_INSTANCESBLOCK');
 
-    yield switchBlockForElement({
-        type: 'ELEMENT_BLOCK_SELECT',
-        blockId,
+    yield switchWidgetForElement({
+        type: 'ELEMENT_WIDGET_SELECT',
+        widgetId,
     });
 }
 
-function* elementBlockSelect(action: ActionBlockSelect) {
+function* elementWidgetSelect(action: ActionWidgetSelect) {
     const currentIds = yield* select(selectors.raw.$rawCurrentIds);
     const selectedInstanceId = currentIds.selectedInstanceId;
 
@@ -130,17 +130,17 @@ function* elementBlockSelect(action: ActionBlockSelect) {
     }
 
     if (selectedInstanceId === '<NEW>') {
-        yield call(addElementWithBlock, action);
+        yield call(addElementWithWidget, action);
     } else {
-        yield call(switchBlockForElement, action);
+        yield call(switchWidgetForElement, action);
     }
 }
 
 export function* root() {
-    yield takeEvery('ELEMENT_BLOCK_SELECT', elementBlockSelect);
+    yield takeEvery('ELEMENT_WIDGET_SELECT', elementWidgetSelect);
 }
 
-const getBlockTypeFromTags = (tags: string[] = []) => {
+const getWidgetTypeFromTags = (tags: string[] = []) => {
     const firstTypeTag = tags.find((item) => item.match(/type-[a-z]+/i));
     return firstTypeTag?.replace('type-', '');
 };

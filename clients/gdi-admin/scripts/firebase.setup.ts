@@ -60,7 +60,7 @@ const nodeTypes: Json = {
     meta: 'single',
     currentIds: 'single',
     libraryImages: 'collection',
-    libraryBlocks: 'collection',
+    libraryWidgets: 'collection',
     libraryTypography: 'collection',
     libraryPalettes: 'collection',
     locales: 'collection',

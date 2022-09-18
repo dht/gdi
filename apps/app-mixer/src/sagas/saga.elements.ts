@@ -13,7 +13,7 @@ function* addElement(action: ActionAddElement) {
     const currentIds = yield* select(selectors.raw.$rawCurrentIds);
     const pageId = currentIds.pageId;
     const order = yield* select(selectors.base.$nextElementOrder);
-    const options = yield* select(selectors.options.$elementTypes);
+    const options = yield* select(selectors.options.$instanceTypes);
 
     if (!placeholderType) {
         const { didCancel, value } = yield prompt.select({
@@ -36,7 +36,7 @@ function* addElement(action: ActionAddElement) {
     console.log('id ->', id);
 
     yield put(
-        actions.instancesBlocks.add({
+        actions.instances.add({
             id,
             pageId,
             isPlaceholder: true,
@@ -68,7 +68,7 @@ function* deleteElement(action: ActionDeleteElement) {
         return;
     }
 
-    yield put(actions.instancesBlocks.delete(action.id));
+    yield put(actions.instances.delete(action.id));
 }
 
 type ActionShowContentModal = {
@@ -78,7 +78,7 @@ type ActionShowContentModal = {
 
 function* showContentModal(action: ActionShowContentModal) {
     const { id } = action;
-    const element = yield* select(selectors.base.$elementSelected);
+    const element = yield* select(selectors.base.$instanceSelected);
 
     if (element?.isPlaceholder) {
         return;

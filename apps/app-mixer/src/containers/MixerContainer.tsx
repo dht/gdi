@@ -9,7 +9,7 @@ import { ModalContentContainer } from './modals/ModalContentContainer';
 
 export const MixerContainer = () => {
     const dispatch = useDispatch();
-    const pageStructure = useSelector(selectors.base.$elementsForCurrentPage);
+    const pageStructure = useSelector(selectors.base.$instancesForCurrentPage);
     const currentInstanceId = useSelector(selectors.raw.$rawCurrentIds).selectedInstanceId; // prettier-ignore
     const selectedToolId = useSelector(selectors.raw.$rawMixerState).selectedToolId; // prettier-ignore
     const mode = useSelector(selectors.raw.$rawMixerState).mode;
@@ -25,7 +25,7 @@ export const MixerContainer = () => {
             },
             onMoveItem: (instanceId: string, newOrderValue: number) => {
                 dispatch(
-                    actions.instancesBlocks.patch(instanceId, {
+                    actions.instances.patch(instanceId, {
                         order: newOrderValue,
                     })
                 );

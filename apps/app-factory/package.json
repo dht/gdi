@@ -3,20 +3,19 @@
     "version": "0.0.25",
     "scripts": {
         "build": "tsc & vite build",
-        "build:rollup": "rollup -c",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
         "@gdi/engine": "^0.0.20",
-        "@gdi/galleries": "^0.0.20",
+        "@gdi/galleries": "^0.0.21",
         "@gdi/hooks": "^0.0.24",
         "@gdi/platformer": "^0.0.22",
         "@gdi/store-factory": "^0.0.21",
-        "@gdi/store-site": "^0.0.22",
+        "@gdi/store-site": "^0.0.24",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "@gdi/web-forms": "^0.0.23",
         "@gdi/web-tables": "^0.0.21",
         "@gdi/web-ui": "^0.0.25",

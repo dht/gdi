@@ -8,13 +8,13 @@ type Option = {
     text: string;
 };
 
-export const $elementTypes = createSelector(
-    base.$elementTypes,
-    (elementTypes): Option[] => {
-        return elementTypes.map((elementType) => {
+export const $instanceTypes = createSelector(
+    base.$instanceTypes,
+    (instanceTypes): Option[] => {
+        return instanceTypes.map((instanceType) => {
             return {
-                key: elementType,
-                text: elementType,
+                key: instanceType,
+                text: instanceType,
             };
         });
     }
@@ -44,7 +44,7 @@ export const $imageTags = createSelector(
 export const $imageFields = createSelector(
     base.$imageFieldsForCurrentElement,
     (imageFields): Option[] => {
-        return Object.keys(imageFields).map((key) => {
+        return Object.keys(imageFields || {}).map((key) => {
             const text = key.split('.').pop() || key;
             return {
                 key,
@@ -55,12 +55,12 @@ export const $imageFields = createSelector(
 );
 
 export const $allOptions = createSelector(
-    $elementTypes,
+    $instanceTypes,
     $imageTags,
     $imageFields,
-    (elementTypes, imageTags, imageFields) => {
+    (instanceTypes, imageTags, imageFields) => {
         return {
-            $elementTypes: elementTypes,
+            $instanceTypes: instanceTypes,
             $imageTags: imageTags,
             $imageFields: imageFields,
         };

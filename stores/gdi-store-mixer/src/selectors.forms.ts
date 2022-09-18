@@ -8,18 +8,23 @@ import { flattenInstanceProps } from 'shared-base';
 export const $i = (state: IMixerStore) => state;
 
 export const $contentFormConfig = createSelector(
-    base.$elementContent,
-    (element): IFormConfig | null => {
-        if (!element) {
+    base.$instanceContent,
+    (instance): IFormConfig | null => {
+        if (!instance) {
             return null;
         }
 
-        const { id, block } = element;
-        const { schema } = block.params;
+        const { id, widget } = instance;
+
+        if (!widget.params) {
+            return null;
+        }
+
+        const { schema } = widget.params;
 
         const fields: IFormField[] = [];
 
-        function addFields(definitions: IBlockSchemaGroup, groupId: string) {
+        function addFields(definitions: IWidgetSchemaGroup, groupId: string) {
             const toAdd: IFormField[] = [];
 
             Object.keys(definitions).forEach((fieldId) => {
@@ -77,21 +82,21 @@ export const $contentFormConfig = createSelector(
 );
 
 export const $contentFormData = createSelector(
-    base.$elementContent,
-    (element): Json => {
-        if (!element) {
+    base.$instanceContent,
+    (instance): Json => {
+        if (!instance) {
             return {};
         }
 
-        const { instanceProps } = element;
+        const { instanceProps } = instance;
 
         return flattenInstanceProps(instanceProps);
     }
 );
 
 export const $contentFormOptions = createSelector(
-    base.$elementContent,
-    (elements): Json => {
+    base.$instanceContent,
+    (instances): Json => {
         return {};
     }
 );
@@ -104,4 +109,5 @@ const mapTypeToType: Record<SchemaFieldType, FieldType> = {
     checkbox: 'checkbox',
     image: 'imageUpload',
     color: 'color',
+    json: 'text',
 };

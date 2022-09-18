@@ -1,9 +1,9 @@
-import { analyzeBlockId } from '.';
+import { analyzeWidgetId } from '.';
 
-describe.only('analyzeBlockId', () => {
+describe.only('analyzeWidgetId', () => {
     it('basic', () => {
         expect(
-            analyzeBlockId('com.usegdi.templates.futuristic.feature-simple')
+            analyzeWidgetId('com.usegdi.templates.futuristic.feature-simple')
         ).toEqual({});
     });
 });

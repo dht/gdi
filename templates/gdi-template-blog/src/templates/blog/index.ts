@@ -1,7 +1,7 @@
-import { blocks } from './blocks';
+import { widgets } from './blocks';
 import { templateInfo } from './template.info';
 
 export const blog = {
-    blocks,
+    widgets,
     templateInfo,
 };

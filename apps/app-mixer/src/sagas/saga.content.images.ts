@@ -37,6 +37,10 @@ function* chooseFirstImageField(action: any) {
         selectors.base.$imageFieldsForCurrentElement
     );
 
+    if (!fieldInfo) {
+        return;
+    }
+
     const fieldId = Object.keys(fieldInfo)[0];
 
     yield put(actions.currentIds.patch({ fieldId }));

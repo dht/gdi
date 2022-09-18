@@ -1,5 +1,5 @@
 import { IMixerStore } from '../src/types';
-import { libraryBlocks } from '../src/mock.libraryBlocks';
+import { libraryWidgets } from '../src/mock.libraryWidgets';
 
 export const state: IMixerStore = {
     meta: {
@@ -26,8 +26,8 @@ export const state: IMixerStore = {
         temporaryIds: [],
         deletedIds: [],
     },
-    blocksGalleryState: {
-        stateKey: 'blocksGalleryState',
+    widgetGalleryState: {
+        stateKey: 'widgetGalleryState',
         mode: 'minimal',
         filter: 'byType',
         search: '',
@@ -48,7 +48,7 @@ export const state: IMixerStore = {
             order: 1,
         },
     },
-    libraryBlocks: libraryBlocks as any,
+    libraryWidgets: libraryWidgets as any,
     libraryImages: {
         '1': {
             id: '1',

@@ -8,6 +8,6 @@ export const initTemplates = (libraryBuilder: ILibraryBuilder) => {
             .withTemplates({
                 key: template.templateInfo,
             })
-            .withBlocks(template.blocks);
+            .withWidgets(template.widgets);
     });
 };

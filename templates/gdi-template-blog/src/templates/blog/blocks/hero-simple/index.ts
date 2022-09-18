@@ -3,7 +3,7 @@ import { sampleData } from './meta/Hero.sample';
 import { dimensions } from './meta/Hero.dimensions';
 import { screenshots } from './meta/Hero.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.blog.hero-simple',
     name: 'hero-simple',
     description: '',

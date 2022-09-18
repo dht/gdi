@@ -1,6 +1,6 @@
 import { id } from '../UserBar';
 
-export const params: IBlockParams = {
+export const params: IWidgetParams = {
     id,
     schema: {
         strings: {},

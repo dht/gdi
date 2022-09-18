@@ -24,6 +24,7 @@ export default defineConfig({
         rollupOptions: {
             plugins: [analyze()],
             ...externals({
+                react: '',
                 'react/jsx-runtime': '',
                 ...p.dependencies,
             }),

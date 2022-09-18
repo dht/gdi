@@ -16,19 +16,24 @@ const emptyInstanceProps = {
 export function ElementView(props: ElementViewProps) {
     const { element, sequence } = props;
     const { instanceProps = emptyInstanceProps } = element;
-    const { blocks } = useContext(EngineContext);
+    const { widgets } = useContext(EngineContext);
 
-    const block = blocks[element.blockId];
+    const widget = widgets[element.widgetId];
 
-    if (!block) {
+    if (!widget) {
         throw new Error(
-            `could not find widget '${element.blockId}' for element '${element.id}'`
+            `could not find widget '${element.widgetId}' for element '${element.id}'`
         );
     }
 
-    function renderBlock() {
-        const CmpBlock = block.component;
-        return <CmpBlock {...instanceProps} sequence={sequence} />;
+    function renderWidget() {
+        const CmpWidget = widget.component;
+
+        if (!CmpWidget) {
+            return null;
+        }
+
+        return <CmpWidget {...instanceProps} sequence={sequence} />;
     }
 
     return (
@@ -36,7 +41,7 @@ export function ElementView(props: ElementViewProps) {
             className='ElementView-container'
             data-testid='ElementView-container'
         >
-            {renderBlock()}
+            {renderWidget()}
         </Container>
     );
 }

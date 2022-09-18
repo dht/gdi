@@ -7,7 +7,7 @@ export type ContentContainerProps = {};
 
 export const ContentContainer = (props: ContentContainerProps) => {
     const dispatch = useDispatch();
-    const element = useSelector(selectors.base.$elementContent);
+    const element = useSelector(selectors.base.$instanceContent);
     const formConfig = useSelector(selectors.forms.$contentFormConfig);
     const formData = useSelector(selectors.forms.$contentFormData);
     const formOptions = useSelector(selectors.forms.$contentFormOptions);

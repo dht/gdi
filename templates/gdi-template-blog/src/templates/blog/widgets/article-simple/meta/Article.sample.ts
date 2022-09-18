@@ -1,5 +1,3 @@
-import { ISampleDataPerFlavour } from '@gdi/web-ui';
-
 export const sampleData: ISampleDataPerFlavour = {
     simple: {
         id: 'simple',

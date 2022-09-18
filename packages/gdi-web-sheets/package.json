@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@gdi/hooks": "^0.0.24",
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "@gdi/web-base-ui": "^0.0.27",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",
@@ -44,13 +44,13 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/web-forms.umd.js",
-    "module": "./dist/web-forms.es.js",
+    "main": "./dist/web-sheets.umd.js",
+    "module": "./dist/web-sheets.es.js",
     "types": "./dist/dts/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/web-forms.es.js",
-            "require": "./dist/web-forms.umd.js"
+            "import": "./dist/web-sheets.es.js",
+            "require": "./dist/web-sheets.umd.js"
         },
         "./dist/index.css": {
             "import": "./dist/index.css",

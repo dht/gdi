@@ -3,14 +3,13 @@
     "version": "0.0.23",
     "scripts": {
         "build": "tsc & vite build",
-        "build:rollup": "rollup -c",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
         "@gdi/platformer": "^0.0.22",
         "@gdi/store-auth": "^0.0.20",
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "@gdi/web-ui": "^0.0.25",
         "@testing-library/react": "^13.3.0",
         "chance": "^1.1.8",

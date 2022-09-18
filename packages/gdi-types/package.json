@@ -1,6 +1,6 @@
 {
     "name": "@gdi/types",
-    "version": "0.0.31",
+    "version": "0.0.35",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

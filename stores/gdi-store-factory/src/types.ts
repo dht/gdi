@@ -4,7 +4,6 @@ export type IFactoryStore = StoreStructure & {
     appStateFactory: IFactoryState;
     currentIdsFactory: ICurrentIdsFactory;
     layouts: ILayouts;
-    customBlocks: ICustomBlocks;
 };
 
 export type IFactoryState = {
@@ -18,7 +17,6 @@ export type IFactoryState = {
 
 export type ICurrentIdsFactory = {
     layoutId: string;
-    customBlockId: string;
     flexEntityId: string;
     widgetId: string;
     resolutionId: string;
@@ -38,19 +36,6 @@ export type ILayout = {
 };
 
 export type ILayouts = Record<string, ILayout>;
-
-export type ICustomBlock = {
-    id: string;
-    name: string;
-    layoutId?: string;
-    items: IWidgetInstance[];
-};
-
-export type ICustomBlockWithLayout = ICustomBlock & {
-    layout?: ILayout;
-};
-
-export type ICustomBlocks = Record<string, ICustomBlock>;
 
 export type IFlexEntity = {
     id: string;

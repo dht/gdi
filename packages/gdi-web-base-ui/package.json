@@ -30,7 +30,7 @@
         "@vitejs/plugin-react": "^2.0.0",
         "@fluentui/react": "^8.86.4",
         "@gdi/hooks": "^0.0.24",
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "sass": "^1.54.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

@@ -15,8 +15,8 @@ declare global {
         spacing: ISpacing;
         fonts: IFonts;
         breakpoints: IBreakpoints;
-        blocks: Record<string, IBlockInfo>;
-        instancesBlocks: IBlockInstances;
+        widgets: IWidgets;
+        instances: IWidgetInstances;
         instancesMapColors: Json;
         instancesMapStrings: Json;
         instancesProps: Json;
@@ -135,6 +135,7 @@ declare global {
         containerWidth: number;
         isDefault?: boolean;
         count?: number;
+        order?: number;
     };
 
     export type IBreakpoints = Record<string, IBreakpoint>;

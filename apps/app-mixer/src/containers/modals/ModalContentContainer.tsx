@@ -6,7 +6,7 @@ import { ContentContainer } from '../ContentContainer';
 
 export const ModalContentContainer = () => {
     const dispatch = useDispatch();
-    const element = useSelector(selectors.base.$elementContent);
+    const element = useSelector(selectors.base.$instanceContent);
 
     function onClose() {
         dispatch(actions.currentIds.patch({ contentInstanceId: '' }));

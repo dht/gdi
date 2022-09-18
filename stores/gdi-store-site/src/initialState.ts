@@ -1,6 +1,6 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
-import { libraryBlocks } from './mock.libraryBlocks';
+import { libraryWidgets } from './mock.libraryWidgets';
 import { ISiteStore } from './types';
 
 export const initialState: ISiteStore = {
@@ -174,15 +174,15 @@ export const initialState: ISiteStore = {
             order: 7,
         },
     },
-    instancesBlocks: {
+    instances: {
         'home-placeholder-simple-1': {
             id: 'home-placeholder-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.placeholder-simple',
+            widgetId: 'com.usegdi.templates.futuristic.placeholder-simple',
             pageId: 'home',
             order: 1,
         },
     },
-    blocks: {
+    widgets: {
         'com.usegdi.templates.futuristic.placeholder-simple': {
             id: 'com.usegdi.templates.futuristic.placeholder-simple',
             name: 'placeholder-simple',
@@ -200,7 +200,7 @@ export const initialState: ISiteStore = {
             screenshots: {},
             tags: ['type-placeholder'],
         },
-        ...libraryBlocks,
+        ...libraryWidgets,
     },
     images: {
         '1': {
@@ -237,8 +237,8 @@ export const reducers = generateReducersForStore<ISiteStore>(initialState);
 
 export const clearState = (store: any) => {
     setTimeout(() => {
-        store.dispatch(actions.instancesBlocks.setAll({}));
-        store.dispatch(actions.blocks.setAll({}));
+        store.dispatch(actions.instances.setAll({}));
+        store.dispatch(actions.widgets.setAll({}));
         store.dispatch(actions.instancesProps.setAll({}));
         store.dispatch(actions.images.setAll({}));
     });

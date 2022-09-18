@@ -49,7 +49,7 @@ declare global {
         progressTotal: number;
         description?: any;
         isContinuous?: boolean;
-        blockId?: string;
+        widgetId?: string;
         projectId: string;
         projectKey: string;
         order?: number;

@@ -19,8 +19,8 @@ export const endpointsConfigOverrides: any = {
         id: 'libraryImages',
         connectionType: 'FIRESTORE',
     },
-    libraryBlocks: {
-        id: 'libraryBlocks',
+    libraryWidgets: {
+        id: 'libraryWidgets',
         connectionType: 'FIRESTORE',
     },
     libraryTypography: {

@@ -1,33 +1,33 @@
-import { IBlock } from '@gdi/web-ui';
+import { IWidget } from '@gdi/web-ui';
 import React from 'react';
-import { BlockTitle, BlockWrapper, Container } from './App.style';
+import { WidgetTitle, WidgetWrapper, Container } from './App.style';
 import { Chair } from '../Chair/Chair';
-import { blocks } from '../../bootstrap';
+import { widgets } from '../../bootstrap';
 
 export function App() {
-    function renderBlock(block: IBlock, index) {
+    function renderWidget(widget: IWidget, index) {
         return (
             <>
-                <BlockTitle>{block.id}</BlockTitle>
+                <WidgetTitle>{widget.id}</WidgetTitle>
                 <Chair
-                    key={block.id}
-                    component={block.component}
-                    blockInfo={block.info}
+                    key={widget.id}
+                    component={widget.component}
+                    widgetInfo={widget.info}
                     sequence={index}
                 />
             </>
         );
     }
 
-    function renderBlocks() {
-        return Object.values(blocks as IBlock[]).map((block: IBlock, index) =>
-            renderBlock(block, index)
+    function renderWidgets() {
+        return Object.values(widgets as IWidget[]).map(
+            (widget: IWidget, index) => renderWidget(widget, index)
         );
     }
 
     return (
         <Container className='App-container' data-testid='App-container'>
-            {renderBlocks()}
+            {renderWidgets()}
         </Container>
     );
 }

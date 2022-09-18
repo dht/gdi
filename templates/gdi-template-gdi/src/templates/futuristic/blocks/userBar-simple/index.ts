@@ -3,7 +3,7 @@ import { sampleData } from './meta/UserBar.sample';
 import { dimensions } from './meta/UserBar.dimensions';
 import { screenshots } from './meta/UserBar.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.futuristic.userBar-simple',
     name: 'userBar-simple',
     description: '',

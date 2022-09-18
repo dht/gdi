@@ -1,5 +1,5 @@
 import { ISiteStore } from '../src/types';
-import { libraryBlocks } from '../src/mock.libraryBlocks';
+import { libraryWidgets } from '../src/mock.libraryWidgets';
 
 export const state: ISiteStore = {
     meta: {
@@ -159,82 +159,82 @@ export const state: ISiteStore = {
             order: 7,
         },
     },
-    instancesBlocks: {
+    instances: {
         'home-userBar-simple-1': {
             id: 'home-userBar-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.userBar-simple',
+            widgetId: 'com.usegdi.templates.futuristic.userBar-simple',
             pageId: 'home',
             order: 1,
         },
         'home-hero-simple-1': {
             id: 'home-hero-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.hero-simple',
+            widgetId: 'com.usegdi.templates.futuristic.hero-simple',
             pageId: 'home',
             order: 2,
         },
         'home-sectionHeader-simple-1': {
             id: 'home-sectionHeader-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
+            widgetId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             pageId: 'home',
             order: 3,
         },
         'home-installation-simple-1': {
             id: 'home-installation-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.installation-simple',
+            widgetId: 'com.usegdi.templates.futuristic.installation-simple',
             pageId: 'home',
             order: 4,
         },
         'home-sectionHeader-simple-2': {
             id: 'home-sectionHeader-simple-2',
-            blockId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
+            widgetId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             pageId: 'home',
             order: 5,
         },
         'home-feature-simple-1': {
             id: 'home-feature-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.feature-simple',
+            widgetId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 6,
         },
         'home-feature-simple-2': {
             id: 'home-feature-simple-2',
-            blockId: 'com.usegdi.templates.futuristic.feature-simple',
+            widgetId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 7,
         },
         'home-feature-simple-3': {
             id: 'home-feature-simple-3',
-            blockId: 'com.usegdi.templates.futuristic.feature-simple',
+            widgetId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 8,
         },
         'home-feature-simple-4': {
             id: 'home-feature-simple-4',
-            blockId: 'com.usegdi.templates.futuristic.feature-simple',
+            widgetId: 'com.usegdi.templates.futuristic.feature-simple',
             pageId: 'home',
             order: 9,
         },
         'home-lineCta-simple-1': {
             id: 'home-lineCta-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.lineCta-simple',
+            widgetId: 'com.usegdi.templates.futuristic.lineCta-simple',
             pageId: 'home',
             order: 10,
         },
         'home-sectionHeader-simple-3': {
             id: 'home-sectionHeader-simple-3',
-            blockId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
+            widgetId: 'com.usegdi.templates.futuristic.sectionHeader-simple',
             pageId: 'home',
             order: 11,
         },
         'home-imageAndText-simple-1': {
             id: 'home-imageAndText-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.imageAndText-simple',
+            widgetId: 'com.usegdi.templates.futuristic.imageAndText-simple',
             pageId: 'home',
             order: 12,
         },
         'home-footer-simple-1': {
             id: 'home-footer-simple-1',
-            blockId: 'com.usegdi.templates.futuristic.footer-simple',
+            widgetId: 'com.usegdi.templates.futuristic.footer-simple',
             pageId: 'home',
             order: 13,
         },
@@ -263,8 +263,8 @@ export const state: ISiteStore = {
         localeId: 'en-us',
         isRtl: false,
     },
-    blocks: {
-        ...libraryBlocks,
+    widgets: {
+        ...libraryWidgets,
     },
     instancesMapColors: {},
     instancesMapStrings: {},

@@ -29,5 +29,6 @@ export const alias = {
     'redux-store-generator': `${cwd}/submodules/redux-store-generator/src`,
     igrid: `${cwd}/submodules/igrid/src`,
     isokit: `${cwd}/submodules/isokit/src`,
+    firestore: `${cwd}/submodules/firestore-local/src`,
     ...aliasExtra,
 };

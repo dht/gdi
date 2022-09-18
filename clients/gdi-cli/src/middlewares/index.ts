@@ -1,9 +1,9 @@
-import { middlewares as block } from './midCreateBlock';
+import { middlewares as widget } from './midCreateWidget';
 import { middlewares as site } from './midCreateSite';
 
 export default {
     create: {
-        block,
+        widget,
         site,
     },
 };

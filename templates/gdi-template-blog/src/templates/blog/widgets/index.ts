@@ -1,10 +1,9 @@
 import { Article } from '../widgets/article-simple/Article';
-import { blockInfo as articleInfo } from './article-simple';
+import { widgetInfo as articleInfo } from './article-simple';
 
-export const widgets: IBlocks = {
+export const widgets: IWidgets = {
     'com.usegdi.templates.blog.hero-simple': {
-        id: 'com.usegdi.templates.blog.article-simple',
+        ...articleInfo,
         component: Article,
-        info: articleInfo,
     },
 };

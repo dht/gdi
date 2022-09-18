@@ -20,8 +20,8 @@ export type {
     ILocaleOption,
     IGalleryViewMode,
     IGalleryState,
-    IImageWithBlock,
-    IBlocksFilter,
+    IImageWithWidget,
+    IWidgetsFilter as IWidgetsFilter,
 } from './types';
 
-export { getSchemaPropertiesByType } from './utils/blocks';
+export { getSchemaPropertiesByType } from './utils/widgets';

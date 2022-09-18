@@ -11,11 +11,11 @@
         "@gdi/engine": "^0.0.20",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "@gdi/web-ui": "^0.0.25",
         "@playwright/experimental-ct-react": "^1.25.0",
         "chance": "^1.1.8",
-        "igrid": "^0.0.15",
+        "igrid": "^0.0.17",
         "polished": "^4.2.2",
         "react-use": "^17.4.0",
         "shared-base": "^0.0.16",
@@ -44,13 +44,13 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/gdi-site.umd.js",
-    "module": "./dist/gdi-site.es.js",
+    "main": "./dist/photo-booth.umd.js",
+    "module": "./dist/photo-booth.es.js",
     "types": "./dist/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/gdi-site.es.js",
-            "require": "./dist/gdi-site.umd.js"
+            "import": "./dist/photo-booth.es.js",
+            "require": "./dist/photo-booth.umd.js"
         }
     }
 }

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { actions, selectors } from '../../store';
 import { ElementSelector, Empty } from '@gdi/web-ui';
-import { LibraryBlocksContainer } from '../LibraryBlocksContainer';
+import { LibraryWidgetsContainer } from '../LibraryWidgetsContainer';
 import { LibraryImagesContainer } from '../LibraryImagesContainer';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -58,7 +58,7 @@ export const PanelLibraryContainer = (_props: any) => {
                 </Col>
             );
         case 'browse':
-            return <LibraryBlocksContainer />;
+            return <LibraryWidgetsContainer />;
         default:
             return <></>;
     }

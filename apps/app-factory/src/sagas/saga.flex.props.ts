@@ -57,8 +57,11 @@ function* renameFlex() {
         return;
     }
 
+    if (flexEntity.entityType === 'container') {
+        return;
+    }
+
     if (resolutionId !== '1080p') {
-        console.log('123 ->', 123);
         yield call(chooseNameFlex);
         return;
     }

@@ -10,15 +10,15 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.30",
+        "@gdi/types": "^0.0.35",
         "@gdi/engine": "^0.0.20",
-        "@gdi/store-site": "^0.0.22",
+        "@gdi/store-site": "^0.0.24",
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-gdi": "^0.0.21",
         "@gdi/web-ui": "^0.0.25",
         "firebaseui": "^6.0.1",
         "redux-connected": "^0.0.100",
-        "igrid": "^0.0.15",
+        "igrid": "^0.0.17",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-redux": "^8.0.2",

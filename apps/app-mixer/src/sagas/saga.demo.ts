@@ -2,11 +2,11 @@ import { actions } from '../store';
 import { call, fork, put, delay, takeLatest } from 'saga-ts';
 
 const map: Record<string, any> = {
-    '/blocks': actions.blocks.setAll,
+    '/widgets': actions.widgets.setAll,
     '/images': actions.images.setAll,
-    '/instancesBlocks': actions.instancesBlocks.setAll,
+    '/instances': actions.instances.setAll,
     '/instancesProps': actions.instancesProps.setAll,
-    '/libraryBlocks': actions.libraryBlocks.setAll,
+    '/libraryWidgets': actions.libraryWidgets.setAll,
     '/libraryImages': actions.libraryImages.setAll,
     '/libraryPalettes': actions.libraryPalettes.setAll,
     '/libraryTypography': actions.libraryTypography.setAll,

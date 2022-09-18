@@ -1,6 +1,6 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
-import { libraryBlocks } from './mock.libraryBlocks';
+import { libraryWidgets } from './mock.libraryWidgets';
 import { IMixerStore } from './types';
 
 export const initialState: IMixerStore = {
@@ -35,8 +35,8 @@ export const initialState: IMixerStore = {
         temporaryIds: [],
         deletedIds: [],
     },
-    blocksGalleryState: {
-        stateKey: 'blocksGalleryState',
+    widgetGalleryState: {
+        stateKey: 'widgetGalleryState',
         mode: 'minimal',
         filter: 'byType',
         search: '',
@@ -52,7 +52,7 @@ export const initialState: IMixerStore = {
             ratio: 1.6803797468354431,
         },
     },
-    libraryBlocks: {
+    libraryWidgets: {
         'com.usegdi.templates.futuristic.sample-simple': {
             id: 'com.usegdi.templates.futuristic.sample-simple',
             name: 'hero-simple',
@@ -70,7 +70,7 @@ export const initialState: IMixerStore = {
             screenshots: {},
             tags: ['type-sample'],
         },
-        ...libraryBlocks,
+        ...libraryWidgets,
     },
     libraryTypography: {
         inter: {
@@ -109,7 +109,7 @@ export const reducers = generateReducersForStore<IMixerStore>(initialState);
 
 export const clearState = (store: any) => {
     setTimeout(() => {
-        store.dispatch(actions.libraryBlocks.setAll({}));
+        store.dispatch(actions.libraryWidgets.setAll({}));
         store.dispatch(actions.libraryImages.setAll({}));
         store.dispatch(actions.libraryPalettes.setAll({}));
         store.dispatch(actions.libraryTypography.setAll({}));

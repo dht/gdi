@@ -11,7 +11,6 @@ export const state: IFactoryStore = {
     },
     currentIdsFactory: {
         layoutId: '',
-        customBlockId: '',
         flexEntityId: '',
         widgetId: '',
         resolutionId: '',
@@ -36,20 +35,6 @@ export const state: IFactoryStore = {
                     resolution: '1080p',
                     locationId: 'left_2',
                     order: 1,
-                },
-            ],
-        },
-    },
-    customBlocks: {
-        b1: {
-            id: 'b1',
-            name: '',
-            layoutId: 'l1',
-            items: [
-                {
-                    id: 'i1',
-                    widgetId: 'widget',
-                    locationId: 'left_1',
                 },
             ],
         },

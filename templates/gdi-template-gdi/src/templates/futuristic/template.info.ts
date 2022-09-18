@@ -1,4 +1,4 @@
-import { blocks } from './blocks';
+import { widgets } from './blocks';
 
 export const templateInfo: ITemplateInfo = {
     id: 'com.usegdi.templates.futuristic',
@@ -6,5 +6,5 @@ export const templateInfo: ITemplateInfo = {
     author: {
         name: '',
     },
-    blocksCount: Object.keys(blocks).length,
+    widgetsCount: Object.keys(widgets).length,
 };

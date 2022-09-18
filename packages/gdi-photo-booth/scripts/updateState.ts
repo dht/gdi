@@ -16,16 +16,16 @@ const run = async () => {
 
     const library = libraryBuilder.build();
 
-    const saveBlocks = Object.keys(library.blocks).reduce((output, key) => {
-        output[key] = library.blocks[key].info;
+    const saveWidgets = Object.keys(library.widgets).reduce((output, key) => {
+        output[key] = library.widgets[key].info;
         return output;
     }, {} as Json);
 
     const fileContent = format(
         `
 
-    export const libraryBlocks: Record<string, IBlockInfo> = ${JSON.stringify(
-        saveBlocks,
+    export const libraryWidgets: Record<string, IWidgetInfo> = ${JSON.stringify(
+        saveWidgets,
         null,
         4
     )};`,
@@ -42,12 +42,12 @@ const run = async () => {
     );
 
     fs.writeFileSync(
-        '../../gdi-store-mixer/src/mock.libraryBlocks.ts',
+        '../../gdi-store-mixer/src/mock.libraryWidgets.ts',
         fileContent
     );
 
     fs.writeFileSync(
-        '../../gdi-store-site/src/mock.libraryBlocks.ts',
+        '../../gdi-store-site/src/mock.libraryWidgets.ts',
         fileContent
     );
 

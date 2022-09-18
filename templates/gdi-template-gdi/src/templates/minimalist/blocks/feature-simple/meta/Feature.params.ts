@@ -1,6 +1,6 @@
 import { id } from '../Feature';
 
-export const params: IBlockParams = {
+export const params: IWidgetParams = {
     id,
     schema: {
         strings: {

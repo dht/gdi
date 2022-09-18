@@ -3,12 +3,10 @@ import { delay, fork, put } from 'saga-ts';
 import { $s } from 'shared-base';
 
 function* apiPrivate() {
-    return;
-
     $s('apiPrivate', {
         nodes: [
             'appStateMixer',
-            'libraryBlocks',
+            'libraryWidgets',
             'libraryImages',
             'libraryPalettes',
             'libraryTypography',
@@ -19,7 +17,7 @@ function* apiPrivate() {
 
     const promises = [
         yield* put(actions.appStateMixer.get()),
-        yield* put(actions.libraryBlocks.get({})),
+        yield* put(actions.libraryWidgets.get({})),
         yield* put(actions.libraryImages.get({})),
         yield* put(actions.libraryPalettes.get({})),
         yield* put(actions.libraryTypography.get({})),

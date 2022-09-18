@@ -3,7 +3,7 @@ import { sampleData } from './meta/Installation.sample';
 import { dimensions } from './meta/Installation.dimensions';
 import { screenshots } from './meta/Installation.screenshots';
 
-export const blockInfo: IBlockInfo = {
+export const widgetInfo: IWidget = {
     id: 'com.usegdi.templates.futuristic.installation-simple',
     name: 'installation-simple',
     description: '',

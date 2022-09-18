@@ -1,5 +1,3 @@
-export type { IToolbarItem } from '@gdi/web-ui';
-
 export const items: any[] = [
     {
         id: 'data',

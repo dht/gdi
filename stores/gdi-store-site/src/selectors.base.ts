@@ -1,6 +1,6 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { getBlockTypeFromTags } from './utils/blocks';
+import { getWidgetTypeFromTags } from './utils/widgets';
 import { ISiteStore } from './types';
 import { mapValues, set } from 'lodash';
 import { sortBy } from 'shared-base';
@@ -26,30 +26,22 @@ export const $instancesProps = createSelector(
     }
 );
 
-export const $elements = createSelector(
-    raw.$rawInstancesBlocks,
-    raw.$rawBlocks,
+export const $instances = createSelector(
+    raw.$rawInstances,
+    raw.$rawWidgets,
     $instancesProps,
-    (instances: IBlockInstances, blocks, instanceProps: Json) => {
+    (instances: IWidgetInstances, widgets, instanceProps: Json) => {
         return Object.values(instances)
             .sort(sortBy('order'))
             .map((instance) => {
-                const block: IBlockInfo | undefined = Object.values(
-                    blocks
-                ).find((item) => item.id === instance.blockId);
-
-                const { tags = [] } = block || {};
-
-                const elementType =
-                    getBlockTypeFromTags(tags) || instance.placeholderType;
+                const widget = widgets[instance.widgetId];
 
                 return {
                     ...instance,
-                    block,
-                    elementType,
+                    widget,
                     instanceProps: instanceProps[instance.id],
                 };
-            }) as IElement[];
+            });
     }
 );
 
@@ -61,9 +53,9 @@ export const $siteData = createSelector(
     raw.$rawFontSizes,
     raw.$rawSpacing,
     raw.$rawFonts,
-    raw.$rawInstancesBlocks,
+    raw.$rawInstances,
     raw.$rawImages,
-    raw.$rawBlocks,
+    raw.$rawWidgets,
     raw.$rawInstancesMapColors,
     raw.$rawInstancesMapStrings,
     raw.$rawInstancesProps,
@@ -77,8 +69,8 @@ export const $siteData = createSelector(
         images,
         spacing,
         fonts,
-        blocks,
-        instancesBlocks,
+        widgets,
+        instances,
         instancesMapColors,
         instancesMapStrings,
         instancesProps,
@@ -93,8 +85,8 @@ export const $siteData = createSelector(
             images,
             spacing,
             fonts,
-            blocks,
-            instancesBlocks,
+            widgets,
+            instances,
             instancesMapColors,
             instancesMapStrings,
             instancesProps,

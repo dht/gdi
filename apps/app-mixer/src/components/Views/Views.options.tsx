@@ -1,5 +1,3 @@
-import { IOption } from '@gdi/web-ui';
-
 export const options: IOption[] = [
     {
         id: 'visual',
