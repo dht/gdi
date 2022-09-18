@@ -246,7 +246,7 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /scheduleItems/{document=**} {
+        match /scheduleSessions/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }

@@ -9,7 +9,7 @@ declare global {
         expectedManas: IManas;
         actualManas: IManas;
         scheduleBlocks: IScheduleBlocks;
-        scheduleItems: IScheduleItems;
+        scheduleSessions: IScheduleSessions;
         weatherLocations: IWeatherLocations;
         weatherHourlyItems: IWeatherHourlyItems;
         weatherDailyItems: IWeatherDailyItems;
@@ -57,7 +57,7 @@ declare global {
         isFullWidth?: boolean;
     };
 
-    export type IScheduleItem = {
+    export type IScheduleSession = {
         id: string;
         key: string;
         day: number;
@@ -89,7 +89,7 @@ declare global {
 
     export type IManas = Dictionary<IMana>;
     export type IScheduleBlocks = Dictionary<IScheduleBlock>;
-    export type IScheduleItems = Dictionary<IScheduleItem>;
+    export type IScheduleSessions = Dictionary<IScheduleSession>;
 
     export type WeekPointer = {
         week: number;
@@ -132,10 +132,10 @@ declare global {
         perQuarter: number;
     };
 
-    export type GroupedScheduleItems = {
+    export type GroupedScheduleSessions = {
         [day: string]: {
             [hour: string]: {
-                scheduleItem: IScheduleItem;
+                scheduleSession: IScheduleSession;
                 ticket: ITicket;
                 project: IProject;
             };

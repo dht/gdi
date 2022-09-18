@@ -82,6 +82,7 @@ export {
     List,
     SortableList,
     Table,
+    TableBase,
     Crud,
 } from '@gdi/web-tables';
 

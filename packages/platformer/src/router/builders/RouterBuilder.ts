@@ -7,12 +7,12 @@ import {
     IRoutes,
     RouterBuilderResponse,
 } from '../../types';
-import { sortBy } from '../utils/sort';
 import {
     IWidgetInstance,
     IWidgetInstancesByPageDictionary,
     IWidgetInstancesByPageList,
 } from 'igrid';
+import { sortBy } from 'shared-base';
 
 export class RouterBuilder implements IRouterBuilder {
     private routes: IRoutes = {};
@@ -87,8 +87,24 @@ export class RouterBuilder implements IRouterBuilder {
         return this;
     }
 
-    withMenu(menuItems: IMenuItems) {
+    withMenu(appId: string, menuItems: IMenuItems) {
         this.menuItems.push(...menuItems);
+
+        const commandBarNavigate = menuItems.map((item) => {
+            return {
+                id: item.path,
+                label: `Navigate: ${item.label}`,
+                action: {
+                    type: 'NAVIGATE',
+                    payload: {
+                        path: item.path,
+                    },
+                },
+            };
+        });
+
+        this.withCommandBar(appId, commandBarNavigate);
+
         return this;
     }
 
@@ -123,6 +139,8 @@ export class RouterBuilder implements IRouterBuilder {
                 id: scopedCommandBarItemId,
             });
         });
+
+        this.commandBarItems.sort(sortBy('label'));
 
         return this;
     }
