@@ -26,7 +26,7 @@ export const initApp = (builders: AppBuilders) => {
         .withRoutes(APP_ID, routes)
         .withInstances(APP_ID, instances, { addHeader: true })
         .withContextBar(APP_ID, contextBarItems)
-        .withMenu(menuItems)
+        .withMenu(APP_ID, menuItems)
         .withCommandBar(APP_ID, commandBarItems);
 
     widgetBuilder //

@@ -48,7 +48,7 @@ const rootNodes = [
     'recentSessions',
     'roles',
     'scheduleBlocks',
-    'scheduleItems',
+    'scheduleSessions',
     'sessions',
     'tickets',
     'users',

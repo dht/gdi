@@ -14,7 +14,7 @@ export function* navigate(action: any): any {
     yield delay(0);
 
     try {
-        _navigate!(action.path);
+        _navigate!(action.path || action.payload?.path);
     } catch (err) {
         yield put(actions.sagaError('navigate', err));
     }
