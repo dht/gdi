@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A13 = {};
+export const A15 = {};
 
 declare global {
     export type CellType =

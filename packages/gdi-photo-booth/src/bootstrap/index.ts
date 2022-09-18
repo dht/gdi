@@ -1,10 +1,12 @@
 import { LibraryBuilder } from '@gdi/engine';
-import { initTemplates as initTemplatesGdi } from '@gdi/template-gdi';
+import { initTemplates as initTemplatesBasic } from '@gdi/template-basic';
+import { initTemplates as initTemplatesMinimalist } from '@gdi/template-minimalist';
 import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
 
 const libraryBuilder = new LibraryBuilder();
 
-initTemplatesGdi(libraryBuilder);
+initTemplatesBasic(libraryBuilder);
+initTemplatesMinimalist(libraryBuilder);
 initTemplatesBlog(libraryBuilder);
 
-export const { blocks, templates } = libraryBuilder.build();
+export const { widgets, templates } = libraryBuilder.build();

@@ -17,7 +17,8 @@
         "paths": {
             "@gdi/app-mixer": ["apps/app-mixer"],
             "@gdi/store-mixer": ["stores/gdi-store-mixer"],
-            "@gdi/template-gdi": ["templates/gdi-template-gdi"],
+            "@gdi/template-basic": ["templates/gdi-template-basic"],
+            "@gdi/template-minimalist": ["templates/gdi-template-minimalist"],
             "@gdi/template-blog": ["templates/gdi-template-blog"],
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],

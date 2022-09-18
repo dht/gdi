@@ -177,18 +177,18 @@ export const initialState: ISiteStore = {
     instances: {
         'home-placeholder-simple-1': {
             id: 'home-placeholder-simple-1',
-            widgetId: 'com.usegdi.templates.futuristic.placeholder-simple',
+            widgetId: 'com.usegdi.templates.basic.placeholder-simple',
             pageId: 'home',
             order: 1,
         },
     },
     widgets: {
-        'com.usegdi.templates.futuristic.placeholder-simple': {
-            id: 'com.usegdi.templates.futuristic.placeholder-simple',
+        'com.usegdi.templates.basic.placeholder-simple': {
+            id: 'com.usegdi.templates.basic.placeholder-simple',
             name: 'placeholder-simple',
             description: '',
             params: {
-                id: 'com.usegdi.templates.futuristic.placeholder-simple',
+                id: 'com.usegdi.templates.basic.placeholder-simple',
                 schema: {
                     strings: {},
                     colors: {},

@@ -7,8 +7,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.35",
-        "@gdi/web-base-ui": "^0.0.27",
+        "@gdi/types": "^0.0.36",
+        "@gdi/web-base-ui": "^0.0.28",
         "@monaco-editor/react": "^4.4.5",
         "@tiptap/react": "^2.0.0-beta.114",
         "@tiptap/starter-kit": "^2.0.0-beta.191",

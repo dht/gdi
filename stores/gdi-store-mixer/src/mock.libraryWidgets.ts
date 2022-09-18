@@ -1,10 +1,10 @@
 export const libraryWidgets: IWidgets = {
-    'com.usegdi.templates.futuristic.feature-simple': {
-        id: 'com.usegdi.templates.futuristic.feature-simple',
+    'com.usegdi.templates.basic.feature-simple': {
+        id: 'com.usegdi.templates.basic.feature-simple',
         name: 'feature-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.feature-simple',
+            id: 'com.usegdi.templates.basic.feature-simple',
             schema: {
                 strings: {
                     slogan: {
@@ -118,14 +118,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 520,
                         ratio: 1.9230769230769231,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.feature-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.feature-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 520,
                         ratio: 1.9230769230769231,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.feature-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.feature-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -134,14 +134,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 197,
                         ratio: 2.5380710659898478,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.feature-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.feature-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 197,
                         ratio: 2.5380710659898478,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.feature-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.feature-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -175,12 +175,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-feature'],
     },
-    'com.usegdi.templates.futuristic.footer-simple': {
-        id: 'com.usegdi.templates.futuristic.footer-simple',
+    'com.usegdi.templates.basic.footer-simple': {
+        id: 'com.usegdi.templates.basic.footer-simple',
         name: 'footer-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.footer-simple',
+            id: 'com.usegdi.templates.basic.footer-simple',
             schema: {
                 strings: {
                     copyright: {
@@ -224,14 +224,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 38,
                         ratio: 26.31578947368421,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.footer-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.footer-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 38,
                         ratio: 26.31578947368421,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.footer-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.footer-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -240,14 +240,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 46,
                         ratio: 10.869565217391305,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.footer-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.footer-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 46,
                         ratio: 10.869565217391305,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.footer-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.footer-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -255,12 +255,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-footer'],
     },
-    'com.usegdi.templates.futuristic.hero-simple': {
-        id: 'com.usegdi.templates.futuristic.hero-simple',
+    'com.usegdi.templates.basic.hero-simple': {
+        id: 'com.usegdi.templates.basic.hero-simple',
         name: 'hero-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.hero-simple',
+            id: 'com.usegdi.templates.basic.hero-simple',
             schema: {
                 strings: {
                     slogan: {
@@ -402,14 +402,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 749,
                         ratio: 1.335113484646195,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.hero-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.hero-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 749,
                         ratio: 1.335113484646195,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.hero-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.hero-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -418,14 +418,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 200,
                         ratio: 2.5,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.hero-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.hero-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 200,
                         ratio: 2.5,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.hero-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.hero-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -459,12 +459,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-hero'],
     },
-    'com.usegdi.templates.futuristic.imageAndText-simple': {
-        id: 'com.usegdi.templates.futuristic.imageAndText-simple',
+    'com.usegdi.templates.basic.imageAndText-simple': {
+        id: 'com.usegdi.templates.basic.imageAndText-simple',
         name: 'imageAndText-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.imageAndText-simple',
+            id: 'com.usegdi.templates.basic.imageAndText-simple',
             schema: {
                 strings: {
                     slogan: {
@@ -547,14 +547,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 564,
                         ratio: 1.7730496453900708,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.imageAndText-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.imageAndText-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 564,
                         ratio: 1.7730496453900708,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.imageAndText-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.imageAndText-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -563,14 +563,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 219,
                         ratio: 2.2831050228310503,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.imageAndText-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.imageAndText-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 219,
                         ratio: 2.2831050228310503,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.imageAndText-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.imageAndText-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -578,12 +578,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-imageAndText'],
     },
-    'com.usegdi.templates.futuristic.installation-simple': {
-        id: 'com.usegdi.templates.futuristic.installation-simple',
+    'com.usegdi.templates.basic.installation-simple': {
+        id: 'com.usegdi.templates.basic.installation-simple',
         name: 'installation-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.installation-simple',
+            id: 'com.usegdi.templates.basic.installation-simple',
             schema: {
                 strings: {
                     command: {
@@ -658,14 +658,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 390,
                         ratio: 2.5641025641025643,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.installation-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.installation-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 390,
                         ratio: 2.5641025641025643,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.installation-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.installation-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -674,14 +674,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 123,
                         ratio: 4.065040650406504,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.installation-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.installation-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 123,
                         ratio: 4.065040650406504,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.installation-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.installation-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -689,12 +689,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-installation'],
     },
-    'com.usegdi.templates.futuristic.lineCta-simple': {
-        id: 'com.usegdi.templates.futuristic.lineCta-simple',
+    'com.usegdi.templates.basic.lineCta-simple': {
+        id: 'com.usegdi.templates.basic.lineCta-simple',
         name: 'lineCta-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.lineCta-simple',
+            id: 'com.usegdi.templates.basic.lineCta-simple',
             schema: {
                 strings: {
                     textStrong: {
@@ -766,14 +766,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 260,
                         ratio: 3.8461538461538463,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.lineCta-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.lineCta-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 260,
                         ratio: 3.8461538461538463,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.lineCta-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.lineCta-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -782,14 +782,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 110,
                         ratio: 4.545454545454546,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.lineCta-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.lineCta-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 110,
                         ratio: 4.545454545454546,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.lineCta-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.lineCta-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -797,12 +797,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-lineCta'],
     },
-    'com.usegdi.templates.futuristic.sectionHeader-simple': {
-        id: 'com.usegdi.templates.futuristic.sectionHeader-simple',
+    'com.usegdi.templates.basic.sectionHeader-simple': {
+        id: 'com.usegdi.templates.basic.sectionHeader-simple',
         name: 'sectionHeader-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.sectionHeader-simple',
+            id: 'com.usegdi.templates.basic.sectionHeader-simple',
             schema: {
                 strings: {
                     text: {
@@ -856,14 +856,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 66,
                         ratio: 15.151515151515152,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.sectionHeader-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.sectionHeader-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 66,
                         ratio: 15.151515151515152,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.sectionHeader-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.sectionHeader-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -872,14 +872,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 90,
                         ratio: 5.555555555555555,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.sectionHeader-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.sectionHeader-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 90,
                         ratio: 5.555555555555555,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.sectionHeader-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.sectionHeader-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -887,12 +887,12 @@ export const libraryWidgets: IWidgets = {
         },
         tags: ['type-sectionHeader'],
     },
-    'com.usegdi.templates.futuristic.userBar-simple': {
-        id: 'com.usegdi.templates.futuristic.userBar-simple',
+    'com.usegdi.templates.basic.userBar-simple': {
+        id: 'com.usegdi.templates.basic.userBar-simple',
         name: 'userBar-simple',
         description: '',
         params: {
-            id: 'com.usegdi.templates.futuristic.userBar-simple',
+            id: 'com.usegdi.templates.basic.userBar-simple',
             schema: {
                 strings: {},
                 colors: {
@@ -963,14 +963,14 @@ export const libraryWidgets: IWidgets = {
                         width: 1000,
                         height: 66,
                         ratio: 15.151515151515152,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.userBar-simple.simple.desktop.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.userBar-simple.simple.desktop.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 1000,
                         height: 66,
                         ratio: 15.151515151515152,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.userBar-simple.simple.desktop.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.userBar-simple.simple.desktop.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },
@@ -979,14 +979,14 @@ export const libraryWidgets: IWidgets = {
                         width: 500,
                         height: 123,
                         ratio: 4.065040650406504,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.userBar-simple.simple.mobile.large.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.userBar-simple.simple.mobile.large.webp?alt=media',
                         urlIsRemote: true,
                     },
                     thumb: {
                         width: 500,
                         height: 123,
                         ratio: 4.065040650406504,
-                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.futuristic.userBar-simple.simple.mobile.thumb.webp?alt=media',
+                        url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.basic.userBar-simple.simple.mobile.thumb.webp?alt=media',
                         urlIsRemote: true,
                     },
                 },

@@ -1,9 +1,8 @@
 {
     "name": "@gdi/web-tables",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "scripts": {
-        "build": "npm run clean && tsc & vite build && npm run scss",
-        "clean": "rm -rf dist",
+        "build": "tsc & vite build && npm run scss",
         "test": "jest",
         "scss": "sass src/index.scss dist/index.css",
         "coverage": "jest --coverage=true"
@@ -12,9 +11,10 @@
         "@dnd-kit/core": "^6.0.5",
         "@dnd-kit/sortable": "^7.0.1",
         "@dnd-kit/utilities": "^3.2.0",
-        "@gdi/hooks": "^0.0.24",
-        "@gdi/types": "^0.0.35",
-        "@gdi/web-base-ui": "^0.0.27",
+        "@gdi/hooks": "^0.0.25",
+        "@gdi/types": "^0.0.36",
+        "@gdi/web-base-ui": "^0.0.28",
+        "@gdi/web-forms": "^0.0.24",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",
         "lodash": "^4.17.21",
@@ -52,7 +52,7 @@
     ],
     "main": "./dist/web-tables.umd.js",
     "module": "./dist/web-tables.es.js",
-    "types": "./dist/dts/index.d.ts",
+    "types": "./dist/index.d.ts",
     "exports": {
         ".": {
             "import": "./dist/web-tables.es.js",

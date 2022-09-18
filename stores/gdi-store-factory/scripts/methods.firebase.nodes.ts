@@ -1,5 +1,5 @@
-// import { firebase } from './methods.firebase.base';
-import { firebase } from 'firestore-local';
+import { firebase } from './methods.firebase.base';
+// import { firebase } from 'firestore-local';
 import { firebaseConfig } from '../../../firebaseConfig';
 
 let state: Json = {};

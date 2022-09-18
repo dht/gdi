@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Table from '../Table/Table';
 import { Container } from './Crud.style';
-import { FormModal } from '@gdi/web-ui';
+import { FormModal } from '@gdi/web-forms';
 import { CrudContext, CrudContextProvider, CrudProps } from './Crud.context';
 
 type CrudInnerProps = {
@@ -39,9 +39,10 @@ export function CrudInner(props: CrudInnerProps) {
                     });
                 }}
                 config={formConfig}
-                onSave={(_change: Json, allData: Json) =>
-                    callbacks.onNewFormSave(allData)
-                }
+                onSave={(_change: Json, allData: Json) => {
+                    callbacks.onNewFormSave(allData);
+                    return Promise.resolve(true);
+                }}
                 data={formData}
                 allOptions={allOptions}
                 allDetails={allDetails}
@@ -65,7 +66,10 @@ export function CrudInner(props: CrudInnerProps) {
                     });
                 }}
                 config={formConfig}
-                onSave={(change: Json) => callbacks.onEditFormSave(change)}
+                onSave={(change: Json) => {
+                    callbacks.onEditFormSave(change);
+                    return Promise.resolve(true);
+                }}
                 data={formData}
                 allOptions={allOptions}
                 allDetails={allDetails}

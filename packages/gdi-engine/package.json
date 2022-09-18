@@ -7,7 +7,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.35",
+        "@gdi/types": "^0.0.36",
         "lodash": "^4.17.21",
         "react-use": "^17.4.0",
         "styled-components": "^5.3.5"

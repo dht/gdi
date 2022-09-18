@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './Layouts.style';
-import { Crud } from '@gdi/web-tables';
+import { Crud } from '@gdi/web-ui';
 
 export type LayoutsProps = ICrudDefinitions & {
     data: Json[];
