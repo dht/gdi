@@ -15,7 +15,7 @@
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-basic": "^0.0.21",
         "@gdi/template-minimalist": "^0.0.21",
-        "@gdi/types": "^0.0.36",
+        "@gdi/types": "^0.0.38",
         "@gdi/web-forms": "^0.0.24",
         "@gdi/web-ui": "^0.0.26",
         "@testing-library/react": "^13.3.0",

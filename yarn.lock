@@ -1053,7 +1053,7 @@
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-biblo" "^0.0.21"
     "@gdi/template-blog" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1077,7 +1077,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-deb" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1102,7 +1102,7 @@
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-devtools" "^0.0.20"
     "@gdi/store-site" "^0.0.24"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1126,7 +1126,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-events" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1149,7 +1149,7 @@
     "@gdi/hooks" "^0.0.25"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-factory" "^0.0.23"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
     "chance" "^1.1.8"
@@ -1172,7 +1172,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-knowledge" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1194,7 +1194,7 @@
   dependencies:
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-auth" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
     "chance" "^1.1.8"
@@ -1221,7 +1221,7 @@
     "@gdi/template-basic" "^0.0.21"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-minimalist" "^0.0.21"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1244,7 +1244,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-money" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1267,7 +1267,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-ppl" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1291,7 +1291,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-soundboard" "^0.0.24"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1314,7 +1314,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-spotify" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1336,7 +1336,7 @@
     "@babylonjs/gui" "^5.22.1"
     "@babylonjs/materials" "^5.22.1"
     "@gdi/store-studio" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
     "babylonjs" "^5.22.1"
@@ -1360,7 +1360,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-tasks" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1383,7 +1383,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-things" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1407,7 +1407,7 @@
     "@gdi/galleries" "^0.0.21"
     "@gdi/platformer" "^0.0.22"
     "@gdi/store-voice" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-ui" "^0.0.26"
     "@testing-library/react" "^13.3.0"
@@ -1427,7 +1427,7 @@
   "resolved" "file:clients/gdi-cli"
   "version" "0.1.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@types/cli-table" "^0.3.0"
     "chalk" "^4.1.2"
     "cli-table" "^0.3.11"
@@ -1444,7 +1444,7 @@
   "resolved" "file:packages/gdi-engine"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "react-use" "^17.4.0"
     "styled-components" "^5.3.5"
@@ -1453,7 +1453,7 @@
   "resolved" "file:packages/gdi-galleries"
   "version" "0.0.21"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "classnames" "^2.3.1"
     "fuse.js" "^6.6.2"
@@ -1477,7 +1477,7 @@
     "@gdi/app-login" "^0.0.23"
     "@gdi/app-mixer" "^0.0.25"
     "@gdi/platformer" "^0.0.22"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "date-fns" "^2.29.2"
     "igrid" "^0.0.17"
@@ -1500,7 +1500,7 @@
     "@gdi/template-basic" "^0.0.21"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-minimalist" "^0.0.21"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "firebaseui" "^6.0.1"
     "igrid" "^0.0.17"
@@ -1548,7 +1548,7 @@
     "@gdi/template-basic" "^0.0.21"
     "@gdi/template-blog" "^0.0.20"
     "@gdi/template-minimalist" "^0.0.21"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "@playwright/experimental-ct-react" "^1.25.0"
     "chance" "^1.1.8"
@@ -1565,7 +1565,7 @@
   "version" "0.0.22"
   dependencies:
     "@gdi/store-auth" "^0.0.20"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "axios" "^0.27.2"
     "axios-oauth" "^0.0.3"
@@ -1601,7 +1601,7 @@
   "resolved" "file:stores/gdi-store-auth"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1616,7 +1616,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-biblo"
   "version" "0.0.21"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1631,7 +1631,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-deb"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1646,7 +1646,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-devtools"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1661,7 +1661,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-events"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1679,7 +1679,7 @@
   "version" "0.0.23"
   dependencies:
     "@gdi/store-site" "^0.0.24"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1694,7 +1694,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-knowledge"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1711,7 +1711,7 @@
   "version" "0.0.20"
   dependencies:
     "@gdi/store-site" "^0.0.24"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1737,7 +1737,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-money"
   "version" "0.0.21"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1752,7 +1752,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-ppl"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1794,7 +1794,7 @@
   "resolved" "file:stores/gdi-store-site"
   "version" "0.0.24"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1814,7 +1814,7 @@
   "version" "0.0.24"
   dependencies:
     "@gdi/store-tasks" "^0.0.21"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "chroma-js" "^2.4.2"
     "date-fns" "^2.29.2"
     "lodash" "^4.17.21"
@@ -1846,7 +1846,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-spotify"
   "version" "0.0.23"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "date-fns" "^2.29.2"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
@@ -1863,7 +1863,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-studio"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1906,7 +1906,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-tasks"
   "version" "0.0.22"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "date-fns" "^2.29.2"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
@@ -1923,7 +1923,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-things"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1938,7 +1938,7 @@
   "resolved" "file:submodules/gdi-extra/stores/gdi-store-voice"
   "version" "0.0.20"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "lodash" "^4.17.21"
     "redux-store-generator" "^0.9.86"
     "reselect" "^4.1.6"
@@ -1947,7 +1947,7 @@
   "resolved" "file:templates/gdi-template-basic"
   "version" "0.0.21"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "classnames" "^2.3.1"
     "date-fns" "^2.29.2"
@@ -1979,7 +1979,7 @@
   "resolved" "file:templates/gdi-template-blog"
   "version" "0.0.21"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "classnames" "^2.3.1"
     "date-fns" "^2.29.2"
@@ -1994,7 +1994,7 @@
   "resolved" "file:templates/gdi-template-minimalist"
   "version" "0.0.21"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-ui" "^0.0.26"
     "classnames" "^2.3.1"
     "date-fns" "^2.29.2"
@@ -2007,7 +2007,7 @@
 
 "@gdi/types-scripts@file:/Users/dht/projects/gdi/packages/gdi-types/scripts":
   "resolved" "file:packages/gdi-types/scripts"
-  "version" "1.0.14"
+  "version" "1.0.15"
   dependencies:
     "chalk" "^4.1.2"
     "fs-extra" "^10.1.0"
@@ -2042,26 +2042,23 @@
   dependencies:
     "react" "^18.0.0"
 
-"@gdi/types@^0.0.36", "@gdi/types@file:/Users/dht/projects/gdi/packages/gdi-types":
+"@gdi/types@^0.0.36", "@gdi/types@^0.0.38", "@gdi/types@file:/Users/dht/projects/gdi/packages/gdi-types":
   "resolved" "file:packages/gdi-types"
-  "version" "0.0.37"
+  "version" "0.0.38"
 
-"@gdi/web-base-ui@^0.0.23":
-  "integrity" "sha512-H55CGle6t1rNRaAIQjZ9rsDq/HM7iQ9nidhpD/haCgT6lypk3RK8vMd4+qL041386Jl8ZoO8euaf/fu0xh6+rg=="
-  "resolved" "https://registry.npmjs.org/@gdi/web-base-ui/-/web-base-ui-0.0.23.tgz"
-  "version" "0.0.23"
+"@gdi/web-base-ui@^0.0.23", "@gdi/web-base-ui@^0.0.28", "@gdi/web-base-ui@file:/Users/dht/projects/gdi/packages/gdi-web-base-ui":
+  "resolved" "file:packages/gdi-web-base-ui"
+  "version" "0.0.28"
   dependencies:
     "@fluentui/react" "^8.86.4"
-    "@gdi/types" "^0.0.19"
+    "@gdi/hooks" "^0.0.25"
     "bytes" "^3.1.2"
     "classnames" "^2.3.1"
     "date-fns" "^2.29.1"
-    "react" "^18.2.0"
-    "react-dom" "^18.2.0"
     "react-phone-number-input" "^3.2.7"
     "react-select" "^5.4.0"
+    "react-social-icons" "^5.14.0"
     "react-use" "^17.4.0"
-    "sass" "^1.54.0"
     "styled-components" "^5.3.5"
 
 "@gdi/web-base-ui@^0.0.27":
@@ -2084,21 +2081,6 @@
     "sass" "^1.54.0"
     "styled-components" "^5.3.5"
 
-"@gdi/web-base-ui@^0.0.28", "@gdi/web-base-ui@file:/Users/dht/projects/gdi/packages/gdi-web-base-ui":
-  "resolved" "file:packages/gdi-web-base-ui"
-  "version" "0.0.28"
-  dependencies:
-    "@fluentui/react" "^8.86.4"
-    "@gdi/hooks" "^0.0.25"
-    "bytes" "^3.1.2"
-    "classnames" "^2.3.1"
-    "date-fns" "^2.29.1"
-    "react-phone-number-input" "^3.2.7"
-    "react-select" "^5.4.0"
-    "react-social-icons" "^5.14.0"
-    "react-use" "^17.4.0"
-    "styled-components" "^5.3.5"
-
 "@gdi/web-editors@^0.0.22":
   "integrity" "sha512-1eEmZW5LLVKgBNv1Z6pF58sCB27LQknPJp7YX7cKj4eySFx5jQDb2Kn/y5qq1gMWOLm9yS8sLhK8GT5X70+9jg=="
   "resolved" "https://registry.npmjs.org/@gdi/web-editors/-/web-editors-0.0.22.tgz"
@@ -2119,7 +2101,7 @@
   "resolved" "file:packages/gdi-web-editors"
   "version" "0.0.29"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
     "@monaco-editor/react" "^4.4.5"
     "@tiptap/react" "^2.0.0-beta.114"
@@ -2133,7 +2115,7 @@
   "resolved" "file:packages/gdi-web-forms"
   "version" "0.0.24"
   dependencies:
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
     "@hookform/resolvers" "^2.9.7"
     "lodash" "^4.17.21"
@@ -2162,7 +2144,7 @@
   "version" "0.0.25"
   dependencies:
     "@gdi/hooks" "^0.0.25"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
     "classnames" "^2.3.1"
     "date-fns" "^2.29.2"
@@ -2198,7 +2180,7 @@
     "@dnd-kit/sortable" "^7.0.1"
     "@dnd-kit/utilities" "^3.2.0"
     "@gdi/hooks" "^0.0.25"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
     "@gdi/web-forms" "^0.0.24"
     "classnames" "^2.3.1"
@@ -2234,14 +2216,39 @@
     "redux-store-generator" "^0.9.83"
     "styled-components" "^5.3.5"
 
-"@gdi/web-ui@^0.0.26", "@gdi/web-ui@file:/Users/dht/projects/gdi/packages/gdi-web-ui":
+"@gdi/web-ui@^0.0.26":
+  "integrity" "sha512-ye69BjTliRtJFUcGfopC0RKlbesLqUf3tLbMFVY/W+lparLC8o9P0nuOZAGcuXwSUx1BWZB1+XjPfIzOpQjfcw=="
+  "resolved" "https://registry.npmjs.org/@gdi/web-ui/-/web-ui-0.0.26.tgz"
+  "version" "0.0.26"
+  dependencies:
+    "@dnd-kit/core" "^6.0.5"
+    "@dnd-kit/sortable" "^7.0.1"
+    "@dnd-kit/utilities" "^3.2.0"
+    "@gdi/types" "^0.0.36"
+    "@gdi/web-base-ui" "^0.0.28"
+    "@gdi/web-editors" "^0.0.22"
+    "@gdi/web-forms" "^0.0.24"
+    "@gdi/web-sheets" "^0.0.24"
+    "@gdi/web-tables" "^0.0.23"
+    "classnames" "^2.3.1"
+    "date-fns" "^2.29.2"
+    "fuse.js" "^6.6.2"
+    "lodash" "^4.17.21"
+    "react-draggable" "^4.4.5"
+    "react-router-dom" "^6.3.0"
+    "react-use" "^17.4.0"
+    "react-window" "^1.8.7"
+    "redux-store-generator" "^0.9.85"
+    "styled-components" "^5.3.5"
+
+"@gdi/web-ui@file:/Users/dht/projects/gdi/packages/gdi-web-ui":
   "resolved" "file:packages/gdi-web-ui"
   "version" "0.0.27"
   dependencies:
     "@dnd-kit/core" "^6.0.5"
     "@dnd-kit/sortable" "^7.0.1"
     "@dnd-kit/utilities" "^3.2.0"
-    "@gdi/types" "^0.0.36"
+    "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
     "@gdi/web-editors" "^0.0.22"
     "@gdi/web-forms" "^0.0.24"
@@ -2733,7 +2740,7 @@
     "@types/yargs" "^15.0.0"
     "chalk" "^4.0.0"
 
-"@jest/types@^27.0.6", "@jest/types@^27.5.1":
+"@jest/types@^27.0.6":
   "integrity" "sha512-Cx46iJ9QpwQTjIdq5VJu2QTMMs3QlEjI0x1QbBP5W1+nMzyc2XmimiRR/CbX9TO0cPTeUlxWMOu8mslYsJ8DEw=="
   "resolved" "https://registry.npmjs.org/@jest/types/-/types-27.5.1.tgz"
   "version" "27.5.1"
@@ -2744,7 +2751,7 @@
     "@types/yargs" "^16.0.0"
     "chalk" "^4.0.0"
 
-"@jest/types@^28.0.0", "@jest/types@^28.1.3":
+"@jest/types@^27.5.1", "@jest/types@^28.0.0", "@jest/types@^28.1.3":
   "integrity" "sha512-RyjiyMUZrKz/c+zlMFO1pm70DcIlST8AeWTkoUdZevew44wcNZQHsEVOiCVtgVnlFFD82FPaXycys58cf2muVQ=="
   "resolved" "https://registry.npmjs.org/@jest/types/-/types-28.1.3.tgz"
   "version" "28.1.3"
@@ -3474,7 +3481,7 @@
   "resolved" "https://registry.npmjs.org/@types/aria-query/-/aria-query-4.2.2.tgz"
   "version" "4.2.2"
 
-"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
+"@types/babel__core@^7.1.14":
   "integrity" "sha512-WEOTgRsbYkvA/KCsDwVEGkd7WAr1e3g31VHQ8zy5gul/V1qKullU/BU5I68X5v7V3GnB9eotmom4v5a5gjxorw=="
   "resolved" "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.1.19.tgz"
   "version" "7.1.19"
@@ -4538,21 +4545,7 @@
     "follow-redirects" "^1.14.9"
     "form-data" "^4.0.0"
 
-"babel-jest@^27.5.1", "babel-jest@^28.0.0", "babel-jest@>=27.0.0 <28":
-  "integrity" "sha512-cdQ5dXjGRd0IBRATiQ4mZGlGlRE8kJpjPOixdNRdT+m3UcNqmYWN6rK6nvtXYfY3D76cb8s/O1Ss8ea24PIwcg=="
-  "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-27.5.1.tgz"
-  "version" "27.5.1"
-  dependencies:
-    "@jest/transform" "^27.5.1"
-    "@jest/types" "^27.5.1"
-    "@types/babel__core" "^7.1.14"
-    "babel-plugin-istanbul" "^6.1.1"
-    "babel-preset-jest" "^27.5.1"
-    "chalk" "^4.0.0"
-    "graceful-fs" "^4.2.9"
-    "slash" "^3.0.0"
-
-"babel-jest@^28.1.3":
+"babel-jest@^27.5.1", "babel-jest@^28.0.0", "babel-jest@^28.1.3", "babel-jest@>=27.0.0 <28":
   "integrity" "sha512-epUaPOEWMk3cWX0M/sPvCHHCe9fMFAa/9hXEgKP8nFfNl/jlGkE9ucq9NqkZGXLDduCJYS0UvSlPUwC0S+rH6Q=="
   "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-28.1.3.tgz"
   "version" "28.1.3"
@@ -4575,16 +4568,6 @@
     "@istanbuljs/schema" "^0.1.2"
     "istanbul-lib-instrument" "^5.0.4"
     "test-exclude" "^6.0.0"
-
-"babel-plugin-jest-hoist@^27.5.1":
-  "integrity" "sha512-50wCwD5EMNW4aRpOwtqzyZHIewTYNxLA4nhB+09d8BIssfNfzBRhkBIHiaPv1Si226TQSvp8gxAJm2iY2qs2hQ=="
-  "resolved" "https://registry.npmjs.org/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-27.5.1.tgz"
-  "version" "27.5.1"
-  dependencies:
-    "@babel/template" "^7.3.3"
-    "@babel/types" "^7.3.3"
-    "@types/babel__core" "^7.0.0"
-    "@types/babel__traverse" "^7.0.6"
 
 "babel-plugin-jest-hoist@^28.1.3":
   "integrity" "sha512-Ys3tUKAmfnkRUpPdpa98eYrAR0nV+sSFUZZEGuQ2EbFd1y4SOLtD5QDNHAq+bb9a+bbXvYQC4b+ID/THIMcU6Q=="
@@ -4638,14 +4621,6 @@
     "@babel/plugin-syntax-optional-catch-binding" "^7.8.3"
     "@babel/plugin-syntax-optional-chaining" "^7.8.3"
     "@babel/plugin-syntax-top-level-await" "^7.8.3"
-
-"babel-preset-jest@^27.5.1":
-  "integrity" "sha512-Nptf2FzlPCWYuJg41HBqXVT8ym6bXOevuCTbhxlUpjwtysGaIWFvDEjp4y+G7fl13FgOdjs7P/DmErqH7da0Ag=="
-  "resolved" "https://registry.npmjs.org/babel-preset-jest/-/babel-preset-jest-27.5.1.tgz"
-  "version" "27.5.1"
-  dependencies:
-    "babel-plugin-jest-hoist" "^27.5.1"
-    "babel-preset-current-node-syntax" "^1.0.0"
 
 "babel-preset-jest@^28.1.3":
   "integrity" "sha512-L+fupJvlWAHbQfn74coNX3zf60LXMJsezNvvx8eIh7iOR1luJ1poxYgQk1F8PYtNq/6QODDHCqsSnTFSWC491A=="
@@ -9990,20 +9965,10 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
-"vite@^3.0.0", "vite@^3.0.3", "vite@^3.0.4", "vite@>=2.4.4":
+"vite@^3.0.0", "vite@^3.0.3", "vite@^3.0.4", "vite@>=2.4.4", "vite@>2.0.0-0":
   "integrity" "sha512-wTDKPkiVbeT+drTPdkuvjVIC/2vKKUc1w3qNOuwgpyvPCZF6fvdxB5v5WEcCsqaYea0zrwA4+XialJKCHM3oVQ=="
   "resolved" "https://registry.npmjs.org/vite/-/vite-3.1.2.tgz"
   "version" "3.1.2"
-  dependencies:
-    "esbuild" "^0.15.6"
-    "postcss" "^8.4.16"
-    "resolve" "^1.22.1"
-    "rollup" "~2.78.0"
-  optionalDependencies:
-    "fsevents" "~2.3.2"
-
-"vite@>2.0.0-0":
-  "version" "3.1.0"
   dependencies:
     "esbuild" "^0.15.6"
     "postcss" "^8.4.16"

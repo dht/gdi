@@ -18,6 +18,7 @@ export type LayoutVisualProps = {
     };
     flex?: number;
     isLoading?: boolean;
+    resolutionId?: IResolution;
 };
 
 export function LayoutVisual(props: LayoutVisualProps) {
@@ -28,6 +29,7 @@ export function LayoutVisual(props: LayoutVisualProps) {
         layout,
         flex,
         isLoading,
+        resolutionId,
     } = props;
     const { id = '', name = '' } = layout || {};
 
@@ -44,8 +46,8 @@ export function LayoutVisual(props: LayoutVisualProps) {
                 isLoading={isLoading}
             />
 
-            <Id>{id}</Id>
-            <CurrentResolution>{id}</CurrentResolution>
+            <Id>#{id}</Id>
+            <CurrentResolution>{resolutionId}</CurrentResolution>
         </Container>
     );
 }

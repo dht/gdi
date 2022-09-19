@@ -15,6 +15,7 @@ export const LayoutVisualContainer = () => {
     const flex = useSelector(selectors.base.$flexEntityFlex);
 
     const { isLoadingLayoutItems } = appState;
+    const { resolutionId } = currentIds;
 
     useAuthMount(async () => {
         dispatch(actions.appStateFactory.patch({ isLoadingLayoutItems: true }));
@@ -111,6 +112,7 @@ export const LayoutVisualContainer = () => {
             callbacks={callbacks}
             isLoading={isLoadingLayoutItems}
             flex={flex}
+            resolutionId={resolutionId}
         />
     );
 };
