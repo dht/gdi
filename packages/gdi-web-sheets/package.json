@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@gdi/hooks": "^0.0.25",
-        "@gdi/types": "^0.0.36",
+        "@gdi/types": "^0.0.38",
         "@gdi/web-base-ui": "^0.0.28",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.2",

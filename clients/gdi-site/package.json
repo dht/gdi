@@ -10,7 +10,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.36",
+        "@gdi/types": "^0.0.38",
         "@gdi/engine": "^0.0.20",
         "@gdi/store-site": "^0.0.24",
         "@gdi/template-blog": "^0.0.20",

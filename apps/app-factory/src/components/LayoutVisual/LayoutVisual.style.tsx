@@ -22,4 +22,5 @@ export const Id = styled.div`
 
 export const CurrentResolution = styled(Id)`
     right: 100px;
+    color: palevioletred;
 `;
