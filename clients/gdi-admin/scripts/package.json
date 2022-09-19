@@ -12,5 +12,9 @@
         "@types/node": "^18.7.13",
         "dotenv-flow": "^3.2.0",
         "firebase": "^9.9.3"
+    },
+    "dependencies": {
+        "@gdi/platformer": "^0.0.22",
+        "@gdi/web-ui": "^0.0.26"
     }
 }

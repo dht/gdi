@@ -41,7 +41,7 @@ export function DesignerTree(props: DesignerTreeProps) {
     const ref = useRef(null);
 
     function renderItem(item: IFlexEntity) {
-        const { id, entityType, locationId, flex, direction } = item;
+        const { id, entityType, locationId, flex = 1, direction } = item;
         const name = entityType === 'container' ? direction : 'item';
 
         const className = classnames(entityType, {

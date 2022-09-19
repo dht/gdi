@@ -3,6 +3,7 @@ export enum ToolId {
     delete = 'delete',
     splitHorizontally = 'splitHorizontally',
     splitVertically = 'splitVertically',
+    rotate='rotate'
 }
 
 export const items: any[] = [
@@ -25,5 +26,10 @@ export const items: any[] = [
         id: ToolId.edit,
         text: 'Edit',
         iconName: 'Edit',
+    },
+    {
+        id: ToolId.rotate,
+        text: 'Rotate',
+        iconName: 'Rotate',
     },
 ];

@@ -33,6 +33,9 @@ export function TopBar(props: TopBarProps) {
             case 'edit':
                 callbacks.onAction('edit');
                 break;
+            case 'rotate':
+                callbacks.onAction('rotate');
+                break;
             case 'delete':
                 callbacks.onAction('delete');
                 break;

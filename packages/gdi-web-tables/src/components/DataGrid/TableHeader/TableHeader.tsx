@@ -17,11 +17,11 @@ export function TableHeader(props: TableHeaderProps) {
         if (!ref.current) {
             return;
         }
-        const elements = [...ref.current.querySelectorAll('.th')];
+        const widths: number[] = [];
 
-        const widths = elements.map((el) => {
+        ref.current.querySelectorAll('.th').forEach((el) => {
             const box = el.getBoundingClientRect();
-            return box.width;
+            widths.push(box.width);
         });
 
         context.patchState({ widths });

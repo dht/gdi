@@ -3,7 +3,7 @@ import { getBoolean } from 'shared-base';
 
 const AUTH_EVENT_NAME = 'AUTHENTICATION_COMPLETED';
 
-type Callback = () => boolean;
+type Callback = () => void;
 
 export const useAuthMount = (
     callback: Callback,

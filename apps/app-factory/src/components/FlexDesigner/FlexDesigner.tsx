@@ -40,7 +40,7 @@ export type FlexDesignerProps = {
         onFlexChange: (flex: number) => void;
         onResolutionChange: (resolutionIndex: number) => void;
     };
-    isLoading: boolean;
+    isLoading?: boolean;
 };
 
 export function FlexDesigner(props: FlexDesignerProps) {
@@ -184,7 +184,7 @@ export function FlexDesigner(props: FlexDesignerProps) {
             className='FlexDesigner-container'
             data-testid='FlexDesigner-container'
         >
-            <Content>{renderEntities(rootItem.id)}</Content>
+            <Content>{renderContainer(rootItem)}</Content>
         </Wrapper>
     );
 }

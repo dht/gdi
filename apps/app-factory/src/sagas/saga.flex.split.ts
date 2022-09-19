@@ -51,7 +51,7 @@ function* splitFlex(action: ActionSplitFlex) {
             id: guid4(),
             entityType: 'item',
             parentId: info.parentId,
-            resolution: resolutionId,
+            resolution: resolutionId as IResolution,
             order,
         };
 
@@ -64,7 +64,7 @@ function* splitFlex(action: ActionSplitFlex) {
             entityType: 'container',
             parentId: info.parentId,
             direction: isHorizontally ? 'row' : 'column',
-            resolution: resolutionId,
+            resolution: resolutionId as IResolution,
             order: info.item.order,
             flex: info.item.flex,
         };
@@ -134,7 +134,31 @@ export function* clear() {
     yield call(deleteFlex);
 }
 
+function* rotateFlex() {
+    const layout = yield* select(selectors.base.$layout);
+    const flexEntity = yield* select(selectors.base.$flexEntity);
+
+    if (!layout || !flexEntity) {
+        return;
+    }
+
+    const { direction } = flexEntity;
+
+    if (!direction) {
+        return;
+    }
+
+    const newDirection = direction === 'column' ? 'row' : 'column';
+
+    yield put(
+        actions.layouts.patchItem(layout.id, flexEntity.id, {
+            direction: newDirection,
+        })
+    );
+}
+
 export function* root() {
     yield takeEvery('FLEX_SPLIT', splitFlex);
+    yield takeEvery('FLEX_ROTATE', rotateFlex);
     yield takeEvery('FLEX_DELETE', deleteFlex);
 }

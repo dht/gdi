@@ -19,7 +19,7 @@
         "igrid": "^0.0.17",
         "polished": "^4.2.2",
         "react-use": "^17.4.0",
-        "shared-base": "^0.0.16",
+        "shared-base": "^0.0.18",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",
         "types-base": "^0.0.2"

@@ -231,6 +231,11 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
+        match /metaphors/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
         match /moneyBehaviors/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
