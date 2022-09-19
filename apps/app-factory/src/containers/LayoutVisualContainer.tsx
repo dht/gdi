@@ -48,6 +48,9 @@ export const LayoutVisualContainer = () => {
                     case 'edit':
                         dispatch({ type: 'FLEX_EDIT' });
                         break;
+                    case 'rotate':
+                        dispatch({ type: 'FLEX_ROTATE' });
+                        break;
                     case 'back':
                         dispatch(
                             actions.currentIdsFactory.patch({

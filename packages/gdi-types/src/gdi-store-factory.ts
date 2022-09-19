@@ -45,7 +45,7 @@ declare global {
     export type IFlexEntity = {
         id: string;
         parentId: string;
-        locationId: string;
+        locationId?: string;
         entityType: 'container' | 'item';
         direction?: 'row' | 'column';
         resolution: IResolution;

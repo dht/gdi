@@ -16,6 +16,7 @@
         "@gdi/app-mixer": "^0.0.25",
         "@gdi/platformer": "^0.0.22",
         "@gdi/types": "^0.0.36",
+        "@gdi/web-ui": "^0.0.26",
         "date-fns": "^2.29.2",
         "igrid": "^0.0.17",
         "lodash": "^4.17.21",
@@ -23,7 +24,7 @@
         "react-dom": "^18.2.0",
         "react-toastify": "^9.0.7",
         "react-use": "^17.4.0",
-        "shared-base": "^0.0.16",
+        "shared-base": "^0.0.18",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",
         "types-base": "^0.0.2"

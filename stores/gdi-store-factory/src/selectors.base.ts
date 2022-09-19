@@ -1,6 +1,6 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { ICustomBlockWithLayout, ILayouts } from './types';
+import { ILayouts } from './types';
 import { sortBy } from 'shared-base';
 import { cloneDeep } from 'lodash';
 

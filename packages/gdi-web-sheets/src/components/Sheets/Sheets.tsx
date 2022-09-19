@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Content } from './Sheets.style';
-import { Sheet } from '@gdi/web-ui';
+import { Sheet } from '../Sheet/Sheet';
 import { VerticalTabs } from '../VerticalTabs/VerticalTabs';
 
 export type SheetsProps = {
@@ -32,7 +32,6 @@ export function Sheets(props: SheetsProps) {
                 onChange={callbacks.onChange}
                 onDelete={callbacks.onDelete}
                 onNew={callbacks.onNew}
-                mode='onBlur'
             />
         );
     }

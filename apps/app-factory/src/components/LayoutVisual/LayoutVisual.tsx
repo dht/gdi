@@ -2,7 +2,7 @@ import React from 'react';
 import { IFlexEntity, ILayout } from '@gdi/store-factory';
 import FlexDesigner from '../FlexDesigner/FlexDesigner';
 import TopBar from '../TopBar/TopBar';
-import { Container, Id } from './LayoutVisual.style';
+import { Container, CurrentResolution, Id } from './LayoutVisual.style';
 
 export type LayoutVisualProps = {
     items?: IFlexEntity[];
@@ -45,6 +45,7 @@ export function LayoutVisual(props: LayoutVisualProps) {
             />
 
             <Id>{id}</Id>
+            <CurrentResolution>{id}</CurrentResolution>
         </Container>
     );
 }

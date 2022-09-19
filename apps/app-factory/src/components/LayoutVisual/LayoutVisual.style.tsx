@@ -19,3 +19,7 @@ export const Id = styled.div`
     box-shadow: inset -2px -2px 3px 3px rgba(0, 0, 0, 0.4);
     border-radius: 6px;
 `;
+
+export const CurrentResolution = styled(Id)`
+    right: 100px;
+`;

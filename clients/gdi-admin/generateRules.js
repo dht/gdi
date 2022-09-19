@@ -45,6 +45,7 @@ const rootNodes = [
     'linkCategories',
     'links',
     'locales',
+    'metaphors',
     'moneyBehaviors',
     'moneyLines',
     'nodes',

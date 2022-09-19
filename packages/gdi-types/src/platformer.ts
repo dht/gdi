@@ -209,7 +209,7 @@ declare global {
     export interface IRouterBuilder {
         withRoutes: (appId: string, routes: IRoutes) => IRouterBuilder;
         withInstances:(appId: string, instances: IWidgetInstancesByPageList, options?: any) => IRouterBuilder; // prettier-ignore
-        withMenu: (menuItems: IMenuItems) => IRouterBuilder;
+        withMenu: (appId: string, menuItems: IMenuItems) => IRouterBuilder;
         withContextBar: (appId: string, contextBarItems: IContextBarItems) => IRouterBuilder; // prettier-ignore
         withCommandBar: (appId: string, commandBarItems: ICommandBarItems) => IRouterBuilder; // prettier-ignore
         build: () => RouterBuilderResponse;
