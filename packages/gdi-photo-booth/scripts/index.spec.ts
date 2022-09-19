@@ -1,6 +1,6 @@
 import { analyzeWidgetId } from '.';
 
-describe.only('analyzeWidgetId', () => {
+describe('analyzeWidgetId', () => {
     it('basic', () => {
         expect(
             analyzeWidgetId('com.usegdi.templates.basic.feature-simple')

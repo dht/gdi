@@ -31,3 +31,6 @@
 [submodule "submodules/firestore-local"]
 	path = submodules/firestore-local
 	url = git@github.com:dht/firestore-local.git
+[submodule "submodules/store-seeder"]
+	path = submodules/store-seeder
+	url = git@github.com:dht/store-seeder.git

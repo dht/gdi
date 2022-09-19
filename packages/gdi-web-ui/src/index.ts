@@ -94,7 +94,7 @@ export {
     showGroupIf,
 } from '@gdi/web-forms';
 
-export { Sheet } from '@gdi/web-sheets';
+export { Sheet, Sheets } from '@gdi/web-sheets';
 
 export { Code, Editor, JsonEditor } from '@gdi/web-editors';
 

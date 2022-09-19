@@ -25,7 +25,7 @@
         "react-router-dom": "^6.3.0",
         "react-use": "^17.4.0",
         "react-window": "^1.8.7",
-        "redux-store-generator": "^0.9.85",
+        "redux-store-generator": "^0.9.86",
         "styled-components": "^5.3.5"
     },
     "peerDependencies": {
