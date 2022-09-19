@@ -25,7 +25,7 @@
         "lodash": "^4.17.21",
         "react-redux": "^8.0.2",
         "react-use": "^17.4.0",
-        "redux-connected": "^0.0.100",
+        "redux-connected": "^0.0.101",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1"

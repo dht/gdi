@@ -1,9 +1,9 @@
 import { state } from './state';
-import { upload } from './methods.firebase.nodes';
+import { seed } from '@gdi/store-seeder';
 
 const nodeTypes = {
     appStateFactory: 'single',
     layouts: 'groupedList',
 };
 
-upload(state, nodeTypes);
+seed(state, nodeTypes);

@@ -32,7 +32,7 @@ describe('findNewOrder', () => {
     });
 });
 
-describe.only('moveItemWithArrows', () => {
+describe('moveItemWithArrows', () => {
     // 5 items
 
     it('middle to middle: 1 to 2', () => {

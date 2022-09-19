@@ -31,6 +31,11 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
+        match /appStateFactory/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
         match /appStateKnowledge/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
@@ -111,17 +116,17 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /widgets/{document=**} {
-            allow read: if isAdmin();
-            allow write: if isAdmin();
-        }
-
         match /boards/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
 
         match /buildings/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /breakpoints/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -136,7 +141,17 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
+        match /events/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
         match /grounds/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /highlights/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -166,7 +181,12 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
-        match /studioItems/{document=**} {
+        match /interestingReads/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /layouts/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -196,6 +216,16 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
+        match /linkCategories/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /links/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
         match /locales/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
@@ -207,6 +237,11 @@ service cloud.firestore {
         }
 
         match /moneyLines/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /nodes/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -226,7 +261,27 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
+        match /playback/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /postAuthors/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /posts/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
         match /projects/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /readCategories/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }
@@ -256,6 +311,26 @@ service cloud.firestore {
             allow write: if isAdmin();
         }
 
+        match /spotifyMe/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /stores/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /studioItems/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /things/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
         match /tickets/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
@@ -277,6 +352,11 @@ service cloud.firestore {
         }
 
         match /weatherLocations/{document=**} {
+            allow read: if isAdmin();
+            allow write: if isAdmin();
+        }
+
+        match /widgets/{document=**} {
             allow read: if isAdmin();
             allow write: if isAdmin();
         }

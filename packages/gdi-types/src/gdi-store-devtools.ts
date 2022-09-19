@@ -23,18 +23,4 @@ declare global {
     };
 
     export type IStores = Record<string, IStore>;
-
-    export type INode = {
-        id: string;
-        store: string;
-        nodeType: string;
-        fieldTypes: Record<string, string>;
-        isHidden?: boolean;
-    };
-
-    export type INodes = Record<string, INode>;
-
-    export type INodeWithColor = INode & {
-        color: string;
-    };
 }

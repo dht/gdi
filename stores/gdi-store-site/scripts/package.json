@@ -8,6 +8,7 @@
         "build": "echo no build needed"
     },
     "dependencies": {
+        "@gdi/store-seeder": "^0.0.42",
         "firebase": "^9.9.2",
         "firestore-local": "^0.0.34"
     },

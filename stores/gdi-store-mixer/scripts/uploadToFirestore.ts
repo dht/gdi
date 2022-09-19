@@ -1,5 +1,5 @@
 import { state } from './state';
-import { upload } from './methods.firebase.nodes';
+import { seed } from '@gdi/store-seeder';
 
 const nodeTypes = {
     appStateMixer: 'single',
@@ -13,4 +13,4 @@ const nodeTypes = {
     packages: 'single',
 };
 
-upload(state, nodeTypes);
+seed(state, nodeTypes);
