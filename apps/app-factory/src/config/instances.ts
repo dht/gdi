@@ -56,4 +56,15 @@ export const instances: IWidgetInstancesByPageList = {
             isTransparent: true,
         },
     ],
+    articleEditor: [
+        {
+            id: 'articleEditor',
+            widgetId: FactoryWidgets.ArticleEditor,
+            position: { y: 0, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: false,
+            allowOverflow: true,
+            isFullPage: true,
+        },
+    ],
 };

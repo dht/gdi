@@ -1,171 +1,92 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import { Container } from './Editor.style';
-import { EditorContent, useEditor } from '@tiptap/react';
+import { Editor as TEditor, EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
+import TextAlign from '@tiptap/extension-text-align';
+import CharacterCount from '@tiptap/extension-character-count';
+import Youtube from '@tiptap/extension-youtube';
+import { barActions } from '../EditorMenuPanel/EditorMenuPanel.menu';
+import EditorMenuPanel from '../EditorMenuPanel/EditorMenuPanel';
+import { IEditorAction } from '../../types';
+import { downloadHtml } from 'shared-base';
 
-export type EditorProps = {};
+export type EditorProps = {
+    value: string;
+    onChange: (html: string) => void;
+    inputPrompt?: Prompt;
+};
 
 export function Editor(props: EditorProps) {
-    const [value, setValue] = useState('');
+    const { value, inputPrompt = defaultPrompt } = props;
 
     const editor = useEditor({
-        extensions: [StarterKit],
+        extensions: [
+            StarterKit,
+            TextAlign,
+            CharacterCount.configure({}),
+            Youtube.configure({
+                inline: false,
+                controls: false,
+            }),
+        ],
         content: value,
+        onUpdate({ editor }) {
+            props.onChange(editor.getHTML());
+        },
     });
+
+    async function onExternalAction(action: IEditorAction) {
+        let promptResponse;
+
+        if (!editor) {
+            return;
+        }
+
+        switch (action.id) {
+            case 'download':
+                downloadHtml('article.html', value);
+                break;
+            case 'video':
+                promptResponse = await inputPrompt('Enter YouTube URL');
+
+                if (promptResponse.didCancel) {
+                    return;
+                }
+
+                editor.commands.setYoutubeVideo({
+                    src: promptResponse.value,
+                    width: 640,
+                    height: 480,
+                });
+                break;
+        }
+    }
 
     return (
         <Container className='Editor-container' data-testid='Editor-container'>
-            <MenuBar editor={editor} />
+            <EditorMenuPanel
+                barActions={barActions}
+                onExternalAction={onExternalAction}
+                editor={editor}
+            />
             <EditorContent editor={editor} />
         </Container>
     );
 }
 
-const MenuBar = ({ editor }: any) => {
-    if (!editor) {
-        return null;
-    }
-
-    return (
-        <>
-            <button
-                onClick={() => editor.chain().focus().toggleBold().run()}
-                className={editor.isActive('bold') ? 'is-active' : ''}
-            >
-                bold
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleItalic().run()}
-                className={editor.isActive('italic') ? 'is-active' : ''}
-            >
-                italic
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleStrike().run()}
-                className={editor.isActive('strike') ? 'is-active' : ''}
-            >
-                strike
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleCode().run()}
-                className={editor.isActive('code') ? 'is-active' : ''}
-            >
-                code
-            </button>
-            <button
-                onClick={() => editor.chain().focus().unsetAllMarks().run()}
-            >
-                clear marks
-            </button>
-            <button onClick={() => editor.chain().focus().clearNodes().run()}>
-                clear nodes
-            </button>
-            <button
-                onClick={() => editor.chain().focus().setParagraph().run()}
-                className={editor.isActive('paragraph') ? 'is-active' : ''}
-            >
-                paragraph
-            </button>
-            <button
-                onClick={() =>
-                    editor.chain().focus().toggleHeading({ level: 1 }).run()
-                }
-                className={
-                    editor.isActive('heading', { level: 1 }) ? 'is-active' : ''
-                }
-            >
-                h1
-            </button>
-            <button
-                onClick={() =>
-                    editor.chain().focus().toggleHeading({ level: 2 }).run()
-                }
-                className={
-                    editor.isActive('heading', { level: 2 }) ? 'is-active' : ''
-                }
-            >
-                h2
-            </button>
-            <button
-                onClick={() =>
-                    editor.chain().focus().toggleHeading({ level: 3 }).run()
-                }
-                className={
-                    editor.isActive('heading', { level: 3 }) ? 'is-active' : ''
-                }
-            >
-                h3
-            </button>
-            <button
-                onClick={() =>
-                    editor.chain().focus().toggleHeading({ level: 4 }).run()
-                }
-                className={
-                    editor.isActive('heading', { level: 4 }) ? 'is-active' : ''
-                }
-            >
-                h4
-            </button>
-            <button
-                onClick={() =>
-                    editor.chain().focus().toggleHeading({ level: 5 }).run()
-                }
-                className={
-                    editor.isActive('heading', { level: 5 }) ? 'is-active' : ''
-                }
-            >
-                h5
-            </button>
-            <button
-                onClick={() =>
-                    editor.chain().focus().toggleHeading({ level: 6 }).run()
-                }
-                className={
-                    editor.isActive('heading', { level: 6 }) ? 'is-active' : ''
-                }
-            >
-                h6
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleBulletList().run()}
-                className={editor.isActive('bulletList') ? 'is-active' : ''}
-            >
-                bullet list
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                className={editor.isActive('orderedList') ? 'is-active' : ''}
-            >
-                ordered list
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-                className={editor.isActive('codeBlock') ? 'is-active' : ''}
-            >
-                code block
-            </button>
-            <button
-                onClick={() => editor.chain().focus().toggleBlockquote().run()}
-                className={editor.isActive('blockquote') ? 'is-active' : ''}
-            >
-                blockquote
-            </button>
-            <button
-                onClick={() => editor.chain().focus().setHorizontalRule().run()}
-            >
-                horizontal rule
-            </button>
-            <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-                hard break
-            </button>
-            <button onClick={() => editor.chain().focus().undo().run()}>
-                undo
-            </button>
-            <button onClick={() => editor.chain().focus().redo().run()}>
-                redo
-            </button>
-        </>
-    );
-};
-
 export default Editor;
+
+type Prompt = (message: string) => Promise<{
+    value: string;
+    didCancel?: boolean;
+}>;
+
+const defaultPrompt = async (message: string) => {
+    const value = prompt(message) || '';
+    const didCancel = value === null;
+
+    return {
+        value,
+        didCancel,
+    };
+};

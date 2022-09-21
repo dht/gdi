@@ -2,12 +2,15 @@ import React, { useRef, useState } from 'react';
 import { Container } from './Code.style';
 import MonacoEditor, { Monaco } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+import { vs_blue } from './Code.theme';
 
 export type CodeProps = {
     value?: string;
     onChange: (value?: string) => void;
     height: string | number;
     schema?: Schema | Schema[];
+    language: 'json' | 'typescript' | 'markdown';
+    hideLineNumbers: boolean;
 };
 
 export type Schema = {
@@ -17,9 +20,12 @@ export type Schema = {
 };
 
 export function Code(props: CodeProps) {
-    const { value, height, schema } = props;
+    const { value, height, schema, language = 'json', hideLineNumbers } = props;
 
     function onEditorMount(editor: any, monaco: Monaco) {
+        monaco.editor.defineTheme('blue', vs_blue);
+        monaco.editor.setTheme('blue');
+
         if (schema) {
             monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
                 validate: true,
@@ -42,14 +48,17 @@ export function Code(props: CodeProps) {
     const options: monaco.editor.IStandaloneEditorConstructionOptions = {
         selectOnLineNumbers: true,
         fontSize: 16,
+        lineNumbers: hideLineNumbers ? 'off' : 'on',
     };
+
+    console.log('language ->', language);
 
     return (
         <Container className='Code-container' data-testid='Code-container'>
             <MonacoEditor
-                defaultLanguage='json'
+                language={language}
                 onMount={onEditorMount}
-                theme='vs-dark'
+                theme='blue'
                 defaultValue={value}
                 height={typeof height === 'number' ? height + 'px' : height}
                 options={options}

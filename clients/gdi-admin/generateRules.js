@@ -18,6 +18,8 @@ const rootNodes = [
     'appStateThings',
     'appStateVoice',
     'authState',
+    'articles',
+    'articleCategories',
     'widgetGalleryState',
     'galleryState',
     'actualManas',
@@ -92,6 +94,11 @@ const template = (content) => {
     return `rules_version = '2';
 service cloud.firestore {
     match /databases/{database}/documents {  	
+
+        // match /{document=**} {
+        //    allow read: if isAdmin();
+        //    allow write: if isAdmin();
+        // }
 
         function isAdmin() {
             return get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.role == "admin";

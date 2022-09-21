@@ -1,0 +1,162 @@
+import React, { useRef, useContext } from 'react';
+import {
+    Author,
+    AuthorName,
+    Column,
+    Container,
+    Separator,
+    ImageSource,
+    Content,
+    DateText,
+    Details,
+    Image,
+    ImageDescription,
+    Intro,
+    Row,
+    Title,
+    Gap,
+    ContainerBreadcrumbs,
+    Breadcrumb,
+    Line,
+    ContainerShare,
+} from './ArticleEditorTop.style';
+import { SocialIcon } from '@gdi/web-base-ui';
+import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
+import { SimpleDate } from 'shared-base';
+export type ArticleEditorTopProps = {
+    children: JSX.Element;
+};
+
+export function ArticleEditorTop(props: ArticleEditorTopProps) {
+    const ref = useRef(null);
+    const refTitle = useRef<HTMLHeadingElement>(null);
+    const refIntro = useRef<HTMLDivElement>(null);
+    const context = useContext(ArticleContext);
+    const { title, intro, article } = context;
+    const {
+        authorName,
+        imageUrl,
+        imageDescription,
+        imageSource,
+        publishDate,
+        categoryBreadcrumbs,
+    } = article;
+
+    const date = new SimpleDate(new Date(publishDate)).toText(true);
+
+    function onTitleChange() {
+        if (refTitle.current) {
+            context.onTitleChange(refTitle.current.innerText);
+        }
+    }
+
+    function onIntroChange() {
+        if (refIntro.current) {
+            context.onIntroChange(refIntro.current.innerText);
+        }
+    }
+
+    return (
+        <Container
+            className='ArticleEditorTop-container'
+            data-testid='ArticleEditorTop-container'
+        >
+            <Content>
+                <Breadcrumbs
+                    value={categoryBreadcrumbs}
+                    onClick={context.onCategoryClick}
+                />
+                <Title
+                    ref={refTitle}
+                    contentEditable={true}
+                    onBlur={onTitleChange}
+                    suppressContentEditableWarning={true}
+                >
+                    {title}
+                </Title>
+
+                <p ref={ref} />
+
+                <Row>
+                    <Column>
+                        <Intro
+                            ref={refIntro}
+                            contentEditable={true}
+                            onBlur={onIntroChange}
+                            suppressContentEditableWarning={true}
+                        >
+                            {intro}
+                        </Intro>
+                        <Details>
+                            <Author>
+                                By
+                                <AuthorName>{authorName}</AuthorName>
+                            </Author>
+                            <Separator> | </Separator>
+                            <DateText>{date}</DateText>
+                        </Details>
+                        <Share />
+                        <Image onClick={context.onImageClick} src={imageUrl} />
+                        <ImageDescription>
+                            {imageDescription}
+                            <Separator> | </Separator>
+                            <ImageSource>Image: {imageSource}</ImageSource>
+                        </ImageDescription>
+                        <Gap />
+                        {props.children}
+                    </Column>
+                    <Column></Column>
+                </Row>
+            </Content>
+        </Container>
+    );
+}
+
+type BreadcrumbsProps = {
+    value: string;
+    onClick: () => void;
+};
+
+export function Breadcrumbs(props: BreadcrumbsProps) {
+    const { value: categoryBreadcrumbs = '' } = props;
+
+    const parts = categoryBreadcrumbs.split('>');
+
+    function renderPart(part: string) {
+        return (
+            <React.Fragment key={part}>
+                <Breadcrumb>{part}</Breadcrumb>
+                <Line />
+            </React.Fragment>
+        );
+    }
+
+    function renderParts() {
+        return parts.map((part: string) => renderPart(part));
+    }
+
+    return (
+        <ContainerBreadcrumbs
+            className='Breadcrumbs-container'
+            data-testid='Breadcrumbs-container'
+            onClick={props.onClick}
+        >
+            {renderParts()}
+        </ContainerBreadcrumbs>
+    );
+}
+
+export function Share(_props: any) {
+    return (
+        <ContainerShare
+            className='Share-container'
+            data-testid='Share-container'
+        >
+            <SocialIcon url='https://www.facebook.com/sharer/sharer.php?u=https://www.google.com' />
+            <SocialIcon url='http://twitter.com/share?text=article text&url=https://www.google.com' />
+            <SocialIcon url='https://api.whatsapp.com/send?text=https://www.google.com' />
+        </ContainerShare>
+    );
+}
+
+export default ArticleEditorTop;

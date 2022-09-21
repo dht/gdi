@@ -28,7 +28,7 @@ function* exportLayout(action: ActionExportLayout) {
     }
 
     const filename = dateFilename(`layout.${camelCase(layout.name)}.json`);
-    downloadJson(layout, filename);
+    downloadJson(filename, layout);
 
     yield put({
         type: 'SHOW_TOAST',

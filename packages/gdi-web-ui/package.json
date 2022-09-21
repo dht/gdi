@@ -1,6 +1,6 @@
 {
     "name": "@gdi/web-ui",
-    "version": "0.0.27",
+    "version": "0.0.29",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",
@@ -13,7 +13,7 @@
         "@dnd-kit/utilities": "^3.2.0",
         "@gdi/types": "^0.0.38",
         "@gdi/web-base-ui": "^0.0.28",
-        "@gdi/web-editors": "^0.0.22",
+        "@gdi/web-editors": "^0.0.30",
         "@gdi/web-forms": "^0.0.24",
         "@gdi/web-sheets": "^0.0.25",
         "@gdi/web-tables": "^0.0.24",

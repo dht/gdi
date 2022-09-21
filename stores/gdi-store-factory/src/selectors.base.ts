@@ -135,3 +135,12 @@ export const $layoutClean = createSelector($layout, (layout) => {
 
     return layoutClone;
 });
+
+export const $article = createSelector(
+    raw.$rawCurrentIds,
+    raw.$rawArticles,
+    (currentIds, articles) => {
+        const { articleId } = currentIds;
+        return articles[articleId];
+    }
+);

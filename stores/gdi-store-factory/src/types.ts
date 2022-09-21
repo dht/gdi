@@ -4,6 +4,8 @@ export type IFactoryStore = StoreStructure & {
     appStateFactory: IFactoryState;
     currentIdsFactory: ICurrentIdsFactory;
     layouts: ILayouts;
+    articles: IArticles;
+    articleCategories: IArticleCategories;
 };
 
 export type IFactoryState = {
@@ -16,6 +18,7 @@ export type IFactoryState = {
 };
 
 export type ICurrentIdsFactory = {
+    articleId: string;
     layoutId: string;
     flexEntityId: string;
     widgetId: string;
@@ -62,3 +65,38 @@ export type IResolution =
     | '1080p'
     | '2k'
     | '4k';
+
+export type IArticleStatus = 'draft' | 'published' | 'archived';
+
+export type IArticle = {
+    id: string;
+    title: string;
+    intro: string;
+    imageUrl: string;
+    imageDescription: string;
+    imageSource: string;
+    authorName: string;
+    publishDate: string;
+    lastPublishDate: string;
+    lastSaveDate: string;
+    comments: number;
+    slogan: string;
+    linkPath: string;
+    status: IArticleStatus;
+    isPublished: boolean;
+    content: string;
+    categoryBreadcrumbs: string;
+    tags: string[];
+    minutesSpentEditing: number;
+    wordCount?: number;
+};
+
+export type IArticles = Record<string, IArticle>;
+
+export type IArticleCategory = {
+    id: string;
+    parentId: string;
+    title: string;
+};
+
+export type IArticleCategories = Record<string, IArticleCategory>;

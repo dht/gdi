@@ -17,4 +17,16 @@ export const endpointsConfigOverrides: any = {
         optimistic: true,
         optimisticPosts: true,
     },
+    articles: {
+        id: 'articles',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+        optimisticPosts: true,
+    },
+    articleCategories: {
+        id: 'articleCategories',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+        optimisticPosts: true,
+    },
 };

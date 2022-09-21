@@ -3,7 +3,7 @@ import { bootstrapApp } from './Bootstrap.code';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import { Theme, CommandBar, ContextBar, ScreenLoader } from '@gdi/web-ui';
 import { Content, Version } from './Bootstrap.style';
-import { init as initNavigation } from '../../sagas/saga.router';
+import { init as initNavigation } from '../../sagas/saga.navigate';
 import { Provider, useDispatch } from 'react-redux';
 import { SideMenuContainer } from '../../containers/SideMenuContainer';
 import { ToastBarContainer } from '../../containers/ToastBarContainer';

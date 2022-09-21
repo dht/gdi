@@ -5,6 +5,7 @@ export const routes: IRoutes = {
     layout: `${ROOT}/layouts/:layoutId`,
     customWidgets: `${ROOT}/customWidgets`,
     customWidget: `${ROOT}/customWidgets/:widgetId`,
+    articleEditor: `${ROOT}/articles/:articleId`,
 };
 
 export const menuItems: IMenuItem[] = [
