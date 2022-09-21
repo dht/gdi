@@ -6,7 +6,7 @@ import { prompt } from '@gdi/platformer';
 function* exportSite(_action: any) {
     const siteData = yield* select(selectors.base.$siteData);
     const filename = dateFilename('siteData.json');
-    downloadJson(siteData, filename);
+    downloadJson(filename, siteData);
 
     yield put({
         type: 'SHOW_TOAST',

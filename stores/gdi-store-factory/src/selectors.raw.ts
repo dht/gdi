@@ -12,6 +12,8 @@ export const $rawFactoryState = createSelector($i, (state: IFactoryStore) => sta
 export const $rawCurrentIds = createSelector($i, (state: IFactoryStore) => state.currentIdsFactory); // prettier-ignore
 export const $rawLayouts = createSelector($i, (state: IFactoryStore) => state.layouts); // prettier-ignore
 export const $rawCustomBlocks = createSelector($i, (state: IFactoryStore) => state.customBlocks); // prettier-ignore
+export const $rawArticles = createSelector($i, (state: IFactoryStore) => state.articles); // prettier-ignore
+export const $rawArticleCategories = createSelector($i, (state: IFactoryStore) => state.articleCategories); // prettier-ignore
 
 // foreign
 export const $breakpoints = siteSelectors.raw.$rawBreakpoints;

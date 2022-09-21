@@ -70,7 +70,17 @@ const confirm = async (
     });
 };
 
-const input = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
+const input = async (
+    promptRequest: PromptRequest | string
+): Promise<PromptResponse> => {
+    if (typeof promptRequest === 'string') {
+        promptRequest = {
+            title: promptRequest,
+            placeholder: 'Enter value',
+            submitButtonText: 'Ok',
+        };
+    }
+
     const {
         title,
         submitButtonText,

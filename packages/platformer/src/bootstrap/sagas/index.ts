@@ -1,6 +1,6 @@
 import { root as apiRoot } from './saga.apiRoot';
 import { root as bootstrap } from './saga.bootstrap';
-import { root as router } from './saga.router';
+import { root as navigate } from './saga.navigate';
 import { root as toast } from './saga.toast';
 import { delay, fork, put } from 'saga-ts';
 import { root as login } from './saga.login';
@@ -10,7 +10,7 @@ function* root() {
     yield* fork(toast);
     yield* fork(apiRoot);
     yield* fork(bootstrap);
-    yield* fork(router);
+    yield* fork(navigate);
     yield* fork(login);
     yield* fork(register);
 

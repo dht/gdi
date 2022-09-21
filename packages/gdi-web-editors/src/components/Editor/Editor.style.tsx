@@ -2,8 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     flex: 1;
-    background-color: #334;
-    color: #eee;
+    background-color: #fff;
+    color: #334;
+    font-size: 18px;
+    line-height: 26px;
+    color: #333;
+    font-family: 'Encode Sans', sans-serif;
+    font-weight: 450;
 
     .ProseMirror {
         outline: none;

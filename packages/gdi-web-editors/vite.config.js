@@ -20,6 +20,8 @@ export default defineConfig({
             plugins: [analyze()],
             ...externals({
                 react: '',
+                'monaco-editor/esm/vs/editor/editor.api': '',
+                'monaco-editor/esm/vs/platform/theme/common/colorRegistry': '',
                 'react/jsx-runtime': '',
                 ...p.dependencies,
             }),

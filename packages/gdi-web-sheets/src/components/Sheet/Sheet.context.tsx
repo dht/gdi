@@ -7,7 +7,7 @@ import { Coords } from '../../types';
 import { useDelete, useNudge } from '@gdi/hooks';
 import { invokeEvent } from 'shared-base';
 
-type SheetContext = {
+type ISheetContext = {
     selectedCoords: Coords | null;
     editableCoords: Coords | null;
     lastCoords: Coords | null;
@@ -16,10 +16,10 @@ type SheetContext = {
     sortOrder: 'asc' | 'desc' | 'none';
     savedValue: string | number | boolean;
     isNoneEmptyCell: boolean;
-    patchState: (change: Partial<SheetContext>) => void;
+    patchState: (change: Partial<ISheetContext>) => void;
 } & Callbacks;
 
-const initialState: SheetContext = {
+const initialState: ISheetContext = {
     selectedCoords: { rowIndex: 0, columnIndex: 0 },
     editableCoords: null,
     lastCoords: { rowIndex: 0, columnIndex: 0 },
@@ -37,14 +37,14 @@ const initialState: SheetContext = {
     onDoubleClick: (ev: React.MouseEvent<HTMLDivElement>) => {},
 };
 
-export const SheetContext = createContext<SheetContext>(initialState);
+export const SheetContext = createContext<ISheetContext>(initialState);
 
 type SheetContextProvider = SheetProps & { inner: FC<SheetProps> };
 
 export const SheetContextProvider = (props: SheetContextProvider) => {
     const { data, inner: Child } = props;
 
-    const [state, patchState] = useSetState<SheetContext>(initialState);
+    const [state, patchState] = useSetState<ISheetContext>(initialState);
 
     const sortedData = useMemo(() => {
         if (state.sortOrder === 'none') {

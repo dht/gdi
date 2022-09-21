@@ -11,4 +11,6 @@ export { useCustomEvent } from './hooks/useCustomEvent';
 export { useNumpad } from './hooks/useNumpad';
 export { useAuthMount } from './hooks/useAuthMount';
 export { useQuestionMark } from './hooks/useQuestionMark';
+export { useTabFocus } from './hooks/useTabFocus';
+export { useTabStopwatch } from './hooks/useTabStopwatch';
 export { useShortKeys, useShortKey } from './hooks/useShortKeys';

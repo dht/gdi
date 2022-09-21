@@ -2097,15 +2097,19 @@
     "react-use" "^17.4.0"
     "styled-components" "^5.3.5"
 
-"@gdi/web-editors@file:/Users/dht/projects/gdi/packages/gdi-web-editors":
+"@gdi/web-editors@^0.0.30", "@gdi/web-editors@file:/Users/dht/projects/gdi/packages/gdi-web-editors":
   "resolved" "file:packages/gdi-web-editors"
-  "version" "0.0.29"
+  "version" "0.0.30"
   dependencies:
     "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
     "@monaco-editor/react" "^4.4.5"
+    "@tiptap/extension-character-count" "^2.0.0-beta.195"
+    "@tiptap/extension-text-align" "^2.0.0-beta.196"
+    "@tiptap/extension-youtube" "^2.0.0-beta.196"
     "@tiptap/react" "^2.0.0-beta.114"
     "@tiptap/starter-kit" "^2.0.0-beta.191"
+    "classnames" "^2.3.2"
     "lodash" "^4.17.21"
     "monaco-editor" "^0.34.0"
     "react-use" "^17.4.0"
@@ -2139,9 +2143,23 @@
     "react-use" "^17.4.0"
     "styled-components" "^5.3.5"
 
-"@gdi/web-sheets@^0.0.25", "@gdi/web-sheets@file:/Users/dht/projects/gdi/packages/gdi-web-sheets":
-  "resolved" "file:packages/gdi-web-sheets"
+"@gdi/web-sheets@^0.0.25":
+  "integrity" "sha512-a1fovFKmSRZwuQVuUvxnCWBKFdQoJZloNQrLjRwSlEVAkvuqhBhYv6qEE5xmSnpAsKajFW3KfzNRv/RrFbzoCQ=="
+  "resolved" "https://registry.npmjs.org/@gdi/web-sheets/-/web-sheets-0.0.25.tgz"
   "version" "0.0.25"
+  dependencies:
+    "@gdi/hooks" "^0.0.25"
+    "@gdi/types" "^0.0.36"
+    "@gdi/web-base-ui" "^0.0.28"
+    "classnames" "^2.3.1"
+    "date-fns" "^2.29.2"
+    "lodash" "^4.17.21"
+    "react-use" "^17.4.0"
+    "styled-components" "^5.3.5"
+
+"@gdi/web-sheets@file:/Users/dht/projects/gdi/packages/gdi-web-sheets":
+  "resolved" "file:packages/gdi-web-sheets"
+  "version" "0.0.26"
   dependencies:
     "@gdi/hooks" "^0.0.25"
     "@gdi/types" "^0.0.38"
@@ -2243,14 +2261,14 @@
 
 "@gdi/web-ui@file:/Users/dht/projects/gdi/packages/gdi-web-ui":
   "resolved" "file:packages/gdi-web-ui"
-  "version" "0.0.27"
+  "version" "0.0.29"
   dependencies:
     "@dnd-kit/core" "^6.0.5"
     "@dnd-kit/sortable" "^7.0.1"
     "@dnd-kit/utilities" "^3.2.0"
     "@gdi/types" "^0.0.38"
     "@gdi/web-base-ui" "^0.0.28"
-    "@gdi/web-editors" "^0.0.22"
+    "@gdi/web-editors" "^0.0.30"
     "@gdi/web-forms" "^0.0.24"
     "@gdi/web-sheets" "^0.0.25"
     "@gdi/web-tables" "^0.0.24"
@@ -2751,7 +2769,18 @@
     "@types/yargs" "^16.0.0"
     "chalk" "^4.0.0"
 
-"@jest/types@^27.5.1", "@jest/types@^28.0.0", "@jest/types@^28.1.3":
+"@jest/types@^27.5.1":
+  "integrity" "sha512-Cx46iJ9QpwQTjIdq5VJu2QTMMs3QlEjI0x1QbBP5W1+nMzyc2XmimiRR/CbX9TO0cPTeUlxWMOu8mslYsJ8DEw=="
+  "resolved" "https://registry.npmjs.org/@jest/types/-/types-27.5.1.tgz"
+  "version" "27.5.1"
+  dependencies:
+    "@types/istanbul-lib-coverage" "^2.0.0"
+    "@types/istanbul-reports" "^3.0.0"
+    "@types/node" "*"
+    "@types/yargs" "^16.0.0"
+    "chalk" "^4.0.0"
+
+"@jest/types@^28.0.0", "@jest/types@^28.1.3":
   "integrity" "sha512-RyjiyMUZrKz/c+zlMFO1pm70DcIlST8AeWTkoUdZevew44wcNZQHsEVOiCVtgVnlFFD82FPaXycys58cf2muVQ=="
   "resolved" "https://registry.npmjs.org/@jest/types/-/types-28.1.3.tgz"
   "version" "28.1.3"
@@ -3323,6 +3352,14 @@
   "resolved" "https://registry.npmjs.org/@tiptap/extension-bullet-list/-/extension-bullet-list-2.0.0-beta.195.tgz"
   "version" "2.0.0-beta.195"
 
+"@tiptap/extension-character-count@^2.0.0-beta.195":
+  "integrity" "sha512-KU6DoAXRQymHuuxqn3x1sjjv+yxdRsO2gpyQSFgP077VVkSrpOeIUZQ7jxAJb7yBeInBWHKMwb002IwUvNm0tw=="
+  "resolved" "https://registry.npmjs.org/@tiptap/extension-character-count/-/extension-character-count-2.0.0-beta.195.tgz"
+  "version" "2.0.0-beta.195"
+  dependencies:
+    "prosemirror-model" "1.18.1"
+    "prosemirror-state" "1.4.1"
+
 "@tiptap/extension-code-block@^2.0.0-beta.195":
   "integrity" "sha512-SUcxeBbvp5bu2eW59GTi5B2aMneLazEFUhUlYNyVp2vdsiPTyUekTs+qI9MHwdJt477e4joAGJGoqktrLQepVg=="
   "resolved" "https://registry.npmjs.org/@tiptap/extension-code-block/-/extension-code-block-2.0.0-beta.195.tgz"
@@ -3412,10 +3449,20 @@
   "resolved" "https://registry.npmjs.org/@tiptap/extension-strike/-/extension-strike-2.0.0-beta.195.tgz"
   "version" "2.0.0-beta.195"
 
+"@tiptap/extension-text-align@^2.0.0-beta.196":
+  "integrity" "sha512-522BT/tAaA2RtJT2D4eCFuLPclbN/IE9hxtYOd5fuOpbjT6DbLJtGdlEY7+o5Y0KFrKpqud7+0QlAnOZx8NyEg=="
+  "resolved" "https://registry.npmjs.org/@tiptap/extension-text-align/-/extension-text-align-2.0.0-beta.196.tgz"
+  "version" "2.0.0-beta.196"
+
 "@tiptap/extension-text@^2.0.0-beta.195":
   "integrity" "sha512-EjWCfKFlRhmnk27K/XE9ecS9L60JXtgY+ePIi3PGerQ2KQBAoglB4WYR28wPPnN/dVCx/Q9l+PHhFrdWIxv5bQ=="
   "resolved" "https://registry.npmjs.org/@tiptap/extension-text/-/extension-text-2.0.0-beta.195.tgz"
   "version" "2.0.0-beta.195"
+
+"@tiptap/extension-youtube@^2.0.0-beta.196":
+  "integrity" "sha512-3QkxzGE6nqjaUrW6pWB3v1sDnaP3AQ2ALkQ12n2w6tLGvTPK0wYVtforAxvz1v31P9HZsm3dqP7w8Pbk+9KlKQ=="
+  "resolved" "https://registry.npmjs.org/@tiptap/extension-youtube/-/extension-youtube-2.0.0-beta.196.tgz"
+  "version" "2.0.0-beta.196"
 
 "@tiptap/react@^2.0.0-beta.114":
   "integrity" "sha512-hEtAHn8uG5paUPxwhBQA+E8+mH0Jctapv43ZdgMsnYS5aWJFzoGkRf7YQ0Ma9q9Nl3CJcWv+I8HB92B/lCnq2A=="
@@ -3481,7 +3528,7 @@
   "resolved" "https://registry.npmjs.org/@types/aria-query/-/aria-query-4.2.2.tgz"
   "version" "4.2.2"
 
-"@types/babel__core@^7.1.14":
+"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.14":
   "integrity" "sha512-WEOTgRsbYkvA/KCsDwVEGkd7WAr1e3g31VHQ8zy5gul/V1qKullU/BU5I68X5v7V3GnB9eotmom4v5a5gjxorw=="
   "resolved" "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.1.19.tgz"
   "version" "7.1.19"
@@ -4545,7 +4592,21 @@
     "follow-redirects" "^1.14.9"
     "form-data" "^4.0.0"
 
-"babel-jest@^27.5.1", "babel-jest@^28.0.0", "babel-jest@^28.1.3", "babel-jest@>=27.0.0 <28":
+"babel-jest@^27.5.1":
+  "integrity" "sha512-cdQ5dXjGRd0IBRATiQ4mZGlGlRE8kJpjPOixdNRdT+m3UcNqmYWN6rK6nvtXYfY3D76cb8s/O1Ss8ea24PIwcg=="
+  "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-27.5.1.tgz"
+  "version" "27.5.1"
+  dependencies:
+    "@jest/transform" "^27.5.1"
+    "@jest/types" "^27.5.1"
+    "@types/babel__core" "^7.1.14"
+    "babel-plugin-istanbul" "^6.1.1"
+    "babel-preset-jest" "^27.5.1"
+    "chalk" "^4.0.0"
+    "graceful-fs" "^4.2.9"
+    "slash" "^3.0.0"
+
+"babel-jest@^28.0.0", "babel-jest@^28.1.3":
   "integrity" "sha512-epUaPOEWMk3cWX0M/sPvCHHCe9fMFAa/9hXEgKP8nFfNl/jlGkE9ucq9NqkZGXLDduCJYS0UvSlPUwC0S+rH6Q=="
   "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-28.1.3.tgz"
   "version" "28.1.3"
@@ -4554,6 +4615,20 @@
     "@types/babel__core" "^7.1.14"
     "babel-plugin-istanbul" "^6.1.1"
     "babel-preset-jest" "^28.1.3"
+    "chalk" "^4.0.0"
+    "graceful-fs" "^4.2.9"
+    "slash" "^3.0.0"
+
+"babel-jest@>=27.0.0 <28":
+  "integrity" "sha512-cdQ5dXjGRd0IBRATiQ4mZGlGlRE8kJpjPOixdNRdT+m3UcNqmYWN6rK6nvtXYfY3D76cb8s/O1Ss8ea24PIwcg=="
+  "resolved" "https://registry.npmjs.org/babel-jest/-/babel-jest-27.5.1.tgz"
+  "version" "27.5.1"
+  dependencies:
+    "@jest/transform" "^27.5.1"
+    "@jest/types" "^27.5.1"
+    "@types/babel__core" "^7.1.14"
+    "babel-plugin-istanbul" "^6.1.1"
+    "babel-preset-jest" "^27.5.1"
     "chalk" "^4.0.0"
     "graceful-fs" "^4.2.9"
     "slash" "^3.0.0"
@@ -4568,6 +4643,16 @@
     "@istanbuljs/schema" "^0.1.2"
     "istanbul-lib-instrument" "^5.0.4"
     "test-exclude" "^6.0.0"
+
+"babel-plugin-jest-hoist@^27.5.1":
+  "integrity" "sha512-50wCwD5EMNW4aRpOwtqzyZHIewTYNxLA4nhB+09d8BIssfNfzBRhkBIHiaPv1Si226TQSvp8gxAJm2iY2qs2hQ=="
+  "resolved" "https://registry.npmjs.org/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-27.5.1.tgz"
+  "version" "27.5.1"
+  dependencies:
+    "@babel/template" "^7.3.3"
+    "@babel/types" "^7.3.3"
+    "@types/babel__core" "^7.0.0"
+    "@types/babel__traverse" "^7.0.6"
 
 "babel-plugin-jest-hoist@^28.1.3":
   "integrity" "sha512-Ys3tUKAmfnkRUpPdpa98eYrAR0nV+sSFUZZEGuQ2EbFd1y4SOLtD5QDNHAq+bb9a+bbXvYQC4b+ID/THIMcU6Q=="
@@ -4621,6 +4706,14 @@
     "@babel/plugin-syntax-optional-catch-binding" "^7.8.3"
     "@babel/plugin-syntax-optional-chaining" "^7.8.3"
     "@babel/plugin-syntax-top-level-await" "^7.8.3"
+
+"babel-preset-jest@^27.5.1":
+  "integrity" "sha512-Nptf2FzlPCWYuJg41HBqXVT8ym6bXOevuCTbhxlUpjwtysGaIWFvDEjp4y+G7fl13FgOdjs7P/DmErqH7da0Ag=="
+  "resolved" "https://registry.npmjs.org/babel-preset-jest/-/babel-preset-jest-27.5.1.tgz"
+  "version" "27.5.1"
+  dependencies:
+    "babel-plugin-jest-hoist" "^27.5.1"
+    "babel-preset-current-node-syntax" "^1.0.0"
 
 "babel-preset-jest@^28.1.3":
   "integrity" "sha512-L+fupJvlWAHbQfn74coNX3zf60LXMJsezNvvx8eIh7iOR1luJ1poxYgQk1F8PYtNq/6QODDHCqsSnTFSWC491A=="
@@ -4879,7 +4972,7 @@
   "resolved" "https://registry.npmjs.org/classcat/-/classcat-5.0.4.tgz"
   "version" "5.0.4"
 
-"classnames@^2.3.1":
+"classnames@^2.3.1", "classnames@^2.3.2":
   "integrity" "sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw=="
   "resolved" "https://registry.npmjs.org/classnames/-/classnames-2.3.2.tgz"
   "version" "2.3.2"
