@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A19 = {};
+export const A17 = {};
 
 declare global {
     export type IColorPalette = {

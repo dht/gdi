@@ -4,11 +4,6 @@
         "path": "packages/gdi-engine",
         "types": "src/types.ts"
     },
-    "gdi-galleries": {
-        "id": "gdi-galleries",
-        "path": "packages/gdi-galleries",
-        "types": "src/types.ts"
-    },
     "gdi-hooks": {
         "id": "gdi-hooks",
         "path": "packages/gdi-hooks",
@@ -87,11 +82,6 @@
     "gdi-web-editors": {
         "id": "gdi-web-editors",
         "path": "packages/gdi-web-editors",
-        "types": "src/types.ts"
-    },
-    "gdi-web-sheets": {
-        "id": "gdi-web-sheets",
-        "path": "packages/gdi-web-sheets",
         "types": "src/types.ts"
     },
     "gdi-web-ui": {

@@ -12,7 +12,7 @@ export const Id = styled.div`
     right: 30px;
     font-size: 17px;
     font-weight: 500;
-    color: #ffd9008b;
+    color: #948e688a;
     background-color: rgba(0, 0, 0, 0.4);
     padding: 5px 14px;
     box-shadow: inset -2px -2px 3px 3px rgba(0, 0, 0, 0.4);

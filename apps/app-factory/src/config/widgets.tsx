@@ -7,6 +7,7 @@ import { ModalFlexPropertiesContainer } from '../containers/modals/ModalFlexProp
 import { LayoutsContainer } from '../containers/LayoutsContainer';
 import { LayoutContainer } from '../containers/LayoutContainer';
 import { ArticleEditorContainer } from '../containers/ArticleEditorContainer';
+import { ArticlesContainer } from '../containers/ArticlesContainer';
 import { CurrentIdsHoc } from '@gdi/platformer';
 import { actions } from '../store';
 
@@ -18,6 +19,7 @@ export enum FactoryWidgets {
     Layout = 'factory.Layout',
     Properties = 'factory.Properties',
     ArticleEditor = 'factory.ArticleEditor',
+    Articles = 'factory.Articles',
 }
 export const widgets: IWidget[] = [
     {
@@ -95,5 +97,15 @@ export const widgets: IWidget[] = [
             CurrentIdsHoc(actions.currentIdsFactory.patch)(
                 <ArticleEditorContainer {...props} />
             ),
+    },
+    {
+        id: FactoryWidgets.Articles,
+        name: 'Articles',
+        description: 'Articles',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <ArticlesContainer {...props} />,
     },
 ];

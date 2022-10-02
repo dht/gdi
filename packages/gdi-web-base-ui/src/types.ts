@@ -24,3 +24,11 @@ export type IToolbarItem = {
     iconName?: string;
     secondaryText?: string;
 };
+
+export type ToastFlavour =
+    | 'error'
+    | 'success'
+    | 'warning'
+    | 'info'
+    | 'custom'
+    | 'promise';

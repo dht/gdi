@@ -9,13 +9,21 @@
     },
     "dependencies": {
         "@fluentui/react": "^8.86.4",
+        "@fullcalendar/core": "^5.11.3",
+        "@fullcalendar/daygrid": "^5.11.3",
+        "@fullcalendar/google-calendar": "^5.11.3",
+        "@fullcalendar/interaction": "^5.11.3",
+        "@fullcalendar/react": "^5.11.2",
+        "@fullcalendar/timegrid": "^5.11.3",
         "@gdi/hooks": "^0.0.25",
         "bytes": "^3.1.2",
         "classnames": "^2.3.1",
         "date-fns": "^2.29.1",
+        "lodash": "^4.17.21",
         "react-phone-number-input": "^3.2.7",
         "react-select": "^5.4.0",
         "react-social-icons": "^5.14.0",
+        "react-toastify": "^9.0.8",
         "react-use": "^17.4.0",
         "styled-components": "^5.3.5"
     },
@@ -24,7 +32,7 @@
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "@gdi/types": "^0.0.38",
+        "@gdi/types": "^0.0.39",
         "@testing-library/react": "^13.3.0",
         "@types/bytes": "^3.1.1",
         "@types/chance": "^1.1.3",

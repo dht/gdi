@@ -1,4 +1,5 @@
 import { IFactoryStore } from '../src/types';
+import { articles } from './data.articles';
 
 export const state: IFactoryStore = {
     appStateFactory: {
@@ -44,6 +45,7 @@ export const state: IFactoryStore = {
         '1': {
             id: '1',
             imageUrl: 'http://localhost:3001/images/game.webp',
+            imageThumbUrl: 'http://localhost:3001/images/game.webp',
             imageDescription:
                 'It has revoked server maintenance due to the issue',
             imageSource: 'Sony',
@@ -65,6 +67,7 @@ export const state: IFactoryStore = {
             minutesSpentEditing: 0,
             wordCount: 100,
         },
+        ...articles,
     },
     articleCategories: {
         '1': {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import {
     A,
     Container,
@@ -8,17 +8,35 @@ import {
     Value,
 } from './ArticleEditorBar.style';
 import { useLocation } from 'react-router-dom';
-import { invokeEvent } from 'shared-base';
+import { invokeEvent, SimpleDate, minutesToDuration } from 'shared-base';
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
 
 export type ArticleEditorBarProps = {
-    timeSpent: string;
+    meta?: {
+        minutesSpentEditing: number;
+        status: IArticleStatus;
+        lastSaveDate: string;
+    };
 };
 
 export function ArticleEditorBar(props: ArticleEditorBarProps) {
-    const { timeSpent } = props;
+    const { meta } = props;
+    const {
+        minutesSpentEditing = 0,
+        status = 'unknown',
+        lastSaveDate = '',
+    } = meta || {};
+
     const context = useContext(ArticleContext);
     const { wordCount } = context;
+
+    const lastSaveDateText = useMemo(() => {
+        return new SimpleDate(lastSaveDate).timeAgo() || '-';
+    }, [lastSaveDate]);
+
+    const minutesSpentEditingText = useMemo(() => {
+        return minutesToDuration(minutesSpentEditing) || '-';
+    }, [minutesSpentEditing]);
 
     const location = useLocation();
 
@@ -40,11 +58,11 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
                 <Meta>
                     <Field>
                         Autosaved
-                        <Value>5 minutes ago</Value>
+                        <Value>{lastSaveDateText}</Value>
                     </Field>
                     <Field>
                         Time spent editing
-                        <Value>{timeSpent}</Value>
+                        <Value>{minutesSpentEditingText}</Value>
                     </Field>
                     <Field>
                         Word count
@@ -52,7 +70,7 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
                     </Field>
                     <Field>
                         Status
-                        <Value>Published</Value>
+                        <Value>{status}</Value>
                     </Field>
                 </Meta>
             </Inner>

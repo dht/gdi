@@ -1,6 +1,5 @@
 import React, { FC, useContext, useMemo } from 'react';
 import { CellType, ITableField } from '../../types';
-import { TableContext } from '../Table/Table.context';
 import { SocialIcon } from '@gdi/web-base-ui';
 import { timeAgo, shortDate } from 'shared-base';
 import { format } from 'date-fns';
@@ -17,6 +16,7 @@ import {
     Tags,
     Text,
 } from './TableCell.style';
+import { TableContext } from '../../context/Table.context';
 
 export type TableCellProps = {
     id?: string;

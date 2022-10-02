@@ -2,7 +2,7 @@
 
 import type { StoreStructure } from 'redux-store-generator';
 
-export const A12 = {};
+export const A11 = {};
 
 declare global {
     export type ISiteStore = StoreStructure & {
@@ -139,4 +139,14 @@ declare global {
     };
 
     export type IBreakpoints = Record<string, IBreakpoint>;
+
+    export type IResolution =
+        | 'mobile'
+        | 'tablet'
+        | '720p'
+        | 'HD'
+        | 'HD+'
+        | '1080p'
+        | '2k'
+        | '4k';
 }

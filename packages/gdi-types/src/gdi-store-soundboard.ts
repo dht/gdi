@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A8 = {};
+export const A7 = {};
 
 declare global {
     export type ISoundboardStore = {

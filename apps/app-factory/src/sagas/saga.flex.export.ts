@@ -8,6 +8,8 @@ import {
     getItemInfo,
     nextOrder,
 } from '../utils/flex';
+import { toast } from '@gdi/web-ui';
+
 import { downloadJson, dateFilename } from 'shared-base';
 import { camelCase } from 'lodash';
 
@@ -19,22 +21,14 @@ function* exportLayout(action: ActionExportLayout) {
     const layout = yield* select(selectors.base.$layoutClean);
 
     if (!layout || !layout.item) {
-        yield put({
-            type: 'SHOW_TOAST',
-            message: 'No layout data available',
-            flavour: 'error',
-        });
+        toast.show('No layout data available', 'error');
         return;
     }
 
     const filename = dateFilename(`layout.${camelCase(layout.name)}.json`);
     downloadJson(filename, layout);
 
-    yield put({
-        type: 'SHOW_TOAST',
-        message: `Layout data generated as ${filename}`,
-        flavour: 'success',
-    });
+    toast.show(`Layout data generated as ${filename}`, 'success');
 }
 
 export function* root() {

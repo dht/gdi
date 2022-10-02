@@ -4,11 +4,11 @@ import Creatable from 'react-select/creatable';
 import { Options } from 'react-select';
 
 export type TagsInputProps = {
-    value?: string[];
+    value?: any[];
     onChange: (value: string[]) => void;
     placeholder?: string;
     options: Options<any>;
-    onBlur: () => void;
+    onBlur?: () => void;
 };
 
 export function TagsInput(props: TagsInputProps) {

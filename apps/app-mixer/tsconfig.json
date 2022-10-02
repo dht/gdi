@@ -18,7 +18,6 @@
             "@gdi/template-basic": ["packages/gdi-template-basic"],
             "@gdi/template-minimalist": ["packages/gdi-template-minimalist"],
             "@gdi/template-blog": ["packages/gdi-template-blog"],
-            "@gdi/galleries": ["packages/gdi-galleries"],
             "@gdi/store-mixer": ["packages/gdi-store-mixer"]
         }
     },

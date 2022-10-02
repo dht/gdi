@@ -5,7 +5,7 @@ import { actions, selectors } from '../store';
 import { definitions } from '../components/Layouts/definitions/main';
 import { guid4 } from 'shared-base';
 import { useNavigate } from 'react-router-dom';
-import { prompt } from '@gdi/platformer';
+import { prompt } from '@gdi/web-ui';
 
 export const LayoutsContainer = () => {
     const dispatch = useDispatch();

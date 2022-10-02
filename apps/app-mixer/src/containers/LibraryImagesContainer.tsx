@@ -3,38 +3,21 @@ import LibraryImages from '../components/LibraryImages/LibraryImages';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 
-type LibraryImagesContainerProps = {
-    overwrites?: Json;
-    columns?: number;
-};
+type LibraryImagesContainerProps = {};
 
-export const LibraryImagesContainer = (props: LibraryImagesContainerProps) => {
-    const { overwrites, columns = 4 } = props;
+export const LibraryImagesContainer = (_props: LibraryImagesContainerProps) => {
     const dispatch = useDispatch();
     const items = useSelector(selectors.base.$libraryImages);
-    const galleryState = useSelector(selectors.raw.$rawGalleryState);
-
-    const state = useMemo(() => {
-        return {
-            ...galleryState,
-            ...overwrites,
-        };
-    }, [galleryState]);
 
     const callbacks = useMemo(
         () => ({
-            onUploadImage: () => {
-                dispatch(
-                    actions.appStateMixer.patch({
-                        showImageUploadModal: true,
-                    })
-                );
-            },
-            onImageAction: (
+            onGalleryItemAction: (
                 id: string,
                 action: ImageActionType,
                 data?: Json
             ) => {
+                console.log('action ->', action);
+
                 dispatch({
                     type: 'IMAGE_ACTION',
                     actionType: action,
@@ -42,51 +25,21 @@ export const LibraryImagesContainer = (props: LibraryImagesContainerProps) => {
                     data,
                 });
             },
-            onSelectTool: (toolId: string) => {
-                dispatch(
-                    actions.galleryState.patch({
-                        selectedToolId: toolId,
-                    })
-                );
-            },
-            onTagClick: (_tag: string) => {
-                dispatch(
-                    actions.galleryState.patch({
-                        showTagModal: true,
-                    })
-                );
-            },
-            onTagClear: () => {
-                dispatch(
-                    actions.galleryState.patch({
-                        tag: '',
-                    })
-                );
-            },
-            onViewChange: (viewMode: string) => {
-                dispatch(
-                    actions.galleryState.patch({
-                        mode: viewMode as IGalleryViewMode,
-                    })
-                );
-            },
-            onSearch: (search?: string) => {
-                dispatch(
-                    actions.galleryState.patch({
-                        search,
-                    })
-                );
+            onGalleryAction: (actionId: ItemActionType, data?: Json) => {
+                console.log('action ->', actionId, data);
+                switch (actionId) {
+                    case 'new':
+                        dispatch(
+                            actions.appStateMixer.patch({
+                                showImageUploadModal: true,
+                            })
+                        );
+                        break;
+                }
             },
         }),
         []
     );
 
-    return (
-        <LibraryImages
-            state={state}
-            items={items}
-            callbacks={callbacks}
-            columns={columns}
-        />
-    );
+    return <LibraryImages items={items} callbacks={callbacks} />;
 };

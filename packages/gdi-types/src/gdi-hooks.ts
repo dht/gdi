@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A2 = {};
+export const A1 = {};
 
 declare global {
     export type _HooksType = string;

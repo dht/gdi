@@ -3,18 +3,24 @@ import { ROOT } from './ids';
 export const routes: IRoutes = {
     layouts: `${ROOT}/layouts`,
     layout: `${ROOT}/layouts/:layoutId`,
-    customWidgets: `${ROOT}/customWidgets`,
-    customWidget: `${ROOT}/customWidgets/:widgetId`,
+    articles: `${ROOT}/articles`,
     articleEditor: `${ROOT}/articles/:articleId`,
 };
 
 export const menuItems: IMenuItem[] = [
     {
+        path: routes.articles,
+        icon: 'Documentation',
+        label: 'Articles',
+        groupId: 'site',
+        order: 1,
+    },
+    {
         path: routes.layouts,
         icon: 'ViewDashboard',
         label: 'Layouts',
         groupId: 'site',
-        order: 1,
+        order: 1.5,
     },
     {
         path: routes.customWidgets,

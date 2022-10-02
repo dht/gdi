@@ -1,3 +1,4 @@
+// =============== Tables ===============
 export type CellType =
     | 'image'
     | 'person'
@@ -20,7 +21,7 @@ export type ITableField = {
 
 export type ITableConfig = {
     id: string;
-    header: string;
+    header?: string;
     fields: ITableField[];
     tableActions?: ITableAction[];
     rowActions?: ITableRowAction[];
@@ -39,22 +40,202 @@ export type ITableRowAction = {
 };
 
 export type ICrudDefinitions = {
-    tableConfig: ITableConfig;
-    newForm: IFormConfig;
-    editForm: IFormConfig;
-    dataNewDefault?: Json;
+    table: ITableConfig;
+    formNew: IFormConfig;
+    formNewDefault?: Json;
+    formEdit: IFormConfig;
+    filters: IFilterConfig;
+    gallery?: IGalleryConfig;
+    calendar?: ICalendarConfig;
+    timeline?: ITimelineConfig;
 };
 
-export type DataGridField = {
+export type ICrudOptions = {
+    doubleClickActionId?: string;
+    allOptions?: Json;
+    allDetails?: AllDetails;
+    allMethods?: AllMethods;
+};
+
+export type IViewMode =
+    | 'table'
+    | 'gallery'
+    | 'spreadsheet'
+    | 'timeline'
+    | 'calendar'
+    | 'custom';
+
+export type ICrudState = {
+    viewMode: IViewMode;
+    showNewForm: boolean;
+    showEditForm: boolean;
+    editFormItemId: string;
+};
+
+// =============== Galleries ===============
+export type IImage = {
+    id: string;
+    title: string;
+    imageUrl: string;
+    imageThumbUrl: string;
+    ratio: number;
+    tags: string[];
+};
+
+export type IImages = Record<string, IImage>;
+
+export type ItemActionType =
+    | 'selection'
+    | 'edit'
+    | 'delete'
+    | 'addTag'
+    | 'removeTag';
+
+export type ItemType =
+    | 'image'
+    | 'article'
+    | 'person'
+    | 'event'
+    | 'layout'
+    | 'post'
+    | 'ticket'
+    | 'widget';
+
+export type IBarTool = 'edit' | 'delete';
+
+export type IBarAction = {
+    id: string;
+    title: string;
+    iconName?: string;
+    type: 'button' | 'iconButton';
+};
+
+export type IGalleryConfig = {
+    id: string;
+    sequence?: number;
+    header?: string;
+    columns?: number;
+    itemType?: ItemType;
+};
+
+export type IGalleryOptions = {
+    columns: number;
+    selectionMode: ISelectionMode;
+    doubleClickAction: ItemActionType;
+    allowMultiple?: boolean;
+    allowEmpty?: boolean;
+};
+
+export type IGalleryState = {};
+
+export type OnGalleryAction = (action: ItemActionType, data?: Json) => void;
+
+export type OnGalleryItemAction = (
+    id: string,
+    action: ItemActionType,
+    data?: Json
+) => void;
+
+// ================== Sheets ==================
+export type Coords = {
+    rowIndex: number;
+    columnIndex: number;
+};
+
+export type INode = {
+    id: string;
+    store: string;
+    nodeType: string;
+    fieldTypes: Record<string, string>;
+    isHidden?: boolean;
+};
+
+export type INodes = Record<string, INode>;
+
+export type INodeWithColor = INode & {
+    color: string;
+};
+
+// ================== Timeline ==================
+export type ITimelineConfig = {
+    id: string;
+    sequence?: number;
+    header?: string;
+    fields: ITableField[];
+    fieldsGraph: ITableField[];
+};
+
+// ================== Calendar ==================
+export type ICalendarConfig = {
+    id: string;
+    sequence?: number;
+    header?: string;
+};
+
+export type ICalendarOptions = {};
+
+export type ICalendarState = {};
+
+// ================== Filters ==================
+export type IFilterConfig = {
+    id: string;
+    fields: IFilterField[];
+    sort?: ISortOption[];
+};
+
+export type IFilterOptions = {};
+
+export type IFilterValue = Record<string, string[]>;
+
+export type ISortValue = {
+    id: string;
+    direction: 'asc' | 'desc';
+};
+
+export type ISearchValue = string;
+
+export type ITrio = {
+    sort: ISortValue;
+    filter: IFilterValue;
+    search: ISearchValue;
+};
+
+export type ISelectionMode = 'browse' | 'single' | 'multiple' | 'collection';
+
+export type IFilterState = {
+    header: string;
+    tag?: string;
+    showFilter: boolean;
+    trio: ITrio;
+    allOptions?: Json;
+    selectedIds: string[];
+};
+
+export type IFilterField = {
     id: string;
     title?: string;
-    cellType: CellType;
-    mapFields?: Json;
-    flex?: number;
-    params?: Json;
+    cellType: CellType | string;
+    options?: IFilterOption[];
+    optionSelectorId?: string;
+    allowMultiple?: boolean;
 };
 
-export type DataGridConfig = {
+export type IFilterOption = {
     id: string;
-    fields: DataGridField[];
+    text: string;
+    value?: string | number;
+    min?: number;
+    max?: number;
+};
+
+export type ISortOption = {
+    id: string;
+    text: string;
+    direction: 'asc' | 'desc';
+};
+
+// ================== General ==================
+
+export type WithChildren<T> = T & {
+    children?: JSX.Element;
 };

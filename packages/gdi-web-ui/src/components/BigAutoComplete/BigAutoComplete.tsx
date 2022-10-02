@@ -1,17 +1,18 @@
-import React from 'react';
-import classnames from 'classnames';
-import Fuse from 'fuse.js';
-import {
+import React, {
     ChangeEvent,
     useCallback,
     useMemo,
     useEffect,
     useState,
     useRef,
-    RefObject,
 } from 'react';
+import classnames from 'classnames';
 import { colorize, Part } from '../../utils/colorize';
-import { useMount, useBoolean, useCounter, useKey } from 'react-use';
+import { useBoolean, useCounter, useKey, useMount } from 'react-use';
+import { useClickAway } from '../../hooks/useClickAway';
+import { useFuzzySearch } from '../../hooks/useFuzzySearch';
+import { useSilentKey } from '../../hooks/useSilentKey';
+
 import {
     Container,
     Bar,
@@ -191,79 +192,6 @@ export const Option = (props: OptionProps) => {
         </OptionWrapper>
     );
 };
-
-function useClickAway(ref: RefObject<HTMLDivElement>, callback: () => void) {
-    useEffect(() => {
-        function isInRef(element: EventTarget) {
-            let output = false;
-
-            let cursor: ParentNode | null = element as ParentNode;
-
-            while (cursor) {
-                cursor = cursor.parentNode;
-                if (cursor === ref.current) {
-                    output = true;
-                }
-            }
-
-            return output;
-        }
-
-        function onClick(ev: any) {
-            if (!isInRef(ev.target)) {
-                callback();
-            }
-        }
-
-        document.addEventListener('click', onClick);
-
-        return () => {
-            document.removeEventListener('click', onClick);
-        };
-    }, [callback]);
-}
-
-function useFuzzySearch<T>(list: T[], keys: string[]) {
-    const fuse = useMemo(
-        () =>
-            new Fuse(list, {
-                includeScore: true,
-                shouldSort: true,
-                keys,
-            }),
-        [list, keys]
-    );
-
-    const search = useCallback(
-        (term: string) => {
-            return fuse.search(term);
-        },
-        [fuse]
-    );
-
-    return search;
-}
-
-type Callback = (ev: any) => void;
-
-function useSilentKey(
-    keyName: string,
-    callback: Callback,
-    on: boolean,
-    depArray: any[]
-) {
-    const onKey = useCallback(
-        (ev: any) => {
-            if (on) {
-                ev.preventDefault();
-                callback(ev);
-            }
-        },
-        [callback, on]
-    );
-
-    useKey(keyName, onKey, {}, depArray);
-}
 
 type ColorizedTitleProps = {
     title: string;

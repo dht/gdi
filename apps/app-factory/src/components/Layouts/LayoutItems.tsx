@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Id } from './Layouts.style';
-import { Crud } from '@gdi/web-ui';
+import { Multi } from '@gdi/web-ui';
 
 export type LayoutItemsProps = ICrudDefinitions & {
     data: Json[];
@@ -23,7 +23,7 @@ export function LayoutItems(props: LayoutItemsProps) {
             className='LayoutItems-container'
             data-testid='LayoutItems-container'
         >
-            <Crud {...props} header={name} />
+            <Multi {...props} header={name} />
             <Id>{id}</Id>
         </Container>
     );

@@ -5,6 +5,7 @@ import { definitions } from '../components/Layouts/definitions/main';
 import { guid, guid4 } from 'shared-base';
 import { duplicateItems } from '../utils/flex';
 import { clear } from './saga.flex.split';
+import { toast } from '@gdi/web-ui';
 
 type ActionSeedFlex = {
     type: 'FLEX_SEED';
@@ -24,11 +25,8 @@ function* seedFlex(action: ActionSeedFlex) {
 
     // cannot reset 1080p to self
     if (resolutionId === withId) {
-        yield put({
-            type: 'SHOW_TOAST',
-            message: 'Cannot reset 1080p to self',
-            flavour: 'warning',
-        });
+        toast.show('Cannot reset 1080p to self', 'warning');
+
         return;
     }
 

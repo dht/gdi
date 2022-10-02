@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A7 = {};
+export const A6 = {};
 
 declare global {
     export type IPplStore = {

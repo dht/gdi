@@ -25,7 +25,6 @@
             "@gdi/template-blog": ["templates/gdi-template-blog"],
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],
-            "@gdi/galleries": ["packages/gdi-galleries"],
             "@gdi/web-forms": ["packages/gdi-web-forms"],
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],

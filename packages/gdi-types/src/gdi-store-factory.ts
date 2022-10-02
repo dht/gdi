@@ -2,7 +2,7 @@
 
 import type { StoreStructure } from 'redux-store-generator';
 
-export const A13 = {};
+export const A12 = {};
 
 declare global {
     export type IFactoryStore = StoreStructure & {
@@ -23,6 +23,7 @@ declare global {
     };
 
     export type ICurrentIdsFactory = {
+        articleId: string;
         layoutId: string;
         flexEntityId: string;
         widgetId: string;
@@ -60,16 +61,6 @@ declare global {
 
     export type IFlexEntities = IFlexEntity[];
 
-    export type IResolution =
-        | 'mobile'
-        | 'tablet'
-        | '720p'
-        | 'HD'
-        | 'HD+'
-        | '1080p'
-        | '2k'
-        | '4k';
-
     export type IArticleStatus = 'draft' | 'published' | 'archived';
 
     export type IArticle = {
@@ -77,7 +68,12 @@ declare global {
         title: string;
         intro: string;
         imageUrl: string;
+        imageThumbUrl: string;
+        imageDescription: string;
+        imageSource: string;
+        radio?: number;
         authorName: string;
+        publishDate: string;
         lastPublishDate: string;
         lastSaveDate: string;
         comments: number;

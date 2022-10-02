@@ -1,5 +1,4 @@
 export * from './gdi-engine';
-export * from './gdi-galleries';
 export * from './gdi-hooks';
 export * from './gdi-store-auth';
 export * from './gdi-store-devtools';
@@ -16,7 +15,6 @@ export * from './gdi-web-forms';
 export * from './gdi-web-tables';
 export * from './gdi-web-base-ui';
 export * from './gdi-web-editors';
-export * from './gdi-web-sheets';
 export * from './gdi-web-ui';
 export * from './platformer';
 export * from './igrid';

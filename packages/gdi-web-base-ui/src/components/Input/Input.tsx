@@ -13,6 +13,7 @@ export type InputProps = {
     multiline?: boolean;
     isNumeric?: boolean;
     isPassword?: boolean;
+    preventArrows?: boolean;
 };
 
 export const Input = React.forwardRef((props: InputProps, ref: any) => {
@@ -23,6 +24,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
         rows,
         isNumeric,
         isPassword,
+        preventArrows,
     } = props;
 
     let type = 'text';
@@ -33,6 +35,15 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
 
     if (isPassword) {
         type = 'password';
+    }
+
+    function onKeyDown(ev: React.KeyboardEvent<HTMLInputElement>) {
+        if (isArrowKey(ev.key) && preventArrows) {
+            ev.preventDefault();
+        }
+        if (props.onKeyDown) {
+            props.onKeyDown(ev);
+        }
     }
 
     function onChange(
@@ -46,15 +57,15 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
         <Container className='Input-container' data-testid='Input-container'>
             <TextField
                 itemRef={ref}
-                autoComplete='none'
+                autoComplete='off'
                 type={type}
                 rows={rows}
                 placeholder={placeholder}
                 value={value}
                 multiline={multiline}
                 onBlur={props.onBlur}
+                onKeyDown={onKeyDown}
                 onChange={onChange}
-                onKeyDown={props.onKeyDown}
                 styles={{
                     root: {
                         padding: '10',
@@ -66,3 +77,12 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
 });
 
 export default Input;
+
+const isArrowKey = (key: string) => {
+    return (
+        key === 'ArrowUp' ||
+        key === 'ArrowRight' ||
+        key === 'ArrowDown' ||
+        key === 'ArrowLeft'
+    );
+};

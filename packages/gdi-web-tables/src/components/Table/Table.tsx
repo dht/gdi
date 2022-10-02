@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
-import TableBase from '../TableBase/TableBase';
-import TableFilters from '../TableFilters/TableFilters';
+import React, { useContext, useEffect } from 'react';
+import GenericTable from '../GenericTable/GenericTable';
 import TableHeader from '../TableHeader/TableHeader';
 import TableRow from '../TableRow/TableRow';
-import TableTop from '../TableTop/TableTop';
 import { Container, Content } from './Table.style';
 import { ITableConfig } from '../../types';
-import { TableContext, TableContextProvider } from './Table.context';
 import { useDelete } from '@gdi/hooks';
+import {
+    TableContext,
+    TableContextProvider,
+} from '../../context/Table.context';
+import { SelectionContext } from '../../context/Selection.context';
 
 export type TableProps = {
     config: ITableConfig;
     data: Json[];
     onAction: (actionType: string) => void;
-    onRowAction: (itemId: string, actionType: string) => void;
+    onRowAction: (itemId: string | string[], actionType: string) => void;
     doubleClickActionId?: string;
     header?: string;
 };
@@ -21,27 +23,26 @@ export type TableProps = {
 export function TableInner(props: TableProps) {
     const { config, data, doubleClickActionId = 'edit', header } = props;
     const { fields = [], rowActions } = config;
-    const context = useContext(TableContext);
+    const contextSelection = useContext(SelectionContext);
+    const { state: selectedIds } = contextSelection;
 
     useDelete(() => {
-        if (context.selectedId) {
-            props.onRowAction(context.selectedId, 'delete');
+        if (selectedIds.length > 0) {
+            props.onRowAction(selectedIds, 'delete');
         }
-    }, [context.selectedId]);
+    }, [selectedIds, data]);
 
     function renderRow(rowProps: any) {
         const { item } = rowProps;
 
-        const isSelected = item.id === context.selectedId;
+        const isSelected = selectedIds.includes(item.id);
 
         function onClick() {
             if (isSelected) {
                 return;
             }
 
-            context.patchState({
-                selectedId: item.id,
-            });
+            contextSelection.callbacks.onSelect(item.id);
         }
 
         return (
@@ -59,16 +60,9 @@ export function TableInner(props: TableProps) {
 
     return (
         <Container className='Table-container' data-testid='Table-container'>
-            <TableTop
-                data={data}
-                config={config}
-                onAction={props.onAction}
-                header={header}
-            />
-            <TableFilters config={config} />
             <TableHeader config={config} />
             <Content>
-                <TableBase
+                <GenericTable
                     autoHeight={true}
                     itemHeight={80}
                     data={data}
@@ -76,7 +70,7 @@ export function TableInner(props: TableProps) {
                     emptyMessage={'empty'}
                 >
                     {renderRow}
-                </TableBase>
+                </GenericTable>
             </Content>
         </Container>
     );

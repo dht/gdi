@@ -1,21 +1,19 @@
 import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { sortBy } from 'shared-base';
+import { sortBy, minutesThisX } from 'shared-base';
+import { camelCase } from 'lodash';
 
-type Option = {
-    key: string;
-    text: string;
-};
+const $i = () => {};
 
 export const $flexEntityTypes = createSelector(raw.$i, (_state): Option[] => {
     return [
         {
-            key: 'container',
+            id: 'container',
             text: 'container',
         },
         {
-            key: 'item',
+            id: 'item',
             text: 'item',
         },
     ];
@@ -24,11 +22,11 @@ export const $flexEntityTypes = createSelector(raw.$i, (_state): Option[] => {
 export const $flexDirection = createSelector(raw.$i, (_state): Option[] => {
     return [
         {
-            key: 'row',
+            id: 'row',
             text: 'row',
         },
         {
-            key: 'column',
+            id: 'column',
             text: 'column',
         },
     ];
@@ -37,35 +35,35 @@ export const $flexDirection = createSelector(raw.$i, (_state): Option[] => {
 export const $resolutions = createSelector(raw.$i, (_state): Option[] => {
     return [
         {
-            key: 'mobile',
+            id: 'mobile',
             text: 'mobile',
         },
         {
-            key: 'tablet',
+            id: 'tablet',
             text: 'tablet',
         },
         {
-            key: '720p',
+            id: '720p',
             text: '720p',
         },
         {
-            key: 'HD',
+            id: 'HD',
             text: 'HD',
         },
         {
-            key: 'HD+',
+            id: 'HD+',
             text: 'HD+',
         },
         {
-            key: '1080p',
+            id: '1080p',
             text: '1080p',
         },
         {
-            key: '2k',
+            id: '2k',
             text: '2k',
         },
         {
-            key: '4k',
+            id: '4k',
             text: '4k',
         },
     ];
@@ -84,7 +82,7 @@ export const $layoutLocationIds = createSelector(
             .filter((i) => i.resolution === '1080p')
             .filter((i) => i.locationId)
             .map((i) => ({
-                key: i.locationId,
+                id: i.locationId,
                 text: i.locationId,
             }));
     }
@@ -101,10 +99,94 @@ export const $flexEntityParentIds = createSelector(
 
         return items
             .map((i) => ({
-                key: i.id,
+                id: i.id,
                 text: i.id,
             }))
-            .sort(sortBy('key'));
+            .sort(sortBy('id'));
+    }
+);
+
+export const $periods = createSelector($i, (_i): Option[] => {
+    const minutes = minutesThisX();
+
+    return [
+        {
+            id: 'lastHour',
+            text: 'Last hour',
+            max: 60,
+        },
+        {
+            id: 'today',
+            text: 'Today',
+            max: minutes.today,
+        },
+        {
+            id: 'thisWeek',
+            text: 'This week',
+            max: minutes.week,
+        },
+        {
+            id: 'thisMonth',
+            text: 'This month',
+            max: minutes.month,
+        },
+        {
+            id: 'thisYear',
+            text: 'This year',
+            max: minutes.year,
+        },
+    ];
+});
+
+export const $articleAuthors = createSelector(
+    raw.$rawArticles,
+    (articles): Option[] => {
+        console.log('3 ->', 3);
+
+        const groupedAuthors = Object.values(articles).reduce(
+            (output, article) => {
+                output[article.authorName] = true;
+                return output;
+            },
+            {} as Json
+        );
+
+        return Object.keys(groupedAuthors)
+            .sort()
+            .map((authorName) => {
+                const id = camelCase(authorName);
+                console.log('id ->', id);
+
+                return {
+                    id,
+                    text: authorName,
+                    value: id,
+                };
+            });
+    }
+);
+
+export const $articleTags = createSelector(
+    raw.$rawArticles,
+    (articles): Option[] => {
+        const allTags: Json = {};
+        Object.values(articles).forEach((article) => {
+            const { tags = [] } = article;
+
+            tags.forEach((tag) => {
+                allTags[tag] = true;
+            });
+        }, {} as Json);
+
+        return Object.keys(allTags)
+            .sort()
+            .map((tag) => {
+                return {
+                    id: tag,
+                    text: tag,
+                    value: tag,
+                };
+            });
     }
 );
 
@@ -114,12 +196,18 @@ export const $allOptions = createSelector(
     $resolutions,
     $flexEntityParentIds,
     $layoutLocationIds,
+    $periods,
+    $articleAuthors,
+    $articleTags,
     (
         flexEntityTypes,
         flexDirection,
         resolutions,
         flexEntityParentIds,
-        layoutLocationIds
+        layoutLocationIds,
+        periods,
+        articleAuthors,
+        articleTags
     ) => {
         return {
             $flexEntityTypes: flexEntityTypes,
@@ -127,6 +215,9 @@ export const $allOptions = createSelector(
             $resolutions: resolutions,
             $flexEntityParentIds: flexEntityParentIds,
             $layoutLocationIds: layoutLocationIds,
+            $periods: periods,
+            $articleAuthors: articleAuthors,
+            $articleTags: articleTags,
         };
     }
 );

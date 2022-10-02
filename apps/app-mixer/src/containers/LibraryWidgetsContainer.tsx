@@ -23,7 +23,6 @@ export const LibraryWidgetsContainer = () => {
                     })
                 );
             },
-
             onSearch: (search?: string) => {
                 dispatch(
                     actions.widgetGalleryState.patch({

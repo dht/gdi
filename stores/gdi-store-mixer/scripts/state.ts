@@ -1,5 +1,6 @@
 import { IMixerStore } from '../src/types';
 import { libraryWidgets } from '../src/mock.libraryWidgets';
+import { libraryImages } from './data.images';
 
 export const state: IMixerStore = {
     meta: {
@@ -12,25 +13,6 @@ export const state: IMixerStore = {
         paletteId: 'green',
         showImageUploadModal: false,
         showPlayModeMessage: false,
-    },
-    galleryState: {
-        stateKey: 'galleryState',
-        mode: 'full',
-        selectedToolId: 'select',
-        showTools: true,
-        showTagModal: false,
-        search: '',
-        tag: 'background',
-        selectedIds: [],
-        favoriteIds: [],
-        temporaryIds: [],
-        deletedIds: [],
-    },
-    widgetGalleryState: {
-        stateKey: 'widgetGalleryState',
-        mode: 'minimal',
-        filter: 'byType',
-        search: '',
     },
     currentIds: {
         pageId: 'home',
@@ -59,6 +41,7 @@ export const state: IMixerStore = {
             tags: ['people', 'friend'],
             ratio: 1.6803797468354431,
         },
+        ...libraryImages,
     },
     libraryTypography: {
         encodeSans: {

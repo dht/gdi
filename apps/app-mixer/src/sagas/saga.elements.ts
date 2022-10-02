@@ -1,6 +1,6 @@
 import { actions, selectors } from '../store';
 import { call, put, select, takeEvery } from 'saga-ts';
-import { prompt } from '@gdi/platformer';
+import { prompt } from '@gdi/web-ui';
 import { guid4 } from 'shared-base';
 
 type ActionAddElement = {

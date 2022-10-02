@@ -15,6 +15,12 @@
     transition: all 80ms linear;
     background-image: url(//raw.githubusercontent.com/dht/gdi/main/clients/gdi-admin/public/Group.svg);
 
+    &:hover {
+        .items {
+            opacity: 1;
+        }
+    }
+
     a {
         color: #d3d3d3;
         text-decoration: none;
@@ -129,6 +135,8 @@
     .items {
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         padding: 10px 0;
+        opacity: 0;
+        transition: all 200ms ease-in-out;
 
         .item {
             display: flex;

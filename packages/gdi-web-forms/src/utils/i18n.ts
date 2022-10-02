@@ -39,7 +39,7 @@ export const typeOfVariable = (variable: any) => {
     return 'unknown';
 };
 
-type Option = { key: string; text: string };
+type Option = { id: string; text: string };
 type OptionsMap = Record<string, Option[]>;
 
 export const translateOptions = (optionsMap: OptionsMap, t: Translate) => {

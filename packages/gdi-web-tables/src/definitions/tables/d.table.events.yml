@@ -1,0 +1,43 @@
+id: LayoutsSubTable
+header: Layouts Items
+fields:
+    - id: id
+      title: Id
+      cellType: id
+    - id: locationId
+      title: Location
+      cellType: text
+      flex: 2
+    - id: entityType
+      title: Type
+      cellType: text
+      flex: 1
+    - id: direction
+      title: Direction
+      cellType: text
+      flex: 1
+    - id: resolution
+      title: Resolution
+      cellType: text
+      flex: 1
+    - id: _modifiedDate
+      title: Modified
+      cellType: timeAgo
+      flex: 1
+rowActions:
+    - id: edit
+      iconName: Edit
+      title: Edit
+    - id: delete
+      iconName: Delete
+      title: Delete
+tableActions:
+    - id: back
+      iconName: arrow_upward
+      title: Go back
+    - id: mode
+      iconName: view_week
+      title: Change mode
+    - id: new
+      iconName: add
+      title: New item

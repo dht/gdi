@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { Editor } from '@gdi/web-ui';
+import { Editor, prompt } from '@gdi/web-ui';
 import { Container } from './ArticleEditor.style';
 import { ArticleEditorTop } from '../ArticleEditorTop/ArticleEditorTop';
 import { ArticleContext } from './ArticleEditor.context';
-import { prompt } from '@gdi/platformer';
 
 export type ArticleEditorProps = {};
 

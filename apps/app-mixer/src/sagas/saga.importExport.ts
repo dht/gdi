@@ -1,18 +1,14 @@
 import { actions, selectors } from '../store';
 import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
 import { downloadJson, dateFilename } from 'shared-base';
-import { prompt } from '@gdi/platformer';
+import { prompt, toast } from '@gdi/web-ui';
 
 function* exportSite(_action: any) {
     const siteData = yield* select(selectors.base.$siteData);
     const filename = dateFilename('siteData.json');
     downloadJson(filename, siteData);
 
-    yield put({
-        type: 'SHOW_TOAST',
-        message: `Site data generated as ${filename}`,
-        flavour: 'success',
-    });
+    toast.show(`Site data generated as ${filename}`);
 }
 
 function* importSite(_action: any) {
@@ -42,11 +38,7 @@ function* importSite(_action: any) {
 
     const url = 'https';
 
-    yield put({
-        type: 'SHOW_TOAST',
-        message: `Site data imported from ${url}`,
-        flavour: 'success',
-    });
+    toast.show(`Site data imported from ${url}`);
 }
 
 export function* root() {

@@ -136,11 +136,30 @@ export const $layoutClean = createSelector($layout, (layout) => {
     return layoutClone;
 });
 
+export const $articles = createSelector(raw.$rawArticles, (articles) => {
+    return articles;
+});
+
 export const $article = createSelector(
     raw.$rawCurrentIds,
-    raw.$rawArticles,
+    $articles,
     (currentIds, articles) => {
         const { articleId } = currentIds;
         return articles[articleId];
     }
 );
+
+export const $articleMeta = createSelector($article, (article) => {
+    if (!article) {
+        return;
+    }
+
+    const { minutesSpentEditing, status, lastSaveDate } = article;
+
+    return {
+        id: article.id,
+        minutesSpentEditing,
+        status,
+        lastSaveDate,
+    };
+});

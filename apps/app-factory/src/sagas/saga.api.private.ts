@@ -10,6 +10,8 @@ function* apiPrivate() {
     const promises = [
         yield* put(actions.appStateFactory.get()),
         yield* put(actions.layouts.get({})),
+        yield* put(actions.articles.get({})),
+        yield* put(actions.articleCategories.get({})),
     ];
 
     yield Promise.all(promises);

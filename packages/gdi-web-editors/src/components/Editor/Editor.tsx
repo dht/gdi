@@ -9,6 +9,7 @@ import { barActions } from '../EditorMenuPanel/EditorMenuPanel.menu';
 import EditorMenuPanel from '../EditorMenuPanel/EditorMenuPanel';
 import { IEditorAction } from '../../types';
 import { downloadHtml } from 'shared-base';
+import { useMount } from 'react-use';
 
 export type EditorProps = {
     value: string;
@@ -20,6 +21,7 @@ export function Editor(props: EditorProps) {
     const { value, inputPrompt = defaultPrompt } = props;
 
     const editor = useEditor({
+        autofocus: 'end',
         extensions: [
             StarterKit,
             TextAlign,

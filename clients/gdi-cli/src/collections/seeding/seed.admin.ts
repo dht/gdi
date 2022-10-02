@@ -1,7 +1,7 @@
 // shortcuts: setAdmin
 // desc: make an existing user an admin
 import chalk from 'chalk';
-import { autoComplete } from '../../utils/prompt';
+import { autoComplete } from '../../utils/input';
 import { envError, readEnvVite } from '../../utils/env';
 import { parseArgv } from '../../utils/argv';
 import {

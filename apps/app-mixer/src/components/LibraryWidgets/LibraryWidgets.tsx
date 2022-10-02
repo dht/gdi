@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './LibraryWidgets.style';
-import { WidgetGallery } from '@gdi/galleries';
+import { WidgetGallery } from '@gdi/web-ui';
 
 export type LibraryWidgetsProps = {
     state: IWidgetGalleryState;
@@ -23,13 +23,13 @@ export function LibraryWidgets(props: LibraryWidgetsProps) {
             className='LibraryWidgets-container'
             data-testid='LibraryWidgets-container'
         >
-            <WidgetGallery
+            {/* <WidgetGallery
                 search={search}
                 filter={filter}
                 viewMode={mode}
                 callbacks={callbacks}
                 items={items}
-            />
+            /> */}
         </Container>
     );
 }

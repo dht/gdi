@@ -4,8 +4,6 @@ import { MixerWidgets } from './widgets';
 export const routes: IRoutes = {
     mixer: `${ROOT}`,
     imageGallery: `${ROOT}/imageGallery`,
-    layoutGallery: `${ROOT}/layoutGallery`,
-    flexDesigner: `${ROOT}/flexDesigner`,
     preview_static: `/preview`,
 };
 

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div<{ horizontal?: boolean }>`
-    flex: 1;
     display: flex;
     flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;

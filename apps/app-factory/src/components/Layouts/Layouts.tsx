@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from './Layouts.style';
-import { Crud } from '@gdi/web-ui';
+import { Multi } from '@gdi/web-ui';
 
 export type LayoutsProps = ICrudDefinitions & {
     data: Json[];
@@ -20,7 +20,7 @@ export function Layouts(props: LayoutsProps) {
             className='Layouts-container'
             data-testid='Layouts-container'
         >
-            <Crud {...props} />
+            <Multi {...props} />
         </Container>
     );
 }

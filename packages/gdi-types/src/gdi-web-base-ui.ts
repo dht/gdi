@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A16 = {};
+export const A15 = {};
 
 declare global {
     export type IUploadResult = {
@@ -29,4 +29,12 @@ declare global {
         iconName?: string;
         secondaryText?: string;
     };
+
+    export type ToastFlavour =
+        | 'error'
+        | 'success'
+        | 'warning'
+        | 'info'
+        | 'custom'
+        | 'promise';
 }

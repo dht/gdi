@@ -1,0 +1,157 @@
+import React, { useContext } from 'react';
+import Tagger from '../Tagger/Tagger';
+import { Button, Search, Toolbar } from '@gdi/web-base-ui';
+import {
+    Actions,
+    Clear,
+    Container,
+    ContainerBar,
+    ContainerFilter,
+    Count,
+    CountText,
+    Flex,
+    Header,
+    HeaderText,
+} from './FilterBar.style';
+import { IBarAction } from '../../types';
+import Filters from '../Filters/Filters';
+import { FilterContext } from '../../context/Filter.context';
+import { SelectionContext } from '../../context/Selection.context';
+import { isEmpty, flatten } from 'lodash';
+
+export type FilterBarProps = {
+    header: string;
+};
+
+export function FilterBar(props: FilterBarProps) {
+    const { header } = props;
+    const context = useContext(FilterContext);
+    const contextSelection = useContext(SelectionContext);
+
+    const { state, callbacks, config, data = [] } = context;
+    const { tag, showFilter, trio, allOptions } = state;
+    const { search } = trio;
+
+    const { state: selectedIds, callbacks: callbacksSelection } =
+        contextSelection;
+
+    function renderSelectedCount() {
+        if (selectedIds.length === 0) {
+            return null;
+        }
+
+        return (
+            <>
+                <Count>
+                    <CountText>
+                        <span>{selectedIds.length}</span> selected
+                    </CountText>
+                </Count>
+                <Clear onClick={callbacksSelection.onSelectionClear}>
+                    clear
+                </Clear>
+            </>
+        );
+    }
+
+    function renderAction(action: IBarAction) {
+        const { title, iconName } = action;
+
+        return (
+            <Button
+                key={action.id}
+                title={title}
+                // onClick={() => onGalleryAction(action)}
+                iconName={iconName}
+                primary
+            />
+        );
+    }
+
+    function renderActions() {
+        return actions.map((action: IBarAction) => renderAction(action));
+    }
+
+    function renderFilters() {
+        const style = {
+            maxHeight: showFilter ? '300px' : '0px',
+            overflow: showFilter ? 'visible' : 'hidden',
+        };
+
+        return (
+            <ContainerFilter style={style}>
+                <Filters
+                    onClick={callbacks.onFilter}
+                    onSort={callbacks.onSort}
+                    value={trio}
+                    config={config}
+                    allOptions={allOptions}
+                />
+            </ContainerFilter>
+        );
+    }
+
+    function renderClearFilter() {
+        const empty = isEmpty(flatten(Object.values(trio.filter)));
+
+        if (empty) {
+            return null;
+        }
+
+        return (
+            <Button iconName='ClearFilter' onClick={callbacks.onFilterClear} />
+        );
+    }
+
+    return (
+        <Container className='TopBar-container' data-testid='TopBar-container'>
+            <ContainerBar>
+                <Header>
+                    <HeaderText>{header}</HeaderText>
+                    <Count>
+                        <CountText>
+                            <span>{data.length}</span> items
+                        </CountText>
+                        {renderSelectedCount()}
+                    </Count>
+                </Header>
+                <Toolbar horizontal items={tools} onClick={() => {}} />
+                <Flex />
+                <Tagger
+                    tag={tag}
+                    onClick={callbacks.onTagClick}
+                    onClear={callbacks.onTagClear}
+                />
+                <Flex />
+                {renderClearFilter()}
+                <Button iconName='Filter' onClick={callbacks.toggleFilter} />
+                <Search value={search} onChange={callbacks.onSearch} />
+                {renderActions()}
+            </ContainerBar>
+            {renderFilters()}
+        </Container>
+    );
+}
+
+export default FilterBar;
+
+export const tools: any[] = [
+    {
+        id: 'edit',
+        text: 'Edit',
+        iconName: 'Edit',
+    },
+    {
+        id: 'delete',
+        text: 'Delete',
+        iconName: 'Delete',
+    },
+];
+
+const actions: any[] = [
+    {
+        id: 'edit',
+        title: 'New',
+        iconName: 'Add',
+    },
+];

@@ -2,15 +2,13 @@
 
 import type { StoreStructure } from 'redux-store-generator';
 
-export const A5 = {};
+export const A4 = {};
 
 declare global {
     export type IMixerStore = StoreStructure & {
         appStateMixer: IMixerState;
         currentIds: ICurrentIds;
         meta: IMetaMixer;
-        galleryState: IGalleryState;
-        widgetGalleryState: IWidgetGalleryState;
         libraryImages: IImages;
         libraryWidgets: IWidgets;
         libraryTypography: ITypographyOptions;
@@ -18,8 +16,6 @@ declare global {
         locales: ILocaleOptions;
         packages: IPackages;
     };
-
-    export type IViewMode = 'visual' | 'structure' | 'wireframe' | 'code';
 
     export type IMixerState = {
         stateKey: string;
@@ -60,32 +56,15 @@ declare global {
 
     export type IPackages = Json;
 
-    export type IGalleryViewMode = 'full' | 'minimal';
-
-    export type IGalleryState = {
-        stateKey: string;
-        mode: IGalleryViewMode;
-        selectedToolId: string;
-        search: string;
-        tag: string;
-        showTools: boolean;
-        showTagModal: boolean;
-        selectedIds: string[];
-        favoriteIds: string[];
-        temporaryIds: string[];
-        deletedIds: string[];
-    };
-
-    export type IWidgetsFilter = 'all' | 'byType';
-
-    export type IWidgetGalleryState = {
-        stateKey: string;
-        mode: IGalleryViewMode;
-        filter: IWidgetsFilter;
-        search: string;
-    };
-
     export type IImageWithWidget = IImage & {
         widget: IWidget;
+    };
+
+    export type Option = {
+        id: string;
+        text: string;
+        value?: string | number | boolean;
+        min?: number;
+        max?: number;
     };
 }

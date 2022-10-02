@@ -9,6 +9,7 @@ export type Callback = (event: IEvent) => void;
 export type UseKeyOptions = {
     filterKeys?: string[];
     filterRegex?: RegExp;
+    preventFocusSteal?: boolean;
 };
 
 export function useKey(
@@ -16,11 +17,19 @@ export function useKey(
     options: UseKeyOptions = {},
     depArray: any[] = []
 ) {
-    const { filterKeys = [], filterRegex } = options;
+    const { filterKeys = [], filterRegex, preventFocusSteal } = options;
 
     useEffect(() => {
         const onKeyDown = (ev: KeyboardEvent) => {
             const { altKey, ctrlKey, shiftKey, metaKey, key } = ev;
+
+            if (preventFocusSteal) {
+                const tagName = document.activeElement?.tagName;
+
+                if (tagName === 'INPUT') {
+                    return;
+                }
+            }
 
             if (filterKeys.length > 0 && !filterKeys.includes(key)) {
                 return;

@@ -1,4 +1,4 @@
-import { Questions } from '../prompt';
+import { Questions } from '../input';
 
 export const questionsSemantic: (scopes: string[]) => Questions = (
     scopes: string[]

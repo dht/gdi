@@ -34,3 +34,6 @@
 [submodule "submodules/store-seeder"]
 	path = submodules/store-seeder
 	url = git@github.com:dht/store-seeder.git
+[submodule "submodules/react-gantt-elastic"]
+	path = submodules/react-gantt-elastic
+	url = git@github.com:dht/react-gantt-elastic.git

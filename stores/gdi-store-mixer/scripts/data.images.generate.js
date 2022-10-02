@@ -4,8 +4,10 @@ const { faker } = require('@faker-js/faker');
 const tags = ['nature', 'geek', 'background', 'team', 'friend', 'people'];
 
 const run = async () => {
-    const items = [...new Array(300)].map((_i, index) => {
-        const id = index + 1;
+    const items = {};
+
+    [...new Array(30)].map((_i, index) => {
+        const id = String(index + 1);
 
         const width = rnd(800, 1600);
         const height = rnd(500, 1200);
@@ -15,7 +17,7 @@ const run = async () => {
         const widthThumb = 200;
         const heightThumb = Math.floor(200 / ratio);
 
-        return {
+        items[id] = {
             id,
             title: faker.lorem.sentence(),
             imageUrl: `https://picsum.photos/seed/${id}/${width}/${height}`,
@@ -27,7 +29,10 @@ const run = async () => {
         };
     });
 
-    fs.writeFileSync('./data.images.json', JSON.stringify(items, null, 4));
+    fs.writeFileSync(
+        './data.images.ts',
+        'export const libraryImages = ' + JSON.stringify(items, null, 4)
+    );
 };
 
 const rnd = (min, max) => Math.floor(min + Math.random() * (max - min));

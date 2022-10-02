@@ -88,3 +88,19 @@ export type AllDetails = Record<string, FC<IDetailsProps>>;
 type Method = (...args: any[]) => any | Promise<any>;
 
 export type AllMethods = Record<string, Method>;
+
+export type IFormProps = {
+    config: IFormConfig;
+    data: Json;
+    allOptions?: Json;
+    allDetails?: AllDetails;
+    allMethods?: AllMethods;
+    autoFocus?: boolean;
+    showGroup?: (groupId: string, data: Json) => boolean;
+    onSave: (change: Json, allData: Json) => Promise<boolean>;
+    onChange?: (change: Json) => void;
+    onClose?: () => void;
+    children?: JSX.Element | JSX.Element[];
+    methods?: Record<string, Method>;
+    t?: (key: string) => string;
+};

@@ -39,8 +39,6 @@ export const PanelLibraryContainer = (_props: any) => {
 
     switch (toolId) {
         case 'data':
-            const columns = window.innerWidth > 1700 ? 2 : 1;
-
             return (
                 <Col>
                     <ElementSelector
@@ -48,13 +46,7 @@ export const PanelLibraryContainer = (_props: any) => {
                         value={currentIds.fieldId}
                         options={imageFields}
                     />
-                    <LibraryImagesContainer
-                        overwrites={{
-                            mode: 'minimal',
-                            showTools: false,
-                        }}
-                        columns={columns}
-                    />
+                    <LibraryImagesContainer />
                 </Col>
             );
         case 'browse':

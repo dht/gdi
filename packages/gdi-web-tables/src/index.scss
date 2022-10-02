@@ -1,6 +1,5 @@
 @import './components/AddModal/AddModal.scss';
 @import './components/Crud/Crud.scss';
-@import './components/DataGrid/DataGrid.scss';
 @import './components/EditModal/EditModal.scss';
 @import './components/Filter/Filter.scss';
 @import './components/Filters/Filters.scss';
@@ -8,8 +7,15 @@
 @import './components/Sort/Sort.scss';
 @import './components/SortableList/SortableList.scss';
 @import './components/Table/Table.scss';
-@import './components/TableBase/TableBase.scss';
+@import './components/GenericTable/GenericTable.scss';
 @import './components/TableCell/TableCell.scss';
-@import './components/TableFilters/TableFilters.scss';
 @import './components/TableHeader/TableHeader.scss';
-@import './components/TableTop/TableTop.scss';
+@import './components/Sheet/Sheet.scss';
+@import './components/SheetCell/SheetCell.scss';
+@import './components/SheetCellEditing/SheetCellEditing.scss';
+@import './components/SheetCellSelected/SheetCellSelected.scss';
+@import './components/SheetHeader/SheetHeader.scss';
+@import './components/SheetHeaderCell/SheetHeaderCell.scss';
+@import './components/SheetRow/SheetRow.scss';
+@import './components/GenericGallery/GenericGallery.scss';
+@import './components/Masonry/Masonry.scss';

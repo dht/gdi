@@ -12,7 +12,7 @@
         "@gdi/template-blog": "^0.0.20",
         "@gdi/template-basic": "^0.0.21",
         "@gdi/template-minimalist": "^0.0.21",
-        "@gdi/types": "^0.0.38",
+        "@gdi/types": "^0.0.39",
         "@gdi/web-ui": "^0.0.26",
         "@playwright/experimental-ct-react": "^1.25.0",
         "chance": "^1.1.8",

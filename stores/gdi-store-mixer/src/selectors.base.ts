@@ -132,13 +132,12 @@ export const $instanceTypes = createSelector(
 
 export const $libraryWidgets = createSelector(
     raw.$rawLibraryWidgets,
-    raw.$rawWidgetGalleryState,
     $instanceSelected,
-    (widgets, galleryState, instance) => {
+    (widgets, instance) => {
         const selectedElementType = getWidgetTypeFromElement(instance);
 
         const output: IImageWithWidget[] = [];
-        const { filter } = galleryState;
+        const filter = 'all';
 
         Object.values(widgets).forEach((widget) => {
             const { id, name, tags = [], screenshots = {} } = widget;

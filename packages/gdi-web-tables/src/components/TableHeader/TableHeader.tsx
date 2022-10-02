@@ -2,7 +2,7 @@ import React, { useContext, useRef } from 'react';
 import { ITableConfig, ITableField } from '../../types';
 import { Container, Th, ThActions } from './TableHeader.style';
 import { useMount } from 'react-use';
-import { TableContext } from '../Table/Table.context';
+import { TableContext } from '../../context/Table.context';
 
 export type TableHeaderProps = {
     config: ITableConfig;

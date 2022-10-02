@@ -4,7 +4,8 @@ import { Filter, FilterProps } from './Filter';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FilterDriver extends BaseComponentDriver {
-    private props: Partial<FilterProps> = {};
+    private props: Partial<FilterProps> = {
+    };
 
     constructor() {
         super('Filter');
@@ -15,9 +16,12 @@ export class FilterDriver extends BaseComponentDriver {
             render(<Filter {...(this.props as FilterProps)} />);
             return this;
         },
-        click: () => {
+        clicked: () => {
             fireEvent.click(this.container);
             return this;
+        },
+        snapshot: () => {
+            return this.snapshot(<Filter {...(this.props as FilterProps)} />);
         },
     };
 
@@ -31,6 +35,9 @@ export class FilterDriver extends BaseComponentDriver {
     get = {
         containerClassName: () => {
             return this.container.className;
+        },
+        label: () => {
+            return this.container.innerHTML;
         },
     };
 }

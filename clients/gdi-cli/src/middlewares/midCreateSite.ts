@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import cases from '../utils/cases';
-import { autoComplete } from '../utils/prompt';
+import { autoComplete } from '../utils/input';
 import { CreateMiddlewares } from '../types';
 import { Command } from '../utils/command';
 import { run } from '../cli/cli';

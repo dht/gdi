@@ -4,6 +4,7 @@ import { authChangeChannel } from './channels/channel.authChange';
 import { put } from 'redux-saga/effects';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { $s, invokeEvent, setBoolean } from 'shared-base';
+import { toast } from '@gdi/web-base-ui';
 
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 
@@ -46,11 +47,7 @@ function* authChange({ user }: any) {
         })
     );
 
-    yield put({
-        type: 'SHOW_TOAST',
-        message: `Logged in as ${displayName}`,
-        flavour: 'success',
-    });
+    toast.show(`Logged in as ${displayName}`);
 
     yield put(
         actions.users.patch(uid, {

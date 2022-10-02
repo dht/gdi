@@ -89,7 +89,6 @@ export const ArticleContextProvider = (props: ArticleContextProvider) => {
     );
 
     useInterval(() => {
-        console.log('save ->', isDirty);
         if (!isDirty) {
             return;
         }

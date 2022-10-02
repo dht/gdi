@@ -1,19 +1,16 @@
 import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { sortBy } from 'shared-base';
+import { minutesThisX } from 'shared-base';
 
-type Option = {
-    key: string;
-    text: string;
-};
+const $i = () => {};
 
 export const $instanceTypes = createSelector(
     base.$instanceTypes,
     (instanceTypes): Option[] => {
         return instanceTypes.map((instanceType) => {
             return {
-                key: instanceType,
+                id: instanceType,
                 text: instanceType,
             };
         });
@@ -35,7 +32,7 @@ export const $imageTags = createSelector(
         output.sort();
 
         return output.map((tag) => ({
-            key: tag,
+            id: tag,
             text: tag,
         }));
     }
@@ -44,25 +41,60 @@ export const $imageTags = createSelector(
 export const $imageFields = createSelector(
     base.$imageFieldsForCurrentElement,
     (imageFields): Option[] => {
-        return Object.keys(imageFields || {}).map((key) => {
-            const text = key.split('.').pop() || key;
+        return Object.keys(imageFields || {}).map((id) => {
+            const text = id.split('.').pop() || id;
+
             return {
-                key,
+                id,
                 text,
             };
         });
     }
 );
 
+export const $periods = createSelector($i, (_i): Option[] => {
+    const minutes = minutesThisX();
+
+    return [
+        {
+            id: 'lastHour',
+            text: 'Last hour',
+            max: 60,
+        },
+        {
+            id: 'today',
+            text: 'Today',
+            max: minutes.today,
+        },
+        {
+            id: 'thisWeek',
+            text: 'This week',
+            max: minutes.week,
+        },
+        {
+            id: 'thisMonth',
+            text: 'This month',
+            max: minutes.month,
+        },
+        {
+            id: 'thisYear',
+            text: 'This year',
+            max: minutes.year,
+        },
+    ];
+});
+
 export const $allOptions = createSelector(
     $instanceTypes,
     $imageTags,
     $imageFields,
-    (instanceTypes, imageTags, imageFields) => {
+    $periods,
+    (instanceTypes, imageTags, imageFields, periods) => {
         return {
             $instanceTypes: instanceTypes,
             $imageTags: imageTags,
             $imageFields: imageFields,
+            $periods: periods,
         };
     }
 );

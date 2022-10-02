@@ -1,16 +1,11 @@
-import {
-    DropdownMenuItemType,
-    IDropdownOption,
-    Dropdown as DropdownFluent,
-} from '@fluentui/react';
 import * as React from 'react';
 import { Container } from './Dropdown.style';
+import Select, { OnChangeValue, Theme } from 'react-select';
 
 type IOption = {
-    key: string;
-    text: string;
-    isHeader?: boolean;
-    isDisabled?: boolean;
+    value: string;
+    label: string;
+    options?: any;
 };
 
 export type DropdownProps = {
@@ -18,51 +13,60 @@ export type DropdownProps = {
     label?: string;
     placeholder?: string;
     value?: string;
-    onChange: (newValue: string) => void;
+    isMulti?: boolean;
+    onChange: (newValue?: string) => void;
     onKeyDown?: (ev: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 
 export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
-    const { options = [], placeholder, label = '', value } = props;
+    const { options = [], placeholder, value, isMulti } = props;
 
-    const onChange = React.useCallback(
-        (
-            _event: React.FormEvent<HTMLDivElement>,
-            option?: IDropdownOption,
-            _index?: number
-        ) => {
-            if (option) {
-                props.onChange(String(option.key));
-            }
-        },
-        []
-    );
-
-    const fluentOptions = React.useMemo((): IDropdownOption[] => {
-        return options.map((option) => {
-            return {
-                key: option.key,
-                text: option.text,
-                disabled: option.isDisabled,
-                itemType: option.isHeader
-                    ? DropdownMenuItemType.Header
-                    : DropdownMenuItemType.Normal,
-            };
-        });
-    }, [options]);
+    const onChange = React.useCallback((newValue?: any) => {
+        if (newValue && newValue.value) {
+            props.onChange(newValue.value);
+        } else {
+            props.onChange('');
+        }
+    }, []);
 
     return (
         <Container
             className='Dropdown-container'
             data-testid='Dropdown-container'
         >
-            <DropdownFluent
+            <Select
                 placeholder={placeholder}
-                label={label}
-                options={fluentOptions}
-                selectedKey={value}
+                defaultValue={value}
+                isDisabled={false}
+                isLoading={false}
+                isClearable={true}
+                isMulti={isMulti}
+                isRtl={false}
+                isSearchable={true}
+                options={options}
                 onChange={onChange}
-                onKeyDown={props.onKeyDown}
+                theme={(theme) => ({
+                    ...theme,
+                    colors: {
+                        danger: '#DE350B',
+                        dangerLight: '#FFBDAD',
+                        neutral90: 'hsl(0, 0%, 100%)',
+                        neutral80: 'hsl(0, 0%, 95%)',
+                        neutral70: 'hsl(0, 0%, 90%)',
+                        neutral60: 'hsl(0, 0%, 80%)',
+                        neutral50: 'hsl(0, 0%, 70%)',
+                        neutral40: 'hsl(0, 0%, 60%)',
+                        neutral30: 'hsl(0, 0%, 50%)',
+                        neutral20: 'hsl(0, 0%, 40%)',
+                        neutral10: 'hsl(0, 0%, 30%)',
+                        neutral5: 'hsl(0, 0%, 20%)',
+                        neutral0: '#112',
+                        primary: '#2684FF',
+                        primary75: '#DEEBFF',
+                        primary50: '#B2D4FF',
+                        primary25: '#4C9AFF',
+                    },
+                })}
             />
         </Container>
     );

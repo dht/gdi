@@ -25,12 +25,8 @@ export function Tag(props: TagProps) {
     }
 
     return (
-        <Container
-            className={className}
-            data-testid='Tag-container'
-            onClick={props.onClick}
-        >
-            <Title>{tag}</Title>
+        <Container className={className} data-testid='Tag-container'>
+            <Title onClick={props.onClick}>{tag}</Title>
             {renderDelete()}
         </Container>
     );

@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import chalk from 'chalk';
 import cases from '../utils/cases';
-import { autoComplete } from '../utils/prompt';
+import { autoComplete } from '../utils/input';
 import { CreateMiddlewares } from '../types';
 import { Command } from '../utils/command';
 
@@ -16,7 +16,8 @@ const preRun = () => async (command: Command, next: any) => {
     const templates = fs
         .readdirSync(templatesPath)
         .filter(
-            (templateName: string) => !NON_COMPONENT_TEMPLATES.includes(templateName)
+            (templateName: string) =>
+                !NON_COMPONENT_TEMPLATES.includes(templateName)
         );
 
     if (!entityName) {

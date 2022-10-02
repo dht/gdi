@@ -2,19 +2,22 @@ import { useMount } from 'react-use';
 import React, { useRef, useState } from 'react';
 import { Bk, Container, Option } from './Switch.style';
 import { SwitchOption } from '../../types';
+import classnames from 'classnames';
 
 export type SwitchProps = {
     options: SwitchOption[];
     value?: string;
     defaultValue?: string;
+    vertical?: boolean;
     onChange?: (option: SwitchOption) => void;
 };
 
 export function Switch(props: SwitchProps) {
-    const { options, value: controlledValue, defaultValue } = props;
+    const { options, value: controlledValue, defaultValue, vertical } = props;
     const [localValue, setLocalValue] = useState(defaultValue);
     const ref = useRef<HTMLDivElement>(null);
     const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
 
     useMount(() => {
         if (!ref || !ref.current) {
@@ -22,6 +25,7 @@ export function Switch(props: SwitchProps) {
         }
         const box = ref.current.getBoundingClientRect();
         setWidth(box.width);
+        setHeight(box.height);
     });
 
     const isControlled = typeof props.onChange === 'function';
@@ -65,14 +69,29 @@ export function Switch(props: SwitchProps) {
             index = 0;
         }
 
-        const itemWidth = width / options.length;
-        const left = index * itemWidth;
-        return <Bk style={{ left: `${left}px`, width: `${itemWidth}px` }} />;
+        let style: React.CSSProperties = {};
+
+        if (vertical) {
+            const itemHeight = height / options.length;
+            style.width = width + 'px';
+            style.height = itemHeight + 'px';
+            style.top = index * itemHeight + 'px';
+        } else {
+            const itemWidth = width / options.length;
+            style.width = itemWidth + 'px';
+            style.left = index * itemWidth;
+        }
+
+        return <Bk style={style} />;
     }
+
+    const className = classnames('Switch-container', {
+        vertical,
+    });
 
     return (
         <Container
-            className='Switch-container'
+            className={className}
             data-testid='Switch-container'
             ref={ref}
         >

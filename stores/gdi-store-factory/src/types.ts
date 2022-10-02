@@ -56,16 +56,6 @@ export type IFlexEntity = {
 
 export type IFlexEntities = IFlexEntity[];
 
-export type IResolution =
-    | 'mobile'
-    | 'tablet'
-    | '720p'
-    | 'HD'
-    | 'HD+'
-    | '1080p'
-    | '2k'
-    | '4k';
-
 export type IArticleStatus = 'draft' | 'published' | 'archived';
 
 export type IArticle = {
@@ -73,8 +63,10 @@ export type IArticle = {
     title: string;
     intro: string;
     imageUrl: string;
+    imageThumbUrl: string;
     imageDescription: string;
     imageSource: string;
+    radio?: number;
     authorName: string;
     publishDate: string;
     lastPublishDate: string;

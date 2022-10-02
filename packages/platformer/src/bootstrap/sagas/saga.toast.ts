@@ -1,5 +1,5 @@
-import { put, takeEvery } from 'saga-ts';
-import { toast, ToastOptions } from 'react-toastify';
+import { takeEvery } from 'saga-ts';
+import { toast } from '@gdi/web-base-ui';
 
 type ToastAction = {
     type: 'SHOW_TOAST';
@@ -11,43 +11,11 @@ type ToastAction = {
 export function* showToast(action: ToastAction): any {
     const {
         message,
-        flavour = 'info',
+        flavour = 'success',
         promise = new Promise(() => {}),
     } = action;
 
-    const options: ToastOptions = {
-        theme: 'dark',
-    };
-
-    switch (flavour) {
-        case 'error':
-            toast.error(message, options);
-            break;
-        case 'success':
-            toast.success(message, options);
-            break;
-        case 'warning':
-            toast.warn(message, options);
-            break;
-        case 'promise':
-            toast.promise(
-                promise!,
-                {
-                    pending: message,
-                    success: message,
-                    error: message,
-                },
-                options
-            );
-            break;
-        case 'info':
-            toast.info(message, options);
-            break;
-
-        case 'custom':
-            toast(message, options);
-            break;
-    }
+    toast.show(message, flavour, promise);
 }
 
 export function* root() {

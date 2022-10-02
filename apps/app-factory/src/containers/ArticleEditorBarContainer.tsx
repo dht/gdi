@@ -1,17 +1,28 @@
 import React, { useMemo } from 'react';
 import ArticleEditorBar from '../components/ArticleEditorBar/ArticleEditorBar';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectors } from '../store';
+import { actions, selectors } from '../store';
 import { useTabStopwatch } from '@gdi/hooks';
 
+const REPORT_INTERVAL_IN_SECONDS = 10;
+
 export const ArticleEditorBarContainer = () => {
-    const article = useSelector(selectors.base.$article);
+    const dispatch = useDispatch();
+    const meta = useSelector(selectors.base.$articleMeta);
 
-    // useTabStopwatch(() => {
-    // console.log('123 ->', 123);
-    // });
+    useTabStopwatch(() => {
+        if (!meta) {
+            return;
+        }
+        const minutes = REPORT_INTERVAL_IN_SECONDS / 60;
+        const nextMinutesSpentEditing = meta.minutesSpentEditing + minutes;
 
-    const timeSpent = '15h 25m';
+        dispatch(
+            actions.articles.patch(meta.id, {
+                minutesSpentEditing: nextMinutesSpentEditing,
+            })
+        );
+    }, REPORT_INTERVAL_IN_SECONDS * 1000);
 
-    return <ArticleEditorBar timeSpent={timeSpent} />;
+    return <ArticleEditorBar meta={meta} />;
 };

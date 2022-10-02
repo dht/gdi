@@ -25,24 +25,11 @@ export function ImportExportWidget(props: ImportExportWidgetProps) {
                 onClick={callbacks.openPreview}
             />
 
-            {/* <Button
-                iconName='TestBeaker'
-                selectedOptionId={mode as string}
-                onMenuClick={onMenuClick}
-                options={options}
-            /> */}
-
             <Button
                 iconName='Download'
                 tooltip='Download JSON'
                 onClick={callbacks.downloadSiteJson}
             />
-
-            {/* <Button
-                iconName='World'
-                tooltip='Load JSON from URL'
-                onClick={callbacks.importSite}
-            /> */}
         </Container>
     );
 }

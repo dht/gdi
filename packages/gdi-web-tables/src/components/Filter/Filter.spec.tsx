@@ -1,4 +1,7 @@
 import { FilterDriver } from './Filter.driver';
+import Chance from 'chance';
+
+const chance = new Chance();
 
 describe('Filter', () => {
     let driver: FilterDriver;
@@ -7,13 +10,33 @@ describe('Filter', () => {
         driver = new FilterDriver();
     });
 
-    it('should render component', () => {
-        const containerClassName = driver.given //
-            .props({})
-            .when.rendered()
-            .get.containerClassName();
+    it('should render button', () => {
+        const label = chance.word();
 
-        expect(containerClassName).toBe('Filter-container');
+        const element = driver.given
+            .props({
+                title: label,
+            })
+            .when.rendered();
+
+        const containerClassName = element.get.containerClassName();
+        const innerText = element.get.label();
+
+        expect(containerClassName).toContain('Filter-container');
+        expect(innerText).toBe(label);
+    });
+
+    it('should click button', () => {
+        const callback = jest.fn();
+
+        driver.given
+            .props({
+                onClick: callback,
+            })
+            .when.rendered()
+            .when.clicked();
+
+        expect(callback).toHaveBeenCalledTimes(1);
     });
 });
 
@@ -24,7 +47,7 @@ describe('Filter snapshots', () => {
         driver = new FilterDriver();
     });
 
-    it('should render component', () => {
+    it('should match snapshot', () => {
         expect(driver.when.snapshot()).toMatchSnapshot();
     });
 });

@@ -1,6 +1,8 @@
 import { state } from './state';
 import { seed } from '@gdi/store-seeder';
 
+console.log('libraryImages ->', state.libraryImages);
+
 const nodeTypes = {
     appStateMixer: 'single',
     meta: 'single',

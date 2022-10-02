@@ -6,7 +6,7 @@ import { definitions } from '../components/Layouts/definitions/sub';
 import { useMount } from 'react-use';
 import { guid4 } from 'shared-base';
 import { useNavigate } from 'react-router-dom';
-import { prompt } from '@gdi/platformer';
+import { prompt } from '@gdi/web-ui';
 
 export const LayoutTableContainer = () => {
     const dispatch = useDispatch();

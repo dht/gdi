@@ -1,0 +1,27 @@
+{
+    "id": "NewArticle",
+    "header": "New Article",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "title",
+            "fieldType": "text",
+            "placeholder": "Article's name",
+            "label": "Title",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

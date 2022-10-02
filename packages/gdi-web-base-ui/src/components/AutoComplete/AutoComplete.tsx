@@ -8,7 +8,7 @@ export type AutoCompleteProps = {
     onChange: (value: string, isNew?: boolean) => void;
     placeholder?: string;
     options: Options<any>;
-    onBlur: () => void;
+    onBlur?: () => void;
     onKeyDown?: (ev: React.KeyboardEvent<HTMLInputElement>) => void;
 };
 

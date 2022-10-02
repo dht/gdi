@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './ElementSelector.style';
 
 type Option = {
-    key: string;
+    id: string;
     text: string;
 };
 

@@ -134,3 +134,13 @@ export type IBreakpoint = {
 };
 
 export type IBreakpoints = Record<string, IBreakpoint>;
+
+export type IResolution =
+    | 'mobile'
+    | 'tablet'
+    | '720p'
+    | 'HD'
+    | 'HD+'
+    | '1080p'
+    | '2k'
+    | '4k';

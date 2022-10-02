@@ -13,6 +13,11 @@ export const Container = styled.div`
     align-items: center;
     position: relative;
     min-height: 34px;
+
+    &.vertical {
+        flex-direction: column;
+        align-self: stretch;
+    }
 `;
 
 export const Option = styled.div<{ selected: boolean }>`

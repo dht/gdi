@@ -1,4 +1,3 @@
-import Field from '../Field/Field';
 import React, {
     useCallback,
     useEffect,
@@ -6,14 +5,9 @@ import React, {
     useMemo,
     useState,
 } from 'react';
+import Field from '../Field/Field';
 import { Container, FormContainer, Group } from './Form.style';
-import {
-    AllDetails,
-    AllMethods,
-    IFormConfig,
-    IFormField,
-    IFormLayoutGroup,
-} from '../../types';
+import { IFormField, IFormLayoutGroup, IFormProps } from '../../types';
 import { layouts } from '../Layouts/Layouts';
 import { FormProvider, useForm, UseFormWatch } from 'react-hook-form';
 import { useMount, useSetState } from 'react-use';
@@ -22,25 +16,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { get, isEmpty } from 'lodash';
 import { rulesToYup } from '../../utils/yup';
 
-export type FormProps = {
-    config: IFormConfig;
-    data: Json;
-    allOptions?: Json;
-    allDetails?: AllDetails;
-    allMethods?: AllMethods;
-    autoFocus?: boolean;
-    showGroup?: (groupId: string, data: Json) => boolean;
-    onSave: (change: Json, allData: Json) => Promise<boolean>;
-    onChange?: (change: Json) => void;
-    onClose?: () => void;
-    children?: JSX.Element | JSX.Element[];
-    methods?: Record<string, Method>;
-    t?: (key: string) => string;
-};
-
-type Method = (...arg: any[]) => any;
-
-export function Form(props: FormProps) {
+export function Form(props: IFormProps) {
     const ref = useRef<HTMLFormElement>(null);
     const {
         config,

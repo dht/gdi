@@ -3,7 +3,7 @@
         "target": "ES2020",
         "moduleResolution": "node",
         "baseUrl": "../../../",
-        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "types": ["types-base", "@gdi/types", "@types/jest", "node"],
         "paths": {
             "firestore": ["submodules/firestore-local"]
         }

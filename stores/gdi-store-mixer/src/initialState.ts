@@ -22,25 +22,6 @@ export const initialState: IMixerStore = {
         libraryInstanceId: '',
         fieldId: '',
     },
-    galleryState: {
-        stateKey: 'galleryState',
-        mode: 'full',
-        selectedToolId: 'select',
-        showTools: true,
-        showTagModal: false,
-        search: '',
-        tag: 'background',
-        selectedIds: [],
-        favoriteIds: [],
-        temporaryIds: [],
-        deletedIds: [],
-    },
-    widgetGalleryState: {
-        stateKey: 'widgetGalleryState',
-        mode: 'minimal',
-        filter: 'byType',
-        search: '',
-    },
     libraryImages: {
         '1': {
             id: '1',

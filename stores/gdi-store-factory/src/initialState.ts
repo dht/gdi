@@ -5,7 +5,7 @@ import { IFactoryStore } from './types';
 export const initialState: IFactoryStore = {
     appStateFactory: {
         stateKey: 'factory',
-        mode: 'structure',
+        mode: 'table',
         selectedToolId: 'data',
         showItemsInTable: false,
         showPropertiesModal: false,
@@ -91,6 +91,7 @@ export const reducers = generateReducersForStore<IFactoryStore>(initialState);
 
 export const clearState = (store: any) => {
     setTimeout(() => {
+        store.dispatch(actions.articles.setAll({}));
         store.dispatch(actions.layouts.setAll({}));
     });
     return store;

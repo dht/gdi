@@ -1,22 +1,19 @@
 import { AllRoutes } from './Bootstrap.routes';
 import { bootstrapApp } from './Bootstrap.code';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
-import { Theme, CommandBar, ContextBar, ScreenLoader } from '@gdi/web-ui';
+import { Theme, ScreenLoader, Prompt, Toast, Form } from '@gdi/web-ui';
 import { Content, Version } from './Bootstrap.style';
 import { init as initNavigation } from '../../sagas/saga.navigate';
-import { Provider, useDispatch } from 'react-redux';
-import { SideMenuContainer } from '../../containers/SideMenuContainer';
-import { ToastBarContainer } from '../../containers/ToastBarContainer';
-import { useCallback, useContext } from 'react';
+import { Provider } from 'react-redux';
 import { useMount } from 'react-use';
-import { ICommandBarItem, IPlatformConfig } from '../../../types';
+import { IPlatformConfig } from '../../../types';
 import {
     PlatformContext,
     PlatformContextProvider,
 } from '../../../core/platform-context';
 import { I18nProvider } from '../../../i18n/i18n.provider';
-import PromptContainer from '../../containers/PromptContainer';
 import { $s } from 'shared-base';
+import { useContext } from 'react';
 
 export type BootstrapProps = {
     config: IPlatformConfig;
@@ -46,8 +43,8 @@ export const Bootstrap = (props: BootstrapProps) => {
                         </Content>
                         <History />
                     </Router>
-                    <ToastBarContainer />
-                    <PromptContainer />
+                    <Toast />
+                    <Prompt formComponent={Form} />
                 </I18nProvider>
             </Provider>
         </Theme>

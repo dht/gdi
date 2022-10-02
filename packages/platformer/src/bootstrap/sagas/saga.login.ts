@@ -1,6 +1,7 @@
 import { actions } from '../../stores/auth/actions';
 import { put, takeEvery } from 'saga-ts';
 import { loginInstance } from '../../auth/initAuth';
+import { toast } from '@gdi/web-ui';
 
 type LoginAction = {
     type: 'LOGIN';
@@ -61,22 +62,14 @@ function* loginWithGoogle(action: LoginWithGoogleAction) {
 function* onLoginError(action: OnLoginErrorAction) {
     const { errorMessage } = action;
 
-    yield put({
-        type: 'SHOW_TOAST',
-        message: errorMessage,
-        flavour: 'error',
-    });
+    toast.show(errorMessage, 'error');
 }
 
 function* onLoginCompleted(action: OnLoginCompletedAction) {
     const { data } = action;
     const name = data?.firstName || data?.email;
 
-    yield put({
-        type: 'SHOW_TOAST',
-        message: `Logged in as ${name}`,
-        flavour: 'success',
-    });
+    toast.show(`Logged in as ${name}`);
 
     yield put({ type: 'AUTHENTICATION_COMPLETED' });
     yield put(actions.appStateAuth.patch({ isLoggedIn: true }));

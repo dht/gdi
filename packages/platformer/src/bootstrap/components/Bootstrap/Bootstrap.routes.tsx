@@ -17,6 +17,7 @@ import { AppContent } from './Bootstrap.style';
 import ContextBarContainer from '../../containers/ContextBarContainer';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { $s } from 'shared-base';
+import { SwitcherContainer } from '../../containers/SwitcherContainer';
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
@@ -81,6 +82,7 @@ export const App = () => {
             <MainRoutes />
             <OverlayRoutes />
             <SideMenuContainer />
+            <SwitcherContainer />
             <ContextBarContainer
                 contextBarItems={contextBarItems}
                 widgetLibrary={widgetLibrary}

@@ -1,40 +1,22 @@
 import React from 'react';
 import { Container } from './LibraryImages.style';
-import { IImage, ImageActionType, ImageGallery } from '@gdi/galleries';
+import { IImage, ImageGallery } from '@gdi/web-ui';
 
 export type LibraryImagesProps = {
     items: IImage[];
-    state: IGalleryState;
-    columns?: number;
     callbacks: {
-        onUploadImage: () => void;
-        onImageAction: (
-            id: string,
-            action: ImageActionType,
-            data?: Json
-        ) => void;
-        onSelectTool: (toolId: string) => void;
-        onTagClick: (tag: string) => void;
-        onTagClear: () => void;
-        onViewChange: (viewId: string) => void;
-        onSearch: (search?: string) => void;
+        onGalleryItemAction: OnGalleryItemAction;
+        onGalleryAction: OnGalleryAction;
     };
 };
 
 export function LibraryImages(props: LibraryImagesProps) {
-    const { items, state, columns, callbacks } = props;
+    const { items, callbacks } = props;
 
-    const {
-        mode,
-        selectedToolId,
-        search,
-        tag,
-        selectedIds,
-        favoriteIds,
-        temporaryIds,
-        deletedIds,
-        showTools,
-    } = state;
+    const options: IGalleryOptions = {
+        selectionMode: 'browse',
+        doubleClickAction: 'edit',
+    };
 
     return (
         <Container
@@ -43,17 +25,9 @@ export function LibraryImages(props: LibraryImagesProps) {
         >
             <ImageGallery
                 items={items}
-                viewMode={mode}
-                selectedToolId={selectedToolId}
-                search={search}
-                tag={tag}
-                showTools={showTools}
-                selectedIds={selectedIds}
-                favoriteIds={favoriteIds}
-                temporaryIds={temporaryIds}
-                deletedIds={deletedIds}
-                callbacks={callbacks}
-                columns={columns}
+                options={options}
+                onAction={callbacks.onGalleryAction}
+                onItemAction={callbacks.onGalleryItemAction}
             />
         </Container>
     );

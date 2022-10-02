@@ -1,6 +1,6 @@
 import { actions, selectors } from '../store';
 import { call, fork, put, select, takeEvery, delay, take } from 'saga-ts';
-import { prompt } from '@gdi/platformer';
+import { prompt } from '@gdi/web-ui';
 
 function* editFlex() {
     const currentIds = yield* select(selectors.raw.$rawCurrentIds);
