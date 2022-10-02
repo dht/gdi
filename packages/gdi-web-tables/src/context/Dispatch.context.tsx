@@ -1,0 +1,47 @@
+import React, { useMemo } from 'react';
+import { createContext } from 'react';
+import { WithChildren } from '../types';
+
+type DispatchContextProps = {
+    dispatch: any;
+};
+
+type IDispatchContext = {
+    callbacks: {
+        dispatch: any;
+    };
+};
+
+const initialValue: IDispatchContext = {
+    callbacks: {
+        dispatch: (action: any) => {},
+    },
+};
+
+export const DispatchContext = createContext<IDispatchContext>(initialValue);
+
+export const DispatchContextProvider = (
+    props: WithChildren<DispatchContextProps>
+) => {
+    const { dispatch } = props;
+
+    const callbacksDispatch = useMemo(
+        () => ({
+            dispatch: (action: any) => {
+                console.log('action ->', action);
+                return dispatch(action);
+            },
+        }),
+        [dispatch]
+    );
+
+    return (
+        <DispatchContext.Provider
+            value={{
+                callbacks: callbacksDispatch,
+            }}
+        >
+            {props.children}
+        </DispatchContext.Provider>
+    );
+};

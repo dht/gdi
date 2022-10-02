@@ -5,11 +5,7 @@ type UseFilterValueCallbacks = {
     onSearch: (value?: string) => void;
     patchSort: (value: Partial<ISortValue>) => void;
     onFilter: (filterId: string, optionId: string, remove?: boolean) => void;
-    onFilterClear: (
-        filterId: string,
-        optionId: string,
-        remove?: boolean
-    ) => void;
+    onFilterClear: () => void;
     onSort: (optionId: string) => void;
 };
 
@@ -67,7 +63,20 @@ export function useFilterValue(config: IFilterConfig): UseFilterValueReturn {
                 );
                 patchIdsPerFilter(emptyValue);
             },
-            onSort: (optionId: string) => {},
+            onSort: (optionId: string) => {
+                const { id, direction } = sort;
+
+                let nextDirection: 'asc' | 'desc' = 'asc';
+
+                if (id === optionId && direction === 'asc') {
+                    nextDirection = 'desc';
+                }
+
+                patchSort({
+                    id: optionId,
+                    direction: nextDirection,
+                });
+            },
         }),
         [search, sort, idsPerFilter]
     );

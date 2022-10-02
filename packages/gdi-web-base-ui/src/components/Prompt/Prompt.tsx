@@ -13,6 +13,7 @@ import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { Icon } from '@fluentui/react';
 import { AutoComplete } from '../AutoComplete/AutoComplete';
+import classnames from 'classnames';
 
 export type PromptProps = {
     title: string;
@@ -20,7 +21,7 @@ export type PromptProps = {
     params: Json;
     submitButtonText: string;
     onCancel: () => void;
-    onSubmit: (value?: any) => void;
+    onSubmit: (value?: any) => Promise<boolean>;
     formComponent?: FC<IFormProps>;
 };
 
@@ -84,15 +85,15 @@ export function Prompt(props: PromptProps) {
         switch (flavour) {
             case 'confirm':
                 return (
-                    <Content>
+                    <>
                         {renderDescription()}
                         {renderWarning()}
-                    </Content>
+                    </>
                 );
 
             case 'input':
                 return (
-                    <Content>
+                    <>
                         {renderDescription()}
                         <Input
                             placeholder={params.placeholder}
@@ -104,12 +105,12 @@ export function Prompt(props: PromptProps) {
                             }}
                         />
                         {renderWarning()}
-                    </Content>
+                    </>
                 );
 
             case 'select':
                 return (
-                    <Content>
+                    <>
                         {renderDescription()}
                         <AutoComplete
                             placeholder={params.placeholder}
@@ -119,7 +120,7 @@ export function Prompt(props: PromptProps) {
                             onChange={setValue}
                         />
                         {renderWarning()}
-                    </Content>
+                    </>
                 );
 
             case 'form':
@@ -129,14 +130,42 @@ export function Prompt(props: PromptProps) {
                     return null;
                 }
                 return (
-                    <Content>
-                        <Cmp {...params} onSubmit={props.onSubmit} />
-                    </Content>
+                    <>
+                        <Cmp
+                            {...(params as any)}
+                            onClose={onClose}
+                            onSave={props.onSubmit}
+                        />
+                    </>
                 );
         }
     }
 
+    function renderActions() {
+        if (flavour === 'form') {
+            return null;
+        }
+
+        return (
+            <Actions>
+                <Button title='Cancel' onClick={onClose} />
+                <Button
+                    primary
+                    title={submitButtonText}
+                    onClick={onSubmit}
+                    shortKey={{
+                        withCtrl: true,
+                        key: '5',
+                    }}
+                />
+            </Actions>
+        );
+    }
+
     const focusOnClassName = focusOnSubmit ? '.ms-Button--primary' : '';
+
+    const className = classnames('Prompt-container', flavour, {});
+    const classNameContent = classnames(flavour, {});
 
     return (
         <Modal
@@ -147,23 +176,12 @@ export function Prompt(props: PromptProps) {
             focusOnClassName={focusOnClassName}
         >
             <Container
-                className='Prompt-container'
+                className={className}
                 data-testid='Prompt-container'
                 ref={ref}
             >
-                {renderInner()}
-                <Actions>
-                    <Button title='Cancel' onClick={onClose} />
-                    <Button
-                        primary
-                        title={submitButtonText}
-                        onClick={onSubmit}
-                        shortKey={{
-                            withCtrl: true,
-                            key: '5',
-                        }}
-                    />
-                </Actions>
+                <Content className={classNameContent}>{renderInner()}</Content>
+                {renderActions()}
             </Container>
         </Modal>
     );

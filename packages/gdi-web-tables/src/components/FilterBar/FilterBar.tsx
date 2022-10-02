@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
+import Filters from '../Filters/Filters';
 import Tagger from '../Tagger/Tagger';
 import { Button, Search, Toolbar } from '@gdi/web-base-ui';
+import { FilterContext } from '../../context/Filter.context';
+import { flatten, isEmpty } from 'lodash';
+import { IBarAction } from '../../types';
+import { SelectionContext } from '../../context/Selection.context';
 import {
     Actions,
     Clear,
@@ -13,14 +18,10 @@ import {
     Header,
     HeaderText,
 } from './FilterBar.style';
-import { IBarAction } from '../../types';
-import Filters from '../Filters/Filters';
-import { FilterContext } from '../../context/Filter.context';
-import { SelectionContext } from '../../context/Selection.context';
-import { isEmpty, flatten } from 'lodash';
 
 export type FilterBarProps = {
     header: string;
+    onAction: (actionId: string) => void;
 };
 
 export function FilterBar(props: FilterBarProps) {
@@ -29,7 +30,7 @@ export function FilterBar(props: FilterBarProps) {
     const contextSelection = useContext(SelectionContext);
 
     const { state, callbacks, config, data = [] } = context;
-    const { tag, showFilter, trio, allOptions } = state;
+    const { tag, showFilter, trio } = state;
     const { search } = trio;
 
     const { state: selectedIds, callbacks: callbacksSelection } =
@@ -61,7 +62,7 @@ export function FilterBar(props: FilterBarProps) {
             <Button
                 key={action.id}
                 title={title}
-                // onClick={() => onGalleryAction(action)}
+                onClick={() => props.onAction(action.id)}
                 iconName={iconName}
                 primary
             />
@@ -75,7 +76,7 @@ export function FilterBar(props: FilterBarProps) {
     function renderFilters() {
         const style = {
             maxHeight: showFilter ? '300px' : '0px',
-            overflow: showFilter ? 'visible' : 'hidden',
+            overflow: showFilter ? 'hidden' : 'hidden',
         };
 
         return (
@@ -85,7 +86,6 @@ export function FilterBar(props: FilterBarProps) {
                     onSort={callbacks.onSort}
                     value={trio}
                     config={config}
-                    allOptions={allOptions}
                 />
             </ContainerFilter>
         );
@@ -115,7 +115,11 @@ export function FilterBar(props: FilterBarProps) {
                         {renderSelectedCount()}
                     </Count>
                 </Header>
-                <Toolbar horizontal items={tools} onClick={() => {}} />
+                <Toolbar
+                    horizontal
+                    items={tools}
+                    onClick={(item: any) => props.onAction(item.id)}
+                />
                 <Flex />
                 <Tagger
                     tag={tag}
@@ -126,7 +130,7 @@ export function FilterBar(props: FilterBarProps) {
                 {renderClearFilter()}
                 <Button iconName='Filter' onClick={callbacks.toggleFilter} />
                 <Search value={search} onChange={callbacks.onSearch} />
-                {renderActions()}
+                <Actions>{renderActions()}</Actions>
             </ContainerBar>
             {renderFilters()}
         </Container>
@@ -150,7 +154,7 @@ export const tools: any[] = [
 
 const actions: any[] = [
     {
-        id: 'edit',
+        id: 'new',
         title: 'New',
         iconName: 'Add',
     },

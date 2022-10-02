@@ -27,35 +27,35 @@ import widgetsDefault from './default/json/d.form.widgets.default.json';
 
 export const formsNew: Record<string, IFormConfig> = {
     // @ts-expect-error
-    articles: articlesNew, // @ts-expect-error
-    events: eventsNew, // @ts-expect-error
-    images: imagesNew, // @ts-expect-error
-    layouts: layoutsNew, // @ts-expect-error
-    posts: postsNew, // @ts-expect-error
-    ppl: pplNew, // @ts-expect-error
-    tickets: ticketsNew, // @ts-expect-error
-    widgets: widgetsNew,
+    article: articlesNew, // @ts-expect-error
+    event: eventsNew, // @ts-expect-error
+    image: imagesNew, // @ts-expect-error
+    layout: layoutsNew, // @ts-expect-error
+    post: postsNew, // @ts-expect-error
+    person: pplNew, // @ts-expect-error
+    ticket: ticketsNew, // @ts-expect-error
+    widget: widgetsNew,
 };
 
 export const formsEdit: Record<string, IFormConfig> = {
     // @ts-expect-error
-    articles: articlesEdit, // @ts-expect-error
-    events: eventsEdit, // @ts-expect-error
-    images: imagesEdit, // @ts-expect-error
-    layouts: layoutsEdit, // @ts-expect-error
-    posts: postsEdit, // @ts-expect-error
-    ppl: pplEdit, // @ts-expect-error
-    tickets: ticketsEdit, // @ts-expect-error
-    widgets: widgetsEdit,
+    article: articlesEdit, // @ts-expect-error
+    event: eventsEdit, // @ts-expect-error
+    image: imagesEdit, // @ts-expect-error
+    layout: layoutsEdit, // @ts-expect-error
+    post: postsEdit, // @ts-expect-error
+    person: pplEdit, // @ts-expect-error
+    ticket: ticketsEdit, // @ts-expect-error
+    widget: widgetsEdit,
 };
 
 export const formsNewDefault: Record<string, Json> = {
-    articles: articlesDefault,
-    events: eventsDefault,
-    images: imagesDefault,
-    layouts: layoutsDefault,
-    posts: postsDefault,
-    ppl: pplDefault,
-    tickets: ticketsDefault,
-    widgets: widgetsDefault,
+    article: articlesDefault,
+    event: eventsDefault,
+    image: imagesDefault,
+    layout: layoutsDefault,
+    post: postsDefault,
+    person: pplDefault,
+    ticket: ticketsDefault,
+    widget: widgetsDefault,
 };

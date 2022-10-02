@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import { minutesPassed } from 'shared-base';
+import { minutesPassed, sortBy } from 'shared-base';
 
 export const filterByConfig = (
     config: IFilterConfig,
@@ -7,7 +7,8 @@ export const filterByConfig = (
     params: ITrio
 ) => {
     const { fields } = config;
-    const { filter } = params;
+    const { filter, sort } = params;
+    const { direction, id: sortFieldId } = sort;
 
     let output = [...data];
 
@@ -16,6 +17,10 @@ export const filterByConfig = (
         const value = filter[key];
         output = filterByField(output, field, value);
     });
+
+    if (sortFieldId) {
+        output = output.sort(sortBy(sortFieldId, direction));
+    }
 
     return output;
 };

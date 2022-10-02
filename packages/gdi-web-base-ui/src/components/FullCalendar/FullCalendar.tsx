@@ -41,8 +41,6 @@ export function FullCalendar(_props: FullCalendarProps) {
             className='FullCalendar-container'
             data-testid='FullCalendar-container'
         >
-            <span>header</span>
-
             <FullCalendarUI
                 plugins={[
                     dayGridPlugin,

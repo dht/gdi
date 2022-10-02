@@ -55,7 +55,7 @@ export const SelectionContextProvider = (
                 onSelectionClear();
             },
         }),
-        []
+        [selectedIds]
     );
 
     const value = useMemo(

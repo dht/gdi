@@ -8,6 +8,7 @@ import { ICrudDefinitions } from '../types';
 
 export const definitions: Record<string, ICrudDefinitions> = {
     article: {
+        nodeName: 'articles',
         filters: filters.article,
         formNew: formsNew.article,
         formNewDefault: formsNewDefault.article,
@@ -18,6 +19,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.article,
     },
     event: {
+        nodeName: 'events',
         filters: filters.event,
         formNew: formsNew.event,
         formNewDefault: formsNewDefault.event,
@@ -28,6 +30,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.event,
     },
     image: {
+        nodeName: 'images',
         filters: filters.image,
         formNew: formsNew.image,
         formNewDefault: formsNewDefault.image,
@@ -38,6 +41,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.image,
     },
     layout: {
+        nodeName: 'layouts',
         filters: filters.layout,
         formNew: formsNew.layout,
         formNewDefault: formsNewDefault.layout,
@@ -48,6 +52,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.layout,
     },
     post: {
+        nodeName: 'posts',
         filters: filters.post,
         formNew: formsNew.post,
         formNewDefault: formsNewDefault.post,
@@ -58,6 +63,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.post,
     },
     person: {
+        nodeName: 'persons',
         filters: filters.person,
         formNew: formsNew.person,
         formNewDefault: formsNewDefault.person,
@@ -68,6 +74,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.person,
     },
     ticket: {
+        nodeName: 'tickets',
         filters: filters.ticket,
         formNew: formsNew.ticket,
         formNewDefault: formsNewDefault.ticket,
@@ -78,6 +85,7 @@ export const definitions: Record<string, ICrudDefinitions> = {
         timeline: timelines.ticket,
     },
     widget: {
+        nodeName: 'widgets',
         filters: filters.widget,
         formNew: formsNew.widget,
         formNewDefault: formsNewDefault.widget,

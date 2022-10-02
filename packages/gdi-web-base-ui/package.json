@@ -32,7 +32,7 @@
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
-        "@gdi/types": "^0.0.39",
+        "@gdi/types": "^0.0.41",
         "@testing-library/react": "^13.3.0",
         "@types/bytes": "^3.1.1",
         "@types/chance": "^1.1.3",

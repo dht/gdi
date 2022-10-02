@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Container } from './Dropdown.style';
-import Select, { OnChangeValue, Theme } from 'react-select';
+import Select from 'react-select';
 
 type IOption = {
     value: string;
     label: string;
-    options?: any;
 };
 
 export type DropdownProps = {
@@ -43,7 +42,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
                 isMulti={isMulti}
                 isRtl={false}
                 isSearchable={true}
-                options={options}
+                options={options as any}
                 onChange={onChange}
                 theme={(theme) => ({
                     ...theme,

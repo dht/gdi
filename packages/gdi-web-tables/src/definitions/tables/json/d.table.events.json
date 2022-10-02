@@ -1,6 +1,6 @@
 {
-    "id": "LayoutsSubTable",
-    "header": "Layouts Items",
+    "id": "EventsSubTable",
+    "header": "Events Items",
     "fields": [
         {
             "id": "id",

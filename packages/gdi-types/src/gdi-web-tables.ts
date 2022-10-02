@@ -45,6 +45,7 @@ declare global {
     };
 
     export type ICrudDefinitions = {
+        nodeName: string;
         table: ITableConfig;
         formNew: IFormConfig;
         formNewDefault?: Json;
@@ -72,9 +73,6 @@ declare global {
 
     export type ICrudState = {
         viewMode: IViewMode;
-        showNewForm: boolean;
-        showEditForm: boolean;
-        editFormItemId: string;
     };
 
     // =============== Galleries ===============

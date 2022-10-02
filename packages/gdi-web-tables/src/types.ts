@@ -40,6 +40,7 @@ export type ITableRowAction = {
 };
 
 export type ICrudDefinitions = {
+    nodeName: string;
     table: ITableConfig;
     formNew: IFormConfig;
     formNewDefault?: Json;
@@ -67,9 +68,6 @@ export type IViewMode =
 
 export type ICrudState = {
     viewMode: IViewMode;
-    showNewForm: boolean;
-    showEditForm: boolean;
-    editFormItemId: string;
 };
 
 // =============== Galleries ===============

@@ -8,7 +8,6 @@ export type FilterProps = {
     value: string[];
     onClick: (optionId: string) => void;
     onRemove: (optionId: string) => void;
-    onSet?: (newValue: []) => void;
 };
 
 export function Filter(props: FilterProps) {

@@ -6,6 +6,11 @@ export const Container = styled.div`
     min-height: 120px;
     display: flex;
     flex-direction: column;
+    color: #eee;
+
+    &.form {
+        padding-bottom: 10px;
+    }
 `;
 
 export const P = styled.p`
@@ -15,6 +20,10 @@ export const P = styled.p`
 
 export const Content = styled.div`
     padding-bottom: 30px;
+
+    &.form {
+        padding-bottom: 0;
+    }
 `;
 
 export const Actions = styled.div`

@@ -8,7 +8,6 @@ export type FilterAutoProps = {
     value: string[];
     onClick: (optionId: string) => void;
     onRemove: (optionId: string) => void;
-    onSet?: (newValue: []) => void;
 };
 
 export function FilterAuto(props: FilterAutoProps) {
@@ -62,7 +61,7 @@ export function FilterAuto(props: FilterAutoProps) {
             <Button title='go' onClick={() => props.onClick('Alex Miller')} />
             <Dropdown
                 options={optionsForDropdown}
-                onChange={(optionId) => props.onClick(optionId)}
+                onChange={(optionId?: string) => props.onClick(optionId || '')}
             />
         </Container>
     );

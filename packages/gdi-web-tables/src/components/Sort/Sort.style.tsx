@@ -19,10 +19,19 @@ export const Items = styled.ul`
 
 export const Item = styled.li`
     margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &.selected {
+        color: gold;
+        font-weight: bold;
+    }
 `;
 
 export const A = styled.a`
     cursor: pointer;
+    padding-right: 7px;
 
     &:hover {
         text-decoration: underline;
@@ -31,5 +40,18 @@ export const A = styled.a`
     &.selected {
         color: gold;
         font-weight: bold;
+    }
+`;
+
+export const X = styled.div`
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 13px;
+
+    &:hover {
+        color: gold;
     }
 `;

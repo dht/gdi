@@ -98,6 +98,7 @@ export {
     Sheet,
     Sheets,
     Multi,
+    Timeline,
     AnyGallery,
     ArticleGallery,
     EventGallery,

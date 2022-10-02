@@ -10,6 +10,7 @@ import {
     ItemActionType,
     WithChildren,
 } from '../types';
+import { SelectionContext } from './Selection.context';
 
 type GalleryContextProps = {
     config: IGalleryConfig;
@@ -53,8 +54,16 @@ export const GalleryContext = createContext<IGalleryContext>(initialValue);
 export const GalleryContextProvider = (
     props: WithChildren<GalleryContextProps>
 ) => {
-    const { config, options } = props;
+    const { config, options, callbacks } = props;
+
     const filterContext = useContext(FilterContext);
+    const { state: filterState } = filterContext;
+    const { tag } = filterState;
+    const { callbacks: callbacksSelect, state: selectedIds } =
+        useContext(SelectionContext);
+
+    const columns =
+        config.columns || options.columns || initialValue.options.columns;
 
     const configValue = useMemo(
         () => ({
@@ -63,6 +72,7 @@ export const GalleryContextProvider = (
             options: {
                 ...initialValue.options,
                 ...options,
+                columns,
             },
         }),
         []
@@ -75,25 +85,33 @@ export const GalleryContextProvider = (
     const callbacksGallery = useMemo(
         () => ({
             onClick: (id: string, item: IItem) => {
-                // if (filterContext.state.tag) {
-                // filterContext.tagItem(id, item);
-                // return;
-                // }
-                // onSelectionClick(id);
+                if (tag) {
+                    const actionId = item.tags.includes(tag)
+                        ? 'removeTag'
+                        : 'addTag';
+
+                    callbacks.onItemAction(id, actionId, {
+                        tag,
+                    });
+
+                    return;
+                }
+
+                callbacksSelect.onSelect(id);
             },
 
             onDoubleClick: (id: string) => {
-                // if (selectedIds.length === 0) {
-                // return;
-                // }
-                // const firstId = selectedIds[0];
+                if (selectedIds.length === 0) {
+                    return;
+                }
+                const firstId = selectedIds[0];
                 // props.onItemAction(firstId, 'edit');
             },
             onAction: (actionId: ItemActionType, data?: Json) => {
                 // props.onAction(actionId, data);
             },
         }),
-        [state]
+        [state, selectedIds, tag]
     );
 
     return (

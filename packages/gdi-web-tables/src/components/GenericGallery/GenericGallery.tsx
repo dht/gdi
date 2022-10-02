@@ -1,14 +1,15 @@
 import React, { FC, useContext, useRef } from 'react';
-import { Container, Content } from './GenericGallery.style';
 import GenericOverlay from '../GenericOverlay/GenericOverlay';
 import Masonry, { MasonryItemProps } from '../Masonry/Masonry';
+import { Container, Content } from './GenericGallery.style';
+import { Empty } from '@gdi/web-base-ui';
+import { FilterContext } from '../../context/Filter.context';
 import { IGalleryConfig, IGalleryOptions, IImage } from '../../types';
-import { Empty } from '@gdi/web-ui';
+import { SelectionContext } from '../../context/Selection.context';
 import {
     GalleryContext,
     GalleryContextProvider,
 } from '../../context/Gallery.context';
-import { FilterContext } from '../../context/Filter.context';
 
 export type GenericGalleryProps = {
     config: IGalleryConfig;
@@ -22,21 +23,21 @@ export type GenericGalleryProps = {
 };
 
 export type GenericGalleryInnerProps = {
-    items?: IImage[];
     columns?: number;
     customItem?: FC<MasonryItemProps>;
 };
 
 export function GenericGalleryInner(props: GenericGalleryInnerProps) {
-    const { items = [], customItem } = props;
+    const { customItem } = props;
     const { options, callbacks } = useContext(GalleryContext);
     const filterContext = useContext(FilterContext);
+    const { state: selectedIds } = useContext(SelectionContext);
     const { columns } = options;
     const ref = useRef<HTMLDivElement>(null);
     const { data = [] } = filterContext;
+
     function renderOverlay(item: IImage) {
-        // const isSelected = selectedIds.includes(String(item.id));
-        const isSelected = true;
+        const isSelected = selectedIds.includes(String(item.id));
 
         return (
             <GenericOverlay
@@ -84,7 +85,7 @@ export const GenericGallery = (props: GenericGalleryProps) => {
             options={options as any}
             callbacks={callbacks}
         >
-            <GenericGalleryInner items={items} />
+            <GenericGalleryInner />
         </GalleryContextProvider>
     );
 };

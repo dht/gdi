@@ -7,6 +7,7 @@ export { Sheet } from './components/Sheet/Sheet';
 export { SheetsContainer as Sheets } from './components/Sheets/SheetsContainer';
 export { GenericGallery } from './components/GenericGallery/GenericGallery';
 export { Masonry } from './components/Masonry/Masonry';
+export { Timeline } from './components/Timeline/Timeline';
 export {
     AnyGallery,
     ArticleGallery,

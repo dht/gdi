@@ -8,8 +8,6 @@ export function useFilterData(
     data: Json[],
     params: ITrio
 ): Json[] {
-    const { filter } = params;
-
     const fuse = useMemo(
         () =>
             new Fuse(data, {
@@ -27,7 +25,7 @@ export function useFilterData(
             : fuse.search(params.search).map((i) => i.item);
 
         return filterByConfig(config, output, params);
-    }, [params.search, filter, data]);
+    }, [params.search, params.sort, params.filter, data]);
 
     return filteredData;
 }

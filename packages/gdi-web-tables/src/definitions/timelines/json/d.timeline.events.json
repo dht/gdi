@@ -1,6 +1,6 @@
 {
-    "id": "LayoutTimeline",
-    "header": "Layouts Timeline",
+    "id": "EventTimeline",
+    "header": "Events Timeline",
     "fields": [
         {
             "id": "id",

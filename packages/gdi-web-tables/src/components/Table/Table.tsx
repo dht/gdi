@@ -1,21 +1,18 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import GenericTable from '../GenericTable/GenericTable';
 import TableHeader from '../TableHeader/TableHeader';
 import TableRow from '../TableRow/TableRow';
 import { Container, Content } from './Table.style';
 import { ITableConfig } from '../../types';
 import { useDelete } from '@gdi/hooks';
-import {
-    TableContext,
-    TableContextProvider,
-} from '../../context/Table.context';
+import { TableContextProvider } from '../../context/Table.context';
 import { SelectionContext } from '../../context/Selection.context';
 
 export type TableProps = {
     config: ITableConfig;
     data: Json[];
     onAction: (actionType: string) => void;
-    onRowAction: (itemId: string | string[], actionType: string) => void;
+    onRowAction: (itemId: string, actionType: string) => void;
     doubleClickActionId?: string;
     header?: string;
 };
@@ -28,7 +25,7 @@ export function TableInner(props: TableProps) {
 
     useDelete(() => {
         if (selectedIds.length > 0) {
-            props.onRowAction(selectedIds, 'delete');
+            props.onAction('delete');
         }
     }, [selectedIds, data]);
 

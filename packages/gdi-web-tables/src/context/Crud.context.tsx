@@ -1,19 +1,19 @@
-import React, { useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { createContext } from 'react';
 import { emptyFilters } from '../definitions/filters/empty';
 import { emptyForm } from '../definitions/forms/empty';
 import { ICrudOptions, ICrudState, WithChildren } from '../types';
+import { SelectionContext } from './Selection.context';
+import { useCrudOperations } from '../hooks/useCrudOperations';
 import { useSetState } from 'react-use';
 
 type CrudContextProps = {
     config: ICrudDefinitions;
     options: ICrudOptions;
+    data: Json;
     callbacks: {
-        onAction: (actionId: string) => void;
-        onDrillDown?: (itemId: string) => void;
-        onSave: (id: string, data: Json) => Promise<boolean>;
-        onNew: (data: Json) => void;
-        onDelete: (id: string) => void;
+        onSelectionChange: (ids: string[]) => void;
+        onDrillDown: (itemId: string) => void;
     };
 };
 
@@ -23,26 +23,18 @@ type ICrudContext = {
     options: ICrudOptions;
     state: ICrudState;
     callbacks: {
-        onAction: (actionId: string) => void;
-        onItemAction: (
-            id: string | string[],
-            actionId: string,
-            data?: Json
-        ) => void;
-        onNewFormSave: (data: Json) => void;
-        onEditFormSave: (change: Json) => void;
+        onAction: (actionId: string, data?: Json) => void;
+        onItemAction: (id: string, actionId: string, data?: Json) => void;
     };
 };
 
 const initialValue: ICrudContext = {
     patchState: () => {},
     state: {
-        viewMode: 'table',
-        showNewForm: false,
-        showEditForm: false,
-        editFormItemId: '',
+        viewMode: 'gallery',
     },
     config: {
+        nodeName: '',
         table: { fields: [], id: '' },
         formNew: { ...emptyForm },
         formNewDefault: {},
@@ -55,15 +47,14 @@ const initialValue: ICrudContext = {
     callbacks: {
         onAction: (actionId: string) => {},
         onItemAction: (id: string, actionId: string, data?: Json) => {},
-        onNewFormSave: (data: Json) => {},
-        onEditFormSave: (change: Json) => {},
     },
 };
 
 export const CrudContext = createContext<ICrudContext>(initialValue);
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
-    const { config, options, callbacks } = props;
+    const { config, options, data, callbacks } = props;
+    const { state: selectedIds } = useContext(SelectionContext);
 
     const configValue = useMemo(
         () => ({
@@ -78,55 +69,64 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
         ...initialValue.state,
     });
 
-    const { showNewForm, showEditForm, editFormItemId } = state;
-
-    let formConfig: IFormConfig | undefined;
-    let formData: Json | undefined;
+    const crudCallbacks = useCrudOperations(config, data);
 
     const callbacksCrud = useMemo(
         () => ({
-            onAction: (actionId: string) => {
+            onAction: (actionId: string, data?: Json) => {
                 switch (actionId) {
                     case 'new':
-                        patchState({
-                            showNewForm: true,
-                        });
+                        crudCallbacks.createForm();
+                        break;
+                    case 'newWithData':
+                        crudCallbacks.create(data);
+                        break;
+                    case 'edit':
+                        crudCallbacks.editForm(selectedIds);
+                        break;
+                    case 'delete':
+                        crudCallbacks.deleteForm(selectedIds);
                         break;
                     default:
-                        if (callbacks.onAction) {
-                            callbacks.onAction(actionId);
-                        }
+                        console.log(actionId);
                         break;
                 }
             },
-            onItemAction: (id: string, actionId: string) => {
+            onItemAction: (id: string, actionId: string, data?: Json) => {
                 switch (actionId) {
                     case 'edit':
-                        patchState({
-                            showEditForm: true,
-                            editFormItemId: id,
-                        });
+                        crudCallbacks.editForm(id);
                         break;
                     case 'delete':
-                        callbacks.onDelete(id);
+                        crudCallbacks.deleteForm(id);
                         break;
                     case 'drillDown':
                         if (callbacks.onDrillDown) {
                             callbacks.onDrillDown(id);
                         }
                         break;
+                    case 'change':
+                        if (!data) {
+                            return;
+                        }
+                        crudCallbacks.change(id, data);
+                        break;
+                    case 'addTag':
+                        if (!data) {
+                            return;
+                        }
+                        crudCallbacks.addTag(id, data);
+                        break;
+                    case 'removeTag':
+                        if (!data) {
+                            return;
+                        }
+                        crudCallbacks.removeTag(id, data);
+                        break;
                 }
             },
-            onNewFormSave: (data: Json) => {
-                patchState({ showNewForm: false });
-                return callbacks.onNew(data);
-            },
-            onEditFormSave: (change: Json) => {
-                patchState({ editFormItemId: '', showEditForm: false });
-                return callbacks.onSave(editFormItemId, change);
-            },
         }),
-        [state]
+        [state, selectedIds]
     );
 
     return (

@@ -1,4 +1,4 @@
-import { ItemType, IFilterConfig } from '../../types';
+import { ItemType } from '../../types';
 import articles from './json/d.filter.articles.json';
 import events from './json/d.filter.events.json';
 import images from './json/d.filter.images.json';

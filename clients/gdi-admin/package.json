@@ -15,7 +15,7 @@
         "@gdi/app-login": "^0.0.23",
         "@gdi/app-mixer": "^0.0.25",
         "@gdi/platformer": "^0.0.22",
-        "@gdi/types": "^0.0.39",
+        "@gdi/types": "^0.0.41",
         "@gdi/web-ui": "^0.0.26",
         "date-fns": "^2.29.2",
         "igrid": "^0.0.17",

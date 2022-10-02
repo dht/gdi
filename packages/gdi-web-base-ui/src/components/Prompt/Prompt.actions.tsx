@@ -14,7 +14,7 @@ type PromptRequest = {
 
 type PromptResponse = {
     didCancel: boolean;
-    value?: string;
+    value?: string | Json;
 };
 
 type PromptForm = {
@@ -151,10 +151,11 @@ const select = async (
 };
 
 const form = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
-    const { form } = promptRequest;
+    const { title, form } = promptRequest;
 
     return invokePromptAndListen({
         flavour: 'form',
+        title,
         params: {
             ...form,
         },

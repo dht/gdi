@@ -7,7 +7,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.39",
+        "@gdi/types": "^0.0.41",
         "lodash": "^4.17.21"
     },
     "peerDependencies": {

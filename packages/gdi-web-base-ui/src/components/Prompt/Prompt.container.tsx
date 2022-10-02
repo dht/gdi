@@ -47,6 +47,7 @@ export function PromptContainer(props: PromptContainerProps) {
             value,
         });
         patchState({ show: false });
+        return Promise.resolve(true);
     }, []);
 
     const onCancel = useCallback(() => {

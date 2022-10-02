@@ -40,7 +40,14 @@ export function Filters(props: FiltersProps) {
     }
 
     function renderSort() {
-        return <Sort sort={sort} onClick={props.onSort} />;
+        return (
+            <Sort
+                value={value.sort}
+                sort={sort}
+                onClick={props.onSort}
+                onRemove={() => props.onSort('')}
+            />
+        );
     }
 
     return (

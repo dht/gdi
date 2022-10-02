@@ -1,29 +1,34 @@
-import React, { useContext, useMemo } from 'react';
+import React, { FC, useContext, useMemo } from 'react';
 import FilterBar from '../FilterBar/FilterBar';
+import Sheet from '../Sheet/Sheet';
+import Table from '../Table/Table';
 import Timeline from '../Timeline/Timeline';
 import { AnyGallery } from '../Galleries';
 import { Container } from './Multi.style';
 import { CrudContext, CrudContextProvider } from '../../context/Crud.context';
 import { definitions as allDefinitions } from '../../definitions';
-// import { FullCalendar } from '@gdi/web-base-ui';
+import { DispatchContextProvider } from '../../context/Dispatch.context';
+import { FullCalendar } from '@gdi/web-base-ui';
 import { ItemType } from '../../types';
 import { MultiViews } from './Multi.views';
+import { SelectionContextProvider } from '../../context/Selection.context';
 import {
     FilterContext,
     FilterContextProvider,
 } from '../../context/Filter.context';
-import { SelectionContextProvider } from '../../context/Selection.context';
-import allOptions from './allOptions.json';
-import Table from '../Table/Table';
 
 export type MultiProps = {
     id: string;
     data: Json[];
     itemType: ItemType;
+    definitions: ICrudDefinitions;
     allOptions?: Json;
+    customView?: FC<any>;
+    dispatch: any;
 };
 
-export function MultiInner(_props: any) {
+export function MultiInner(props: MultiProps) {
+    const { allOptions, customView: CustomView } = props;
     const contextFilter = useContext(FilterContext);
     const contextCrud = useContext(CrudContext);
 
@@ -43,28 +48,48 @@ export function MultiInner(_props: any) {
                     />
                 );
             case 'spreadsheet':
-                // return <Sheet />;
-                return <div>sheets</div>;
+                return (
+                    <Sheet
+                        config={config.formEdit}
+                        data={data}
+                        allOptions={allOptions}
+                        onChange={(itemId: string, change: Json) =>
+                            callbacks.onItemAction(itemId, 'change', change)
+                        }
+                        onDelete={(itemId: string) =>
+                            callbacks.onItemAction(itemId, 'delete')
+                        }
+                        onNew={(data: Json) => {
+                            callbacks.onAction('newWithData', data);
+                        }}
+                    />
+                );
             case 'gallery':
                 return (
                     <AnyGallery
                         flavour='article'
+                        options={{ columns: 5 }}
                         items={data as any}
                         callbacks={callbacks}
                     />
                 );
-            // case 'calendar':
-            // return <FullCalendar />;
+            case 'calendar':
+                // return <div>calendar</div>;
+                return <FullCalendar />;
             case 'timeline':
                 return <Timeline />;
             case 'custom':
-                return <div>Custom</div>;
+                if (!CustomView) {
+                    return null;
+                }
+
+                return <CustomView />;
         }
     }
 
     return (
         <Container className='Multi-container' data-testid='Multi-container'>
-            <FilterBar header='Articles' />
+            <FilterBar header='Articles' onAction={callbacks.onAction} />
             {renderInner()}
             <MultiViews
                 value={state.viewMode}
@@ -77,7 +102,7 @@ export function MultiInner(_props: any) {
 }
 
 export const Multi = (props: MultiProps) => {
-    const { data, itemType } = props;
+    const { data, itemType, allOptions, dispatch } = props;
 
     const definitions = useMemo(() => {
         return allDefinitions[itemType];
@@ -97,26 +122,8 @@ export const Multi = (props: MultiProps) => {
 
     const callbacks = useMemo(
         () => ({
-            onAction: (actionId: string, data?: Json) => {
-                console.log('onAction actionId ->', actionId, data);
-            },
-            onItemAction: (actionId: string, id: string, data?: Json) => {
-                console.log(
-                    'onItemAction actionId, id, data ->',
-                    actionId,
-                    id,
-                    data
-                );
-            },
-            onSave: (id: string, data: Json) => {
-                console.log('save ->', id, data);
-                return Promise.resolve(true);
-            },
-            onNew: (data: Json) => {
-                console.log('new ->', data);
-            },
-            onDelete: (id: string | string[]) => {
-                console.log('delete id ->', id);
+            onDrillDown: (itemId: string) => {
+                console.log('drillDown ->', itemId);
             },
             onSelectionChange: (ids: string[]) => {
                 console.log('ids ->', ids);
@@ -126,39 +133,30 @@ export const Multi = (props: MultiProps) => {
     );
 
     return (
-        <SelectionContextProvider
-            mode={'browse'}
-            initialValue={[]}
-            onSelectionChange={callbacks.onSelectionChange}
-        >
-            <FilterContextProvider
-                data={data}
-                config={definitions.filters}
-                options={optionsFilter}
-                callbacks={callbacks}
-                allOptions={allOptions}
+        <DispatchContextProvider dispatch={dispatch}>
+            <SelectionContextProvider
+                mode={'browse'}
+                initialValue={[]}
+                onSelectionChange={callbacks.onSelectionChange}
             >
-                <CrudContextProvider
-                    config={definitions}
-                    options={optionsCrud}
-                    callbacks={callbacks}
+                <FilterContextProvider
+                    data={data}
+                    config={definitions.filters}
+                    options={optionsFilter}
+                    allOptions={allOptions}
                 >
-                    <MultiInner />
-                </CrudContextProvider>
-            </FilterContextProvider>
-        </SelectionContextProvider>
+                    <CrudContextProvider
+                        data={data}
+                        config={definitions}
+                        options={optionsCrud}
+                        callbacks={callbacks}
+                    >
+                        <MultiInner {...props} />
+                    </CrudContextProvider>
+                </FilterContextProvider>
+            </SelectionContextProvider>
+        </DispatchContextProvider>
     );
 };
 
 export default Multi;
-
-/*
-
- dispatch: (action: Action) => void;
-    nodes: INodeWithColor[];
-    sheetConfig: IFormConfig | null;
-    sheetData: Json[];
-    confirm: (promptRequest: any) => Promise<{ didCancel: boolean }>;
-    onSelectNode: (nodeId: string) => void;
-    currentNodeId: string;
-*/

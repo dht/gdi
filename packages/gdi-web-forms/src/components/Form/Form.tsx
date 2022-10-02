@@ -26,6 +26,7 @@ export function Form(props: IFormProps) {
         allMethods = {},
         autoFocus = true,
     } = props;
+
     const { layout, groups, fields, submit } = config;
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { groupId: submitGroupId } = submit;
@@ -83,8 +84,15 @@ export function Form(props: IFormProps) {
     useMount(() => {
         setTimeout(() => {
             if (autoFocus && ref.current) {
-                const el = ref.current.querySelector('input');
-                if (el) el.focus();
+                const el = ref.current.querySelector('.Field-container');
+                if (el) {
+                    const inputEl =
+                        el.querySelector('input') ||
+                        el.querySelector('textarea');
+                    if (inputEl) {
+                        inputEl.focus();
+                    }
+                }
             }
         });
     });

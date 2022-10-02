@@ -15,10 +15,6 @@ export type FilterContextProps = {
     config: IFilterConfig;
     options: IFilterOptions;
     allOptions?: Json;
-    callbacks: {
-        onAction: (actionId: string, data?: Json) => void;
-        onItemAction: (actionId: string, id: string, data?: Json) => void;
-    };
 };
 
 type IFilterContext = {
@@ -32,7 +28,6 @@ type IFilterContext = {
         onSearchClear: () => void;
         onTagClick: (tag: string) => void;
         onTagClear: () => void;
-        onToolClick: (toolId: string) => void;
         toggleFilter: () => void;
         onFilter: (
             filterId: string,
@@ -55,7 +50,7 @@ const initialValue: IFilterContext = {
     state: {
         header: '',
         tag: '',
-        showFilter: true,
+        showFilter: false,
         trio: {
             sort: {
                 id: '',
@@ -72,7 +67,6 @@ const initialValue: IFilterContext = {
         onSearchClear: () => {},
         onTagClick: (tag: string) => {},
         onTagClear: () => {},
-        onToolClick: (toolId: string) => {},
         toggleFilter: () => {},
         onFilter: (filterId: string, optionId: string) => {},
         onFilterClear: () => {},
@@ -85,7 +79,7 @@ export const FilterContext = createContext<IFilterContext>(initialValue);
 export const FilterContextProvider = (
     props: WithChildren<FilterContextProps>
 ) => {
-    const { data = [], callbacks, allOptions = {} } = props;
+    const { data = [], allOptions = {} } = props;
 
     const [state, patchState] = useSetState<IFilterState>({
         ...initialValue.state,
@@ -98,6 +92,7 @@ export const FilterContextProvider = (
     );
 
     const [trio, filterCallbacks] = useFilterValue(configAndOptions.config);
+
     const filteredData = useFilterData(configAndOptions.config, data, trio);
 
     let response;
@@ -116,7 +111,7 @@ export const FilterContextProvider = (
                     return;
                 }
 
-                patchState({ tag: response.value });
+                patchState({ tag: response.value as string });
             },
             onTagClear: () => {
                 patchState({ tag: '' });
@@ -125,9 +120,6 @@ export const FilterContextProvider = (
                 patchState({
                     showFilter: !state.showFilter,
                 });
-            },
-            onToolClick: async (toolId: string) => {
-                callbacks.onAction(toolId);
             },
             onFilter: (
                 filterId: string,
@@ -158,7 +150,7 @@ export const FilterContextProvider = (
             patchState,
             data: filteredData,
         }),
-        [trio, filteredData, callbacks, state]
+        [trio, filteredData, callbacksFilter, state]
     );
 
     return (
