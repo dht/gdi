@@ -52,7 +52,7 @@ export type ICrudDefinitions = {
 };
 
 export type ICrudOptions = {
-    doubleClickActionId?: string;
+    doubleClickActionId: string; // ItemActionType;
     allOptions?: Json;
     allDetails?: AllDetails;
     allMethods?: AllMethods;
@@ -87,7 +87,8 @@ export type ItemActionType =
     | 'edit'
     | 'delete'
     | 'addTag'
-    | 'removeTag';
+    | 'removeTag'
+    | 'drillDown';
 
 export type ItemType =
     | 'image'
@@ -113,26 +114,18 @@ export type IGalleryConfig = {
     sequence?: number;
     header?: string;
     columns?: number;
+    fixedRatio?: number;
     itemType?: ItemType;
 };
 
 export type IGalleryOptions = {
     columns: number;
     selectionMode: ISelectionMode;
-    doubleClickAction: ItemActionType;
     allowMultiple?: boolean;
     allowEmpty?: boolean;
 };
 
 export type IGalleryState = {};
-
-export type OnGalleryAction = (action: ItemActionType, data?: Json) => void;
-
-export type OnGalleryItemAction = (
-    id: string,
-    action: ItemActionType,
-    data?: Json
-) => void;
 
 // ================== Sheets ==================
 export type Coords = {
@@ -236,4 +229,8 @@ export type ISortOption = {
 
 export type WithChildren<T> = T & {
     children?: JSX.Element;
+};
+
+export type RenderOptions = {
+    hideTitle?: boolean;
 };

@@ -5,6 +5,7 @@ type UseSelectionOptions = {
     enabled?: boolean;
     allowMultiple?: boolean;
     allowEmpty?: boolean;
+    noUnselect?: boolean;
 };
 
 type UseSelectionReturn = [
@@ -19,7 +20,7 @@ export function useSelection(
     initialValues: string[],
     options: UseSelectionOptions = {}
 ): UseSelectionReturn {
-    const { enabled, allowMultiple, allowEmpty } = options;
+    const { enabled, allowMultiple, allowEmpty, noUnselect } = options;
     const [value, { push, removeAt, clear }] = useList(initialValues);
 
     const onClick = useCallback(
@@ -36,6 +37,11 @@ export function useSelection(
                 if (value.length === 1 && !allowEmpty) {
                     return;
                 }
+
+                if (noUnselect) {
+                    return;
+                }
+
                 removeAt(value.indexOf(id));
             } else {
                 // prevent multiple

@@ -37,6 +37,7 @@ export const SelectionContextProvider = (
             enabled: mode !== 'collection',
             allowMultiple: mode === 'multiple',
             allowEmpty: mode === 'browse' || mode === 'multiple',
+            noUnselect: mode === 'browse',
         }),
         []
     );

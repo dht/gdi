@@ -1,4 +1,4 @@
-import { put, delay, takeLatest, takeEvery } from 'saga-ts';
+import { put, delay, takeLatest, takeEvery, call } from 'saga-ts';
 import { $s } from 'shared-base';
 import { actions } from '../../stores/platform/actions';
 import { customEventChannel } from './channels/channel.customEvent';
@@ -21,7 +21,7 @@ export function* navigate(action: any): any {
     }
 }
 
-export function* navigateBack(action: any): any {
+export function* navigateBack(_action: any): any {
     yield delay(0);
 
     try {
@@ -31,9 +31,37 @@ export function* navigateBack(action: any): any {
     }
 }
 
+export function* navigatePush(action: any): any {
+    const { path } = action;
+    const pathname = location.pathname;
+    const parts = pathname.split('/');
+
+    parts.push(path.replace(/^\//, ''));
+    const newPath = parts.join('/');
+    yield call(navigate, { path: newPath });
+}
+
+export function* navigatePop(_action: any): any {
+    const pathname = location.pathname;
+    const parts = pathname.split('/');
+
+    parts.pop();
+    const newPath = parts.join('/');
+    yield call(navigate, { path: newPath });
+}
+
 export function* root() {
     const channel = customEventChannel('navigate');
     yield takeEvery(channel, navigate);
+
+    const channelBack = customEventChannel('navigateBack');
+    yield takeEvery(channelBack, navigateBack);
+
+    const channelPush = customEventChannel('navigatePush');
+    yield takeEvery(channelPush, navigatePush);
+
+    const channelPop = customEventChannel('navigatePop');
+    yield takeEvery(channelPop, navigatePop);
 
     yield takeLatest(
         ['NAVIGATE', 'NAVIGATE_WITHIN_APP', 'NAVIGATE_EXTERNAL'],

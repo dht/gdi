@@ -7,8 +7,12 @@ import {
     Meta,
     Value,
 } from './ArticleEditorBar.style';
-import { useLocation } from 'react-router-dom';
-import { invokeEvent, SimpleDate, minutesToDuration } from 'shared-base';
+import {
+    invokeEvent,
+    SimpleDate,
+    minutesToDuration,
+    minutesPassed,
+} from 'shared-base';
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
 
 export type ArticleEditorBarProps = {
@@ -31,6 +35,12 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
     const { wordCount } = context;
 
     const lastSaveDateText = useMemo(() => {
+        const minutesAgo = minutesPassed(new Date(), new Date(lastSaveDate));
+
+        if (minutesAgo > 60 * 24) {
+            return '-';
+        }
+
         return new SimpleDate(lastSaveDate).timeAgo() || '-';
     }, [lastSaveDate]);
 
@@ -38,13 +48,8 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
         return minutesToDuration(minutesSpentEditing) || '-';
     }, [minutesSpentEditing]);
 
-    const location = useLocation();
-
     function onClick() {
-        const parts = location.pathname.split('/');
-        parts.pop();
-        const path = parts.join('/');
-        invokeEvent('navigate', { path });
+        invokeEvent('navigatePop', {});
     }
 
     return (

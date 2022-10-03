@@ -1,6 +1,7 @@
 id: ArticlesGallery
 header: Articles
 itemType: article
+fixedRatio: 0.5
 actions:
     - id: new
       iconName: add

@@ -93,6 +93,10 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                 }
             },
             onItemAction: (id: string, actionId: string, data?: Json) => {
+                if (actionId === 'drillDown') {
+                    actionId = options.doubleClickActionId;
+                }
+
                 switch (actionId) {
                     case 'edit':
                         crudCallbacks.editForm(id);

@@ -39,7 +39,6 @@ const initialValue: IGalleryContext = {
     config: { id: '' },
     options: {
         columns: 3,
-        doubleClickAction: 'edit',
         selectionMode: 'browse',
     },
     callbacks: {
@@ -105,7 +104,7 @@ export const GalleryContextProvider = (
                     return;
                 }
                 const firstId = selectedIds[0];
-                // props.onItemAction(firstId, 'edit');
+                callbacks.onItemAction(firstId, 'drillDown');
             },
             onAction: (actionId: ItemActionType, data?: Json) => {
                 // props.onAction(actionId, data);

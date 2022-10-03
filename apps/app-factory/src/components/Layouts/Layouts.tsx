@@ -11,7 +11,6 @@ export type LayoutsProps = ICrudDefinitions & {
         onNew: (data: Json) => void;
         onDelete: (id: string) => void;
     };
-    doubleClickActionId?: string;
     allOptions?: Json;
 };
 export function Layouts(props: LayoutsProps) {

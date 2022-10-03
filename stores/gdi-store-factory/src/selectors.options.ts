@@ -141,8 +141,6 @@ export const $periods = createSelector($i, (_i): Option[] => {
 export const $articleAuthors = createSelector(
     raw.$rawArticles,
     (articles): Option[] => {
-        console.log('3 ->', 3);
-
         const groupedAuthors = Object.values(articles).reduce(
             (output, article) => {
                 output[article.authorName] = true;
@@ -155,7 +153,6 @@ export const $articleAuthors = createSelector(
             .sort()
             .map((authorName) => {
                 const id = camelCase(authorName);
-                console.log('id ->', id);
 
                 return {
                     id,

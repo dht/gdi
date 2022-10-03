@@ -13,12 +13,11 @@ export type TableProps = {
     data: Json[];
     onAction: (actionType: string) => void;
     onRowAction: (itemId: string, actionType: string) => void;
-    doubleClickActionId?: string;
     header?: string;
 };
 
 export function TableInner(props: TableProps) {
-    const { config, data, doubleClickActionId = 'edit', header } = props;
+    const { config, data } = props;
     const { fields = [], rowActions } = config;
     const contextSelection = useContext(SelectionContext);
     const { state: selectedIds } = contextSelection;
@@ -49,7 +48,7 @@ export function TableInner(props: TableProps) {
                 rowActions={rowActions}
                 isSelected={isSelected}
                 onClick={onClick}
-                onDoubleClick={() => props.onRowAction(item.id, doubleClickActionId)} // prettier-ignore
+                onDoubleClick={() => props.onRowAction(item.id, 'drillDown')}
                 onRowAction={(actionId) => props.onRowAction(item.id, actionId)}
             />
         );

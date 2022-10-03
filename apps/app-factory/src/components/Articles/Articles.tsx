@@ -6,11 +6,15 @@ import { Dispatch } from 'redux';
 export type ArticlesProps = {
     data: Json[];
     allOptions?: Json;
+    callbacks: {
+        onDrillDown: (itemId: string) => void;
+        onSelectionChange: (ids: string[]) => void;
+    };
     dispatch: Dispatch;
 };
 
 export function Articles(props: ArticlesProps) {
-    const { data, allOptions, dispatch } = props;
+    const { data, callbacks, allOptions, dispatch } = props;
 
     return (
         <Container
@@ -21,6 +25,7 @@ export function Articles(props: ArticlesProps) {
                 id='Articles'
                 itemType='article'
                 data={data}
+                callbacks={callbacks}
                 dispatch={dispatch}
                 allOptions={allOptions}
                 customView={CustomView}

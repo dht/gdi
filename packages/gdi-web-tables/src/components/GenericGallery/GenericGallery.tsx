@@ -4,7 +4,12 @@ import Masonry, { MasonryItemProps } from '../Masonry/Masonry';
 import { Container, Content } from './GenericGallery.style';
 import { Empty } from '@gdi/web-base-ui';
 import { FilterContext } from '../../context/Filter.context';
-import { IGalleryConfig, IGalleryOptions, IImage } from '../../types';
+import {
+    IGalleryConfig,
+    IGalleryOptions,
+    IImage,
+    RenderOptions,
+} from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
 import {
     GalleryContext,
@@ -29,14 +34,15 @@ export type GenericGalleryInnerProps = {
 
 export function GenericGalleryInner(props: GenericGalleryInnerProps) {
     const { customItem } = props;
-    const { options, callbacks } = useContext(GalleryContext);
+    const { options, callbacks, config } = useContext(GalleryContext);
     const filterContext = useContext(FilterContext);
     const { state: selectedIds } = useContext(SelectionContext);
+    const { fixedRatio } = config;
     const { columns } = options;
     const ref = useRef<HTMLDivElement>(null);
     const { data = [] } = filterContext;
 
-    function renderOverlay(item: IImage) {
+    function renderOverlay(item: IImage, options?: RenderOptions) {
         const isSelected = selectedIds.includes(String(item.id));
 
         return (
@@ -44,6 +50,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
                 item={item}
                 viewMode={'full'}
                 isSelected={isSelected}
+                options={options}
             />
         );
     }
@@ -61,6 +68,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
                 onClick={callbacks.onClick}
                 onDoubleClick={callbacks.onDoubleClick}
                 customItem={customItem}
+                fixedRatio={fixedRatio}
             />
         );
     }
@@ -77,7 +85,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
 }
 
 export const GenericGallery = (props: GenericGalleryProps) => {
-    const { config, items, options, callbacks } = props;
+    const { config, items, options, callbacks, customItem } = props;
 
     return (
         <GalleryContextProvider
@@ -85,7 +93,7 @@ export const GenericGallery = (props: GenericGalleryProps) => {
             options={options as any}
             callbacks={callbacks}
         >
-            <GenericGalleryInner />
+            <GenericGalleryInner customItem={customItem} />
         </GalleryContextProvider>
     );
 };

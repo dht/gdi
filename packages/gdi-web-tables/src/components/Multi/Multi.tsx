@@ -22,6 +22,10 @@ export type MultiProps = {
     data: Json[];
     itemType: ItemType;
     definitions: ICrudDefinitions;
+    callbacks: {
+        onDrillDown: (itemId: string) => void;
+        onSelectionChange: (ids: string[]) => void;
+    };
     allOptions?: Json;
     customView?: FC<any>;
     dispatch: any;
@@ -33,7 +37,7 @@ export function MultiInner(props: MultiProps) {
     const contextCrud = useContext(CrudContext);
 
     const { data = [] } = contextFilter;
-    const { state, patchState, callbacks, config, options } = contextCrud;
+    const { state, patchState, callbacks, config } = contextCrud;
 
     function renderInner() {
         switch (state.viewMode) {
@@ -44,7 +48,6 @@ export function MultiInner(props: MultiProps) {
                         data={data}
                         onAction={callbacks.onAction}
                         onRowAction={callbacks.onItemAction}
-                        doubleClickActionId={options.doubleClickActionId}
                     />
                 );
             case 'spreadsheet':
@@ -102,7 +105,7 @@ export function MultiInner(props: MultiProps) {
 }
 
 export const Multi = (props: MultiProps) => {
-    const { data, itemType, allOptions, dispatch } = props;
+    const { data, itemType, callbacks, allOptions, dispatch } = props;
 
     const definitions = useMemo(() => {
         return allDefinitions[itemType];
@@ -116,18 +119,6 @@ export const Multi = (props: MultiProps) => {
             allOptions,
             allDetails: {},
             allMethods: {},
-        }),
-        []
-    );
-
-    const callbacks = useMemo(
-        () => ({
-            onDrillDown: (itemId: string) => {
-                console.log('drillDown ->', itemId);
-            },
-            onSelectionChange: (ids: string[]) => {
-                console.log('ids ->', ids);
-            },
         }),
         []
     );

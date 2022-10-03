@@ -3,12 +3,7 @@ import GenericGallery from '../GenericGallery/GenericGallery';
 import { Container } from './styles';
 import { definitions } from '../../definitions';
 import { items } from './items';
-import {
-    ItemType,
-    IGalleryOptions,
-    OnGalleryAction,
-    OnGalleryItemAction,
-} from '../../types';
+import { ItemType, IGalleryOptions } from '../../types';
 
 export type AnyGalleryProps = {
     items: IImage[];

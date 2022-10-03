@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Tags } from '@gdi/web-base-ui';
-import { IImage } from '../../types';
+import { IImage, RenderOptions } from '../../types';
 import {
     Container,
     Selected,
@@ -13,11 +13,13 @@ export type GenericOverlayProps = {
     isSelected?: boolean;
     item: IImage;
     viewMode: 'full' | 'minimal';
+    options?: RenderOptions;
 };
 
 export function GenericOverlay(props: GenericOverlayProps) {
-    const { item, isSelected, viewMode } = props;
+    const { item, isSelected, viewMode, options } = props;
     const { tags, title } = item;
+    const { hideTitle = false } = options || {};
 
     const isFull = viewMode === 'full';
 
@@ -29,6 +31,14 @@ export function GenericOverlay(props: GenericOverlayProps) {
         }
     );
 
+    function renderTitle() {
+        if (!isFull || hideTitle) {
+            return;
+        }
+
+        return <Title>{title}</Title>;
+    }
+
     return (
         <Container className={className} data-testid='GenericOverlay-container'>
             {isFull && (
@@ -36,8 +46,7 @@ export function GenericOverlay(props: GenericOverlayProps) {
                     <Tags tags={tags} color='cyan' />
                 </TagsWrapper>
             )}
-            {isFull && <Title>{title}</Title>}
-
+            {renderTitle()}
             {isSelected && (
                 <Selected>
                     <Icon iconName='StatusCircleCheckmark' />

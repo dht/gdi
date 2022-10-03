@@ -14,8 +14,8 @@ export function LibraryImages(props: LibraryImagesProps) {
     const { items, callbacks } = props;
 
     const options: IGalleryOptions = {
+        columns: 3,
         selectionMode: 'browse',
-        doubleClickAction: 'edit',
     };
 
     return (

@@ -16,6 +16,7 @@ import {
     RoutePath,
     AppName,
 } from './Switcher.style';
+import { colors, gradients } from './Switcher.colors';
 
 const COMBINATION: IShortKey = {
     key: 'ArrowUp',
@@ -166,11 +167,30 @@ export function SwitcherInner(props: SwitcherInnerProps) {
             selected: selectedIndex === index,
         });
 
+        const gradient = gradients[index] || gradients[0];
+
+        let background;
+
+        const { type, degrees, radialShape } = gradient;
+
+        const pairs = gradient.colors
+            .map(([percent, color]) => `${color} ${percent}`)
+            .join(', ');
+
+        if (type === 'linear') {
+            background = `linear-gradient(${degrees}, ${pairs})`;
+        } else {
+            background = `radial-gradient(${radialShape}, ${pairs})`;
+        }
+
+        const style = {};
+
         return (
             <Screen
                 key={screen.id}
                 className={classNameScreen}
                 onClick={() => onScreenSelect(screen)}
+                style={style}
             >
                 <Title>{name}</Title>
                 <Description>{description}</Description>
