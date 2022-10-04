@@ -1,24 +1,24 @@
-id: LayoutsSubTable
-header: Layouts Items
+id: TicketsTable
+header: Tickets
 fields:
     - id: id
       title: Id
       cellType: id
-    - id: locationId
-      title: Location
+    - id: key
+      title: Key
+      cellType: text
+      flex: 1
+    - id: summary
+      title: Summary
       cellType: text
       flex: 2
-    - id: entityType
-      title: Type
+    - id: projectKey
+      title: Project
       cellType: text
       flex: 1
-    - id: direction
-      title: Direction
-      cellType: text
-      flex: 1
-    - id: resolution
-      title: Resolution
-      cellType: text
+    - id: timeEstimate
+      title: Estimate
+      cellType: number
       flex: 1
     - id: _modifiedDate
       title: Modified
@@ -35,9 +35,6 @@ tableActions:
     - id: back
       iconName: arrow_upward
       title: Go back
-    - id: mode
-      iconName: view_week
-      title: Change mode
     - id: new
       iconName: add
       title: New item

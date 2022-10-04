@@ -4,8 +4,7 @@ export const Container = styled.div``;
 
 export const Header = styled.div`
     padding: 0;
-    margin: 0;
-    margin-right: 10px;
+    margin: 0 10px;
     display: flex;
     flex-direction: row;
     align-items: center;

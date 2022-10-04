@@ -1,6 +1,6 @@
 {
-    "id": "LayoutsSubTable",
-    "header": "Layouts Items",
+    "id": "TicketsTable",
+    "header": "Tickets",
     "fields": [
         {
             "id": "id",
@@ -8,27 +8,27 @@
             "cellType": "id"
         },
         {
-            "id": "locationId",
-            "title": "Location",
+            "id": "key",
+            "title": "Key",
+            "cellType": "text",
+            "flex": 1
+        },
+        {
+            "id": "summary",
+            "title": "Summary",
             "cellType": "text",
             "flex": 2
         },
         {
-            "id": "entityType",
-            "title": "Type",
+            "id": "projectId",
+            "title": "Project",
             "cellType": "text",
             "flex": 1
         },
         {
-            "id": "direction",
-            "title": "Direction",
-            "cellType": "text",
-            "flex": 1
-        },
-        {
-            "id": "resolution",
-            "title": "Resolution",
-            "cellType": "text",
+            "id": "timeEstimate",
+            "title": "Estimate",
+            "cellType": "number",
             "flex": 1
         },
         {
@@ -55,11 +55,6 @@
             "id": "back",
             "iconName": "arrow_upward",
             "title": "Go back"
-        },
-        {
-            "id": "mode",
-            "iconName": "view_week",
-            "title": "Change mode"
         },
         {
             "id": "new",
