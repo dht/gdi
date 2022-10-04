@@ -60,12 +60,5 @@ declare global {
 
     export type IPersons = Record<string, IPerson>;
 
-    export type ISelectOpion = {
-        key: string;
-        text: string;
-    };
-
-    export type ISelectOptions = ISelectOpion[];
-
-    export type IAllSelectOptions = Record<string, ISelectOptions>;
+    export type IAllSelectOptions = Record<string, IOptions>;
 }

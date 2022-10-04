@@ -3,6 +3,7 @@ import articles from './json/d.calendar.articles.json';
 import events from './json/d.calendar.events.json';
 import images from './json/d.calendar.images.json';
 import layouts from './json/d.calendar.layouts.json';
+import links from './json/d.calendar.links.json';
 import posts from './json/d.calendar.posts.json';
 import ppl from './json/d.calendar.ppl.json';
 import tickets from './json/d.calendar.tickets.json';
@@ -13,6 +14,7 @@ export const calendars: Record<ItemType, ICalendarConfig> = {
     event: events,
     image: images,
     layout: layouts,
+    link: links,
     post: posts,
     person: ppl,
     ticket: tickets,

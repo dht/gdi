@@ -52,7 +52,7 @@ export const $imageFields = createSelector(
     }
 );
 
-export const $periods = createSelector($i, (_i): Option[] => {
+export const $periods = createSelector($i, (_i): IOption[] => {
     const minutes = minutesThisX();
 
     return [

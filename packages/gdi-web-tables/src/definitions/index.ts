@@ -51,6 +51,17 @@ export const definitions: Record<string, ICrudDefinitions> = {
         calendar: calendars.layout,
         timeline: timelines.layout,
     },
+    link: {
+        nodeName: 'links',
+        filters: filters.link,
+        formNew: formsNew.link,
+        formNewDefault: formsNewDefault.link,
+        formEdit: formsEdit.link,
+        table: tables.link,
+        gallery: galleries.link,
+        calendar: calendars.link,
+        timeline: timelines.link,
+    },
     post: {
         nodeName: 'posts',
         filters: filters.post,

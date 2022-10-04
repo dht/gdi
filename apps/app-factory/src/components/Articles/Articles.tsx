@@ -26,6 +26,7 @@ export function Articles(props: ArticlesProps) {
                 itemType='article'
                 data={data}
                 callbacks={callbacks}
+                viewModes={['gallery', 'table', 'spreadsheet']}
                 dispatch={dispatch}
                 allOptions={allOptions}
                 customView={CustomView}

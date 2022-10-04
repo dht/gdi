@@ -1,42 +1,125 @@
-id: EditLayoutItem
-header: Edit Layout Item
+id: Update Person
 layout:
-    flavour: singleColumn
-    width: 300
+    flavour: twoColumns
+    width: 600
+    flex: [2, 3]
     labelSize: compact
 groups:
     - id: basic
       layoutColumnIndex: 0
+    - id: extra
+      layoutColumnIndex: 1
 fields:
-    - id: locationId
+    - id: imageUrl
+      fieldType: imageUpload
+      groupId: basic
+    - id: firstName
+      label: First name
       fieldType: text
-      placeholder: Unique locationId
-      label: Location
+      placeholder: First name
       groupId: basic
-    - id: entityType
+    - id: lastName
+      fieldType: text
+      label: Last name
+      placeholder: Last name
+      groupId: basic
+    - id: shortDescription
+      fieldType: text
+      label: Short description
+      placeholder: One liner
+      groupId: basic
+    - id: dateOfBirth
+      fieldType: date
+      label: Date of birth
+      placeholder: Date of birth
+      groupId: basic
+    - id: gender
       fieldType: select
-      placeholder: Enter type
-      label: Entity Type
-      optionSelector: $flexEntityTypes
+      label: Gender
+      placeholder: Gender
       groupId: basic
-    - id: direction
+      optionSelector: $pplGender
+    - id: tags
+      fieldType: tags
+      label: Tags
+      placeholder: Tags
+      optionSelector: $pplTags
+      groupId: basic
+    - id: category
+      label: Category
       fieldType: select
-      placeholder: Enter direction
-      label: Direction
-      optionSelector: $flexDirection
-      showIf: entityType=container
+      placeholder: Category
+      optionSelector: $pplCategory
       groupId: basic
-    - id: resolution
-      fieldType: select
-      placeholder: Resolution
-      label: Resolution
-      optionSelector: $resolutions
+    - id: tier
+      label: Tier
+      fieldType: number
+      placeholder: Tier
+      params:
+          min: 1
+          max: 3
       groupId: basic
-    - id: parentId
-      fieldType: select
-      placeholder: Select parentId
-      label: Parent
-      optionSelector: $flexEntityParentIds
+    - id: company
+      fieldType: text
+      label: Company
+      placeholder: Company
       groupId: basic
+    - id: jobTitle
+      fieldType: text
+      label: Job title
+      placeholder: Job title
+      groupId: basic
+    - id: height
+      fieldType: slider
+      label: Height
+      params:
+          min: 1.5
+          max: 2.2
+          step: 0.01
+      placeholder: Height
+      groupId: basic
+    - id: socialFacebookUrl
+      fieldType: text
+      label: Facebook profile
+      placeholder: Facebook
+      groupId: extra
+    - id: socialTwitterUrl
+      label: Twitter profile
+      fieldType: text
+      placeholder: Twitter
+      groupId: extra
+    - id: socialInstagramUrl
+      label: Facebook page
+      fieldType: text
+      placeholder: Instagram
+      groupId: extra
+    - id: socialLinkedInUrl
+      fieldType: text
+      label: Linkedin profile
+      placeholder: Linkedin
+      groupId: extra
+    - id: wikipediaUrl
+      fieldType: text
+      label: Wikipedia page
+      placeholder: Wikipedia
+      groupId: extra
+    - id: email
+      fieldType: text
+      label: Email
+      placeholder: Email
+      groupId: extra
+    - id: netWorth
+      fieldType: number
+      label: Net worth
+      placeholder: Net worth
+      params:
+          max: 500000
+          unit: M$
+      groupId: extra
+    - id: notes
+      fieldType: paragraph
+      label: Notes
+      placeholder: Notes
+      groupId: extra
 submit:
     title: Save & close

@@ -140,8 +140,8 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
         <CrudContext.Provider
             value={{
                 ...configValue,
-                state,
-                patchState,
+                state: state!,
+                patchState: patchState as any,
                 callbacks: callbacksCrud,
             }}
         >

@@ -1,6 +1,6 @@
 {
-    "id": "LayoutsSubTable",
-    "header": "Layouts Items",
+    "id": "ImagesTable",
+    "header": "Images",
     "fields": [
         {
             "id": "id",
@@ -8,34 +8,16 @@
             "cellType": "id"
         },
         {
-            "id": "locationId",
-            "title": "Location",
+            "id": "title",
+            "title": "Title",
             "cellType": "text",
             "flex": 2
         },
         {
-            "id": "entityType",
+            "id": "description",
             "title": "Type",
-            "cellType": "text",
-            "flex": 1
-        },
-        {
-            "id": "direction",
-            "title": "Direction",
-            "cellType": "text",
-            "flex": 1
-        },
-        {
-            "id": "resolution",
-            "title": "Resolution",
-            "cellType": "text",
-            "flex": 1
-        },
-        {
-            "id": "_modifiedDate",
-            "title": "Modified",
-            "cellType": "timeAgo",
-            "flex": 1
+            "cellType": "Description",
+            "flex": 3
         }
     ],
     "rowActions": [
@@ -55,11 +37,6 @@
             "id": "back",
             "iconName": "arrow_upward",
             "title": "Go back"
-        },
-        {
-            "id": "mode",
-            "iconName": "view_week",
-            "title": "Change mode"
         },
         {
             "id": "new",

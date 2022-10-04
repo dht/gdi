@@ -65,11 +65,13 @@ export function SheetCellSelected(props: SheetCellSelectedProps) {
 
     useCopyPaste(
         () => {
-            console.log('3 ->', value);
-
             return value;
         },
-        (clipboardValue: string) => {
+        (clipboardValue?: string | number | boolean) => {
+            if (typeof clipboardValue === 'undefined') {
+                return;
+            }
+
             const itemId = rowData['id'];
             const fieldId = field.id;
 

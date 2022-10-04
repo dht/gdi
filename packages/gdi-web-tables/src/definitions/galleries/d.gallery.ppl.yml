@@ -1,7 +1,8 @@
-id: ArticlesGallery
-header: Articles
-itemType: article
-fixedRatio: 0.5
+id: PplGallery
+header: People
+itemType: person
+fixedRatio: 0.8
+columns: 10
 actions:
     - id: new
       iconName: add

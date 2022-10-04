@@ -11,6 +11,7 @@ import { ItemTicket } from './ItemTicket/ItemTicket';
 import { ItemWidget } from './ItemWidget/ItemWidget';
 
 export const items: Record<ItemType, FC<ItemImageProps>> = {
+    // @ts-expect-error
     article: ItemArticle,
     event: ItemEvent,
     image: ItemImage,

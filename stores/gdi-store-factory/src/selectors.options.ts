@@ -6,7 +6,7 @@ import { camelCase } from 'lodash';
 
 const $i = () => {};
 
-export const $flexEntityTypes = createSelector(raw.$i, (_state): Option[] => {
+export const $flexEntityTypes = createSelector(raw.$i, (_state): IOption[] => {
     return [
         {
             id: 'container',
@@ -19,7 +19,7 @@ export const $flexEntityTypes = createSelector(raw.$i, (_state): Option[] => {
     ];
 });
 
-export const $flexDirection = createSelector(raw.$i, (_state): Option[] => {
+export const $flexDirection = createSelector(raw.$i, (_state): IOption[] => {
     return [
         {
             id: 'row',
@@ -32,7 +32,7 @@ export const $flexDirection = createSelector(raw.$i, (_state): Option[] => {
     ];
 });
 
-export const $resolutions = createSelector(raw.$i, (_state): Option[] => {
+export const $resolutions = createSelector(raw.$i, (_state): IOption[] => {
     return [
         {
             id: 'mobile',
@@ -90,7 +90,7 @@ export const $layoutLocationIds = createSelector(
 
 export const $flexEntityParentIds = createSelector(
     base.$layout,
-    (layout): Option[] => {
+    (layout): IOption[] => {
         if (!layout || !layout.items) {
             return [];
         }
@@ -106,7 +106,7 @@ export const $flexEntityParentIds = createSelector(
     }
 );
 
-export const $periods = createSelector($i, (_i): Option[] => {
+export const $periods = createSelector($i, (_i): IOption[] => {
     const minutes = minutesThisX();
 
     return [
@@ -140,7 +140,7 @@ export const $periods = createSelector($i, (_i): Option[] => {
 
 export const $articleAuthors = createSelector(
     raw.$rawArticles,
-    (articles): Option[] => {
+    (articles): IOption[] => {
         const groupedAuthors = Object.values(articles).reduce(
             (output, article) => {
                 output[article.authorName] = true;
@@ -165,7 +165,7 @@ export const $articleAuthors = createSelector(
 
 export const $articleTags = createSelector(
     raw.$rawArticles,
-    (articles): Option[] => {
+    (articles): IOption[] => {
         const allTags: Json = {};
         Object.values(articles).forEach((article) => {
             const { tags = [] } = article;

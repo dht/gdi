@@ -1,14 +1,10 @@
 import React from 'react';
-import { Container } from './ItemLayout.style';
+import ItemBase, { ItemBaseProps } from '../_ItemBase/ItemBase';
 
-export type ItemLayoutProps = {};
+export type ItemLayoutProps = ItemBaseProps & {};
 
-export function ItemLayout(_props: ItemLayoutProps) {
-    return (
-        <Container className="ItemLayout-container" data-testid="ItemLayout-container">
-            ItemLayout
-        </Container>
-    );
+export function ItemLayout(props: ItemLayoutProps) {
+    return <ItemBase {...props} />;
 }
 
 export default ItemLayout;

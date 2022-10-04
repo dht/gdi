@@ -1,5 +1,4 @@
-id: NewLayoutItem
-header: New Layout Item
+id: New Person
 layout:
     flavour: singleColumn
     width: 300
@@ -7,36 +6,52 @@ layout:
 groups:
     - id: basic
       layoutColumnIndex: 0
+    - id: extra
+      layoutColumnIndex: 1
 fields:
-    - id: locationId
+    - id: imageUrl
+      fieldType: imageUpload
+      placeholder: Image
+      groupId: basic
+    - id: firstName
       fieldType: text
-      placeholder: Unique locationId
-      label: Location
+      placeholder: First name
+      label: First name
       groupId: basic
-    - id: entityType
-      fieldType: select
-      placeholder: Enter type
-      label: Entity Type
-      optionSelector: $flexEntityTypes
+    - id: lastName
+      fieldType: text
+      placeholder: Last name
+      label: Last name
       groupId: basic
-    - id: direction
-      fieldType: select
-      placeholder: Enter direction
-      label: Direction
-      optionSelector: $flexDirection
-      showIf: entityType=container
+    - id: shortDescription
+      fieldType: text
+      placeholder: One liner
+      label: One liner
       groupId: basic
-    - id: resolution
+    - id: gender
       fieldType: select
-      placeholder: Resolution
-      label: Resolution
-      optionSelector: $resolutions
+      placeholder: Gender
+      label: Gender
       groupId: basic
-    - id: parentId
+      optionSelector: $pplGender
+    - id: category
       fieldType: select
-      placeholder: Select parentId
-      label: Parent
-      optionSelector: $flexEntityParentIds
+      placeholder: Category
+      label: Category
+      optionSelector: $pplCategory
+      groupId: basic
+    - id: tier
+      fieldType: number
+      label: Tier
+      placeholder: Tier
+      params:
+          min: 1
+          max: 3
+      groupId: basic
+    - id: phoneNumber
+      fieldType: phone
+      label: Phone
+      placeholder: Phone
       groupId: basic
 submit:
     title: Save & close
