@@ -7,7 +7,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.41",
+        "@gdi/types": "^0.0.43",
         "lodash": "^4.17.21",
         "redux-store-generator": "^0.9.86",
         "reselect": "^4.1.6"

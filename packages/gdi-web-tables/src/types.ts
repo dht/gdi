@@ -96,6 +96,7 @@ export type ItemType =
     | 'person'
     | 'event'
     | 'layout'
+    | 'link'
     | 'post'
     | 'ticket'
     | 'widget';

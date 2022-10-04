@@ -39,6 +39,7 @@ export function Switch(props: SwitchProps) {
                 key={option.id}
                 className='option'
                 selected={selected}
+                title={option.hint}
                 onClick={() => onClick(option)}
             >
                 {option.label}

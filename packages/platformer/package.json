@@ -11,8 +11,8 @@
     },
     "dependencies": {
         "@gdi/store-auth": "^0.0.20",
-        "@gdi/types": "^0.0.41",
-        "@gdi/web-ui": "^0.0.26",
+        "@gdi/types": "^0.0.43",
+        "@gdi/web-ui": "^0.0.30",
         "axios": "^0.27.2",
         "axios-oauth": "^0.0.3",
         "firebase": "^9.9.1",

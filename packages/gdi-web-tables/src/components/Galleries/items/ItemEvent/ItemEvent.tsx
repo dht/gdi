@@ -1,13 +1,25 @@
 import React from 'react';
-import { Container } from './ItemEvent.style';
+import { Author, AuthorName, Description, Title } from './ItemEvent.style';
+import { ItemBase } from '../_ItemBase/ItemBase';
+import { MasonryItemProps } from '../../../Masonry/Masonry';
 
-export type ItemEventProps = {};
+export type ItemEventProps = MasonryItemProps & {
+    item: IEvent;
+};
 
-export function ItemEvent(_props: ItemEventProps) {
+export function ItemEvent(props: ItemEventProps) {
+    const { item: image } = props;
+    const { title, authorName } = image;
+
     return (
-        <Container className="ItemEvent-container" data-testid="ItemEvent-container">
-            ItemEvent
-        </Container>
+        <ItemBase {...props} backgroundColor='#000'>
+            <Description className='description'>
+                <Title className='title'>{title}</Title>
+                <Author className='author'>
+                    By <AuthorName>{authorName}</AuthorName>
+                </Author>
+            </Description>
+        </ItemBase>
     );
 }
 

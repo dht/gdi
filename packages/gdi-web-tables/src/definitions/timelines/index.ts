@@ -3,6 +3,7 @@ import articles from './json/d.timeline.articles.json';
 import events from './json/d.timeline.events.json';
 import images from './json/d.timeline.images.json';
 import layouts from './json/d.timeline.layouts.json';
+import links from './json/d.timeline.links.json';
 import posts from './json/d.timeline.posts.json';
 import ppl from './json/d.timeline.ppl.json';
 import tickets from './json/d.timeline.tickets.json';
@@ -13,6 +14,7 @@ export const timelines: Record<ItemType, ITimelineConfig> = {
     event: events,
     image: images,
     layout: layouts,
+    link: links,
     post: posts,
     person: ppl,
     ticket: tickets,

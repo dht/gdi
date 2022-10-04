@@ -27,16 +27,20 @@ export const filterByConfig = (
 
 export const filterByField = (
     data: Json[],
-    field: IFilterField,
+    field: IFilterField | undefined,
     value: string[]
 ) => {
+    if (!field) {
+        return [];
+    }
+
     const { cellType } = field;
 
     if (isEmpty(value)) {
         return data;
     }
 
-    const method = filterMethods[cellType];
+    const method = filterMethods[cellType as CellType];
 
     if (typeof method !== 'function') {
         return data;
@@ -50,8 +54,6 @@ export const filterText = (
     field: IFilterField,
     value: string[]
 ) => {
-    const { cellType } = field;
-
     if (isEmpty(value)) {
         return data;
     }
@@ -71,9 +73,11 @@ export const filterNumber = (
         return data;
     }
 
-    const options = value.map((v) => {
-        return field.options.find((o: IOption) => v === o.id);
-    });
+    const options = value
+        .map((v) => {
+            return (field.options || []).find((o: IOption) => v === o.id);
+        })
+        .filter((i) => i) as IOption[];
 
     return data.filter((i) => {
         const iValue = i[field.id];
@@ -81,8 +85,8 @@ export const filterNumber = (
         return options.find((o) => {
             const { min, max, value } = o;
             const valueOk = iValue === value;
-            const minOk = iValue >= min || typeof min === 'undefined';
-            const maxOk = iValue < max || typeof max === 'undefined';
+            const minOk = typeof min === 'undefined' || iValue >= min;
+            const maxOk = typeof max === 'undefined' || iValue < max;
 
             return (minOk && maxOk) || valueOk;
         });
@@ -100,9 +104,11 @@ export const filterDate = (
         return data;
     }
 
-    const options = value.map((v) => {
-        return field.options.find((o: IOption) => v === o.id);
-    });
+    const options = value
+        .map((v) => {
+            return (field.options || []).find((o: IOption) => v === o.id);
+        })
+        .filter((i) => i) as IOption[];
 
     return data.filter((i) => {
         const iValue = i[field.id];
@@ -111,8 +117,8 @@ export const filterDate = (
 
         return options.find((o) => {
             const { min, max } = o;
-            const minOk = minutes >= min || typeof min === 'undefined';
-            const maxOk = minutes < max || typeof max === 'undefined';
+            const minOk = typeof min === 'undefined' || minutes >= min;
+            const maxOk = typeof max === 'undefined' || minutes < max;
 
             return minOk && maxOk;
         });

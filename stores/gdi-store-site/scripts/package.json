@@ -13,7 +13,7 @@
         "firestore-local": "^0.0.34"
     },
     "devDependencies": {
-        "@gdi/types": "^0.0.41",
+        "@gdi/types": "^0.0.43",
         "chalk": "^4.1.2"
     }
 }

@@ -3,6 +3,7 @@ import articles from './json/d.gallery.articles.json';
 import events from './json/d.gallery.events.json';
 import images from './json/d.gallery.images.json';
 import layouts from './json/d.gallery.layouts.json';
+import links from './json/d.gallery.links.json';
 import posts from './json/d.gallery.posts.json';
 import ppl from './json/d.gallery.ppl.json';
 import tickets from './json/d.gallery.tickets.json';
@@ -14,6 +15,7 @@ export const galleries: Record<ItemType, IGalleryConfig> = {
     event: events, // @ts-expect-error
     image: images, // @ts-expect-error
     layout: layouts, // @ts-expect-error
+    link: links, // @ts-expect-error
     post: posts, // @ts-expect-error
     person: ppl, // @ts-expect-error
     ticket: tickets, // @ts-expect-error

@@ -7,20 +7,24 @@ import { useFunctionKeys } from '@gdi/hooks';
 export type MultiViewsProps = {
     value: string;
     modes?: IViewMode[];
+    customViewExists: boolean;
     onChange: (option: SwitchOption) => void;
 };
 
 export function MultiViews(props: MultiViewsProps) {
-    const { modes = defaultModes } = props;
+    const { modes = defaultModes, customViewExists } = props;
     const ref = useRef<HTMLDivElement>(null);
     const { value } = props;
 
     const viewsModes = useMemo(() => {
-        return modes.map((mode, index) => ({
-            id: mode,
-            iconName: icons[mode],
-            key: keys[index],
-        }));
+        return modes
+            .map((mode, index) => ({
+                id: mode,
+                iconName: icons[mode],
+                hint: `${mode} (${keys[index]})`,
+                key: keys[index],
+            }))
+            .filter((i) => i.id !== 'custom' || customViewExists);
     }, [modes]);
 
     useFunctionKeys(

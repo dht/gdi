@@ -10,7 +10,7 @@ import { definitions as allDefinitions } from '../../definitions';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
 import { ItemType } from '../../types';
-import { defaultViews, MultiViews } from './Multi.views';
+import { MultiViews } from './Multi.views';
 import { SelectionContextProvider } from '../../context/Selection.context';
 import {
     FilterContext,
@@ -21,6 +21,7 @@ export type MultiProps = {
     id: string;
     data: Json[];
     itemType: ItemType;
+    header?: string;
     definitions: ICrudDefinitions;
     callbacks: {
         onDrillDown: (itemId: string) => void;
@@ -33,13 +34,21 @@ export type MultiProps = {
 };
 
 export function MultiInner(props: MultiProps) {
-    const { allOptions, customView: CustomView, viewModes } = props;
+    const {
+        allOptions,
+        customView: CustomView,
+        viewModes,
+        header,
+        itemType,
+    } = props;
 
     const contextFilter = useContext(FilterContext);
     const contextCrud = useContext(CrudContext);
 
     const { data = [] } = contextFilter;
     const { state, patchState, callbacks, config } = contextCrud;
+
+    const customViewExists = typeof CustomView !== 'undefined';
 
     function renderInner() {
         switch (state.viewMode) {
@@ -72,8 +81,8 @@ export function MultiInner(props: MultiProps) {
             case 'gallery':
                 return (
                     <AnyGallery
-                        flavour='article'
-                        options={{ columns: 5 }}
+                        flavour={itemType}
+                        options={{}}
                         items={data as any}
                         callbacks={callbacks}
                     />
@@ -94,13 +103,14 @@ export function MultiInner(props: MultiProps) {
     return (
         <Container className='Multi-container' data-testid='Multi-container'>
             <FilterBar
-                header={config.table.header || ''}
+                header={header || config.table.header || ''}
                 onAction={callbacks.onAction}
             />
             {renderInner()}
             <MultiViews
                 modes={viewModes}
                 value={state.viewMode}
+                customViewExists={customViewExists}
                 onChange={(option) =>
                     patchState({ viewMode: option.id as any })
                 }

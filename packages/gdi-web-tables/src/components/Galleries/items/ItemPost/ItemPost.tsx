@@ -1,14 +1,10 @@
 import React from 'react';
-import { Container } from './ItemPost.style';
+import ItemBase, { ItemBaseProps } from '../_ItemBase/ItemBase';
 
-export type ItemPostProps = {};
+export type ItemPostProps = ItemBaseProps & {};
 
-export function ItemPost(_props: ItemPostProps) {
-    return (
-        <Container className="ItemPost-container" data-testid="ItemPost-container">
-            ItemPost
-        </Container>
-    );
+export function ItemPost(props: ItemPostProps) {
+    return <ItemBase {...props} />;
 }
 
 export default ItemPost;

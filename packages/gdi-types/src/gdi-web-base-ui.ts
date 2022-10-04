@@ -15,7 +15,12 @@ declare global {
         iconName?: string;
         secondaryText?: string;
         shortKey?: IShortKey;
+        value?: string | number | boolean;
+        min?: number;
+        max?: number;
     };
+
+    export type IOptions = IOption[];
 
     export type SwitchOption = {
         id: string;

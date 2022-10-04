@@ -1,14 +1,10 @@
-import React from 'react';
-import { Container } from './ItemPerson.style';
+import React, { useEffect, useState } from 'react';
+import ItemBase, { ItemBaseProps } from '../_ItemBase/ItemBase';
 
-export type ItemPersonProps = {};
+export type ItemPersonProps = ItemBaseProps & {};
 
-export function ItemPerson(_props: ItemPersonProps) {
-    return (
-        <Container className="ItemPerson-container" data-testid="ItemPerson-container">
-            ItemPerson
-        </Container>
-    );
+export function ItemPerson(props: ItemPersonProps) {
+    return <ItemBase {...props} />;
 }
 
 export default ItemPerson;

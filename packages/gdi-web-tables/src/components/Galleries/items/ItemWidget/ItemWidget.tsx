@@ -1,14 +1,10 @@
 import React from 'react';
-import { Container } from './ItemWidget.style';
+import ItemBase, { ItemBaseProps } from '../_ItemBase/ItemBase';
 
-export type ItemWidgetProps = {};
+export type ItemWidgetProps = ItemBaseProps & {};
 
-export function ItemWidget(_props: ItemWidgetProps) {
-    return (
-        <Container className="ItemWidget-container" data-testid="ItemWidget-container">
-            ItemWidget
-        </Container>
-    );
+export function ItemWidget(props: ItemWidgetProps) {
+    return <ItemBase {...props} />;
 }
 
 export default ItemWidget;

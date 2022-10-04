@@ -10,12 +10,18 @@ export type IOption = {
     iconName?: string;
     secondaryText?: string;
     shortKey?: IShortKey;
+    value?: string | number | boolean;
+    min?: number;
+    max?: number;
 };
+
+export type IOptions = IOption[];
 
 export type SwitchOption = {
     id: string;
     label?: string;
     iconName?: string;
+    hint?: string;
 };
 
 export type IToolbarItem = {

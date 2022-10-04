@@ -101,6 +101,7 @@ declare global {
         | 'person'
         | 'event'
         | 'layout'
+        | 'link'
         | 'post'
         | 'ticket'
         | 'widget';

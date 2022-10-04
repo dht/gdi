@@ -2,7 +2,7 @@ import React from 'react';
 import { WidgetTitle, Container } from './PhotoBooth.style';
 import { PhotoBoothChair as Chair } from '../PhotoBoothChair/PhotoBoothChair';
 
-type PhotoBoothProps = {
+export type PhotoBoothProps = {
     widgets: IWidgets;
 };
 

@@ -16,7 +16,7 @@ import {
     RoutePath,
     AppName,
 } from './Switcher.style';
-import { colors, gradients } from './Switcher.colors';
+import { gradients } from './Switcher.colors';
 
 const COMBINATION: IShortKey = {
     key: 'ArrowUp',

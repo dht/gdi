@@ -20,7 +20,7 @@
             "flex": 2
         },
         {
-            "id": "projectId",
+            "id": "projectKey",
             "title": "Project",
             "cellType": "text",
             "flex": 1

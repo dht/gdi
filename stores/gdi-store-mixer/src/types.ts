@@ -54,11 +54,3 @@ export type IPackages = Json;
 export type IImageWithWidget = IImage & {
     widget: IWidget;
 };
-
-export type Option = {
-    id: string;
-    text: string;
-    value?: string | number | boolean;
-    min?: number;
-    max?: number;
-};
