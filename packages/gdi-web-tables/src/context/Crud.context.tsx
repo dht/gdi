@@ -5,9 +5,10 @@ import { emptyForm } from '../definitions/forms/empty';
 import { ICrudOptions, ICrudState, WithChildren } from '../types';
 import { SelectionContext } from './Selection.context';
 import { useCrudOperations } from '../hooks/useCrudOperations';
-import { useSetState } from 'react-use';
+import { useLocalStorage, useSetState } from 'react-use';
 
 type CrudContextProps = {
+    id: string;
     config: ICrudDefinitions;
     options: ICrudOptions;
     data: Json;
@@ -53,7 +54,7 @@ const initialValue: ICrudContext = {
 export const CrudContext = createContext<ICrudContext>(initialValue);
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
-    const { config, options, data, callbacks } = props;
+    const { id, config, options, data, callbacks } = props;
     const { state: selectedIds } = useContext(SelectionContext);
 
     const configValue = useMemo(
@@ -65,7 +66,9 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
         []
     );
 
-    const [state, patchState] = useSetState<ICrudState>({
+    const localStorageKey = `CRUD_CONTEXT_${id}`;
+
+    const [state, patchState] = useLocalStorage<ICrudState>(localStorageKey, {
         ...initialValue.state,
     });
 

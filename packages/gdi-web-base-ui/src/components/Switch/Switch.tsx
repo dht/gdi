@@ -1,4 +1,4 @@
-import { useMount } from 'react-use';
+import { useMeasure, useMount } from 'react-use';
 import React, { useRef, useState } from 'react';
 import { Bk, Container, Option } from './Switch.style';
 import { SwitchOption } from '../../types';
@@ -15,18 +15,7 @@ export type SwitchProps = {
 export function Switch(props: SwitchProps) {
     const { options, value: controlledValue, defaultValue, vertical } = props;
     const [localValue, setLocalValue] = useState(defaultValue);
-    const ref = useRef<HTMLDivElement>(null);
-    const [width, setWidth] = useState(0);
-    const [height, setHeight] = useState(0);
-
-    useMount(() => {
-        if (!ref || !ref.current) {
-            return;
-        }
-        const box = ref.current.getBoundingClientRect();
-        setWidth(box.width);
-        setHeight(box.height);
-    });
+    const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 
     const isControlled = typeof props.onChange === 'function';
 

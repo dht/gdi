@@ -10,7 +10,7 @@ import { definitions as allDefinitions } from '../../definitions';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
 import { ItemType } from '../../types';
-import { MultiViews } from './Multi.views';
+import { defaultViews, MultiViews } from './Multi.views';
 import { SelectionContextProvider } from '../../context/Selection.context';
 import {
     FilterContext,
@@ -29,10 +29,12 @@ export type MultiProps = {
     allOptions?: Json;
     customView?: FC<any>;
     dispatch: any;
+    viewModes?: IViewMode[];
 };
 
 export function MultiInner(props: MultiProps) {
-    const { allOptions, customView: CustomView } = props;
+    const { allOptions, customView: CustomView, viewModes } = props;
+
     const contextFilter = useContext(FilterContext);
     const contextCrud = useContext(CrudContext);
 
@@ -77,7 +79,6 @@ export function MultiInner(props: MultiProps) {
                     />
                 );
             case 'calendar':
-                // return <div>calendar</div>;
                 return <FullCalendar />;
             case 'timeline':
                 return <Timeline />;
@@ -92,9 +93,13 @@ export function MultiInner(props: MultiProps) {
 
     return (
         <Container className='Multi-container' data-testid='Multi-container'>
-            <FilterBar header='Articles' onAction={callbacks.onAction} />
+            <FilterBar
+                header={config.table.header || ''}
+                onAction={callbacks.onAction}
+            />
             {renderInner()}
             <MultiViews
+                modes={viewModes}
                 value={state.viewMode}
                 onChange={(option) =>
                     patchState({ viewMode: option.id as any })
@@ -105,7 +110,7 @@ export function MultiInner(props: MultiProps) {
 }
 
 export const Multi = (props: MultiProps) => {
-    const { data, itemType, callbacks, allOptions, dispatch } = props;
+    const { id, data, itemType, callbacks, allOptions, dispatch } = props;
 
     const definitions = useMemo(() => {
         return allDefinitions[itemType];
@@ -137,6 +142,7 @@ export const Multi = (props: MultiProps) => {
                     allOptions={allOptions}
                 >
                     <CrudContextProvider
+                        id={id}
                         data={data}
                         config={definitions}
                         options={optionsCrud}

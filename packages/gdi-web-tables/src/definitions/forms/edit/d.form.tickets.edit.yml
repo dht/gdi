@@ -1,5 +1,5 @@
-id: EditLayoutItem
-header: Edit Layout Item
+id: EditTicket
+header: Edit Ticket
 layout:
     flavour: singleColumn
     width: 300
@@ -8,35 +8,23 @@ groups:
     - id: basic
       layoutColumnIndex: 0
 fields:
-    - id: locationId
+    - id: key
       fieldType: text
-      placeholder: Unique locationId
-      label: Location
+      placeholder: Key
+      label: Key
       groupId: basic
-    - id: entityType
-      fieldType: select
-      placeholder: Enter type
-      label: Entity Type
-      optionSelector: $flexEntityTypes
+    - id: summary
+      fieldType: text
+      placeholder: Summary
+      label: Summary
       groupId: basic
-    - id: direction
-      fieldType: select
-      placeholder: Enter direction
-      label: Direction
-      optionSelector: $flexDirection
-      showIf: entityType=container
-      groupId: basic
-    - id: resolution
-      fieldType: select
-      placeholder: Resolution
-      label: Resolution
-      optionSelector: $resolutions
-      groupId: basic
-    - id: parentId
-      fieldType: select
-      placeholder: Select parentId
-      label: Parent
-      optionSelector: $flexEntityParentIds
-      groupId: basic
+    - id: timeEstimate
+      fieldType: number
+      placeholder: Enter an estimate in minutes
+      label: Estimate
+    - id: projectKey
+      fieldType: text
+      placeholder: Project key
+      label: ProjectKey
 submit:
     title: Save & close

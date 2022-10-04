@@ -1,30 +1,38 @@
 import React, { useMemo, useRef } from 'react';
-import { Switch } from '@gdi/web-base-ui';
-import { ContainerViews } from './Multi.style';
 import Draggable from 'react-draggable';
+import { ContainerViews } from './Multi.style';
+import { Switch } from '@gdi/web-base-ui';
 import { useFunctionKeys } from '@gdi/hooks';
 
 export type MultiViewsProps = {
     value: string;
+    modes?: IViewMode[];
     onChange: (option: SwitchOption) => void;
 };
 
 export function MultiViews(props: MultiViewsProps) {
+    const { modes = defaultModes } = props;
     const ref = useRef<HTMLDivElement>(null);
     const { value } = props;
 
-    const filteredOptions = options;
+    const viewsModes = useMemo(() => {
+        return modes.map((mode, index) => ({
+            id: mode,
+            iconName: icons[mode],
+            key: keys[index],
+        }));
+    }, [modes]);
 
     useFunctionKeys(
         (shortKey: IShortKey) => {
-            const option = filteredOptions.find(
+            const option = viewsModes.find(
                 (option) => option.key === shortKey.key
             );
             if (option) {
                 props.onChange(option);
             }
         },
-        [filteredOptions]
+        [viewsModes]
     );
 
     return (
@@ -36,7 +44,7 @@ export function MultiViews(props: MultiViewsProps) {
             >
                 <Switch
                     value={value}
-                    options={filteredOptions}
+                    options={viewsModes}
                     onChange={props.onChange}
                     vertical={true}
                 />
@@ -47,35 +55,22 @@ export function MultiViews(props: MultiViewsProps) {
 
 export default MultiViews;
 
-const options = [
-    {
-        id: 'table',
-        iconName: 'table_rows',
-        key: 'F1',
-    },
-    {
-        id: 'gallery',
-        iconName: 'grid_view',
-        key: 'F2',
-    },
-    {
-        id: 'spreadsheet',
-        iconName: 'grid_on',
-        key: 'F3',
-    },
-    {
-        id: 'timeline',
-        iconName: 'view_timeline',
-        key: 'F4',
-    },
-    {
-        id: 'calendar',
-        iconName: 'calendar_month',
-        key: 'F5',
-    },
-    {
-        id: 'custom',
-        iconName: 'view_in_ar',
-        key: 'F6',
-    },
+const icons: Record<IViewMode, string> = {
+    table: 'table_rows',
+    gallery: 'grid_view',
+    spreadsheet: 'grid_on',
+    timeline: 'view_timeline',
+    calendar: 'calendar_month',
+    custom: 'view_in_ar',
+};
+
+const keys: string[] = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
+
+const defaultModes: IViewMode[] = [
+    'table',
+    'gallery',
+    'spreadsheet',
+    'timeline',
+    'calendar',
+    'custom',
 ];
