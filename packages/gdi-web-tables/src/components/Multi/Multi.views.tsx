@@ -25,6 +25,10 @@ export function MultiViews(props: MultiViewsProps) {
 
     useFunctionKeys(
         (shortKey: IShortKey) => {
+            if (shortKey.key === 'F2' && value === 'spreadsheet') {
+                return;
+            }
+
             const option = viewsModes.find(
                 (option) => option.key === shortKey.key
             );
@@ -32,7 +36,7 @@ export function MultiViews(props: MultiViewsProps) {
                 props.onChange(option);
             }
         },
-        [viewsModes]
+        [viewsModes, value]
     );
 
     return (

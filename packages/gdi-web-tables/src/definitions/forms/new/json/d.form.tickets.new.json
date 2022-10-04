@@ -37,7 +37,7 @@
             "id": "projectKey",
             "fieldType": "text",
             "placeholder": "Project key",
-            "label": "Project"
+            "label": "ProjectKey"
         }
     ],
     "submit": {

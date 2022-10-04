@@ -12,6 +12,7 @@ export { useStartTyping } from './hooks/useStartTyping';
 export { useNudge } from './hooks/useNudge';
 export { useCustomEvent } from './hooks/useCustomEvent';
 export { useNumpad } from './hooks/useNumpad';
+export { useCopyPaste } from './hooks/useCopyPaste';
 export { useAuthMount } from './hooks/useAuthMount';
 export { useQuestionMark } from './hooks/useQuestionMark';
 export { useSelection } from './hooks/useSelection';
