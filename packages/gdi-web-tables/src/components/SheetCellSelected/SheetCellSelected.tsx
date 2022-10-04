@@ -1,7 +1,13 @@
 import React, { useContext } from 'react';
 import { Container } from './SheetCellSelected.style';
 import classnames from 'classnames';
-import { useDelete, useEnter, useKey, useStartTyping } from '@gdi/hooks';
+import {
+    useDelete,
+    useEnter,
+    useKey,
+    useStartTyping,
+    useCopyPaste,
+} from '@gdi/hooks';
 import { Coords } from '../../types';
 import { SheetContext } from '../../context/Sheet.context';
 
@@ -55,6 +61,23 @@ export function SheetCellSelected(props: SheetCellSelectedProps) {
         },
         { filterKeys: ['F2'] },
         []
+    );
+
+    useCopyPaste(
+        () => {
+            console.log('3 ->', value);
+
+            return value;
+        },
+        (clipboardValue: string) => {
+            const itemId = rowData['id'];
+            const fieldId = field.id;
+
+            context.onChange(itemId, {
+                [fieldId]: clipboardValue,
+            });
+        },
+        [value]
     );
 
     return (

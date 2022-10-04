@@ -6,8 +6,11 @@ export type IEvent = IShortKey & {
 
 export type Callback = (event: IEvent) => void;
 
+type Modifiers = 'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey';
+
 export type UseKeyOptions = {
     filterKeys?: string[];
+    filterModifiers?: Modifiers[];
     filterRegex?: RegExp;
     preventFocusSteal?: boolean;
 };
@@ -17,7 +20,12 @@ export function useKey(
     options: UseKeyOptions = {},
     depArray: any[] = []
 ) {
-    const { filterKeys = [], filterRegex, preventFocusSteal } = options;
+    const {
+        filterKeys = [],
+        filterRegex,
+        filterModifiers = [],
+        preventFocusSteal,
+    } = options;
 
     useEffect(() => {
         const onKeyDown = (ev: KeyboardEvent) => {
@@ -32,6 +40,13 @@ export function useKey(
             }
 
             if (filterKeys.length > 0 && !filterKeys.includes(key)) {
+                return;
+            }
+
+            if (
+                filterModifiers.length > 0 &&
+                !filterModifiers.every((m) => ev[m])
+            ) {
                 return;
             }
 
