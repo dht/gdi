@@ -1,4 +1,4 @@
-import { PartialTheme } from '@gdi/web-base-ui';
+import { PartialTheme } from '@fluentui/react';
 
 export const theme: PartialTheme = {
     palette: {

@@ -31,6 +31,7 @@ export { Switch } from './components/Switch/Switch';
 export { Tag } from './components/Tag/Tag';
 export { Tags } from './components/Tags/Tags';
 export { TagsInput } from './components/TagsInput/TagsInput';
+export { Theme } from './components/Theme/Theme';
 export { Toast } from './components/Toast/Toast';
 export { toast } from './components/Toast/Toast.actions';
 export { Toolbar } from './components/Toolbar/Toolbar';

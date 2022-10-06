@@ -47,7 +47,7 @@ export function SheetRow(props: SheetRowProps) {
 
         return (
             <Cmp
-                key={field.id}
+                key={field.id + index}
                 value={value}
                 field={field}
                 coords={coords}

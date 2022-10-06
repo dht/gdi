@@ -4,6 +4,7 @@ export const routes: IRoutes = {
     layouts: `${ROOT}/layouts`,
     layout: `${ROOT}/layouts/:layoutId`,
     articles: `${ROOT}/articles`,
+    customWidgets: `${ROOT}/customWidgets`,
     articleEditor: `${ROOT}/articles/:articleId`,
 };
 
@@ -19,14 +20,14 @@ export const menuItems: IMenuItem[] = [
         path: routes.layouts,
         icon: 'ViewDashboard',
         label: 'Layouts',
-        groupId: 'site',
+        groupId: 'factory',
         order: 1.5,
     },
     {
         path: routes.customWidgets,
         icon: 'Manufacturing',
-        label: 'Custom Widgets',
-        groupId: 'site',
+        label: 'Widgets',
+        groupId: 'factory',
         order: 2,
     },
 ];

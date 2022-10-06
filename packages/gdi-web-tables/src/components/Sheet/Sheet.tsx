@@ -37,7 +37,7 @@ export function SheetInner(props: SheetProps) {
     function renderRow(rowData: Json, index: number) {
         return (
             <SheetRow
-                key={rowData.id}
+                key={rowData.id + index}
                 rowData={rowData}
                 cells={fields}
                 rowIndex={index}

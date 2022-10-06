@@ -47,18 +47,23 @@ export function FlexDesigner(props: FlexDesignerProps) {
     const { items, selectedItemId, callbacks, isLoading } = props;
 
     useKey(
-        (ev) => {
-            if (!ev.withCtrl) {
-                return;
-            }
-            if (!ev.withShift) {
-                callbacks.onAction('splitHorizontally');
-            } else {
-                callbacks.onAction('splitVertically');
-            }
+        () => {
+            callbacks.onAction('splitVertically');
         },
         {
             filterKeys: ['D', 'd'],
+            filterModifiers: ['ctrlKey', 'shiftKey'],
+        },
+        [items]
+    );
+
+    useKey(
+        () => {
+            callbacks.onAction('splitHorizontally');
+        },
+        {
+            filterKeys: ['D', 'd'],
+            filterModifiers: ['ctrlKey'],
         },
         [items]
     );

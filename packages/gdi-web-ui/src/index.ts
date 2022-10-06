@@ -7,6 +7,7 @@ export { ColorPalette } from './components/ColorPalette/ColorPalette';
 export { ElementSelector } from './components/ElementSelector/ElementSelector';
 export { Gauge } from './components/Gauge/Gauge';
 export { KeyboardShortcuts } from './components/KeyboardShortcuts/KeyboardShortcuts';
+export { KeyboardHint } from './components/KeyboardHint/KeyboardHint';
 export { Layouts } from './components/Layouts/Layouts';
 export { Lifecycle } from './components/Lifecycle/Lifecycle';
 export { MessageModal } from './components/MessageModal/MessageModal';
@@ -18,7 +19,6 @@ export { Sort } from './components/Sort/Sort';
 export { Stopwatch } from './components/Stopwatch/Stopwatch';
 export { SystemLogs } from './components/SystemLogs/SystemLogs';
 export { Switcher } from './components/Switcher/Switcher';
-export { Theme } from './components/Theme/Theme';
 export { Weather } from './components/Weather/Weather';
 export { WindowHeader } from './components/WindowHeader/WindowHeader';
 
@@ -55,6 +55,7 @@ export {
     Tag,
     Tags,
     TagsInput,
+    Theme,
     Toast,
     toast,
     Toolbar,
