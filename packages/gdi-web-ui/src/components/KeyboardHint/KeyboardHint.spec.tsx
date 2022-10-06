@@ -1,13 +1,13 @@
-import { KeyboardShortcutsDriver } from './KeyboardShortcuts.driver';
+import { KeyboardHintDriver } from './KeyboardHint.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('KeyboardShortcuts', () => {
-    let driver: KeyboardShortcutsDriver;
+describe('KeyboardHint', () => {
+    let driver: KeyboardHintDriver;
 
     beforeAll(() => {
-        driver = new KeyboardShortcutsDriver();
+        driver = new KeyboardHintDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('KeyboardShortcuts', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('KeyboardShortcuts-container');
+        expect(containerClassName).toContain('KeyboardHint-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('KeyboardShortcuts', () => {
     });
 });
 
-describe('KeyboardShortcuts snapshots', () => {
-    let driver: KeyboardShortcutsDriver;
+describe('KeyboardHint snapshots', () => {
+    let driver: KeyboardHintDriver;
 
     beforeAll(() => {
-        driver = new KeyboardShortcutsDriver();
+        driver = new KeyboardHintDriver();
     });
 
     it('should match snapshot', () => {

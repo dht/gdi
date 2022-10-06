@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { KeyboardShortcuts, KeyboardShortcutsProps } from './KeyboardShortcuts';
+import { KeyboardHint, KeyboardHintProps } from './KeyboardHint';
 import { BaseComponentDriver } from 'testing-base';
 
-export class KeyboardShortcutsDriver extends BaseComponentDriver {
-    private props: Partial<KeyboardShortcutsProps> = {
+export class KeyboardHintDriver extends BaseComponentDriver {
+    private props: Partial<KeyboardHintProps> = {
     };
 
     constructor() {
-        super('KeyboardShortcuts');
+        super('KeyboardHint');
     }
 
     when: any = {
         rendered: () => {
-            render(<KeyboardShortcuts {...(this.props as KeyboardShortcutsProps)} />);
+            render(<KeyboardHint {...(this.props as KeyboardHintProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class KeyboardShortcutsDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<KeyboardShortcuts {...(this.props as KeyboardShortcutsProps)} />);
+            return this.snapshot(<KeyboardHint {...(this.props as KeyboardHintProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<KeyboardShortcutsProps>) => {
+        props: (props: Partial<KeyboardHintProps>) => {
             this.props = props;
             return this;
         },

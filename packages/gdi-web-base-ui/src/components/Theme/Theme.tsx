@@ -1,5 +1,5 @@
+import { initializeIcons, ThemeProvider } from '@fluentui/react';
 import React from 'react';
-import { ThemeProvider, initializeIcons } from '@gdi/web-base-ui';
 import { theme } from './dark.complete';
 
 initializeIcons();

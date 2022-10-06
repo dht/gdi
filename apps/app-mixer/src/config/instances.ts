@@ -43,14 +43,6 @@ export const instances: IWidgetInstancesByPageList = {
             hideHeader: false,
         },
         {
-            id: 'KeyboardShortcuts',
-            title: 'KeyboardShortcuts',
-            widgetId: MixerWidgets.KeyboardShortcuts,
-            position: { y: 18, x: 5 },
-            dimension: { y: 2, x: 3 },
-            isFloating: true,
-        },
-        {
             id: 'ImageUpload',
             widgetId: MixerWidgets.ImageUpload,
             position: { y: 1, x: 1 },

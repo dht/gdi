@@ -29,6 +29,16 @@
         "path": "submodules/gdi-extra/stores/gdi-store-money",
         "types": "src/types.ts"
     },
+    "gdi-store-events": {
+        "id": "gdi-store-events",
+        "path": "submodules/gdi-extra/stores/gdi-store-events",
+        "types": "src/types.ts"
+    },
+    "gdi-store-sales": {
+        "id": "gdi-store-sales",
+        "path": "submodules/gdi-extra/stores/gdi-store-sales",
+        "types": "src/types.ts"
+    },
     "gdi-store-ppl": {
         "id": "gdi-store-ppl",
         "path": "submodules/gdi-extra/stores/gdi-store-ppl",

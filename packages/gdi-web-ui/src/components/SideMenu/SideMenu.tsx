@@ -6,11 +6,12 @@ import { useCallback, useEffect } from 'react';
 import { useLocation, useSetState, useToggle } from 'react-use';
 import { upperFirst } from 'lodash';
 import './SideMenu.scss';
+import { sortBy } from 'shared-base';
 
 export type SideMenuProps = {
     data: IMenuItem[];
     groups: string[];
-    children?: JSX.Element;
+    children?: JSX.Element | JSX.Element[];
 };
 
 export function SideMenu(props: SideMenuProps) {
@@ -76,7 +77,9 @@ export function SideMenu(props: SideMenuProps) {
             open: isSectionVisible,
         });
 
-        const items = data.filter((item) => item.groupId === groupId);
+        const items = data
+            .filter((item) => item.groupId === groupId)
+            .sort(sortBy('order'));
 
         return (
             <div key={groupId} className={className}>
