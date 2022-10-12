@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { IAuthStore } from './types';
 
-export const $i = (state: IAuthStore) => state;
+export const $i = (state: { auth: IAuthStore }) => state.auth;
 const $n = (): null => null;
 const $o = (): void => {};
 

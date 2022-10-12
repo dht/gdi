@@ -7,7 +7,7 @@ const $i = () => {};
 
 export const $instanceTypes = createSelector(
     base.$instanceTypes,
-    (instanceTypes): Option[] => {
+    (instanceTypes): IOption[] => {
         return instanceTypes.map((instanceType) => {
             return {
                 id: instanceType,
@@ -19,7 +19,7 @@ export const $instanceTypes = createSelector(
 
 export const $imageTags = createSelector(
     base.$libraryImages,
-    (images): Option[] => {
+    (images): IOption[] => {
         const allTags = new Set<string>();
 
         images.forEach((image) => {
@@ -40,7 +40,7 @@ export const $imageTags = createSelector(
 
 export const $imageFields = createSelector(
     base.$imageFieldsForCurrentElement,
-    (imageFields): Option[] => {
+    (imageFields): IOption[] => {
         return Object.keys(imageFields || {}).map((id) => {
             const text = id.split('.').pop() || id;
 

@@ -64,7 +64,8 @@ export type IViewMode =
     | 'spreadsheet'
     | 'timeline'
     | 'calendar'
-    | 'custom';
+    | 'custom'
+    | 'custom2';
 
 export type ICrudState = {
     viewMode: IViewMode;
@@ -95,7 +96,11 @@ export type ItemType =
     | 'article'
     | 'person'
     | 'event'
+    | 'page'
+    | 'pageInstance'
+    | 'template'
     | 'layout'
+    | 'sale'
     | 'link'
     | 'post'
     | 'ticket'
@@ -225,6 +230,26 @@ export type ISortOption = {
     text: string;
     direction: 'asc' | 'desc';
 };
+
+// ================== Overlays ==================
+export type OverlayType = 'absolute' | 'centered';
+
+export type IOverlayField = {
+    id: string;
+    fieldId: string;
+    fieldType: FieldType;
+    locationKey?: string;
+    order?: number;
+};
+
+export type IOverlayConfig = {
+    id: string;
+    sequence?: number;
+    overlayType?: OverlayType;
+    fields: IOverlayFields;
+};
+
+export type IOverlayFields = Record<string, IOverlayField>;
 
 // ================== General ==================
 

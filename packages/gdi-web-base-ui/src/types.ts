@@ -26,9 +26,10 @@ export type SwitchOption = {
 
 export type IToolbarItem = {
     id: string;
-    text: string;
+    text?: string;
     iconName?: string;
     secondaryText?: string;
+    isGap?: boolean;
 };
 
 export type ToastFlavour =

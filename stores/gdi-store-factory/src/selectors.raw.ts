@@ -4,7 +4,7 @@ import { site } from '@gdi/store-site';
 
 const siteSelectors = site.selectors;
 
-export const $i = (state: IFactoryStore) => state;
+export const $i = (state: { factory: IFactoryStore }) => state.factory;
 const $n = (): null => null;
 const $o = (): void => {};
 

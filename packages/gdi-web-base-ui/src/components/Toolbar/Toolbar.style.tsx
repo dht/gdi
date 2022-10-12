@@ -4,6 +4,8 @@ export const Container = styled.div<{ horizontal?: boolean }>`
     display: flex;
     flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &.horizontal {
         .item {
@@ -18,7 +20,6 @@ export const Item = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &:hover {
         color: gold;
@@ -32,4 +33,8 @@ export const Item = styled.div`
     .icon {
         display: block;
     }
+`;
+
+export const Gap = styled.div`
+    flex: 1;
 `;

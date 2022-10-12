@@ -16,16 +16,11 @@ firebase firestore:delete -r -f locales &
 firebase firestore:delete -r -f packages &
 firebase firestore:delete -r -f meta &
 firebase firestore:delete -r -f palette &
-firebase firestore:delete -r -f fontSizes &
-firebase firestore:delete -r -f spacing &
 firebase firestore:delete -r -f fonts &
 firebase firestore:delete -r -f instances &
 firebase firestore:delete -r -f pages &
 firebase firestore:delete -r -f images &
 firebase firestore:delete -r -f locale &
 firebase firestore:delete -r -f widgets &
-firebase firestore:delete -r -f instancesMapColors &
-firebase firestore:delete -r -f instancesMapStrings &
 firebase firestore:delete -r -f instancesProps &
-firebase firestore:delete -r -f strings &
 firebase firestore:delete -r -f singles 

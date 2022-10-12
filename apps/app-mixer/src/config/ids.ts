@@ -1,2 +1,2 @@
 export const APP_ID = 'mixer';
-export const ROOT = `/admin/${APP_ID}`;
+export const ROOT = `/admin`;

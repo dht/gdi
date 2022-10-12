@@ -8,11 +8,12 @@ export type MultiViewsProps = {
     value: string;
     modes?: IViewMode[];
     customViewExists: boolean;
+    customView2Exists: boolean;
     onChange: (option: SwitchOption) => void;
 };
 
 export function MultiViews(props: MultiViewsProps) {
-    const { modes = defaultModes, customViewExists } = props;
+    const { modes = defaultModes, customViewExists, customView2Exists } = props;
     const ref = useRef<HTMLDivElement>(null);
     const { value } = props;
 
@@ -24,7 +25,8 @@ export function MultiViews(props: MultiViewsProps) {
                 hint: `${mode} (${keys[index]})`,
                 key: keys[index],
             }))
-            .filter((i) => i.id !== 'custom' || customViewExists);
+            .filter((i) => i.id !== 'custom' || customViewExists)
+            .filter((i) => i.id !== 'custom2' || customView2Exists);
     }, [modes]);
 
     useFunctionKeys(
@@ -70,6 +72,7 @@ const icons: Record<IViewMode, string> = {
     timeline: 'view_timeline',
     calendar: 'calendar_month',
     custom: 'view_in_ar',
+    custom2: 'dynamic_feed',
 };
 
 const keys: string[] = ['F1', 'F2', 'F3', 'F4', 'F5', 'F6'];
@@ -81,4 +84,5 @@ const defaultModes: IViewMode[] = [
     'timeline',
     'calendar',
     'custom',
+    'custom2',
 ];

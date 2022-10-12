@@ -43,11 +43,15 @@ declare global {
 
     export type LibraryBuilderResponse = {
         templates: ITemplates;
+        pageInstances: IPageInstances;
+        pages: IPages;
         widgets: IWidgets;
     };
     export interface ILibraryBuilder {
         withTemplates: (templates: ITemplates) => ILibraryBuilder;
         withWidgets: (widgets: IWidgets) => ILibraryBuilder;
+        withPageInstances: (pageInstances: IPageInstances) => ILibraryBuilder;
+        withPages: (pages: IPages) => ILibraryBuilder;
         build: () => LibraryBuilderResponse;
     }
 }

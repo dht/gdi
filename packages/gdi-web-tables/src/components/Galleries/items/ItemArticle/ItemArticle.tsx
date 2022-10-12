@@ -8,8 +8,8 @@ export type ItemArticleProps = MasonryItemProps & {
 };
 
 export function ItemArticle(props: ItemArticleProps) {
-    const { item: image } = props;
-    const { title, authorName } = image;
+    const { item: article } = props;
+    const { title, authorName } = article;
 
     return (
         <ItemBase {...props} backgroundColor='#000'>

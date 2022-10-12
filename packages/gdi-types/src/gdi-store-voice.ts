@@ -2,7 +2,7 @@
 
 import { StoreStructure } from 'redux-store-generator';
 
-export const A10 = {};
+export const A13 = {};
 
 declare global {
     export type IVoiceStore = StoreStructure & {

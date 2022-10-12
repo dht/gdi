@@ -1,12 +1,22 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Icon, Logo } from '@gdi/web-base-ui';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useSetState, useToggle } from 'react-use';
 import { upperFirst } from 'lodash';
 import './SideMenu.scss';
 import { sortBy } from 'shared-base';
+import {
+    Container,
+    Group,
+    GroupTitle,
+    Header,
+    Item,
+    Items,
+    Overlay,
+    Title,
+} from './SideMenu.style';
 
 export type SideMenuProps = {
     data: IMenuItem[];
@@ -19,6 +29,7 @@ export function SideMenu(props: SideMenuProps) {
     const [sections, updateSections] = useSetState<Record<string, boolean>>({});
     const [slim, toggleSlim] = useToggle(true);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (groups.length === 0) {
@@ -51,22 +62,24 @@ export function SideMenu(props: SideMenuProps) {
         });
 
         return (
-            <Link
-                to={path}
+            <Item
                 key={path}
                 draggable={false}
                 className={className}
                 onClick={() => toggleSlim(true)}
+                onMouseDown={() => navigate(path)}
             >
                 <Icon className='icon' iconName={icon} />
-                <div className='title'>{label}</div>
-            </Link>
+                <Title className='title'>{label}</Title>
+            </Item>
         );
     }
 
     function renderItems(items: IMenuItem[]) {
         return (
-            <div className='items'>{items.map((item) => renderItem(item))}</div>
+            <Items className='items'>
+                {items.map((item) => renderItem(item))}
+            </Items>
         );
     }
 
@@ -82,13 +95,16 @@ export function SideMenu(props: SideMenuProps) {
             .sort(sortBy('order'));
 
         return (
-            <div key={groupId} className={className}>
-                <div className='title' onClick={() => toggleGroup(groupId)}>
+            <Group key={groupId} className={className}>
+                <GroupTitle
+                    className='title'
+                    onMouseDown={() => toggleGroup(groupId)}
+                >
                     {upperFirst(groupId)}
                     <Icon iconName='ChevronDown' className='chevron'></Icon>
-                </div>
+                </GroupTitle>
                 {isSectionVisible && renderItems(items)}
-            </div>
+            </Group>
         );
     }
 
@@ -101,19 +117,21 @@ export function SideMenu(props: SideMenuProps) {
     });
 
     return (
-        <div className={className}>
-            <div className='header'>
+        <Container className={className}>
+            <Header className='header'>
                 <Logo small={slim} onClick={toggleSlim} />
                 <Icon
                     className='cancel'
                     iconName='ChevronLeftSmall'
                     onClick={toggleSlim}
                 />
-            </div>
+            </Header>
             {slim ? renderItems(slimItems) : renderGroups()}
-            {!slim && <div className='overlay' onClick={toggleSlim}></div>}
+            {!slim && (
+                <Overlay className='overlay' onClick={toggleSlim}></Overlay>
+            )}
             {props.children}
-        </div>
+        </Container>
     );
 }
 

@@ -2,34 +2,128 @@ import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { IImageWithWidget, IMixerStore } from './types';
 import { get, pickBy } from 'lodash';
-import { site } from '@gdi/store-site';
 import {
     getWidgetTypeFromElement,
     getWidgetTypeFromTags,
     getSchemaPropertiesByType,
 } from './utils/widgets';
+import { sortBy, unflattenInstanceProps } from 'shared-base';
 
-const rawSite = site.selectors.raw;
-const baseSite = site.selectors.base;
-export const $instances = site.selectors.base.$instances;
+export const $i = (state: { mixer: IMixerStore }) => state.mixer;
 
-export const $i = (state: IMixerStore) => state;
+export const $instances = createSelector(
+    raw.$rawInstances,
+    raw.$rawInstancesProps,
+    (instances, instancesProps) => {
+        return Object.values(instances)
+            .map((instance) => {
+                const props = instancesProps[instance.id];
+                return {
+                    ...instance,
+                    instanceProps: unflattenInstanceProps(props),
+                } as IWidgetInstance;
+            })
+            .sort(sortBy('order', 'asc'));
+    }
+);
 
 export const $page = createSelector(
     raw.$rawCurrentIds,
-    rawSite.$rawPages,
+    raw.$rawLibraryPages,
     (currentIds, pages) => {
-        return pages[currentIds.pageId];
+        const { pageId } = currentIds;
+
+        if (!pageId) {
+            return null;
+        }
+
+        return pages[pageId];
+    }
+);
+
+export const $pageInstances = createSelector(
+    raw.$rawCurrentIds,
+    raw.$rawLibraryPageInstances,
+    (currentIds, pageInstances) => {
+        const { pageId } = currentIds;
+
+        if (!pageId) {
+            return [];
+        }
+
+        return Object.values(pageInstances)
+            .filter((i) => i.pageId === pageId)
+            .sort(sortBy('version'));
+    }
+);
+
+export const $pageInstanceId = createSelector(
+    raw.$rawCurrentIds,
+    $pageInstances,
+    (currentIds, pageInstances) => {
+        let id: string | undefined;
+
+        const { pageInstanceId } = currentIds;
+
+        if (pageInstanceId) {
+            id = pageInstanceId;
+        } else if (pageInstances.length > 0) {
+            id = pageInstances[0].id;
+        }
+
+        return id;
+    }
+);
+
+export const $pageInstance = createSelector(
+    $pageInstanceId,
+    raw.$rawLibraryPageInstances,
+    (pageInstanceId, pageInstances) => {
+        if (!pageInstanceId) {
+            return null;
+        }
+
+        return pageInstances[pageInstanceId];
+    }
+);
+
+export const $instancesForPageInstance = createSelector(
+    $pageInstanceId,
+    raw.$rawInstances,
+    (pageInstanceId, instances) => {
+        return Object.values(instances).filter(
+            (instance) => instance.pageInstanceId === pageInstanceId
+        );
     }
 );
 
 export const $instancesForCurrentPage = createSelector(
-    raw.$rawCurrentIds,
+    $pageInstanceId,
     $instances,
-    (currentIds, instances) => {
+    (pageInstanceId, instances) => {
         return instances.filter(
-            (instance) => instance.pageId === currentIds.pageId
+            (instance: IWidgetInstance) =>
+                instance.pageInstanceId === pageInstanceId
         );
+    }
+);
+
+export const $instancesPropsForCurrentPage = createSelector(
+    $instancesForCurrentPage,
+    raw.$rawInstancesProps,
+    (instances, instancesProps) => {
+        return instances.reduce((output, instance) => {
+            const props = instancesProps[instance.id];
+            output[instance.id] = props;
+            return output;
+        }, {} as Json);
+    }
+);
+
+export const $nextInstanceVersion = createSelector(
+    $pageInstances,
+    (instances) => {
+        return 'v' + (instances.length + 1);
     }
 );
 
@@ -110,7 +204,7 @@ export const $instanceTypes = createSelector(
     (widgets) => {
         const set = new Set<string>();
 
-        Object.values(widgets).forEach((widget) => {
+        Object.values(widgets).forEach((widget: IWidget) => {
             const { tags = [] } = widget;
 
             tags.filter((item) => item.match(/^type-/)).forEach((tag) => {
@@ -215,7 +309,7 @@ export const $instanceSelectedSchema = createSelector(
 export const $imageFieldsForCurrentElement = createSelector(
     $instanceSelected,
     (instance) => {
-        if (!instance) {
+        if (!instance || !instance.widget) {
             return [];
         }
 
@@ -272,3 +366,7 @@ export const $isSelectedPlaceholder = createSelector(
         return instance.isPlaceholder;
     }
 );
+
+export const $libraryPages = createSelector(raw.$rawLibraryPages, (pages) => {
+    return Object.values(pages).sort(sortBy('order', 'asc'));
+});

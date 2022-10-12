@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A15 = {};
+export const A18 = {};
 
 declare global {
     export type IUploadResult = {
@@ -11,13 +11,14 @@ declare global {
 
     export type IOption = {
         id: string;
-        text: string;
+        text?: string;
         iconName?: string;
         secondaryText?: string;
         shortKey?: IShortKey;
         value?: string | number | boolean;
         min?: number;
         max?: number;
+        isGap?: number;
     };
 
     export type IOptions = IOption[];
@@ -26,6 +27,7 @@ declare global {
         id: string;
         label?: string;
         iconName?: string;
+        hint?: string;
     };
 
     export type IToolbarItem = {

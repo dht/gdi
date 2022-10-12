@@ -69,7 +69,7 @@ export class RouterBuilder implements IRouterBuilder {
             const scopedPageId = this.getScopedPageId(appId, pageId);
             this.instancesByPage[scopedPageId] = this.instancesByPage[scopedPageId] || {}; // prettier-ignore
 
-            instances[pageId].forEach((instance) => {
+            instances[pageId].forEach((instance: any) => {
                 let { widgetId } = instance;
 
                 const instanceId = String(this.instanceId++);
@@ -146,7 +146,7 @@ export class RouterBuilder implements IRouterBuilder {
     }
 
     build(): RouterBuilderResponse {
-        const menuItems = this.menuItems.sort(sortBy('groupId', 'order'));
+        const menuItems = this.menuItems.sort(sortBy('groupId', 'asc'));
 
         return {
             routes: this.routes,

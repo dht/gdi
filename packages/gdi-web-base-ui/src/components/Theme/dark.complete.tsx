@@ -29,4 +29,11 @@ export const theme: PartialTheme = {
         black: '#fdfdfd',
         white: '#112',
     },
+    spacing: {
+        s1: '4px',
+        s2: '8px',
+        m: '16px',
+        l1: '20px',
+        l2: '32px',
+    },
 };

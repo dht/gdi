@@ -9,14 +9,14 @@ export type ItemEventProps = MasonryItemProps & {
 
 export function ItemEvent(props: ItemEventProps) {
     const { item: image } = props;
-    const { title, authorName } = image;
+    const { title } = image;
 
     return (
         <ItemBase {...props} backgroundColor='#000'>
             <Description className='description'>
                 <Title className='title'>{title}</Title>
                 <Author className='author'>
-                    By <AuthorName>{authorName}</AuthorName>
+                    By <AuthorName></AuthorName>
                 </Author>
             </Description>
         </ItemBase>

@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A19 = {};
+export const A22 = {};
 
 declare global {
     export type PageId = string;
@@ -51,6 +51,7 @@ declare global {
         isPlaceholder?: boolean;
         placeholderType?: string;
         pageId?: string;
+        pageInstanceId?: string;
         locationId?: string;
         order?: number;
         // transient

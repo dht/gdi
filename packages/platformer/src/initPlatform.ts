@@ -71,8 +71,8 @@ export async function initPlatform<T extends StoreStructure>(
     const i18nBuilder = new I18nBuilder();
 
     storeBuilder
-        .withReducers(platform.reducers)
-        .withInitialState(platform.initialState)
+        .withReducers('platform', platform.reducers)
+        .withInitialState('platform', platform.initialState)
         .withDevtoolsExtensions(true)
         .withMiddlewares(thunk)
         .withSagas(...sagas);

@@ -39,6 +39,11 @@
         "path": "submodules/gdi-extra/stores/gdi-store-sales",
         "types": "src/types.ts"
     },
+    "gdi-store-weather": {
+        "id": "gdi-store-weather",
+        "path": "submodules/gdi-extra/stores/gdi-store-weather",
+        "types": "src/types.ts"
+    },
     "gdi-store-ppl": {
         "id": "gdi-store-ppl",
         "path": "submodules/gdi-extra/stores/gdi-store-ppl",
@@ -107,6 +112,11 @@
     "igrid": {
         "id": "igrid",
         "path": "submodules/igrid",
+        "types": "src/types.ts"
+    },
+    "store-seeder": {
+        "id": "store-seeder",
+        "path": "submodules/store-seeder",
         "types": "src/types.ts"
     }
 }

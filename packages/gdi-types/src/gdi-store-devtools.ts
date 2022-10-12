@@ -8,7 +8,6 @@ declare global {
     export type IDevtoolsStore = StoreStructure & {
         appStateDevtools: IDevtoolsState;
         stores: IStores;
-        nodes: INodes;
     };
 
     export type IDevtoolsState = {

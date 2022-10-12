@@ -3,12 +3,15 @@ import type { StoreStructure } from 'redux-store-generator';
 export type IMixerStore = StoreStructure & {
     appStateMixer: IMixerState;
     currentIds: ICurrentIds;
-    meta: IMetaMixer;
-    libraryImages: IImages;
-    libraryWidgets: IWidgets;
-    libraryTypography: ITypographyOptions;
-    libraryPalettes: IPaletteOptions;
     locales: ILocaleOptions;
+    libraryPages: IPages;
+    libraryPageInstances: IPageInstances;
+    libraryInstances: IWidgetInstances;
+    libraryInstancesProps: Json;
+    libraryWidgets: IWidgets;
+    libraryImages: IImages;
+    libraryPalettes: IPaletteOptions;
+    libraryTypography: ITypographyOptions;
     packages: IPackages;
 };
 
@@ -19,18 +22,16 @@ export type IMixerState = {
     paletteId: string;
     showImageUploadModal: boolean;
     showPlayModeMessage: boolean;
+    showMixerTree: boolean;
 };
 
 export type ICurrentIds = {
     pageId: string;
+    pageInstanceId: string;
     selectedInstanceId: string;
     contentInstanceId: string;
     libraryInstanceId: string;
     fieldId: string;
-};
-
-export type IMetaMixer = {
-    schemaVersion: string;
 };
 
 export type ITypography = {

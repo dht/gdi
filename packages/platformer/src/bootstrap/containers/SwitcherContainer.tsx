@@ -1,7 +1,7 @@
-import React, { useCallback, useContext, useReducer } from 'react';
-import { ContextBar, Switcher } from '@gdi/web-ui';
+import React, { useContext } from 'react';
+import { Switcher, ISwitcherScreen } from '@gdi/web-ui';
 import { PlatformContext } from '../../core/platform-context';
-import { sortBy } from 'shared-base';
+import { sortBy, isDefined } from 'shared-base';
 
 type SwitcherContainerProps = {};
 
@@ -41,7 +41,7 @@ export function SwitcherContainer(_props: SwitcherContainerProps) {
             };
         })
         .filter((i) => i)
-        .sort(sortBy('name', 'asc'));
+        .sort(sortBy('name', 'asc')) as ISwitcherScreen[];
 
     return <Switcher screens={screens} />;
 }

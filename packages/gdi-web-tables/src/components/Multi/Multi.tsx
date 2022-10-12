@@ -26,9 +26,12 @@ export type MultiProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
+    tools?: IOption[];
     allOptions?: Json;
     customView?: FC<any>;
+    customView2?: FC<any>;
     dispatch: any;
     viewModes?: IViewMode[];
 };
@@ -37,9 +40,11 @@ export function MultiInner(props: MultiProps) {
     const {
         allOptions,
         customView: CustomView,
+        customView2: CustomView2,
         viewModes,
         header,
         itemType,
+        tools,
     } = props;
 
     const contextFilter = useContext(FilterContext);
@@ -49,6 +54,9 @@ export function MultiInner(props: MultiProps) {
     const { state, patchState, callbacks, config } = contextCrud;
 
     const customViewExists = typeof CustomView !== 'undefined';
+    const customView2Exists = typeof CustomView2 !== 'undefined';
+
+    const isCustomView = state.viewMode === 'custom' || state.viewMode === 'custom2'; // prettier-ignore
 
     function renderInner() {
         switch (state.viewMode) {
@@ -97,6 +105,12 @@ export function MultiInner(props: MultiProps) {
                 }
 
                 return <CustomView />;
+            case 'custom2':
+                if (!CustomView2) {
+                    return null;
+                }
+
+                return <CustomView2 />;
         }
     }
 
@@ -104,13 +118,18 @@ export function MultiInner(props: MultiProps) {
         <Container className='Multi-container' data-testid='Multi-container'>
             <FilterBar
                 header={header || config.table.header || ''}
+                tools={tools}
                 onAction={callbacks.onAction}
+                hideTagging={isCustomView}
+                hideFilter={isCustomView}
+                hideSearch={isCustomView}
             />
             {renderInner()}
             <MultiViews
                 modes={viewModes}
                 value={state.viewMode}
                 customViewExists={customViewExists}
+                customView2Exists={customView2Exists}
                 onChange={(option) =>
                     patchState({ viewMode: option.id as any })
                 }

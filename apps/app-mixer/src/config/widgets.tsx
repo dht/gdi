@@ -1,28 +1,29 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { CurrentIdsHoc, IWidget } from '@gdi/platformer';
 import { MixerContainer } from '../containers/MixerContainer';
 import { MixerPanel } from '../components/MixerPanel/MixerPanel';
 import { ToolsContainer } from '../containers/singles/ToolsContainer';
-import { ViewsContainer } from '../containers/singles/ViewsContainer';
-import { PagesContainer } from '../containers/singles/PagesContainer';
+import { PagesContainer } from '../containers/PagesContainer';
 import { ImportExportContainer } from '../containers/singles/ImportExportContainer';
+import { PageToolsContainer } from '../containers/singles/PageToolsContainer';
 import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
-import { FlexDesignerContainer } from '../containers/FlexDesignerContainer';
+import { MixerTreeContainer } from '../containers/singles/MixerTreeContainer';
 import { WindowSize } from '../components/WindowSize/WindowSize';
+import { actions } from '../store';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
     MixerPanel = 'mixer.MixerPanel',
-    Tools = 'mixer.Tools',
-    Views = 'mixer.Views',
+    MixerTree = 'mixer.MixerTree',
     Pages = 'mixer.Pages',
     ImageGallery = 'mixer.ImageGallery',
     ImageUpload = 'mixer.ImageUpload',
     PlayMode = 'mixer.PlayMode',
     ImportExport = 'mixer.ImportExport',
+    PageTools = 'mixer.PageTools',
     Preview = 'mixer.Preview',
     WindowSize = 'mixer.WindowSize',
 }
@@ -35,7 +36,10 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MixerContainer {...props} />,
+        component: (props: any) =>
+            CurrentIdsHoc(actions.currentIds.patch)(
+                <MixerContainer {...props} />
+            ),
     },
     {
         id: MixerWidgets.MixerPanel,
@@ -48,24 +52,14 @@ export const widgets: IWidget[] = [
         component: (props: any) => <MixerPanel {...props} />,
     },
     {
-        id: MixerWidgets.Tools,
-        name: 'Tools',
-        description: 'Tools',
+        id: MixerWidgets.MixerTree,
+        name: 'MixerTree',
+        description: 'MixerTree',
         defaultDimension: {
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ToolsContainer {...props} />,
-    },
-    {
-        id: MixerWidgets.Views,
-        name: 'Views',
-        description: 'Views',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => <ViewsContainer {...props} />,
+        component: (props: any) => <MixerTreeContainer {...props} />,
     },
     {
         id: MixerWidgets.Pages,
@@ -76,16 +70,6 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => <PagesContainer {...props} />,
-    },
-    {
-        id: MixerWidgets.ImportExport,
-        name: 'Site',
-        description: 'ImportExport',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => <ImportExportContainer {...props} />,
     },
     {
         id: MixerWidgets.ImageGallery,

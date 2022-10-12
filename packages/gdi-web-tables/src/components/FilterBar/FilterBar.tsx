@@ -21,11 +21,22 @@ import {
 
 export type FilterBarProps = {
     header: string;
+    tools?: IOption[];
     onAction: (actionId: string) => void;
+    hideSearch?: boolean;
+    hideFilter?: boolean;
+    hideTagging?: boolean;
 };
 
 export function FilterBar(props: FilterBarProps) {
-    const { header } = props;
+    const {
+        header,
+        tools = defaultTools,
+        hideSearch,
+        hideFilter,
+        hideTagging,
+    } = props;
+
     const context = useContext(FilterContext);
     const contextSelection = useContext(SelectionContext);
 
@@ -103,6 +114,41 @@ export function FilterBar(props: FilterBarProps) {
         );
     }
 
+    function renderFiltering() {
+        if (hideFilter) {
+            return null;
+        }
+
+        return (
+            <>
+                {renderClearFilter()}
+                <Button iconName='Filter' onClick={callbacks.toggleFilter} />
+            </>
+        );
+    }
+
+    function renderSearch() {
+        if (hideSearch) {
+            return null;
+        }
+
+        return <Search value={search} onChange={callbacks.onSearch} />;
+    }
+
+    function renderTagger() {
+        if (hideTagging) {
+            return null;
+        }
+
+        return (
+            <Tagger
+                tag={tag}
+                onClick={callbacks.onTagClick}
+                onClear={callbacks.onTagClear}
+            />
+        );
+    }
+
     return (
         <Container className='TopBar-container' data-testid='TopBar-container'>
             <ContainerBar>
@@ -117,19 +163,15 @@ export function FilterBar(props: FilterBarProps) {
                 </Header>
                 <Toolbar
                     horizontal
+                    calculatedWidth
                     items={tools}
                     onClick={(item: any) => props.onAction(item.id)}
                 />
                 <Flex />
-                <Tagger
-                    tag={tag}
-                    onClick={callbacks.onTagClick}
-                    onClear={callbacks.onTagClear}
-                />
+                {renderTagger()}
                 <Flex />
-                {renderClearFilter()}
-                <Button iconName='Filter' onClick={callbacks.toggleFilter} />
-                <Search value={search} onChange={callbacks.onSearch} />
+                {renderFiltering()}
+                {renderSearch()}
                 <Actions>{renderActions()}</Actions>
             </ContainerBar>
             {renderFilters()}
@@ -139,7 +181,7 @@ export function FilterBar(props: FilterBarProps) {
 
 export default FilterBar;
 
-export const tools: any[] = [
+export const defaultTools: IOption[] = [
     {
         id: 'edit',
         text: 'Edit',

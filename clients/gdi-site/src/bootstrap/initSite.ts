@@ -1,16 +1,17 @@
+import * as storeConfig from '../store';
+import { endpointsConfigOverrides } from './endpoints';
+import { firebase, initFirebase } from './firebase';
+import { firebaseConfig } from '../main.firebase';
+import { siteSagas } from '../sagas';
 import {
     ConnectionType,
+    EndpointConfig,
     FirestoreAdapter,
     initReduxConnected,
     IReduxConnectedConfig,
     RetryStrategy,
     StoreBuilder,
 } from 'redux-connected';
-import { firebase, initFirebase } from './firebase';
-import * as storeConfig from '../store';
-import { siteSagas } from '../sagas';
-import { endpointsConfigOverrides } from './endpoints';
-import { firebaseConfig } from '../main.firebase';
 
 const DEBUG = false;
 
@@ -30,8 +31,8 @@ export const initSite = () => {
     const storeBuilder = new StoreBuilder('main');
 
     storeBuilder
-        .withReducers(storeConfig.reducers)
-        .withInitialState(storeConfig.initialState)
+        .withReducers('site', storeConfig.reducers)
+        .withInitialState('site', storeConfig.initialState)
         .withDevtoolsExtensions(true)
         .withSagas(...siteSagas);
 

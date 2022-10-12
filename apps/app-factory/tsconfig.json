@@ -3,7 +3,7 @@
         "outDir": "dist",
         "target": "ES2020",
         "module": "ES2022",
-        "lib": ["dom", "es2020"],
+        "lib": ["dom", "ES2020"],
         "moduleResolution": "node",
         "esModuleInterop": true,
         "jsx": "react-jsx",
@@ -16,9 +16,7 @@
         "baseUrl": "../../",
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
-            "@gdi/template-basic": ["packages/gdi-template-basic"],
-            "@gdi/template-minimalist": ["packages/gdi-template-minimalist"],
-            "@gdi/template-blog": ["packages/gdi-template-blog"],
+            "@gdi/template-starter": ["packages/gdi-template-starter"],
             "@gdi/store-factory": ["packages/gdi-store-factory"]
         }
     },

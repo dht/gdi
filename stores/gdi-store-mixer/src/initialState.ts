@@ -3,9 +3,6 @@ import { actions } from './actions';
 import { IMixerStore } from './types';
 
 export const initialState: IMixerStore = {
-    meta: {
-        schemaVersion: '1.0.1',
-    },
     appStateMixer: {
         stateKey: 'mixer',
         mode: 'gallery',
@@ -13,9 +10,11 @@ export const initialState: IMixerStore = {
         paletteId: 'green',
         showImageUploadModal: false,
         showPlayModeMessage: false,
+        showMixerTree: false,
     },
     currentIds: {
         pageId: 'home',
+        pageInstanceId: '',
         selectedInstanceId: '',
         contentInstanceId: '',
         libraryInstanceId: '',
@@ -51,6 +50,50 @@ export const initialState: IMixerStore = {
             tags: ['type-sample'],
         },
     },
+    libraryPages: {
+        home: {
+            id: 'home',
+            title: 'Home',
+            description: 'The home page',
+            iconName: 'Home',
+            order: 1,
+            pageInstanceId: 'homeDraft1',
+            path: '/',
+            status: 'draft',
+            tags: [],
+        },
+    },
+    libraryPageInstances: {
+        homeDraft1: {
+            id: 'homeDraft1',
+            pageId: 'home',
+            description: '',
+            version: '1',
+            order: 1,
+            items: [
+                {
+                    id: 'j1',
+                    date: '2020-10-10',
+                    event: 'promoted',
+                    notes: '',
+                    authorId: '',
+                },
+            ],
+        },
+    },
+    libraryInstances: {
+        'home-placeholder-simple-1': {
+            id: 'home-placeholder-simple-1',
+            widgetId: 'com.usegdi.templates.basic.placeholder-simple',
+            pageInstanceId: 'home',
+            order: 1,
+        },
+    },
+    libraryInstancesProps: {
+        'home-placeholder-simple-1': {
+            id: 'home-placeholder-simple-1',
+        },
+    },
     libraryTypography: {
         inter: {
             id: 'inter',
@@ -77,9 +120,7 @@ export const initialState: IMixerStore = {
         },
     },
     packages: {
-        '@gdi/template-basic': '0.0.2',
-        '@gdi/template-minimalist': '0.0.2',
-        '@gdi/template-blog': '0.0.2',
+        '@gdi/template-starter': '0.0.2',
         '@gdi/store-mixer': '0.0.1',
         '@gdi/store-site': '0.0.1',
     },
@@ -91,6 +132,10 @@ export const clearState = (store: any) => {
     setTimeout(() => {
         store.dispatch(actions.libraryWidgets.setAll({}));
         store.dispatch(actions.libraryImages.setAll({}));
+        store.dispatch(actions.libraryPages.setAll({}));
+        store.dispatch(actions.libraryPageInstances.setAll({}));
+        store.dispatch(actions.libraryInstances.setAll({}));
+        store.dispatch(actions.libraryInstancesProps.setAll({}));
         store.dispatch(actions.libraryPalettes.setAll({}));
         store.dispatch(actions.libraryTypography.setAll({}));
     });

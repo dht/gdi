@@ -1,23 +1,24 @@
-import { createPage } from '../Page/Page';
-import { OverlayContainer } from '../../containers/OverlayContainer';
-import { Route, Routes, Navigate } from 'react-router-dom';
 import { useCallback, useContext, useMemo } from 'react';
+import ContextBarContainer from '../../containers/ContextBarContainer';
+import PageNotFound from '../../errorPages/PageNotFound/PageNotFound';
+import useMount from 'react-use/lib/useMount';
+import { $s } from 'shared-base';
+import { AppContent } from './Bootstrap.style';
+import { CommandBar } from '@gdi/web-ui';
+import { createPage } from '../Page/Page';
+import { ICommandBarItem } from '../../../types';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { OverlayContainer } from '../../containers/OverlayContainer';
+import { PlatformContext } from '../../../core/platform-context';
+import { PlatformLifeCycleEvents } from '@gdi/types';
+import { SideMenuContainer } from '../../containers/SideMenuContainer';
+import { SwitcherContainer } from '../../containers/SwitcherContainer';
+import { useDispatch } from 'react-redux';
 import {
     IWidgetInstance,
     IWidgetInstancesByPageDictionary,
     IWidgetInstancesList,
 } from 'igrid';
-import useMount from 'react-use/lib/useMount';
-import { useDispatch } from 'react-redux';
-import { PlatformContext } from '../../../core/platform-context';
-import { ICommandBarItem } from '../../../types';
-import { SideMenuContainer } from '../../containers/SideMenuContainer';
-import { CommandBar } from '@gdi/web-ui';
-import { AppContent } from './Bootstrap.style';
-import ContextBarContainer from '../../containers/ContextBarContainer';
-import { PlatformLifeCycleEvents } from '@gdi/types';
-import { $s } from 'shared-base';
-import { SwitcherContainer } from '../../containers/SwitcherContainer';
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
@@ -172,7 +173,7 @@ function Empty() {
 }
 
 export const Fallback = () => {
-    return <div>page not found</div>;
+    return <PageNotFound />;
 };
 
 function instanceByPageToOverlays(
