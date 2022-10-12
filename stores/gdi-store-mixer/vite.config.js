@@ -21,7 +21,11 @@ export default defineConfig({
         },
         rollupOptions: {
             plugins: [analyze()],
-            ...externals(p.dependencies),
+            ...externals({
+                'date-fns': '',
+                'date-fns/locale': '',
+                ...p.dependencies,
+            }),
         },
     },
 });

@@ -1,6 +1,6 @@
 {
     "web": {
-        "path": "src/components",
+        "path": "src/bootstrap/components",
         "template": "react"
     }
 }

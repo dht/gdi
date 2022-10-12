@@ -15,6 +15,7 @@ type CrudContextProps = {
     callbacks: {
         onSelectionChange: (ids: string[]) => void;
         onDrillDown: (itemId: string) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
 };
 
@@ -91,7 +92,7 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                         crudCallbacks.deleteForm(selectedIds);
                         break;
                     default:
-                        console.log(actionId);
+                        callbacks.onCustomAction(actionId, data);
                         break;
                 }
             },

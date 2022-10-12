@@ -4,7 +4,7 @@ import { ColorPalette, List } from '@gdi/web-ui';
 import classnames from 'classnames';
 
 export type PaletteProps = {
-    options: IColorPalette[];
+    options: IPalette[];
     selectedPaletteId: string;
     onSelect: (id: string) => void;
 };
@@ -13,7 +13,7 @@ export function Palette(props: PaletteProps) {
     const { options, selectedPaletteId } = props;
 
     function renderItem(option: any, selected: boolean) {
-        const { title } = option as IColorPalette;
+        const { title } = option as IPalette;
 
         const className = classnames({
             selected,

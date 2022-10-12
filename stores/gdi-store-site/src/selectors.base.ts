@@ -5,7 +5,7 @@ import { ISiteStore } from './types';
 import { mapValues, set } from 'lodash';
 import { sortBy } from 'shared-base';
 
-export const $i = (state: ISiteStore) => state;
+export const $i = (state: { site: ISiteStore }) => state.site;
 
 export const $instancesProps = createSelector(
     raw.$rawInstancesProps,
@@ -45,52 +45,39 @@ export const $instances = createSelector(
     }
 );
 
+export const $pages = createSelector(raw.$rawPages, (pages) => pages);
+
 export const $siteData = createSelector(
     raw.$rawMeta,
     raw.$rawLocale,
     raw.$rawPages,
     raw.$rawPalette,
-    raw.$rawFontSizes,
-    raw.$rawSpacing,
+    raw.$rawImages,
     raw.$rawFonts,
     raw.$rawInstances,
-    raw.$rawImages,
     raw.$rawWidgets,
-    raw.$rawInstancesMapColors,
-    raw.$rawInstancesMapStrings,
     raw.$rawInstancesProps,
-    raw.$rawStrings,
     (
         meta,
         locale,
         pages,
         palette,
-        fontSizes,
         images,
-        spacing,
         fonts,
         widgets,
         instances,
-        instancesMapColors,
-        instancesMapStrings,
-        instancesProps,
-        strings
+        instancesProps
     ) => {
         return {
             meta,
             locale,
             pages,
             palette,
-            fontSizes,
             images,
-            spacing,
             fonts,
             widgets,
             instances,
-            instancesMapColors,
-            instancesMapStrings,
             instancesProps,
-            strings,
         };
     }
 );

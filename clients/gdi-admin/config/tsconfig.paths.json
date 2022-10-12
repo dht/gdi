@@ -11,9 +11,7 @@
             "@gdi/store-site": ["stores/gdi-store-site"],
             "@gdi/store-factory": ["stores/gdi-store-factory"],
 
-            "@gdi/template-basic": ["templates/gdi-template-basic"],
-            "@gdi/template-minimalist": ["templates/gdi-template-minimalist"],
-            "@gdi/template-blog": ["templates/gdi-template-blog"],
+            "@gdi/template-starter": ["packages/gdi-template-starter"],
 
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],

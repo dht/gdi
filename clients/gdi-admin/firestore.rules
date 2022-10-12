@@ -7,7 +7,7 @@ service cloud.firestore {
     }
     
     function isPublic() {
-      return resource.data.id in ['fontSizes','fonts', 'locale', 'palette', 'spacing', 'strings'];
+      return resource.data.id in ['fonts', 'locale', 'palette'];
     }
 
 

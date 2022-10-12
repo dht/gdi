@@ -18,7 +18,7 @@ export function Logo(props: LogoProps) {
     });
 
     return (
-        <Container className={className} onClick={props.onClick}>
+        <Container className={className} onMouseDown={props.onClick}>
             <img
                 draggable={false}
                 className='logo'

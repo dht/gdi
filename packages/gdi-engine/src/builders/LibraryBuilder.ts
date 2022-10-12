@@ -4,6 +4,8 @@ export class LibraryBuilder implements ILibraryBuilder {
     private library: LibraryBuilderResponse = {
         templates: {},
         widgets: {},
+        pages: {},
+        pageInstances: {},
     };
 
     constructor() {}
@@ -20,6 +22,22 @@ export class LibraryBuilder implements ILibraryBuilder {
         this.library.widgets = {
             ...this.library.widgets,
             ...widgets,
+        };
+        return this;
+    }
+
+    withPages(pages: IPages) {
+        this.library.pages = {
+            ...this.library.pages,
+            ...pages,
+        };
+        return this;
+    }
+
+    withPageInstances(pageInstances: IPageInstances) {
+        this.library.pageInstances = {
+            ...this.library.pageInstances,
+            ...pageInstances,
         };
         return this;
     }

@@ -1,78 +1,81 @@
 import React, { useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import Mixer from '../components/Mixer/Mixer';
 import { actions, selectors } from '../store';
-import MixerStructure, {
-    ActionType,
-} from '../components/MixerStructure/MixerStructure';
-import MixerVisual from '../components/MixerVisual/MixerVisual';
-import { ModalContentContainer } from './modals/ModalContentContainer';
+import { invokeEvent } from 'shared-base';
+import { MixerStructureContainer } from './MixerStructureContainer';
+import { MixerVisualContainer } from './MixerVisualContainer';
+import { useDispatch, useSelector } from 'react-redux';
+import { useMount } from 'react-use';
 
 export const MixerContainer = () => {
     const dispatch = useDispatch();
-    const pageStructure = useSelector(selectors.base.$instancesForCurrentPage);
-    const currentInstanceId = useSelector(selectors.raw.$rawCurrentIds).selectedInstanceId; // prettier-ignore
-    const selectedToolId = useSelector(selectors.raw.$rawMixerState).selectedToolId; // prettier-ignore
-    const mode = useSelector(selectors.raw.$rawMixerState).mode;
+
+    const pages = useSelector(selectors.tables.$libraryPages);
+    const page = useSelector(selectors.base.$page);
+    const allOptions = useSelector(selectors.options.$allOptions);
+
+    useMount(() => {
+        dispatch({ type: 'SELECT_PAGE_INSTANCE_ON_NAVIGATION' });
+    });
+
+    const { title = '' } = page || {};
 
     const callbacks = useMemo(
         () => ({
-            onSelectItem: (instanceId: string) => {
-                dispatch(
-                    actions.currentIds.patch({
-                        selectedInstanceId: instanceId,
-                    })
-                );
+            onDrillDown: (itemId: string) => {
+                invokeEvent('navigatePush', { path: `/${itemId}` });
             },
-            onMoveItem: (instanceId: string, newOrderValue: number) => {
-                dispatch(
-                    actions.instances.patch(instanceId, {
-                        order: newOrderValue,
-                    })
-                );
+            onSelectionChange: (ids: string[]) => {
+                console.log('ids ->', ids);
             },
-            onAction: async (action: ActionType, id: string) => {
-                switch (action) {
-                    case 'new':
-                        dispatch({ type: 'ELEMENT_ADD' });
+            onCustomAction: (actionId: string, _data?: Json) => {
+                switch (actionId) {
+                    case 'editPage':
+                        dispatch({ type: 'EDIT_PAGE' });
                         break;
-                    case 'delete':
-                        dispatch({ type: 'ELEMENT_DELETE', id });
+                    case 'duplicateInstance':
+                        dispatch({ type: 'PROMOTE_PAGE_INSTANCE' });
                         break;
-                    case 'drillDown':
-                        dispatch({ type: 'ELEMENT_CONTENT', id });
+                    case 'promoteInstance':
+                        dispatch({ type: 'PROMOTE_PAGE_INSTANCE' });
+                        break;
+                    case 'editInstance':
+                        dispatch({ type: 'DELETE_PAGE_INSTANCE' });
+                        break;
+                    case 'resetInstance':
+                        dispatch({ type: 'RESET_PAGE_INSTANCE' });
+                        break;
+                    case 'versions':
+                        dispatch(
+                            actions.appStateMixer.patch({
+                                showMixerTree: true,
+                            })
+                        );
+                        break;
+                    case 'preview':
+                        popup = window.open(
+                            document.location.origin + '/preview',
+                            '_blank'
+                        );
+                        break;
+                    case 'download':
+                        dispatch({ type: 'EXPORT_SITE' });
                         break;
                 }
             },
         }),
-        [selectedToolId]
+        []
     );
 
-    function renderMixer() {
-        switch (mode) {
-            case 'structure':
-                return (
-                    <MixerStructure
-                        currentInstanceId={currentInstanceId}
-                        pageStructure={pageStructure}
-                        callbacks={callbacks}
-                    />
-                );
-            case 'visual':
-                return (
-                    <MixerVisual
-                        currentInstanceId={currentInstanceId}
-                        pageStructure={pageStructure}
-                        callbacks={callbacks}
-                    />
-                );
-        }
-        return null;
-    }
-
     return (
-        <>
-            {renderMixer()}
-            <ModalContentContainer />
-        </>
+        <Mixer
+            header={title}
+            data={pages}
+            callbacks={callbacks}
+            allOptions={allOptions}
+            dispatch={dispatch}
+            customView={MixerVisualContainer}
+            customView2={MixerStructureContainer}
+        />
     );
 };

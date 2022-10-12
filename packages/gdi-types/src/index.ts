@@ -4,6 +4,9 @@ export * from './gdi-store-auth';
 export * from './gdi-store-devtools';
 export * from './gdi-store-mixer';
 export * from './gdi-store-money';
+export * from './gdi-store-events';
+export * from './gdi-store-sales';
+export * from './gdi-store-weather';
 export * from './gdi-store-ppl';
 export * from './gdi-store-soundboard';
 export * from './gdi-store-studio';
@@ -18,6 +21,7 @@ export * from './gdi-web-editors';
 export * from './gdi-web-ui';
 export * from './platformer';
 export * from './igrid';
+export * from './store-seeder';
 
 export enum PlatformLifeCycleEvents {
     PLATFORM_IS_READY = 'PLATFORM_IS_READY',

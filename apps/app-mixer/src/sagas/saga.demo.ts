@@ -12,11 +12,8 @@ const map: Record<string, any> = {
     '/libraryTypography': actions.libraryTypography.setAll,
     '/locales': actions.locales.setAll,
     '/pages': actions.pages.setAll,
-    '/singles/fontSizes': actions.fontSizes.setAll,
     '/singles/packages': actions.packages.setAll,
     '/singles/palette': actions.palette.setAll,
-    '/singles/spacing': actions.spacing.setAll,
-    '/singles/strings': actions.strings.setAll,
 };
 
 function* fetchData(path: string, method: any) {

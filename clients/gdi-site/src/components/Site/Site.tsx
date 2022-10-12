@@ -1,9 +1,7 @@
 import React, { useMemo } from 'react';
 import { Container } from './Site.style';
 import { EngineView, LibraryBuilder } from '@gdi/engine';
-import { initTemplates as initTemplatesBasic } from '@gdi/template-basic';
-import { initTemplates as initTemplatesMinimalist } from '@gdi/template-minimalist';
-import { initTemplates as initTemplatesBlog } from '@gdi/template-blog';
+import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 
 export type SiteProps = {
     elements: IElement[];
@@ -14,9 +12,7 @@ export function Site(props: SiteProps) {
 
     const libraryBuilder = useMemo(() => {
         const libraryBuilder = new LibraryBuilder();
-        initTemplatesBasic(libraryBuilder as any);
-        initTemplatesMinimalist(libraryBuilder as any);
-        initTemplatesBlog(libraryBuilder as any);
+        initTemplateStarter(libraryBuilder as any);
         return libraryBuilder;
     }, []);
 

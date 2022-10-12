@@ -4,23 +4,11 @@ import { $s } from 'shared-base';
 
 function* apiPublic() {
     $s('apiPublic', {
-        nodes: [
-            'widgets',
-            'fonts',
-            'breakpoints',
-            'instances',
-            'instanceProps',
-            'pages',
-            'palette',
-        ],
+        nodes: ['fonts', 'breakpoints', 'palette'],
     });
 
     const promises = [
-        yield* put(actions.widgets.get({})),
         yield* put(actions.fonts.get()),
-        yield* put(actions.instances.get({})),
-        yield* put(actions.instancesProps.get({})),
-        yield* put(actions.pages.get({})),
         yield* put(actions.palette.get()),
     ];
 

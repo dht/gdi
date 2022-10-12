@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 
-export const A13 = {};
+export const A16 = {};
 
 declare global {
     export type LayoutFlavour = 'singleColumn' | 'twoColumns' | 'threeColumns';

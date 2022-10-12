@@ -1,26 +1,33 @@
-import { Icon } from '@gdi/web-ui';
 import React from 'react';
 import { Container } from './Pages.style';
+import { Multi } from '@gdi/web-ui';
+import { Dispatch } from 'redux';
 
 export type PagesProps = {
-    onClick?: (ev: React.MouseEvent<HTMLDivElement>) => void;
+    data: Json[];
+    allOptions?: Json;
+    callbacks: {
+        onDrillDown: (itemId: string) => void;
+        onSelectionChange: (ids: string[]) => void;
+    };
+    dispatch: Dispatch;
 };
 
 export function Pages(props: PagesProps) {
+    const { data, callbacks, allOptions, dispatch } = props;
+
     return (
-        <Container
-            className='Pages-container'
-            data-testid='Pages-container'
-            onClick={props.onClick}
-        >
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            {/* <Icon iconName='Home' />
-            <Icon iconName='FavoriteStar' />
-            <Icon iconName='Money' />
-            <Icon iconName='Phone' /> */}
+        <Container className='Pages-container' data-testid='Pages-container'>
+            <Multi
+                id='Pages'
+                itemType='page'
+                header='Pages'
+                data={data}
+                callbacks={callbacks}
+                viewModes={['gallery', 'table', 'spreadsheet']}
+                dispatch={dispatch}
+                allOptions={allOptions}
+            />
         </Container>
     );
 }

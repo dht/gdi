@@ -33,8 +33,8 @@ export const initApp = (builders: AppBuilders) => {
         .withWidgets(widgets);
 
     storeBuilder
-        .withReducers(reducers)
-        .withInitialState(initialState)
+        .withReducers(APP_ID, reducers)
+        .withInitialState(APP_ID, initialState)
         .withSagas(...appSagas)
         .withPostBuildHook(clearState);
 

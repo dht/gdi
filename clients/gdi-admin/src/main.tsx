@@ -13,7 +13,6 @@ import { SystemLogs } from '@gdi/web-ui';
 import { Dev } from './main.dev';
 
 const DEBUG = false;
-const QUICK = false;
 const container = document.getElementById('root');
 
 if (container) {

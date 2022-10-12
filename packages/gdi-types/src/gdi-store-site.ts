@@ -2,28 +2,26 @@
 
 import type { StoreStructure } from 'redux-store-generator';
 
-export const A11 = {};
+export const A14 = {};
 
 declare global {
-    export type ISiteStore = StoreStructure & {
-        meta: IMetaStore;
+    export type ISiteStore = StoreStructure & ISite & {};
+
+    export type ISite = {
+        meta: IMetaSite;
         locale: ILocale;
         pages: IPages;
-        palette: IPalette;
-        fontSizes: IFontSizes;
+        pageInstances: IPageInstances;
+        instances: IWidgetInstances;
+        instancesProps: Json;
+        widgets: IWidgets;
         images: IImages;
-        spacing: ISpacing;
+        palette: IPaletteWithKey;
         fonts: IFonts;
         breakpoints: IBreakpoints;
-        widgets: IWidgets;
-        instances: IWidgetInstances;
-        instancesMapColors: Json;
-        instancesMapStrings: Json;
-        instancesProps: Json;
-        strings: Json;
     };
 
-    export type IMetaStore = {
+    export type IMetaSite = {
         schemaVersion: string;
     };
 
@@ -32,92 +30,64 @@ declare global {
         isRtl: boolean;
     };
 
+    export type PageStatus = 'draft' | 'production' | 'archived';
+
     export type IPage = {
         id: string;
         title: string;
         description: string;
         iconName?: string;
+        status: PageStatus;
         order?: number;
+        lastPublishDate?: string;
+        pageInstanceId?: string;
+        path: string;
+        dealerId?: string;
+        isProtected?: boolean;
+        tags: string[];
+        enabled?: boolean;
+    };
+
+    export type IPageInstance = {
+        id: string;
+        pageId: string;
+        version: string;
+        description?: string;
+        order?: number;
+        items: IPageInstanceJourney[];
+    };
+
+    export type PageJourneyEvent = 'promoted' | 'unpublished' | 'archived';
+
+    export type IPageInstanceJourney = {
+        id: string;
+        date: string;
+        event: PageJourneyEvent;
+        notes?: string;
+        authorId: string;
     };
 
     export type IPages = Record<string, IPage>;
+    export type IPageInstances = Record<string, IPageInstance>;
 
     export type IPalette = {
-        themeDarker: string;
-        themeDark: string;
-        themeDarkAlt: string;
-        themePrimary: string;
-        themeSecondary: string;
-        themeTertiary: string;
-        themeLight: string;
-        themeLighter: string;
-        themeLighterAlt: string;
-        black: string;
-        blackTranslucent40: string;
-        neutralDark: string;
-        neutralPrimary: string;
-        neutralPrimaryAlt: string;
-        neutralSecondary: string;
-        neutralSecondaryAlt: string;
-        neutralTertiary: string;
-        neutralTertiaryAlt: string;
-        neutralQuaternary: string;
-        neutralQuaternaryAlt: string;
-        neutralLight: string;
-        neutralLighter: string;
-        neutralLighterAlt: string;
-        accent: string;
-        white: string;
-        whiteTranslucent40: string;
-        yellowDark: string;
-        yellow: string;
-        yellowLight: string;
-        orange: string;
-        orangeLight: string;
-        orangeLighter: string;
-        redDark: string;
-        red: string;
-        magentaDark: string;
-        magenta: string;
-        magentaLight: string;
-        purpleDark: string;
-        purple: string;
-        purpleLight: string;
-        blueDark: string;
-        blueMid: string;
-        blue: string;
-        blueLight: string;
-        tealDark: string;
-        teal: string;
-        tealLight: string;
-        greenDark: string;
-        green: string;
-        greenLight: string;
+        id: string;
+        title: string;
+        color1: string;
+        color2: string;
+        color3: string;
+        color4: string;
+        color5: string;
     };
 
-    export type IFontSizes = {
-        tiny: string;
-        xSmall: string;
-        small: string;
-        smallPlus: string;
-        medium: string;
-        mediumPlus: string;
-        icon: string;
-        large: string;
-        xLarge: string;
-        xLargePlus: string;
-        xxLarge: string;
-        xxLargePlus: string;
-        superLarge: string;
-        mega: string;
-    };
-
-    export type ISpacing = {
-        s1: string;
-        s2: string;
-        m: string;
-        l1: string;
-        l2: string;
+    export type IPaletteWithKey = {
+        key: string;
+        title: string;
+        color1: string;
+        color2: string;
+        color3: string;
+        color4: string;
+        color5: string;
     };
 
     export type IFonts = {

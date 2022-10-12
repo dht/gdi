@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { IPlatformStore } from './initialState';
 
-export const $i = (state: IPlatformStore) => state;
+export const $i = (state: { platform: IPlatformStore }) => state.platform;
 export const $n = (): null => null;
 export const $o = (): void => {};
 

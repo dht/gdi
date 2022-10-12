@@ -18,20 +18,21 @@ export const selectors = {
     forms: {
         ...mixer.selectors.forms,
     },
+    tables: {
+        ...site.selectors.tables,
+        ...mixer.selectors.tables,
+    },
     options: {
         ...mixer.selectors.options,
+        ...site.selectors.options,
     },
 };
 
-export const reducers = {
-    ...mixer.reducers,
-    ...site.reducers,
-};
+export const reducers = mixer.reducers;
+export const reducersSite = site.reducers;
 
-export const initialState = {
-    ...mixer.initialState,
-    ...site.initialState,
-};
+export const initialState = mixer.initialState;
+export const initialStateSite = site.initialState;
 
 export const endpointsConfig = {
     ...mixer.endpointsConfigOverrides,

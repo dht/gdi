@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, ContainerColor } from './ColorPalette.style';
 
 export type ColorPaletteProps = {
-    palette: IColorPalette;
+    palette: IPalette;
 };
 
 export function ColorPalette(props: ColorPaletteProps) {

@@ -28,9 +28,6 @@ const nodeTypes: Json = {
     meta: 'single',
     packages: 'single',
     palette: 'single',
-    fontSizes: 'single',
-    spacing: 'single',
-    strings: 'single',
     users: 'collection',
     roles: 'collection',
     libraryWidgets: 'collection',
@@ -42,8 +39,6 @@ const nodeTypes: Json = {
     images: 'collection',
     widgets: 'collection',
     locales: 'collection',
-    instancesMapColors: 'collection',
-    instancesMapStrings: 'collection',
     instancesProps: 'collection',
 };
 

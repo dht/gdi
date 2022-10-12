@@ -15,13 +15,9 @@ export const mixer = {
 export type {
     IMixerStore,
     IMixerState,
-    IViewMode,
     ITypography,
     ILocaleOption,
-    IGalleryViewMode,
-    IGalleryState,
     IImageWithWidget,
-    IWidgetsFilter as IWidgetsFilter,
 } from './types';
 
 export { getSchemaPropertiesByType } from './utils/widgets';

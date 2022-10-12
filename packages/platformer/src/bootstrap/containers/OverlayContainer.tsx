@@ -10,7 +10,7 @@ type OverlayContainerProps = {
 };
 
 export function OverlayContainer(props: OverlayContainerProps) {
-    const { isModal, title } = props;
+    const { isModal, title = '' } = props;
     const [open, toggleOpen] = useBoolean(true);
     const dispatch = useDispatch();
     const setSafeTimeout = useSafeTimeout();

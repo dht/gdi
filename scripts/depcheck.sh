@@ -30,11 +30,7 @@ cd packages/gdi-store-mixer
 depcheck > .depcheck
 cd ../..
 
-cd packages/gdi-template-basic
-depcheck > .depcheck
-cd ../..
-
-cd packages/gdi-template-minimalist
+cd packages/gdi-template-starter
 depcheck > .depcheck
 cd ../..
 

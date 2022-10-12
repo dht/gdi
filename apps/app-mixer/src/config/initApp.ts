@@ -1,3 +1,4 @@
+import i18n from './i18n';
 import { APP_ID } from './ids';
 import { appSagas } from '../sagas';
 import { commandBarItems, contextBarItems, menuItems, routes } from './routes';
@@ -7,10 +8,11 @@ import {
     clearState,
     endpointsConfig,
     initialState,
+    initialStateSite,
     reducers,
+    reducersSite,
     selectors,
 } from '../store';
-import i18n from './i18n';
 
 export const initApp = (builders: AppBuilders) => {
     const {
@@ -33,8 +35,10 @@ export const initApp = (builders: AppBuilders) => {
         .withWidgets(widgets);
 
     storeBuilder
-        .withReducers(reducers)
-        .withInitialState(initialState)
+        .withReducers(APP_ID, reducers)
+        .withReducers('site', reducersSite)
+        .withInitialState(APP_ID, initialState)
+        .withInitialState('site', initialStateSite)
         .withSagas(...appSagas)
         .withPostBuildHook(clearState);
 

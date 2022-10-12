@@ -31,6 +31,22 @@ export const endpointsConfigOverrides: any = {
         id: 'libraryPalettes',
         connectionType: 'FIRESTORE',
     },
+    libraryPages: {
+        id: 'libraryPages',
+        connectionType: 'FIRESTORE',
+    },
+    libraryPageInstances: {
+        id: 'libraryPageInstances',
+        connectionType: 'FIRESTORE',
+    },
+    libraryInstances: {
+        id: 'libraryInstances',
+        connectionType: 'FIRESTORE',
+    },
+    libraryInstancesProps: {
+        id: 'libraryInstancesProps',
+        connectionType: 'FIRESTORE',
+    },
     locales: {
         id: 'locales',
         connectionType: 'FIRESTORE',

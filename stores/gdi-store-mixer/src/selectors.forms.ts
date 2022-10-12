@@ -5,7 +5,7 @@ import { sortBy } from 'shared-base';
 import { upperFirst } from 'lodash';
 import { flattenInstanceProps } from 'shared-base';
 
-export const $i = (state: IMixerStore) => state;
+export const $i = (state: { mixer: IMixerStore }) => state.mixer;
 
 export const $contentFormConfig = createSelector(
     base.$instanceContent,
@@ -16,7 +16,7 @@ export const $contentFormConfig = createSelector(
 
         const { id, widget } = instance;
 
-        if (!widget.params) {
+        if (!widget || !widget.params) {
             return null;
         }
 

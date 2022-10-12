@@ -2,7 +2,7 @@
 
 import { EndpointsConfigOverrides } from 'redux-connected';
 
-export const A18 = {};
+export const A21 = {};
 
 declare global {
     export type IAppConfig = {

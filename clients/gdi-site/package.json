@@ -10,12 +10,10 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.43",
+        "@gdi/types": "^0.0.45",
         "@gdi/engine": "^0.0.20",
         "@gdi/store-site": "^0.0.24",
-        "@gdi/template-blog": "^0.0.20",
-        "@gdi/template-basic": "^0.0.21",
-        "@gdi/template-minimalist": "^0.0.21",
+        "@gdi/template-starter": "^0.0.21",
         "@gdi/web-ui": "^0.0.30",
         "firebaseui": "^6.0.1",
         "redux-connected": "^0.0.101",

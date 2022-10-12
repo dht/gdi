@@ -1,6 +1,6 @@
-import { Icon } from '@fluentui/react';
 import React from 'react';
-import { Container, Item } from './Toolbar.style';
+import { Icon } from '@fluentui/react';
+import { Container, Gap, Item } from './Toolbar.style';
 import classnames from 'classnames';
 import { useKey } from '@gdi/hooks';
 import { IToolbarItem } from '../../types';
@@ -9,11 +9,12 @@ export type ToolbarProps = {
     items: IToolbarItem[];
     selectedItemId?: string;
     horizontal?: boolean;
+    calculatedWidth?: boolean;
     onClick: (item: IToolbarItem) => void;
 };
 
 export function Toolbar(props: ToolbarProps) {
-    const { items = [], selectedItemId, horizontal } = props;
+    const { items = [], selectedItemId, horizontal, calculatedWidth } = props;
 
     useKey(
         (ev) => {
@@ -28,11 +29,27 @@ export function Toolbar(props: ToolbarProps) {
         [items, selectedItemId]
     );
 
+    let style: React.CSSProperties = {};
+
+    if (horizontal && calculatedWidth) {
+        const countGaps = items.filter((item) => item.isGap).length;
+        const countItems = items.length - countGaps;
+        const maxWidth = 41 * countItems + 10 * countGaps;
+
+        style = {
+            maxWidth: maxWidth + 'px',
+        };
+    }
+
     function renderItem(item: IToolbarItem) {
         const { id, text, iconName } = item;
         const className = classnames('item', {
             selected: selectedItemId === id,
         });
+
+        if (item.isGap) {
+            return <Gap key={id} />;
+        }
 
         return (
             <Item
@@ -57,6 +74,7 @@ export function Toolbar(props: ToolbarProps) {
             className={className}
             data-testid='Toolbar-container'
             horizontal={horizontal}
+            style={style}
         >
             {renderItems()}
         </Container>

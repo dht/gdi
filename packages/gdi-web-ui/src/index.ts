@@ -113,3 +113,4 @@ export {
 export { Code, Editor, JsonEditor } from '@gdi/web-editors';
 
 export * as types from './types';
+export type { ISwitcherScreen } from './components/Switcher/Switcher';

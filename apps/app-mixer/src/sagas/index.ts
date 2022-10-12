@@ -7,6 +7,7 @@ import { root as contentImages } from './saga.content.images';
 import { root as demo } from './saga.demo';
 import { root as gallery } from './saga.gallery';
 import { root as importExport } from './saga.importExport';
+import { root as pages } from './saga.pages';
 import { root as mixer } from './saga.mixer';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 
@@ -20,6 +21,7 @@ function* root() {
     yield* fork(importExport);
     yield* fork(contentImages);
     yield* fork(mixer);
+    yield* fork(pages);
     yield* fork(ping);
 }
 
