@@ -1,8 +1,4 @@
 export const endpointsConfigOverrides: any = {
-    meta: {
-        id: 'meta',
-        connectionType: 'NONE',
-    },
     appStateFactory: {
         id: 'appStateFactory',
         connectionType: 'NONE',

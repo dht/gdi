@@ -1,6 +1,6 @@
 export const endpointsConfigOverrides: any = {
     meta: {
-        id: 'instances',
+        id: 'meta',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },

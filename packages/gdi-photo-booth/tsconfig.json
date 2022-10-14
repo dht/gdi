@@ -27,5 +27,5 @@
             "igrid": ["submodules/igrid"]
         }
     },
-    "include": ["src-admin/*.ts", "test/*.ts"]
+    "include": ["src/*.ts", "src/*.tsx", "test/*.ts"]
 }

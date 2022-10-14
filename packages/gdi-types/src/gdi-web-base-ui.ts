@@ -11,14 +11,13 @@ declare global {
 
     export type IOption = {
         id: string;
-        text?: string;
+        text: string;
         iconName?: string;
         secondaryText?: string;
         shortKey?: IShortKey;
         value?: string | number | boolean;
         min?: number;
         max?: number;
-        isGap?: number;
     };
 
     export type IOptions = IOption[];
@@ -32,9 +31,10 @@ declare global {
 
     export type IToolbarItem = {
         id: string;
-        text: string;
+        text?: string;
         iconName?: string;
         secondaryText?: string;
+        isGap?: boolean;
     };
 
     export type ToastFlavour =

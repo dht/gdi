@@ -4,6 +4,7 @@ import { ISiteStore } from './types';
 
 export const initialState: ISiteStore = {
     meta: {
+        identifier: 'site',
         schemaVersion: '1.0.1',
     },
     locale: {
@@ -27,6 +28,7 @@ export const initialState: ISiteStore = {
         homeDraft1: {
             id: 'homeDraft1',
             description: '',
+            pageId: '',
             version: '1',
             order: 1,
             items: [
@@ -41,7 +43,7 @@ export const initialState: ISiteStore = {
         },
     },
     palette: {
-        key: 'green',
+        identifier: 'green',
         title: 'Green',
         color1: '#22577a',
         color2: '#38a3a5',

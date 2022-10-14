@@ -2,11 +2,6 @@ import type { EndpointsConfigOverrides } from 'redux-connected';
 import { ConnectionType } from 'redux-connected';
 
 export const endpointsConfigOverrides: EndpointsConfigOverrides = {
-    meta: {
-        id: 'instances',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
     palette: {
         id: 'palette',
         connectionType: ConnectionType.FIRESTORE,

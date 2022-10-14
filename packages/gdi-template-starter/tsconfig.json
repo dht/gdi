@@ -13,7 +13,16 @@
         "declarationDir": "dist/dts",
         "strict": true,
         "skipLibCheck": true,
-        "types": ["types-base", "@gdi/types", "@types/jest"]
+        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "baseUrl": "../../",
+        "paths": {
+            "@gdi/photo-booth": ["packages/gdi-photo-booth"],
+            "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
+            "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/hooks": ["packages/gdi-hooks"],
+            "@gdi/engine": ["packages/gdi-engine"],
+            "shared-base": ["submodules/shared-base"]
+        }
     },
     "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.png", "src/**/*.webp"]
 }

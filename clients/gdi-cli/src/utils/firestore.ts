@@ -1,3 +1,8 @@
+import * as fs from 'fs';
+import * as path from 'path';
+import { cert, initializeApp as initializeAppAdmin } from 'firebase-admin/app';
+import { getStorage } from 'firebase-admin/storage';
+import { initializeApp } from 'firebase/app';
 import {
     doc,
     getFirestore,
@@ -8,7 +13,7 @@ import {
     getDocs,
 } from 'firebase/firestore/lite';
 import type { Firestore } from 'firebase/firestore/lite';
-import { initializeApp } from 'firebase/app';
+import type { Bucket } from '@google-cloud/storage';
 
 let db: Firestore;
 
@@ -43,6 +48,28 @@ export const initFirebaseVite = (env: Json) => {
     };
 
     initFirebase(firebaseConfig);
+};
+
+export const initFirebaseAdmin = () => {
+    const serviceAccountPath = path.resolve(
+        '../../firebaseServiceAccount.json'
+    );
+
+    if (!fs.existsSync(serviceAccountPath)) {
+        throw new Error('Service account file not found');
+    }
+
+    const serviceAccountJson = fs.readFileSync(serviceAccountPath, 'utf8');
+    const serviceAccount = JSON.parse(serviceAccountJson);
+    const { project_id } = serviceAccount;
+
+    initializeAppAdmin({
+        credential: cert(serviceAccountPath),
+        databaseURL: `https://${project_id}.firebaseio.com`,
+        storageBucket: `gs://${project_id}.appspot.com`,
+    });
+
+    return getStorage().bucket();
 };
 
 const ts = () => new Date().toISOString();

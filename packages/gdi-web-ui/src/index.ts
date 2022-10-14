@@ -21,6 +21,7 @@ export { SystemLogs } from './components/SystemLogs/SystemLogs';
 export { Switcher } from './components/Switcher/Switcher';
 export { Weather } from './components/Weather/Weather';
 export { WindowHeader } from './components/WindowHeader/WindowHeader';
+export { siteDefaults } from './definitions/site.defaults';
 
 export {
     Accordion,
@@ -28,6 +29,7 @@ export {
     Avatar,
     BarSelect,
     Button,
+    Chair,
     Checkbox,
     CircularProgress,
     ColorPicker,
@@ -43,6 +45,7 @@ export {
     Logo,
     Modal,
     PhoneInput,
+    PhotoBooth,
     ProgressBar,
     ProgressBarVertical,
     prompt,

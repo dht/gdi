@@ -1,7 +1,7 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { IImageWithWidget, IMixerStore } from './types';
-import { get, pickBy } from 'lodash';
+import { get, pickBy, isEmpty } from 'lodash';
 import {
     getWidgetTypeFromElement,
     getWidgetTypeFromTags,
@@ -14,13 +14,24 @@ export const $i = (state: { mixer: IMixerStore }) => state.mixer;
 export const $instances = createSelector(
     raw.$rawInstances,
     raw.$rawInstancesProps,
-    (instances, instancesProps) => {
+    raw.$rawLibraryWidgets,
+    (instances, instancesProps, widgets) => {
         return Object.values(instances)
             .map((instance) => {
                 const props = instancesProps[instance.id];
+                const widget = widgets[instance.widgetId];
+
+                const isPopulated = !isEmpty(props);
+                const widgetType = get(widget, 'widgetType');
+
                 return {
                     ...instance,
+                    // transient
                     instanceProps: unflattenInstanceProps(props),
+                    widget,
+                    widgetType,
+                    isPopulated,
+                    ...getThumb(widget),
                 } as IWidgetInstance;
             })
             .sort(sortBy('order', 'asc'));
@@ -370,3 +381,30 @@ export const $isSelectedPlaceholder = createSelector(
 export const $libraryPages = createSelector(raw.$rawLibraryPages, (pages) => {
     return Object.values(pages).sort(sortBy('order', 'asc'));
 });
+
+const getThumb = (widget: IWidget) => {
+    const { screenshots } = widget || {};
+
+    if (!screenshots) {
+        return '';
+    }
+
+    const firstKey = Object.keys(screenshots).pop();
+
+    const thumbUrl = get(
+        widget,
+        `screenshots.${firstKey}.desktop.thumb.url`,
+        ''
+    );
+
+    const thumbRatio = get(
+        widget,
+        `screenshots.${firstKey}.desktop.thumb.ratio`,
+        ''
+    );
+
+    return {
+        thumbUrl,
+        thumbRatio,
+    };
+};

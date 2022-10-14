@@ -10,7 +10,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/hooks": "^0.0.27",
+        "@gdi/hooks": "^0.0.28",
         "@gdi/store-auth": "^0.0.20",
         "@gdi/types": "^0.0.45",
         "@gdi/web-base-ui": "^0.0.33",
