@@ -1,15 +1,19 @@
-import { widgets as blocks } from './blocks';
+import { meta, instances, instancesProps, pages, pageInstances } from './template.parts'; // prettier-ignore
+import { blocks } from './blocks';
 import { widgets } from './widgets';
-import { templateInfo } from './template.info';
-import { pageInstances, pages } from './template.pages';
+
+export const template: ITemplate = {
+    meta,
+    instances,
+    instancesProps,
+    pageInstances,
+    pages,
+    widgets: {
+        ...blocks,
+        ...widgets,
+    },
+};
 
 export const initTemplate = (libraryBuilder: ILibraryBuilder) => {
-    libraryBuilder
-        .withTemplates({
-            basic: templateInfo,
-        })
-        .withWidgets(blocks)
-        .withWidgets(widgets)
-        .withPages(pages)
-        .withPageInstances(pageInstances);
+    libraryBuilder.withTemplate(template);
 };

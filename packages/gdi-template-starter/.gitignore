@@ -4,3 +4,5 @@ node_modules
 dist
 coverage
 *.png
+screenshots
+debug.*.json

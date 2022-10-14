@@ -7,7 +7,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/hooks": "^0.0.25",
+        "@gdi/hooks": "^0.0.28",
         "@gdi/platformer": "^0.0.22",
         "@gdi/store-factory": "^0.0.23",
         "@gdi/types": "^0.0.45",

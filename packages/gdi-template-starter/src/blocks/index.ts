@@ -1,57 +1,57 @@
-import { Feature } from './feature-simple/Feature';
-import { widgetInfo as featureInfo } from './feature-simple';
+import { Feature } from './feature-basic/Feature';
+import { widgetInfo as featureInfo } from './feature-basic';
 
-import { Footer } from './footer-simple/Footer';
-import { widgetInfo as footerInfo } from './footer-simple';
+import { Footer } from './footer-basic/Footer';
+import { widgetInfo as footerInfo } from './footer-basic';
 
-import { Hero } from './hero-simple/Hero';
-import { widgetInfo as heroInfo } from './hero-simple';
+import { Hero } from './hero-basic/Hero';
+import { widgetInfo as heroInfo } from './hero-basic';
 
-import { ImageAndText } from './imageAndText-simple/ImageAndText';
-import { widgetInfo as imageAndTextInfo } from './imageAndText-simple';
+import { ImageAndText } from './imageAndText-basic/ImageAndText';
+import { widgetInfo as imageAndTextInfo } from './imageAndText-basic';
 
-import { Installation } from './installation-simple/Installation';
-import { widgetInfo as installationInfo } from './installation-simple';
+import { Installation } from './installation-basic/Installation';
+import { widgetInfo as installationInfo } from './installation-basic';
 
-import { LineCta } from './lineCta-simple/LineCta';
-import { widgetInfo as lineCtaInfo } from './lineCta-simple';
+import { LineCta } from './lineCta-basic/LineCta';
+import { widgetInfo as lineCtaInfo } from './lineCta-basic';
 
-import { SectionHeader } from './sectionHeader-simple/SectionHeader';
-import { widgetInfo as sectionHeaderInfo } from './sectionHeader-simple';
+import { SectionHeader } from './sectionHeader-basic/SectionHeader';
+import { widgetInfo as sectionHeaderInfo } from './sectionHeader-basic';
 
-import { UserBar } from './userBar-simple/UserBar';
-import { widgetInfo as userBarInfo } from './userBar-simple';
+import { UserBar } from './userBar-basic/UserBar';
+import { widgetInfo as userBarInfo } from './userBar-basic';
 
-export const widgets: IWidgets = {
-    'com.usegdi.templates.starter.feature-simple': {
+export const blocks: IWidgets = {
+    'com.usegdi.templates.starter.feature-basic': {
         component: Feature,
         ...featureInfo,
     },
-    'com.usegdi.templates.starter.footer-simple': {
+    'com.usegdi.templates.starter.footer-basic': {
         component: Footer,
         ...footerInfo,
     },
-    'com.usegdi.templates.starter.hero-simple': {
+    'com.usegdi.templates.starter.hero-basic': {
         component: Hero,
         ...heroInfo,
     },
-    'com.usegdi.templates.starter.imageAndText-simple': {
+    'com.usegdi.templates.starter.imageAndText-basic': {
         component: ImageAndText,
         ...imageAndTextInfo,
     },
-    'com.usegdi.templates.starter.installation-simple': {
+    'com.usegdi.templates.starter.installation-basic': {
         component: Installation,
         ...installationInfo,
     },
-    'com.usegdi.templates.starter.lineCta-simple': {
+    'com.usegdi.templates.starter.lineCta-basic': {
         component: LineCta,
         ...lineCtaInfo,
     },
-    'com.usegdi.templates.starter.sectionHeader-simple': {
+    'com.usegdi.templates.starter.sectionHeader-basic': {
         component: SectionHeader,
         ...sectionHeaderInfo,
     },
-    'com.usegdi.templates.starter.userBar-simple': {
+    'com.usegdi.templates.starter.userBar-basic': {
         component: UserBar,
         ...userBarInfo,
     },

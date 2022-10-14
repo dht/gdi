@@ -1,44 +1,50 @@
-import { ILibraryBuilder, ITemplates, LibraryBuilderResponse } from '../types';
+import { ILibraryBuilder, LibraryBuilderResponse } from '../types';
 
 export class LibraryBuilder implements ILibraryBuilder {
     private library: LibraryBuilderResponse = {
         templates: {},
-        widgets: {},
         pages: {},
         pageInstances: {},
+        instances: {},
+        instancesProps: {},
+        widgets: {},
     };
 
     constructor() {}
 
-    withTemplates(templates: ITemplates) {
+    withTemplate(template: ITemplate) {
+        const { meta } = template;
+
         this.library.templates = {
             ...this.library.templates,
-            ...templates,
+            [meta.id]: meta,
         };
-        return this;
-    }
 
-    withWidgets(widgets: IWidgets) {
-        this.library.widgets = {
-            ...this.library.widgets,
-            ...widgets,
-        };
-        return this;
-    }
-
-    withPages(pages: IPages) {
         this.library.pages = {
             ...this.library.pages,
-            ...pages,
+            ...template.pages,
         };
-        return this;
-    }
 
-    withPageInstances(pageInstances: IPageInstances) {
         this.library.pageInstances = {
             ...this.library.pageInstances,
-            ...pageInstances,
+            ...template.pageInstances,
         };
+
+        this.library.instances = {
+            ...this.library.instances,
+            ...template.instances,
+        };
+
+        this.library.instancesProps = {
+            ...this.library.instancesProps,
+            ...template.instancesProps,
+        };
+
+        this.library.widgets = {
+            ...this.library.widgets,
+            ...template.widgets,
+        };
+
         return this;
     }
 

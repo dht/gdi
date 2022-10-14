@@ -1,25 +1,3 @@
-type TemplateId = string;
-
-export type IAuthor = {
-    name: string;
-    email?: string;
-    url?: string;
-};
-
-export type ITemplateInfo = {
-    id: TemplateId;
-    version: string;
-    author?: IAuthor;
-    widgetsCount?: number;
-};
-
-export type ITemplate = {
-    widgets: IWidgets;
-    templateInfo: ITemplateInfo;
-};
-
-export type ITemplates = Record<string, ITemplateInfo>;
-
 export type IEngineContextState = {
     isReady: boolean;
     widgets: IWidgets;
@@ -36,16 +14,13 @@ export type ITopMenuItem = {
     title: string;
 };
 
-export type LibraryBuilderResponse = {
-    templates: ITemplates;
-    pageInstances: IPageInstances;
-    pages: IPages;
-    widgets: IWidgets;
+export type LibraryBuilderResponse = Optional<
+    ITemplate,
+    'breakpoints' | 'fonts' | 'palette' | 'locale' | 'images' | 'meta'
+> & {
+    templates: ITemplateMetas;
 };
 export interface ILibraryBuilder {
-    withTemplates: (templates: ITemplates) => ILibraryBuilder;
-    withWidgets: (widgets: IWidgets) => ILibraryBuilder;
-    withPageInstances: (pageInstances: IPageInstances) => ILibraryBuilder;
-    withPages: (pages: IPages) => ILibraryBuilder;
+    withTemplate: (templates: ITemplate) => ILibraryBuilder;
     build: () => LibraryBuilderResponse;
 }

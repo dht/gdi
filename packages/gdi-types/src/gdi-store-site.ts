@@ -7,6 +7,9 @@ export const A14 = {};
 declare global {
     export type ISiteStore = StoreStructure & ISite & {};
 
+    type SiteId = string;
+    type TemplateId = string;
+
     export type ISite = {
         meta: IMetaSite;
         locale: ILocale;
@@ -16,13 +19,34 @@ declare global {
         instancesProps: Json;
         widgets: IWidgets;
         images: IImages;
-        palette: IPaletteWithKey;
+        palette: IPalette;
         fonts: IFonts;
         breakpoints: IBreakpoints;
     };
 
+    export type ITemplate = Optional<
+        ISite,
+        'locale' | 'images' | 'palette' | 'fonts' | 'breakpoints'
+    >;
+
+    export type ISites = Record<string, ISite>;
+
+    export type ITemplates = Record<string, ITemplate>;
+
+    export type ITemplateMetas = Record<string, IMetaSite>;
+
     export type IMetaSite = {
-        schemaVersion: string;
+        identifier: SiteId | TemplateId;
+        schemaVersion?: string;
+        author?: IAuthor;
+        version?: string;
+        id?: string;
+    };
+
+    export type IAuthor = {
+        name: string;
+        email?: string;
+        url?: string;
     };
 
     export type ILocale = {
@@ -46,6 +70,7 @@ declare global {
         isProtected?: boolean;
         tags: string[];
         enabled?: boolean;
+        templateId?: TemplateId;
     };
 
     export type IPageInstance = {
@@ -71,13 +96,14 @@ declare global {
     export type IPageInstances = Record<string, IPageInstance>;
 
     export type IPalette = {
-        id: string;
+        identifier: string;
         title: string;
         color1: string;
         color2: string;
         color3: string;
         color4: string;
         color5: string;
+        id?: string;
     };
 
     export type IPaletteWithKey = {
@@ -119,4 +145,7 @@ declare global {
         | '1080p'
         | '2k'
         | '4k';
+
+    export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> &
+        Omit<T, K>;
 }

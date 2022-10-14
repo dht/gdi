@@ -57,6 +57,9 @@ declare global {
         // transient
         widget?: IWidget;
         instanceProps?: Json;
+        widgetType?: string;
+        thumbUrl?: string;
+        isPopulated?: boolean;
     };
 
     export type IElement = IWidgetInstance;
@@ -149,10 +152,10 @@ declare global {
 
     export type ISampleData = {
         id: string;
-
         strings: Json;
         colors: Json;
         extra: Json;
+        container?: IWidthHeight;
     };
 
     export type ISampleDataPerFlavour = Record<FlavourId, ISampleData>;

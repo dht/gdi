@@ -1,37 +1,28 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import * as path from 'path';
+import path from 'path';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
+import analyze from 'rollup-plugin-analyzer';
+import p from './package.json';
+import { externals } from 'shared-base';
 
-const cwd = path.resolve(process.cwd(), '../../');
-
-// https://vitejs.dev/config/
 export default defineConfig({
+    plugins: [react(), dts({})],
     build: {
         sourcemap: true,
-    },
-    plugins: [
-        tsconfigPaths({
-            loose: true,
-        }),
-        react(),
-    ],
-    resolve: {
-        alias: {
-            '@gdi/app-mixer': `${cwd}/apps/app-mixer/src`,
-            '@gdi/store-mixer': `${cwd}/stores/gdi-store-mixer/src`,
-            '@gdi/platformer': `${cwd}/packages/platformer/src`,
-            '@gdi/template-starter': `${cwd}/packages/gdi-template-starter/src`,
-            '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
-            '@gdi/web-ui': `${cwd}/packages/gdi-web-ui/src`,
-            '@gdi/web-forms': `${cwd}/packages/gdi-web-forms/src`,
-            'redux-connected': `${cwd}/submodules/redux-connected/src`,
-            igrid: `${cwd}/submodules/igrid/src`,
+        lib: {
+            entry: path.resolve(__dirname, 'src/index.tsx'),
+            name: 'WebForms',
+            formats: ['es', 'umd'],
+            fileName: (format) => `photo-booth.${format}.js`,
         },
-    },
-    define: {},
-    server: {
-        host: true,
-        port: 5000,
+        rollupOptions: {
+            plugins: [analyze()],
+            ...externals({
+                react: '',
+                'react/jsx-runtime': '',
+                ...p.dependencies,
+            }),
+        },
     },
 });

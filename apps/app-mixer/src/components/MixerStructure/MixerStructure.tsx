@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Container,
     ContainerItem,
@@ -9,12 +9,13 @@ import {
     WidgetThumb,
 } from './MixerStructure.style';
 import { SortableList } from '@gdi/web-ui';
+import classnames from 'classnames';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
 
 export type MixerStructureProps = {
     currentInstanceId: string;
-    pageStructure: IElement[];
+    pageStructure: IWidgetInstance[];
     callbacks: {
         onSelectItem: (instanceId: string) => void;
         onMoveItem: (instanceId: string, newOrderValue: number) => void;
@@ -24,17 +25,25 @@ export type MixerStructureProps = {
 
 export function MixerStructure(props: MixerStructureProps) {
     const { currentInstanceId, pageStructure, callbacks } = props;
+    const [showThumbForId, setShowThumbForId] = useState('');
 
     function renderItem(item: any) {
-        const { widget } = item as IElement;
-        const { widgetType = '' } = widget || {};
+        const { id } = item as IWidgetInstance;
+        const { widgetType, thumbUrl, thumbRatio = 1, isPopulated } = item;
+
+        const className = classnames({ on: isPopulated });
 
         return (
-            <ContainerItem>
+            <ContainerItem key={id}>
                 <Title>{widgetType}</Title>
                 <StatusRow>
-                    <StatusContent>D</StatusContent>
-                    <WidgetThumb />
+                    <StatusContent className={className}>D</StatusContent>
+                    <WidgetThumb
+                        url={thumbUrl}
+                        ratio={thumbRatio}
+                        onMouseOver={() => setShowThumbForId(id)}
+                        onMouseOut={() => setShowThumbForId('')}
+                    />
                 </StatusRow>
             </ContainerItem>
         );
@@ -43,7 +52,7 @@ export function MixerStructure(props: MixerStructureProps) {
     function renderNewItem() {
         return (
             <ContainerNewItem>
-                <Title>[New Block]</Title>
+                <Title>[New Block]{showThumbForId}</Title>
             </ContainerNewItem>
         );
     }
