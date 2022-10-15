@@ -42,10 +42,12 @@ export const endpointsConfigOverrides: any = {
     libraryInstances: {
         id: 'libraryInstances',
         connectionType: 'FIRESTORE',
+        optimistic: true,
     },
     libraryInstancesProps: {
         id: 'libraryInstancesProps',
         connectionType: 'FIRESTORE',
+        optimistic: true,
     },
     locales: {
         id: 'locales',

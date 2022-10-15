@@ -105,6 +105,7 @@ export const initialState: IMixerStore = {
     libraryPalettes: {
         green: {
             id: 'green',
+            identifier: 'green',
             title: 'Green',
             color1: '#22577a',
             color2: '#38a3a5',

@@ -34,6 +34,7 @@ export function AnyGallery(props: AnyGalleryProps) {
             <GenericGallery
                 config={config.gallery!}
                 customItem={Item}
+                configOverlay={config.overlay!}
                 {...props}
             />
         </Container>

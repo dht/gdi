@@ -23,3 +23,11 @@ export const Container = styled.div<{ selected: boolean }>`
     &.selected {
     }
 `;
+
+export const LoaderWrapper = styled.div`
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+`;

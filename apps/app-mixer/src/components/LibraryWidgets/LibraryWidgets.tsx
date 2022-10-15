@@ -3,33 +3,33 @@ import { Container } from './LibraryWidgets.style';
 import { WidgetGallery } from '@gdi/web-ui';
 
 export type LibraryWidgetsProps = {
-    state: IWidgetGalleryState;
     items: IImageWithWidget[];
-    columns?: number;
     callbacks: {
-        onSelectWidget: (widgetId: string) => void;
-        onViewChange: (viewId: string) => void;
-        onSearch: (search?: string) => void;
-        onFilterChange: (filter: string) => void;
+        onAction: (actionId: string) => void;
+        onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
+        onSelectionChange: (ids: string[]) => void;
     };
 };
 
 export function LibraryWidgets(props: LibraryWidgetsProps) {
-    const { items, callbacks, state } = props;
-    const { search, filter, mode } = state;
+    const { items, callbacks } = props;
+
+    const options: IGalleryOptions = {
+        columns: 3,
+        selectionMode: 'browse',
+        hideOverlay: true,
+    };
 
     return (
         <Container
             className='LibraryWidgets-container'
             data-testid='LibraryWidgets-container'
         >
-            {/* <WidgetGallery
-                search={search}
-                filter={filter}
-                viewMode={mode}
-                callbacks={callbacks}
+            <WidgetGallery
                 items={items}
-            /> */}
+                options={options}
+                callbacks={callbacks}
+            />
         </Container>
     );
 }

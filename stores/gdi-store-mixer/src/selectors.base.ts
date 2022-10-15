@@ -10,6 +10,7 @@ import {
 import {
     sortBy,
     getScreenshotThumb,
+    getScreenshotData,
     unflattenInstanceProps,
 } from 'shared-base';
 
@@ -243,40 +244,30 @@ export const $libraryWidgets = createSelector(
     raw.$rawLibraryWidgets,
     $instanceSelected,
     (widgets, instance) => {
-        const selectedElementType = getWidgetTypeFromElement(instance);
+        if (!instance) {
+            return [];
+        }
+
+        const selectedElementType = instance.widgetType;
 
         const output: IImageWithWidget[] = [];
-        const filter = 'all';
 
         Object.values(widgets).forEach((widget) => {
-            const { id, name, tags = [], screenshots = {} } = widget;
-            const instanceType = getWidgetTypeFromTags(tags);
+            const { id, name, tags = [], widgetType } = widget;
 
-            const isFilterOff = filter === 'all';
             const isElementSelected = selectedElementType !== '';
-            const doTypesMatch = selectedElementType === instanceType;
+            const doTypesMatch = selectedElementType === widgetType;
 
-            const shouldShow =
-                isFilterOff || !isElementSelected || doTypesMatch;
+            const shouldShow = !isElementSelected || doTypesMatch;
 
-            const firstKey = Object.keys(screenshots).pop();
-
-            if (firstKey && shouldShow) {
-                const firstValue = screenshots[firstKey];
-                const { desktop } = firstValue || {};
-                const { large, thumb } = desktop || {};
-
-                if (large && thumb) {
-                    output.push({
-                        id,
-                        title: name,
-                        imageUrl: large.url as string,
-                        imageThumbUrl: thumb.url as string,
-                        ratio: large.ratio,
-                        tags,
-                        widget,
-                    });
-                }
+            if (shouldShow) {
+                output.push({
+                    id,
+                    title: name,
+                    ...getScreenshotData(widget),
+                    tags,
+                    widget,
+                });
             }
         });
 

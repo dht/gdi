@@ -1,8 +1,9 @@
 import React from 'react';
-import GenericGallery from '../GenericGallery/GenericGallery';
+import AllProviders from './AllProviders';
+import AnyGallery from './Gallery.any';
+import FilterBar from '../FilterBar/FilterBar';
 import { Container } from './styles';
-import { galleries } from '../../definitions/galleries';
-import { ItemImage } from './items/ItemImage/ItemImage';
+import { definitions } from '../../definitions';
 import { IGalleryOptions } from '../../types';
 
 export type ImageGalleryProps = {
@@ -10,21 +11,35 @@ export type ImageGalleryProps = {
     options?: Partial<IGalleryOptions>;
     callbacks: {
         onAction: (actionId: string) => void;
-        onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
+        onItemAction: (id: string, action: string, data?: Json) => void;
+        onSelectionChange: (ids: string[]) => void;
     };
 };
 
 export function ImageGallery(props: ImageGalleryProps) {
+    const { items, callbacks } = props;
+
     return (
         <Container
             className='ImageGallery-container'
             data-testid='ImageGallery-container'
         >
-            <GenericGallery
-                config={galleries.image}
-                customItem={ItemImage}
-                {...props}
-            />
+            <AllProviders
+                id='imageGallery'
+                data={items}
+                definitions={definitions.image}
+                callbacks={callbacks}
+            >
+                <FilterBar
+                    header=''
+                    onAction={() => {}}
+                    hideTagging
+                    hideFilter
+                    hideHeader
+                    tools={[]}
+                />
+                <AnyGallery flavour='image' {...props} />
+            </AllProviders>
         </Container>
     );
 }

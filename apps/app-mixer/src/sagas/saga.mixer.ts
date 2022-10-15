@@ -1,8 +1,5 @@
 import { actions, selectors } from '../store';
-import { call, fork, put, select, takeEvery, delay, take } from 'saga-ts';
-import { prompt } from '@gdi/web-ui';
-import { guid4 } from 'shared-base';
-import LibraryWidgets from '../components/LibraryWidgets/LibraryWidgets';
+import { call, put, select, takeEvery, take } from 'saga-ts';
 import { getSchemaPropertiesByType } from '@gdi/store-mixer';
 
 type ActionWidgetSelect = {
@@ -75,11 +72,7 @@ function* switchWidgetForElement(action: ActionWidgetSelect) {
     const currentIds = yield* select(selectors.raw.$rawCurrentIds);
     const selectedInstanceId = currentIds.selectedInstanceId;
 
-    console.log('selectedInstanceId ->', selectedInstanceId);
-
     const isPlaceholder = yield* select(selectors.base.$isSelectedPlaceholder);
-
-    console.log('isPlaceholder ->', isPlaceholder);
 
     if (isPlaceholder) {
         yield call(dataFromSampleData, widgetId, selectedInstanceId);
@@ -88,7 +81,7 @@ function* switchWidgetForElement(action: ActionWidgetSelect) {
     yield call(imagesFromSampleData, widgetId, selectedInstanceId);
 
     yield put(
-        actions.instancesWidgets.patch(selectedInstanceId, {
+        actions.libraryInstances.patch(selectedInstanceId, {
             widgetId,
             isPlaceholder: false,
         })

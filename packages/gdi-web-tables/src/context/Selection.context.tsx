@@ -30,7 +30,7 @@ export const SelectionContext = createContext<ISelectionContext>(initialValue);
 export const SelectionContextProvider = (
     props: WithChildren<SelectionContextProps>
 ) => {
-    const { mode } = props;
+    const { mode, onSelectionChange } = props;
 
     const selectionOptions = useMemo(
         () => ({
@@ -50,6 +50,10 @@ export const SelectionContextProvider = (
     const callbacks = useMemo(
         () => ({
             onSelect: (itemId: string) => {
+                if (onSelectionChange) {
+                    onSelectionChange([itemId]);
+                }
+
                 onSelectionClick(itemId);
             },
             onSelectionClear: () => {

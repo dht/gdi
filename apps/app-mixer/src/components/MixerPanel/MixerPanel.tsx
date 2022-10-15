@@ -10,16 +10,34 @@ import { PanelPaletteContainer } from '../../containers/panels/PanelPaletteConta
 import { PanelTypographyContainer } from '../../containers/panels/PanelTypographyContainer';
 
 export type MixerPanelProps = {
-    children: JSX.Element[];
+    onHeaderAction: (panelKey: string, actionId: string) => void;
 };
 
 export function MixerPanel(props: MixerPanelProps) {
+    function getHeaderActions(key: string) {
+        switch (key) {
+            case 'Library':
+                return [
+                    {
+                        id: 'view',
+                        iconName: 'View',
+                    },
+                ];
+            default:
+                return [];
+        }
+    }
+
     return (
         <Root
             className='MixerPanel-container'
             data-testid='MixerPanel-container'
         >
-            <Accordion initialPanel='Library'>
+            <Accordion
+                initialPanel='Library'
+                getHeaderActions={getHeaderActions}
+                onHeaderAction={props.onHeaderAction}
+            >
                 <PanelInspectorContainer key='Inspector' flex />
                 <PanelLibraryContainer key='Library' flex />
                 <PanelContentContainer key='Data' flex />

@@ -7,6 +7,7 @@ import {
     IGalleryConfig,
     IGalleryOptions,
     IGalleryState,
+    IOverlayConfig,
     ItemActionType,
     WithChildren,
 } from '../types';
@@ -14,6 +15,7 @@ import { SelectionContext } from './Selection.context';
 
 type GalleryContextProps = {
     config: IGalleryConfig;
+    configOverlay: IOverlayConfig;
     options: IGalleryOptions;
     callbacks: {
         onAction: (actionId: string) => void;
@@ -24,6 +26,7 @@ type GalleryContextProps = {
 type IGalleryContext = {
     patchState: (change: Partial<IGalleryState>) => void;
     config: IGalleryConfig;
+    configOverlay: IOverlayConfig;
     options: IGalleryOptions;
     state: IGalleryState;
     callbacks: {
@@ -37,6 +40,7 @@ const initialValue: IGalleryContext = {
     patchState: () => {},
     state: {},
     config: { id: '' },
+    configOverlay: { id: '', fields: [] },
     options: {
         columns: 3,
         selectionMode: 'browse',
@@ -53,7 +57,7 @@ export const GalleryContext = createContext<IGalleryContext>(initialValue);
 export const GalleryContextProvider = (
     props: WithChildren<GalleryContextProps>
 ) => {
-    const { config, options, callbacks } = props;
+    const { config, configOverlay, options, callbacks } = props;
 
     const filterContext = useContext(FilterContext);
     const { state: filterState } = filterContext;
@@ -62,12 +66,13 @@ export const GalleryContextProvider = (
         useContext(SelectionContext);
 
     const columns =
-        config.columns || options.columns || initialValue.options.columns;
+        options.columns || config.columns || initialValue.options.columns;
 
     const configValue = useMemo(
         () => ({
             ...initialValue,
             config,
+            configOverlay,
             options: {
                 ...initialValue.options,
                 ...options,

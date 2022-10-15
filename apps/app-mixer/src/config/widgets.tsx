@@ -1,11 +1,8 @@
 import React from 'react';
 import { CurrentIdsHoc, IWidget } from '@gdi/platformer';
 import { MixerContainer } from '../containers/MixerContainer';
-import { MixerPanel } from '../components/MixerPanel/MixerPanel';
-import { ToolsContainer } from '../containers/singles/ToolsContainer';
+import { MixerPanelContainer } from '../containers/MixerPanelContainer';
 import { PagesContainer } from '../containers/PagesContainer';
-import { ImportExportContainer } from '../containers/singles/ImportExportContainer';
-import { PageToolsContainer } from '../containers/singles/PageToolsContainer';
 import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
@@ -49,7 +46,7 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MixerPanel {...props} />,
+        component: (props: any) => <MixerPanelContainer {...props} />,
     },
     {
         id: MixerWidgets.MixerTree,
