@@ -1,5 +1,5 @@
-id: NewLink
-header: New Link
+id: LinkEdit
+header: Edit Link
 layout:
     flavour: singleColumn
     width: 300

@@ -1,5 +1,5 @@
-id: NewPageInstancesItem
-header: New PageInstance Item
+id: PageInstanceNew
+header: New PageInstance
 layout:
     flavour: singleColumn
     width: 300

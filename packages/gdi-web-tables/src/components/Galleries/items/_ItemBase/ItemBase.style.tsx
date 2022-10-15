@@ -40,7 +40,7 @@ export const ImageOverlay = styled.div`
 
 export const Images = styled.div`
     position: relative;
-    height: 200px;
+    height: 100%;
 `;
 
 export const Image = styled.div.attrs<{ url: string }>((props) => ({
@@ -51,6 +51,7 @@ export const Image = styled.div.attrs<{ url: string }>((props) => ({
     position: absolute;
     background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
     position: absolute;
     top: 0;
     left: 0;

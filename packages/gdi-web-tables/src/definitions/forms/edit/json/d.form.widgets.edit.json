@@ -1,6 +1,6 @@
 {
-    "id": "EditLayoutItem",
-    "header": "Edit Layout Item",
+    "id": "WidgetEdit",
+    "header": "Edit Widget",
     "layout": {
         "flavour": "singleColumn",
         "width": 300,
@@ -14,43 +14,31 @@
     ],
     "fields": [
         {
-            "id": "locationId",
+            "id": "name",
             "fieldType": "text",
-            "placeholder": "Unique locationId",
-            "label": "Location",
+            "placeholder": "Name",
+            "label": "Name",
             "groupId": "basic"
         },
         {
-            "id": "entityType",
-            "fieldType": "select",
-            "placeholder": "Enter type",
-            "label": "Entity Type",
-            "optionSelector": "$flexEntityTypes",
+            "id": "widgetType",
+            "fieldType": "text",
+            "placeholder": "WidgetType",
+            "label": "WidgetType",
             "groupId": "basic"
         },
         {
-            "id": "direction",
-            "fieldType": "select",
-            "placeholder": "Enter direction",
-            "label": "Direction",
-            "optionSelector": "$flexDirection",
-            "showIf": "entityType=container",
+            "id": "description",
+            "fieldType": "paragraph",
+            "placeholder": "Enter description",
+            "label": "Description",
             "groupId": "basic"
         },
         {
-            "id": "resolution",
-            "fieldType": "select",
-            "placeholder": "Resolution",
-            "label": "Resolution",
-            "optionSelector": "$resolutions",
-            "groupId": "basic"
-        },
-        {
-            "id": "parentId",
-            "fieldType": "select",
-            "placeholder": "Select parentId",
-            "label": "Parent",
-            "optionSelector": "$flexEntityParentIds",
+            "id": "tags",
+            "fieldType": "tags",
+            "placeholder": "Tags",
+            "label": "Tags",
             "groupId": "basic"
         }
     ],

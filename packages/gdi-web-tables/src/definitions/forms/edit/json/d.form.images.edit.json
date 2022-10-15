@@ -1,5 +1,5 @@
 {
-    "id": "EditImage",
+    "id": "ImageEdit",
     "header": "Edit Image",
     "layout": {
         "flavour": "singleColumn",
@@ -25,13 +25,6 @@
             "fieldType": "paragraph",
             "placeholder": "Description",
             "label": "Description",
-            "groupId": "basic"
-        },
-        {
-            "id": "imageUrl",
-            "fieldType": "imageUpload",
-            "placeholder": "Image",
-            "label": "Image",
             "groupId": "basic"
         },
         {

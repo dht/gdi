@@ -1,4 +1,4 @@
-import { ItemType, ICalendarConfig } from '../../types';
+import { ItemType, ICalendarConfig, IOverlayConfig } from '../../types';
 import articles from './json/d.overlay.articles.json';
 import events from './json/d.overlay.events.json';
 import images from './json/d.overlay.images.json';
@@ -13,18 +13,19 @@ import templates from './json/d.overlay.templates.json';
 import tickets from './json/d.overlay.tickets.json';
 import widgets from './json/d.overlay.widgets.json';
 
-export const overlays: Record<ItemType, ICalendarConfig> = {
-    article: articles,
-    event: events,
-    image: images,
-    layout: layouts,
-    link: links,
-    page: pages,
-    pageInstance: pageInstances,
-    post: posts,
-    person: ppl,
-    sale: sales,
-    template: templates,
-    ticket: tickets,
+export const overlays: Record<ItemType, IOverlayConfig> = {
+    // @ts-expect-error
+    article: articles, // @ts-expect-error
+    event: events, // @ts-expect-error
+    image: images, // @ts-expect-error
+    layout: layouts, // @ts-expect-error
+    link: links, // @ts-expect-error
+    page: pages, // @ts-expect-error
+    pageInstance: pageInstances, // @ts-expect-error
+    post: posts, // @ts-expect-error
+    person: ppl, // @ts-expect-error
+    sale: sales, // @ts-expect-error
+    template: templates, // @ts-expect-error
+    ticket: tickets, // @ts-expect-error
     widget: widgets,
 };

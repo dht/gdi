@@ -1,4 +1,4 @@
-id: TicketsTable
+id: TicketTable
 header: Tickets
 fields:
     - id: id

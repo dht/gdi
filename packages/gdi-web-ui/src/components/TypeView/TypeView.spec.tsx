@@ -1,13 +1,13 @@
-import { OverlayDriver } from './Overlay.driver';
+import { TypeViewDriver } from './TypeView.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Overlay', () => {
-    let driver: OverlayDriver;
+describe('TypeView', () => {
+    let driver: TypeViewDriver;
 
     beforeAll(() => {
-        driver = new OverlayDriver();
+        driver = new TypeViewDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Overlay', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Overlay-container');
+        expect(containerClassName).toContain('TypeView-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('Overlay', () => {
     });
 });
 
-describe('Overlay snapshots', () => {
-    let driver: OverlayDriver;
+describe('TypeView snapshots', () => {
+    let driver: TypeViewDriver;
 
     beforeAll(() => {
-        driver = new OverlayDriver();
+        driver = new TypeViewDriver();
     });
 
     it('should match snapshot', () => {

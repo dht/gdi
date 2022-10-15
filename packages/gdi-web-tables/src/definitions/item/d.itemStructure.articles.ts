@@ -1,0 +1,25 @@
+export const itemStructure = `export type IArticle = {
+    id: string;
+    title: string;
+    intro: string;
+    imageUrl: string;
+    imageThumbUrl: string;
+    imageDescription: string;
+    imageSource: string;
+    radio?: number;
+    authorName: string;
+    publishDate: string;
+    lastPublishDate: string;
+    lastSaveDate: string;
+    comments: number;
+    slogan: string;
+    linkPath: string;
+    status: IArticleStatus;
+    isPublished: boolean;
+    content: string;
+    categoryBreadcrumbs: string;
+    tags: string[];
+    minutesSpentEditing: number;
+    wordCount?: number;
+};
+`;

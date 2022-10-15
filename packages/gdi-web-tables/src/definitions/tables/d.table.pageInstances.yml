@@ -1,5 +1,5 @@
-id: PagesTable
-header: Pages Items
+id: PageInstanceTable
+header: PageInstances
 fields:
     - id: id
       title: Id

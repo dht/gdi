@@ -1,8 +1,8 @@
-id: PagesGallery
-header: Pages
-itemType: page
+id: PageInstanceGallery
+header: Page instances
+itemType: pageInstance
 fixedRatio: 1
 actions:
     - id: new
       iconName: add
-      title: New page
+      title: New PageInstance

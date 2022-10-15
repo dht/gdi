@@ -1,4 +1,4 @@
-id: LayoutsFilter
+id: PageFilter
 fields:
     - id: uploadDate
       title: Upload Date

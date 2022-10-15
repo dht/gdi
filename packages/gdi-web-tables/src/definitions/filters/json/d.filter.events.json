@@ -1,5 +1,5 @@
 {
-    "id": "EventsFilter",
+    "id": "EventFilter",
     "fields": [
         {
             "id": "uploadDate",

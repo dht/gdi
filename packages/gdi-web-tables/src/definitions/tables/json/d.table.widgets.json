@@ -1,33 +1,22 @@
 {
-    "id": "LayoutsSubTable",
-    "header": "Layouts Items",
+    "id": "WidgetTable",
+    "header": "Widgets",
     "fields": [
         {
             "id": "id",
             "title": "Id",
-            "cellType": "id"
-        },
-        {
-            "id": "locationId",
-            "title": "Location",
             "cellType": "text",
-            "flex": 2
+            "flex": 3
         },
         {
-            "id": "entityType",
-            "title": "Type",
+            "id": "name",
+            "title": "name",
             "cellType": "text",
             "flex": 1
         },
         {
-            "id": "direction",
-            "title": "Direction",
-            "cellType": "text",
-            "flex": 1
-        },
-        {
-            "id": "resolution",
-            "title": "Resolution",
+            "id": "isBlock",
+            "title": "IsBlock",
             "cellType": "text",
             "flex": 1
         },

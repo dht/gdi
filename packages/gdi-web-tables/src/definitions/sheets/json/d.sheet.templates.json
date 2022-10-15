@@ -1,0 +1,27 @@
+{
+    "id": "TemplateSheet",
+    "header": "Templates",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "id",
+            "fieldType": "text",
+            "placeholder": "Id",
+            "label": "Id",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

@@ -1,6 +1,6 @@
 {
-    "id": "EditPageItem",
-    "header": "New Page Item",
+    "id": "PageEdit",
+    "header": "Edit Page",
     "layout": {
         "flavour": "singleColumn",
         "width": 300,

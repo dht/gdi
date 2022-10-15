@@ -1,0 +1,48 @@
+{
+    "id": "WidgetSheet",
+    "header": "Widgets",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "name",
+            "fieldType": "text",
+            "placeholder": "Name",
+            "label": "Name",
+            "groupId": "basic"
+        },
+        {
+            "id": "widgetType",
+            "fieldType": "text",
+            "placeholder": "WidgetType",
+            "label": "WidgetType",
+            "groupId": "basic"
+        },
+        {
+            "id": "description",
+            "fieldType": "paragraph",
+            "placeholder": "Enter description",
+            "label": "Description",
+            "groupId": "basic"
+        },
+        {
+            "id": "tags",
+            "fieldType": "tags",
+            "placeholder": "Tags",
+            "label": "Tags",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

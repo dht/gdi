@@ -1,4 +1,4 @@
-id: LayoutsFilter
+id: SaleFilter
 fields:
     - id: uploadDate
       title: Upload Date

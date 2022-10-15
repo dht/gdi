@@ -1,4 +1,4 @@
-id: ArticlesTable
+id: ArticleTable
 header: Articles
 fields:
     - id: id

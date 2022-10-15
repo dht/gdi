@@ -8,6 +8,7 @@ export const Container = styled.div`
     right: 0;
     margin: 5px;
     background-color: transparent;
+    display: flex;
 
     &.selected {
         &:after {
@@ -39,21 +40,6 @@ export const Container = styled.div`
     }
 `;
 
-export const TagsWrapper = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 70px;
-`;
-
-export const Title = styled.div`
-    position: absolute;
-    padding: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-`;
-
 export const Selected = styled.div`
     position: absolute;
     bottom: 10px;
@@ -75,5 +61,31 @@ export const Selected = styled.div`
         position: relative;
         bottom: 2px;
         left: 1px;
+    }
+`;
+
+export const Groups = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+`;
+
+export const Group = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+
+    &:nth-child(2) {
+        justify-content: flex-end;
+    }
+`;
+
+export const Row = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+
+    &:nth-child(2) {
+        align-items: flex-end;
     }
 `;

@@ -7,7 +7,11 @@ import {
     getWidgetTypeFromTags,
     getSchemaPropertiesByType,
 } from './utils/widgets';
-import { sortBy, unflattenInstanceProps } from 'shared-base';
+import {
+    sortBy,
+    getScreenshotThumb,
+    unflattenInstanceProps,
+} from 'shared-base';
 
 export const $i = (state: { mixer: IMixerStore }) => state.mixer;
 
@@ -31,7 +35,7 @@ export const $instances = createSelector(
                     widget,
                     widgetType,
                     isPopulated,
-                    ...getThumb(widget),
+                    ...getScreenshotThumb(widget),
                 } as IWidgetInstance;
             })
             .sort(sortBy('order', 'asc'));
@@ -381,30 +385,3 @@ export const $isSelectedPlaceholder = createSelector(
 export const $libraryPages = createSelector(raw.$rawLibraryPages, (pages) => {
     return Object.values(pages).sort(sortBy('order', 'asc'));
 });
-
-const getThumb = (widget: IWidget) => {
-    const { screenshots } = widget || {};
-
-    if (!screenshots) {
-        return '';
-    }
-
-    const firstKey = Object.keys(screenshots).pop();
-
-    const thumbUrl = get(
-        widget,
-        `screenshots.${firstKey}.desktop.thumb.url`,
-        ''
-    );
-
-    const thumbRatio = get(
-        widget,
-        `screenshots.${firstKey}.desktop.thumb.ratio`,
-        ''
-    );
-
-    return {
-        thumbUrl,
-        thumbRatio,
-    };
-};

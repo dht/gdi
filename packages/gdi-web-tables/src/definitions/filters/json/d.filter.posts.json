@@ -1,5 +1,5 @@
 {
-    "id": "PostsFilter",
+    "id": "PostFilter",
     "fields": [
         {
             "id": "uploadDate",

@@ -1,5 +1,5 @@
 {
-    "id": "ImagesFilter",
+    "id": "ImageFilter",
     "fields": [
         {
             "id": "uploadDate",

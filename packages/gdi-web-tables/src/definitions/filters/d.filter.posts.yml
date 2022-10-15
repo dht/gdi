@@ -1,4 +1,4 @@
-id: PostsFilter
+id: PostFilter
 fields:
     - id: uploadDate
       title: Upload Date

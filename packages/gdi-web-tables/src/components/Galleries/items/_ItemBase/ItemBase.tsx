@@ -6,13 +6,20 @@ export type ItemBaseProps = MasonryItemProps & {
     item: IItem;
     backgroundColor?: string;
     children?: JSX.Element | JSX.Element[];
+    topSectionHeight?: number;
 };
 
 export function ItemBase(props: ItemBaseProps) {
-    const { item: image, backgroundColor } = props;
+    const { item: image, backgroundColor, topSectionHeight } = props;
     const [showFull, setShowFull] = useState(false);
 
     const { id, style, imageUrl, imageThumbUrl } = image;
+
+    const styleImages: React.CSSProperties = {};
+
+    if (topSectionHeight) {
+        styleImages.height = topSectionHeight + 'px';
+    }
 
     // DOMs are recycled
     useEffect(() => {
@@ -38,7 +45,7 @@ export function ItemBase(props: ItemBaseProps) {
             onDoubleClick={() => props.onDoubleClick(id)}
             onMouseOver={() => setShowFull(true)}
         >
-            <Images>
+            <Images style={styleImages}>
                 {/* @ts-expect-error */}
                 <Image url={imageThumbUrl} className='masonry-image' />
                 {renderFull()}

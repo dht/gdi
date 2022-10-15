@@ -1,4 +1,4 @@
-id: NewTicket
+id: TicketNew
 header: New Ticket
 layout:
     flavour: singleColumn

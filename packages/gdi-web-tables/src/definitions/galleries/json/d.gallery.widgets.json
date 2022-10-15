@@ -1,12 +1,13 @@
 {
-    "id": "ArticlesGallery",
-    "header": "Articles",
-    "itemType": "article",
+    "id": "WidgetGallery",
+    "header": "Widgets",
+    "itemType": "widget",
+    "columns": 5,
     "actions": [
         {
             "id": "new",
             "iconName": "add",
-            "title": "New article"
+            "title": "New Widget"
         }
     ]
 }

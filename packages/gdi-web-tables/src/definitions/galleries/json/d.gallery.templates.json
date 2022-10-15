@@ -1,12 +1,12 @@
 {
-    "id": "ArticlesGallery",
-    "header": "Articles",
-    "itemType": "article",
+    "id": "TemplateGallery",
+    "header": "Templates",
+    "itemType": "template",
     "actions": [
         {
             "id": "new",
             "iconName": "add",
-            "title": "New article"
+            "title": "New Template"
         }
     ]
 }

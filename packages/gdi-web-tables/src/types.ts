@@ -49,6 +49,9 @@ export type ICrudDefinitions = {
     gallery?: IGalleryConfig;
     calendar?: ICalendarConfig;
     timeline?: ITimelineConfig;
+    sheet?: ISheetConfig;
+    overlay?: IOverlayConfig;
+    itemStructure?: string;
 };
 
 export type ICrudOptions = {
@@ -70,6 +73,8 @@ export type IViewMode =
 export type ICrudState = {
     viewMode: IViewMode;
 };
+
+export type ISheetConfig = IFormConfig;
 
 // =============== Galleries ===============
 export type IImage = {
@@ -245,6 +250,7 @@ export type IOverlayField = {
 export type IOverlayConfig = {
     id: string;
     sequence?: number;
+    paddingBottom?: number;
     overlayType?: OverlayType;
     fields: IOverlayFields;
 };

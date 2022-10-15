@@ -1,6 +1,6 @@
 {
-    "id": "LayoutsSubTable",
-    "header": "Layouts Items",
+    "id": "PplTable",
+    "header": "People",
     "fields": [
         {
             "id": "id",
@@ -8,27 +8,31 @@
             "cellType": "id"
         },
         {
-            "id": "locationId",
-            "title": "Location",
+            "id": "firstName",
+            "label": "First name",
             "cellType": "text",
-            "flex": 2
-        },
-        {
-            "id": "entityType",
-            "title": "Type",
-            "cellType": "text",
+            "placeholder": "First name",
             "flex": 1
         },
         {
-            "id": "direction",
-            "title": "Direction",
+            "id": "lastName",
             "cellType": "text",
+            "label": "Last name",
+            "placeholder": "Last name",
             "flex": 1
         },
         {
-            "id": "resolution",
-            "title": "Resolution",
+            "id": "shortDescription",
             "cellType": "text",
+            "label": "Short description",
+            "placeholder": "One liner",
+            "flex": 1
+        },
+        {
+            "id": "dateOfBirth",
+            "cellType": "date",
+            "label": "Date of birth",
+            "placeholder": "Date of birth",
             "flex": 1
         },
         {

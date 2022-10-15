@@ -19,6 +19,7 @@ export { Sort } from './components/Sort/Sort';
 export { Stopwatch } from './components/Stopwatch/Stopwatch';
 export { SystemLogs } from './components/SystemLogs/SystemLogs';
 export { Switcher } from './components/Switcher/Switcher';
+export { TypeView } from './components/TypeView/TypeView';
 export { Weather } from './components/Weather/Weather';
 export { WindowHeader } from './components/WindowHeader/WindowHeader';
 export { siteDefaults } from './definitions/site.defaults';

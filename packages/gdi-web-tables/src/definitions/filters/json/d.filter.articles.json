@@ -1,5 +1,5 @@
 {
-    "id": "ArticlesFilter",
+    "id": "ArticleFilter",
     "fields": [
         {
             "id": "publishDate",

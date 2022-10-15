@@ -4,6 +4,9 @@ import { tables } from './tables';
 import { galleries } from './galleries';
 import { timelines } from './timelines';
 import { calendars } from './calendars';
+import { sheets } from './sheets';
+import { overlays } from './overlays';
+import { itemStructure } from './item';
 import { ICrudDefinitions } from '../types';
 
 export const definitions: Record<string, ICrudDefinitions> = {
@@ -17,6 +20,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.article,
         calendar: calendars.article,
         timeline: timelines.article,
+        sheet: sheets.article,
+        overlay: overlays.article,
+        itemStructure: itemStructure.article,
     },
     event: {
         nodeName: 'events',
@@ -28,6 +34,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.event,
         calendar: calendars.event,
         timeline: timelines.event,
+        sheet: sheets.event,
+        overlay: overlays.event,
+        itemStructure: itemStructure.event,
     },
     image: {
         nodeName: 'images',
@@ -39,6 +48,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.image,
         calendar: calendars.image,
         timeline: timelines.image,
+        sheet: sheets.image,
+        overlay: overlays.image,
+        itemStructure: itemStructure.image,
     },
     layout: {
         nodeName: 'layouts',
@@ -50,6 +62,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.layout,
         calendar: calendars.layout,
         timeline: timelines.layout,
+        sheet: sheets.layout,
+        overlay: overlays.layout,
+        itemStructure: itemStructure.layout,
     },
     link: {
         nodeName: 'links',
@@ -61,6 +76,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.link,
         calendar: calendars.link,
         timeline: timelines.link,
+        sheet: sheets.link,
+        overlay: overlays.link,
+        itemStructure: itemStructure.link,
     },
     page: {
         nodeName: 'pages',
@@ -72,6 +90,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.page,
         calendar: calendars.page,
         timeline: timelines.page,
+        sheet: sheets.page,
+        overlay: overlays.page,
+        itemStructure: itemStructure.page,
     },
     pageInstance: {
         nodeName: 'pages',
@@ -83,6 +104,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.pageInstance,
         calendar: calendars.pageInstance,
         timeline: timelines.pageInstance,
+        sheet: sheets.pageInstance,
+        overlay: overlays.pageInstance,
+        itemStructure: itemStructure.pageInstance,
     },
     post: {
         nodeName: 'posts',
@@ -94,6 +118,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.post,
         calendar: calendars.post,
         timeline: timelines.post,
+        sheet: sheets.post,
+        overlay: overlays.post,
+        itemStructure: itemStructure.post,
     },
     person: {
         nodeName: 'persons',
@@ -105,6 +132,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.person,
         calendar: calendars.person,
         timeline: timelines.person,
+        sheet: sheets.person,
+        overlay: overlays.person,
+        itemStructure: itemStructure.person,
     },
     sale: {
         nodeName: 'sales',
@@ -116,6 +146,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.sale,
         calendar: calendars.sale,
         timeline: timelines.sale,
+        sheet: sheets.sale,
+        overlay: overlays.sale,
+        itemStructure: itemStructure.sale,
     },
     template: {
         nodeName: 'templates',
@@ -127,6 +160,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.template,
         calendar: calendars.template,
         timeline: timelines.template,
+        sheet: sheets.template,
+        overlay: overlays.template,
+        itemStructure: itemStructure.template,
     },
     ticket: {
         nodeName: 'tickets',
@@ -138,6 +174,9 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.ticket,
         calendar: calendars.ticket,
         timeline: timelines.ticket,
+        sheet: sheets.ticket,
+        overlay: overlays.ticket,
+        itemStructure: itemStructure.ticket,
     },
     widget: {
         nodeName: 'widgets',
@@ -149,5 +188,8 @@ export const definitions: Record<string, ICrudDefinitions> = {
         gallery: galleries.widget,
         calendar: calendars.widget,
         timeline: timelines.widget,
+        sheet: sheets.widget,
+        overlay: overlays.widget,
+        itemStructure: itemStructure.widget,
     },
 };
