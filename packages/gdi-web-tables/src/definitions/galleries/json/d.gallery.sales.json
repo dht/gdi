@@ -1,12 +1,12 @@
 {
-    "id": "ArticlesGallery",
-    "header": "Articles",
-    "itemType": "article",
+    "id": "SaleGallery",
+    "header": "Sales",
+    "itemType": "sale",
     "actions": [
         {
             "id": "new",
             "iconName": "add",
-            "title": "New article"
+            "title": "New Sale"
         }
     ]
 }

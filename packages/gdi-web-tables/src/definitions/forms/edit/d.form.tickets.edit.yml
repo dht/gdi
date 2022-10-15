@@ -1,4 +1,4 @@
-id: EditTicket
+id: TicketEdit
 header: Edit Ticket
 layout:
     flavour: singleColumn

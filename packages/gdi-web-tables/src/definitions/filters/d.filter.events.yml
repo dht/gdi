@@ -1,4 +1,4 @@
-id: EventsFilter
+id: EventFilter
 fields:
     - id: uploadDate
       title: Upload Date

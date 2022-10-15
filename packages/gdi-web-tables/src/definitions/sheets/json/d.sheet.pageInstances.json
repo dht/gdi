@@ -1,0 +1,34 @@
+{
+    "id": "PageInstanceSheet",
+    "header": "PageInstances",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "version",
+            "fieldType": "text",
+            "placeholder": "Version",
+            "label": "Version",
+            "groupId": "basic"
+        },
+        {
+            "id": "description",
+            "fieldType": "paragraph",
+            "placeholder": "Enter a description",
+            "label": "Description",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

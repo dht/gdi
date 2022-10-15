@@ -1,0 +1,41 @@
+{
+    "id": "ArticleSheet",
+    "header": "Articles",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "title",
+            "fieldType": "paragraph",
+            "placeholder": "Article's name",
+            "label": "Title",
+            "groupId": "basic"
+        },
+        {
+            "id": "authorName",
+            "fieldType": "text",
+            "placeholder": "Your name",
+            "label": "Author's name",
+            "groupId": "basic"
+        },
+        {
+            "id": "categoryBreadcrumbs",
+            "fieldType": "text",
+            "placeholder": "E.g. games>entertainment>tech",
+            "label": "Author's name",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

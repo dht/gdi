@@ -16,7 +16,7 @@ export type AnyGalleryProps = {
 };
 
 export function AnyGallery(props: AnyGalleryProps) {
-    const { flavour, callbacks } = props;
+    const { flavour } = props;
 
     const config = useMemo(() => {
         return definitions[flavour];

@@ -48,6 +48,11 @@ export function TableCell(props: TableCellProps) {
 
     const Cmp = map[cellType as CellType];
 
+    if (!Cmp) {
+        console.log(`could not find cellType: ${cellType}`);
+        return null;
+    }
+
     const width = context.widths[index];
 
     const style = {

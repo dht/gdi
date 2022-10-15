@@ -1,4 +1,4 @@
-id: PplFilter
+id: LinkFilter
 fields:
     - id: uploadDate
       title: Upload Date

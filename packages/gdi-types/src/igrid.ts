@@ -59,6 +59,7 @@ declare global {
         instanceProps?: Json;
         widgetType?: string;
         thumbUrl?: string;
+        thumbRatio?: number;
         isPopulated?: boolean;
     };
 

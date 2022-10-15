@@ -1,4 +1,4 @@
-id: ImagesTable
+id: ImageTable
 header: Images
 fields:
     - id: id
@@ -10,7 +10,7 @@ fields:
       flex: 2
     - id: description
       title: Type
-      cellType: Description
+      cellType: text
       flex: 3
 rowActions:
     - id: edit

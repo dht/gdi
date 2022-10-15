@@ -1,4 +1,14 @@
 {
-    "id": "LayoutTimeline",
-    "header": "Layouts Timeline"
+    "id": "ImageOverlay",
+    "sequence": 1,
+    "overlayType": "absolute",
+    "fields": [
+        {
+            "id": "tags",
+            "fieldId": "tags",
+            "fieldType": "tags",
+            "locationKey": "topLeft",
+            "order": 1
+        }
+    ]
 }

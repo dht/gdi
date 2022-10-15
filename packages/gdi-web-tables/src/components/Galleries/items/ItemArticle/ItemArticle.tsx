@@ -12,7 +12,7 @@ export function ItemArticle(props: ItemArticleProps) {
     const { title, authorName } = article;
 
     return (
-        <ItemBase {...props} backgroundColor='#000'>
+        <ItemBase {...props} backgroundColor='#000' topSectionHeight={200}>
             <Description className='description'>
                 <Title className='title'>{title}</Title>
                 <Author className='author'>

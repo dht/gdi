@@ -1,7 +1,9 @@
-id: EventsGallery
+id: EventGallery
 header: Events
 itemType: events
+fixedRatio: 1
+columns: 5
 actions:
     - id: new
       iconName: add
-      title: New event
+      title: New Event

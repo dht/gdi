@@ -1,6 +1,6 @@
 {
-    "id": "EventsSubTable",
-    "header": "Events Items",
+    "id": "EventTable",
+    "header": "Events",
     "fields": [
         {
             "id": "id",
@@ -8,26 +8,20 @@
             "cellType": "id"
         },
         {
-            "id": "locationId",
-            "title": "Location",
+            "id": "name",
+            "title": "Name",
             "cellType": "text",
             "flex": 2
         },
         {
-            "id": "entityType",
-            "title": "Type",
-            "cellType": "text",
+            "id": "date",
+            "title": "Date",
+            "cellType": "date",
             "flex": 1
         },
         {
-            "id": "direction",
-            "title": "Direction",
-            "cellType": "text",
-            "flex": 1
-        },
-        {
-            "id": "resolution",
-            "title": "Resolution",
+            "id": "location",
+            "title": "Location",
             "cellType": "text",
             "flex": 1
         },

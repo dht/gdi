@@ -25,7 +25,11 @@ export const DateInput = React.forwardRef((props: DateProps, ref: any) => {
     }
 
     function formatDate(date: Date) {
-        return format(date, 'dd/MM/yyyy');
+        try {
+            return format(date, 'dd/MM/yyyy');
+        } catch (err) {
+            return '';
+        }
     }
 
     return (

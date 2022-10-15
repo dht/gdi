@@ -1,7 +1,7 @@
-id: ArticlesGallery
-header: Articles
-itemType: article
+id: PostGallery
+header: Posts
+itemType: post
 actions:
     - id: new
       iconName: add
-      title: New article
+      title: New Post

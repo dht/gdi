@@ -15,6 +15,7 @@ import {
     GalleryContext,
     GalleryContextProvider,
 } from '../../context/Gallery.context';
+import { CrudContext } from '../../context/Crud.context';
 
 export type GenericGalleryProps = {
     config: IGalleryConfig;
@@ -33,13 +34,15 @@ export type GenericGalleryInnerProps = {
 };
 
 export function GenericGalleryInner(props: GenericGalleryInnerProps) {
+    const ref = useRef<HTMLDivElement>(null);
     const { customItem } = props;
+    const { config: configCurd } = useContext(CrudContext);
     const { options, callbacks, config } = useContext(GalleryContext);
-    const filterContext = useContext(FilterContext);
     const { state: selectedIds } = useContext(SelectionContext);
+    const filterContext = useContext(FilterContext);
+    const { overlay } = configCurd;
     const { fixedRatio } = config;
     const { columns } = options;
-    const ref = useRef<HTMLDivElement>(null);
     const { data = [] } = filterContext;
 
     function renderOverlay(item: IImage, options?: RenderOptions) {
@@ -47,6 +50,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
 
         return (
             <GenericOverlay
+                config={overlay}
                 item={item}
                 viewMode={'full'}
                 isSelected={isSelected}
@@ -85,7 +89,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
 }
 
 export const GenericGallery = (props: GenericGalleryProps) => {
-    const { config, items, options, callbacks, customItem } = props;
+    const { config, options, callbacks, customItem } = props;
 
     return (
         <GalleryContextProvider

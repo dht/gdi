@@ -1,6 +1,6 @@
 {
-    "id": "LinksTable",
-    "header": "Tickets",
+    "id": "LinkTable",
+    "header": "Links",
     "fields": [
         {
             "id": "id",

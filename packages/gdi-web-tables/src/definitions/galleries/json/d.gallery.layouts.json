@@ -1,12 +1,12 @@
 {
-    "id": "ArticlesGallery",
-    "header": "Articles",
-    "itemType": "article",
+    "id": "LayoutGallery",
+    "header": "Layouts",
+    "itemType": "layout",
     "actions": [
         {
             "id": "new",
             "iconName": "add",
-            "title": "New article"
+            "title": "New layout"
         }
     ]
 }

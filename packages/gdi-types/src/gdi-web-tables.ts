@@ -54,6 +54,9 @@ declare global {
         gallery?: IGalleryConfig;
         calendar?: ICalendarConfig;
         timeline?: ITimelineConfig;
+        sheet?: ISheetConfig;
+        overlay?: IOverlayConfig;
+        itemStructure?: string;
     };
 
     export type ICrudOptions = {
@@ -75,6 +78,8 @@ declare global {
     export type ICrudState = {
         viewMode: IViewMode;
     };
+
+    export type ISheetConfig = IFormConfig;
 
     // =============== Galleries ===============
     export type IImage = {

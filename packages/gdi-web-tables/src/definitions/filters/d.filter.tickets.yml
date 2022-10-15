@@ -1,4 +1,4 @@
-id: TicketsFilter
+id: TicketFilter
 fields:
     - id: uploadDate
       title: Upload Date

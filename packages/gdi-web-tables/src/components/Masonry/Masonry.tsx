@@ -73,6 +73,7 @@ export function Masonry(props: MasonryProps) {
     }, [windowWidth, windowHeight]);
 
     // position virtualized items
+
     useEffect(() => {
         const positionResult = positionImages(items, {
             width,

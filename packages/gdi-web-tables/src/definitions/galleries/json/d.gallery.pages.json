@@ -1,5 +1,5 @@
 {
-    "id": "PagesGallery",
+    "id": "PageGallery",
     "header": "Pages",
     "itemType": "page",
     "fixedRatio": 1,
@@ -7,7 +7,7 @@
         {
             "id": "new",
             "iconName": "add",
-            "title": "New page"
+            "title": "New Page"
         }
     ]
 }

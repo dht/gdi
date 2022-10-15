@@ -1,5 +1,5 @@
-id: NewPageItem
-header: New Page Item
+id: PageNew
+header: New Page
 layout:
     flavour: singleColumn
     width: 300

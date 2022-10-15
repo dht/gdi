@@ -1,0 +1,20 @@
+export const itemStructure = `export type ITicket = {
+    id: string;
+    key: string;
+    issueType: string;
+    priority: string;
+    status: string;
+    timeEstimate?: number;
+    creator: string;
+    reporter: string;
+    summary: string;
+    progress: number;
+    progressTotal: number;
+    description?: any;
+    isContinuous?: boolean;
+    widgetId?: string;
+    projectId: string;
+    projectKey: string;
+    order?: number;
+};
+`;

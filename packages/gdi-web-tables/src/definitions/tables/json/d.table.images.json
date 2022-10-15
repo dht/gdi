@@ -1,5 +1,5 @@
 {
-    "id": "ImagesTable",
+    "id": "ImageTable",
     "header": "Images",
     "fields": [
         {
@@ -16,7 +16,7 @@
         {
             "id": "description",
             "title": "Type",
-            "cellType": "Description",
+            "cellType": "text",
             "flex": 3
         }
     ],

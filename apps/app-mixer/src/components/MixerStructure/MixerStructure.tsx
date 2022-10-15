@@ -25,7 +25,6 @@ export type MixerStructureProps = {
 
 export function MixerStructure(props: MixerStructureProps) {
     const { currentInstanceId, pageStructure, callbacks } = props;
-    const [showThumbForId, setShowThumbForId] = useState('');
 
     function renderItem(item: any) {
         const { id } = item as IWidgetInstance;
@@ -38,12 +37,7 @@ export function MixerStructure(props: MixerStructureProps) {
                 <Title>{widgetType}</Title>
                 <StatusRow>
                     <StatusContent className={className}>D</StatusContent>
-                    <WidgetThumb
-                        url={thumbUrl}
-                        ratio={thumbRatio}
-                        onMouseOver={() => setShowThumbForId(id)}
-                        onMouseOut={() => setShowThumbForId('')}
-                    />
+                    <WidgetThumb url={thumbUrl} ratio={thumbRatio} />
                 </StatusRow>
             </ContainerItem>
         );
@@ -52,7 +46,7 @@ export function MixerStructure(props: MixerStructureProps) {
     function renderNewItem() {
         return (
             <ContainerNewItem>
-                <Title>[New Block]{showThumbForId}</Title>
+                <Title>[New Block]</Title>
             </ContainerNewItem>
         );
     }

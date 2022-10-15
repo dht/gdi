@@ -1,6 +1,6 @@
 {
-    "id": "EditLayout",
-    "header": "Edit Layout",
+    "id": "ArticleEdit",
+    "header": "Edit Article",
     "layout": {
         "flavour": "singleColumn",
         "width": 300,

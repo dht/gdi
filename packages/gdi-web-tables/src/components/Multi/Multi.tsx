@@ -6,7 +6,7 @@ import Timeline from '../Timeline/Timeline';
 import { AnyGallery } from '../Galleries';
 import { Container } from './Multi.style';
 import { CrudContext, CrudContextProvider } from '../../context/Crud.context';
-import { definitions as allDefinitions } from '../../definitions';
+import { definitions as allDefinitions, definitions } from '../../definitions';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
 import { ItemType } from '../../types';
@@ -34,6 +34,7 @@ export type MultiProps = {
     customView2?: FC<any>;
     dispatch: any;
     viewModes?: IViewMode[];
+    initialViewMode?: IViewMode;
 };
 
 export function MultiInner(props: MultiProps) {
@@ -72,7 +73,7 @@ export function MultiInner(props: MultiProps) {
             case 'spreadsheet':
                 return (
                     <Sheet
-                        config={config.formEdit}
+                        config={config.sheet}
                         data={data}
                         allOptions={allOptions}
                         onChange={(itemId: string, change: Json) =>
@@ -139,7 +140,15 @@ export function MultiInner(props: MultiProps) {
 }
 
 export const Multi = (props: MultiProps) => {
-    const { id, data, itemType, callbacks, allOptions, dispatch } = props;
+    const {
+        id,
+        data,
+        itemType,
+        callbacks,
+        allOptions,
+        dispatch,
+        initialViewMode,
+    } = props;
 
     const definitions = useMemo(() => {
         return allDefinitions[itemType];
@@ -176,6 +185,7 @@ export const Multi = (props: MultiProps) => {
                         config={definitions}
                         options={optionsCrud}
                         callbacks={callbacks}
+                        initialViewMode={initialViewMode}
                     >
                         <MultiInner {...props} />
                     </CrudContextProvider>

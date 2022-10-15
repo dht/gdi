@@ -1,2 +1,15 @@
-id: LayoutTimeline
-header: Layouts Timeline
+id: EventOverlay
+sequence: 1
+paddingBottom: 46
+overlayType: absolute
+fields:
+    - id: tags
+      fieldId: tags
+      fieldType: tags
+      locationKey: bottomLeft
+      order: 1
+    - id: date
+      fieldId: date
+      fieldType: date
+      locationKey: topRight
+      order: 1

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { createContext } from 'react';
 import { emptyFilters } from '../definitions/filters/empty';
 import { emptyForm } from '../definitions/forms/empty';
@@ -12,6 +12,7 @@ type CrudContextProps = {
     config: ICrudDefinitions;
     options: ICrudOptions;
     data: Json;
+    initialViewMode?: IViewMode;
     callbacks: {
         onSelectionChange: (ids: string[]) => void;
         onDrillDown: (itemId: string) => void;
@@ -55,7 +56,7 @@ const initialValue: ICrudContext = {
 export const CrudContext = createContext<ICrudContext>(initialValue);
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
-    const { id, config, options, data, callbacks } = props;
+    const { id, config, options, data, callbacks, initialViewMode } = props;
     const { state: selectedIds } = useContext(SelectionContext);
 
     const configValue = useMemo(
@@ -72,6 +73,12 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const [state, patchState] = useLocalStorage<ICrudState>(localStorageKey, {
         ...initialValue.state,
     });
+
+    useEffect(() => {
+        if (initialViewMode) {
+            patchState({ viewMode: initialViewMode });
+        }
+    }, []);
 
     const crudCallbacks = useCrudOperations(config, data);
 

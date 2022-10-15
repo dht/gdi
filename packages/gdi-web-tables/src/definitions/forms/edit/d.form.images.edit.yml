@@ -1,4 +1,4 @@
-id: EditImage
+id: ImageEdit
 header: Edit Image
 layout:
     flavour: singleColumn
@@ -17,11 +17,6 @@ fields:
       fieldType: paragraph
       placeholder: Description
       label: Description
-      groupId: basic
-    - id: imageUrl
-      fieldType: imageUpload
-      placeholder: Image
-      label: Image
       groupId: basic
     - id: tags
       fieldType: tags

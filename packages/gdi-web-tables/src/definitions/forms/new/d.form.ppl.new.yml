@@ -1,4 +1,5 @@
-id: New Person
+id: PersonNew
+header: New Person
 layout:
     flavour: singleColumn
     width: 300

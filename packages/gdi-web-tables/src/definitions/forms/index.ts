@@ -47,12 +47,12 @@ export const formsNew: Record<string, IFormConfig> = {
     image: imagesNew, // @ts-expect-error
     layout: layoutsNew, // @ts-expect-error
     link: linksNew, // @ts-expect-error
-    pages: pagesNew, // @ts-expect-error
-    pageInstances: pageInstancesNew, // @ts-expect-error
+    page: pagesNew, // @ts-expect-error
+    pageInstance: pageInstancesNew, // @ts-expect-error
     post: postsNew, // @ts-expect-error
     person: pplNew, // @ts-expect-error
-    sales: salesNew, // @ts-expect-error
-    templates: templatesNew, // @ts-expect-error
+    sale: salesNew, // @ts-expect-error
+    template: templatesNew, // @ts-expect-error
     ticket: ticketsNew, // @ts-expect-error
     widget: widgetsNew,
 };
@@ -64,12 +64,12 @@ export const formsEdit: Record<string, IFormConfig> = {
     image: imagesEdit, // @ts-expect-error
     layout: layoutsEdit, // @ts-expect-error
     link: linksEdit, // @ts-expect-error
-    pages: pagesEdit, // @ts-expect-error
-    pageInstances: pageInstancesEdit, // @ts-expect-error
+    page: pagesEdit, // @ts-expect-error
+    pageInstance: pageInstancesEdit, // @ts-expect-error
     post: postsEdit, // @ts-expect-error
     person: pplEdit, // @ts-expect-error
-    sales: salesEdit, // @ts-expect-error
-    templates: templatesEdit, // @ts-expect-error
+    sale: salesEdit, // @ts-expect-error
+    template: templatesEdit, // @ts-expect-error
     ticket: ticketsEdit, // @ts-expect-error
     widget: widgetsEdit,
 };
@@ -80,12 +80,12 @@ export const formsNewDefault: Record<string, Json> = {
     image: imagesDefault,
     layout: layoutsDefault,
     link: linksDefault,
-    pages: pagesDefault,
-    pageInstances: pageInstancesDefault,
+    page: pagesDefault,
+    pageInstance: pageInstancesDefault,
     post: postsDefault,
     person: pplDefault,
-    sales: salesDefault,
-    templates: templatesDefault,
+    sale: salesDefault,
+    template: templatesDefault,
     ticket: ticketsDefault,
     widget: widgetsDefault,
 };

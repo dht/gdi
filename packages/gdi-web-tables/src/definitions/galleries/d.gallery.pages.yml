@@ -1,8 +1,8 @@
-id: PagesGallery
+id: PageGallery
 header: Pages
 itemType: page
 fixedRatio: 1
 actions:
     - id: new
       iconName: add
-      title: New page
+      title: New Page

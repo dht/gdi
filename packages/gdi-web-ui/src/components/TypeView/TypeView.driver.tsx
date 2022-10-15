@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Overlay, OverlayProps } from './Overlay';
+import { TypeView, TypeViewProps } from './TypeView';
 import { BaseComponentDriver } from 'testing-base';
 
-export class OverlayDriver extends BaseComponentDriver {
-    private props: Partial<OverlayProps> = {
+export class TypeViewDriver extends BaseComponentDriver {
+    private props: Partial<TypeViewProps> = {
     };
 
     constructor() {
-        super('Overlay');
+        super('TypeView');
     }
 
     when: any = {
         rendered: () => {
-            render(<Overlay {...(this.props as OverlayProps)} />);
+            render(<TypeView {...(this.props as TypeViewProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class OverlayDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Overlay {...(this.props as OverlayProps)} />);
+            return this.snapshot(<TypeView {...(this.props as TypeViewProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<OverlayProps>) => {
+        props: (props: Partial<TypeViewProps>) => {
             this.props = props;
             return this;
         },

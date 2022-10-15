@@ -1,23 +1,37 @@
-import React from 'react';
-import { Author, AuthorName, Description, Title } from './ItemEvent.style';
+import React, { useMemo } from 'react';
+import {
+    Location,
+    LocationName,
+    Description,
+    Title,
+    Time,
+} from './ItemEvent.style';
 import { ItemBase } from '../_ItemBase/ItemBase';
 import { MasonryItemProps } from '../../../Masonry/Masonry';
+import { format } from 'date-fns';
 
 export type ItemEventProps = MasonryItemProps & {
     item: IEvent;
 };
 
 export function ItemEvent(props: ItemEventProps) {
-    const { item: image } = props;
-    const { title } = image;
+    const { item: event } = props;
+    const { name, location, date } = event;
+
+    const time = useMemo(() => {
+        try {
+            return format(new Date(date), 'HH:mm');
+        } catch (err) {}
+    }, []);
 
     return (
-        <ItemBase {...props} backgroundColor='#000'>
+        <ItemBase {...props} backgroundColor='#000' topSectionHeight={200}>
             <Description className='description'>
-                <Title className='title'>{title}</Title>
-                <Author className='author'>
-                    By <AuthorName></AuthorName>
-                </Author>
+                <Time>{time}</Time>
+                <Title className='title'>{name}</Title>
+                <Location className='author'>
+                    at <LocationName>{location}</LocationName>
+                </Location>
             </Description>
         </ItemBase>
     );
