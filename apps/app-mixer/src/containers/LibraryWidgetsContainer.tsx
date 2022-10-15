@@ -5,50 +5,38 @@ import { actions, selectors } from '../store';
 
 export const LibraryWidgetsContainer = () => {
     const dispatch = useDispatch();
-    const libraryWidgets = useSelector(selectors.base.$libraryWidgets);
-    const galleryState = useSelector(selectors.raw.$rawWidgetGalleryState);
+    const items = useSelector(selectors.base.$libraryWidgets);
 
     const callbacks = useMemo(
         () => ({
-            onSelectWidget: (widgetId: string) => {
+            onItemAction: (id: string, action: string, data?: Json) => {
                 dispatch({
-                    type: 'ELEMENT_WIDGET_SELECT',
-                    widgetId,
+                    type: 'IMAGE_ACTION',
+                    actionType: action,
+                    id,
+                    data,
                 });
             },
-            onViewChange: (viewMode: string) => {
-                dispatch(
-                    actions.widgetGalleryState.patch({
-                        mode: viewMode as IGalleryViewMode,
-                    })
-                );
+            onAction: (actionId: string) => {
+                switch (actionId) {
+                    case 'selection':
+                        dispatch(
+                            actions.appStateMixer.patch({
+                                showImageUploadModal: true,
+                            })
+                        );
+                        break;
+                }
             },
-            onSearch: (search?: string) => {
-                dispatch(
-                    actions.widgetGalleryState.patch({
-                        search,
-                    })
-                );
-            },
-            onFilterChange: (filter: string) => {
-                dispatch(
-                    actions.widgetGalleryState.patch({
-                        filter: filter as IWidgetsFilter,
-                    })
-                );
+            onSelectionChange: (ids: string[]) => {
+                dispatch({
+                    type: 'ELEMENT_WIDGET_SELECT',
+                    widgetId: ids[0],
+                });
             },
         }),
         []
     );
 
-    const columns = window.innerWidth > 1700 ? 2 : 1;
-
-    return (
-        <LibraryWidgets
-            state={galleryState}
-            columns={columns}
-            items={libraryWidgets}
-            callbacks={callbacks}
-        />
-    );
+    return <LibraryWidgets items={items} callbacks={callbacks} />;
 };

@@ -11,13 +11,7 @@ export const LibraryImagesContainer = (_props: LibraryImagesContainerProps) => {
 
     const callbacks = useMemo(
         () => ({
-            onGalleryItemAction: (
-                id: string,
-                action: ImageActionType,
-                data?: Json
-            ) => {
-                console.log('action ->', action);
-
+            onItemAction: (id: string, action: string, data?: Json) => {
                 dispatch({
                     type: 'IMAGE_ACTION',
                     actionType: action,
@@ -25,10 +19,9 @@ export const LibraryImagesContainer = (_props: LibraryImagesContainerProps) => {
                     data,
                 });
             },
-            onGalleryAction: (actionId: ItemActionType, data?: Json) => {
-                console.log('action ->', actionId, data);
+            onAction: (actionId: string) => {
                 switch (actionId) {
-                    case 'new':
+                    case 'selection':
                         dispatch(
                             actions.appStateMixer.patch({
                                 showImageUploadModal: true,
@@ -36,6 +29,12 @@ export const LibraryImagesContainer = (_props: LibraryImagesContainerProps) => {
                         );
                         break;
                 }
+            },
+            onSelectionChange: (ids: string[]) => {
+                dispatch({
+                    type: 'SWITCH_IMAGE_ACTION',
+                    imageId: ids[0],
+                });
             },
         }),
         []

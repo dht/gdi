@@ -1,6 +1,5 @@
 import { actions, selectors } from '../store';
 import { delay, put, select, takeEvery } from 'saga-ts';
-import { get } from 'lodash';
 import { onInstanceSelectionChange } from './predicates';
 
 type ActionSwitchImage = {
@@ -24,7 +23,7 @@ function* switchImage(action: ActionSwitchImage) {
     const fieldIdWithDashes = fieldId.replace(/\./g, '_');
 
     yield put(
-        actions.instancesProps.patch(instanceId, {
+        actions.libraryInstancesProps.patch(instanceId, {
             [fieldIdWithDashes]: unselect ? '' : image.imageUrl,
         })
     );
@@ -50,11 +49,11 @@ function* chooseFirstImageField(action: any) {
     const params = yield* select(selectors.base.$selectedElementImageId);
 
     if (params.imageId) {
-        yield put(
-            actions.galleryState.patch({
-                selectedIds: [params.imageId],
-            })
-        );
+        // yield put(
+        //     actions.galleryState.patch({
+        //         selectedIds: [params.imageId],
+        //     })
+        // );
     }
 }
 

@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
-import { EngineContext } from '../../context/Engine.context';
-import { ActionType } from '../EngineEdit/EngineEdit';
+import React, { useContext, useState } from 'react';
 import Error from '../Error/Error';
+import Loader from '../Loader/Loader';
 import Placeholder from '../Placeholder/Placeholder';
-import { Container } from './ElementEdit.style';
+import { ActionType } from '../EngineEdit/EngineEdit';
+import { Container, LoaderWrapper } from './ElementEdit.style';
+import { EngineContext } from '../../context/Engine.context';
 
 export type ElementEditProps = {
     sequence?: number;
@@ -27,6 +28,8 @@ export function ElementEdit(props: ElementEditProps) {
         sequence,
         instanceProps = emptyInstanceProps,
     } = props;
+    const [showLoader, setShowLoader] = useState(false);
+
     const { widgets } = useContext(EngineContext);
 
     const widget = widgets[element.widgetId];
@@ -67,6 +70,18 @@ export function ElementEdit(props: ElementEditProps) {
         );
     }
 
+    function renderLoader() {
+        if (!showLoader) {
+            return null;
+        }
+
+        return (
+            <LoaderWrapper>
+                <Loader />
+            </LoaderWrapper>
+        );
+    }
+
     return (
         <Container
             className='ElementEdit-container'
@@ -76,6 +91,7 @@ export function ElementEdit(props: ElementEditProps) {
             selected={isSelected}
         >
             {renderWidget()}
+            {renderLoader()}
         </Container>
     );
 }

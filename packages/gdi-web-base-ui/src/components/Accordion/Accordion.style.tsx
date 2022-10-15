@@ -40,3 +40,20 @@ export const Content = styled.div<{ flex?: boolean }>`
     height: 0;
     display: ${(props) => (props.flex ? 'flex' : 'block')};
 `;
+
+export const Actions = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const Action = styled.div`
+    padding: 5px 8px;
+    font-size: 17px;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: gold;
+        border-radius: 3px;
+    }
+`;

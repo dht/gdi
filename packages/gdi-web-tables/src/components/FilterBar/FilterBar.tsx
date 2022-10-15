@@ -26,6 +26,7 @@ export type FilterBarProps = {
     hideSearch?: boolean;
     hideFilter?: boolean;
     hideTagging?: boolean;
+    hideHeader?: boolean;
 };
 
 export function FilterBar(props: FilterBarProps) {
@@ -35,6 +36,7 @@ export function FilterBar(props: FilterBarProps) {
         hideSearch,
         hideFilter,
         hideTagging,
+        hideHeader,
     } = props;
 
     const context = useContext(FilterContext);
@@ -63,6 +65,24 @@ export function FilterBar(props: FilterBarProps) {
                     clear
                 </Clear>
             </>
+        );
+    }
+
+    function renderHeader() {
+        if (hideHeader) {
+            return null;
+        }
+
+        return (
+            <Header>
+                <HeaderText>{header}</HeaderText>
+                <Count>
+                    <CountText>
+                        <span>{data.length}</span> items
+                    </CountText>
+                    {renderSelectedCount()}
+                </Count>
+            </Header>
         );
     }
 
@@ -152,15 +172,7 @@ export function FilterBar(props: FilterBarProps) {
     return (
         <Container className='TopBar-container' data-testid='TopBar-container'>
             <ContainerBar>
-                <Header>
-                    <HeaderText>{header}</HeaderText>
-                    <Count>
-                        <CountText>
-                            <span>{data.length}</span> items
-                        </CountText>
-                        {renderSelectedCount()}
-                    </Count>
-                </Header>
+                {renderHeader()}
                 <Toolbar
                     horizontal
                     calculatedWidth

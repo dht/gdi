@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container } from './LibraryImages.style';
-import { IImage, ImageGallery } from '@gdi/web-ui';
+import { ImageGallery } from '@gdi/web-ui';
 
 export type LibraryImagesProps = {
     items: IImage[];
     callbacks: {
-        onGalleryItemAction: OnGalleryItemAction;
-        onGalleryAction: OnGalleryAction;
+        onAction: (actionId: string) => void;
+        onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
+        onSelectionChange: (ids: string[]) => void;
     };
 };
 
@@ -16,6 +17,7 @@ export function LibraryImages(props: LibraryImagesProps) {
     const options: IGalleryOptions = {
         columns: 3,
         selectionMode: 'browse',
+        hideOverlay: true,
     };
 
     return (
@@ -26,8 +28,7 @@ export function LibraryImages(props: LibraryImagesProps) {
             <ImageGallery
                 items={items}
                 options={options}
-                onAction={callbacks.onGalleryAction}
-                onItemAction={callbacks.onGalleryItemAction}
+                callbacks={callbacks}
             />
         </Container>
     );

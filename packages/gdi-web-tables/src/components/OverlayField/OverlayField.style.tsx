@@ -15,7 +15,7 @@ export const DateContainer = styled.div`
 `;
 
 export const DateDate = styled.div`
-    font-size: 30px;
+    font-size: 22px;
     color: #b12855;
     background-color: gold;
     padding: 3px 7px;

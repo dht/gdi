@@ -8,17 +8,17 @@ import {
     IGalleryConfig,
     IGalleryOptions,
     IImage,
-    RenderOptions,
+    IOverlayConfig,
 } from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
 import {
     GalleryContext,
     GalleryContextProvider,
 } from '../../context/Gallery.context';
-import { CrudContext } from '../../context/Crud.context';
 
 export type GenericGalleryProps = {
     config: IGalleryConfig;
+    configOverlay: IOverlayConfig;
     options?: Partial<IGalleryOptions>;
     items?: IImage[];
     customItem?: FC<MasonryItemProps>;
@@ -36,23 +36,20 @@ export type GenericGalleryInnerProps = {
 export function GenericGalleryInner(props: GenericGalleryInnerProps) {
     const ref = useRef<HTMLDivElement>(null);
     const { customItem } = props;
-    const { config: configCurd } = useContext(CrudContext);
-    const { options, callbacks, config } = useContext(GalleryContext);
+    const { options, callbacks, config, configOverlay } = useContext(GalleryContext); // prettier-ignore
     const { state: selectedIds } = useContext(SelectionContext);
     const filterContext = useContext(FilterContext);
-    const { overlay } = configCurd;
     const { fixedRatio } = config;
     const { columns } = options;
     const { data = [] } = filterContext;
 
-    function renderOverlay(item: IImage, options?: RenderOptions) {
+    function renderOverlay(item: IImage) {
         const isSelected = selectedIds.includes(String(item.id));
 
         return (
             <GenericOverlay
-                config={overlay}
+                config={configOverlay}
                 item={item}
-                viewMode={'full'}
                 isSelected={isSelected}
                 options={options}
             />
@@ -89,11 +86,12 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
 }
 
 export const GenericGallery = (props: GenericGalleryProps) => {
-    const { config, options, callbacks, customItem } = props;
+    const { config, configOverlay, options, callbacks, customItem } = props;
 
     return (
         <GalleryContextProvider
             config={config}
+            configOverlay={configOverlay}
             options={options as any}
             callbacks={callbacks}
         >

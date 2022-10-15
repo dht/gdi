@@ -134,6 +134,7 @@ export type IGalleryOptions = {
     selectionMode: ISelectionMode;
     allowMultiple?: boolean;
     allowEmpty?: boolean;
+    hideOverlay?: boolean;
 };
 
 export type IGalleryState = {};
@@ -260,9 +261,5 @@ export type IOverlayFields = Record<string, IOverlayField>;
 // ================== General ==================
 
 export type WithChildren<T> = T & {
-    children?: JSX.Element;
-};
-
-export type RenderOptions = {
-    hideTitle?: boolean;
+    children?: JSX.Element | JSX.Element[];
 };

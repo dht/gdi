@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Tags } from '@gdi/web-base-ui';
 import {
+    IGalleryOptions,
     IImage,
     IOverlayConfig,
     IOverlayField,
@@ -18,16 +19,16 @@ import OverlayField from '../OverlayField/OverlayField';
 import { filter } from 'lodash';
 
 export type GenericOverlayProps = {
-    isSelected?: boolean;
-    item: Json;
-    viewMode: 'full' | 'minimal';
-    options?: RenderOptions;
     config: IOverlayConfig;
+    options?: IGalleryOptions;
+    item: Json;
+    isSelected?: boolean;
 };
 
 export function GenericOverlay(props: GenericOverlayProps) {
-    const { item, isSelected, config } = props;
+    const { item, isSelected, options, config } = props;
     const { fields = [], paddingBottom } = config;
+    const { hideOverlay } = options || {};
 
     const className = classnames(
         'GenericOverlay-container',
@@ -53,12 +54,12 @@ export function GenericOverlay(props: GenericOverlayProps) {
             .map((field) => renderField(field));
     }
 
-    return (
-        <Container
-            className={className}
-            style={style}
-            data-testid='GenericOverlay-container'
-        >
+    function renderGroups() {
+        if (hideOverlay) {
+            return null;
+        }
+
+        return (
             <Groups>
                 <Row>
                     <Group>{renderFields('topLeft')}</Group>
@@ -69,7 +70,16 @@ export function GenericOverlay(props: GenericOverlayProps) {
                     <Group>{renderFields('bottomRight')}</Group>
                 </Row>
             </Groups>
+        );
+    }
 
+    return (
+        <Container
+            className={className}
+            style={style}
+            data-testid='GenericOverlay-container'
+        >
+            {renderGroups()}
             {isSelected && (
                 <Selected>
                     <Icon iconName='StatusCircleCheckmark' />
