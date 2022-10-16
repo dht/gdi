@@ -174,36 +174,6 @@ export const $instanceContent = createSelector(
     }
 );
 
-export const $typography = createSelector(
-    raw.$rawCurrentIds,
-    $instances,
-    (currentIds, instances) => {
-        return instances.find(
-            (instance) => instance.id === currentIds.selectedInstanceId
-        );
-    }
-);
-
-export const $palette = createSelector(
-    raw.$rawCurrentIds,
-    $instances,
-    (currentIds, instances) => {
-        return instances.find(
-            (instance) => instance.id === currentIds.selectedInstanceId
-        );
-    }
-);
-
-export const $locale = createSelector(
-    raw.$rawCurrentIds,
-    $instances,
-    (currentIds, instances) => {
-        return instances.find(
-            (instance) => instance.id === currentIds.selectedInstanceId
-        );
-    }
-);
-
 export const $packages = createSelector(raw.$rawPackages, (packages) => {
     return pickBy(packages, (_value, key) => key.includes('@gdi'));
 });

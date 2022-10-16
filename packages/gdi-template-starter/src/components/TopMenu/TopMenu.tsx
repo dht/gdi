@@ -16,7 +16,7 @@ export function TopMenu(props: TopMenuProps) {
     function renderItem(item: IMenuItem, index: number) {
         const { title, href } = item;
         return (
-            <Link key={item.title + index} className='item' href={href}>
+            <Link key={item.title + String(index)} className='item' href={href}>
                 {title}
             </Link>
         );
