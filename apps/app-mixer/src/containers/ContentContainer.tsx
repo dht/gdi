@@ -3,14 +3,16 @@ import Content from '../components/Content/Content';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 
-export type ContentContainerProps = {};
+export type ContentContainerProps = {
+    element?: IWidgetInstance;
+    formConfig?: IFormConfig;
+    formData: Json;
+    formOptions: Json;
+};
 
 export const ContentContainer = (props: ContentContainerProps) => {
     const dispatch = useDispatch();
-    const element = useSelector(selectors.base.$instanceContent);
-    const formConfig = useSelector(selectors.forms.$contentFormConfig);
-    const formData = useSelector(selectors.forms.$contentFormData);
-    const formOptions = useSelector(selectors.forms.$contentFormOptions);
+    const { element, formConfig, formData, formOptions } = props;
 
     const callbacks = useMemo(
         () => ({
@@ -22,7 +24,7 @@ export const ContentContainer = (props: ContentContainerProps) => {
 
                 if (Object.keys(change).length > 0) {
                     dispatch(
-                        actions.instancesProps.patch(element.id, {
+                        actions.libraryInstancesProps.patch(element.id, {
                             ...change,
                         })
                     );

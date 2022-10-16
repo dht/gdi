@@ -4,6 +4,7 @@ import { actions, selectors } from '../store';
 import { invokeEvent } from 'shared-base';
 import { MixerStructureContainer } from './MixerStructureContainer';
 import { MixerVisualContainer } from './MixerVisualContainer';
+import { ModalContentContainer } from './modals/ModalContentContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMount } from 'react-use';
 
@@ -26,7 +27,7 @@ export const MixerContainer = () => {
                 invokeEvent('navigatePush', { path: `/${itemId}` });
             },
             onSelectionChange: (ids: string[]) => {
-                console.log('ids ->', ids);
+                // console.log('ids ->', ids);
             },
             onCustomAction: (actionId: string, _data?: Json) => {
                 switch (actionId) {
@@ -68,14 +69,17 @@ export const MixerContainer = () => {
     );
 
     return (
-        <Mixer
-            header={title}
-            data={pages}
-            callbacks={callbacks}
-            allOptions={allOptions}
-            dispatch={dispatch}
-            customView={MixerVisualContainer}
-            customView2={MixerStructureContainer}
-        />
+        <>
+            <ModalContentContainer />
+            <Mixer
+                header={title}
+                data={pages}
+                callbacks={callbacks}
+                allOptions={allOptions}
+                dispatch={dispatch}
+                customView={MixerVisualContainer}
+                customView2={MixerStructureContainer}
+            />
+        </>
     );
 };
