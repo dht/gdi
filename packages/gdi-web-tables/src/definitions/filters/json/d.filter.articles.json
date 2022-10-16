@@ -3,7 +3,7 @@
     "fields": [
         {
             "id": "publishDate",
-            "title": "Public Date",
+            "title": "Publish date",
             "cellType": "date",
             "optionSelectorId": "$periods",
             "allowMultiple": false

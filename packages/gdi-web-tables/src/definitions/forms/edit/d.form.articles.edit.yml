@@ -21,7 +21,7 @@ fields:
     - id: categoryBreadcrumbs
       fieldType: text
       placeholder: E.g. games>entertainment>tech
-      label: Author's name
+      label: Breadcrumbs
       groupId: basic
 submit:
     title: Save & close

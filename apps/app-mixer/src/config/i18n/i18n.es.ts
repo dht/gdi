@@ -1,3 +1,15 @@
 export default {
   key: "éxito",
+  Edit: "Editar",
+  "Page versions": "Versiones de página",
+  "Download JSON": "Descargar JSON",
+  "Promote page to live": "Promocionar página para vivir",
+  "Show preview": "Mostrar vista previa",
+  Inspector: "Inspector",
+  Library: "Biblioteca",
+  Data: "Datos",
+  Typography: "Tipografía",
+  Palette: "Paleta",
+  Locale: "Local",
+  Packages: "Paquetes",
 };

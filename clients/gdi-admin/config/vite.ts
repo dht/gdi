@@ -27,5 +27,6 @@ export const alias = {
     igrid: `${cwd}/submodules/igrid/src`,
     isokit: `${cwd}/submodules/isokit/src`,
     firestore: `${cwd}/submodules/firestore-local/src`,
+    '@gdi/language-en': `${cwd}/packages/gdi-language-en/src`,
     ...aliasExtra,
 };

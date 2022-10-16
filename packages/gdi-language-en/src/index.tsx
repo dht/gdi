@@ -1,0 +1,1 @@
+export { initLanguagePack } from './init';

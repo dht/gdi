@@ -1,3 +1,15 @@
 export default {
   key: "succes",
+  Edit: "Redigere",
+  "Page versions": "Sideversioner",
+  "Download JSON": "Download JSON",
+  "Promote page to live": "Fremme siden til live",
+  "Show preview": "Vis forhåndsvisning",
+  Inspector: "Inspektør",
+  Library: "Bibliotek",
+  Data: "Data",
+  Typography: "Typografi",
+  Palette: "Palette",
+  Locale: "Lokal",
+  Packages: "Pakker",
 };

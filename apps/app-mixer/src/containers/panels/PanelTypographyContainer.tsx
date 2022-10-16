@@ -3,7 +3,7 @@ import Typography from '../../components/Typography/Typography';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../../store';
 
-export const PanelTypographyContainer = () => {
+export const PanelTypographyContainer = (_props: any) => {
     const dispatch = useDispatch();
     const typographyOptions = useSelector(selectors.raw.$rawLibraryTypography);
     const selectedTypographyId = useSelector(selectors.raw.$rawFonts).typographyId; // prettier-ignore

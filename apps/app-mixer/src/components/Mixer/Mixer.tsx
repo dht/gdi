@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container } from './Mixer.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
-import { useMount } from 'react-use';
+import { translateItems, useTranslation } from '../../config/translation';
 
 export type MixerProps = {
     header: string;
@@ -28,6 +28,14 @@ export function Mixer(props: MixerProps) {
         customView2,
     } = props;
 
+    const { t, i18n } = useTranslation();
+
+    const translatedTools = useMemo(() => {
+        return translateItems(tools, null, t);
+    }, [tools]);
+
+    console.log(' ->', translatedTools);
+
     return (
         <Container className='Mixer-container' data-testid='Mixer-container'>
             <Multi
@@ -39,7 +47,7 @@ export function Mixer(props: MixerProps) {
                 viewModes={['custom', 'custom2', 'table']}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                tools={tools}
+                tools={translatedTools}
                 customView={customView}
                 customView2={customView2}
             />
@@ -50,13 +58,13 @@ export function Mixer(props: MixerProps) {
 const tools: IToolbarItem[] = [
     {
         id: 'editPage',
-        text: 'Edit',
+        textKey: 'Edit',
         iconName: 'Edit',
     },
 
     {
         id: 'versions',
-        text: 'Page versions',
+        textKey: 'Page versions',
         iconName: 'WaffleOffice365',
     },
     {
@@ -65,7 +73,7 @@ const tools: IToolbarItem[] = [
     },
     {
         id: 'download',
-        text: 'Download JSON',
+        textKey: 'Download JSON',
         iconName: 'Download',
     },
     {
@@ -75,13 +83,13 @@ const tools: IToolbarItem[] = [
 
     {
         id: 'promoteInstance',
-        text: 'Promote page to live',
+        textKey: 'Promote page to live',
         iconName: 'DoubleChevronUp8',
     },
 
     {
         id: 'preview',
-        text: 'Show preview',
+        textKey: 'Show preview',
         iconName: 'OpenInNewTab',
     },
 ];

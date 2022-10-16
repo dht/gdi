@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
 import { Container } from './ImageUpload.style';
-import { formConfig } from './meta/ImageUpload.form';
+import { formConfig as config } from './meta/ImageUpload.form';
 import { allDetails } from './meta/ImageUpload.details';
 import { Form } from '@gdi/web-ui';
 import { guid8 } from 'shared-base';
+import { translateFormConfig, useTranslation } from '../../config/translation';
 
 export type ImageUploadProps = {
     allOptions: Json;
@@ -15,6 +16,11 @@ export type ImageUploadProps = {
 
 export function ImageUpload(props: ImageUploadProps) {
     const { allOptions, callbacks } = props;
+    const { t } = useTranslation();
+
+    const formConfig = useMemo(() => {
+        return translateFormConfig(config, t);
+    }, []);
 
     const formData = useMemo(
         () => ({

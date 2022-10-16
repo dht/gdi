@@ -32,6 +32,7 @@ declare global {
     export type IToolbarItem = {
         id: string;
         text?: string;
+        textKey?: string;
         iconName?: string;
         secondaryText?: string;
         isGap?: boolean;
