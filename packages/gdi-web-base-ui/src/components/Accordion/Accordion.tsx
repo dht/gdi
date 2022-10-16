@@ -90,6 +90,7 @@ export function Accordion(props: AccordionProps) {
 
     function renderPanel(panel: JSX.Element) {
         const flex = panel.props['flex'];
+        const title = panel.props['title'];
 
         return (
             <React.Fragment key={panel.key}>
@@ -98,7 +99,7 @@ export function Accordion(props: AccordionProps) {
                         <Icon iconName='ChevronRightMed' />
                     </Chevron>
 
-                    <Title>{panel.key}</Title>
+                    <Title>{title || panel.key}</Title>
                     <Actions>
                         {renderHeaderActions(panel.key as string)}
                     </Actions>

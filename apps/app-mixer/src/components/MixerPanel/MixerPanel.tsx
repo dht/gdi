@@ -8,12 +8,15 @@ import { PanelLocaleContainer } from '../../containers/panels/PanelLocaleContain
 import { PanelPackagesContainer } from '../../containers/panels/PanelPackagesContainer';
 import { PanelPaletteContainer } from '../../containers/panels/PanelPaletteContainer';
 import { PanelTypographyContainer } from '../../containers/panels/PanelTypographyContainer';
+import { useTranslation } from '../../config/translation';
 
 export type MixerPanelProps = {
     onHeaderAction: (panelKey: string, actionId: string) => void;
 };
 
 export function MixerPanel(props: MixerPanelProps) {
+    const { t } = useTranslation();
+
     function getHeaderActions(key: string) {
         switch (key) {
             case 'Library':
@@ -38,13 +41,37 @@ export function MixerPanel(props: MixerPanelProps) {
                 getHeaderActions={getHeaderActions}
                 onHeaderAction={props.onHeaderAction}
             >
-                <PanelInspectorContainer key='Inspector' flex />
-                <PanelLibraryContainer key='Library' flex />
-                <PanelContentContainer key='Data' flex />
-                <PanelTypographyContainer key='Typography' />
-                <PanelPaletteContainer key='Palette' />
-                <PanelLocaleContainer key='Locale' />
-                <PanelPackagesContainer key='Packages' />
+                <PanelInspectorContainer
+                    key='Inspector'
+                    title={t('Inspector')}
+                    flex
+                />
+                <PanelLibraryContainer
+                    key='Library'
+                    title={t('Library')}
+                    flex
+                />
+                <PanelContentContainer //
+                    key='Data'
+                    title={t('Data')}
+                    flex
+                />
+                <PanelTypographyContainer
+                    key='Typography'
+                    title={t('Typography')}
+                />
+                <PanelPaletteContainer //
+                    key='Palette'
+                    title={t('Palette')}
+                />
+                <PanelLocaleContainer //
+                    key='Locale'
+                    title={t('Locale')}
+                />
+                <PanelPackagesContainer //
+                    key='Packages'
+                    title={t('Packages')}
+                />
             </Accordion>
         </Root>
     );

@@ -3,7 +3,7 @@ import Locale from '../../components/Locale/Locale';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../../store';
 
-export const PanelLocaleContainer = () => {
+export const PanelLocaleContainer = (_props: any) => {
     const dispatch = useDispatch();
     const localeOptions = useSelector(selectors.raw.$rawLocales);
     const selectedLocaleId = useSelector(selectors.raw.$rawLocale).localeId; // prettier-ignore

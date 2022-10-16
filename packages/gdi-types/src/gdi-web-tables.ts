@@ -139,6 +139,7 @@ declare global {
         selectionMode: ISelectionMode;
         allowMultiple?: boolean;
         allowEmpty?: boolean;
+        hideOverlay?: boolean;
     };
 
     export type IGalleryState = {};
@@ -259,6 +260,7 @@ declare global {
     export type IOverlayConfig = {
         id: string;
         sequence?: number;
+        paddingBottom?: number;
         overlayType?: OverlayType;
         fields: IOverlayFields;
     };
@@ -268,10 +270,6 @@ declare global {
     // ================== General ==================
 
     export type WithChildren<T> = T & {
-        children?: JSX.Element;
-    };
-
-    export type RenderOptions = {
-        hideTitle?: boolean;
+        children?: JSX.Element | JSX.Element[];
     };
 }

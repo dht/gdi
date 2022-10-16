@@ -1,3 +1,15 @@
 export default {
   key: "succes",
+  Edit: "Bewerk",
+  "Page versions": "Paginaversies",
+  "Download JSON": "JSON downloaden",
+  "Promote page to live": "Promoot pagina om te leven",
+  "Show preview": "Voorbeeld weergeven",
+  Inspector: "Inspecteur",
+  Library: "Bibliotheek",
+  Data: "Gegevens",
+  Typography: "Typografie",
+  Palette: "Palet",
+  Locale: "lokaal",
+  Packages: "Pakketjes",
 };

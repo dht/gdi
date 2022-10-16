@@ -24,6 +24,9 @@ declare global {
         description?: string;
         link?: string;
         googleEventId?: string;
+        imageUrl?: string;
+        imageThumbUrl?: string;
+        tags?: string[];
     };
 
     export type IEvents = Record<string, IEvent>;
