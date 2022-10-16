@@ -71,6 +71,16 @@ export const instances: IWidgetInstancesByPageList = {
             allowOverflow: true,
         },
     ],
+    widgetGallery: [
+        {
+            id: 'widgetGallery',
+            widgetId: MixerWidgets.WidgetGallery,
+            position: { y: 1, x: 7 },
+            dimension: { y: 48, x: window.innerWidth > 1700 ? 88 : 120 },
+            isTransparent: false,
+            allowOverflow: false,
+        },
+    ],
     preview_static: [
         {
             id: 'preview',

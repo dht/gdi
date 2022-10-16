@@ -5,6 +5,7 @@ export const routes: IRoutes = {
     mixer: `${ROOT}/pages/:pageId`,
     pages: `${ROOT}/pages`,
     imageGallery: `${ROOT}/imageGallery`,
+    widgetGallery: `${ROOT}/widgetGallery`,
     preview_static: `/preview`,
 };
 
@@ -16,6 +17,14 @@ export const menuItems: IMenuItem[] = [
         groupId: 'site',
         showOnSlim: true,
         order: 0,
+    },
+    {
+        path: routes.widgetGallery,
+        icon: 'AddIn',
+        label: 'Widget gallery',
+        groupId: 'site',
+        showOnSlim: true,
+        order: 1,
     },
     {
         path: routes.imageGallery,

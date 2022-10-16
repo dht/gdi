@@ -45,6 +45,10 @@ export function MultiViews(props: MultiViewsProps) {
         [viewsModes, value]
     );
 
+    if (viewsModes.length === 1) {
+        return null;
+    }
+
     return (
         <Draggable nodeRef={ref}>
             <ContainerViews

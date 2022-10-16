@@ -272,4 +272,6 @@ declare global {
     export type WithChildren<T> = T & {
         children?: JSX.Element | JSX.Element[];
     };
+
+    export type FilterPart = 'header' | 'tagging' | 'filter' | 'search';
 }
