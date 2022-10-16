@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container } from './LibraryWidgets.style';
 import { WidgetGallery } from '@gdi/web-ui';
 
@@ -9,16 +9,12 @@ export type LibraryWidgetsProps = {
         onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
         onSelectionChange: (ids: string[]) => void;
     };
+    galleryOptions: IGalleryOptions;
+    hideParts?: FilterPart[];
 };
 
 export function LibraryWidgets(props: LibraryWidgetsProps) {
-    const { items, callbacks } = props;
-
-    const options: IGalleryOptions = {
-        columns: 3,
-        selectionMode: 'browse',
-        hideOverlay: true,
-    };
+    const { items, callbacks, galleryOptions, hideParts } = props;
 
     return (
         <Container
@@ -27,8 +23,9 @@ export function LibraryWidgets(props: LibraryWidgetsProps) {
         >
             <WidgetGallery
                 items={items}
-                options={options}
+                options={galleryOptions}
                 callbacks={callbacks}
+                hideParts={hideParts}
             />
         </Container>
     );

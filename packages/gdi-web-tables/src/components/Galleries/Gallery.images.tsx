@@ -14,10 +14,11 @@ export type ImageGalleryProps = {
         onItemAction: (id: string, action: string, data?: Json) => void;
         onSelectionChange: (ids: string[]) => void;
     };
+    hideParts?: FilterPart[];
 };
 
 export function ImageGallery(props: ImageGalleryProps) {
-    const { items, callbacks } = props;
+    const { items, callbacks, hideParts } = props;
 
     return (
         <Container
@@ -33,9 +34,7 @@ export function ImageGallery(props: ImageGalleryProps) {
                 <FilterBar
                     header=''
                     onAction={() => {}}
-                    hideTagging
-                    hideFilter
-                    hideHeader
+                    hideParts={hideParts}
                     tools={[]}
                 />
                 <AnyGallery flavour='image' {...props} />

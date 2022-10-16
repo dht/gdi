@@ -1,13 +1,18 @@
-import { useMemo } from 'react';
-import LibraryImages from '../components/LibraryImages/LibraryImages';
-import { useSelector, useDispatch } from 'react-redux';
-import { actions, selectors } from '../store';
+import React, { useMemo } from 'react';
+import styled from 'styled-components';
+import { actions, selectors } from '../../store';
+import { useDispatch, useSelector } from 'react-redux';
+import LibraryImages from '../../components/LibraryImages/LibraryImages';
 
-type LibraryImagesContainerProps = {};
-
-export const LibraryImagesContainer = (_props: LibraryImagesContainerProps) => {
+export const PanelLibraryImagesContainer = (_props: any) => {
     const dispatch = useDispatch();
     const items = useSelector(selectors.base.$libraryImages);
+
+    const galleryOptions: IGalleryOptions = {
+        columns: 3,
+        selectionMode: 'browse',
+        hideOverlay: true,
+    };
 
     const callbacks = useMemo(
         () => ({
@@ -40,5 +45,18 @@ export const LibraryImagesContainer = (_props: LibraryImagesContainerProps) => {
         []
     );
 
-    return <LibraryImages items={items} callbacks={callbacks} />;
+    return (
+        <LibraryImages
+            galleryOptions={galleryOptions}
+            items={items}
+            callbacks={callbacks}
+            hideParts={['tagging', 'search', 'filter']}
+        />
+    );
 };
+
+export const Col = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+`;

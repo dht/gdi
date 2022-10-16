@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { actions, selectors } from '../../store';
 import { ElementSelector, Empty } from '@gdi/web-ui';
-import { LibraryWidgetsContainer } from '../LibraryWidgetsContainer';
-import { LibraryImagesContainer } from '../LibraryImagesContainer';
+import { PanelLibraryImagesContainer } from './PanelLibraryImagesContainer';
+import { PanelLibraryWidgetsContainer } from './PanelLibraryWidgetsContainer';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const PanelLibraryContainer = (_props: any) => {
@@ -46,11 +46,11 @@ export const PanelLibraryContainer = (_props: any) => {
                         value={currentIds.fieldId}
                         options={imageFields}
                     />
-                    <LibraryImagesContainer />
+                    <PanelLibraryImagesContainer />
                 </Col>
             );
         case 'browse':
-            return <LibraryWidgetsContainer />;
+            return <PanelLibraryWidgetsContainer />;
         default:
             return <></>;
     }

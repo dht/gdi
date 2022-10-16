@@ -3,11 +3,12 @@ import { CurrentIdsHoc, IWidget } from '@gdi/platformer';
 import { MixerContainer } from '../containers/MixerContainer';
 import { MixerPanelContainer } from '../containers/MixerPanelContainer';
 import { PagesContainer } from '../containers/PagesContainer';
-import { LibraryImagesContainer } from '../containers/LibraryImagesContainer';
+import { GalleryImagesContainer } from '../containers/GalleryImagesContainer';
+import { GalleryWidgetsContainer } from '../containers/GalleryWidgetsContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
+import { MixerTreeContainer } from '../containers/singles/MixerTreeContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
-import { MixerTreeContainer } from '../containers/singles/MixerTreeContainer';
 import { WindowSize } from '../components/WindowSize/WindowSize';
 import { actions } from '../store';
 
@@ -18,6 +19,7 @@ export enum MixerWidgets {
     Pages = 'mixer.Pages',
     ImageGallery = 'mixer.ImageGallery',
     ImageUpload = 'mixer.ImageUpload',
+    WidgetGallery = 'mixer.WidgetGallery',
     PlayMode = 'mixer.PlayMode',
     ImportExport = 'mixer.ImportExport',
     PageTools = 'mixer.PageTools',
@@ -76,7 +78,17 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <LibraryImagesContainer {...props} />,
+        component: (props: any) => <GalleryImagesContainer {...props} />,
+    },
+    {
+        id: MixerWidgets.WidgetGallery,
+        name: 'WidgetGallery',
+        description: 'WidgetGallery',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <GalleryWidgetsContainer {...props} />,
     },
     {
         id: MixerWidgets.ImageUpload,

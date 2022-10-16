@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import LibraryWidgets from '../components/LibraryWidgets/LibraryWidgets';
+import GalleryWidgets from '../components/GalleryWidgets/GalleryWidgets';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 
-export const LibraryWidgetsContainer = () => {
+export const GalleryWidgetsContainer = () => {
     const dispatch = useDispatch();
-    const items = useSelector(selectors.base.$libraryWidgets);
+    const data = useSelector(selectors.base.$libraryWidgetsAll);
 
     const callbacks = useMemo(
         () => ({
@@ -38,5 +38,5 @@ export const LibraryWidgetsContainer = () => {
         []
     );
 
-    return <LibraryWidgets items={items} callbacks={callbacks} />;
+    return <GalleryWidgets data={data} callbacks={callbacks} />;
 };

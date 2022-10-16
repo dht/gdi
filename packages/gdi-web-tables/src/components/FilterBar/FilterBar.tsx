@@ -4,7 +4,7 @@ import Tagger from '../Tagger/Tagger';
 import { Button, Search, Toolbar } from '@gdi/web-base-ui';
 import { FilterContext } from '../../context/Filter.context';
 import { flatten, isEmpty } from 'lodash';
-import { IBarAction } from '../../types';
+import { FilterPart, IBarAction } from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
 import {
     Actions,
@@ -23,21 +23,11 @@ export type FilterBarProps = {
     header: string;
     tools?: IOption[];
     onAction: (actionId: string) => void;
-    hideSearch?: boolean;
-    hideFilter?: boolean;
-    hideTagging?: boolean;
-    hideHeader?: boolean;
+    hideParts?: FilterPart[];
 };
 
 export function FilterBar(props: FilterBarProps) {
-    const {
-        header,
-        tools = defaultTools,
-        hideSearch,
-        hideFilter,
-        hideTagging,
-        hideHeader,
-    } = props;
+    const { header, tools = defaultTools, hideParts = [] } = props;
 
     const context = useContext(FilterContext);
     const contextSelection = useContext(SelectionContext);
@@ -69,7 +59,7 @@ export function FilterBar(props: FilterBarProps) {
     }
 
     function renderHeader() {
-        if (hideHeader) {
+        if (hideParts.includes('header')) {
             return null;
         }
 
@@ -135,7 +125,7 @@ export function FilterBar(props: FilterBarProps) {
     }
 
     function renderFiltering() {
-        if (hideFilter) {
+        if (hideParts.includes('filter')) {
             return null;
         }
 
@@ -148,7 +138,7 @@ export function FilterBar(props: FilterBarProps) {
     }
 
     function renderSearch() {
-        if (hideSearch) {
+        if (hideParts.includes('search')) {
             return null;
         }
 
@@ -156,7 +146,7 @@ export function FilterBar(props: FilterBarProps) {
     }
 
     function renderTagger() {
-        if (hideTagging) {
+        if (hideParts.includes('tagging')) {
             return null;
         }
 

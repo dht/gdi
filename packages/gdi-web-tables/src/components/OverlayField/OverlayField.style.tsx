@@ -6,6 +6,10 @@ export const Container = styled.div`
 
 export const Title = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
 `;
 
 export const DateContainer = styled.div`

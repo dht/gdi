@@ -22,3 +22,4 @@ export { Filters } from './components/Filters/Filters';
 export { FilterBar } from './components/FilterBar/FilterBar';
 export * from './types';
 export { definitions } from './definitions';
+export type { FilterPart } from './components/FilterBar/FilterBar';

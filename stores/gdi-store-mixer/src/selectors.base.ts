@@ -210,6 +210,27 @@ export const $instanceTypes = createSelector(
     }
 );
 
+export const $libraryWidgetsAll = createSelector(
+    raw.$rawLibraryWidgets,
+    (widgets) => {
+        const output: IImageWithWidget[] = [];
+
+        return Object.values(widgets).map((widget) => {
+            const { id, name, tags = [] } = widget;
+
+            return {
+                id,
+                title: name,
+                ...getScreenshotData(widget),
+                tags,
+                widget,
+            };
+        });
+
+        return output;
+    }
+);
+
 export const $libraryWidgets = createSelector(
     raw.$rawLibraryWidgets,
     $instanceSelected,
