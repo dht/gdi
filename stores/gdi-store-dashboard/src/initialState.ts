@@ -33,7 +33,8 @@ export const reducers = generateReducersForStore<IDashboardStore>(initialState);
 
 export const clearState = (store: any) => {
     setTimeout(() => {
-        // store.dispatch(actions.dashboard.setAll({}));
+        store.dispatch(actions.stats.setAll({}));
+        store.dispatch(actions.statsJourneys.setAll({}));
     });
     return store;
 };
