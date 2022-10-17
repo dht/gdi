@@ -18,6 +18,7 @@ export type IUser = {
     gender?: string;
     source?: string;
     activeApps?: string[];
+    role?: string;
 };
 
 export type IRefreshToken = {

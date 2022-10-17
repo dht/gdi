@@ -19,6 +19,8 @@ declare global {
     export type IUser = {
         id: string;
         uid?: string;
+        firstName?: string;
+        lastName?: string;
         displayName?: string;
         email?: string;
         company?: string;
@@ -26,6 +28,7 @@ declare global {
         phoneNumber?: string;
         photoURL?: string;
         providerId?: string;
+        role?: string;
     };
 
     export type IUsers = Record<string, IUser>;

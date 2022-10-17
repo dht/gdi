@@ -172,6 +172,11 @@ export const initialState: ISiteStore = {
             extra_imageUrl: 'https://appofthebox.web.app/6.webp',
         },
     },
+    siteProperties: {
+        title: '',
+        metaTags: [],
+        linkTags: [],
+    },
 };
 
 export const reducers = generateReducersForStore<ISiteStore>(initialState);

@@ -1,0 +1,32 @@
+// AUTO-GENERATED
+
+import type { StoreStructure } from 'redux-store-generator';
+
+export const A4 = {};
+
+declare global {
+    export type ISettingsStore = StoreStructure & ISettingsStructure & {};
+
+    export type ISettingsStructure = {
+        settings: ISettings;
+    };
+
+    export type ISettings = {
+        stateKey: string;
+    };
+
+    export type IActiveApp = {
+        id: string;
+        title: string;
+        nodeCount: number;
+        totalSize: number;
+        color: string;
+        description: string;
+    };
+
+    export type IActiveAppsStats = {
+        count: number;
+        totalNodeCount: number;
+        totalSize: number;
+    };
+}

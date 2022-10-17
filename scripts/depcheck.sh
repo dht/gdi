@@ -26,7 +26,7 @@ cd packages/gdi-photo-booth
 depcheck > .depcheck
 cd ../..
 
-cd packages/gdi-store-mixer
+cd stores/gdi-store-mixer
 depcheck > .depcheck
 cd ../..
 

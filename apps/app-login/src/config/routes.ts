@@ -1,7 +1,7 @@
 import { ROOT } from './ids';
 
 export const routes: IRoutes = {
-    login: `${ROOT}`,
+    login: `/login`,
 };
 
 export const menuItems: IMenuItem[] = [];

@@ -4,8 +4,8 @@ export const endpointsConfigOverrides: any = {
         connectionType: 'FIRESTORE',
         optimistic: true,
     },
-    admins: {
-        id: 'admins',
+    roles: {
+        id: 'roles',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },

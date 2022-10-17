@@ -2,6 +2,7 @@ export * from './gdi-engine';
 export * from './gdi-hooks';
 export * from './gdi-store-auth';
 export * from './gdi-store-devtools';
+export * from './gdi-store-settings';
 export * from './gdi-store-mixer';
 export * from './gdi-store-money';
 export * from './gdi-store-events';

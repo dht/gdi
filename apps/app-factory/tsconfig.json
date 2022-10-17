@@ -17,7 +17,7 @@
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
             "@gdi/template-starter": ["packages/gdi-template-starter"],
-            "@gdi/store-factory": ["packages/gdi-store-factory"]
+            "@gdi/store-factory": ["stores/gdi-store-factory"]
         }
     },
     "include": ["src/*.ts", "test/*.ts"]

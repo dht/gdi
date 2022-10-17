@@ -12,8 +12,10 @@ export type AvatarProps = {
 export function Avatar(props: AvatarProps) {
     const { size = 32, color = '#334', name = '', imageUrl } = props;
 
-    let style,
+    let style: React.CSSProperties = {},
         text = '';
+
+    style.fontSize = size / 4;
 
     if (imageUrl) {
         style = {
