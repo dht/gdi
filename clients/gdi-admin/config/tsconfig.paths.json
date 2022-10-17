@@ -5,11 +5,13 @@
             "@gdi/app-login": ["apps/app-login"],
             "@gdi/app-mixer": ["apps/app-mixer"],
             "@gdi/app-factory": ["apps/app-factory"],
+            "@gdi/app-settings": ["apps/app-settings"],
 
             "@gdi/store-auth": ["submodules/gdi-extra/stores/gdi-store-auth"],
             "@gdi/store-mixer": ["stores/gdi-store-mixer"],
             "@gdi/store-site": ["stores/gdi-store-site"],
             "@gdi/store-factory": ["stores/gdi-store-factory"],
+            "@gdi/store-settings": ["stores/gdi-store-settings"],
 
             "@gdi/template-starter": ["packages/gdi-template-starter"],
 

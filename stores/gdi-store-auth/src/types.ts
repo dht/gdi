@@ -14,6 +14,8 @@ export type IAuthState = {
 export type IUser = {
     id: string;
     uid?: string;
+    firstName?: string;
+    lastName?: string;
     displayName?: string;
     email?: string;
     company?: string;
@@ -21,6 +23,7 @@ export type IUser = {
     phoneNumber?: string;
     photoURL?: string;
     providerId?: string;
+    role?: string;
 };
 
 export type IUsers = Record<string, IUser>;

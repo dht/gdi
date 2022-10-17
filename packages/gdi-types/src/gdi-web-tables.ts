@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A17 = {};
+export const A18 = {};
 
 declare global {
     // =============== Tables ===============

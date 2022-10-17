@@ -17,11 +17,12 @@ export type ISite = {
     palette: IPalette;
     fonts: IFonts;
     breakpoints: IBreakpoints;
+    siteProperties: ISiteProperties;
 };
 
 export type ITemplate = Optional<
     ISite,
-    'locale' | 'images' | 'palette' | 'fonts' | 'breakpoints'
+    'locale' | 'images' | 'palette' | 'fonts' | 'breakpoints' | 'siteProperties'
 >;
 
 export type ISites = Record<string, ISite>;
@@ -142,3 +143,23 @@ export type IResolution =
     | '4k';
 
 export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+
+export type IMetaTag = {
+    name: string;
+    content: string | string[];
+};
+
+export type ILinkTag = {
+    href: string;
+    rel: string;
+    type?: string;
+    media?: string;
+    title?: string;
+    sizes?: string;
+};
+
+export type ISiteProperties = {
+    title: string;
+    metaTags: IMetaTag[];
+    linkTags: ILinkTag[];
+};

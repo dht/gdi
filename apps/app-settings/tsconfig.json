@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["dom", "ES2020"],
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "jsx": "react-jsx",
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist/dts",
+        "resolveJsonModule": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "baseUrl": "../../",
+        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "paths": {
+            "@gdi/template-starter": ["packages/gdi-template-starter"],
+            "@gdi/store-settings": ["stores/gdi-store-settings"]
+        }
+    },
+    "include": ["src/*.ts", "test/*.ts"]
+}

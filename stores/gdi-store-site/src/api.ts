@@ -39,4 +39,9 @@ export const endpointsConfigOverrides: any = {
         connectionType: 'FIRESTORE',
         optimistic: true,
     },
+    siteProperties: {
+        id: 'siteProperties',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+    },
 };

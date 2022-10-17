@@ -11,6 +11,7 @@ export type CodeProps = {
     schema?: Schema | Schema[];
     language: 'json' | 'typescript' | 'markdown';
     hideLineNumbers: boolean;
+    readOnly?: boolean;
 };
 
 export type Schema = {
@@ -20,7 +21,14 @@ export type Schema = {
 };
 
 export function Code(props: CodeProps) {
-    const { value, height, schema, language = 'json', hideLineNumbers } = props;
+    const {
+        value,
+        height,
+        schema,
+        language = 'json',
+        hideLineNumbers,
+        readOnly,
+    } = props;
 
     function onEditorMount(editor: any, monaco: Monaco) {
         monaco.editor.defineTheme('blue', vs_blue);
@@ -31,6 +39,10 @@ export function Code(props: CodeProps) {
                 validate: true,
                 schemas: Array.isArray(schema) ? schema : [schema],
             });
+        }
+
+        if (readOnly) {
+            editor.updateOptions({ readOnly });
         }
 
         setTimeout(() => {
@@ -51,8 +63,6 @@ export function Code(props: CodeProps) {
         lineNumbers: hideLineNumbers ? 'off' : 'on',
     };
 
-    console.log('language ->', language);
-
     return (
         <Container className='Code-container' data-testid='Code-container'>
             <MonacoEditor
@@ -60,6 +70,7 @@ export function Code(props: CodeProps) {
                 onMount={onEditorMount}
                 theme='blue'
                 defaultValue={value}
+                value={value}
                 height={typeof height === 'number' ? height + 'px' : height}
                 options={options}
                 onChange={onChange}

@@ -16,6 +16,7 @@ function* apiPrivate() {
             'libraryTypography',
             'locales',
             'packages',
+            'siteProperties',
         ],
     });
 
@@ -31,6 +32,7 @@ function* apiPrivate() {
         yield* put(actions.libraryTypography.get({})),
         yield* put(actions.locales.get({})),
         yield* put(actions.packages.get({})),
+        yield* put(actions.siteProperties.get()),
     ];
 
     yield Promise.all(promises);

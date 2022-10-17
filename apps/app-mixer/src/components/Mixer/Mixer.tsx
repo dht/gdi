@@ -34,8 +34,6 @@ export function Mixer(props: MixerProps) {
         return translateItems(tools, null, t);
     }, [tools]);
 
-    console.log(' ->', translatedTools);
-
     return (
         <Container className='Mixer-container' data-testid='Mixer-container'>
             <Multi
