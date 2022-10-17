@@ -8,6 +8,8 @@ export const OverviewContainer = () => {
     const dispatch = useDispatch();
     const stats = useSelector(selectors.base.$stats);
 
+    const isLoading = Object.keys(stats).length === 0;
+
     const callbacks = useMemo(
         () => ({
             onClick: async (stat: IStat, withShift?: boolean) => {
@@ -30,5 +32,7 @@ export const OverviewContainer = () => {
         []
     );
 
-    return <Overview stats={stats} callbacks={callbacks} />;
+    return (
+        <Overview stats={stats} callbacks={callbacks} isLoading={isLoading} />
+    );
 };
