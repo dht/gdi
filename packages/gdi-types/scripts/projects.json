@@ -19,6 +19,11 @@
         "path": "submodules/gdi-extra/stores/gdi-store-devtools",
         "types": "src/types.ts"
     },
+    "gdi-store-dashboard": {
+        "id": "gdi-store-dashboard",
+        "path": "packages/stores/gdi-store-dashboard",
+        "types": "src/types.ts"
+    },
     "gdi-store-settings": {
         "id": "gdi-store-settings",
         "path": "stores/gdi-store-settings",

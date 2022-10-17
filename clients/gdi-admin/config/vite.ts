@@ -8,11 +8,15 @@ export const alias = {
     '@gdi/app-mixer': `${cwd}/apps/app-mixer/src`,
     '@gdi/app-factory': `${cwd}/apps/app-factory/src`,
     '@gdi/app-settings': `${cwd}/apps/app-settings/src`,
+    '@gdi/app-dashboard': `${cwd}/apps/app-dashboard/src`,
+
     '@gdi/store-auth': `${cwd}/stores/gdi-store-auth/src`,
     '@gdi/store-mixer': `${cwd}/stores/gdi-store-mixer/src`,
     '@gdi/store-site': `${cwd}/stores/gdi-store-site/src`,
     '@gdi/store-factory': `${cwd}/stores/gdi-store-factory/src`,
+    '@gdi/store-dashboard': `${cwd}/stores/gdi-store-dashboard/src`,
     '@gdi/store-settings': `${cwd}/stores/gdi-store-settings/src`,
+
     '@gdi/template-starter': `${cwd}/packages/gdi-template-starter/src`,
     '@gdi/platformer': `${cwd}/packages/platformer/src`,
     '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
