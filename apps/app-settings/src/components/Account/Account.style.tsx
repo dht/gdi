@@ -8,13 +8,18 @@ export const Container = styled.div`
 
 export const Top = styled.div`
     height: 25vh;
-    background-color: rgba(255, 0, 0, 0.05);
     position: relative;
-    background-image: linear-gradient(
-        45deg,
-        rgba(255, 0, 0, 0) 0%,
-        rgba(255, 217, 0, 0.1) 100%
-    );
+    display: flex;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    .fg {
+        background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0.9) 10%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
 `;
 
 export const Details = styled.div`
@@ -78,4 +83,10 @@ export const UserField = styled.div<{ color?: string }>`
     vertical-align: middle;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: ${(props) => props.color || '#ccd'};
+`;
+
+export const SettingsWrapper = styled.div`
+    position: absolute;
+    left: 500px;
+    top: 18px;
 `;

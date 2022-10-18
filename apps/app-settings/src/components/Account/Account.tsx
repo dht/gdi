@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from '@gdi/web-ui';
+import { Avatar, TrianglesBk } from '@gdi/web-ui';
 import {
     Column,
     Container,
@@ -8,15 +8,19 @@ import {
     Email,
     Me,
     Name,
+    SettingsWrapper,
     Top,
     UserField,
     UserRow,
     Users,
 } from './Account.style';
+import { SettingsTab } from '../SettingsTab/SettingsTab';
+import { tabs } from '../SettingsTab/SettingsTab.data';
 
 export type AccountProps = {
     me: IUser;
     users: IUser[];
+    onChange: () => void;
 };
 
 export function Account(props: AccountProps) {
@@ -49,13 +53,22 @@ export function Account(props: AccountProps) {
             data-testid='Account-container'
         >
             <Top>
-                <Details>
-                    <Avatar size={100} imageUrl={photoURL} name={displayName} />
-                    <Me>
-                        <Name>{displayName}</Name>
-                        <Email>{email}</Email>
-                    </Me>
-                </Details>
+                <TrianglesBk>
+                    <Details>
+                        <Avatar
+                            size={100}
+                            imageUrl={photoURL}
+                            name={displayName}
+                        />
+                        <Me>
+                            <Name>{displayName}</Name>
+                            <Email>{email}</Email>
+                        </Me>
+                        <SettingsWrapper>
+                            <SettingsTab tabs={tabs} selectedTabId='account' />
+                        </SettingsWrapper>
+                    </Details>
+                </TrianglesBk>
             </Top>
             <Content>
                 <Column></Column>
