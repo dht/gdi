@@ -80,7 +80,7 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
         }
     }, []);
 
-    const crudCallbacks = useCrudOperations(config, data);
+    const crudCallbacks = useCrudOperations(config, data, options);
 
     const callbacksCrud = useMemo(
         () => ({

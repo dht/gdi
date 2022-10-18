@@ -42,18 +42,30 @@ export const generateThumbnail = functions.storage
 
         let tempFileName: string, destination: string;
 
-        tempFileName = getTempFileName(fileName, 1000);
-        destination = `libraryImages/${fileName}.webp`;
-        await resizeImage(tempFilePath, 1000, tempFileName);
+        const params = {
+            destinationPath: 'libraryImages',
+            maxWidth: 1000,
+            maxThumbWidth: 400,
+        };
+
+        if (fileName.includes('person')) {
+            params.destinationPath = 'people';
+            params.maxWidth = 300;
+            params.maxThumbWidth = 150;
+        }
+
+        tempFileName = getTempFileName(fileName, params.maxWidth);
+        destination = `${params.destinationPath}/${fileName}.webp`;
+        await resizeImage(tempFilePath, params.maxWidth, tempFileName);
         await bucket.upload(tempFileName, {
             destination,
             metadata: metadata,
         });
         functions.logger.log('Resized 1000px created at', tempFileName);
 
-        tempFileName = getTempFileName(fileName, 400);
-        await resizeImage(tempFilePath, 400, tempFileName);
-        destination = `libraryImages/${fileName}_thumb.webp`;
+        tempFileName = getTempFileName(fileName, params.maxThumbWidth);
+        await resizeImage(tempFilePath, params.maxThumbWidth, tempFileName);
+        destination = `${params.destinationPath}/${fileName}_thumb.webp`;
         await bucket.upload(tempFileName, {
             destination,
             metadata: metadata,
@@ -77,7 +89,7 @@ const resizeImage = (
         sharp(inputPath)
             .resize(toWidth)
             .webp()
-            .toFile(outputPath, (err, info) => {
+            .toFile(outputPath, (err: any, info: any) => {
                 if (err) {
                     reject(err);
                     return;

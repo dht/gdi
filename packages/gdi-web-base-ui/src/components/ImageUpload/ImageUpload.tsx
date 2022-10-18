@@ -12,13 +12,16 @@ import {
 } from './ImageUpload.style';
 import bytes from 'bytes';
 import { IUploadResult } from '../../types';
+import { rawImageUrlToUrls } from 'shared-base';
 
 type Json = Record<string, any>;
 
 export type ImageUploadProps = {
     value: string;
+    valueRaw: string;
     onChange: (imageUrl: string, extraChange?: Json) => void;
-    onUpload: (file: File) => Promise<IUploadResult>;
+    onUpload: (file: File, extraData?: Json) => Promise<IUploadResult>;
+    destinationFolder: string;
 };
 
 type ImageData = {
@@ -28,7 +31,7 @@ type ImageData = {
 };
 
 export function ImageUpload(props: ImageUploadProps) {
-    const { value: imageUrl } = props;
+    const { value: imageUrl, valueRaw: imageUrlRaw, destinationFolder } = props;
     const [isLoading, setIsLoading] = useState(false);
     const [imageData, patchImageData] = useSetState<ImageData>({});
 
@@ -57,7 +60,22 @@ export function ImageUpload(props: ImageUploadProps) {
                 setIsLoading(true);
 
                 props.onUpload(file).then((res: IUploadResult) => {
-                    props.onChange(res.data.url, { ratio });
+                    const { url, name } = res.data;
+                    const fileName = name.split('.')[0];
+
+                    const { imageUrl, imageThumbUrl } = rawImageUrlToUrls(
+                        url,
+                        destinationFolder,
+                        fileName
+                    );
+
+                    props.onChange(imageUrl, {
+                        imageUrlRaw: url,
+                        imageUrl,
+                        imageThumbUrl,
+                        ratio,
+                    });
+
                     setIsLoading(false);
                 });
             };
@@ -78,7 +96,7 @@ export function ImageUpload(props: ImageUploadProps) {
     function renderInner() {
         if (imageUrl) {
             const imageStyle = {
-                backgroundImage: `url(${imageUrl})`,
+                backgroundImage: `url(${imageUrlRaw || imageUrl})`,
             };
 
             return (

@@ -25,3 +25,4 @@ fields:
       groupId: basic
 submit:
     title: Save & close
+uploadDestinationFolder: libraryImages

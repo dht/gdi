@@ -36,6 +36,7 @@ export type MultiProps = {
     viewModes?: IViewMode[];
     initialViewMode?: IViewMode;
     hideParts?: FilterPart[];
+    allMethods?: any;
 };
 
 export function MultiInner(props: MultiProps) {
@@ -148,6 +149,7 @@ export const Multi = (props: MultiProps) => {
         allOptions,
         dispatch,
         initialViewMode,
+        allMethods = {},
     } = props;
 
     const definitions = useMemo(() => {
@@ -161,9 +163,9 @@ export const Multi = (props: MultiProps) => {
             doubleClickActionId: 'drillDown',
             allOptions,
             allDetails: {},
-            allMethods: {},
+            allMethods,
         }),
-        []
+        [allMethods]
     );
 
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Spinner } from './CircularProgress.style';
 
 export type CircularProgressProps = {
-    color: string;
+    color?: string;
 };
 
 export function CircularProgress(props: CircularProgressProps) {
