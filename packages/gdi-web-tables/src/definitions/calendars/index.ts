@@ -8,6 +8,7 @@ import links from './json/d.calendar.links.json';
 import pages from './json/d.calendar.pages.json';
 import pageInstances from './json/d.calendar.pageInstances.json';
 import posts from './json/d.calendar.posts.json';
+import projects from './json/d.calendar.projects.json';
 import ppl from './json/d.calendar.ppl.json';
 import sales from './json/d.calendar.sales.json';
 import templates from './json/d.calendar.templates.json';
@@ -25,6 +26,7 @@ export const calendars: Record<ItemType, ICalendarConfig> = {
     pageInstance: pageInstances,
     post: posts,
     person: ppl,
+    project: projects,
     sale: sales,
     template: templates,
     ticket: tickets,

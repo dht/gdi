@@ -9,6 +9,7 @@ import pages from './json/d.table.pages.json';
 import pageInstances from './json/d.table.pageInstances.json';
 import posts from './json/d.table.posts.json';
 import ppl from './json/d.table.ppl.json';
+import projects from './json/d.table.projects.json';
 import sales from './json/d.table.sales.json';
 import templates from './json/d.table.templates.json';
 import tickets from './json/d.table.tickets.json';
@@ -25,6 +26,7 @@ export const tables: Record<ItemType, ITableConfig> = {
     pageInstance: pageInstances,
     post: posts,
     person: ppl,
+    project: projects,
     sale: sales,
     template: templates,
     ticket: tickets,

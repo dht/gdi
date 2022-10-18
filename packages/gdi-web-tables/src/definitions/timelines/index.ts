@@ -9,6 +9,7 @@ import pages from './json/d.timeline.pages.json';
 import pageInstances from './json/d.timeline.pageInstances.json';
 import ppl from './json/d.timeline.ppl.json';
 import posts from './json/d.timeline.posts.json';
+import projects from './json/d.timeline.projects.json';
 import sales from './json/d.timeline.sales.json';
 import templates from './json/d.timeline.templates.json';
 import tickets from './json/d.timeline.tickets.json';
@@ -25,6 +26,7 @@ export const timelines: Record<ItemType, ITimelineConfig> = {
     pageInstance: pageInstances,
     post: posts,
     person: ppl,
+    project: projects,
     sale: sales,
     template: templates,
     ticket: tickets,

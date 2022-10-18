@@ -9,6 +9,7 @@ import pages from './json/d.sheet.pages.json';
 import pageInstances from './json/d.sheet.pageInstances.json';
 import posts from './json/d.sheet.posts.json';
 import ppl from './json/d.sheet.ppl.json';
+import projects from './json/d.sheet.projects.json';
 import sales from './json/d.sheet.sales.json';
 import templates from './json/d.sheet.templates.json';
 import tickets from './json/d.sheet.tickets.json';
@@ -25,6 +26,7 @@ export const sheets: Record<ItemType, ICalendarConfig> = {
     pageInstance: pageInstances,
     post: posts,
     person: ppl,
+    project: projects,
     sale: sales,
     template: templates,
     ticket: tickets,
