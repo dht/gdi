@@ -1,9 +1,8 @@
 import React from 'react';
 import { Bk, Column, Container, Content, Fg, Header } from './Overview.style';
 import { OverviewBar } from '../OverviewBar/OverviewBar';
-import { ScreenLoader } from '@gdi/web-ui';
+import { ScreenLoader, TrianglesBk } from '@gdi/web-ui';
 import { Stats } from '../Stats/Stats';
-import { Triangles } from '../Triangles/Triangles';
 import { useMeasure } from 'react-use';
 
 export type OverviewProps = {
@@ -36,10 +35,7 @@ export function Overview(props: OverviewProps) {
             data-testid='Overview-container'
             ref={ref}
         >
-            <Bk>
-                <Triangles width={width} height={height} />
-            </Bk>
-            <Fg>
+            <TrianglesBk>
                 <Header>
                     <OverviewBar
                         accountName={accountName}
@@ -51,7 +47,7 @@ export function Overview(props: OverviewProps) {
                     <Column>{props.children}</Column>
                     <Column>{renderStats()}</Column>
                 </Content>
-            </Fg>
+            </TrianglesBk>
         </Container>
     );
 }

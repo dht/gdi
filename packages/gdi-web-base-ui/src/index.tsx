@@ -39,6 +39,7 @@ export { Theme } from './components/Theme/Theme';
 export { Toast } from './components/Toast/Toast';
 export { toast } from './components/Toast/Toast.actions';
 export { Toolbar } from './components/Toolbar/Toolbar';
+export { Triangles, TrianglesBk } from './components/Triangles/Triangles';
 export { UserMenu } from './components/UserMenu/UserMenu';
 export { WireFrames } from './components/WireFrames/WireFrames';
 export { Breadcrumb, Icon, Pivot, PivotItem, Callout } from '@fluentui/react';

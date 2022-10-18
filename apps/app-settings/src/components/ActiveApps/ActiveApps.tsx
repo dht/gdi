@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from '@gdi/web-ui';
+import { Avatar, TrianglesBk } from '@gdi/web-ui';
 import {
     Column,
     Container,
@@ -13,7 +13,11 @@ import {
     AppField,
     AppRow,
     Apps,
+    SettingsWrapper,
 } from './ActiveApps.style';
+import { SettingsTab } from '../SettingsTab/SettingsTab';
+import { tabs } from '../SettingsTab/SettingsTab.data';
+
 import bytes from 'bytes';
 
 export type ActiveAppsProps = {
@@ -57,13 +61,25 @@ export function ActiveApps(props: ActiveAppsProps) {
             data-testid='ActiveApps-container'
         >
             <Top>
-                <Details>
-                    <Avatar size={100} imageUrl={photoURL} name={displayName} />
-                    <Me>
-                        <TotalCount>{count} apps</TotalCount>
-                        <TotalSize>{bytes(allAppsSize)}</TotalSize>
-                    </Me>
-                </Details>
+                <TrianglesBk>
+                    <Details>
+                        <Avatar
+                            size={100}
+                            imageUrl={photoURL}
+                            name={displayName}
+                        />
+                        <Me>
+                            <TotalCount>{count} apps</TotalCount>
+                            <TotalSize>{bytes(allAppsSize)}</TotalSize>
+                        </Me>
+                        <SettingsWrapper>
+                            <SettingsTab
+                                tabs={tabs}
+                                selectedTabId='activeApps'
+                            />
+                        </SettingsWrapper>
+                    </Details>
+                </TrianglesBk>
             </Top>
             <Content>
                 <Column></Column>
