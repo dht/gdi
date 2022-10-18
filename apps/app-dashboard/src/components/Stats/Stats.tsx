@@ -7,7 +7,6 @@ import {
     Title,
     Value,
 } from './Stats.style';
-import { data } from './Stats.data';
 import { Graph } from '../Graph/Graph';
 
 export type StatsProps = {

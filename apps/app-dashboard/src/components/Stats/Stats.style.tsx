@@ -11,7 +11,7 @@ export const ContainerStat = styled.div`
     background-color: #223;
     opacity: 0.96;
     width: 300px;
-    border-radius: 40px;
+    border-radius: 34px;
     margin: 12px 15px;
     float: left;
     display: flex;

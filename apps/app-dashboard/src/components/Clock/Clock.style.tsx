@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: baseline;
+    align-items: center;
+    margin-left: 20px;
 `;
 
 export const Today = styled.div`

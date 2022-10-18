@@ -1,3 +1,4 @@
+import { root as account } from './saga.account';
 import { root as apiRoot } from './saga.apiRoot';
 import { root as bootstrap } from './saga.bootstrap';
 import { root as navigate } from './saga.navigate';
@@ -8,6 +9,7 @@ import { root as register } from './saga.register';
 
 function* root() {
     yield* fork(toast);
+    yield* fork(account);
     yield* fork(apiRoot);
     yield* fork(bootstrap);
     yield* fork(navigate);

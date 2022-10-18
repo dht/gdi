@@ -1,4 +1,6 @@
 export { Accordion } from './components/Accordion/Accordion';
+export { AccountSelector } from './components/AccountSelector/AccountSelector';
+export { AccountTag } from './components/AccountTag/AccountTag';
 export { AutoComplete } from './components/AutoComplete/AutoComplete';
 export { Avatar } from './components/Avatar/Avatar';
 export { BarSelect } from './components/BarSelect/BarSelect';

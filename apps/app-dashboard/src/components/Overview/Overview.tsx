@@ -7,17 +7,19 @@ import { Triangles } from '../Triangles/Triangles';
 import { useMeasure } from 'react-use';
 
 export type OverviewProps = {
+    accountName: string;
     stats: IStats;
     callbacks: {
         onClick: (stat: Stat, withShift?: boolean) => void;
         onNavigate: (stat: Stat) => void;
+        onAccountChange: () => void;
     };
     isLoading: boolean;
     children: JSX.Element;
 };
 
 export function Overview(props: OverviewProps) {
-    const { stats = {}, callbacks, isLoading } = props;
+    const { stats = {}, callbacks, isLoading, accountName } = props;
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 
     function renderStats() {
@@ -39,7 +41,10 @@ export function Overview(props: OverviewProps) {
             </Bk>
             <Fg>
                 <Header>
-                    <OverviewBar />
+                    <OverviewBar
+                        accountName={accountName}
+                        onAccountChange={callbacks.onAccountChange}
+                    />
                 </Header>
 
                 <Content>
