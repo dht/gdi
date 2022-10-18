@@ -19,6 +19,7 @@ import {
     IWidgetInstancesByPageDictionary,
     IWidgetInstancesList,
 } from 'igrid';
+import { AccountTagContainer } from '../../containers/AccountTagContainer';
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
@@ -88,6 +89,7 @@ export const App = () => {
                 contextBarItems={contextBarItems}
                 widgetLibrary={widgetLibrary}
             />
+            <AccountTagContainer />
             <CommandBar items={commandBarItems} onRun={onCommandBar} />
         </AppContent>
     );

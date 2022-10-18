@@ -26,6 +26,8 @@ export { siteDefaults } from './definitions/site.defaults';
 
 export {
     Accordion,
+    AccountSelector,
+    AccountTag,
     AutoComplete,
     Avatar,
     BarSelect,

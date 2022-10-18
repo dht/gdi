@@ -5,10 +5,12 @@ import { sagas } from '../../sagas';
 import { tokenStorage } from '../../utils/tokenStorage';
 import { initAuth } from '../../../auth/initAuth';
 import type { BootstrapProps } from './Bootstrap';
-import { PatchContextMethod } from '../../../types';
+import { IFirebaseConfig, PatchContextMethod } from '../../../types';
 import { getStore, initPlatform } from '../../../initPlatform';
 import { initFirebase } from '../../../firebase/firebase';
-import { $s, systemEvent } from 'shared-base';
+import { $s, getString, systemEvent } from 'shared-base';
+
+export const CURRENT_ACCOUNT_KEY = 'CURRENT_ACCOUNT';
 
 type AllSaps = {};
 
@@ -38,7 +40,7 @@ export const bootstrapApp = async (
         activeApps,
         initializers,
         menuSections,
-        firebaseConfig,
+        firebaseConfigs,
         noServerMode,
     } = config;
 
@@ -52,12 +54,18 @@ export const bootstrapApp = async (
         getStore
     );
 
+    const firebaseConfig = getFirebaseConfig(firebaseConfigs);
+    const accountName = firebaseConfig.projectId;
     systemEvent('initFirebase', firebaseConfig);
     initFirebase(firebaseConfig);
+
+    const availableAccounts = firebaseConfigs.map((config) => config.projectId);
 
     await initPlatform<any>(
         axiosInstance as AxiosInstance,
         {
+            accountName,
+            availableAccounts,
             activeApps,
             activeSaps,
             initAppMethods: initializers,
@@ -69,4 +77,14 @@ export const bootstrapApp = async (
         },
         patchContext
     );
+};
+
+const getFirebaseConfig = (firebaseConfigs: IFirebaseConfig[]) => {
+    const accountName = getString(CURRENT_ACCOUNT_KEY);
+
+    const firebaseConfig = firebaseConfigs.find(
+        (config) => config.projectId === accountName
+    );
+
+    return firebaseConfig ? firebaseConfig : firebaseConfigs[0];
 };

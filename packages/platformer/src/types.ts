@@ -89,6 +89,8 @@ export enum PlatformLifeCycleEvents {
 }
 
 export type IFirebaseConfig = {
+    title?: string;
+    description?: string;
     apiKey: string;
     authDomain: string;
     databaseURL: string;
@@ -106,6 +108,8 @@ export type IPlatformContextState = {
     isRtl: boolean;
     routes: IRoutes;
     initialRoute: string;
+    accountName: string;
+    availableAccounts: string[];
     menuItems: IMenuItems;
     menuGroups: string[];
     instancesByPage: IWidgetInstancesByPageDictionary;
@@ -145,7 +149,7 @@ export type IPlatformConfig = {
     version: string;
     initialRoute: string;
     baseURL: string;
-    firebaseConfig: IFirebaseConfig;
+    firebaseConfigs: IFirebaseConfig[];
     initializers: Record<string, InitAppMethod>;
     activeApps: string[];
     menuSections: string[];

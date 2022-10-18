@@ -26,6 +26,8 @@ import { PlatformLifeCycleEvents } from '@gdi/types';
 const DEBUG = false;
 
 type Params = {
+    accountName: string;
+    availableAccounts: string[];
     activeApps: string[];
     initAppMethods: Record<string, InitAppMethod>;
     activeSaps: string[];
@@ -51,6 +53,8 @@ export async function initPlatform<T extends StoreStructure>(
     patchContext: PatchContextMethod
 ) {
     const {
+        accountName,
+        availableAccounts = [],
         activeApps = [],
         initAppMethods = {},
         activeSaps = [],
@@ -155,6 +159,8 @@ export async function initPlatform<T extends StoreStructure>(
 
     setTimeout(() => {
         patchContext({
+            accountName,
+            availableAccounts,
             routes: routing.routes,
             instancesByPage: routing.instancesByPage,
             menuItems: routing.menuItems,
