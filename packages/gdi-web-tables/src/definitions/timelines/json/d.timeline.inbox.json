@@ -1,0 +1,24 @@
+{
+    "id": "InboxTimeline",
+    "header": "Inbox Timeline",
+    "fields": [
+        {
+            "id": "id",
+            "title": "Id",
+            "cellType": "id"
+        },
+        {
+            "id": "title",
+            "title": "Title",
+            "cellType": "text",
+            "flex": 2
+        }
+    ],
+    "fieldsGraph": [
+        {
+            "id": "_modifiedDate",
+            "title": "Date",
+            "cellType": "date"
+        }
+    ]
+}

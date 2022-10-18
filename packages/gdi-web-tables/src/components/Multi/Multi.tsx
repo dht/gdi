@@ -35,6 +35,7 @@ export type MultiProps = {
     dispatch: any;
     viewModes?: IViewMode[];
     initialViewMode?: IViewMode;
+    hideParts?: FilterPart[];
 };
 
 export function MultiInner(props: MultiProps) {
@@ -46,6 +47,7 @@ export function MultiInner(props: MultiProps) {
         header,
         itemType,
         tools,
+        hideParts,
     } = props;
 
     const contextFilter = useContext(FilterContext);
@@ -121,9 +123,7 @@ export function MultiInner(props: MultiProps) {
                 header={header || config.table.header || ''}
                 tools={tools}
                 onAction={callbacks.onAction}
-                hideTagging={isCustomView}
-                hideFilter={isCustomView}
-                hideSearch={isCustomView}
+                hideParts={hideParts}
             />
             {renderInner()}
             <MultiViews

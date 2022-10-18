@@ -1,11 +1,12 @@
 import React, { FC, useContext, useMemo } from 'react';
 import { CellType, ITableField } from '../../types';
-import { SocialIcon } from '@gdi/web-base-ui';
+import { Icon, SocialIcon } from '@gdi/web-base-ui';
 import { timeAgo, shortDate } from 'shared-base';
 import { format } from 'date-fns';
 import {
     Container,
     Description,
+    IconWrapper,
     Id,
     Image,
     Name,
@@ -212,11 +213,23 @@ export function TableCellSocial(props: TableCellProps) {
     );
 }
 
+export function TableCellIcon(props: TableCellProps) {
+    const { data } = props;
+    const { value, color } = data;
+
+    return (
+        <IconWrapper color={color}>
+            <Icon iconName={value} />
+        </IconWrapper>
+    );
+}
+
 const map: Record<CellType, FC<TableCellProps>> = {
     image: TableCellImage,
     person: TableCellPerson,
     number: TableCellNumber,
     text: TableCellText,
+    icon: TableCellIcon,
     tags: TableCellTags,
     date: TableCellDate,
     social: TableCellSocial,

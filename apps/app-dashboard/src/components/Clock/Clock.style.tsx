@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    flex: 1;
-    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 `;
 
 export const Today = styled.div`
-    margin-top: 8px;
+    margin-right: 18px;
     font-size: 20px;
     color: #aaa;
 `;

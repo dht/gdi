@@ -2,6 +2,7 @@ import { ROOT } from './ids';
 
 export const routes: IRoutes = {
     overview: `${ROOT}/overview`,
+    overviewNavigate: `${ROOT}/overview/:inboxMessageId`,
 };
 
 export const menuItems: IMenuItem[] = [

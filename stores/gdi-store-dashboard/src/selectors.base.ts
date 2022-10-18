@@ -6,9 +6,12 @@ export const $i = (state: any) => state;
 const $n = (): null => null;
 const $o = (): void => {};
 
-export const $dashboard = createSelector(raw.$rawDashboard, (dashboard) => {
-    return dashboard;
-});
+export const $appStateDashboard = createSelector(
+    raw.$rawAppStateDashboard,
+    (dashboard) => {
+        return dashboard;
+    }
+);
 
 export const $stats = createSelector(
     raw.$rawStats,
@@ -31,5 +34,19 @@ export const $stats = createSelector(
                     },
                 };
             }, {});
+    }
+);
+
+export const $inboxMessages = createSelector(
+    raw.$rawInboxMessages,
+    (inboxMessages) => inboxMessages
+);
+
+export const $inboxMessage = createSelector(
+    $inboxMessages,
+    raw.$rawCurrentIdsDashboard,
+
+    (inboxMessages, currentIds) => {
+        return inboxMessages[currentIds.inboxMessageId];
     }
 );

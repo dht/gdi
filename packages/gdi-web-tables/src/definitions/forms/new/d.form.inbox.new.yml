@@ -1,0 +1,32 @@
+id: InboxNew
+header: New Inbox
+layout:
+    flavour: singleColumn
+    width: 300
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: url
+      fieldType: text
+      placeholder: Url
+      label: Url
+      groupId: basic
+    - id: category
+      fieldType: text
+      placeholder: Category
+      label: Category
+      groupId: basic
+    - id: description
+      fieldType: text
+      placeholder: Description
+      label: Description
+      groupId: basic
+    - id: revisitDate
+      fieldType: date
+      placeholder: Date
+      label: Revisit Date
+      groupId: basic
+submit:
+    title: Save & close

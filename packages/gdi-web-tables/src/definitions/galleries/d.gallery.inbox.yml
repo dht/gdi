@@ -1,0 +1,7 @@
+id: InboxGallery
+header: Inbox
+itemType: inbox
+actions:
+    - id: new
+      iconName: add
+      title: New Message

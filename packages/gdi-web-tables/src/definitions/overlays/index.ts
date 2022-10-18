@@ -3,6 +3,7 @@ import articles from './json/d.overlay.articles.json';
 import events from './json/d.overlay.events.json';
 import images from './json/d.overlay.images.json';
 import layouts from './json/d.overlay.layouts.json';
+import inbox from './json/d.overlay.inbox.json';
 import links from './json/d.overlay.links.json';
 import pages from './json/d.overlay.pages.json';
 import pageInstances from './json/d.overlay.pageInstances.json';
@@ -18,6 +19,7 @@ export const overlays: Record<ItemType, IOverlayConfig> = {
     article: articles, // @ts-expect-error
     event: events, // @ts-expect-error
     image: images, // @ts-expect-error
+    inbox: inbox, // @ts-expect-error
     layout: layouts, // @ts-expect-error
     link: links, // @ts-expect-error
     page: pages, // @ts-expect-error

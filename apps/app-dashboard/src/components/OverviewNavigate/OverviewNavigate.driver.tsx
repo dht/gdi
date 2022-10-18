@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { YourBusiness, YourBusinessProps } from './YourBusiness';
+import { OverviewNavigate, OverviewNavigateProps } from './OverviewNavigate';
 import { BaseComponentDriver } from 'testing-base';
 
-export class YourBusinessDriver extends BaseComponentDriver {
-    private props: Partial<YourBusinessProps> = {
+export class OverviewNavigateDriver extends BaseComponentDriver {
+    private props: Partial<OverviewNavigateProps> = {
     };
 
     constructor() {
-        super('YourBusiness');
+        super('OverviewNavigate');
     }
 
     when: any = {
         rendered: () => {
-            render(<YourBusiness {...(this.props as YourBusinessProps)} />);
+            render(<OverviewNavigate {...(this.props as OverviewNavigateProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class YourBusinessDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<YourBusiness {...(this.props as YourBusinessProps)} />);
+            return this.snapshot(<OverviewNavigate {...(this.props as OverviewNavigateProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<YourBusinessProps>) => {
+        props: (props: Partial<OverviewNavigateProps>) => {
             this.props = props;
             return this;
         },

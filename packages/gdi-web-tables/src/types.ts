@@ -4,6 +4,7 @@ export type CellType =
     | 'person'
     | 'number'
     | 'text'
+    | 'icon'
     | 'tags'
     | 'date'
     | 'timeAgo'
@@ -99,6 +100,7 @@ export type ItemActionType =
 export type ItemType =
     | 'image'
     | 'article'
+    | 'inbox'
     | 'person'
     | 'event'
     | 'page'
@@ -264,4 +266,10 @@ export type WithChildren<T> = T & {
     children?: JSX.Element | JSX.Element[];
 };
 
-export type FilterPart = 'header' | 'tagging' | 'filter' | 'search';
+export type FilterPart =
+    | 'header'
+    | 'tools'
+    | 'buttons'
+    | 'tagging'
+    | 'filter'
+    | 'search';
