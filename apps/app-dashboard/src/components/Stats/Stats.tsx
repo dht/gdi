@@ -50,7 +50,7 @@ type StatProps = {
 
 export function Stat(props: StatProps) {
     const { stat } = props;
-    const { title, value, suffix = '', unit } = stat;
+    const { title, value, suffix = '', unit, clickEffect } = stat;
 
     const parsedValue = useMemo(() => {
         let output = value;
@@ -70,6 +70,8 @@ export function Stat(props: StatProps) {
         return output;
     }, [stat]);
 
+    const tip = clickEffect === 'nudge' ? 'Shift+click to nudge down' : '';
+
     function onClick(ev: React.MouseEvent) {
         ev.stopPropagation();
         props.onClick(stat, ev.shiftKey);
@@ -84,6 +86,7 @@ export function Stat(props: StatProps) {
             className='Stat-container'
             data-testid='Stat-container'
             onClick={() => props.onNavigate(stat)}
+            title={tip}
         >
             <Column>
                 <Title>{title}</Title>

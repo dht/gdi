@@ -2,8 +2,5 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     flex: 1;
-
-    .text {
-        fill: white;
-    }
+    display: flex;
 `;

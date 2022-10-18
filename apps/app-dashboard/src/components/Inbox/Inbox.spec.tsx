@@ -1,13 +1,13 @@
-import { YourBusinessDriver } from './YourBusiness.driver';
+import { InboxDriver } from './Inbox.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('YourBusiness', () => {
-    let driver: YourBusinessDriver;
+describe('Inbox', () => {
+    let driver: InboxDriver;
 
     beforeAll(() => {
-        driver = new YourBusinessDriver();
+        driver = new InboxDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('YourBusiness', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('YourBusiness-container');
+        expect(containerClassName).toContain('Inbox-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('YourBusiness', () => {
     });
 });
 
-describe('YourBusiness snapshots', () => {
-    let driver: YourBusinessDriver;
+describe('Inbox snapshots', () => {
+    let driver: InboxDriver;
 
     beforeAll(() => {
-        driver = new YourBusinessDriver();
+        driver = new InboxDriver();
     });
 
     it('should match snapshot', () => {

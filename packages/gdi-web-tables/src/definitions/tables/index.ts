@@ -2,6 +2,7 @@ import { ItemType } from '../../types';
 import articles from './json/d.table.articles.json';
 import events from './json/d.table.events.json';
 import images from './json/d.table.images.json';
+import inbox from './json/d.table.inbox.json';
 import layouts from './json/d.table.layouts.json';
 import links from './json/d.table.links.json';
 import pages from './json/d.table.pages.json';
@@ -17,6 +18,7 @@ export const tables: Record<ItemType, ITableConfig> = {
     article: articles,
     event: events,
     image: images,
+    inbox: inbox,
     layout: layouts,
     link: links,
     page: pages,

@@ -91,7 +91,15 @@ export function FilterBar(props: FilterBarProps) {
     }
 
     function renderActions() {
-        return actions.map((action: IBarAction) => renderAction(action));
+        if (hideParts.includes('buttons')) {
+            return null;
+        }
+
+        return (
+            <Actions>
+                {actions.map((action: IBarAction) => renderAction(action))}
+            </Actions>
+        );
     }
 
     function renderFilters() {
@@ -159,22 +167,32 @@ export function FilterBar(props: FilterBarProps) {
         );
     }
 
+    function renderToolbar() {
+        if (hideParts.includes('tools')) {
+            return null;
+        }
+
+        return (
+            <Toolbar
+                horizontal
+                calculatedWidth
+                items={tools}
+                onClick={(item: any) => props.onAction(item.id)}
+            />
+        );
+    }
+
     return (
         <Container className='TopBar-container' data-testid='TopBar-container'>
             <ContainerBar>
                 {renderHeader()}
-                <Toolbar
-                    horizontal
-                    calculatedWidth
-                    items={tools}
-                    onClick={(item: any) => props.onAction(item.id)}
-                />
+                {renderToolbar()}
                 <Flex />
                 {renderTagger()}
                 <Flex />
                 {renderFiltering()}
                 {renderSearch()}
-                <Actions>{renderActions()}</Actions>
+                {renderActions()}
             </ContainerBar>
             {renderFilters()}
         </Container>

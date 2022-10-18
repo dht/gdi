@@ -2,6 +2,7 @@ import { ItemType, ITimelineConfig } from '../../types';
 import articles from './json/d.timeline.articles.json';
 import events from './json/d.timeline.events.json';
 import images from './json/d.timeline.images.json';
+import inbox from './json/d.timeline.inbox.json';
 import layouts from './json/d.timeline.layouts.json';
 import links from './json/d.timeline.links.json';
 import pages from './json/d.timeline.pages.json';
@@ -17,6 +18,7 @@ export const timelines: Record<ItemType, ITimelineConfig> = {
     article: articles,
     event: events,
     image: images,
+    inbox: inbox,
     layout: layouts,
     link: links,
     page: pages,

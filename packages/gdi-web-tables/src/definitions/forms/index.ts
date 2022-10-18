@@ -1,6 +1,7 @@
 import articlesNew from './new/json/d.form.articles.new.json';
 import eventsNew from './new/json/d.form.events.new.json';
 import imagesNew from './new/json/d.form.images.new.json';
+import inboxNew from './new/json/d.form.inbox.new.json';
 import layoutsNew from './new/json/d.form.layouts.new.json';
 import linksNew from './new/json/d.form.links.new.json';
 import pagesNew from './new/json/d.form.pages.new.json';
@@ -15,6 +16,7 @@ import widgetsNew from './new/json/d.form.widgets.new.json';
 import articlesEdit from './edit/json/d.form.articles.edit.json';
 import eventsEdit from './edit/json/d.form.events.edit.json';
 import imagesEdit from './edit/json/d.form.images.edit.json';
+import inboxEdit from './edit/json/d.form.inbox.edit.json';
 import layoutsEdit from './edit/json/d.form.layouts.edit.json';
 import linksEdit from './edit/json/d.form.links.edit.json';
 import pagesEdit from './edit/json/d.form.pages.edit.json';
@@ -29,6 +31,7 @@ import widgetsEdit from './edit/json/d.form.widgets.edit.json';
 import articlesDefault from './default/json/d.form.articles.default.json';
 import eventsDefault from './default/json/d.form.events.default.json';
 import imagesDefault from './default/json/d.form.images.default.json';
+import inboxDefault from './default/json/d.form.inbox.default.json';
 import layoutsDefault from './default/json/d.form.layouts.default.json';
 import linksDefault from './default/json/d.form.links.default.json';
 import pagesDefault from './default/json/d.form.pages.default.json';
@@ -45,6 +48,7 @@ export const formsNew: Record<string, IFormConfig> = {
     article: articlesNew, // @ts-expect-error
     event: eventsNew, // @ts-expect-error
     image: imagesNew, // @ts-expect-error
+    inbox: inboxNew, // @ts-expect-error
     layout: layoutsNew, // @ts-expect-error
     link: linksNew, // @ts-expect-error
     page: pagesNew, // @ts-expect-error
@@ -62,6 +66,7 @@ export const formsEdit: Record<string, IFormConfig> = {
     article: articlesEdit, // @ts-expect-error
     event: eventsEdit, // @ts-expect-error
     image: imagesEdit, // @ts-expect-error
+    inbox: inboxEdit, // @ts-expect-error
     layout: layoutsEdit, // @ts-expect-error
     link: linksEdit, // @ts-expect-error
     page: pagesEdit, // @ts-expect-error
@@ -78,6 +83,7 @@ export const formsNewDefault: Record<string, Json> = {
     article: articlesDefault,
     event: eventsDefault,
     image: imagesDefault,
+    inbox: inboxDefault,
     layout: layoutsDefault,
     link: linksDefault,
     page: pagesDefault,

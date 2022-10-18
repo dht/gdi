@@ -2,6 +2,7 @@ import { ItemType } from '../../types';
 import articles from './json/d.filter.articles.json';
 import events from './json/d.filter.events.json';
 import images from './json/d.filter.images.json';
+import inbox from './json/d.filter.inbox.json';
 import layouts from './json/d.filter.layouts.json';
 import links from './json/d.filter.links.json';
 import pages from './json/d.filter.pages.json';
@@ -18,6 +19,7 @@ export const filters: Record<ItemType, IFilterConfig> = {
     article: articles, //@ts-expect-error
     event: events, //@ts-expect-error
     image: images, //@ts-expect-error
+    inbox: inbox, //@ts-expect-error
     layout: layouts, //@ts-expect-error
     link: links, //@ts-expect-error
     page: pages, //@ts-expect-error

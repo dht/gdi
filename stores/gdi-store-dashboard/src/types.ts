@@ -3,14 +3,20 @@ import type { StoreStructure } from 'redux-store-generator';
 export type IDashboardStore = StoreStructure & IDashboardStructure & {};
 
 export type IDashboardStructure = {
-    dashboard: IDashboard;
+    appStateDashboard: IAppStateDashboard;
+    currentIdsDashboard: ICurrentIdsDashboard;
     stats: IStats;
     statsJourneys: IStatJourneys;
+    inboxMessages: IInboxMessages;
 };
 
-export type IDashboard = {
+export type IAppStateDashboard = {
     stateKey: string;
     openTasks: number;
+};
+
+export type ICurrentIdsDashboard = {
+    inboxMessageId: string;
 };
 
 export type IStat = {
@@ -33,6 +39,25 @@ export type IStatJourney = {
     value: number;
     percent?: number;
 };
+
+type InboxMessageType = 'info';
+
+export type IInboxMessage = {
+    id: string;
+    date: string;
+    title: string;
+    description: string;
+    iconName?: string;
+    color?: string;
+    messageType: InboxMessageType;
+    itemType?: ItemType;
+    itemId?: string;
+    href?: string;
+    isArchived?: boolean;
+    snoozeUntil?: string;
+};
+
+export type IInboxMessages = Record<string, IInboxMessage>;
 
 export type IStats = Record<string, IStat>;
 

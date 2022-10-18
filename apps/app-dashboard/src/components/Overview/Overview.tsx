@@ -1,9 +1,10 @@
 import React from 'react';
-import { Container, Content, Header } from './Overview.style';
-import { YourBusiness } from '../YourBusiness/YourBusiness';
-import { Clock } from '../Clock/Clock';
-import { Stats } from '../Stats/Stats';
+import { Bk, Column, Container, Content, Fg, Header } from './Overview.style';
+import { OverviewBar } from '../OverviewBar/OverviewBar';
 import { ScreenLoader } from '@gdi/web-ui';
+import { Stats } from '../Stats/Stats';
+import { Triangles } from '../Triangles/Triangles';
+import { useMeasure } from 'react-use';
 
 export type OverviewProps = {
     stats: IStats;
@@ -12,14 +13,16 @@ export type OverviewProps = {
         onNavigate: (stat: Stat) => void;
     };
     isLoading: boolean;
+    children: JSX.Element;
 };
 
 export function Overview(props: OverviewProps) {
-    const { stats, callbacks, isLoading } = props;
+    const { stats = {}, callbacks, isLoading } = props;
+    const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 
-    function renderContent() {
+    function renderStats() {
         if (isLoading) {
-            return <ScreenLoader transparent />;
+            return <ScreenLoader spinnerColor='#22223367' transparent />;
         }
 
         return <Stats stats={stats} callbacks={callbacks} />;
@@ -29,12 +32,21 @@ export function Overview(props: OverviewProps) {
         <Container
             className='Overview-container'
             data-testid='Overview-container'
+            ref={ref}
         >
-            <Header>
-                <YourBusiness text={'My Business'} fontFamily='Inter' />
-                <Clock />
-            </Header>
-            <Content>{renderContent()}</Content>
+            <Bk>
+                <Triangles width={width} height={height} />
+            </Bk>
+            <Fg>
+                <Header>
+                    <OverviewBar />
+                </Header>
+
+                <Content>
+                    <Column>{props.children}</Column>
+                    <Column>{renderStats()}</Column>
+                </Content>
+            </Fg>
         </Container>
     );
 }

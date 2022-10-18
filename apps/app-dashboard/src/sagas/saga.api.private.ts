@@ -4,13 +4,13 @@ import { $s } from 'shared-base';
 
 function* apiPrivate() {
     $s('apiPrivate', {
-        nodes: ['dashboard', 'stats', 'statsJourneys'],
+        nodes: ['stats', 'statsJourneys', 'inboxMessages'],
     });
 
     const promises = [
-        yield* put(actions.dashboard.get()),
         yield* put(actions.stats.get()),
         yield* put(actions.statsJourneys.get()),
+        yield* put(actions.inboxMessages.get()),
     ];
 
     yield Promise.all(promises);

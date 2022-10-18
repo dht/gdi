@@ -2,6 +2,7 @@ import { ItemType, ICalendarConfig } from '../../types';
 import articles from './json/d.calendar.articles.json';
 import events from './json/d.calendar.events.json';
 import images from './json/d.calendar.images.json';
+import inbox from './json/d.calendar.inbox.json';
 import layouts from './json/d.calendar.layouts.json';
 import links from './json/d.calendar.links.json';
 import pages from './json/d.calendar.pages.json';
@@ -17,6 +18,7 @@ export const calendars: Record<ItemType, ICalendarConfig> = {
     article: articles,
     event: events,
     image: images,
+    inbox: inbox,
     layout: layouts,
     link: links,
     page: pages,

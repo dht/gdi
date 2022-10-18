@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import Overview from '../components/Overview/Overview';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../store';
+import { InboxContainer } from './InboxContainer';
 import { invokeEvent } from 'shared-base';
 
 export const OverviewContainer = () => {
@@ -33,6 +34,13 @@ export const OverviewContainer = () => {
     );
 
     return (
-        <Overview stats={stats} callbacks={callbacks} isLoading={isLoading} />
+        <Overview
+            stats={stats}
+            callbacks={callbacks}
+            isLoading={isLoading}
+            dispatch={dispatch}
+        >
+            <InboxContainer />
+        </Overview>
     );
 };

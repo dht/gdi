@@ -65,3 +65,8 @@ export const Id = styled.div`
     max-width: 100px;
     opacity: 0.5;
 `;
+
+export const IconWrapper = styled.div<{ color?: string }>`
+    font-size: 24px;
+    color: ${(props) => props.color || '#fff'};
+`;

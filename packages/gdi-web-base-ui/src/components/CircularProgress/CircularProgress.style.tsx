@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ color?: string }>`
     width: 100px;
     height: 100px;
     position: relative;
+
+    .spinner {
+        background-color: ${(props) => props.color || '#0cb1c422'};
+    }
 `;
 
 export const Spinner = styled.div`
@@ -11,7 +15,6 @@ export const Spinner = styled.div`
     top: 0;
     width: 100px;
     height: 100px;
-    background-color: #0cb1c422;
     border-radius: 25px;
     animation-name: spin;
     animation-duration: 5000ms;

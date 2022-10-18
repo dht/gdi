@@ -2,6 +2,7 @@ import { ItemType, ICalendarConfig } from '../../types';
 import articles from './json/d.sheet.articles.json';
 import events from './json/d.sheet.events.json';
 import images from './json/d.sheet.images.json';
+import inbox from './json/d.sheet.inbox.json';
 import layouts from './json/d.sheet.layouts.json';
 import links from './json/d.sheet.links.json';
 import pages from './json/d.sheet.pages.json';
@@ -17,6 +18,7 @@ export const sheets: Record<ItemType, ICalendarConfig> = {
     article: articles,
     event: events,
     image: images,
+    inbox: inbox,
     layout: layouts,
     link: links,
     page: pages,

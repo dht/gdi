@@ -1,7 +1,7 @@
 export const endpointsConfigOverrides: any = {
-    dashboard: {
-        id: 'dashboard',
-        connectionType: 'FIRESTORE',
+    appStateDashboard: {
+        id: 'appStateDashboard',
+        connectionType: 'NONE',
     },
     stats: {
         id: 'stats',
@@ -10,6 +10,11 @@ export const endpointsConfigOverrides: any = {
     },
     statsJourneys: {
         id: 'statsJourneys',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+    },
+    inboxMessages: {
+        id: 'inboxMessages',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },

@@ -8,10 +8,11 @@ export const Container = styled.div`
 export const ContainerStat = styled.div`
     padding: 10px 30px 10px;
     height: 100px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #223;
+    opacity: 0.96;
     width: 300px;
     border-radius: 40px;
-    margin: 20px;
+    margin: 12px 15px;
     float: left;
     display: flex;
     flex-direction: row;
@@ -43,7 +44,6 @@ export const Title = styled.div`
     font-size: 20px;
     font-variation-settings: 'wdth' 100, 'wght' 400;
     color: #fff;
-    opacity: 0.4;
     margin-bottom: 8px;
     text-align: center;
 `;
@@ -65,6 +65,7 @@ export const Value = styled.div`
     border-radius: 30px;
     text-align: center;
     margin: 0;
+    user-select: none;
 
     &:hover {
         color: gold;

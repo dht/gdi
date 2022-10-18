@@ -3,6 +3,7 @@ import { itemStructure as articles } from './d.itemStructure.articles';
 import { itemStructure as events } from './d.itemStructure.events';
 import { itemStructure as images } from './d.itemStructure.images';
 import { itemStructure as layouts } from './d.itemStructure.layouts';
+import { itemStructure as inbox } from './d.itemStructure.inbox';
 import { itemStructure as links } from './d.itemStructure.links';
 import { itemStructure as pages } from './d.itemStructure.pages';
 import { itemStructure as pageInstances } from './d.itemStructure.pageInstances';
@@ -17,6 +18,7 @@ export const itemStructure: Record<ItemType, string> = {
     article: articles,
     event: events,
     image: images,
+    inbox: images,
     layout: layouts,
     link: links,
     page: pages,

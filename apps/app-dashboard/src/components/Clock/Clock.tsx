@@ -7,8 +7,8 @@ export type ClockProps = {};
 export function Clock(_props: ClockProps) {
     return (
         <Container className='Clock-container' data-testid='Clock-container'>
-            <ClockUI />
             <Today>Sunday, 12th of April 2020</Today>
+            <ClockUI />
         </Container>
     );
 }

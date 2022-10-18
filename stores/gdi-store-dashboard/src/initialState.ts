@@ -3,14 +3,17 @@ import { actions } from './actions';
 import { IDashboardStore } from './types';
 
 export const initialState: IDashboardStore = {
-    dashboard: {
-        stateKey: 'dashboard',
+    appStateDashboard: {
+        stateKey: 'appStateDashboard',
         openTasks: 10,
+    },
+    currentIdsDashboard: {
+        inboxMessageId: '',
     },
     stats: {
         allLeads: {
-            order: 0,
             id: 'allLeads',
+            order: 0,
             title: 'All Leads',
             value: 4,
             mode: 'manual',
@@ -27,6 +30,17 @@ export const initialState: IDashboardStore = {
             value: 4,
         },
     },
+    inboxMessages: {
+        inboxMessage_1: {
+            id: 'inboxMessage_1',
+            date: '2020-01-01',
+            title: 'New Lead',
+            description: 'New lead has been added',
+            iconName: 'user',
+            color: 'blue',
+            messageType: 'info',
+        },
+    },
 };
 
 export const reducers = generateReducersForStore<IDashboardStore>(initialState);
@@ -35,6 +49,7 @@ export const clearState = (store: any) => {
     setTimeout(() => {
         store.dispatch(actions.stats.setAll({}));
         store.dispatch(actions.statsJourneys.setAll({}));
+        store.dispatch(actions.inboxMessages.setAll({}));
     });
     return store;
 };

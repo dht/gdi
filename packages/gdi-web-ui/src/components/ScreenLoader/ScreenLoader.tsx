@@ -7,10 +7,11 @@ import './ScreenLoader.scss';
 export type ScreenLoaderProps = {
     darkMode?: boolean;
     transparent?: boolean;
+    spinnerColor?: string;
 };
 
 export function ScreenLoader(props: ScreenLoaderProps) {
-    const { darkMode, transparent } = props;
+    const { darkMode, transparent, spinnerColor } = props;
 
     const className = classnames('ScreenLoader-container', {
         dark: darkMode,
@@ -22,7 +23,7 @@ export function ScreenLoader(props: ScreenLoaderProps) {
             data-testid='ScreenLoader-container'
             transparent={transparent}
         >
-            <CircularProgress />
+            <CircularProgress color={spinnerColor} />
         </Container>
     );
 }
