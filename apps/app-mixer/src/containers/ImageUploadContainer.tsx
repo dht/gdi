@@ -3,6 +3,7 @@ import { ImageUpload } from '../components/ImageUpload/ImageUpload';
 import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import { firebase } from '@gdi/platformer';
+import { rawImageUrlToUrls } from 'shared-base';
 
 type ImageUploadContainerProps = {
     onClose: () => void;
@@ -33,6 +34,7 @@ export const ImageUploadContainer = (props: ImageUploadContainerProps) => {
 
                 const { imageUrl, imageThumbUrl } = rawImageUrlToUrls(
                     rawImageUrl,
+                    'libraryImages',
                     imageId
                 );
 
@@ -54,20 +56,4 @@ export const ImageUploadContainer = (props: ImageUploadContainerProps) => {
     );
 
     return <ImageUpload allOptions={allOptions} callbacks={callbacks} />;
-};
-
-export const rawImageUrlToUrls = (rawImageUrl: string, imageId: string) => {
-    const parts = rawImageUrl.split('/');
-    parts.pop();
-    parts.push('libraryImages');
-
-    const base = parts.join('/') + encodeURIComponent('/');
-
-    const imageUrl = [base, `${imageId}.webp?alt=media`].join('');
-    const imageThumbUrl = [base, `${imageId}_thumb.webp?alt=media`].join('');
-
-    return {
-        imageUrl,
-        imageThumbUrl,
-    };
 };

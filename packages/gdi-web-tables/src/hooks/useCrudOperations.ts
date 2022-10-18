@@ -3,8 +3,13 @@ import { collection_all } from 'redux-store-generator';
 import { prompt } from '@gdi/web-base-ui';
 import { DispatchContext } from '../context/Dispatch.context';
 import { guid4 } from 'shared-base';
+import { ICrudOptions } from '../types';
 
-export function useCrudOperations(config: ICrudDefinitions, data: Json) {
+export function useCrudOperations(
+    config: ICrudDefinitions,
+    data: Json,
+    options: ICrudOptions
+) {
     const { nodeName, formNew, formNewDefault, formEdit } = config;
     const contextDispatch = useContext(DispatchContext);
 
@@ -23,9 +28,9 @@ export function useCrudOperations(config: ICrudDefinitions, data: Json) {
                     form: {
                         config: formNew,
                         data: { ...formNewDefault },
-                        allOptions: {},
-                        allDetails: {},
-                        allMethods: {},
+                        allOptions: options.allOptions,
+                        allDetails: options.allDetails,
+                        allMethods: options.allMethods,
                     },
                 });
 
@@ -45,9 +50,9 @@ export function useCrudOperations(config: ICrudDefinitions, data: Json) {
                     form: {
                         config: formEdit,
                         data: itemData,
-                        allOptions: {},
-                        allDetails: {},
-                        allMethods: {},
+                        allOptions: options.allOptions,
+                        allDetails: options.allDetails,
+                        allMethods: options.allMethods,
                     },
                 });
 
@@ -56,6 +61,9 @@ export function useCrudOperations(config: ICrudDefinitions, data: Json) {
                 }
 
                 const { value } = result;
+
+                console.log('value ->', value);
+
                 dispatch(actions.patch(editId, value as Json));
             },
             deleteForm: async (id: string | string[]) => {

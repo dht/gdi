@@ -34,10 +34,12 @@ export type FieldProps = {
     errorMessage?: string;
     labelSize?: LabelSize;
     onExtraChange: (change?: Json) => void;
+    itemId?: string;
+    external?: Json;
 };
 
 export function Field(props: FieldProps) {
-    const { field, errorMessage, labelSize } = props;
+    const { field, errorMessage, labelSize, itemId } = props;
     const { fieldType, label, description, isRequired } = field;
 
     const Cmp = map[fieldType];
@@ -113,24 +115,36 @@ export function FieldInput(props: FieldProps) {
 }
 
 export function FieldImageUpload(props: FieldProps) {
-    const { field, control, allMethods } = props;
+    const { field, control, allMethods, itemId, external = {} } = props;
     const { label, placeholder } = field;
+
+    const { getValues } = useFormContext();
 
     const { field: fieldMethods } = useController({
         name: field.id,
         control,
     });
 
+    const values = getValues();
+    const rawImage = `${field.id}Raw`;
+    const rawValue = values[rawImage];
+
     function onChange(value: string, extra?: Json) {
         fieldMethods.onChange(value);
         props.onExtraChange(extra);
     }
 
+    function onUpload(file: File) {
+        return allMethods.onUpload(file, { itemId });
+    }
+
     return (
         <ImageUpload
             value={fieldMethods.value}
+            valueRaw={rawValue}
+            destinationFolder={external.uploadDestinationFolder}
             onChange={onChange}
-            onUpload={allMethods['onUpload']}
+            onUpload={onUpload}
         />
     );
 }

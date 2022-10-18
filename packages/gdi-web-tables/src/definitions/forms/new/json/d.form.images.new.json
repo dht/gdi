@@ -44,5 +44,8 @@
     ],
     "submit": {
         "title": "Save & close"
+    },
+    "external": {
+        "uploadDestinationFolder": "people"
     }
 }

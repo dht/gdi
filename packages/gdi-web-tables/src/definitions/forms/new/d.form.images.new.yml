@@ -30,3 +30,5 @@ fields:
       groupId: basic
 submit:
     title: Save & close
+external:
+    uploadDestinationFolder: people

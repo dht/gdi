@@ -3,7 +3,7 @@ import { HeroColors } from './Hero';
 import { darken, invert } from 'polished';
 
 export const Container = styled.div<{ colors: HeroColors }>`
-    background-color: ${(props) => props.colors.background || '#1a7870'};
+    background-color: ${(props) => props.colors.background || '#334'};
     height: 90vh;
     display: flex;
     background-size: cover;

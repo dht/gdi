@@ -124,3 +124,5 @@ fields:
       groupId: extra
 submit:
     title: Save & close
+external:
+    uploadDestinationFolder: people

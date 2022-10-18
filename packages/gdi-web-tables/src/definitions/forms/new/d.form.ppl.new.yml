@@ -10,10 +10,6 @@ groups:
     - id: extra
       layoutColumnIndex: 1
 fields:
-    - id: imageUrl
-      fieldType: imageUpload
-      placeholder: Image
-      groupId: basic
     - id: firstName
       fieldType: text
       placeholder: First name
@@ -56,3 +52,4 @@ fields:
       groupId: basic
 submit:
     title: Save & close
+uploadDestinationFolder: people

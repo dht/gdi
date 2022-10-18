@@ -27,7 +27,7 @@ export function Form(props: IFormProps) {
         autoFocus = true,
     } = props;
 
-    const { layout, groups, fields, submit } = config;
+    const { layout, groups, fields, submit, external } = config;
     const [isSubmitting, setIsSubmitting] = useState(false);
     const { groupId: submitGroupId } = submit;
     const { flavour, labelSize } = layout;
@@ -122,6 +122,8 @@ export function Form(props: IFormProps) {
 
             const { dirtyFields } = formState;
 
+            const values = getValues();
+
             const change = Object.keys(dirtyFields)
                 .filter((key) => dirtyFields[key])
                 .reduce((output, key) => {
@@ -137,7 +139,7 @@ export function Form(props: IFormProps) {
 
     function onExtraChange(change: Json = {}) {
         Object.keys(change).forEach((key) => {
-            setValue(key, change[key]);
+            setValue(key, change[key], { shouldDirty: true });
         });
     }
 
@@ -173,6 +175,8 @@ export function Form(props: IFormProps) {
                 errorMessage={errorMessage}
                 labelSize={labelSize}
                 onExtraChange={onExtraChange}
+                itemId={data.id}
+                external={external}
             />
         );
     }

@@ -77,6 +77,7 @@ export type IFormConfig = {
     groups: IFormLayoutGroup[];
     fields: IFormField[];
     submit: IFormSubmit;
+    external?: Json;
 };
 
 export type IDetailsProps = {
