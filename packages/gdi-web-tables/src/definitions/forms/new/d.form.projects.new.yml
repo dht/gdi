@@ -1,0 +1,26 @@
+id: ProjectNew
+header: New Project
+layout:
+    flavour: singleColumn
+    width: 300
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: key
+      fieldType: text
+      placeholder: Key
+      label: Key
+      groupId: basic
+    - id: name
+      fieldType: text
+      placeholder: Name
+      label: Name
+      groupId: basic
+    - id: color
+      fieldType: color
+      placeholder: Color
+      label: Color
+submit:
+    title: Save & close

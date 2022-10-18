@@ -8,6 +8,7 @@ import pagesNew from './new/json/d.form.pages.new.json';
 import pageInstancesNew from './new/json/d.form.pageInstances.new.json';
 import postsNew from './new/json/d.form.posts.new.json';
 import pplNew from './new/json/d.form.ppl.new.json';
+import projectsNew from './new/json/d.form.projects.new.json';
 import salesNew from './new/json/d.form.sales.new.json';
 import templatesNew from './new/json/d.form.templates.new.json';
 import ticketsNew from './new/json/d.form.tickets.new.json';
@@ -23,6 +24,7 @@ import pagesEdit from './edit/json/d.form.pages.edit.json';
 import pageInstancesEdit from './edit/json/d.form.pageInstances.edit.json';
 import postsEdit from './edit/json/d.form.posts.edit.json';
 import pplEdit from './edit/json/d.form.ppl.edit.json';
+import projectsEdit from './edit/json/d.form.projects.edit.json';
 import salesEdit from './edit/json/d.form.sales.edit.json';
 import templatesEdit from './edit/json/d.form.templates.edit.json';
 import ticketsEdit from './edit/json/d.form.tickets.edit.json';
@@ -38,6 +40,7 @@ import pagesDefault from './default/json/d.form.pages.default.json';
 import pageInstancesDefault from './default/json/d.form.pageInstances.default.json';
 import postsDefault from './default/json/d.form.posts.default.json';
 import pplDefault from './default/json/d.form.ppl.default.json';
+import projectsDefault from './default/json/d.form.projects.default.json';
 import salesDefault from './default/json/d.form.sales.default.json';
 import templatesDefault from './default/json/d.form.templates.default.json';
 import ticketsDefault from './default/json/d.form.tickets.default.json';
@@ -55,6 +58,7 @@ export const formsNew: Record<string, IFormConfig> = {
     pageInstance: pageInstancesNew, // @ts-expect-error
     post: postsNew, // @ts-expect-error
     person: pplNew, // @ts-expect-error
+    project: projectsNew, // @ts-expect-error
     sale: salesNew, // @ts-expect-error
     template: templatesNew, // @ts-expect-error
     ticket: ticketsNew, // @ts-expect-error
@@ -73,6 +77,7 @@ export const formsEdit: Record<string, IFormConfig> = {
     pageInstance: pageInstancesEdit, // @ts-expect-error
     post: postsEdit, // @ts-expect-error
     person: pplEdit, // @ts-expect-error
+    project: projectsNew, // @ts-expect-error
     sale: salesEdit, // @ts-expect-error
     template: templatesEdit, // @ts-expect-error
     ticket: ticketsEdit, // @ts-expect-error
@@ -90,6 +95,7 @@ export const formsNewDefault: Record<string, Json> = {
     pageInstance: pageInstancesDefault,
     post: postsDefault,
     person: pplDefault,
+    project: projectsDefault,
     sale: salesDefault,
     template: templatesDefault,
     ticket: ticketsDefault,

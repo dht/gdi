@@ -110,6 +110,7 @@ export type ItemType =
     | 'sale'
     | 'link'
     | 'post'
+    | 'project'
     | 'ticket'
     | 'widget';
 

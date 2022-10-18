@@ -9,6 +9,7 @@ import pages from './json/d.overlay.pages.json';
 import pageInstances from './json/d.overlay.pageInstances.json';
 import posts from './json/d.overlay.posts.json';
 import ppl from './json/d.overlay.ppl.json';
+import projects from './json/d.overlay.projects.json';
 import sales from './json/d.overlay.sales.json';
 import templates from './json/d.overlay.templates.json';
 import tickets from './json/d.overlay.tickets.json';
@@ -26,6 +27,7 @@ export const overlays: Record<ItemType, IOverlayConfig> = {
     pageInstance: pageInstances, // @ts-expect-error
     post: posts, // @ts-expect-error
     person: ppl, // @ts-expect-error
+    project: projects, // @ts-expect-error
     sale: sales, // @ts-expect-error
     template: templates, // @ts-expect-error
     ticket: tickets, // @ts-expect-error

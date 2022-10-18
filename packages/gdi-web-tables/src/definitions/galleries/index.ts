@@ -8,6 +8,7 @@ import pages from './json/d.gallery.pages.json';
 import pageInstances from './json/d.gallery.pageInstances.json';
 import posts from './json/d.gallery.posts.json';
 import ppl from './json/d.gallery.ppl.json';
+import projects from './json/d.gallery.projects.json';
 import sales from './json/d.gallery.sales.json';
 import templates from './json/d.gallery.templates.json';
 import tickets from './json/d.gallery.tickets.json';
@@ -24,6 +25,7 @@ export const galleries: Record<ItemType, IGalleryConfig> = {
     pageInstance: pageInstances, // @ts-expect-error
     post: posts, // @ts-expect-error
     person: ppl, // @ts-expect-error
+    project: projects, // @ts-expect-error
     sale: sales, // @ts-expect-error
     template: templates, // @ts-expect-error
     ticket: tickets, // @ts-expect-error

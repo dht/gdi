@@ -9,6 +9,7 @@ import { itemStructure as pages } from './d.itemStructure.pages';
 import { itemStructure as pageInstances } from './d.itemStructure.pageInstances';
 import { itemStructure as posts } from './d.itemStructure.posts';
 import { itemStructure as ppl } from './d.itemStructure.ppl';
+import { itemStructure as projects } from './d.itemStructure.projects';
 import { itemStructure as sales } from './d.itemStructure.sales';
 import { itemStructure as templates } from './d.itemStructure.templates';
 import { itemStructure as tickets } from './d.itemStructure.tickets';
@@ -20,11 +21,13 @@ export const itemStructure: Record<ItemType, string> = {
     image: images,
     inbox: images,
     layout: layouts,
+    inbox: inbox,
     link: links,
     page: pages,
     pageInstance: pageInstances,
     post: posts,
     person: ppl,
+    project: projects,
     sale: sales,
     template: templates,
     ticket: tickets,

@@ -28,7 +28,6 @@ export const DispatchContextProvider = (
     const callbacksDispatch = useMemo(
         () => ({
             dispatch: (action: any) => {
-                console.log('action ->', action);
                 return dispatch(action);
             },
         }),
