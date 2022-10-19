@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import FlexDesignerEmpty from '../FlexDesignerEmpty/FlexDesignerEmpty';
-import TopBar from '../TopBar/TopBar';
 import { findRoot } from '../../utils/flex';
 import { FlexDesignerLoader } from '../FlexDesignerLoader/FlexDesignerLoader';
-import { IFlexEntity } from 'stores/gdi-store-factory/dist';
+import { IFlexEntity } from '@gdi/store-factory';
 import { sortBy } from 'shared-base';
 import {
     Container,

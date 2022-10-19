@@ -6,7 +6,6 @@ import { createRoot } from 'react-dom/client';
 import './index.scss';
 import 'igrid/dist/index.css';
 import 'react-toastify/dist/ReactToastify.css';
-import '@gdi/web-base-ui/dist/normalize.css';
 import '@gdi/web-ui/dist/index.css';
 import 'firebaseui/dist/firebaseui.css';
 import { SystemLogs } from '@gdi/web-ui';
@@ -21,8 +20,8 @@ if (container) {
 
     root.render(
         <React.StrictMode>
-            {/* <Dev /> */}
-            <Bootstrap config={config} />
+            <Dev />
+            {/* <Bootstrap config={config} /> */}
             {DEBUG && <SystemLogs />}
         </React.StrictMode>
     );

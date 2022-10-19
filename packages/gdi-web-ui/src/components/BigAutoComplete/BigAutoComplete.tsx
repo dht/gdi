@@ -9,7 +9,7 @@ import React, {
 import classnames from 'classnames';
 import { colorize, Part } from '../../utils/colorize';
 import { useBoolean, useCounter, useKey, useMount } from 'react-use';
-import { useClickAway } from '../../hooks/useClickAway';
+import { useClickAway } from '@gdi/hooks';
 import { useFuzzySearch } from '../../hooks/useFuzzySearch';
 import { useSilentKey } from '../../hooks/useSilentKey';
 

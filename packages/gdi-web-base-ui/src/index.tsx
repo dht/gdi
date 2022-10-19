@@ -24,6 +24,7 @@ export { Logo } from './components/Logo/Logo';
 export { Modal } from './components/Modal/Modal';
 export { PhotoBooth } from './components/PhotoBooth/PhotoBooth';
 export { PhoneInput } from './components/PhoneInput/PhoneInput';
+export { PieMenu } from './components/PieMenu/PieMenu';
 export { PromptContainer as Prompt } from './components/Prompt/Prompt.container';
 export { ProgressBar } from './components/ProgressBar/ProgressBar';
 export { ProgressBarVertical } from './components/ProgressBarVertical/ProgressBarVertical';
