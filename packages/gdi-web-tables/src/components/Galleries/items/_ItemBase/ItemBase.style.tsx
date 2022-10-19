@@ -8,6 +8,14 @@ export const Container = styled.div.attrs<{
     backgroundColor: props.backgroundColor || '#aaa',
 }))`
     position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(
+        180deg,
+        #00000066 0%,
+        #111122aa 20%,
+        #111122aa 90%,
+        #00000067 100%
+    );
 
     &:hover {
         &:after {

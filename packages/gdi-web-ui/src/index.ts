@@ -49,6 +49,7 @@ export {
     Modal,
     PhoneInput,
     PhotoBooth,
+    PieMenu,
     ProgressBar,
     ProgressBarVertical,
     prompt,

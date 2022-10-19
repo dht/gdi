@@ -1,6 +1,6 @@
 import { actions, selectors } from '../store';
 import { call, fork, put, select, takeEvery, delay, take } from 'saga-ts';
-import { IFlexEntity } from 'stores/gdi-store-factory/dist';
+import { IFlexEntity } from '@gdi/store-factory';
 import { definitions } from '../components/Layouts/definitions/main';
 import { guid, guid4 } from 'shared-base';
 import { duplicateItems } from '../utils/flex';
