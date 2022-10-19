@@ -82,6 +82,12 @@ export const PointInner = styled.div`
         .key {
             color: gold;
         }
+
+        span {
+            &.capital {
+                color: gold;
+            }
+        }
     }
 
     &:active,
@@ -89,6 +95,16 @@ export const PointInner = styled.div`
         transform: translateX(2px) translateY(-2px);
         background-color: #e92667;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
+        .key {
+            color: gold;
+        }
+
+        span {
+            &.capital {
+                color: gold;
+            }
+        }
     }
 `;
 

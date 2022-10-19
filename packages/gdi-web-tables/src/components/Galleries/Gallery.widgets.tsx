@@ -3,8 +3,7 @@ import AllProviders from './AllProviders';
 import AnyGallery from './Gallery.any';
 import FilterBar from '../FilterBar/FilterBar';
 import { Container } from './styles';
-import { definitions } from '../../definitions';
-import { IGalleryOptions } from '../../types';
+import { ICrudDefinitions, IGalleryOptions } from '../../types';
 
 export type WidgetGalleryProps = {
     items: IImage[];
@@ -15,10 +14,11 @@ export type WidgetGalleryProps = {
         onSelectionChange: (ids: string[]) => void;
     };
     hideParts?: FilterPart[];
+    definitions: ICrudDefinitions;
 };
 
 export function WidgetGallery(props: WidgetGalleryProps) {
-    const { items, callbacks, hideParts } = props;
+    const { items, callbacks, hideParts, definitions } = props;
 
     return (
         <Container
@@ -28,7 +28,7 @@ export function WidgetGallery(props: WidgetGalleryProps) {
             <AllProviders
                 id='widgetGallery'
                 data={items}
-                definitions={definitions.image}
+                definitions={definitions}
                 callbacks={callbacks}
             >
                 <FilterBar
@@ -37,7 +37,7 @@ export function WidgetGallery(props: WidgetGalleryProps) {
                     hideParts={hideParts}
                     tools={[]}
                 />
-                <AnyGallery flavour='widget' {...props} />
+                <AnyGallery itemType='widget' {...props} />
             </AllProviders>
         </Container>
     );

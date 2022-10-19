@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import { IPlatformState } from '../types';
@@ -46,6 +46,8 @@ const initialValue: IPlatformContext = {
             it: {},
             nl: {},
         },
+        crudDefinitions: {},
+        pieMenuConfig: {},
     },
 };
 

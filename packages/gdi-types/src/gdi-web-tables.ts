@@ -67,6 +67,11 @@ declare global {
         allMethods?: AllMethods;
     };
 
+    export type ICrudDefinitionsPerItemType = Record<
+        ItemType,
+        ICrudDefinitions
+    >;
+
     export type IViewMode =
         | 'table'
         | 'gallery'
@@ -283,4 +288,13 @@ declare global {
         | 'tagging'
         | 'filter'
         | 'search';
+
+    // ================== PieMenu ==================
+    export type IPieMenuConfig = {
+        itemType: ItemType;
+        appSources?: string[];
+        options: IOption[];
+    };
+
+    export type IPieMenuConfigPerItemType = Record<ItemType, IPieMenuConfig>;
 }

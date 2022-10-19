@@ -62,6 +62,8 @@ export type ICrudOptions = {
     allMethods?: AllMethods;
 };
 
+export type ICrudDefinitionsPerItemType = Record<ItemType, ICrudDefinitions>;
+
 export type IViewMode =
     | 'table'
     | 'gallery'
@@ -274,3 +276,12 @@ export type FilterPart =
     | 'tagging'
     | 'filter'
     | 'search';
+
+// ================== PieMenu ==================
+export type IPieMenuConfig = {
+    itemType: ItemType;
+    appSources?: string[];
+    options: IOption[];
+};
+
+export type IPieMenuConfigPerItemType = Record<ItemType, IPieMenuConfig>;

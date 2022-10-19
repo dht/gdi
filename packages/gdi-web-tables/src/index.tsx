@@ -10,12 +10,7 @@ export { Masonry } from './components/Masonry/Masonry';
 export { Timeline } from './components/Timeline/Timeline';
 export {
     AnyGallery,
-    ArticleGallery,
-    EventGallery,
     ImageGallery,
-    LayoutGallery,
-    PplGallery,
-    PostGallery,
     WidgetGallery,
 } from './components/Galleries';
 export { Filters } from './components/Filters/Filters';

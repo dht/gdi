@@ -49,4 +49,6 @@ declare global {
     export type ILanguageDefinitions = {};
 
     export type IAppKeys = Record<LanguageIso, Json>;
+
+    export type DateTime = Date | number | string;
 }

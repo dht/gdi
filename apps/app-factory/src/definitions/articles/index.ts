@@ -1,0 +1,27 @@
+import { ICrudDefinitions, ItemType } from '@gdi/web-tables';
+import calendar from './json/d.calendar.articles.json';
+import filters from './json/d.filter.articles.json';
+import formNewDefault from './json/d.form.articles.default.json';
+import formEdit from './json/d.form.articles.edit.json';
+import formNew from './json/d.form.articles.new.json';
+import gallery from './json/d.gallery.articles.json';
+import overlay from './json/d.overlay.articles.json';
+import sheet from './json/d.sheet.articles.json';
+import table from './json/d.table.articles.json';
+import timeline from './json/d.timeline.articles.json';
+import { itemStructure } from './d.itemStructure.articles';
+
+export const definitions: ICrudDefinitions = {
+    nodeName: 'articles', // @ts-expect-error
+    filters,
+    formEdit,
+    formNew,
+    table,
+    calendar, // @ts-expect-error
+    gallery, // @ts-expect-error
+    overlay,
+    sheet,
+    timeline,
+    formNewDefault,
+    itemStructure,
+};

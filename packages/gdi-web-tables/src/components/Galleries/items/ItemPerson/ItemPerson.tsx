@@ -4,7 +4,7 @@ import ItemBase, { ItemBaseProps } from '../_ItemBase/ItemBase';
 export type ItemPersonProps = ItemBaseProps & {};
 
 export function ItemPerson(props: ItemPersonProps) {
-    return <ItemBase {...props} />;
+    return <ItemBase {...props}></ItemBase>;
 }
 
 export default ItemPerson;

@@ -45,6 +45,10 @@ export function PieMenu(props: PieMenuProps) {
     useClickAway(
         ref,
         () => {
+            if (!isOpen) {
+                return;
+            }
+
             toggle();
         },
         []

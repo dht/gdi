@@ -49,7 +49,7 @@ export const commandBarItems: ICommandBarItem[] = [
     {
         id: 'devtoolsWindowSize',
         label: 'Show Window Size',
-        action: {
+        event: {
             type: 'ADD_ITEM_TO_CONTEXT_BAR',
             payload: {
                 contextBarItemId: 'devtoolsWindowSize',
@@ -62,3 +62,5 @@ export const commandBarItems: ICommandBarItem[] = [
         ],
     },
 ];
+
+export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {};

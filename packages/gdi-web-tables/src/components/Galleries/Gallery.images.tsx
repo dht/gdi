@@ -28,7 +28,7 @@ export function ImageGallery(props: ImageGalleryProps) {
             <AllProviders
                 id='imageGallery'
                 data={items}
-                definitions={definitions.image}
+                definitions={definitions}
                 callbacks={callbacks}
             >
                 <FilterBar
@@ -37,7 +37,11 @@ export function ImageGallery(props: ImageGalleryProps) {
                     hideParts={hideParts}
                     tools={[]}
                 />
-                <AnyGallery flavour='image' {...props} />
+                <AnyGallery
+                    itemType='image'
+                    definitions={definitions}
+                    {...props}
+                />
             </AllProviders>
         </Container>
     );

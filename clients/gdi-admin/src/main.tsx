@@ -20,8 +20,8 @@ if (container) {
 
     root.render(
         <React.StrictMode>
-            <Dev />
-            {/* <Bootstrap config={config} /> */}
+            {/* <Dev /> */}
+            <Bootstrap config={config} />
             {DEBUG && <SystemLogs />}
         </React.StrictMode>
     );

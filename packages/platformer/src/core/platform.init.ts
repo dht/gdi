@@ -21,6 +21,8 @@ import {
 } from 'redux-connected';
 import type { IReduxConnectedConfig } from 'redux-connected';
 import type { StoreStructure } from 'redux-store-generator';
+import { DefinitionsBuilder } from '../builders/definitionsBuilder';
+import { PieMenuBuilder } from '../builders/pieMenuBuilder';
 
 const DEBUG = false;
 
@@ -72,6 +74,8 @@ export async function initPlatform<T extends StoreStructure>(
     const widgetBuilder = new WidgetLibraryBuilder();
     const apiConfigBuilder = new ApiConfigBuilder();
     const i18nBuilder = new I18nBuilder();
+    const definitionsBuilder = new DefinitionsBuilder();
+    const pieMenuBuilder = new PieMenuBuilder();
 
     storeBuilder
         .withReducers('platform', platform.reducers)
@@ -98,6 +102,8 @@ export async function initPlatform<T extends StoreStructure>(
             widgetBuilder,
             apiConfigBuilder,
             i18nBuilder,
+            definitionsBuilder,
+            pieMenuBuilder,
         });
     }
 
@@ -166,6 +172,8 @@ export async function initPlatform<T extends StoreStructure>(
             commandBarItems: routing.commandBarItems,
             widgetLibrary: widgetBuilder.build(),
             selectors: selectorsBuilder.build(),
+            crudDefinitions: definitionsBuilder.build(),
+            pieMenuConfig: pieMenuBuilder.build(),
             i18nKeys: resources,
             isReady: true,
             store,

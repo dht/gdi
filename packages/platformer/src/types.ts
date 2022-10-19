@@ -77,6 +77,8 @@ export type AppBuilders = {
     widgetBuilder: IWidgetLibraryBuilder;
     apiConfigBuilder: IApiConfigBuilder;
     i18nBuilder: II18nBuilder;
+    definitionsBuilder: IDefinitionsBuilder;
+    pieMenuBuilder: IPieMenuBuilder;
 };
 
 export type SapBuilders = {
@@ -125,6 +127,8 @@ export type IPlatformState = {
     selectors: ISelectorsByApp;
     widgetLibrary: IWidgets;
     i18nKeys: IAppKeys;
+    pieMenuConfig: Partial<IPieMenuConfigPerItemType>;
+    crudDefinitions: Partial<ICrudDefinitionsPerItemType>;
 };
 
 export enum SagaEvents {
@@ -189,10 +193,10 @@ export interface ISelectorsBuilder {
 export type HookCallback = (store: any) => void;
 
 export interface IStoreBuilder {
-    withInitialState: (initialState?: Json) => IStoreBuilder;
+    withInitialState: (appId: string, initialState?: Json) => IStoreBuilder;
     withPreBuildHook: (callback: HookCallback) => IStoreBuilder;
     withPostBuildHook: (callback: HookCallback) => IStoreBuilder;
-    withReducers: (reducers: any) => IStoreBuilder;
+    withReducers: (appId: string, reducers: any) => IStoreBuilder;
     withMiddlewares: (middlewares: any | any[]) => IStoreBuilder;
     withEnhancers: (enhancers: any | any[]) => IStoreBuilder;
     withPreMiddlewares: (...middlewares: any) => IStoreBuilder;
@@ -235,6 +239,18 @@ export type CommandBarAction = {
 export interface IApiConfigBuilder {
     withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
     build: () => EndpointsConfigOverrides;
+}
+
+/*************** IDefinitionsBuilder ***************/
+export interface IDefinitionsBuilder {
+    withDefinitions: (definitions: Partial<ICrudDefinitionsPerItemType>) => IDefinitionsBuilder; // prettier-ignore
+    build: () => ICrudDefinitionsPerItemType;
+}
+
+/*************** IApiConfigBuilder ***************/
+export interface IPieMenuBuilder {
+    withPieMenuConfigs: (appId: string, menuConfig: Partial<IPieMenuConfigPerItemType>) => void; // prettier-ignore
+    build: () => IPieMenuConfigPerItemType;
 }
 
 /*************** Menu & ContextBar ***************/
