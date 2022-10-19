@@ -40,7 +40,7 @@ const initialValue: IGalleryContext = {
     patchState: () => {},
     state: {},
     config: { id: '' },
-    configOverlay: { id: '', fields: [] },
+    configOverlay: { id: '', fields: [] } as any,
     options: {
         columns: 3,
         selectionMode: 'browse',

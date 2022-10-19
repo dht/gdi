@@ -27,7 +27,8 @@ export function Triangles(props: TrianglesProps) {
             colorSpace: 'lab',
             palette,
             strokeWidth: 0,
-        }).toSVG().innerHTML;
+            // @ts-ignore
+        } as any).toSVG().innerHTML;
     }, [width]);
 
     if (!width || !height) {
@@ -49,8 +50,6 @@ export type TrianglesBkProps = {
 
 export function TrianglesBk(props: TrianglesBkProps) {
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
-
-    console.log('width, height ->', width, height, props.children);
 
     return (
         <ContainerBk

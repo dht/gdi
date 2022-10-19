@@ -10,6 +10,11 @@ export type Action = {
     payload?: Json;
 };
 
+export type ICustomEvent = {
+    type: string;
+    payload?: Json;
+};
+
 /*************** ROUTING ***************/
 
 export type IRoute = string;
@@ -101,7 +106,7 @@ export type IFirebaseConfig = {
     measurementId: string;
 };
 
-export type IPlatformContextState = {
+export type IPlatformState = {
     isReady: boolean;
     noServerMode?: boolean;
     locale: string;
@@ -119,12 +124,8 @@ export type IPlatformContextState = {
     navigate: any;
     selectors: ISelectorsByApp;
     widgetLibrary: IWidgets;
-    patchContext: PatchContextMethod;
+    i18nKeys: IAppKeys;
 };
-
-export type PatchContextMethod = (
-    change: Partial<IPlatformContextState>
-) => void;
 
 export enum SagaEvents {
     API_ROOT_DONE = 'API_ROOT_DONE',
@@ -230,13 +231,6 @@ export type CommandBarAction = {
     };
 };
 
-/*************** I18nBuilder ***************/
-export interface II18nBuilder {
-    withLanguage: (appId: string, language: string, data: Json) => II18nBuilder;
-    withKeysByLanguage: (appId: string, keysByLanguage: Json) => II18nBuilder;
-    build: () => Json;
-}
-
 /*************** IApiConfigBuilder ***************/
 export interface IApiConfigBuilder {
     withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
@@ -255,7 +249,7 @@ export type IContextBarItem = {
 export type ICommandBarItem = {
     id: string;
     label: string;
-    action: Action;
+    event: ICustomEvent;
     shortKeys?: IShortKey[];
 };
 

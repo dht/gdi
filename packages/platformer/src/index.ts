@@ -1,35 +1,29 @@
 /*************** ROUTING ***************/
-export { RouterBuilder } from './router/builders/RouterBuilder';
+export { RouterBuilder } from './builders/RouterBuilder';
 
 /*************** SAGA-MANAGER ***************/
-export { initialState } from './saga-manager/store/initialState';
-export { startSaga, stopSaga } from './saga-manager/store/actions';
-export { initSagaManager } from './saga-manager/sagas/sagaManager';
+export { initialState } from './sagas/manager/manager.initialState';
+export { startSaga, stopSaga } from './sagas/manager/manager.actions';
+export { initSagaManager } from './sagas/manager/sagaManager';
 
 /*************** STORE-BUILDER ***************/
-export { SelectorsBuilder } from './store-builder/builders/SelectorsBuilder';
+export { SelectorsBuilder } from './builders/SelectorsBuilder';
 
 /*************** API-CONFIG-BUILDER ***************/
-export { ApiConfigBuilder } from './api-builder/ApiConfigBuilder';
-
-/*************** I18N ***************/
-export { I18nProvider } from './i18n/i18n.provider';
-export { I18nBuilder } from './i18n/builders/I18nBuilder';
-export { createTranslationHook } from './i18n/useTranslation';
+export { ApiConfigBuilder } from './builders/ApiConfigBuilder';
 
 /*************** FIREBASE ***************/
-export { initFirebase } from './firebase/firebase';
+export { initFirebase } from './utils/firebase';
 
 /*************** GLOBAL ***************/
-export { useStructure } from './core/platform-selectors';
+export { useStructure } from './core/platform.selectors';
 export {
     PlatformContextProvider,
     PlatformContext,
-} from './core/platform-context';
+} from './core/Platform.context';
 export * from './types';
-export { initPlatform, getStore } from './initPlatform';
+export { initPlatform, getStore } from './core/platform.init';
 export type { IWidget, IWidgets, IWidgetInstancesByPageList } from 'igrid';
-export { BootstrapContainer as Bootstrap } from './bootstrap/components/Bootstrap/Bootstrap';
-export { CurrentIdsHoc } from './bootstrap/components/Bootstrap/Bootstrap.currentIds';
-export { useDispatchP } from './hooks/useDispatchP';
-export { firebase } from './firebase/firebase';
+export { BootstrapContainer as Bootstrap } from './components/Bootstrap/Bootstrap';
+export { CurrentIdsHoc } from './components/Bootstrap/Bootstrap.currentIds';
+export { firebase } from './utils/firebase';

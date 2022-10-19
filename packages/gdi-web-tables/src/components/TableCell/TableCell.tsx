@@ -1,8 +1,7 @@
 import React, { FC, useContext, useMemo } from 'react';
 import { CellType, ITableField } from '../../types';
 import { Icon, SocialIcon } from '@gdi/web-base-ui';
-import { timeAgo, shortDate } from 'shared-base';
-import { format } from 'date-fns';
+import { format, shortDate, timeAgo } from '@gdi/language';
 import {
     Container,
     Description,

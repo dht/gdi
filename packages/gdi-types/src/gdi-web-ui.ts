@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A21 = {};
+export const A22 = {};
 
 declare global {
     export type IPaletteOptions = Record<string, IPalette>;

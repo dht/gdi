@@ -12,10 +12,9 @@
     },
     "dependencies": {
         "@gdi/engine": "^0.0.20",
-        "@gdi/types": "^0.0.45",
-        "@gdi/web-ui": "^0.0.30",
+        "@gdi/types": "^0.0.46",
+        "@gdi/web-ui": "^0.0.31",
         "classnames": "^2.3.1",
-        "date-fns": "^2.29.2",
         "lodash": "^4.17.21",
         "polished": "^4.2.2",
         "react-draggable": "^4.4.5",

@@ -1,6 +1,6 @@
 {
     "name": "@gdi/web-tables",
-    "version": "0.0.28",
+    "version": "0.0.29",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",
@@ -12,10 +12,9 @@
         "@dnd-kit/sortable": "^7.0.1",
         "@dnd-kit/utilities": "^3.2.0",
         "@gdi/hooks": "^0.0.28",
-        "@gdi/types": "^0.0.45",
-        "@gdi/web-base-ui": "^0.0.33",
+        "@gdi/types": "^0.0.46",
+        "@gdi/web-base-ui": "^0.0.34",
         "classnames": "^2.3.1",
-        "date-fns": "^2.29.2",
         "lodash": "^4.17.21",
         "react-draggable": "^4.4.5",
         "react-use": "^17.4.0",

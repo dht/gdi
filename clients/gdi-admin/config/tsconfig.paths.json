@@ -17,7 +17,8 @@
 
             "@gdi/template-starter": ["packages/gdi-template-starter"],
 
-            "@gdi/language-en": ["stores/gdi-language-en"],
+            "@gdi/language": ["packages/gdi-language"],
+            "@gdi/language-en": ["packages/gdi-language-en"],
 
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],

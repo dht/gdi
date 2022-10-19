@@ -7,12 +7,9 @@ import {
     Meta,
     Value,
 } from './ArticleEditorBar.style';
-import {
-    invokeEvent,
-    SimpleDate,
-    minutesToDuration,
-    minutesPassed,
-} from 'shared-base';
+import { invokeEvent } from 'shared-base';
+import { SimpleDate, minutesToDuration, minutesPassed } from '@gdi/language';
+
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
 
 export type ArticleEditorBarProps = {

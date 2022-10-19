@@ -9,7 +9,8 @@ import { PlatformContext } from '@gdi/platformer';
 export const OverviewContainer = () => {
     const dispatch = useDispatch();
     const stats = useSelector(selectors.base.$stats);
-    const { accountName, availableAccounts } = useContext(PlatformContext);
+    const { accountName, availableAccounts } =
+        useContext(PlatformContext).state;
 
     const isLoading = Object.keys(stats).length === 0;
 

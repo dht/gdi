@@ -1,12 +1,6 @@
 import React from 'react';
-import { Icon, Tags } from '@gdi/web-base-ui';
-import {
-    IGalleryOptions,
-    IImage,
-    IOverlayConfig,
-    IOverlayField,
-    RenderOptions,
-} from '../../types';
+import { Icon } from '@gdi/web-base-ui';
+import { IGalleryOptions, IOverlayConfig, IOverlayField } from '../../types';
 import {
     Container,
     Group,

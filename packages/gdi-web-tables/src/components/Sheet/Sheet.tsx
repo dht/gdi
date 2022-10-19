@@ -8,7 +8,7 @@ import SheetRow from '../SheetRow/SheetRow';
 import { Body, Container } from './Sheet.style';
 
 export type SheetProps = {
-    config: IFormConfig;
+    config: ISheetConfig;
     data: Json[];
     allOptions?: Json;
     onChange: (itemId: string, change: Json) => void;

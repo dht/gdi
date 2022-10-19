@@ -15,7 +15,7 @@ import {
     TimeSeconds,
     Title,
 } from './Lifecycle.style';
-import { format } from 'date-fns';
+import { format } from '@gdi/language';
 
 export type IStage = {
     id: string;

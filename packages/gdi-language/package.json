@@ -1,0 +1,61 @@
+{
+    "name": "@gdi/language",
+    "version": "0.0.23",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc & vite build",
+        "test": "jest",
+        "coverage": "jest --coverage=true"
+    },
+    "author": {
+        "name": "dht"
+    },
+    "dependencies": {
+        "@gdi/types": "^0.0.46",
+        "classnames": "^2.3.1",
+        "lodash": "^4.17.21",
+        "react-use": "^17.4.0",
+        "styled-components": "^5.3.5"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
+    },
+    "devDependencies": {
+        "@testing-library/react": "^13.3.0",
+        "@types/chance": "^1.1.3",
+        "@types/jest": "^28.1.6",
+        "@types/react": "^18.0.15",
+        "@types/styled-components": "^5.1.26",
+        "@vitejs/plugin-react": "^2.0.0",
+        "chance": "^1.1.8",
+        "jest": "^28.1.3",
+        "jest-cli": "^28.1.3",
+        "jest-environment-jsdom": "^28.1.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rollup-plugin-analyzer": "^4.0.0",
+        "sass": "^1.54.0",
+        "shared-base": "^0.0.18",
+        "testing-base": "^0.0.1",
+        "ts-jest": "^28.0.7",
+        "typescript": "^4.7.4",
+        "vite": "^3.0.4",
+        "vite-plugin-dts": "^1.4.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/gdi-language.umd.js",
+    "module": "./dist/gdi-language.es.js",
+    "types": "./dist/dts/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/gdi-language.es.js",
+            "require": "./dist/gdi-language-en.umd.js"
+        },
+        "./dist/public/": {
+            "import": "./dist/public/",
+            "require": "./dist/public/"
+        }
+    }
+}

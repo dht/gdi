@@ -8,8 +8,7 @@ import {
     DateDelta,
     Title,
 } from './OverlayField.style';
-import { format } from 'date-fns';
-import { inTime } from 'shared-base';
+import { format, inTime } from '@gdi/language';
 
 export type OverlayFieldProps = {
     field: IOverlayField;

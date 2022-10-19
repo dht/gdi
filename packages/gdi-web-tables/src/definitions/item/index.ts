@@ -20,7 +20,7 @@ export const itemStructure: Record<ItemType, string> = {
     event: events,
     image: images,
     inbox: images,
-    layout: layouts,
+    layout: layouts, // @ts-expect-error
     inbox: inbox,
     link: links,
     page: pages,

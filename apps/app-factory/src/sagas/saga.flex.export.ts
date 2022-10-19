@@ -10,7 +10,8 @@ import {
 } from '../utils/flex';
 import { toast } from '@gdi/web-ui';
 
-import { downloadJson, dateFilename } from 'shared-base';
+import { downloadJson } from 'shared-base';
+import { dateFilename } from '@gdi/language';
 import { camelCase } from 'lodash';
 
 type ActionExportLayout = {

@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.45",
-        "@gdi/web-base-ui": "^0.0.33",
+        "@gdi/types": "^0.0.46",
+        "@gdi/web-base-ui": "^0.0.34",
         "@hookform/resolvers": "^2.9.7",
         "lodash": "^4.17.21",
         "react-hook-form": "^7.34.0",

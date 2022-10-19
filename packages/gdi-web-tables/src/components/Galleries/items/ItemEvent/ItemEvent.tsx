@@ -8,7 +8,7 @@ import {
 } from './ItemEvent.style';
 import { ItemBase } from '../_ItemBase/ItemBase';
 import { MasonryItemProps } from '../../../Masonry/Masonry';
-import { format } from 'date-fns';
+import { format } from '@gdi/language';
 
 export type ItemEventProps = MasonryItemProps & {
     item: IEvent;
@@ -20,7 +20,7 @@ export function ItemEvent(props: ItemEventProps) {
 
     const time = useMemo(() => {
         try {
-            return format(new Date(date), 'HH:mm');
+            return format(new Date(date as any), 'HH:mm');
         } catch (err) {}
     }, []);
 

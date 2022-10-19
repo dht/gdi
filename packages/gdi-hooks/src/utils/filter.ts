@@ -1,5 +1,6 @@
 import { isEmpty } from 'lodash';
-import { minutesPassed, sortBy } from 'shared-base';
+import { sortBy } from 'shared-base';
+import { minutesPassed } from '@gdi/language';
 
 export const filterByConfig = (
     config: IFilterConfig,
@@ -134,6 +135,7 @@ type FilterMethod = (
 export const filterMethods: Record<CellType, FilterMethod> = {
     image: filterText,
     person: filterText,
+    icon: filterText,
     number: filterNumber,
     text: filterText,
     tags: filterText,

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import { ArticleEditorBarContainer } from './ArticleEditorBarContainer';
 import { ArticleContextProvider } from '../components/ArticleEditor/ArticleEditor.context';
-import { SimpleDate } from 'shared-base';
+import { SimpleDate } from '@gdi/language';
 
 export const ArticleEditorContainer = () => {
     const dispatch = useDispatch();

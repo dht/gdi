@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A18 = {};
+export const A19 = {};
 
 declare global {
     // =============== Tables ===============
@@ -9,6 +9,7 @@ declare global {
         | 'person'
         | 'number'
         | 'text'
+        | 'icon'
         | 'tags'
         | 'date'
         | 'timeAgo'
@@ -104,6 +105,7 @@ declare global {
     export type ItemType =
         | 'image'
         | 'article'
+        | 'inbox'
         | 'person'
         | 'event'
         | 'page'
@@ -113,6 +115,7 @@ declare global {
         | 'sale'
         | 'link'
         | 'post'
+        | 'project'
         | 'ticket'
         | 'widget';
 
@@ -273,5 +276,11 @@ declare global {
         children?: JSX.Element | JSX.Element[];
     };
 
-    export type FilterPart = 'header' | 'tagging' | 'filter' | 'search';
+    export type FilterPart =
+        | 'header'
+        | 'tools'
+        | 'buttons'
+        | 'tagging'
+        | 'filter'
+        | 'search';
 }

@@ -25,8 +25,8 @@ export function CommandBar(props: CommandBarProps) {
     useKey('Escape', () => toggleShow(false), {}, [toggleShow]);
 
     const onRun = useCallback((command: ICommandBarItem) => {
-        toggleShow(false);
         props.onRun(command);
+        toggleShow(false);
     }, []);
 
     useKeys(items, (command: ICommandBarItem) => onRun(command), [

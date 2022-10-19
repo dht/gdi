@@ -1,3 +1,3 @@
 export default {
-  Edit: "לַעֲרוֹך",
+    key: 'הצלחה',
 };

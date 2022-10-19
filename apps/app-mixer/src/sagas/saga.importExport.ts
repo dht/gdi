@@ -1,6 +1,7 @@
 import { actions, selectors } from '../store';
 import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
-import { downloadJson, dateFilename } from 'shared-base';
+import { downloadJson } from 'shared-base';
+import { dateFilename } from '@gdi/language';
 import { prompt, toast } from '@gdi/web-ui';
 
 function* exportSite(_action: any) {

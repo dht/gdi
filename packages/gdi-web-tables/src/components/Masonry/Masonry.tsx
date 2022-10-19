@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import MasonryItem from '../Galleries/items/ItemImage/ItemImage';
 import { Container, Expander } from './Masonry.style';
-import { IImage, RenderOptions } from '../../types';
+import { IImage } from '../../types';
 import { throttle } from 'lodash';
-import { useMount, useWindowSize } from 'react-use';
+import { useWindowSize } from 'react-use';
 
 const VIRTUALIZED_SCROLL_GUTTER = 600;
 const VIRTUALIZED_ITEMS_COUNT = 100;
@@ -28,7 +28,7 @@ export type MasonryProps = {
     columns?: number;
     gutter?: number;
     fixedRatio?: number;
-    renderOverlay?: (item: IItem, options?: RenderOptions) => JSX.Element;
+    renderOverlay?: (item: IItem) => JSX.Element;
     onClick?: (id: string, item: IItem) => void;
     onDoubleClick?: (id: string) => void;
     onBottomReach?: () => void;
@@ -37,7 +37,7 @@ export type MasonryProps = {
 
 export type MasonryItemProps = {
     item: IItem;
-    renderOverlay: (item: IItem, options?: RenderOptions) => JSX.Element | null;
+    renderOverlay: (item: IItem) => JSX.Element | null;
     onClick: (id: string, item: IItem) => void;
     onDoubleClick: (id: string) => void;
 };
@@ -140,12 +140,12 @@ export function Masonry(props: MasonryProps) {
         props.onDoubleClick(id);
     }
 
-    function renderOverlay(item: IItem, options?: RenderOptions) {
+    function renderOverlay(item: IItem) {
         if (!props.renderOverlay) {
             return null;
         }
 
-        return props.renderOverlay(item, options);
+        return props.renderOverlay(item);
     }
 
     function renderItem(index: number) {

@@ -7,10 +7,12 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.45",
+        "@gdi/types": "^0.0.46",
         "fuse.js": "^6.6.2",
         "lodash": "^4.17.21",
-        "react-use": "^17.4.0"
+        "react-redux": "^8.0.4",
+        "react-use": "^17.4.0",
+        "redux": "^4.2.0"
     },
     "peerDependencies": {
         "react": "^18.2.0"

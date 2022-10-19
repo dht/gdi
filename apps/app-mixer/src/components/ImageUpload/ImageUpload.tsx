@@ -4,7 +4,7 @@ import { formConfig as config } from './meta/ImageUpload.form';
 import { allDetails } from './meta/ImageUpload.details';
 import { Form } from '@gdi/web-ui';
 import { guid8 } from 'shared-base';
-import { translateFormConfig, useTranslation } from '../../config/translation';
+import { useLanguage } from '@gdi/language';
 
 export type ImageUploadProps = {
     allOptions: Json;
@@ -16,11 +16,7 @@ export type ImageUploadProps = {
 
 export function ImageUpload(props: ImageUploadProps) {
     const { allOptions, callbacks } = props;
-    const { t } = useTranslation();
-
-    const formConfig = useMemo(() => {
-        return translateFormConfig(config, t);
-    }, []);
+    const { t } = useLanguage();
 
     const formData = useMemo(
         () => ({
@@ -39,7 +35,7 @@ export function ImageUpload(props: ImageUploadProps) {
             data-testid='ImageUpload-container'
         >
             <Form
-                config={formConfig}
+                config={config}
                 data={formData}
                 allOptions={allOptions}
                 onSave={callbacks.onSave}

@@ -1,7 +1,7 @@
 import { delay, takeEvery, put, call } from 'saga-ts';
 import { actions } from '../store';
 import { prompt, toast } from '@gdi/web-ui';
-import { format } from 'date-fns';
+import { format } from '@gdi/language';
 
 type StatClickAction = {
     type: 'STAT_CLICK';

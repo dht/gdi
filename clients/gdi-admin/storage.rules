@@ -6,22 +6,22 @@ service firebase.storage {
     }
     
     match /uploads/{allPaths=**} {
-      allow read;
+      allow get;
       allow write: if isAdmin();
     }
 
     match /libraryImages/{allPaths=**} {
-      allow read;
+      allow get;
       allow write: if isAdmin();
     }
     
    	match /people/{allPaths=**} {
-      allow read;
+      allow get;
       allow write: if isAdmin();
     }
 
    	match /images/{allPaths=**} {
-      allow read;
+      allow get;
       allow write: if isAdmin();
     }
   }
