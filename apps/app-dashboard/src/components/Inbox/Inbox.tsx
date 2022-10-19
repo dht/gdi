@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from './Inbox.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
+import { PlatformContext } from '@gdi/platformer';
 
 export type InboxProps = {
     data: Json[];
@@ -15,6 +16,7 @@ export type InboxProps = {
 
 export function Inbox(props: InboxProps) {
     const { data, callbacks, allOptions, dispatch } = props;
+    const { crudDefinitions } = useContext(PlatformContext).state;
 
     return (
         <Container className='Inbox-container' data-testid='Inbox-container'>
@@ -24,6 +26,7 @@ export function Inbox(props: InboxProps) {
                 header='Inbox'
                 data={data}
                 callbacks={callbacks}
+                definitions={crudDefinitions}
                 viewModes={['table']}
                 initialViewMode='table'
                 dispatch={dispatch}

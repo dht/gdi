@@ -1,7 +1,0 @@
-id: ProjectsGallery
-header: Projects
-itemType: project
-actions:
-    - id: new
-      iconName: add
-      title: New Project

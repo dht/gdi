@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useMemo } from 'react';
 import { createContext } from 'react';
-import { emptyFilters } from '../definitions/filters/empty';
-import { emptyForm } from '../definitions/forms/empty';
+import { emptyFilters, emptyForm } from '../definitions/empty';
 import { ICrudOptions, ICrudState, WithChildren } from '../types';
 import { SelectionContext } from './Selection.context';
 import { useCrudOperations } from '../hooks/useCrudOperations';

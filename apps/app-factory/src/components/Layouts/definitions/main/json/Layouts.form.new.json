@@ -1,0 +1,27 @@
+{
+    "id": "NewLayout",
+    "header": "New Layout",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "name",
+            "fieldType": "text",
+            "placeholder": "Layout's name",
+            "label": "Name",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

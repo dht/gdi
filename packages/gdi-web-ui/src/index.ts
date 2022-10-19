@@ -110,12 +110,7 @@ export {
     Multi,
     Timeline,
     AnyGallery,
-    ArticleGallery,
-    EventGallery,
     ImageGallery,
-    LayoutGallery,
-    PplGallery,
-    PostGallery,
     WidgetGallery,
 } from '@gdi/web-tables';
 

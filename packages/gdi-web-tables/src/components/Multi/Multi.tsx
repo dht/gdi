@@ -6,7 +6,6 @@ import Timeline from '../Timeline/Timeline';
 import { AnyGallery } from '../Galleries';
 import { Container } from './Multi.style';
 import { CrudContext, CrudContextProvider } from '../../context/Crud.context';
-import { definitions as allDefinitions } from '../../definitions';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
 import { ItemType } from '../../types';
@@ -41,6 +40,7 @@ export type MultiProps = {
 
 export function MultiInner(props: MultiProps) {
     const {
+        definitions,
         allOptions,
         customView: CustomView,
         customView2: CustomView2,
@@ -97,7 +97,8 @@ export function MultiInner(props: MultiProps) {
             case 'gallery':
                 return (
                     <AnyGallery
-                        flavour={itemType}
+                        itemType={itemType}
+                        definitions={definitions}
                         options={{}}
                         items={data as any}
                         callbacks={callbacks}
@@ -148,17 +149,13 @@ export const Multi = (props: MultiProps) => {
     const {
         id,
         data,
-        itemType,
         callbacks,
         allOptions,
         dispatch,
         initialViewMode,
+        definitions,
         allMethods = {},
     } = props;
-
-    const definitions = useMemo(() => {
-        return allDefinitions[itemType];
-    }, [itemType]);
 
     const optionsFilter = useMemo(() => ({}), []);
 

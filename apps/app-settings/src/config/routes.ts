@@ -20,3 +20,5 @@ export const menuItems: IMenuItem[] = [
 export const contextBarItems: IContextBarItem[] = [];
 
 export const commandBarItems: ICommandBarItem[] = [];
+
+export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {};
