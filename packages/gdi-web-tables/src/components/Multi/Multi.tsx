@@ -6,7 +6,7 @@ import Timeline from '../Timeline/Timeline';
 import { AnyGallery } from '../Galleries';
 import { Container } from './Multi.style';
 import { CrudContext, CrudContextProvider } from '../../context/Crud.context';
-import { definitions as allDefinitions, definitions } from '../../definitions';
+import { definitions as allDefinitions } from '../../definitions';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
 import { ItemType } from '../../types';
@@ -74,6 +74,10 @@ export function MultiInner(props: MultiProps) {
                     />
                 );
             case 'spreadsheet':
+                if (!config.sheet) {
+                    return null;
+                }
+
                 return (
                     <Sheet
                         config={config.sheet}

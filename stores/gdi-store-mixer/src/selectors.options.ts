@@ -1,7 +1,7 @@
 import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { minutesThisX } from 'shared-base';
+import { minutesThisX } from '@gdi/language';
 
 const $i = () => {};
 

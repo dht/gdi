@@ -1,7 +1,7 @@
 import { DatePicker, defaultDatePickerStrings } from '@fluentui/react';
 import * as React from 'react';
 import { Container } from './DateInput.style';
-import { format } from 'date-fns';
+import { format } from '@gdi/language';
 
 export type DateProps = {
     firstDayOfWeek?: number;

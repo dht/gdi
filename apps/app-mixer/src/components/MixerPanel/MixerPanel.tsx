@@ -8,14 +8,14 @@ import { PanelLocaleContainer } from '../../containers/panels/PanelLocaleContain
 import { PanelPackagesContainer } from '../../containers/panels/PanelPackagesContainer';
 import { PanelPaletteContainer } from '../../containers/panels/PanelPaletteContainer';
 import { PanelTypographyContainer } from '../../containers/panels/PanelTypographyContainer';
-import { useTranslation } from '../../config/translation';
+import { useLanguage } from '@gdi/language';
 
 export type MixerPanelProps = {
     onHeaderAction: (panelKey: string, actionId: string) => void;
 };
 
 export function MixerPanel(props: MixerPanelProps) {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
 
     function getHeaderActions(key: string) {
         switch (key) {

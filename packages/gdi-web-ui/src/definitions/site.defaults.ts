@@ -4,7 +4,7 @@ export const siteDefaults: Partial<ISite> = {
         isRtl: false,
     },
     palette: {
-        key: 'green',
+        identifier: 'green',
         title: 'Green',
         color1: '#22577a',
         color2: '#38a3a5',

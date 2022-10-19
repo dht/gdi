@@ -21,7 +21,7 @@
     },
     "gdi-store-dashboard": {
         "id": "gdi-store-dashboard",
-        "path": "packages/stores/gdi-store-dashboard",
+        "path": "stores/gdi-store-dashboard",
         "types": "src/types.ts"
     },
     "gdi-store-settings": {
@@ -112,6 +112,11 @@
     "gdi-web-ui": {
         "id": "gdi-web-ui",
         "path": "packages/gdi-web-ui",
+        "types": "src/types.ts"
+    },
+    "gdi-language": {
+        "id": "gdi-language",
+        "path": "packages/gdi-language",
         "types": "src/types.ts"
     },
     "platformer": {

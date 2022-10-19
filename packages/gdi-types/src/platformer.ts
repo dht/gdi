@@ -2,7 +2,7 @@
 
 import { EndpointsConfigOverrides } from 'redux-connected';
 
-export const A22 = {};
+export const A24 = {};
 
 declare global {
     export type IAppConfig = {
@@ -12,6 +12,11 @@ declare global {
     export type Action = {
         type: string;
         id?: string;
+        payload?: Json;
+    };
+
+    export type ICustomEvent = {
+        type: string;
         payload?: Json;
     };
 
@@ -94,6 +99,8 @@ declare global {
     }
 
     export type IFirebaseConfig = {
+        title?: string;
+        description?: string;
         apiKey: string;
         authDomain: string;
         databaseURL: string;
@@ -104,13 +111,15 @@ declare global {
         measurementId: string;
     };
 
-    export type IPlatformContextState = {
+    export type IPlatformState = {
         isReady: boolean;
         noServerMode?: boolean;
         locale: string;
         isRtl: boolean;
         routes: IRoutes;
         initialRoute: string;
+        accountName: string;
+        availableAccounts: string[];
         menuItems: IMenuItems;
         menuGroups: string[];
         instancesByPage: IWidgetInstancesByPageDictionary;
@@ -120,12 +129,8 @@ declare global {
         navigate: any;
         selectors: ISelectorsByApp;
         widgetLibrary: IWidgets;
-        patchContext: PatchContextMethod;
+        i18nKeys: IAppKeys;
     };
-
-    export type PatchContextMethod = (
-        change: Partial<IPlatformContextState>
-    ) => void;
 
     export enum SagaEvents {
         API_ROOT_DONE = 'API_ROOT_DONE',
@@ -150,7 +155,7 @@ declare global {
         version: string;
         initialRoute: string;
         baseURL: string;
-        firebaseConfig: IFirebaseConfig;
+        firebaseConfigs: IFirebaseConfig[];
         initializers: Record<string, InitAppMethod>;
         activeApps: string[];
         menuSections: string[];
@@ -231,20 +236,6 @@ declare global {
         };
     };
 
-    /*************** I18nBuilder ***************/
-    export interface II18nBuilder {
-        withLanguage: (
-            appId: string,
-            language: string,
-            data: Json
-        ) => II18nBuilder;
-        withKeysByLanguage: (
-            appId: string,
-            keysByLanguage: Json
-        ) => II18nBuilder;
-        build: () => Json;
-    }
-
     /*************** IApiConfigBuilder ***************/
     export interface IApiConfigBuilder {
         withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
@@ -263,7 +254,7 @@ declare global {
     export type ICommandBarItem = {
         id: string;
         label: string;
-        action: Action;
+        event: ICustomEvent;
         shortKeys?: IShortKey[];
     };
 

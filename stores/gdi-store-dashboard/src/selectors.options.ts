@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { minutesThisX } from 'shared-base';
+import { minutesThisX } from '@gdi/language';
 
 const $i = () => {};
 

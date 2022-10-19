@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A23 = {};
+export const A25 = {};
 
 declare global {
     export type PageId = string;

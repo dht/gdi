@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Prompt } from '@gdi/web-base-ui';
 import { Multi, Form, Theme } from '@gdi/web-ui';
-
+import { Catalog } from '@gdi/language';
+import styled from 'styled-components';
 export function Dev() {
     const dispatch = (action: any) => {
         console.log('action ->', action);
@@ -10,12 +11,7 @@ export function Dev() {
     return (
         <Theme>
             <>
-                <Multi
-                    id=''
-                    itemType='article'
-                    data={Object.values({})}
-                    dispatch={dispatch}
-                />
+                <Catalog />
                 <Prompt formComponent={Form} />
             </>
         </Theme>

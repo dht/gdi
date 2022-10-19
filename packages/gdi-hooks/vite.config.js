@@ -21,7 +21,6 @@ export default defineConfig({
             ...externals({
                 react: '',
                 'react/jsx-runtime': '',
-                'date-fns/locale': '',
                 ...p.dependencies,
             }),
         },

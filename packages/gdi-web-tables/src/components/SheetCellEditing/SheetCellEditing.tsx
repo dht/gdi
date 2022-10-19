@@ -3,7 +3,7 @@ import { Container } from './SheetCellEditing.style';
 import { useEnter, useEscape } from '@gdi/hooks';
 import { Coords } from '../../types';
 import { useCustomEvent } from '@gdi/hooks';
-import { format } from 'date-fns';
+import { format } from '@gdi/language';
 import { SheetContext } from '../../context/Sheet.context';
 
 export type SheetCellEditingProps = {

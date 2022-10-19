@@ -22,11 +22,13 @@ export const items: Record<ItemType, FC<ItemImageProps>> = {
     image: ItemImage,
     layout: ItemLayout,
     line: ItemLink,
+    // @ts-expect-error
     page: ItemPage,
     person: ItemPerson,
     post: ItemPost,
     sale: ItemSale,
     ticket: ItemTicket,
     template: ItemTemplate,
+    // @ts-expect-error
     widget: ItemWidget,
 };

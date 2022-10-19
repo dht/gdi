@@ -1,4 +1,4 @@
-import { ItemType, ICalendarConfig } from '../../types';
+import { ItemType, ISheetConfig } from '../../types';
 import articles from './json/d.sheet.articles.json';
 import events from './json/d.sheet.events.json';
 import images from './json/d.sheet.images.json';
@@ -15,20 +15,21 @@ import templates from './json/d.sheet.templates.json';
 import tickets from './json/d.sheet.tickets.json';
 import widgets from './json/d.sheet.widgets.json';
 
-export const sheets: Record<ItemType, ICalendarConfig> = {
-    article: articles,
-    event: events,
-    image: images,
-    inbox: inbox,
-    layout: layouts,
-    link: links,
-    page: pages,
-    pageInstance: pageInstances,
-    post: posts,
-    person: ppl,
-    project: projects,
-    sale: sales,
-    template: templates,
-    ticket: tickets,
+export const sheets: Record<ItemType, ISheetConfig> = {
+    // @ts-expect-error
+    article: articles, // @ts-expect-error
+    event: events, // @ts-expect-error
+    image: images, // @ts-expect-error
+    inbox: inbox, // @ts-expect-error
+    layout: layouts, // @ts-expect-error
+    link: links, // @ts-expect-error
+    page: pages, // @ts-expect-error
+    pageInstance: pageInstances, // @ts-expect-error
+    post: posts, // @ts-expect-error
+    person: ppl, // @ts-expect-error
+    project: projects, // @ts-expect-error
+    sale: sales, // @ts-expect-error
+    template: templates, // @ts-expect-error
+    ticket: tickets, // @ts-expect-error
     widget: widgets,
 };

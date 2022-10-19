@@ -22,7 +22,8 @@ import {
 } from './ArticleEditorTop.style';
 import { SocialIcon } from '@gdi/web-base-ui';
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
-import { SimpleDate } from 'shared-base';
+import { SimpleDate } from '@gdi/language';
+
 export type ArticleEditorTopProps = {
     children: JSX.Element;
 };

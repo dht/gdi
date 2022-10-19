@@ -1,3 +1,3 @@
 export default {
-  Edit: "Bewerk",
+  key: "succes",
 };

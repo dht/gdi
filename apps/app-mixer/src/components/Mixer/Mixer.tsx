@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Container } from './Mixer.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
-import { translateItems, useTranslation } from '../../config/translation';
+import { useLanguage } from '@gdi/language';
 
 export type MixerProps = {
     header: string;
@@ -28,10 +28,10 @@ export function Mixer(props: MixerProps) {
         customView2,
     } = props;
 
-    const { t, i18n } = useTranslation();
+    const { t } = useLanguage();
 
     const translatedTools = useMemo(() => {
-        return translateItems(tools, null, t);
+        // return translateItems(tools, null, t);
     }, [tools]);
 
     return (
@@ -45,7 +45,7 @@ export function Mixer(props: MixerProps) {
                 viewModes={['custom', 'custom2', 'table']}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                tools={translatedTools}
+                tools={tools}
                 customView={customView}
                 customView2={customView2}
             />

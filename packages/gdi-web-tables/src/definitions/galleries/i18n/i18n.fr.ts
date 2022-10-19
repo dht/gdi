@@ -1,3 +1,3 @@
 export default {
-  Edit: "Éditer",
+  key: "Succès",
 };

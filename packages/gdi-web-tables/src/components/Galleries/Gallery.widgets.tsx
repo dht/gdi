@@ -1,7 +1,7 @@
 import React from 'react';
 import AllProviders from './AllProviders';
 import AnyGallery from './Gallery.any';
-import FilterBar, { FilterPart } from '../FilterBar/FilterBar';
+import FilterBar from '../FilterBar/FilterBar';
 import { Container } from './styles';
 import { definitions } from '../../definitions';
 import { IGalleryOptions } from '../../types';
