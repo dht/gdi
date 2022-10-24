@@ -101,7 +101,7 @@ export function Prompt(props: PromptProps) {
                             value={value}
                             onKeyDown={onKeyDown}
                             onChange={(ev: any) => {
-                                setValue(ev.target.value || '');
+                                setValue(ev.target.value ?? '');
                             }}
                         />
                         {renderWarning()}

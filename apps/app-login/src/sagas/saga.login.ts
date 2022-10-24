@@ -61,7 +61,7 @@ function* authChange({ user }: any) {
         })
     );
 
-    const to = localStorage.getItem(REQUESTED_PATH_KEY) || '/';
+    const to = localStorage.getItem(REQUESTED_PATH_KEY) ?? '/';
 
     yield* call(navigate, to);
 }

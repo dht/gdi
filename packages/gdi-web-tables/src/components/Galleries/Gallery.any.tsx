@@ -22,6 +22,10 @@ export function AnyGallery(props: AnyGalleryProps) {
         return items[itemType];
     }, []);
 
+    if (!definitions.gallery) {
+        return null;
+    }
+
     return (
         <Container
             className='WidgetGallery-container'

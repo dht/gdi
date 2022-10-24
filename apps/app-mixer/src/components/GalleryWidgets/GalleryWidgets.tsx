@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './GalleryWidgets.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type GalleryWidgetsProps = {
     data: Json[];
@@ -15,6 +16,7 @@ export type GalleryWidgetsProps = {
 
 export function GalleryWidgets(props: GalleryWidgetsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
+    const crudDefinitions = useCrudDefinitions('widget');
 
     return (
         <Container
@@ -27,6 +29,7 @@ export function GalleryWidgets(props: GalleryWidgetsProps) {
                 header='Widgets'
                 data={data}
                 callbacks={callbacks}
+                definitions={crudDefinitions}
                 viewModes={['gallery']}
                 dispatch={dispatch}
                 allOptions={allOptions}

@@ -61,7 +61,7 @@ export function ColorPicker(props: ColorPickerProps) {
     }
 
     const style = {
-        backgroundColor: color || 'transparent',
+        backgroundColor: color ?? 'transparent',
     };
 
     return (

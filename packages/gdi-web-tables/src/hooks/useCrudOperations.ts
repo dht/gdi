@@ -113,6 +113,40 @@ export function useCrudOperations(
                 const tags = [...item.tags].filter((t) => t !== tag);
                 dispatch(actions.patch(id, { tags }));
             },
+            addDataTag: (id: string, params: Json) => {
+                const { tags } = params;
+                const item = data.find((item: Json) => item.id === id);
+
+                if (!item) {
+                    return;
+                }
+
+                const dataTags = [...item.dataTags, ...tags];
+                dispatch(actions.patch(id, { dataTags }));
+            },
+            removeDataTag: (id: string, params: Json) => {
+                const { tags } = params;
+                const item = data.find((item: Json) => item.id === id);
+
+                if (!item) {
+                    return;
+                }
+
+                const dataTags = [...item.dataTags].filter(
+                    (t) => !tags.includes(t)
+                );
+                dispatch(actions.patch(id, { dataTags }));
+            },
+            replaceDataTags: (id: string, params: Json) => {
+                const { tags } = params;
+                const item = data.find((item: Json) => item.id === id);
+
+                if (!item) {
+                    return;
+                }
+
+                dispatch(actions.patch(id, { dataTags: tags }));
+            },
             create: (params?: Json) => {
                 dispatch(
                     actions.add({
@@ -120,6 +154,13 @@ export function useCrudOperations(
                         ...params,
                     })
                 );
+            },
+            edit: (params?: Json) => {
+                if (!params) {
+                    return;
+                }
+
+                dispatch(actions.patch(params.id, params));
             },
             change: (id: string, change: Json) => {
                 dispatch(actions.patch(id, change));

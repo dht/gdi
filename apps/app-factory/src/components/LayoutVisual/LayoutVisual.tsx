@@ -31,7 +31,7 @@ export function LayoutVisual(props: LayoutVisualProps) {
         isLoading,
         resolutionId,
     } = props;
-    const { id = '', name = '' } = layout || {};
+    const { id = '', name = '' } = layout ?? {};
 
     return (
         <Container

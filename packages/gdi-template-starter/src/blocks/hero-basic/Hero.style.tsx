@@ -3,7 +3,7 @@ import { HeroColors } from './Hero';
 import { darken, invert } from 'polished';
 
 export const Container = styled.div<{ colors: HeroColors }>`
-    background-color: ${(props) => props.colors.background || '#334'};
+    background-color: ${(props) => props.colors.background ?? '#334'};
     height: 90vh;
     display: flex;
     background-size: cover;
@@ -65,7 +65,7 @@ export const Details = styled.div`
 `;
 
 export const Slogan = styled.div<{ colors: HeroColors }>`
-    color: ${(props) => props.colors.text || '#ff46d1'};
+    color: ${(props) => props.colors.text ?? '#ff46d1'};
     font-size: 34px;
     font-weight: bold;
 
@@ -124,7 +124,7 @@ export const Actions = styled.div`
 `;
 
 export const CTA = styled.a<{ colors: HeroColors }>`
-    background-color: ${(props) => props.colors.text || '#ff46d1'};
+    background-color: ${(props) => props.colors.text ?? '#ff46d1'};
     font-weight: bold;
     color: #334;
     text-decoration: none;
@@ -136,7 +136,7 @@ export const CTA = styled.a<{ colors: HeroColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#ff46d1')};
+            darken(0.1, props.colors.text ?? '#ff46d1')};
     }
 
     &:active {
@@ -152,7 +152,7 @@ export const CTA = styled.a<{ colors: HeroColors }>`
 `;
 
 export const SecondButton = styled.a<{ colors: HeroColors }>`
-    background-color: ${(props) => invert(props.colors.text || '#ff46d1')};
+    background-color: ${(props) => invert(props.colors.text ?? '#ff46d1')};
     font-weight: bold;
     color: #eee;
     text-decoration: none;
@@ -165,7 +165,7 @@ export const SecondButton = styled.a<{ colors: HeroColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            invert(darken(0.1, props.colors.text || '#ff46d1'))};
+            invert(darken(0.1, props.colors.text ?? '#ff46d1'))};
     }
 
     &:active {

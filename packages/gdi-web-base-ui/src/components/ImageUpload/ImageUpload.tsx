@@ -96,7 +96,7 @@ export function ImageUpload(props: ImageUploadProps) {
     function renderInner() {
         if (imageUrl) {
             const imageStyle = {
-                backgroundImage: `url(${imageUrlRaw || imageUrl})`,
+                backgroundImage: `url(${imageUrlRaw ?? imageUrl})`,
             };
 
             return (

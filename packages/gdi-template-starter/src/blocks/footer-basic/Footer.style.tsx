@@ -3,7 +3,7 @@ import { FooterColors } from './Footer';
 
 export const Container = styled.div<{ colors: FooterColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || 'white'};
+    background-color: ${(props) => props.colors.background ?? 'white'};
     padding: 20px 0;
     color: #353;
     display: flex;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './Pages.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type PagesProps = {
     data: Json[];
@@ -15,6 +16,7 @@ export type PagesProps = {
 
 export function Pages(props: PagesProps) {
     const { data, callbacks, allOptions, dispatch } = props;
+    const crudDefinitions = useCrudDefinitions('page');
 
     return (
         <Container className='Pages-container' data-testid='Pages-container'>
@@ -24,6 +26,7 @@ export function Pages(props: PagesProps) {
                 header='Pages'
                 data={data}
                 callbacks={callbacks}
+                definitions={crudDefinitions}
                 viewModes={['gallery', 'table', 'spreadsheet']}
                 dispatch={dispatch}
                 allOptions={allOptions}

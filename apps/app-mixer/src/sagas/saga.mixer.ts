@@ -99,7 +99,7 @@ function* addElementWithWidget(action: ActionWidgetSelect) {
 
     const { tags } = widget;
 
-    const placeholderType = getWidgetTypeFromTags(tags) || '';
+    const placeholderType = getWidgetTypeFromTags(tags) ?? '';
 
     yield* put({
         type: 'ELEMENT_ADD',

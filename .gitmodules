@@ -40,3 +40,6 @@
 [submodule "submodules/gdi-datasets"]
 	path = submodules/gdi-datasets
 	url = git@github.com:dht/gdi-datasets.git
+[submodule "submodules/gdi-dnd"]
+	path = submodules/gdi-dnd
+	url = git@github.com:dht/gdi-dnd.git

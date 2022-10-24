@@ -1,0 +1,42 @@
+{
+    "id": "ImageEdit",
+    "header": "Edit Image",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "title",
+            "fieldType": "text",
+            "placeholder": "Title",
+            "label": "Title",
+            "groupId": "basic"
+        },
+        {
+            "id": "description",
+            "fieldType": "paragraph",
+            "placeholder": "Description",
+            "label": "Description",
+            "groupId": "basic"
+        },
+        {
+            "id": "tags",
+            "fieldType": "tags",
+            "placeholder": "Tags",
+            "label": "Tags",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    },
+    "uploadDestinationFolder": "libraryImages"
+}

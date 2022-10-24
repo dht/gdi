@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Container } from './Inbox.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
-import { PlatformContext } from '@gdi/platformer';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type InboxProps = {
     data: Json[];
@@ -16,7 +16,7 @@ export type InboxProps = {
 
 export function Inbox(props: InboxProps) {
     const { data, callbacks, allOptions, dispatch } = props;
-    const { crudDefinitions } = useContext(PlatformContext).state;
+    const crudDefinitions = useCrudDefinitions('inbox');
 
     return (
         <Container className='Inbox-container' data-testid='Inbox-container'>

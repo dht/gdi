@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './GalleryImages.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type GalleryImagesProps = {
     data: Json[];
@@ -15,6 +16,7 @@ export type GalleryImagesProps = {
 
 export function GalleryImages(props: GalleryImagesProps) {
     const { data, callbacks, allOptions, dispatch } = props;
+    const crudDefinitions = useCrudDefinitions('image');
 
     return (
         <Container
@@ -26,6 +28,7 @@ export function GalleryImages(props: GalleryImagesProps) {
                 itemType='image'
                 header='Images'
                 data={data}
+                definitions={crudDefinitions}
                 callbacks={callbacks}
                 viewModes={['gallery']}
                 dispatch={dispatch}

@@ -8,7 +8,7 @@ export type PlaceholderProps = {
 export function Placeholder(props: PlaceholderProps) {
     const { element } = props;
     const { widget } = element;
-    const { widgetType = '' } = widget || {};
+    const { widgetType = '' } = widget ?? {};
 
     return (
         <Container

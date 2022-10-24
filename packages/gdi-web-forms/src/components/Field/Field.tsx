@@ -153,7 +153,7 @@ export function FieldDropdown(props: FieldProps) {
     const { field, control, allOptions } = props;
     const { label, placeholder, optionSelector } = field;
 
-    const options = allOptions[optionSelector || ''];
+    const options = allOptions[optionSelector ?? ''];
 
     const { field: fieldMethods } = useController({
         name: field.id,
@@ -173,7 +173,7 @@ export function FieldDropdown(props: FieldProps) {
 export function FieldNumber(props: FieldProps) {
     const { field, control } = props;
     const { params } = field;
-    const { min, max, unit } = params || {};
+    const { min, max, unit } = params ?? {};
 
     const { field: fieldMethods } = useController({
         name: field.id,
@@ -195,7 +195,7 @@ export function FieldTags(props: FieldProps) {
     const { field, control, allOptions } = props;
     const { placeholder, optionSelector } = field;
 
-    const options = allOptions[optionSelector || ''] || [];
+    const options = allOptions[optionSelector ?? ''] ?? [];
 
     const { field: fieldMethods } = useController({
         name: field.id,
@@ -214,7 +214,7 @@ export function FieldTags(props: FieldProps) {
     }, []);
 
     const parsedValue = useMemo(() => {
-        return (fieldMethods.value || []).map((value: string) => ({
+        return (fieldMethods.value ?? []).map((value: string) => ({
             value,
             label: value,
         }));
@@ -234,7 +234,7 @@ export function FieldTags(props: FieldProps) {
 export function FieldSlider(props: FieldProps) {
     const { field, control } = props;
     const { label, placeholder, params } = field;
-    const { min, max, step } = params || {};
+    const { min, max, step } = params ?? {};
 
     const { field: fieldMethods } = useController({
         name: field.id,
@@ -383,7 +383,7 @@ export function FieldBarSelect(props: FieldProps) {
     const { label, placeholder, optionSelector, params = {} } = field;
     const { allowMultiple } = params;
 
-    const options = allOptions[optionSelector || ''];
+    const options = allOptions[optionSelector ?? ''];
 
     const { field: fieldMethods, formState } = useController({
         name: field.id,
@@ -442,7 +442,7 @@ export function FieldDetails(props: FieldProps) {
     const { field, control, allOptions, allDetails } = props;
     const { params } = field;
 
-    const { detailsId } = params || {};
+    const { detailsId } = params ?? {};
 
     const data = useFormData();
 

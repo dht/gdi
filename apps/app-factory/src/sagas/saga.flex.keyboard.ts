@@ -113,7 +113,7 @@ function* navigateOut(info: IItemInfo) {
 function* navigateIn(info: IItemInfo) {
     const { item, firstChild } = info;
 
-    if (!item || !firstChild) {
+    if (!item ?? !firstChild) {
         return;
     }
 

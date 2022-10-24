@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: ImageAndTextColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
+    background-color: ${(props) => props.colors.background ?? '#1a7870'};
     padding: 50px;
     display: flex;
     background-size: cover;
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
 export const Details = styled.div``;
 
 export const Slogan = styled.div<{ colors: ImageAndTextColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
+    color: ${(props) => props.colors.text ?? '#aaef69'};
     font-size: 42px;
     font-weight: bold;
 
@@ -80,7 +80,7 @@ export const Actions = styled.div`
 `;
 
 export const CTA = styled.a<{ colors: ImageAndTextColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
+    background-color: ${(props) => props.colors.text ?? '#aaef69'};
     font-weight: bold;
     color: #333;
     text-decoration: none;
@@ -92,7 +92,7 @@ export const CTA = styled.a<{ colors: ImageAndTextColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
+            darken(0.1, props.colors.text ?? '#aaef69')};
     }
 
     &:active {

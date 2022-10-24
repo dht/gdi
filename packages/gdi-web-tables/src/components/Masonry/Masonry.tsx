@@ -249,7 +249,7 @@ export const positionImages = (allItems: IImage[], options: Options) => {
                 top,
                 left,
                 width,
-                height: height || 0,
+                height: height ?? 0,
             },
             top,
             bottom: top + height,

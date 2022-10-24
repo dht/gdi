@@ -14,6 +14,6 @@ export const Container = styled.div<{ width?: number }>`
 `;
 
 export const Column = styled.div<{ flex?: number }>`
-    flex: ${(props) => props.flex || 1};
+    flex: ${(props) => props.flex ?? 1};
     padding: 0 10px 0;
 `;

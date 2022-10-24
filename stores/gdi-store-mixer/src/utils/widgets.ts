@@ -16,9 +16,9 @@ export const getWidgetTypeFromElement = (element?: IWidgetInstance) => {
         return placeholderType;
     }
 
-    const { tags } = widget || {};
+    const { tags } = widget ?? {};
 
-    return getWidgetTypeFromTags(tags) || '';
+    return getWidgetTypeFromTags(tags) ?? '';
 };
 
 export const getSchemaPropertiesByType = (
@@ -41,7 +41,7 @@ export const getSchemaPropertiesByType = (
 
     const { schema } = params;
 
-    const firstSampleData = Object.values(sampleData).pop() || {};
+    const firstSampleData = Object.values(sampleData).pop() ?? {};
 
     function checkGroup(group: IWidgetSchemaGroup, prefix: string) {
         Object.keys(group).forEach((key) => {

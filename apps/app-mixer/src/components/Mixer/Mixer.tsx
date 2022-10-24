@@ -3,6 +3,7 @@ import { Container } from './Mixer.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useLanguage } from '@gdi/language';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type MixerProps = {
     header: string;
@@ -27,6 +28,7 @@ export function Mixer(props: MixerProps) {
         customView,
         customView2,
     } = props;
+    const crudDefinitions = useCrudDefinitions('article');
 
     const { t } = useLanguage();
 
@@ -42,6 +44,7 @@ export function Mixer(props: MixerProps) {
                 header={header}
                 data={data}
                 callbacks={callbacks}
+                definitions={crudDefinitions}
                 viewModes={['custom', 'custom2', 'table']}
                 dispatch={dispatch}
                 allOptions={allOptions}

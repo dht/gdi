@@ -56,7 +56,7 @@ const scanTemplateFiles =
 
         const { outputDir, templatesPath, template } = params;
         const templatePath =
-            params.templatePath || `${templatesPath}/${template}`;
+            params.templatePath ?? `${templatesPath}/${template}`;
 
         command.local.params.templatePath = templatePath;
         command.local.filesToCreate = globby

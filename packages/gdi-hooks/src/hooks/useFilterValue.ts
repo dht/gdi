@@ -34,9 +34,9 @@ export function useFilterValue(config: IFilterConfig): UseFilterValueReturn {
                 remove?: boolean
             ) => {
                 const fieldConfig = config.fields.find(i => i.id === filterId); // prettier-ignore
-                const { allowMultiple = false } = fieldConfig || {};
+                const { allowMultiple = false } = fieldConfig ?? {};
 
-                const currentValue = idsPerFilter[filterId] || [];
+                const currentValue = idsPerFilter[filterId] ?? [];
                 let nextValue = [...currentValue];
 
                 if (remove) {

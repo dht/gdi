@@ -26,7 +26,7 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
         minutesSpentEditing = 0,
         status = 'unknown',
         lastSaveDate = '',
-    } = meta || {};
+    } = meta ?? {};
 
     const context = useContext(ArticleContext);
     const { wordCount } = context;
@@ -38,11 +38,11 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
             return '-';
         }
 
-        return new SimpleDate(lastSaveDate).timeAgo() || '-';
+        return new SimpleDate(lastSaveDate).timeAgo() ?? '-';
     }, [lastSaveDate]);
 
     const minutesSpentEditingText = useMemo(() => {
-        return minutesToDuration(minutesSpentEditing) || '-';
+        return minutesToDuration(minutesSpentEditing) ?? '-';
     }, [minutesSpentEditing]);
 
     function onClick() {

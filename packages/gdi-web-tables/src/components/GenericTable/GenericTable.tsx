@@ -29,7 +29,7 @@ export function GenericTable(props: GenericTableProps) {
     const { width = 120, height = 100 } = useBoundingClientRect(ref);
 
     const itemsPerRows = useMemo(() => {
-        return (width || 120) / itemWidth;
+        return (width ?? 120) / itemWidth;
     }, [width]);
 
     const rows = useMemo(() => {
@@ -74,7 +74,7 @@ export function GenericTable(props: GenericTableProps) {
         return (
             <FixedSizeList
                 className='table'
-                height={autoHeight ? height : props.height || 0}
+                height={autoHeight ? height : props.height ?? 0}
                 itemCount={itemData.length}
                 itemSize={itemHeight}
                 itemData={itemData}

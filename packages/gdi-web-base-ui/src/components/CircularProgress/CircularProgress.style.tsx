@@ -6,7 +6,7 @@ export const Container = styled.div<{ color?: string }>`
     position: relative;
 
     .spinner {
-        background-color: ${(props) => props.color || '#0cb1c422'};
+        background-color: ${(props) => props.color ?? '#0cb1c422'};
     }
 `;
 

@@ -13,7 +13,7 @@ const getCommentLines = (file) => {
 
     const lines = content
         .split('\n')
-        .filter((line) => line.match(/^\/\//) || line.match(/^#/));
+        .filter((line) => line.match(/^\/\//) ?? line.match(/^#/));
 
     return lines.splice(0, 2).join('\n');
 };
@@ -21,7 +21,7 @@ const getCommentLines = (file) => {
 const getShortcuts = (options) => {
     const { onlyFirstAlias = false } = options;
 
-    const commands = getCommands() || {};
+    const commands = getCommands() ?? {};
     return Object.values(commands).reduce((output, command) => {
         let { shortcuts } = command;
 
@@ -54,7 +54,7 @@ const parseShortcutsFromFile = (file) => {
             .filter((i) => i);
     }
 
-    return output || [];
+    return output ?? [];
 };
 
 const getDescription = (file) => {
@@ -68,7 +68,7 @@ const getDescription = (file) => {
         output = match[1];
     }
 
-    return output || '';
+    return output ?? '';
 };
 
 const rebuild = () => {

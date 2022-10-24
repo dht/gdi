@@ -44,7 +44,7 @@ export const getItemInfo = (items: IFlexEntity[], id: string) => {
 
 export const nextOrder = (items: IFlexEntity[], parentId: string) => {
     const maxValue =
-        max(items.filter((i) => i.parentId === parentId).map((i) => i.order)) ||
+        max(items.filter((i) => i.parentId === parentId).map((i) => i.order)) ??
         0;
     return maxValue + 1;
 };

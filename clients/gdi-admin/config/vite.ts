@@ -28,6 +28,7 @@ export const alias = {
     '@gdi/engine': `${cwd}/packages/gdi-engine/src`,
     'redux-connected': `${cwd}/submodules/redux-connected/src`,
     'shared-base': `${cwd}/submodules/shared-base/src`,
+    '@gdi/dnd': `${cwd}/submodules/gdi-dnd/src`,
     'redux-connected-devtools': `${cwd}/submodules/redux-connected-devtools/src`,
     'redux-store-generator': `${cwd}/submodules/redux-store-generator/src`,
     igrid: `${cwd}/submodules/igrid/src`,

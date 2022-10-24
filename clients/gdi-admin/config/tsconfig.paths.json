@@ -30,6 +30,7 @@
             "@gdi/engine": ["packages/gdi-engine"],
 
             "redux-store-generator": ["submodules/redux-store-generator"],
+            "@gdi/dnd": ["submodules/gdi-dnd"],
             "redux-connected": ["submodules/redux-connected"],
             "redux-connected-devtools": ["submodules/redux-connected-devtools"],
             "shared-base": ["submodules/shared-base"],

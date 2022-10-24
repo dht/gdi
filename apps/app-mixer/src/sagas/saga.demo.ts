@@ -66,11 +66,11 @@ export const parseDocument = (value: Json) => {
     if (prop === 'doubleValue' || prop === 'integerValue') {
         newVal = Number(newVal[prop]);
     } else if (prop === 'arrayValue') {
-        newVal = ((newVal[prop] && newVal[prop].values) || []).map((v: Json) =>
+        newVal = ((newVal[prop] && newVal[prop].values) ?? []).map((v: Json) =>
             parseDocument(v)
         );
     } else if (prop === 'mapValue') {
-        newVal = parseDocument((newVal[prop] && newVal[prop].fields) || {});
+        newVal = parseDocument((newVal[prop] && newVal[prop].fields) ?? {});
     } else if (prop === 'geoPointValue') {
         newVal = { latitude: 0, longitude: 0, ...newVal[prop] };
     } else if (prop) {

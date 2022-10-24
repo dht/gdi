@@ -57,6 +57,7 @@ declare global {
         timeline?: ITimelineConfig;
         sheet?: ISheetConfig;
         overlay?: IOverlayConfig;
+        bucket?: IBucketsConfig;
         itemStructure?: string;
     };
 
@@ -78,6 +79,7 @@ declare global {
         | 'spreadsheet'
         | 'timeline'
         | 'calendar'
+        | 'buckets'
         | 'custom'
         | 'custom2';
 
@@ -95,6 +97,7 @@ declare global {
         imageThumbUrl: string;
         ratio: number;
         tags: string[];
+        dataTags: string[];
     };
 
     export type IImages = Record<string, IImage>;
@@ -276,7 +279,6 @@ declare global {
     export type IOverlayFields = Record<string, IOverlayField>;
 
     // ================== General ==================
-
     export type WithChildren<T> = T & {
         children?: JSX.Element | JSX.Element[];
     };
@@ -297,4 +299,24 @@ declare global {
     };
 
     export type IPieMenuConfigPerItemType = Record<ItemType, IPieMenuConfig>;
+
+    // ================== Buckets ==================
+    export type IBucketDefinition = {
+        id: string;
+        title: string;
+        dataTags: string[];
+    };
+
+    export type IBucketsPermutation = {
+        id: string;
+        title: string;
+        buckets: IBucketDefinition[];
+    };
+
+    export type IBucketsConfig = {
+        id: string;
+        header: string;
+        titleFieldId: string;
+        permutations: IBucketsPermutation[];
+    };
 }

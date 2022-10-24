@@ -58,7 +58,7 @@ const run = (command, args = [], cwd, options = {}) => {
 
         if (debug) {
             const cmd = chalk.magenta(command + ' ' + args.join(' '));
-            console.log(`${cmd} in path "${chalk.cyan(cwd || '')}"`);
+            console.log(`${cmd} in path "${chalk.cyan(cwd ?? '')}"`);
         }
 
         const stdio = stdOutMode ? 'inherit' : null;
@@ -93,7 +93,7 @@ const exec = (run, cwd, log) => {
         let data = '';
 
         const cmd = chalk.magenta(run);
-        log(`${cmd} in path "${chalk.cyan(cwd || '')}"\n`);
+        log(`${cmd} in path "${chalk.cyan(cwd ?? '')}"\n`);
 
         const args = run.split(' ');
         const command = args.shift();

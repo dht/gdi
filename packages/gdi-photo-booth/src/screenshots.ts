@@ -82,7 +82,7 @@ export const screenShotsForComponent = async (
     const { templateName, widgetName } = analyzeWidgetId(widget.id);
     const widgetKey = `com.usegdi.templates.${templateName}.${widgetName}`;
 
-    for (let flavour of Object.keys(widget.sampleData || {})) {
+    for (let flavour of Object.keys(widget.sampleData ?? {})) {
         const className = `${widgetKey}-${flavour}`.replace(/\./g, '_');
         const selector = `.${className} > div`;
 

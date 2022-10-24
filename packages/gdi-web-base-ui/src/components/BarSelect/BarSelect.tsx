@@ -21,7 +21,7 @@ export function BarSelect(props: BarSelectProps) {
     const { options, value, allowMultiple } = props;
 
     function onChangeMultiple(key: string) {
-        let newValues = [...(value || [])];
+        let newValues = [...(value ?? [])];
         const alreadyOn = newValues.includes(key);
 
         if (alreadyOn) {

@@ -25,8 +25,8 @@ export const addCompilerOptionsPaths = (tsconfigPath: string, change: Json) => {
 
     const json = readTsConfig(tsconfigPath);
 
-    json.compilerOptions = json.compilerOptions || {};
-    json.compilerOptions.paths = json.compilerOptions.paths || {};
+    json.compilerOptions = json.compilerOptions ?? {};
+    json.compilerOptions.paths = json.compilerOptions.paths ?? {};
 
     json.compilerOptions.paths = {
         ...json.compilerOptions.paths,

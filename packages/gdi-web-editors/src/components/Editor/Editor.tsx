@@ -84,7 +84,7 @@ type Prompt = (message: string) => Promise<{
 }>;
 
 const defaultPrompt = async (message: string) => {
-    const value = prompt(message) || '';
+    const value = prompt(message) ?? '';
     const didCancel = value === null;
 
     return {

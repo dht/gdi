@@ -12,8 +12,8 @@ export const generateThumbnail = functions.storage
     .object()
     .onFinalize(async (object) => {
         const fileBucket = object.bucket; // The Storage bucket that contains the file.
-        const filePath = object.name || ''; // File path in the bucket.
-        const contentType = object.contentType || ''; // File content type.
+        const filePath = object.name ?? ''; // File path in the bucket.
+        const contentType = object.contentType ?? ''; // File content type.
 
         if (!filePath.startsWith('uploads/')) {
             return functions.logger.log(`"${filePath}" is not in "/uploads".`);

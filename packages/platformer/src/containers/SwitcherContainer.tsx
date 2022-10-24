@@ -19,8 +19,8 @@ export function SwitcherContainer(_props: SwitcherContainerProps) {
             );
         })
         .map((routeKey) => {
-            const instances = instancesByPage[routeKey] || {};
-            const firstWidget = Object.values(instances)[0] || {};
+            const instances = instancesByPage[routeKey] ?? {};
+            const firstWidget = Object.values(instances)[0] ?? {};
 
             const { widgetId = '' } = firstWidget;
 
@@ -28,7 +28,7 @@ export function SwitcherContainer(_props: SwitcherContainerProps) {
                 return;
             }
 
-            const widget = widgetLibrary[widgetId] || {};
+            const widget = widgetLibrary[widgetId] ?? {};
             const { name = '', description = '' } = widget;
             const appName = widgetId.split('.')[0];
 

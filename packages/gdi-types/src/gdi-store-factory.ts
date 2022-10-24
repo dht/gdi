@@ -84,6 +84,7 @@ declare global {
         content: string;
         categoryBreadcrumbs: string;
         tags: string[];
+        dataTags: string[];
         minutesSpentEditing: number;
         wordCount?: number;
     };
