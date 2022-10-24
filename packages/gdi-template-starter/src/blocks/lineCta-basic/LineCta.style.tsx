@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: LineCtaColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#fff'};
+    background-color: ${(props) => props.colors.background ?? '#fff'};
     height: 400px;
     display: flex;
     --grid: rgba(0, 0, 0, 0.15);
@@ -56,7 +56,7 @@ export const Actions = styled.div`
 `;
 
 export const Cta = styled.a<{ colors: LineCtaColors }>`
-    background-color: ${(props) => props.colors.text || '#111'};
+    background-color: ${(props) => props.colors.text ?? '#111'};
     font-weight: bold;
     color: #eee;
     text-decoration: none;
@@ -68,7 +68,7 @@ export const Cta = styled.a<{ colors: LineCtaColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
+            darken(0.1, props.colors.text ?? '#aaef69')};
     }
 
     &:active {

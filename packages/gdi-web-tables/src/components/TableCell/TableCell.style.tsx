@@ -17,7 +17,7 @@ export const Name = styled.div``;
 export const Number = styled.div``;
 
 export const Text = styled.div<{ opacity?: number }>`
-    opacity: ${(props) => props.opacity || 1};
+    opacity: ${(props) => props.opacity ?? 1};
     line-height: 24px;
 `;
 
@@ -55,7 +55,7 @@ export const Description = styled.div<{ opacity?: number }>`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    opacity: ${(props) => props.opacity || 1};
+    opacity: ${(props) => props.opacity ?? 1};
     line-height: 24px;
 `;
 
@@ -68,5 +68,5 @@ export const Id = styled.div`
 
 export const IconWrapper = styled.div<{ color?: string }>`
     font-size: 24px;
-    color: ${(props) => props.color || '#fff'};
+    color: ${(props) => props.color ?? '#fff'};
 `;

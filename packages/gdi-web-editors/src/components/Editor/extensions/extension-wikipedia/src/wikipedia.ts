@@ -122,7 +122,7 @@ export const Wikipedia = Node.create<WikipediaOptions>({
             url: HTMLAttributes.src,
             controls: this.options.controls,
             nocookie: this.options.nocookie,
-            startAt: HTMLAttributes.start || 0,
+            startAt: HTMLAttributes.start ?? 0,
         });
 
         HTMLAttributes.src = embedUrl;

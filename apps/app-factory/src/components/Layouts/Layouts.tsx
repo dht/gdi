@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './Layouts.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type LayoutsProps = ICrudDefinitions & {
     data: Json[];
@@ -15,6 +16,7 @@ export type LayoutsProps = ICrudDefinitions & {
 
 export function Layouts(props: LayoutsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
+    const crudDefinitions = useCrudDefinitions('layout');
 
     return (
         <Container
@@ -27,6 +29,7 @@ export function Layouts(props: LayoutsProps) {
                 header='Layouts'
                 data={data}
                 callbacks={callbacks}
+                definitions={crudDefinitions}
                 viewModes={['gallery', 'table', 'spreadsheet']}
                 dispatch={dispatch}
                 allOptions={allOptions}

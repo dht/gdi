@@ -61,7 +61,7 @@ export function FilterAuto(props: FilterAutoProps) {
             <Button title='go' onClick={() => props.onClick('Alex Miller')} />
             <Dropdown
                 options={optionsForDropdown}
-                onChange={(optionId?: string) => props.onClick(optionId || '')}
+                onChange={(optionId?: string) => props.onClick(optionId ?? '')}
             />
         </Container>
     );

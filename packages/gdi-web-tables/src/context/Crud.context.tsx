@@ -94,6 +94,9 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                     case 'edit':
                         crudCallbacks.editForm(selectedIds);
                         break;
+                    case 'editWithData':
+                        crudCallbacks.edit(data);
+                        break;
                     case 'delete':
                         crudCallbacks.deleteForm(selectedIds);
                         break;
@@ -136,6 +139,24 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                             return;
                         }
                         crudCallbacks.removeTag(id, data);
+                        break;
+                    case 'addDataTags':
+                        if (!data) {
+                            return;
+                        }
+                        crudCallbacks.addDataTag(id, data);
+                        break;
+                    case 'removeDataTags':
+                        if (!data) {
+                            return;
+                        }
+                        crudCallbacks.removeDataTag(id, data);
+                        break;
+                    case 'replaceDataTags':
+                        if (!data) {
+                            return;
+                        }
+                        crudCallbacks.replaceDataTags(id, data);
                         break;
                 }
             },

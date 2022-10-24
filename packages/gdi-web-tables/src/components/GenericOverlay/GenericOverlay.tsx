@@ -22,7 +22,7 @@ export type GenericOverlayProps = {
 export function GenericOverlay(props: GenericOverlayProps) {
     const { item, isSelected, options, config } = props;
     const { fields = [], paddingBottom } = config;
-    const { hideOverlay } = options || {};
+    const { hideOverlay } = options ?? {};
 
     const className = classnames(
         'GenericOverlay-container',

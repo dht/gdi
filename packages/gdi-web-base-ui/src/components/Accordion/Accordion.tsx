@@ -44,7 +44,7 @@ export function Accordion(props: AccordionProps) {
             if (solo) {
                 const keys = children.map((item) => item.key);
                 const change = keys.reduce(
-                    (output, key) => ({ ...output, [key || '']: false }),
+                    (output, key) => ({ ...output, [key ?? '']: false }),
                     {}
                 );
                 patchState(change);
@@ -95,7 +95,7 @@ export function Accordion(props: AccordionProps) {
         return (
             <React.Fragment key={panel.key}>
                 <Header onClick={(ev) => togglePanel(panel.key, ev)}>
-                    <Chevron open={state[panel.key || '']}>
+                    <Chevron open={state[panel.key ?? '']}>
                         <Icon iconName='ChevronRightMed' />
                     </Chevron>
 

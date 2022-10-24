@@ -19,7 +19,7 @@ export const MixerContainer = () => {
         dispatch({ type: 'SELECT_PAGE_INSTANCE_ON_NAVIGATION' });
     });
 
-    const { title = '' } = page || {};
+    const { title = '' } = page ?? {};
 
     const callbacks = useMemo(
         () => ({

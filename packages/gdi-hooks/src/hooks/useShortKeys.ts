@@ -14,7 +14,7 @@ export function useShortKeys(
         );
 
         if (matchingShortKey && callback) {
-            callback(matchingShortKey.id || '');
+            callback(matchingShortKey.id ?? '');
         }
     }, depArray);
 
@@ -28,7 +28,7 @@ export function useShortKey(
 ) {
     const onKey = useCallback((event: IShortKey) => {
         if (shortKey && isMatching(event, shortKey) && callback) {
-            callback(shortKey.id || '');
+            callback(shortKey.id ?? '');
         }
     }, depArray);
 

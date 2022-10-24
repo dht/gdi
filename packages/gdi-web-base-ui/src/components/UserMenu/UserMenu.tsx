@@ -78,8 +78,8 @@ export function UserMenu(props: UserMenuProps) {
         >
             <Avatar
                 size={40}
-                name={displayName || ''}
-                imageUrl={photoURL || ''}
+                name={displayName ?? ''}
+                imageUrl={photoURL ?? ''}
                 onClick={() => toggleMenu()}
             />
 
@@ -90,8 +90,8 @@ export function UserMenu(props: UserMenuProps) {
                         <UserImage>
                             <Avatar
                                 size={80}
-                                name={displayName || ''}
-                                imageUrl={photoURL || ''}
+                                name={displayName ?? ''}
+                                imageUrl={photoURL ?? ''}
                             />
                         </UserImage>
                         <Name>{displayName}</Name>

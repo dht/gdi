@@ -63,6 +63,7 @@ declare global {
         isSuccessful?: boolean;
         isLost?: boolean;
         tags: string[];
+        dataTags: string[];
     };
 
     export type IJournalType = 'contact' | 'comment';

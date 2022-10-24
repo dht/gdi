@@ -75,6 +75,7 @@ const icons: Record<IViewMode, string> = {
     spreadsheet: 'grid_on',
     timeline: 'view_timeline',
     calendar: 'calendar_month',
+    buckets: 'clear_all',
     custom: 'view_in_ar',
     custom2: 'dynamic_feed',
 };
@@ -87,6 +88,7 @@ const defaultModes: IViewMode[] = [
     'spreadsheet',
     'timeline',
     'calendar',
+    'buckets',
     'custom',
     'custom2',
 ];

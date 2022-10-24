@@ -41,7 +41,7 @@ export const $imageTags = createSelector(
 export const $imageFields = createSelector(
     base.$imageFieldsForCurrentElement,
     (imageFields): IOption[] => {
-        return Object.keys(imageFields || {}).map((id) => {
+        return Object.keys(imageFields ?? {}).map((id) => {
             const text = id.split('.').pop() || id;
 
             return {

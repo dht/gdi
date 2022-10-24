@@ -39,6 +39,7 @@ declare global {
         company?: string;
         jobTitle?: string;
         tags: string[];
+        dataTags: string[];
         tier?: number;
         gender?: string;
         category: string;

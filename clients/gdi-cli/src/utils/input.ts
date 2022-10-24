@@ -130,7 +130,7 @@ export const askQuestions = async (questions: Questions) => {
         const output: any = {
             name,
             type,
-            message: message || name + ':',
+            message: message ?? name + ':',
             required: !optional,
             validate: validate(question),
         };

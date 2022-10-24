@@ -100,6 +100,7 @@ export {
 } from '@gdi/web-forms';
 
 export {
+    Buckets,
     List,
     SortableList,
     Table,

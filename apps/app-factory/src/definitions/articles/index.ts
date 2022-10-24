@@ -1,4 +1,5 @@
 import { ICrudDefinitions, ItemType } from '@gdi/web-tables';
+import bucket from './json/d.bucket.articles.json';
 import calendar from './json/d.calendar.articles.json';
 import filters from './json/d.filter.articles.json';
 import formNewDefault from './json/d.form.articles.default.json';
@@ -23,5 +24,6 @@ export const definitions: ICrudDefinitions = {
     sheet,
     timeline,
     formNewDefault,
+    bucket,
     itemStructure,
 };

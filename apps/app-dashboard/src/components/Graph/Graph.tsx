@@ -19,7 +19,7 @@ export function Graph(props: GraphProps) {
     }, [journey]);
 
     function renderDataPoint(index: number) {
-        const dataPoint = journeyWithPercent[index] || {};
+        const dataPoint = journeyWithPercent[index] ?? {};
         const { percent = 1, value = '' } = dataPoint;
 
         const style = {

@@ -12,7 +12,7 @@ export function* rootSaga() {
 
     const sagasIds = config.autoStartAll
         ? Object.keys(config.sagas)
-        : config.autoStart || [];
+        : config.autoStart ?? [];
 
     for (let sagaId of sagasIds) {
         yield put(actions.startSaga(sagaId));

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from './Articles.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type ArticlesProps = {
     data: Json[];
@@ -15,6 +16,7 @@ export type ArticlesProps = {
 
 export function Articles(props: ArticlesProps) {
     const { data, callbacks, allOptions, dispatch } = props;
+    const crudDefinitions = useCrudDefinitions('article');
 
     return (
         <Container
@@ -26,6 +28,7 @@ export function Articles(props: ArticlesProps) {
                 itemType='article'
                 data={data}
                 callbacks={callbacks}
+                definitions={crudDefinitions}
                 viewModes={['gallery', 'table', 'spreadsheet']}
                 dispatch={dispatch}
                 allOptions={allOptions}

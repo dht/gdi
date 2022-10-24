@@ -67,7 +67,7 @@ export class RouterBuilder implements IRouterBuilder {
     ) {
         Object.keys(instances).forEach((pageId) => {
             const scopedPageId = this.getScopedPageId(appId, pageId);
-            this.instancesByPage[scopedPageId] = this.instancesByPage[scopedPageId] || {}; // prettier-ignore
+            this.instancesByPage[scopedPageId] = this.instancesByPage[scopedPageId] ?? {}; // prettier-ignore
 
             instances[pageId].forEach((instance: any) => {
                 let { widgetId } = instance;

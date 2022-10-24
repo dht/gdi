@@ -36,7 +36,7 @@ export function Timeline(_props: TimelineProps) {
         const textPosition = poly.text();
 
         return (
-            <>
+            <React.Fragment key={point.id}>
                 <Polygon
                     key={point.id}
                     className='point'
@@ -46,7 +46,7 @@ export function Timeline(_props: TimelineProps) {
                 <Text x={textPosition.x} y={textPosition.y}>
                     {point.title}
                 </Text>
-            </>
+            </React.Fragment>
         );
     }
 
@@ -62,23 +62,23 @@ export function Timeline(_props: TimelineProps) {
             data-testid='Timeline-container'
             ref={ref}
         >
-            <Svg width={w} height={h}>
+            <Svg width={Math.max(w, 0)} height={Math.max(h, 0)}>
                 <defs>
                     <linearGradient id='positive' x2='0' y2='1'>
-                        <stop offset='0' stop-color='#00aa55' />
-                        <stop offset='1' stop-color='#00cc33' />
+                        <stop offset='0' stopColor='#00aa55' />
+                        <stop offset='1' stopColor='#00cc33' />
                     </linearGradient>
                     <linearGradient id='positiveHover' x2='0' y2='1'>
-                        <stop offset='0' stop-color='#00aa55' />
-                        <stop offset='1' stop-color='gold' />
+                        <stop offset='0' stopColor='#00aa55' />
+                        <stop offset='1' stopColor='gold' />
                     </linearGradient>
                     <linearGradient id='negative' x2='0' y2='1'>
-                        <stop offset='0' stop-color='#752a2a' />
-                        <stop offset='1' stop-color='#a52a2a' />
+                        <stop offset='0' stopColor='#752a2a' />
+                        <stop offset='1' stopColor='#a52a2a' />
                     </linearGradient>
                     <linearGradient id='negativeHover' x2='0' y2='1'>
-                        <stop offset='0' stop-color='pink' />
-                        <stop offset='1' stop-color='#a52a2a' />
+                        <stop offset='0' stopColor='pink' />
+                        <stop offset='1' stopColor='#a52a2a' />
                     </linearGradient>
                 </defs>
                 {renderPoints()}

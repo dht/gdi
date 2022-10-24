@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: FeatureColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1e3a5a'};
+    background-color: ${(props) => props.colors.background ?? '#1e3a5a'};
     height: 800px;
     display: flex;
     position: relative;
@@ -15,7 +15,7 @@ export const Container = styled.div<{ colors: FeatureColors }>`
 
     &.even {
         background-color: ${(props) =>
-            darken(0.03, props.colors.background || '#1e3a5a')};
+            darken(0.03, props.colors.background ?? '#1e3a5a')};
 
         .wrapper {
             flex-direction: row-reverse;
@@ -66,7 +66,7 @@ export const Details = styled.div`
 `;
 
 export const Slogan = styled.div<{ colors: FeatureColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
+    color: ${(props) => props.colors.text ?? '#aaef69'};
     font-size: 24px;
     font-weight: bold;
 
@@ -113,7 +113,7 @@ export const Actions = styled.div`
 `;
 
 export const CTA = styled.a<{ colors: FeatureColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
+    background-color: ${(props) => props.colors.text ?? '#aaef69'};
     font-weight: bold;
     color: #333;
     text-decoration: none;
@@ -125,7 +125,7 @@ export const CTA = styled.a<{ colors: FeatureColors }>`
 
     &:hover {
         background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
+            darken(0.1, props.colors.text ?? '#aaef69')};
     }
 
     &:active {

@@ -1,3 +1,4 @@
+export { Buckets } from './components/Buckets/Buckets';
 export { List } from './components/List/List';
 export { SortableList } from './components/SortableList/SortableList';
 export { GenericTable } from './components/GenericTable/GenericTable';

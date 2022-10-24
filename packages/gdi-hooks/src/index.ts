@@ -14,6 +14,8 @@ export { useFilterValue } from './hooks/useFilterValue';
 export { useFunctionKeys } from './hooks/useFunctionKeys';
 export { useKey } from './hooks/useKey';
 export { useKeyHold } from './hooks/useKeyHold';
+export { useMouseMove } from './hooks/useMouseMove';
+export { useMouseUp } from './hooks/useMouseUp';
 export { useNudge } from './hooks/useNudge';
 export { useNumpad } from './hooks/useNumpad';
 export { usePubSub, notifyPubSub } from './hooks/usePubSub';

@@ -79,6 +79,7 @@ export type IArticle = {
     content: string;
     categoryBreadcrumbs: string;
     tags: string[];
+    dataTags: string[];
     minutesSpentEditing: number;
     wordCount?: number;
 };

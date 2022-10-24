@@ -80,7 +80,7 @@ export const AppField = styled.div<{ color?: string }>`
     font-size: 18px;
     vertical-align: middle;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    color: ${(props) => props.color || '#ccd'};
+    color: ${(props) => props.color ?? '#ccd'};
 `;
 
 export const Color = styled.div<{ value: string }>`

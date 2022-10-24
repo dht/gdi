@@ -12,7 +12,7 @@ export const $layouts = createSelector(
 
         return Object.values(layouts).reduce((output, layout) => {
             const { id } = layout;
-            const items = (layout.items || []).filter(
+            const items = (layout.items ?? []).filter(
                 (i) => i.resolution === resolutionId
             );
 
@@ -78,7 +78,7 @@ export const $resolutions = createSelector(
     raw.$breakpoints,
     $layoutWithAllItems,
     (breakpoints, layout) => {
-        const { items = [] } = layout || {};
+        const { items = [] } = layout ?? {};
         return Object.values(breakpoints)
             .sort(sortBy('order'))
             .map((breakpoint: IBreakpoint) => {

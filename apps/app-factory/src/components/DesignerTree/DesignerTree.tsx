@@ -37,7 +37,7 @@ export function DesignerTree(props: DesignerTreeProps) {
     const { layout, flexEntityId, resolutionId, callbacks, resolutions } =
         props;
     const [hoveredResolution, setHoveredResolution] = useState<IBreakpoint>();
-    const { items = [] } = layout || {};
+    const { items = [] } = layout ?? {};
     const ref = useRef(null);
 
     function renderItem(item: IFlexEntity) {
@@ -79,7 +79,7 @@ export function DesignerTree(props: DesignerTreeProps) {
             (res: IBreakPoint) => res.id === resolutionId
         );
 
-        const resolution = hoveredResolution || selectedResolution;
+        const resolution = hoveredResolution ?? selectedResolution;
 
         if (!resolution) {
             return null;

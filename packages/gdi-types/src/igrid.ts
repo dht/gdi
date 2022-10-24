@@ -24,6 +24,7 @@ declare global {
         component?: (props?: any) => JSX.Element;
         defaultDimension?: IDimension;
         tags?: string[];
+        dataTags?: string[];
         widgetType?: string;
         params?: IWidgetParams;
         sampleData?: ISampleDataPerFlavour;

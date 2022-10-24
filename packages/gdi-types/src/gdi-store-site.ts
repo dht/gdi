@@ -75,6 +75,7 @@ declare global {
         dealerId?: string;
         isProtected?: boolean;
         tags: string[];
+        dataTags: string[];
         enabled?: boolean;
         templateId?: TemplateId;
     };

@@ -26,7 +26,7 @@ export const writeDefinitionsFiles = async (
         ].join('.');
 
         const dimensions = get(definitions, xPathDefinitions);
-        const { width, height, ratio } = dimensions || {};
+        const { width, height, ratio } = dimensions ?? {};
 
         const mediaLinkClean = mediaLink.replace(/\?.+$/g, '');
 

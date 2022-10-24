@@ -76,7 +76,7 @@ export const filterNumber = (
 
     const options = value
         .map((v) => {
-            return (field.options || []).find((o: IOption) => v === o.id);
+            return (field.options ?? []).find((o: IOption) => v === o.id);
         })
         .filter((i) => i) as IOption[];
 
@@ -89,7 +89,7 @@ export const filterNumber = (
             const minOk = typeof min === 'undefined' || iValue >= min;
             const maxOk = typeof max === 'undefined' || iValue < max;
 
-            return (minOk && maxOk) || valueOk;
+            return (minOk && maxOk) ?? valueOk;
         });
     });
 };
@@ -107,7 +107,7 @@ export const filterDate = (
 
     const options = value
         .map((v) => {
-            return (field.options || []).find((o: IOption) => v === o.id);
+            return (field.options ?? []).find((o: IOption) => v === o.id);
         })
         .filter((i) => i) as IOption[];
 

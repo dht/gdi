@@ -33,7 +33,7 @@ export type ArticleExtra = {
 export function Article(props: ArticleProps) {
     const { extra } = props;
     const { article, totalWidth, index } = extra;
-    const { title, imageUrl, authorName } = article || {};
+    const { title, imageUrl, authorName } = article ?? {};
     const [ref, { width }] = useMeasure<HTMLDivElement>();
 
     const percent = 100 * (width / totalWidth);

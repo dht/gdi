@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: InstallationColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#ffffff'};
+    background-color: ${(props) => props.colors.background ?? '#ffffff'};
     height: 600px;
     display: flex;
     --grid: rgba(0, 0, 0, 0.15);

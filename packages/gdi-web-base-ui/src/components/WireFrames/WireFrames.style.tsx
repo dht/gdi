@@ -29,11 +29,11 @@ export const TableRow = styled.div`
 export const Th = styled.div<{ flex?: number }>`
     margin: 2px;
     background-color: rgba(255, 255, 255, 0.05);
-    flex: ${(props) => props?.flex || 1};
+    flex: ${(props) => props?.flex ?? 1};
 `;
 
 export const Td = styled.div<{ flex?: number }>`
     margin: 2px;
     background-color: rgba(255, 255, 255, 0.03);
-    flex: ${(props) => props?.flex || 1};
+    flex: ${(props) => props?.flex ?? 1};
 `;

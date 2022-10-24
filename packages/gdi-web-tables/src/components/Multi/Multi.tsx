@@ -15,6 +15,7 @@ import {
     FilterContext,
     FilterContextProvider,
 } from '../../context/Filter.context';
+import Buckets from '../Buckets/Buckets';
 
 export type MultiProps = {
     id: string;
@@ -62,6 +63,11 @@ export function MultiInner(props: MultiProps) {
 
     const isCustomView = state.viewMode === 'custom' || state.viewMode === 'custom2'; // prettier-ignore
 
+    function onChangeViewMode(viewMode: string) {
+        patchState({ viewMode: viewMode as any });
+        document.location.hash = viewMode;
+    }
+
     function renderInner() {
         switch (state.viewMode) {
             case 'table':
@@ -108,6 +114,41 @@ export function MultiInner(props: MultiProps) {
                 return <FullCalendar />;
             case 'timeline':
                 return <Timeline />;
+            case 'buckets':
+                return (
+                    <Buckets
+                        config={config.bucket}
+                        data={data}
+                        onMove={(
+                            itemId: string,
+                            toListId: string,
+                            order: number
+                        ) => {
+                            console.log(
+                                'itemId, toListId, order ->',
+                                itemId,
+                                toListId,
+                                order
+                            );
+                        }}
+                        onEdit={(itemId: string, value: string) => {
+                            console.log('itemId, value ->', itemId, value);
+                        }}
+                        onNew={(
+                            listId: string,
+                            value: string,
+                            order: number
+                        ) => {
+                            console.log(listId, value, order);
+                        }}
+                        onDelete={(itemId: string) => {
+                            console.log('itemId ->', itemId);
+                        }}
+                        onEditList={(listId: string, value: string) => {
+                            console.log('listId, value ->', listId, value);
+                        }}
+                    />
+                );
             case 'custom':
                 if (!CustomView) {
                     return null;
@@ -126,7 +167,7 @@ export function MultiInner(props: MultiProps) {
     return (
         <Container className='Multi-container' data-testid='Multi-container'>
             <FilterBar
-                header={header || config.table.header || ''}
+                header={(header || config.table.header) ?? ''}
                 tools={tools}
                 onAction={callbacks.onAction}
                 hideParts={hideParts}
@@ -137,9 +178,7 @@ export function MultiInner(props: MultiProps) {
                 value={state.viewMode}
                 customViewExists={customViewExists}
                 customView2Exists={customView2Exists}
-                onChange={(option) =>
-                    patchState({ viewMode: option.id as any })
-                }
+                onChange={(option: SwitchOption) => onChangeViewMode(option.id)}
             />
         </Container>
     );

@@ -77,7 +77,7 @@ export function PieMenu(props: PieMenuProps) {
 
         let index = 0;
 
-        const capitals = text.match(/[A-Z]/g) || [];
+        const capitals = text.match(/[A-Z]/g) ?? [];
 
         text.split(/[A-Z]/g).forEach((p) => {
             spans.push(<span key={'r' + index}>{p}</span>);
@@ -94,7 +94,7 @@ export function PieMenu(props: PieMenuProps) {
 
     function renderItem(item: IOption, index: number) {
         const { text, iconName, shortKey } = item;
-        const { key = '' } = shortKey || {};
+        const { key = '' } = shortKey ?? {};
 
         let angle = 360 - ((200 + (360 / count) * index) % 360);
 

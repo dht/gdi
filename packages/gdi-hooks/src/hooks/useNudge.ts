@@ -50,7 +50,7 @@ const nudgeCoords = (
     by: number[],
     lastCoords: Coords | null
 ) => {
-    let { rowIndex = 0, columnIndex = 0 } = coords || {};
+    let { rowIndex = 0, columnIndex = 0 } = coords ?? {};
 
     return {
         rowIndex: limitRange(rowIndex + by[0], 0, lastCoords!.rowIndex),
