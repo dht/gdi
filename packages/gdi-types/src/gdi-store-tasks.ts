@@ -7,6 +7,7 @@ export const A14 = {};
 declare global {
     export type ITasksStore = StoreStructure & {
         appStateTasks: ITasksState;
+        currentIdsTasks: ICurrentIdsTasks;
         projects: IProjects;
         tickets: ITickets;
         sessions: ISessions;
@@ -17,12 +18,17 @@ declare global {
     export type ITasksState = {
         stateKey: string;
         ticketToWrite?: string;
-        selectedProjectKey: string;
         isReloadingData: boolean;
         lastNfcValue?: string;
         lastNfcTimestamp?: number;
         lastSyncTimestamp?: number;
+    };
+
+    export type ICurrentIdsTasks = {
         sessionId?: string;
+        taskId?: string;
+        projectId?: string;
+        projectKey?: string;
     };
 
     export type IProject = {

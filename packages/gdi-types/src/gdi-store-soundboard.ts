@@ -5,6 +5,7 @@ export const A12 = {};
 declare global {
     export type ISoundboardStore = {
         appStateSoundboard: ISoundboardState;
+        currentIdsSoundboard: ICurrentIdsSoundboard;
         appStateScheduler: ISchedulerState;
         expectedManas: IManas;
         actualManas: IManas;
@@ -14,7 +15,6 @@ declare global {
 
     export type ISoundboardState = {
         stateKey: string;
-        selectedProjectKey: string;
         hoverDate?: string;
         hoverWeek?: string;
         periodMode: IPeriodMode;
@@ -28,6 +28,11 @@ declare global {
         dailyHours: number;
         weeklyHours: number;
         quarterlyHours: number;
+    };
+
+    export type ICurrentIdsSoundboard = {
+        projectId?: string;
+        projectKey?: string;
     };
 
     export type ISchedulerState = {

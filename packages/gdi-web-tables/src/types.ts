@@ -58,6 +58,7 @@ export type ICrudDefinitions = {
 
 export type ICrudOptions = {
     doubleClickActionId: string; // ItemActionType;
+    newDataExtra?: Json;
     allOptions?: Json;
     allDetails?: AllDetails;
     allMethods?: AllMethods;

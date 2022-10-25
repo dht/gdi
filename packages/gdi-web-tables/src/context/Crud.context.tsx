@@ -161,7 +161,7 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                 }
             },
         }),
-        [state, selectedIds]
+        [state, selectedIds, options]
     );
 
     return (

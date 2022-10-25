@@ -13,8 +13,6 @@ function* duplicatePageInstance() {
     const instances = yield* select(selectors.base.$instancesForPageInstance);
     const instancesProps = yield* select(selectors.base.$instancesPropsForCurrentPage); // prettier-ignore
 
-    console.log('instances ->', instances);
-
     if (!pageInstance) {
         return;
     }
@@ -45,8 +43,6 @@ function* duplicatePageInstance() {
     }
 
     // duplicate props
-    console.log('instancesProps ->', instancesProps);
-
     yield put(
         actions.currentIds.patch({
             pageInstanceId,
@@ -59,8 +55,6 @@ function* promotePageInstance() {
     const nextInstanceVersion = yield* select(selectors.base.$nextInstanceVersion); // prettier-ignore
     const instances = yield* select(selectors.base.$instancesForPageInstance);
     const instancesProps = yield* select(selectors.base.$instancesPropsForCurrentPage); // prettier-ignore
-
-    console.log('instances ->', instances);
 
     if (!pageInstance) {
         return;

@@ -1,13 +1,16 @@
 import React, { useContext, useMemo, useState } from 'react';
 import BucketTabs from '../BucketTabs/BucketTabs';
 import { Container, Content } from './Buckets.style';
-import { CrudContext } from '../../context/Crud.context';
 import { getNewDataTagsByList, Trello, usePermutations } from '@gdi/dnd';
 import { IBucketsConfig } from '../../types';
 
 export type BucketsProps = {
     config: IBucketsConfig;
     data: Json[];
+    callbacks: {
+        onAction: (actionId: string, data?: Json) => void;
+        onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
+    };
 };
 
 export function Buckets(props: BucketsProps) {
@@ -27,8 +30,6 @@ export function Buckets(props: BucketsProps) {
         permutationId,
         data
     );
-
-    const crud = useContext(CrudContext);
 
     const callbacks = useMemo(
         () => ({
@@ -57,14 +58,14 @@ export function Buckets(props: BucketsProps) {
                     [scopedPermutationId]: order,
                 };
 
-                crud.callbacks.onAction('editWithData', {
+                props.callbacks.onAction('editWithData', {
                     id: itemId,
                     dataTags,
                     order: orderPerBucket,
                 });
             },
             onEdit: (itemId: string, value: string) => {
-                crud.callbacks.onAction('editWithData', {
+                props.callbacks.onAction('editWithData', {
                     id: itemId,
                     [titleFieldId]: value,
                 });
@@ -81,14 +82,14 @@ export function Buckets(props: BucketsProps) {
                     listId
                 );
 
-                crud.callbacks.onAction('newWithData', {
+                props.callbacks.onAction('newWithData', {
                     [titleFieldId]: value,
                     dataTags,
                     order: orderPerPermutation,
                 });
             },
             onDelete: (itemId: string) => {
-                return crud.callbacks.onItemAction(itemId, 'delete');
+                return props.callbacks.onItemAction(itemId, 'delete');
             },
             onEditList: (listId: string, newValue: string) => {},
         }),
