@@ -37,6 +37,7 @@ export type MultiProps = {
     initialViewMode?: IViewMode;
     hideParts?: FilterPart[];
     allMethods?: any;
+    newDataExtra?: Json;
 };
 
 export function MultiInner(props: MultiProps) {
@@ -119,34 +120,7 @@ export function MultiInner(props: MultiProps) {
                     <Buckets
                         config={config.bucket}
                         data={data}
-                        onMove={(
-                            itemId: string,
-                            toListId: string,
-                            order: number
-                        ) => {
-                            console.log(
-                                'itemId, toListId, order ->',
-                                itemId,
-                                toListId,
-                                order
-                            );
-                        }}
-                        onEdit={(itemId: string, value: string) => {
-                            console.log('itemId, value ->', itemId, value);
-                        }}
-                        onNew={(
-                            listId: string,
-                            value: string,
-                            order: number
-                        ) => {
-                            console.log(listId, value, order);
-                        }}
-                        onDelete={(itemId: string) => {
-                            console.log('itemId ->', itemId);
-                        }}
-                        onEditList={(listId: string, value: string) => {
-                            console.log('listId, value ->', listId, value);
-                        }}
+                        callbacks={callbacks}
                     />
                 );
             case 'custom':
@@ -194,6 +168,7 @@ export const Multi = (props: MultiProps) => {
         initialViewMode,
         definitions,
         allMethods = {},
+        newDataExtra = {},
     } = props;
 
     const optionsFilter = useMemo(() => ({}), []);
@@ -204,6 +179,7 @@ export const Multi = (props: MultiProps) => {
             allOptions,
             allDetails: {},
             allMethods,
+            newDataExtra,
         }),
         [allMethods]
     );

@@ -11,6 +11,7 @@ export function useCrudOperations(
     options: ICrudOptions
 ) {
     const { nodeName, formNew, formNewDefault, formEdit } = config;
+
     const contextDispatch = useContext(DispatchContext);
 
     const dispatch = contextDispatch.callbacks.dispatch;
@@ -22,12 +23,11 @@ export function useCrudOperations(
     const callbacks = useMemo(
         () => ({
             createForm: async () => {
-                console.log('create ->', true);
                 const result = await prompt.form({
                     title: 'New item',
                     form: {
                         config: formNew,
-                        data: { ...formNewDefault },
+                        data: { ...formNewDefault, ...options.newDataExtra },
                         allOptions: options.allOptions,
                         allDetails: options.allDetails,
                         allMethods: options.allMethods,
@@ -61,8 +61,6 @@ export function useCrudOperations(
                 }
 
                 const { value } = result;
-
-                console.log('value ->', value);
 
                 dispatch(actions.patch(editId, value as Json));
             },
@@ -152,6 +150,8 @@ export function useCrudOperations(
                     actions.add({
                         id: guid4(),
                         ...params,
+                        ...formNewDefault,
+                        ...options.newDataExtra,
                     })
                 );
             },
@@ -166,7 +166,7 @@ export function useCrudOperations(
                 dispatch(actions.patch(id, change));
             },
         }),
-        [data]
+        [data, options]
     );
 
     return callbacks;

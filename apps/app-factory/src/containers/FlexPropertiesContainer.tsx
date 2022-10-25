@@ -22,13 +22,6 @@ export const FlexPropertiesContainer = (props: FlexPropertiesContainer) => {
                 }
             },
             onStyleSave: (styleData: Json) => {
-                console.log(
-                    'onStyleSave layoutId, flexEntityId ->',
-                    layoutId,
-                    flexEntityId,
-                    styleData
-                );
-
                 dispatch(
                     actions.layouts.patchItem(layoutId, flexEntityId, {
                         style: styleData,
@@ -36,13 +29,6 @@ export const FlexPropertiesContainer = (props: FlexPropertiesContainer) => {
                 );
             },
             onPropsSave: (propsData: Json) => {
-                console.log(
-                    'onPropsSave layoutId, flexEntityId ->',
-                    layoutId,
-                    flexEntityId,
-                    propsData
-                );
-
                 dispatch(
                     actions.layouts.patchItem(layoutId, flexEntityId, {
                         props: propsData,
