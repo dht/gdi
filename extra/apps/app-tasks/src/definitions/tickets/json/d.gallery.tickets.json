@@ -1,0 +1,12 @@
+{
+    "id": "TicketGallery",
+    "header": "Tickets",
+    "itemType": "ticket",
+    "actions": [
+        {
+            "id": "new",
+            "iconName": "add",
+            "title": "New Ticket"
+        }
+    ]
+}

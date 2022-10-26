@@ -7,20 +7,28 @@ const $n = (): null => null;
 const $o = (): void => {};
 
 export const $activeApps = createSelector($i, (state: Json): IActiveApp[] => {
-    console.log('state ->', state);
+    return Object.values(apps)
+        .map((app) => {
+            const { id, nodes, isRequired } = app;
 
-    return Object.keys(state)
-        .map((nodeKey) => {
-            const nodeCount = Object.keys(state[nodeKey]).length;
-            const totalSize = calcSize(state[nodeKey]);
+            let nodeCount = 0;
+            let totalSize = 0;
+
+            nodes.forEach((nodeKey) => {
+                const data = state[nodeKey] || {};
+                nodeCount += Object.keys(data).length;
+                totalSize += calcSize(data);
+            });
+
             const description = '';
 
             return {
-                id: nodeKey,
-                title: nodeKey,
+                id,
+                title: id,
                 nodeCount,
                 totalSize,
                 description,
+                isRequired,
             } as IActiveApp;
         })
         .sort(sortBy('title'))
@@ -57,4 +65,98 @@ export const $activeAppsStats = createSelector(
 
 const calcSize = (json: Json) => {
     return JSON.stringify(json).length;
+};
+
+type App = {
+    id: string;
+    nodes: string[];
+    isRequired?: boolean;
+};
+
+const apps: Record<string, App> = {
+    dashboard: {
+        id: 'dashboard',
+        nodes: ['dashboard'],
+        isRequired: true,
+    },
+    factory: {
+        id: 'factory',
+        nodes: ['factory'],
+    },
+    login: {
+        id: 'login',
+        nodes: ['auth'],
+        isRequired: true,
+    },
+    mixer: {
+        id: 'mixer',
+        nodes: ['mixer'],
+        isRequired: true,
+    },
+    settings: {
+        id: 'settings',
+        nodes: ['settings'],
+        isRequired: true,
+    },
+    biblo: {
+        id: 'biblo',
+        nodes: ['biblo'],
+    },
+    carts: {
+        id: 'carts',
+        nodes: ['carts'],
+    },
+    devtools: {
+        id: 'devtools',
+        nodes: ['devtools'],
+    },
+    events: {
+        id: 'events',
+        nodes: ['events'],
+    },
+    knowledge: {
+        id: 'knowledge',
+        nodes: ['knowledge'],
+    },
+    money: {
+        id: 'money',
+        nodes: ['money'],
+    },
+
+    orders: {
+        id: 'orders',
+        nodes: ['orders'],
+    },
+    ppl: {
+        id: 'ppl',
+        nodes: ['ppl'],
+    },
+    products: {
+        id: 'products',
+        nodes: ['products'],
+    },
+    sales: {
+        id: 'sales',
+        nodes: ['sales'],
+    },
+    soundboard: {
+        id: 'soundboard',
+        nodes: ['soundboard'],
+    },
+    studio: {
+        id: 'studio',
+        nodes: ['studio'],
+    },
+    tasks: {
+        id: 'tasks',
+        nodes: ['tasks'],
+    },
+    things: {
+        id: 'things',
+        nodes: ['things'],
+    },
+    voice: {
+        id: 'voice',
+        nodes: ['voice'],
+    },
 };

@@ -94,6 +94,10 @@ export function SideMenu(props: SideMenuProps) {
             .filter((item) => item.groupId === groupId)
             .sort(sortBy('order'));
 
+        if (items.length === 0) {
+            return null;
+        }
+
         return (
             <Group key={groupId} className={className}>
                 <GroupTitle

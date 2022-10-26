@@ -1,0 +1,7 @@
+id: CouponGallery
+header: Coupons
+itemType: coupon
+actions:
+    - id: new
+      iconName: add
+      title: New Coupon

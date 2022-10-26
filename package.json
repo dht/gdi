@@ -13,18 +13,13 @@
     "workspaces": [
         "apps/*",
         "clients/*",
-        "clients/*/scripts",
         "packages/*",
-        "packages/*/scripts",
         "servers/*",
         "stores/*",
-        "stores/*/scripts",
         "templates/*",
-        "templates/*/scripts",
         "submodules/*",
-        "submodules/gdi-extra/stores/*",
-        "submodules/gdi-extra/stores/*/scripts",
-        "submodules/gdi-extra/apps/*"
+        "submodules/extra/stores/*",
+        "submodules/extra/apps/*"
     ],
     "devDependencies": {
         "@types/jest": "^27.5.1",

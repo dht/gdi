@@ -1,0 +1,30 @@
+id: TicketNew
+header: New Ticket
+layout:
+    flavour: singleColumn
+    width: 300
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: key
+      fieldType: text
+      placeholder: Key
+      label: Key
+      groupId: basic
+    - id: summary
+      fieldType: text
+      placeholder: Summary
+      label: Summary
+      groupId: basic
+    - id: timeEstimate
+      fieldType: number
+      placeholder: Enter an estimate in minutes
+      label: Estimate
+    - id: projectKey
+      fieldType: text
+      placeholder: Project key
+      label: ProjectKey
+submit:
+    title: Save & close

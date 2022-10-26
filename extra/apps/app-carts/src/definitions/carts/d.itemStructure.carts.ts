@@ -1,0 +1,21 @@
+export const itemStructure = `export type ICart = {
+    id: string;
+    title: string;
+    startDate: string;
+    cartType: ICartType;
+    status: ICartStatus;
+    statusDate: string;
+    endDate?: string;
+    description: string;
+    personId: string;
+    nextVisitDate: string;
+    items: ICartJournal[];
+    worth?: number;
+    percent?: number;
+    isArchived?: boolean;
+    isSuccessful?: boolean;
+    isLost?: boolean;
+    tags: string[];
+    dataTags: string[];
+};
+`;

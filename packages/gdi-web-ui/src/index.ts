@@ -67,6 +67,7 @@ export {
     Theme,
     Toast,
     toast,
+    Toggle,
     Toolbar,
     UserMenu,
     WireFrames,

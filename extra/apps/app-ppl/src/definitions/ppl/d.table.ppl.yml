@@ -1,0 +1,47 @@
+id: PplTable
+header: People
+fields:
+    - id: id
+      title: Id
+      cellType: id
+    - id: firstName
+      label: First name
+      cellType: text
+      placeholder: First name
+      flex: 1
+    - id: lastName
+      cellType: text
+      label: Last name
+      placeholder: Last name
+      flex: 1
+    - id: shortDescription
+      cellType: text
+      label: Short description
+      placeholder: One liner
+      flex: 1
+    - id: dateOfBirth
+      cellType: date
+      label: Date of birth
+      placeholder: Date of birth
+      flex: 1
+    - id: _modifiedDate
+      title: Modified
+      cellType: timeAgo
+      flex: 1
+rowActions:
+    - id: edit
+      iconName: Edit
+      title: Edit
+    - id: delete
+      iconName: Delete
+      title: Delete
+tableActions:
+    - id: back
+      iconName: arrow_upward
+      title: Go back
+    - id: mode
+      iconName: view_week
+      title: Change mode
+    - id: new
+      iconName: add
+      title: New item

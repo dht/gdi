@@ -106,16 +106,12 @@ const appsAndStoresToLinesVite = (apps: string[], stores: string[]) => {
 
     apps.forEach((fullAppName) => {
         const key = `@gdi/${fullAppName}`;
-        output[
-            key
-        ] = `\`\${cwd}/submodules/gdi-extra/apps/${fullAppName}/src\``;
+        output[key] = `\`\${cwd}/extra/apps/${fullAppName}/src\``;
     });
 
     stores.forEach((fullStoreName) => {
         const key = `@gdi/${fullStoreName}`.replace(/gdi-/, '');
-        output[
-            key
-        ] = `\`\${cwd}/submodules/gdi-extra/stores/${fullStoreName}/src\``;
+        output[key] = `\`\${cwd}/extra/stores/${fullStoreName}/src\``;
     });
 
     return output;
@@ -126,12 +122,12 @@ const appsAndStoresToLinesTsConfig = (apps: string[], stores: string[]) => {
 
     apps.forEach((fullAppName) => {
         const key = `@gdi/${fullAppName}`;
-        output[key] = [`submodules/gdi-extra/apps/${fullAppName}`];
+        output[key] = [`extra/apps/${fullAppName}`];
     });
 
     stores.forEach((fullStoreName) => {
         const key = `@gdi/${fullStoreName}`.replace(/gdi-/, '');
-        output[key] = [`submodules/gdi-extra/stores/${fullStoreName}`];
+        output[key] = [`extra/stores/${fullStoreName}`];
     });
 
     return output;
@@ -150,7 +146,7 @@ const scanForApps = () => {
     });
 
     output.extra = globby.sync('*', {
-        cwd: `${cwd}/submodules/gdi-extra/apps`,
+        cwd: `${cwd}/extra/apps`,
         onlyDirectories: true,
     });
 
@@ -172,7 +168,7 @@ const scanForStores = () => {
     });
 
     output.extra = globby.sync('*', {
-        cwd: `${cwd}/submodules/gdi-extra/stores`,
+        cwd: `${cwd}/extra/stores`,
         onlyDirectories: true,
     });
 
