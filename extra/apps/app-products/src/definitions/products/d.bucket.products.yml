@@ -1,0 +1,11 @@
+id: ProductsBucket
+header: Products
+permutations:
+    - id: stage
+      buckets:
+          - id: back
+            title: Back stage
+            dataTags: ['back']
+          - id: front
+            title: Front
+            dataTags: ['front']

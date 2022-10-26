@@ -1,0 +1,7 @@
+id: SaleGallery
+header: Sales
+itemType: sale
+actions:
+    - id: new
+      iconName: add
+      title: New Sale

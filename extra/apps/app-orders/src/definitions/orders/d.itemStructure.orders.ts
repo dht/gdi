@@ -1,0 +1,21 @@
+export const itemStructure = `export type IOrder = {
+    id: string;
+    title: string;
+    startDate: string;
+    orderType: IOrderType;
+    status: IOrderStatus;
+    statusDate: string;
+    endDate?: string;
+    description: string;
+    personId: string;
+    nextVisitDate: string;
+    items: IOrderJournal[];
+    worth?: number;
+    percent?: number;
+    isArchived?: boolean;
+    isSuccessful?: boolean;
+    isLost?: boolean;
+    tags: string[];
+    dataTags: string[];
+};
+`;

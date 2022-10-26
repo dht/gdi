@@ -1,0 +1,14 @@
+{
+    "name": "@gdi/app-ppl-scripts",
+    "version": "0.0.25",
+    "scripts": {
+        "build": "no build is needed",
+        "test": "jest",
+        "coverage": "jest --coverage=true"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "files": [
+        "dist"
+    ]
+}

@@ -1,0 +1,37 @@
+id: EventNew
+header: New Event
+layout:
+    flavour: singleColumn
+    width: 300
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: name
+      fieldType: text
+      placeholder: Name
+      label: Name
+      groupId: basic
+    - id: date
+      fieldType: date
+      placeholder: Enter date
+      label: Date
+      groupId: basic
+    - id: location
+      fieldType: paragraph
+      placeholder: Enter location
+      label: Location
+      groupId: basic
+    - id: description
+      fieldType: paragraph
+      placeholder: Description
+      label: Description
+      groupId: basic
+    - id: link
+      fieldType: text
+      placeholder: Link
+      label: Link
+      groupId: basic
+submit:
+    title: Save & close

@@ -1,0 +1,9 @@
+id: CouponOverlay
+sequence: 1
+overlayType: absolute
+fields:
+    - id: tags
+      fieldId: tags
+      fieldType: tags
+      locationKey: topLeft
+      coupon: 1

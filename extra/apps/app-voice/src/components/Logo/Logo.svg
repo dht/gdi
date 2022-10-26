@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    width="577px"
+    height="169px"
+    viewBox="0 0 577 169"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>Group 5</title>
+    <g
+        id="Logos"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+    >
+        <g id="Ville-#2" transform="translate(-142.000000, -715.000000)">
+            <g id="Group-5" transform="translate(142.747845, 715.734375)">
+                <g
+                    id="Group-4"
+                    transform="translate(0.000000, -0.000000)"
+                    fill-rule="nonzero"
+                >
+                    <g id="Group-3">
+                        <g
+                            id="soundboard"
+                            transform="translate(0.269575, 0.000000)"
+                            fill="#FFFFFF"
+                            font-family="STHeitiSC-Light, Heiti SC"
+                            font-size="112.78"
+                            font-weight="300"
+                        >
+                            <text id="voice">
+                                <tspan x="0" y="97">voice</tspan>
+                            </text>
+                        </g>
+                        <g
+                            id="tune-your-attention"
+                            transform="translate(0.000000, 106.000000)"
+                            fill="#FFD223"
+                            font-family="PTMono-Regular, PT Mono"
+                            font-size="55.78"
+                            font-weight="normal"
+                        >
+                            <text id="voice-control">
+                                <tspan x="0" y="49">voice control</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <polygon
+                    id="Path-2"
+                    fill="#FFD800"
+                    points="462.269575 80.5301027 512.5 51.1238208 569.845905 86.9547939 529.752155 96.5761608 499.064655 80.5301027 472.552936 101.882016"
+                ></polygon>
+                <polygon
+                    id="Path-2"
+                    fill="#FFD800"
+                    points="468.269575 42.0195632 518.5 12.6132812 575.845905 48.4442544 535.752155 58.0656213 505.064655 42.0195632 478.552936 63.3714761"
+                ></polygon>
+                <polygon
+                    id="Path-2"
+                    fill="#FFD800"
+                    points="454.269575 126.261368 504.5 96.8550864 561.845905 132.68606 521.752155 142.307426 491.064655 126.261368 464.552936 147.613281"
+                ></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

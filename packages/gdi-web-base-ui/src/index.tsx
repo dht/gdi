@@ -39,6 +39,7 @@ export { TagsInput } from './components/TagsInput/TagsInput';
 export { Theme } from './components/Theme/Theme';
 export { Toast } from './components/Toast/Toast';
 export { toast } from './components/Toast/Toast.actions';
+export { Toggle } from './components/Toggle/Toggle';
 export { Toolbar } from './components/Toolbar/Toolbar';
 export { Triangles, TrianglesBk } from './components/Triangles/Triangles';
 export { UserMenu } from './components/UserMenu/UserMenu';

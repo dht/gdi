@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+    width="912px"
+    height="184px"
+    viewBox="0 0 912 184"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+    <title>Group</title>
+    <defs>
+        <radialGradient
+            cx="50%"
+            cy="0%"
+            fx="50%"
+            fy="0%"
+            r="100%"
+            id="radialGradient-1"
+        >
+            <stop stop-color="#BAA115" offset="0%"></stop>
+            <stop stop-color="#FFCB00" offset="100%"></stop>
+        </radialGradient>
+        <circle id="path-2" cx="99.8664905" cy="100.234375" r="78.5"></circle>
+        <filter
+            x="-6.7%"
+            y="-6.7%"
+            width="113.4%"
+            height="113.4%"
+            filterUnits="objectBoundingBox"
+            id="filter-3"
+        >
+            <feMorphology
+                radius="6"
+                operator="erode"
+                in="SourceAlpha"
+                result="shadowSpreadInner1"
+            ></feMorphology>
+            <feGaussianBlur
+                stdDeviation="7"
+                in="shadowSpreadInner1"
+                result="shadowBlurInner1"
+            ></feGaussianBlur>
+            <feOffset
+                dx="0"
+                dy="1"
+                in="shadowBlurInner1"
+                result="shadowOffsetInner1"
+            ></feOffset>
+            <feComposite
+                in="shadowOffsetInner1"
+                in2="SourceAlpha"
+                operator="arithmetic"
+                k2="-1"
+                k3="1"
+                result="shadowInnerInner1"
+            ></feComposite>
+            <feColorMatrix
+                values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"
+                type="matrix"
+                in="shadowInnerInner1"
+            ></feColorMatrix>
+        </filter>
+    </defs>
+    <g
+        id="Page-1"
+        stroke="none"
+        stroke-width="1"
+        fill="none"
+        fill-rule="evenodd"
+    >
+        <g id="Artboard" transform="translate(-252.000000, -251.000000)">
+            <g id="Group" transform="translate(254.633509, 254.265625)">
+                <text
+                    id="soundboard"
+                    font-family="STHeitiSC-Light, Heiti SC"
+                    font-size="112.78"
+                    font-weight="300"
+                    letter-spacing="0.143158162"
+                    fill="#FFFFFF"
+                >
+                    <tspan x="236.01742" y="99.734375">soundboard</tspan>
+                </text>
+                <rect
+                    id="Rectangle"
+                    fill="#C5A115"
+                    transform="translate(173.600866, 173.000000) rotate(-225.000000) translate(-173.600866, -173.000000) "
+                    x="171.600866"
+                    y="164.5"
+                    width="4"
+                    height="17"
+                    rx="2"
+                ></rect>
+                <rect
+                    id="Rectangle"
+                    fill="#C5A115"
+                    transform="translate(31.100866, 171.000000) rotate(-135.000000) translate(-31.100866, -171.000000) "
+                    x="29.1008655"
+                    y="162.5"
+                    width="4"
+                    height="17"
+                    rx="2"
+                ></rect>
+                <path
+                    d="M199.187864,99.5938412 C199.187864,44.5896815 154.598183,0 99.5940229,0 C44.5898632,0 0,44.5896815 0,99.5938412 C0,121.261493 8.7644093,144.396879 26.2932279,169"
+                    id="Oval"
+                    stroke="#75621C"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                ></path>
+                <g id="Oval">
+                    <use
+                        fill="url(#radialGradient-1)"
+                        fill-rule="evenodd"
+                        xlink:href="#path-2"
+                    ></use>
+                    <use
+                        fill="black"
+                        fill-opacity="1"
+                        filter="url(#filter-3)"
+                        xlink:href="#path-2"
+                    ></use>
+                    <circle
+                        stroke="#75621C"
+                        stroke-width="2"
+                        stroke-linejoin="square"
+                        cx="99.8664905"
+                        cy="100.234375"
+                        r="77.5"
+                    ></circle>
+                </g>
+                <text
+                    id="tune-your-attention"
+                    font-family="PTMono-Regular, PT Mono"
+                    font-size="55.78"
+                    font-weight="normal"
+                    letter-spacing="0.0708047728"
+                    fill="#FFD223"
+                >
+                    <tspan x="235.747845" y="157.734375">
+                        tune your attention
+                    </tspan>
+                </text>
+                <rect
+                    id="Rectangle"
+                    fill="#FFFFFF"
+                    opacity="0.816824777"
+                    transform="translate(158.326718, 99.512962) rotate(92.000000) translate(-158.326718, -99.512962) "
+                    x="153.326718"
+                    y="63.0129618"
+                    width="10"
+                    height="73"
+                    rx="4"
+                ></rect>
+            </g>
+        </g>
+    </g>
+</svg>

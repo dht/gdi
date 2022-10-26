@@ -17,6 +17,8 @@ export type IActiveApp = {
     totalSize: number;
     color: string;
     description: string;
+    isActive?: boolean;
+    isRequired?: boolean;
 };
 
 export type IActiveAppsStats = {

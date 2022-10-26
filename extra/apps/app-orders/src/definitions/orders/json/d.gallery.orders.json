@@ -1,0 +1,12 @@
+{
+    "id": "OrderGallery",
+    "header": "Orders",
+    "itemType": "order",
+    "actions": [
+        {
+            "id": "new",
+            "iconName": "add",
+            "title": "New Order"
+        }
+    ]
+}

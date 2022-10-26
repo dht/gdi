@@ -104,20 +104,24 @@ export type ItemActionType =
     | 'drillDown';
 
 export type ItemType =
-    | 'image'
     | 'article'
+    | 'cart'
+    | 'coupon'
+    | 'image'
     | 'inbox'
-    | 'person'
     | 'event'
+    | 'layout'
+    | 'link'
+    | 'order'
     | 'page'
     | 'pageInstance'
-    | 'template'
-    | 'layout'
-    | 'sale'
-    | 'link'
+    | 'person'
     | 'post'
+    | 'product'
     | 'project'
+    | 'sale'
     | 'ticket'
+    | 'template'
     | 'widget';
 
 export type IBarTool = 'edit' | 'delete';

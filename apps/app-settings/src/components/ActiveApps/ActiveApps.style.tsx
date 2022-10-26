@@ -36,7 +36,7 @@ export const Me = styled.div`
 
 export const Content = styled.div`
     flex: 1;
-    padding: 150px 50px;
+    padding: 100px 50px;
     display: flex;
     flex-direction: row;
 `;
@@ -112,4 +112,20 @@ export const SettingsWrapper = styled.div`
     position: absolute;
     left: 500px;
     top: 18px;
+`;
+
+export const ToggleWrapper = styled.div`
+    display: table-cell;
+    padding-top: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+`;
+
+export const ToggleAll = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 800px;
+    box-sizing: border-box;
+    padding: 0 60px 10px;
 `;

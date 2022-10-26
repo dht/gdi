@@ -1,0 +1,43 @@
+import React, { useCallback, useMemo } from 'react';
+import { Container, Anim } from './Squares.style';
+import { GenericTable } from '@gdi/web-ui';
+import Week from '../Week/Week';
+
+export type SquaresProps = {
+    weeks: WeekPointer[];
+    expectedManasByProject: GroupedMana;
+};
+
+export function Squares(props: SquaresProps) {
+    const { weeks, expectedManasByProject } = props;
+
+    function row(data: any) {
+        const weekPointer: WeekPointer = data.item;
+        const weekData = expectedManasByProject.byWeek[weekPointer.weekAndYear];
+        return (
+            <Week
+                key={weekPointer.weekAndYear}
+                weekData={weekData}
+                weekPointer={weekPointer}
+            />
+        );
+    }
+
+    return (
+        <Container
+            className='Squares-container'
+            data-testid='Squares-container'
+        >
+            <GenericTable
+                data={weeks}
+                autoHeight
+                itemHeight={131}
+                virtual={true}
+            >
+                {row}
+            </GenericTable>
+        </Container>
+    );
+}
+
+export default Squares;
