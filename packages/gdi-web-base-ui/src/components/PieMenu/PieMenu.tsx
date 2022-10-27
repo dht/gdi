@@ -44,7 +44,7 @@ export function PieMenu(props: PieMenuProps) {
         toggle(false);
         timeout.current = setTimeout(() => {
             props.onCancel();
-        }, 200);
+        }, 400);
     }
 
     const activeKey = useKeyHold(
@@ -83,7 +83,7 @@ export function PieMenu(props: PieMenuProps) {
             return;
         }
 
-        toggle();
+        onCancel();
     }, [isOpen]);
 
     async function onSelectOption(item: IOption) {
@@ -158,6 +158,7 @@ export function PieMenu(props: PieMenuProps) {
     const style: React.CSSProperties = {
         top: Math.max(y, minTop) + 'px',
         left: x + 'px',
+        opacity: isOpen ? 1 : 0,
     };
 
     return (
@@ -168,7 +169,7 @@ export function PieMenu(props: PieMenuProps) {
             ref={ref}
         >
             {renderItems()}
-            <Circle radius={80} />
+            <Circle radius={95} />
             <Trigger onMouseDown={onCancel} />
         </Container>
     );

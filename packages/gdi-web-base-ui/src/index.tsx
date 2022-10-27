@@ -22,6 +22,7 @@ export { InputHidden } from './components/InputHidden/InputHidden';
 export { KeyValue } from './components/KeyValue/KeyValue';
 export { Logo } from './components/Logo/Logo';
 export { Modal } from './components/Modal/Modal';
+export { Panel } from './components/Panel/Panel';
 export { PhotoBooth } from './components/PhotoBooth/PhotoBooth';
 export { PhoneInput } from './components/PhoneInput/PhoneInput';
 export { PieMenu } from './components/PieMenu/PieMenu';

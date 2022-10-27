@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A11 = {};
+export const A13 = {};
 
 declare global {
     export type IPplStore = {
@@ -22,7 +22,8 @@ declare global {
         shortDescription: string;
         dateOfBirth?: string;
         imageUrl?: string;
-        thumbUrl?: string;
+        imageThumbUrl?: string;
+        ratio: number;
         socialTwitterUrl?: string;
         socialFacebookUrl?: string;
         socialInstagramUrl?: string;
@@ -31,7 +32,7 @@ declare global {
         wikipediaUrl?: string;
         website?: string;
         phoneNumber?: string;
-        images?: string[];
+        items: IImage[];
         email?: string;
         notes?: string;
         height?: number;

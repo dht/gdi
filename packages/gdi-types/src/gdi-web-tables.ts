@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A19 = {};
+export const A22 = {};
 
 declare global {
     // =============== Tables ===============
@@ -58,11 +58,13 @@ declare global {
         sheet?: ISheetConfig;
         overlay?: IOverlayConfig;
         bucket?: IBucketsConfig;
+        pieMenu?: IPieMenuConfig;
         itemStructure?: string;
     };
 
     export type ICrudOptions = {
         doubleClickActionId: string; // ItemActionType;
+        newDataExtra?: Json;
         allOptions?: Json;
         allDetails?: AllDetails;
         allMethods?: AllMethods;
@@ -108,23 +110,28 @@ declare global {
         | 'delete'
         | 'addTag'
         | 'removeTag'
+        | 'mouse'
         | 'drillDown';
 
     export type ItemType =
-        | 'image'
         | 'article'
+        | 'cart'
+        | 'coupon'
+        | 'image'
         | 'inbox'
-        | 'person'
         | 'event'
+        | 'layout'
+        | 'link'
+        | 'order'
         | 'page'
         | 'pageInstance'
-        | 'template'
-        | 'layout'
-        | 'sale'
-        | 'link'
+        | 'person'
         | 'post'
+        | 'product'
         | 'project'
+        | 'sale'
         | 'ticket'
+        | 'template'
         | 'widget';
 
     export type IBarTool = 'edit' | 'delete';
@@ -229,6 +236,7 @@ declare global {
         header: string;
         tag?: string;
         showFilter: boolean;
+        showPreview: boolean;
         trio: ITrio;
         allOptions?: Json;
         selectedIds: string[];
@@ -288,6 +296,7 @@ declare global {
         | 'tools'
         | 'buttons'
         | 'tagging'
+        | 'preview'
         | 'filter'
         | 'search';
 

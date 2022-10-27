@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A20 = {};
+export const A23 = {};
 
 declare global {
     export type IUploadResult = {
@@ -48,4 +48,9 @@ declare global {
 
     export type MouseEv<T = HTMLElement> = React.MouseEvent<T>;
     export type KeyboardEv<T = HTMLElement> = React.KeyboardEvent<T>;
+
+    export type IPoint = {
+        x: number;
+        y: number;
+    };
 }

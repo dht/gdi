@@ -132,6 +132,21 @@ export function FilterBar(props: FilterBarProps) {
         );
     }
 
+    function renderPreview() {
+        if (hideParts.includes('preview')) {
+            return null;
+        }
+
+        return (
+            <>
+                <Button
+                    iconName='EntryView'
+                    onClick={callbacks.togglePreview}
+                />
+            </>
+        );
+    }
+
     function renderFiltering() {
         if (hideParts.includes('filter')) {
             return null;
@@ -190,6 +205,7 @@ export function FilterBar(props: FilterBarProps) {
                 <Flex />
                 {renderTagger()}
                 <Flex />
+                {renderPreview()}
                 {renderFiltering()}
                 {renderSearch()}
                 {renderActions()}

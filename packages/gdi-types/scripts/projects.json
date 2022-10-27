@@ -21,7 +21,7 @@
     },
     "gdi-store-carts": {
         "id": "gdi-store-carts",
-        "path": "stores/gdi-store-carts",
+        "path": "extra/stores/gdi-store-carts",
         "types": "src/types.ts"
     },
     "gdi-store-dashboard": {
@@ -31,7 +31,7 @@
     },
     "gdi-store-orders": {
         "id": "gdi-store-orders",
-        "path": "stores/gdi-store-orders",
+        "path": "extra/stores/gdi-store-orders",
         "types": "src/types.ts"
     },
     "gdi-store-settings": {

@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A10 = {};
+export const A12 = {};
 
 declare global {
     export type IWeatherStore = {

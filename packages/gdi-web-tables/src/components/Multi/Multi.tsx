@@ -16,6 +16,7 @@ import {
     FilterContextProvider,
 } from '../../context/Filter.context';
 import Buckets from '../Buckets/Buckets';
+import PreviewModal from '../PreviewModal/PreviewModal';
 
 export type MultiProps = {
     id: string;
@@ -43,6 +44,7 @@ export type MultiProps = {
 
 export function MultiInner(props: MultiProps) {
     const {
+        id,
         definitions,
         allOptions,
         customView: CustomView,
@@ -139,6 +141,21 @@ export function MultiInner(props: MultiProps) {
         }
     }
 
+    function renderPreview() {
+        if (!contextFilter.state.showPreview) {
+            return null;
+        }
+
+        return (
+            <PreviewModal
+                id={id}
+                data={data}
+                itemType={itemType}
+                onClose={() => contextFilter.callbacks.togglePreview()}
+            />
+        );
+    }
+
     return (
         <Container className='Multi-container' data-testid='Multi-container'>
             <FilterBar
@@ -148,6 +165,7 @@ export function MultiInner(props: MultiProps) {
                 hideParts={hideParts}
             />
             {renderInner()}
+            {renderPreview()}
             <MultiViews
                 modes={viewModes}
                 value={state.viewMode}
