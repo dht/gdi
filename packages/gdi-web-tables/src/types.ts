@@ -53,6 +53,7 @@ export type ICrudDefinitions = {
     sheet?: ISheetConfig;
     overlay?: IOverlayConfig;
     bucket?: IBucketsConfig;
+    pieMenu?: IPieMenuConfig;
     itemStructure?: string;
 };
 
@@ -101,6 +102,7 @@ export type ItemActionType =
     | 'delete'
     | 'addTag'
     | 'removeTag'
+    | 'mouse'
     | 'drillDown';
 
 export type ItemType =

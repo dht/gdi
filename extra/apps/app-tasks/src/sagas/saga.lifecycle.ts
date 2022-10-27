@@ -1,8 +1,6 @@
-import { actions } from '../actions';
 import { api, call, put, select, fork, takeEvery } from 'saga-ts';
 import { deltaInSeconds, ts } from '@gdi/language';
-import { IActiveTask } from '../types';
-import { selectors } from '../selectors.index';
+import { actions, selectors } from '../store';
 
 type LifecycleAction = {
     type: string;
@@ -139,7 +137,7 @@ export function* cancelSession(action: LifecycleAction) {
 
     response = yield* api(
         actions.appStateTasks.patch({
-            sessionId: null,
+            sessionId: '',
         })
     );
 
@@ -245,7 +243,7 @@ export function* completeSession(action: LifecycleAction) {
 
     response = yield* api(
         actions.appStateTasks.patch({
-            sessionId: null,
+            sessionId: '',
         })
     );
 

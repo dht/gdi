@@ -26,6 +26,22 @@ export function ItemBase(props: ItemBaseProps) {
         setShowFull(false);
     }, [id]);
 
+    function onClick(ev: MouseEv) {
+        props.onClick(id, image);
+
+        if (props.onMouseEvent) {
+            props.onMouseEvent(ev);
+        }
+    }
+
+    function onDoubleClick(ev: MouseEv) {
+        props.onDoubleClick(id);
+
+        if (props.onMouseEvent) {
+            props.onMouseEvent(ev);
+        }
+    }
+
     function renderFull() {
         if (!showFull) {
             return;
@@ -40,9 +56,9 @@ export function ItemBase(props: ItemBaseProps) {
             style={style}
             // @ts-expect-error
             backgroundColor={backgroundColor}
-            onMouseDown={() => props.onClick(id, image)}
+            onMouseDown={onClick}
             className='ItemBase-container'
-            onDoubleClick={() => props.onDoubleClick(id)}
+            onDoubleClick={onDoubleClick}
             onMouseOver={() => setShowFull(true)}
         >
             <Images style={styleImages}>

@@ -24,4 +24,43 @@ export const contextBarItems: IContextBarItem[] = [];
 
 export const commandBarItems: ICommandBarItem[] = [];
 
-export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {};
+export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {
+    person: {
+        itemType: 'person',
+
+        options: [
+            {
+                id: 'mail',
+                iconName: 'Mail',
+                text: 'Email',
+                shortKey: {
+                    key: 'e',
+                },
+            },
+            {
+                id: 'phone',
+                iconName: 'Phone',
+                text: 'Call',
+                shortKey: {
+                    key: 'c',
+                },
+            },
+            {
+                id: 'whatsapp',
+                iconName: 'OfficeChat',
+                text: 'send Whatsapp',
+                shortKey: {
+                    key: 'w',
+                },
+            },
+            {
+                id: 'editNote',
+                iconName: 'EditNote',
+                text: 'add Note',
+                shortKey: {
+                    key: 'n',
+                },
+            },
+        ],
+    },
+};

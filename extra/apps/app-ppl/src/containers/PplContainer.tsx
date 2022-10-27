@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import { guid4, invokeEvent } from 'shared-base';
 import { firebase } from '@gdi/platformer';
+import { prompt } from '@gdi/web-base-ui';
 
 export const PplContainer = () => {
     const dispatch = useDispatch();
@@ -12,8 +13,24 @@ export const PplContainer = () => {
 
     const callbacks = useMemo(
         () => ({
-            onDrillDown: (itemId: string) => {
-                invokeEvent('navigatePush', { path: `/${itemId}` });
+            onDrillDown: async (itemId: string, point?: Json) => {
+                const { didCancel, value } = await prompt.pie({
+                    options: items,
+                    point,
+                });
+
+                if (didCancel) {
+                    return;
+                }
+
+                const type = ['ITEM_ACTION', 'person', value.id]
+                    .join('_')
+                    .toUpperCase();
+
+                dispatch({
+                    type,
+                    itemId,
+                });
             },
             onSelectionChange: (ids: string[]) => {
                 console.log('ids ->', ids);
@@ -44,3 +61,63 @@ export const PplContainer = () => {
         />
     );
 };
+
+export const items: IOption[] = [
+    {
+        id: 'newSale',
+        iconName: 'AutoEnhanceOn',
+        text: 'new Sale',
+        shortKey: {
+            key: 's',
+        },
+    },
+    {
+        id: 'newSaleAction',
+        iconName: 'LightningBolt',
+        text: 'add sale Action',
+        shortKey: {
+            key: 'a',
+        },
+    },
+
+    {
+        id: 'mail',
+        iconName: 'Mail',
+        text: 'Email',
+        shortKey: {
+            key: 'e',
+        },
+    },
+    {
+        id: 'phone',
+        iconName: 'Phone',
+        text: 'Call',
+        shortKey: {
+            key: 'c',
+        },
+    },
+    {
+        id: 'newTicket',
+        iconName: 'TaskLogo',
+        text: 'add Ticket',
+        shortKey: {
+            key: 't',
+        },
+    },
+    {
+        id: 'whatsapp',
+        iconName: 'OfficeChat',
+        text: 'send Whatsapp',
+        shortKey: {
+            key: 'w',
+        },
+    },
+    {
+        id: 'editNote',
+        iconName: 'EditNote',
+        text: 'add Note',
+        shortKey: {
+            key: 'n',
+        },
+    },
+];

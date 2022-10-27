@@ -34,6 +34,7 @@ export function Ppl(props: PplProps) {
                 allOptions={allOptions}
                 allMethods={allMethods}
                 customView={CustomView}
+                doubleClickActionId='pie'
             />
         </Container>
     );

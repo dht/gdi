@@ -24,7 +24,7 @@ export type MultiProps = {
     header?: string;
     definitions: ICrudDefinitions;
     callbacks: {
-        onDrillDown: (itemId: string) => void;
+        onDrillDown: (itemId: string, point?: Json) => void;
         onSelectionChange: (ids: string[]) => void;
         onCustomAction: (actionId: string, data?: Json) => void;
     };
@@ -38,6 +38,7 @@ export type MultiProps = {
     hideParts?: FilterPart[];
     allMethods?: any;
     newDataExtra?: Json;
+    doubleClickActionId?: string;
 };
 
 export function MultiInner(props: MultiProps) {
@@ -169,13 +170,14 @@ export const Multi = (props: MultiProps) => {
         definitions,
         allMethods = {},
         newDataExtra = {},
+        doubleClickActionId = 'drillDown',
     } = props;
 
     const optionsFilter = useMemo(() => ({}), []);
 
     const optionsCrud = useMemo(
         () => ({
-            doubleClickActionId: 'drillDown',
+            doubleClickActionId,
             allOptions,
             allDetails: {},
             allMethods,

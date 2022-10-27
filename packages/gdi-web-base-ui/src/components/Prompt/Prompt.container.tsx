@@ -15,7 +15,7 @@ type PromptState = {
     show: boolean;
     title: string;
     submitButtonText: string;
-    flavour: 'confirm' | 'input' | 'select';
+    flavour: 'confirm' | 'input' | 'select' | 'form' | 'pie';
     params: Json;
 };
 

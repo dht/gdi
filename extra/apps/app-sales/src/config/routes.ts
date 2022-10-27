@@ -24,4 +24,26 @@ export const contextBarItems: IContextBarItem[] = [];
 
 export const commandBarItems: ICommandBarItem[] = [];
 
-export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {};
+export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {
+    person: {
+        itemType: 'person',
+        options: [
+            {
+                id: 'newSale',
+                iconName: 'AutoEnhanceOn',
+                text: 'new Sale',
+                shortKey: {
+                    key: 's',
+                },
+            },
+            {
+                id: 'newSaleAction',
+                iconName: 'LightningBolt',
+                text: 'add sale Action',
+                shortKey: {
+                    key: 'a',
+                },
+            },
+        ],
+    },
+};

@@ -45,4 +45,7 @@ declare global {
         | 'info'
         | 'custom'
         | 'promise';
+
+    export type MouseEv<T = HTMLElement> = React.MouseEvent<T>;
+    export type KeyboardEv<T = HTMLElement> = React.KeyboardEvent<T>;
 }

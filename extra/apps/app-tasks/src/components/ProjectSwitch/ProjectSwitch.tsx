@@ -47,6 +47,11 @@ export function ProjectSwitch(props: ProjectSwitchProps) {
             className='ProjectSwitch-container'
             data-testid='ProjectSwitch-container'
         >
+            {renderProject({
+                id: 'all',
+                key: 'ALL',
+                name: 'All projects',
+            })}
             {renderProjects()}
         </Container>
     );

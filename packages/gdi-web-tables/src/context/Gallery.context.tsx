@@ -33,6 +33,7 @@ type IGalleryContext = {
         onClick: (id: string, item: IItem) => void;
         onDoubleClick: (id: string) => void;
         onAction: (actionId: ItemActionType, data?: Json) => void;
+        onMouseEvent: (ev: MouseEv) => void;
     };
 };
 
@@ -49,6 +50,7 @@ const initialValue: IGalleryContext = {
         onClick: (id: string, item: IItem) => {},
         onDoubleClick: (id: string) => {},
         onAction: (actionId: ItemActionType, data?: Json) => {},
+        onMouseEvent: (ev: MouseEv) => {},
     },
 };
 
@@ -105,14 +107,18 @@ export const GalleryContextProvider = (
             },
 
             onDoubleClick: (id: string) => {
-                if (selectedIds.length === 0) {
-                    return;
-                }
-                const firstId = selectedIds[0];
-                callbacks.onItemAction(firstId, 'drillDown');
+                callbacks.onItemAction(id, 'drillDown');
             },
             onAction: (actionId: ItemActionType, data?: Json) => {
                 // props.onAction(actionId, data);
+            },
+            onMouseEvent: (ev: MouseEv) => {
+                const data = {
+                    x: ev.clientX,
+                    y: ev.clientY,
+                };
+
+                callbacks.onItemAction('', 'mouse', data);
             },
         }),
         [state, selectedIds, tag]

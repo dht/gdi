@@ -1,6 +1,6 @@
 import { delay, fork, put, select, takeEvery } from 'saga-ts';
+import { selectors } from '../store';
 // import { getAxiosInstance } from 'axios-oauth';
-import { selectors } from '../selectors.index';
 
 function* speech(action: any) {
     try {

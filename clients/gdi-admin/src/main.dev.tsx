@@ -31,7 +31,7 @@ export function Dev() {
 
 export const items: IOption[] = [
     {
-        id: '1',
+        id: 'newSale',
         iconName: 'AutoEnhanceOn',
         text: 'new Sale',
         shortKey: {
@@ -39,7 +39,7 @@ export const items: IOption[] = [
         },
     },
     {
-        id: '2',
+        id: 'newSaleAction',
         iconName: 'LightningBolt',
         text: 'add sale Action',
         shortKey: {
@@ -48,7 +48,7 @@ export const items: IOption[] = [
     },
 
     {
-        id: '3',
+        id: 'mail',
         iconName: 'Mail',
         text: 'Email',
         shortKey: {
@@ -56,7 +56,7 @@ export const items: IOption[] = [
         },
     },
     {
-        id: '4',
+        id: 'phone',
         iconName: 'Phone',
         text: 'Call',
         shortKey: {
@@ -64,7 +64,7 @@ export const items: IOption[] = [
         },
     },
     {
-        id: '5',
+        id: 'newTicket',
         iconName: 'TaskLogo',
         text: 'add Ticket',
         shortKey: {
@@ -72,7 +72,7 @@ export const items: IOption[] = [
         },
     },
     {
-        id: '6',
+        id: 'whatsapp',
         iconName: 'OfficeChat',
         text: 'send Whatsapp',
         shortKey: {
@@ -80,7 +80,7 @@ export const items: IOption[] = [
         },
     },
     {
-        id: '7',
+        id: 'editNote',
         iconName: 'EditNote',
         text: 'add Note',
         shortKey: {

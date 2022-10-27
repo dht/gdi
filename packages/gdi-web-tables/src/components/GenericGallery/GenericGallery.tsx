@@ -68,6 +68,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
                 renderOverlay={renderOverlay}
                 onClick={callbacks.onClick}
                 onDoubleClick={callbacks.onDoubleClick}
+                onMouseEvent={callbacks.onMouseEvent}
                 customItem={customItem}
                 fixedRatio={fixedRatio}
             />

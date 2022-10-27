@@ -2,7 +2,6 @@ import { actions } from './actions';
 import { calculateMobileLatency, calculateSession } from './utils/session';
 import { endpointsConfigOverrides } from './api';
 import { initialState, reducers, clearState } from './initialState';
-import { sagas } from './sagas';
 import { selectors } from './selectors.index';
 
 export const issueKeyToUrl = (issueKey: string) => `${issueKey}`;
@@ -17,7 +16,6 @@ export const tasks = {
     selectors,
     endpointsConfigOverrides,
     clearState,
-    sagas,
     utils: {
         calculateSession,
         calculateMobileLatency,
