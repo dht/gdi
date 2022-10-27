@@ -10,6 +10,7 @@ type PromptRequest = {
     form?: PromptForm;
     placeholder?: string;
     submitButtonText?: string;
+    point?: Json;
 };
 
 type PromptResponse = {
@@ -61,9 +62,7 @@ const invokePromptAndListen = (data: Json): Promise<PromptResponse> => {
     });
 };
 
-const confirm = async (
-    promptRequest: PromptRequest
-): Promise<PromptResponse> => {
+const confirm = (promptRequest: PromptRequest): Promise<PromptResponse> => {
     const { title, submitButtonText, description, warning } = promptRequest;
 
     return invokePromptAndListen({
@@ -77,7 +76,7 @@ const confirm = async (
     });
 };
 
-const input = async (
+const input = (
     promptRequest: PromptRequest | string
 ): Promise<PromptResponse> => {
     if (typeof promptRequest === 'string') {
@@ -120,9 +119,7 @@ type IOption = {
     isDisabled?: boolean;
 };
 
-const select = async (
-    promptRequest: PromptRequest
-): Promise<PromptResponse> => {
+const select = (promptRequest: PromptRequest): Promise<PromptResponse> => {
     const {
         title,
         submitButtonText,
@@ -150,7 +147,7 @@ const select = async (
     });
 };
 
-const form = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
+const form = (promptRequest: PromptRequest): Promise<PromptResponse> => {
     const { title, form } = promptRequest;
 
     return invokePromptAndListen({
@@ -162,9 +159,22 @@ const form = async (promptRequest: PromptRequest): Promise<PromptResponse> => {
     });
 };
 
+const pie = (promptRequest: PromptRequest): Promise<PromptResponse> => {
+    const { options, point } = promptRequest;
+
+    return invokePromptAndListen({
+        flavour: 'pie',
+        params: {
+            options,
+            point,
+        },
+    });
+};
+
 export const prompt = {
     confirm,
     input,
     select,
     form,
+    pie,
 };

@@ -10,7 +10,7 @@
         "@gdi/engine": "^0.0.20",
         "@gdi/platformer": "^0.0.22",
         "@gdi/store-events": "^0.0.20",
-        "@gdi/types": "^0.0.46",
+        "@gdi/types": "^0.0.47",
         "@gdi/web-forms": "^0.0.24",
         "@gdi/web-ui": "^0.0.31",
         "@testing-library/react": "^13.3.0",

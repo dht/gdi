@@ -10,7 +10,7 @@
         "@babylonjs/gui": "^5.22.1",
         "@babylonjs/materials": "^5.22.1",
         "@gdi/store-studio": "^0.0.20",
-        "@gdi/types": "^0.0.46",
+        "@gdi/types": "^0.0.47",
         "@gdi/web-ui": "^0.0.31",
         "@testing-library/react": "^13.3.0",
         "babylonjs": "^5.22.1",

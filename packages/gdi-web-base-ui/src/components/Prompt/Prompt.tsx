@@ -11,13 +11,14 @@ import {
 import { Modal } from '../Modal/Modal';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
-import { Icon } from '@fluentui/react';
+import { Icon, Toggle } from '@fluentui/react';
 import { AutoComplete } from '../AutoComplete/AutoComplete';
 import classnames from 'classnames';
+import PieMenu from '../PieMenu/PieMenu';
 
 export type PromptProps = {
     title: string;
-    flavour: 'confirm' | 'input' | 'select' | 'form';
+    flavour: 'confirm' | 'input' | 'select' | 'form' | 'pie';
     params: Json;
     submitButtonText: string;
     onCancel: () => void;
@@ -138,6 +139,18 @@ export function Prompt(props: PromptProps) {
                         />
                     </>
                 );
+            case 'pie':
+                return (
+                    <>
+                        <PieMenu
+                            items={params.options}
+                            origin={params.point}
+                            onSelect={props.onSubmit}
+                            onCancel={onClose}
+                            minTop={150}
+                        />
+                    </>
+                );
         }
     }
 
@@ -166,6 +179,10 @@ export function Prompt(props: PromptProps) {
 
     const className = classnames('Prompt-container', flavour, {});
     const classNameContent = classnames(flavour, {});
+
+    if (flavour === 'pie') {
+        return renderInner();
+    }
 
     return (
         <Modal

@@ -17,15 +17,35 @@ import {
 
 export type PieMenuProps = {
     items: IOption[];
+    origin?: Json;
     onSelect: (item: IOption) => void;
+    onCancel: () => void;
+    minTop?: number;
 };
 
 export function PieMenu(props: PieMenuProps) {
-    const { items = [] } = props;
     const ref = useRef<HTMLDivElement>(null);
+    const timeout = useRef<any>(null);
+    const { items = [], origin = {}, minTop = 0 } = props;
+    const { x = 0, y = 0 } = origin;
     const count = items.length;
     const [r, setR] = useState(0);
     const [isOpen, toggle] = useToggle(false);
+
+    useEffect(() => {
+        toggle(true);
+
+        return () => {
+            clearTimeout(timeout.current);
+        };
+    }, []);
+
+    function onCancel() {
+        toggle(false);
+        timeout.current = setTimeout(() => {
+            props.onCancel();
+        }, 200);
+    }
 
     const activeKey = useKeyHold(
         (ev: KeyboardEvent) => {
@@ -49,13 +69,13 @@ export function PieMenu(props: PieMenuProps) {
                 return;
             }
 
-            toggle();
+            onCancel();
         },
         []
     );
 
     useEffect(() => {
-        setR(isOpen ? 110 : 10);
+        setR(isOpen ? 90 : 10);
     }, [isOpen]);
 
     useEscape(() => {
@@ -135,15 +155,21 @@ export function PieMenu(props: PieMenuProps) {
         return items.map((item: IOption, index) => renderItem(item, index));
     }
 
+    const style: React.CSSProperties = {
+        top: Math.max(y, minTop) + 'px',
+        left: x + 'px',
+    };
+
     return (
         <Container
             className='PieMenu-container'
             data-testid='PieMenu-container'
+            style={style}
             ref={ref}
         >
             {renderItems()}
-            <Circle />
-            <Trigger onMouseDown={toggle} />
+            <Circle radius={80} />
+            <Trigger onMouseDown={onCancel} />
         </Container>
     );
 }

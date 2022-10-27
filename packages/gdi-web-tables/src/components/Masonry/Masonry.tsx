@@ -32,6 +32,7 @@ export type MasonryProps = {
     onClick?: (id: string, item: IItem) => void;
     onDoubleClick?: (id: string) => void;
     onBottomReach?: () => void;
+    onMouseEvent?: (ev: MouseEv) => void;
     customItem?: FC<MasonryItemProps>;
 };
 
@@ -40,6 +41,7 @@ export type MasonryItemProps = {
     renderOverlay: (item: IItem) => JSX.Element | null;
     onClick: (id: string, item: IItem) => void;
     onDoubleClick: (id: string) => void;
+    onMouseEvent?: (ev: MouseEv) => void;
 };
 
 export function Masonry(props: MasonryProps) {
@@ -140,6 +142,14 @@ export function Masonry(props: MasonryProps) {
         props.onDoubleClick(id);
     }
 
+    function onMouseEvent(ev: MouseEv) {
+        if (!props.onMouseEvent) {
+            return;
+        }
+
+        props.onMouseEvent(ev);
+    }
+
     function renderOverlay(item: IItem) {
         if (!props.renderOverlay) {
             return null;
@@ -164,6 +174,7 @@ export function Masonry(props: MasonryProps) {
                 renderOverlay={renderOverlay}
                 onClick={onClick}
                 onDoubleClick={onDoubleClick}
+                onMouseEvent={onMouseEvent}
             />
         );
     }

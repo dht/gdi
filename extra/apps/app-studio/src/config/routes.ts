@@ -9,7 +9,15 @@ export const routes: IRoutes = {
     babylon: '/admin/babylon',
 };
 
-export const menuItems: IMenuItem[] = [];
+export const menuItems: IMenuItem[] = [
+    {
+        path: routes.babylon,
+        icon: 'Calories',
+        label: '3D',
+        groupId: 'doing',
+        order: 1.5,
+    },
+];
 
 export const contextBarItems: IContextBarItem[] = [];
 

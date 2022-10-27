@@ -9,11 +9,11 @@ export type TopRowProps = {
 export function TopRow(props: TopRowProps) {
     const { activeTask } = props;
 
-    if (!activeTask.session.startTimestamp) {
+    if (!activeTask.session?.startTimestamp) {
         return null;
     }
 
-    const dateRaw = new Date(activeTask.session.startTimestamp);
+    const dateRaw = new Date(activeTask.session?.startTimestamp);
     const time = formatTime(dateRaw);
     const date = formatDate(dateRaw);
 

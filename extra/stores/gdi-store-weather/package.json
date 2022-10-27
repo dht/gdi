@@ -8,7 +8,7 @@
     },
     "dependencies": {
         "@gdi/store-tasks": "^0.0.21",
-        "@gdi/types": "^0.0.46",
+        "@gdi/types": "^0.0.47",
         "chroma-js": "^2.4.2",
         "lodash": "^4.17.21",
         "redux-store-generator": "^0.9.86",

@@ -34,4 +34,19 @@ export const contextBarItems: IContextBarItem[] = [];
 
 export const commandBarItems: ICommandBarItem[] = [];
 
-export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {};
+export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {
+    person: {
+        itemType: 'person',
+
+        options: [
+            {
+                id: 'newTicket',
+                iconName: 'TaskLogo',
+                text: 'add Ticket',
+                shortKey: {
+                    key: 't',
+                },
+            },
+        ],
+    },
+};

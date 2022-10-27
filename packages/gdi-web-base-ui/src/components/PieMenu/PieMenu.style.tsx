@@ -2,12 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     flex: 1;
-    position: fixed;
-    top: 50%;
-    left: 50%;
     width: 0;
     height: 0;
     user-select: none;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 3;
 `;
 
 export const Trigger = styled.div`
@@ -108,13 +109,13 @@ export const PointInner = styled.div`
     }
 `;
 
-export const Circle = styled.div`
+export const Circle = styled.div<{ radius: number }>`
     position: absolute;
-    top: 15px;
-    left: 30px;
+    top: 0;
+    left: 0;
     transform: translate(-50%, -50%);
-    width: 180px;
-    height: 180px;
+    width: ${(props) => props.radius * 2}px;
+    height: ${(props) => props.radius * 2}px;
     border-radius: 50%;
     background-color: transparent;
     opacity: 1;

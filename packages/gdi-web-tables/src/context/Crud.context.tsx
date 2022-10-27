@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { createContext } from 'react';
 import { emptyFilters, emptyForm } from '../definitions/empty';
 import { ICrudOptions, ICrudState, WithChildren } from '../types';
 import { SelectionContext } from './Selection.context';
 import { useCrudOperations } from '../hooks/useCrudOperations';
-import { useLocalStorage, useSetState } from 'react-use';
+import { useLocalStorage } from 'react-use';
 
 type CrudContextProps = {
     id: string;
@@ -57,6 +57,7 @@ export const CrudContext = createContext<ICrudContext>(initialValue);
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const { id, config, options, data, callbacks, initialViewMode } = props;
     const { state: selectedIds } = useContext(SelectionContext);
+    const lastMousePoint = useRef<Json | undefined>({});
 
     const configValue = useMemo(
         () => ({
@@ -157,6 +158,12 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                             return;
                         }
                         crudCallbacks.replaceDataTags(id, data);
+                        break;
+                    case 'mouse':
+                        lastMousePoint.current = data;
+                        break;
+                    case 'pie':
+                        crudCallbacks.showMenu(id, lastMousePoint.current);
                         break;
                 }
             },

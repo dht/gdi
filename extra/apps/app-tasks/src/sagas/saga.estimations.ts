@@ -1,6 +1,5 @@
-import { actions } from '../actions';
 import { api, put, select, takeEvery } from 'saga-ts';
-import { selectors } from '../selectors.index';
+import { actions, selectors } from '../store';
 
 type EstimationAction = {
     type: string;

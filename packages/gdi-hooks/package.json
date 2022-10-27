@@ -7,7 +7,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.46",
+        "@gdi/types": "^0.0.47",
         "fuse.js": "^6.6.2",
         "lodash": "^4.17.21",
         "react-redux": "^8.0.4",
