@@ -2,7 +2,7 @@
 
 import type { StoreStructure } from 'redux-store-generator';
 
-export const A7 = {};
+export const A9 = {};
 
 declare global {
     export type IMoneyState = {

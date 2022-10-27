@@ -12,9 +12,13 @@ export const TicketsContainer = () => {
     const projectKey = useSelector(selectors.base.$projectKey);
 
     const newDataExtra = useMemo(() => {
-        return {
-            projectKey,
-        };
+        if (projectKey === 'ALL') {
+            return {};
+        } else {
+            return {
+                projectKey,
+            };
+        }
     }, [projectKey]);
 
     const callbacks = useMemo(

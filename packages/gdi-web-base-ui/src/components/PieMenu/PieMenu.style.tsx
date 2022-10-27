@@ -9,6 +9,7 @@ export const Container = styled.div`
     top: 50px;
     left: 50px;
     z-index: 3;
+    transition: all 50ms ease-out;
 `;
 
 export const Trigger = styled.div`
@@ -19,10 +20,8 @@ export const Trigger = styled.div`
     transform: translate(-50%, -50%);
     cursor: pointer;
     transition: all 500ms ease-out;
-    border: 1px solid #db709465;
 
     &:hover {
-        border: 1px solid palevioletred;
     }
 
     &:active {
@@ -42,8 +41,8 @@ export const Point = styled.div`
 export const PointInner = styled.div`
     background-color: #112;
     padding: 5px 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: 1px solid #334;
+    box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #99a;
     border-radius: 8px;
     white-space: nowrap;
     text-align: center;
@@ -79,6 +78,7 @@ export const PointInner = styled.div`
 
     &:hover {
         background-color: #e2326d;
+        border: 2px solid #333;
 
         .key {
             color: gold;
@@ -96,6 +96,7 @@ export const PointInner = styled.div`
         transform: translateX(2px) translateY(-2px);
         background-color: #e92667;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        border: 1px solid #333;
 
         .key {
             color: gold;
@@ -117,7 +118,15 @@ export const Circle = styled.div<{ radius: number }>`
     width: ${(props) => props.radius * 2}px;
     height: ${(props) => props.radius * 2}px;
     border-radius: 50%;
-    background-color: transparent;
+    transition: all 500ms ease-in-out;
+    background-image: radial-gradient(
+        #00000099 0%,
+        transparent 20%,
+        #00000099 30%,
+        #000000aa 45%,
+        #000000aa 55%,
+        transparent 70%
+    );
     opacity: 1;
 `;
 

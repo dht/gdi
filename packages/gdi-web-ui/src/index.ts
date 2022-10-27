@@ -47,6 +47,7 @@ export {
     KeyValue,
     Logo,
     Modal,
+    Panel,
     PhoneInput,
     PhotoBooth,
     PieMenu,

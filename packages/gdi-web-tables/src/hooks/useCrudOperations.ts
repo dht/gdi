@@ -12,8 +12,6 @@ export function useCrudOperations(
 ) {
     const { nodeName, formNew, formNewDefault, formEdit, pieMenu } = config;
 
-    console.log('pieMenu ->', pieMenu);
-
     const contextDispatch = useContext(DispatchContext);
 
     const dispatch = contextDispatch.callbacks.dispatch;
@@ -47,6 +45,10 @@ export function useCrudOperations(
 
                 const itemData = data.find((item: Json) => item.id === editId);
 
+                if (!itemData) {
+                    return;
+                }
+
                 const result = await prompt.form({
                     title: 'Edit item',
                     form: {
@@ -70,7 +72,11 @@ export function useCrudOperations(
                 const deleteIds = Array.isArray(id) ? id : [id];
                 const count = deleteIds.length;
 
-                if (count === 0) {
+                const existingItems = data.filter((i: Json) =>
+                    deleteIds.includes(i.id)
+                );
+
+                if (count === 0 || existingItems.length === 0) {
                     return;
                 }
 
@@ -195,63 +201,3 @@ export function useCrudOperations(
 
     return callbacks;
 }
-
-export const items: IOption[] = [
-    {
-        id: 'newSale',
-        iconName: 'AutoEnhanceOn',
-        text: 'new Sale',
-        shortKey: {
-            key: 's',
-        },
-    },
-    {
-        id: 'newSaleAction',
-        iconName: 'LightningBolt',
-        text: 'add sale Action',
-        shortKey: {
-            key: 'a',
-        },
-    },
-
-    {
-        id: 'mail',
-        iconName: 'Mail',
-        text: 'Email',
-        shortKey: {
-            key: 'e',
-        },
-    },
-    {
-        id: 'phone',
-        iconName: 'Phone',
-        text: 'Call',
-        shortKey: {
-            key: 'c',
-        },
-    },
-    {
-        id: 'newTicket',
-        iconName: 'TaskLogo',
-        text: 'add Ticket',
-        shortKey: {
-            key: 't',
-        },
-    },
-    {
-        id: 'whatsapp',
-        iconName: 'OfficeChat',
-        text: 'send Whatsapp',
-        shortKey: {
-            key: 'w',
-        },
-    },
-    {
-        id: 'editNote',
-        iconName: 'EditNote',
-        text: 'add Note',
-        shortKey: {
-            key: 'n',
-        },
-    },
-];

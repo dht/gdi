@@ -29,6 +29,7 @@ type IFilterContext = {
         onTagClick: (tag: string) => void;
         onTagClear: () => void;
         toggleFilter: () => void;
+        togglePreview: () => void;
         onFilter: (
             filterId: string,
             optionId: string,
@@ -51,6 +52,7 @@ const initialValue: IFilterContext = {
         header: '',
         tag: '',
         showFilter: false,
+        showPreview: false,
         trio: {
             sort: {
                 id: '',
@@ -68,6 +70,7 @@ const initialValue: IFilterContext = {
         onTagClick: (tag: string) => {},
         onTagClear: () => {},
         toggleFilter: () => {},
+        togglePreview: () => {},
         onFilter: (filterId: string, optionId: string) => {},
         onFilterClear: () => {},
         onSort: (optionId: string) => {},
@@ -119,6 +122,11 @@ export const FilterContextProvider = (
             toggleFilter: () => {
                 patchState({
                     showFilter: !state.showFilter,
+                });
+            },
+            togglePreview: () => {
+                patchState({
+                    showPreview: !state.showPreview,
                 });
             },
             onFilter: (
@@ -194,31 +202,3 @@ function useFilterConfig(
 
     return configValue;
 }
-/*
-
-    // if (selectedIds.length === 0) {
-                //     return;
-                // }
-                // const firstId = selectedIds[0];
-
-                switch (toolId) {
-                    case 'edit':
-                        // props.onItemAction(firstId, 'edit');
-                        break;
-                    case 'delete':
-                        message = `Are you sure you want to delete ${selectedIds.length} items?`;
-                        response = await prompt.confirm({
-                            title: 'Delete items',
-                            description: message,
-                            warning: 'Warning: This CANNOT be undone',
-                            submitButtonText: "I'm sure",
-                        });
-
-                        if (response.didCancel) {
-                            return;
-                        }
-
-                        // props.onItemAction('delete', selectedIds);
-                        break;
-                }
-                */

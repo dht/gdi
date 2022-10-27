@@ -9,7 +9,12 @@ export const $tickets = createSelector(
     raw.$rawTickets,
     (projectKey, tickets) => {
         return Object.values(tickets)
-            .filter((ticket) => ticket.projectKey === projectKey || !projectKey)
+            .filter(
+                (ticket) =>
+                    ticket.projectKey === projectKey ||
+                    !projectKey ||
+                    projectKey === 'ALL'
+            )
             .sort(sortByTicketKey(true));
     }
 );

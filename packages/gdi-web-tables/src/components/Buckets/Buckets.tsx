@@ -3,6 +3,7 @@ import BucketTabs from '../BucketTabs/BucketTabs';
 import { Container, Content } from './Buckets.style';
 import { getNewDataTagsByList, Trello, usePermutations } from '@gdi/dnd';
 import { IBucketsConfig } from '../../types';
+import { SelectionContext } from '../../context/Selection.context';
 
 export type BucketsProps = {
     config: IBucketsConfig;
@@ -16,6 +17,8 @@ export type BucketsProps = {
 export function Buckets(props: BucketsProps) {
     const { config, data } = props;
     const { permutations, titleFieldId } = config;
+
+    const contextSelection = useContext(SelectionContext);
 
     const [permutationId, setPermutationId] = useState<string>(
         permutations[0].id
@@ -92,6 +95,9 @@ export function Buckets(props: BucketsProps) {
                 return props.callbacks.onItemAction(itemId, 'delete');
             },
             onEditList: (listId: string, newValue: string) => {},
+            onSelect: (itemId: string) => {
+                contextSelection.callbacks.onSelect(itemId);
+            },
         }),
         [permutation, items]
     );

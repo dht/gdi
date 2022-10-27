@@ -46,17 +46,12 @@ export type ContextBarProps = {
     isDarkMode?: boolean;
 };
 
-type Point = {
-    x: number;
-    y: number;
-};
-
 export function ContextBar(props: ContextBarProps) {
     const { items, isDarkMode } = props;
 
     const isEmpty = Object.values(items).length === 0;
 
-    const [delta, setDelta] = useLocalStorage<Point>('DEV_PANEL_LOCATION', {
+    const [delta, setDelta] = useLocalStorage<IPoint>('DEV_PANEL_LOCATION', {
         x: 0,
         y: 0,
     });
@@ -110,7 +105,7 @@ type PopoiProps = {
     onClose: (item: IPopoi) => void;
     onExit: (item: IPopoi) => void;
     onStopDragging: (_e: DraggableEvent, data: DraggableData) => void;
-    draggableDelta?: Point;
+    draggableDelta?: IPoint;
 };
 
 export function Popoi(props: PopoiProps) {

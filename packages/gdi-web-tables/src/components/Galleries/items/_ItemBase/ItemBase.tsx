@@ -18,7 +18,7 @@ export function ItemBase(props: ItemBaseProps) {
     const styleImages: React.CSSProperties = {};
 
     if (topSectionHeight) {
-        styleImages.height = topSectionHeight + 'px';
+        styleImages.height = (topSectionHeight ?? 0) + 'px';
     }
 
     // DOMs are recycled

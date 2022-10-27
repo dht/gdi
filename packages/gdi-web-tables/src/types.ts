@@ -224,6 +224,7 @@ export type IFilterState = {
     header: string;
     tag?: string;
     showFilter: boolean;
+    showPreview: boolean;
     trio: ITrio;
     allOptions?: Json;
     selectedIds: string[];
@@ -283,6 +284,7 @@ export type FilterPart =
     | 'tools'
     | 'buttons'
     | 'tagging'
+    | 'preview'
     | 'filter'
     | 'search';
 
