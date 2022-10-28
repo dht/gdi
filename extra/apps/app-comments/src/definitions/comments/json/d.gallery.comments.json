@@ -1,0 +1,12 @@
+{
+    "id": "CommentGallery",
+    "header": "Comments",
+    "itemType": "comment",
+    "actions": [
+        {
+            "id": "new",
+            "iconName": "add",
+            "title": "New Comment"
+        }
+    ]
+}

@@ -21,8 +21,8 @@ export function Orders(props: OrdersProps) {
     return (
         <Container className='Orders-container' data-testid='Orders-container'>
             <Multi
-                id='Links'
-                itemType='link'
+                id='Orders'
+                itemType='order'
                 header='Orders'
                 data={data}
                 callbacks={callbacks}

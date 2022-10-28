@@ -24,7 +24,7 @@ export function InterestingReads(props: InterestingReadsProps) {
             data-testid='InterestingReads-container'
         >
             <Multi
-                id='Links'
+                id='InterestingReads'
                 itemType='link'
                 header='Interesting Reads'
                 data={data}

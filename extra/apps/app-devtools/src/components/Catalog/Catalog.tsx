@@ -163,11 +163,6 @@ const groups = [
         data: Object.values(nodes.libraryPages),
     },
     {
-        id: 'post',
-        title: 'Posts',
-        data: Object.values(nodes.posts),
-    },
-    {
         id: 'person',
         title: 'People',
         data: Object.values(nodes.persons),

@@ -24,8 +24,8 @@ export function Coupons(props: CouponsProps) {
             data-testid='Coupons-container'
         >
             <Multi
-                id='Links'
-                itemType='link'
+                id='Coupons'
+                itemType='coupon'
                 header='Coupons'
                 data={data}
                 callbacks={callbacks}

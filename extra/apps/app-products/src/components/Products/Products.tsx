@@ -24,8 +24,8 @@ export function Products(props: ProductsProps) {
             data-testid='Products-container'
         >
             <Multi
-                id='Links'
-                itemType='link'
+                id='Products'
+                itemType='product'
                 header='Products'
                 data={data}
                 callbacks={callbacks}

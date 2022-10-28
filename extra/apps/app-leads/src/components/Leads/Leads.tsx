@@ -21,8 +21,8 @@ export function Leads(props: LeadsProps) {
     return (
         <Container className='Leads-container' data-testid='Leads-container'>
             <Multi
-                id='Links'
-                itemType='link'
+                id='Leads'
+                itemType='lead'
                 header='Leads'
                 data={data}
                 callbacks={callbacks}

@@ -1,5 +1,6 @@
 import { initApp as initBiblo } from '@gdi/app-biblo';
 import { initApp as initCarts } from '@gdi/app-carts';
+import { initApp as initComments } from '@gdi/app-comments';
 import { initApp as initDevtools } from '@gdi/app-devtools';
 import { initApp as initEvents } from '@gdi/app-events';
 import { initApp as initKnowledge } from '@gdi/app-knowledge';
@@ -18,6 +19,7 @@ import { initApp as initVoice } from '@gdi/app-voice';
 export const initializersExtra = {
     biblo: initBiblo,
     carts: initCarts,
+    comments: initComments,
     devtools: initDevtools,
     events: initEvents,
     knowledge: initKnowledge,

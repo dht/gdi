@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { PreviewArticle } from './PreviewArticle/PreviewArticle';
 import { PreviewCart } from './PreviewCart/PreviewCart';
 import { PreviewCoupon } from './PreviewCoupon/PreviewCoupon';
+import { PreviewComment } from './PreviewComment/PreviewComment';
 import { PreviewEvent } from './PreviewEvent/PreviewEvent';
 import { PreviewImage } from './PreviewImage/PreviewImage';
 import { PreviewImageProps } from './PreviewImage/PreviewImage';
@@ -26,6 +27,7 @@ export const previews: Record<ItemType, FC<PreviewImageProps>> = {
     article: PreviewArticle,
     cart: PreviewCart,
     coupon: PreviewCoupon,
+    comment: PreviewComment,
     event: PreviewEvent,
     image: PreviewImage,
     inbox: PreviewInbox,

@@ -88,6 +88,10 @@ const apps: Record<string, App> = {
         nodes: ['auth'],
         isRequired: true,
     },
+    comments: {
+        id: 'comments',
+        nodes: ['comments'],
+    },
     leads: {
         id: 'leads',
         nodes: ['leads'],

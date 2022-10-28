@@ -24,26 +24,4 @@ export const contextBarItems: IContextBarItem[] = [];
 
 export const commandBarItems: ICommandBarItem[] = [];
 
-export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {
-    person: {
-        itemType: 'person',
-        options: [
-            {
-                id: 'newLead',
-                iconName: 'AutoEnhanceOn',
-                text: 'new Lead',
-                shortKey: {
-                    key: 's',
-                },
-            },
-            {
-                id: 'newLeadAction',
-                iconName: 'LightningBolt',
-                text: 'add lead Action',
-                shortKey: {
-                    key: 'a',
-                },
-            },
-        ],
-    },
-};
+export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {};

@@ -14,6 +14,7 @@
             "@gdi/store-factory": ["stores/gdi-store-factory"],
             "@gdi/store-settings": ["stores/gdi-store-settings"],
             "@gdi/store-dashboard": ["stores/gdi-store-dashboard"],
+            "@gdi/store-comments": ["stores/gdi-store-comments"],
 
             "@gdi/template-starter": ["packages/gdi-template-starter"],
 
@@ -31,6 +32,7 @@
 
             "@gdi/app-biblo": ["extra/apps/app-biblo"],
             "@gdi/app-carts": ["extra/apps/app-carts"],
+            "@gdi/app-comments": ["extra/apps/app-comments"],
             "@gdi/app-devtools": ["extra/apps/app-devtools"],
             "@gdi/app-events": ["extra/apps/app-events"],
             "@gdi/app-knowledge": ["extra/apps/app-knowledge"],

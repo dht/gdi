@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { ItemArticle } from './ItemArticle/ItemArticle';
 import { ItemCart } from './ItemCart/ItemCart';
+import { ItemComment } from './ItemComment/ItemComment';
 import { ItemCoupon } from './ItemCoupon/ItemCoupon';
 import { ItemEvent } from './ItemEvent/ItemEvent';
 import { ItemImage } from './ItemImage/ItemImage';
@@ -27,6 +28,7 @@ export const items: Record<ItemType, FC<ItemImageProps>> = {
     article: ItemArticle,
     cart: ItemCart,
     coupon: ItemCoupon, // @ts-expect-error
+    comment: ItemComment,
     event: ItemEvent,
     image: ItemImage,
     inbox: ItemInbox,
