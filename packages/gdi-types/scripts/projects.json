@@ -29,6 +29,11 @@
         "path": "stores/gdi-store-dashboard",
         "types": "src/types.ts"
     },
+    "gdi-store-leads": {
+        "id": "gdi-store-orders",
+        "path": "extra/stores/gdi-store-leads",
+        "types": "src/types.ts"
+    },
     "gdi-store-orders": {
         "id": "gdi-store-orders",
         "path": "extra/stores/gdi-store-orders",

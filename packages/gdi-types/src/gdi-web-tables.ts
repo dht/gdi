@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A22 = {};
+export const A23 = {};
 
 declare global {
     // =============== Tables ===============
@@ -121,6 +121,7 @@ declare global {
         | 'inbox'
         | 'event'
         | 'layout'
+        | 'lead'
         | 'link'
         | 'order'
         | 'page'

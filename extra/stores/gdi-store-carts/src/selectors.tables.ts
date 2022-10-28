@@ -1,6 +1,6 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 
-export const $carts = createSelector(raw.$rawCarts, (persons) => {
-    return Object.values(persons);
+export const $carts = createSelector(raw.$rawCarts, (carts) => {
+    return Object.values(carts);
 });

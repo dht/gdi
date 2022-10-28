@@ -10,7 +10,7 @@
         "@gdi/hooks": "^0.0.28",
         "@gdi/platformer": "^0.0.22",
         "@gdi/store-auth": "^0.0.20",
-        "@gdi/store-settings": "^0.0.26",
+        "@gdi/store-settings": "^0.0.28",
         "@gdi/store-site": "^0.0.24",
         "@gdi/types": "^0.0.47",
         "@gdi/web-ui": "^0.0.31",

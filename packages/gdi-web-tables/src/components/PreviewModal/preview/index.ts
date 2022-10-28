@@ -8,6 +8,7 @@ import { PreviewImageProps } from './PreviewImage/PreviewImage';
 import { PreviewLayout } from './PreviewLayout/PreviewLayout';
 import { PreviewInbox } from './PreviewInbox/PreviewInbox';
 import { PreviewLink } from './PreviewLink/PreviewLink';
+import { PreviewLead } from './PreviewLead/PreviewLead';
 import { PreviewOrder } from './PreviewOrder/PreviewOrder';
 import { PreviewPage } from './PreviewPage/PreviewPage';
 import { PreviewPageInstance } from './PreviewPageInstance/PreviewPageInstance';
@@ -29,6 +30,7 @@ export const previews: Record<ItemType, FC<PreviewImageProps>> = {
     image: PreviewImage,
     inbox: PreviewInbox,
     layout: PreviewLayout,
+    lead: PreviewLead,
     link: PreviewLink,
     order: PreviewOrder,
     page: PreviewPage,

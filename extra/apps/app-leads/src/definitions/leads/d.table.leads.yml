@@ -1,0 +1,39 @@
+id: LeadTable
+header: Leads
+fields:
+    - id: id
+      title: Id
+      cellType: id
+    - id: title
+      title: Title
+      cellType: text
+      flex: 2
+    - id: startDate
+      title: Type
+      cellType: date
+      flex: 1
+    - id: description
+      title: Description
+      cellType: text
+      flex: 3
+    - id: _modifiedDate
+      title: Modified
+      cellType: timeAgo
+      flex: 1
+rowActions:
+    - id: edit
+      iconName: Edit
+      title: Edit
+    - id: delete
+      iconName: Delete
+      title: Delete
+tableActions:
+    - id: back
+      iconName: arrow_upward
+      title: Go back
+    - id: mode
+      iconName: view_week
+      title: Change mode
+    - id: new
+      iconName: add
+      title: New item

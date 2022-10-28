@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A14 = {};
+export const A15 = {};
 
 declare global {
     export type IProductsStore = {

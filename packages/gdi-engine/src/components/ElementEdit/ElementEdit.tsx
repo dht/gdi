@@ -86,7 +86,7 @@ export function ElementEdit(props: ElementEditProps) {
         <Container
             className='ElementEdit-container'
             data-testid='ElementEdit-container'
-            onClick={onClick}
+            onMouseDown={onClick}
             onDoubleClick={onDblClick}
             selected={isSelected}
         >

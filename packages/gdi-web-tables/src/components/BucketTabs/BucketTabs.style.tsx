@@ -8,7 +8,13 @@ export const Container = styled.div`
     padding-bottom: 20px;
     --height: 28px;
     --color: #ccd;
-    --bk-color: rgba(80, 80, 100, 0.2);
+    --bk-color: #334;
+    --border-color: #556;
+    background-color: #232332;
+    --grid: rgba(255, 255, 255, 0.05);
+    background-size: 25px 25px;
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
 `;
 
 export const Tab = styled.div`
@@ -18,11 +24,16 @@ export const Tab = styled.div`
     flex-direction: row;
     align-items: stretch;
     cursor: pointer;
-    border-top: 1px solid #445;
+    border-top: 1px solid transparent;
     box-shadow: inset 0 2px 3px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 0 0 50px 50px;
     position: relative;
     top: -2px;
+    border-radius: 0 0 10px 10px;
+    width: 120px;
+
+    &:first-child {
+        margin-left: 30px;
+    }
 
     &:hover {
         --bk-color: rgba(255, 255, 255, 0.1);
@@ -31,34 +42,45 @@ export const Tab = styled.div`
     }
 
     &.selected {
-        --bk-color: #334;
+        --bk-color: #223;
         --color: gold;
-        border-top: 1px solid transparent;
+        font-weight: 600;
         box-shadow: inset 0 2px 3px 0 rgba(0, 0, 0, 0);
-    }
 
-    &::before {
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 var(--height) var(--height) 0;
-        border-color: transparent var(--bk-color) transparent transparent;
-    }
+        &::after {
+            content: '';
+            background: #223;
+            position: absolute;
+            top: 0;
+            left: 1px;
+            right: 1px;
+            height: 1px;
+        }
 
-    &::after {
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: var(--height) var(--height) 0 0;
-        border-color: var(--bk-color) transparent transparent transparent;
+        .title {
+            top: -2px;
+        }
     }
 `;
 
 export const Title = styled.div`
     flex: 1;
-    padding: 0 20px;
-    background-color: var(--bk-color);
     color: var(--color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+`;
+
+export const Svg = styled.svg`
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    polygon {
+        fill: var(--bk-color);
+        stroke: var(--border-color);
+        stroke-width: 1px;
+    }
 `;

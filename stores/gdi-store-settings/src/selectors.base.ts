@@ -88,6 +88,11 @@ const apps: Record<string, App> = {
         nodes: ['auth'],
         isRequired: true,
     },
+    leads: {
+        id: 'leads',
+        nodes: ['leads'],
+        isRequired: false,
+    },
     mixer: {
         id: 'mixer',
         nodes: ['mixer'],

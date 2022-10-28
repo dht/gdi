@@ -12,7 +12,7 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.babylon,
-        icon: 'Calories',
+        icon: 'Globe',
         label: '3D',
         groupId: 'doing',
         order: 1.5,
