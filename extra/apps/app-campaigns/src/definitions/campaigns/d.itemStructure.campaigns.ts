@@ -1,0 +1,21 @@
+export const itemStructure = `export type ICampaign = {
+    id: string;
+    title: string;
+    startDate: string;
+    campaignType: ICampaignType;
+    status: ICampaignStatus;
+    statusDate: string;
+    endDate?: string;
+    description: string;
+    personId: string;
+    nextVisitDate: string;
+    items: ICampaignJournal[];
+    worth?: number;
+    percent?: number;
+    isArchived?: boolean;
+    isSuccessful?: boolean;
+    isLost?: boolean;
+    tags: string[];
+    dataTags: string[];
+};
+`;

@@ -13,10 +13,10 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.sales,
-        icon: 'Calories',
+        icon: 'LightningBolt',
         label: 'Sales',
-        groupId: 'doing',
-        order: 1.5,
+        groupId: 'marketing',
+        order: 3,
     },
 ];
 

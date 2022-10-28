@@ -13,9 +13,9 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.comments,
-        icon: 'Calories',
+        icon: 'Comment',
         label: 'Comments',
-        groupId: 'doing',
+        groupId: 'site',
         order: 1.5,
     },
 ];

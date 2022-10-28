@@ -15,8 +15,8 @@ export const menuItems: IMenuItem[] = [
         path: routes.leads,
         icon: 'Calories',
         label: 'Leads',
-        groupId: 'doing',
-        order: 1.5,
+        groupId: 'marketing',
+        order: 2,
     },
 ];
 

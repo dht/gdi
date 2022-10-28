@@ -92,6 +92,10 @@ const apps: Record<string, App> = {
         id: 'comments',
         nodes: ['comments'],
     },
+    campaigns: {
+        id: 'campaigns',
+        nodes: ['campaigns'],
+    },
     leads: {
         id: 'leads',
         nodes: ['leads'],
