@@ -23,7 +23,7 @@ export const menuItems: IMenuItem[] = [
         path: routes.coupons,
         icon: 'Coupon',
         label: 'Coupons',
-        groupId: 'shop',
+        groupId: 'marketing',
         order: 4,
     },
 ];

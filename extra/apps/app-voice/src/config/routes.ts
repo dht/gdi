@@ -16,7 +16,7 @@ export const menuItems: IMenuItem[] = [
         icon: 'Microphone',
         label: 'Voice',
         groupId: 'extra',
-        order: 4,
+        order: 5.5,
     },
 ];
 

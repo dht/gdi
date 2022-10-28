@@ -1,0 +1,12 @@
+{
+    "id": "CampaignGallery",
+    "header": "Campaigns",
+    "itemType": "campaign",
+    "actions": [
+        {
+            "id": "new",
+            "iconName": "add",
+            "title": "New Campaign"
+        }
+    ]
+}

@@ -17,14 +17,14 @@ export const menuItems: IMenuItem[] = [
         icon: 'BeerMug',
         label: 'Soundboard',
         groupId: 'extra',
-        order: 2,
+        order: 1,
     },
     {
         path: routes.schedule,
         icon: 'Calendar',
         label: 'Schedule',
         groupId: 'doing',
-        order: 3.5,
+        order: 2,
     },
 ];
 

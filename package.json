@@ -8,7 +8,8 @@
         "screenshots:take": "npm run screenshots:take --workspace=@gdi/photo-booth-scripts",
         "screenshots:updateState": "npm run screenshots:updateState --workspace=@gdi/photo-booth-scripts",
         "firestore:reset-mixer": "npm run firestore:reset --workspace=@gdi/store-mixer-scripts",
-        "firestore:reset-site": "npm run firestore:reset --workspace=@gdi/store-site-scripts"
+        "firestore:reset-site": "npm run firestore:reset --workspace=@gdi/store-site-scripts",
+        "prepare": "husky install"
     },
     "workspaces": [
         "apps/*",
@@ -24,8 +25,14 @@
     "devDependencies": {
         "@types/jest": "^27.5.1",
         "base-types": "^0.0.4",
+        "husky": "^8.0.1",
         "jest": "^28.1.0",
         "ts-jest": "^28.0.2",
         "typescript": "^4.6.4"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "sh ./scripts/pre-commit-prevent-large-files.sh"
+        }
     }
 }

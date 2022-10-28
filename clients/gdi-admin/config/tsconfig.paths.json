@@ -32,6 +32,7 @@
 
             "@gdi/app-biblo": ["extra/apps/app-biblo"],
             "@gdi/app-carts": ["extra/apps/app-carts"],
+            "@gdi/app-campaigns": ["extra/apps/app-campaigns"],
             "@gdi/app-comments": ["extra/apps/app-comments"],
             "@gdi/app-devtools": ["extra/apps/app-devtools"],
             "@gdi/app-events": ["extra/apps/app-events"],
@@ -51,6 +52,7 @@
             "@gdi/store-biblo": ["extra/stores/gdi-store-biblo"],
             "@gdi/store-weather": ["extra/stores/gdi-store-weather"],
             "@gdi/store-carts": ["extra/stores/gdi-store-carts"],
+            "@gdi/store-campaigns": ["extra/stores/gdi-store-campaigns"],
             "@gdi/store-devtools": ["extra/stores/gdi-store-devtools"],
             "@gdi/store-events": ["extra/stores/gdi-store-events"],
             "@gdi/store-knowledge": ["extra/stores/gdi-store-knowledge"],

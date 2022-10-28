@@ -14,8 +14,8 @@ export const menuItems: IMenuItem[] = [
         path: routes.babylon,
         icon: 'Globe',
         label: '3D',
-        groupId: 'doing',
-        order: 1.5,
+        groupId: 'extra',
+        order: 5,
     },
 ];
 

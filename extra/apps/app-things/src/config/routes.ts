@@ -16,7 +16,7 @@ export const menuItems: IMenuItem[] = [
         icon: 'Sunny',
         label: 'Things',
         groupId: 'extra',
-        order: 2.5,
+        order: 4,
     },
 ];
 
