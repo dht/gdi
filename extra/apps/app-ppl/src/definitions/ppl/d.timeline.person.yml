@@ -1,5 +1,5 @@
-id: EventTimeline
-header: Events Timeline
+id: LayoutTimeline
+header: Layouts Timeline
 fields:
     - id: id
       title: Id

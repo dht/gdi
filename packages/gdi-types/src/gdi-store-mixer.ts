@@ -2,7 +2,7 @@
 
 import type { StoreStructure } from 'redux-store-generator';
 
-export const A8 = {};
+export const A9 = {};
 
 declare global {
     export type IMixerStore = StoreStructure & {

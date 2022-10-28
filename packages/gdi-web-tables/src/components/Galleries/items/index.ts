@@ -7,6 +7,7 @@ import { ItemImage } from './ItemImage/ItemImage';
 import { ItemImageProps } from './ItemImage/ItemImage';
 import { ItemLayout } from './ItemLayout/ItemLayout';
 import { ItemInbox } from './ItemInbox/ItemInbox';
+import { ItemLead } from './ItemLead/ItemLead';
 import { ItemLink } from './ItemLink/ItemLink';
 import { ItemOrder } from './ItemOrder/ItemOrder';
 import { ItemPage } from './ItemPage/ItemPage';
@@ -30,6 +31,7 @@ export const items: Record<ItemType, FC<ItemImageProps>> = {
     image: ItemImage,
     inbox: ItemInbox,
     layout: ItemLayout,
+    lead: ItemLead,
     link: ItemLink,
     order: ItemOrder, // @ts-expect-error
     page: ItemPage,

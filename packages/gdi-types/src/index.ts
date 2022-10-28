@@ -5,6 +5,7 @@ export * from './gdi-store-devtools';
 export * from './gdi-store-carts';
 export * from './gdi-store-dashboard';
 export * from './gdi-store-orders';
+export * from './gdi-store-orders';
 export * from './gdi-store-settings';
 export * from './gdi-store-mixer';
 export * from './gdi-store-money';

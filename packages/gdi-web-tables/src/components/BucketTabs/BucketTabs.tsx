@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Tab, Title } from './BucketTabs.style';
+import { Container, Svg, Tab, Title } from './BucketTabs.style';
 import classnames from 'classnames';
 
 export type BucketTabsProps = {
@@ -26,7 +26,10 @@ export function BucketTabs(props: BucketTabsProps) {
                 className={className}
                 onClick={() => props.onSelect(tab.id)}
             >
-                <Title>{text}</Title>
+                <Svg width='120' height='28'>
+                    <polygon points='0,0 120,0 100,28, 20,28' />
+                </Svg>
+                <Title className='title'>{text}</Title>
             </Tab>
         );
     }
