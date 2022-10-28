@@ -29,6 +29,7 @@ export const alias = {
 
     '@gdi/app-biblo': `${cwd}/extra/apps/app-biblo/src`,
     '@gdi/app-carts': `${cwd}/extra/apps/app-carts/src`,
+    '@gdi/app-comments': `${cwd}/extra/apps/app-comments/src`,
     '@gdi/app-devtools': `${cwd}/extra/apps/app-devtools/src`,
     '@gdi/app-events': `${cwd}/extra/apps/app-events/src`,
     '@gdi/app-knowledge': `${cwd}/extra/apps/app-knowledge/src`,
@@ -46,6 +47,7 @@ export const alias = {
 
     '@gdi/store-biblo': `${cwd}/extra/stores/gdi-store-biblo/src`,
     '@gdi/store-carts': `${cwd}/extra/stores/gdi-store-carts/src`,
+    '@gdi/store-comments': `${cwd}/extra/stores/gdi-store-comments/src`,
     '@gdi/store-devtools': `${cwd}/extra/stores/gdi-store-devtools/src`,
     '@gdi/store-events': `${cwd}/extra/stores/gdi-store-events/src`,
     '@gdi/store-knowledge': `${cwd}/extra/stores/gdi-store-knowledge/src`,

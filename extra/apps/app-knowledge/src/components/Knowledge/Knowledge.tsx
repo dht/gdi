@@ -24,7 +24,7 @@ export function Knowledge(props: KnowledgeProps) {
             data-testid='Knowledge-container'
         >
             <Multi
-                id='Links'
+                id='Knowledge'
                 itemType='link'
                 header='Knowledge'
                 data={data}

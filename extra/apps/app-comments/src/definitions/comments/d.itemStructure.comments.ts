@@ -1,0 +1,21 @@
+export const itemStructure = `export type IComment = {
+    id: string;
+    title: string;
+    startDate: string;
+    commentType: ICommentType;
+    status: ICommentStatus;
+    statusDate: string;
+    endDate?: string;
+    description: string;
+    personId: string;
+    nextVisitDate: string;
+    items: ICommentJournal[];
+    worth?: number;
+    percent?: number;
+    isArchived?: boolean;
+    isSuccessful?: boolean;
+    isLost?: boolean;
+    tags: string[];
+    dataTags: string[];
+};
+`;
