@@ -1,18 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { EventsSheets, EventsSheetsProps } from './EventsSheets';
+import { Reminders, RemindersProps } from './Reminders';
 import { BaseComponentDriver } from 'testing-base';
 
-export class EventsSheetsDriver extends BaseComponentDriver {
-    private props: Partial<EventsSheetsProps> = {};
+export class RemindersDriver extends BaseComponentDriver {
+    private props: Partial<RemindersProps> = {
+    };
 
     constructor() {
-        super('EventsSheets');
+        super('Reminders');
     }
 
     when: any = {
         rendered: () => {
-            render(<EventsSheets {...(this.props as EventsSheetsProps)} />);
+            render(<Reminders {...(this.props as RemindersProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,14 +21,12 @@ export class EventsSheetsDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(
-                <EventsSheets {...(this.props as EventsSheetsProps)} />
-            );
+            return this.snapshot(<Reminders {...(this.props as RemindersProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<EventsSheetsProps>) => {
+        props: (props: Partial<RemindersProps>) => {
             this.props = props;
             return this;
         },

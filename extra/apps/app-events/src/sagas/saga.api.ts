@@ -5,6 +5,7 @@ function* api() {
     const promises = [
         yield* put(actions.appStateEvents.get()),
         yield* put(actions.events.get({})),
+        yield* put(actions.reminders.get({})),
     ];
 
     yield Promise.all(promises);

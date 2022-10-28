@@ -25,3 +25,7 @@ export const $sheetData = createSelector(
 export const $events = createSelector(raw.$rawEvents, (events) => {
     return events;
 });
+
+export const $reminders = createSelector(raw.$rawReminders, (reminders) => {
+    return reminders;
+});

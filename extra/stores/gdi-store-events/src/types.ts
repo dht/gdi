@@ -3,6 +3,7 @@ import { StoreStructure } from 'redux-store-generator';
 export type IEventsStore = StoreStructure & {
     appStateEvents: IEventsState;
     events: IEvents;
+    reminders: IReminders;
 };
 
 export type IEventsState = {
@@ -24,4 +25,16 @@ export type IEvent = {
     tags?: string[];
 };
 
+export type IReminder = {
+    id: string;
+    title: string;
+    description?: string;
+    date: string;
+    itemType: ItemType;
+    itemId: string;
+    isCompleted?: boolean;
+    snoozeUntil?: string;
+};
+
 export type IEvents = Record<string, IEvent>;
+export type IReminders = Record<string, IReminder>;

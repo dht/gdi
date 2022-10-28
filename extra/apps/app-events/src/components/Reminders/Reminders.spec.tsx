@@ -1,13 +1,13 @@
-import { EventsSheetsDriver } from './EventsSheets.driver';
+import { RemindersDriver } from './Reminders.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('EventsSheets', () => {
-    let driver: EventsSheetsDriver;
+describe('Reminders', () => {
+    let driver: RemindersDriver;
 
     beforeAll(() => {
-        driver = new EventsSheetsDriver();
+        driver = new RemindersDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('EventsSheets', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('EventsSheets-container');
+        expect(containerClassName).toContain('Reminders-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('EventsSheets', () => {
     });
 });
 
-describe('EventsSheets snapshots', () => {
-    let driver: EventsSheetsDriver;
+describe('Reminders snapshots', () => {
+    let driver: RemindersDriver;
 
     beforeAll(() => {
-        driver = new EventsSheetsDriver();
+        driver = new RemindersDriver();
     });
 
     it('should match snapshot', () => {

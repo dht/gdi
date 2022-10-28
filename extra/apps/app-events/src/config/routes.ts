@@ -8,6 +8,7 @@ import { ROOT } from './ids';
 
 export const routes: IRoutes = {
     events: `${ROOT}`,
+    reminders: '/admin/reminders',
 };
 
 export const menuItems: IMenuItem[] = [
@@ -15,6 +16,13 @@ export const menuItems: IMenuItem[] = [
         path: routes.events,
         icon: 'Calendar',
         label: 'Events',
+        groupId: 'extra',
+        order: 0,
+    },
+    {
+        path: routes.reminders,
+        icon: 'AlarmClock',
+        label: 'Reminders',
         groupId: 'extra',
         order: 0,
     },
