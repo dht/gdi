@@ -1,6 +1,7 @@
 export type IPplStore = {
     appStatePpl: IPplState;
     persons: IPersons;
+    personsRaw: IGoogleContacts;
 };
 
 export type IPplState = {
@@ -14,7 +15,10 @@ export type IPerson = {
     key: string;
     firstName: string;
     lastName: string;
+    firstNameLocal?: string;
+    lastNameLocal?: string;
     shortDescription: string;
+    relations?: string;
     dateOfBirth?: string;
     imageUrl?: string;
     imageThumbUrl?: string;
@@ -26,7 +30,10 @@ export type IPerson = {
     pinterestUrl?: string;
     wikipediaUrl?: string;
     website?: string;
+    hometown?: string;
+    city?: string;
     phoneNumber?: string;
+    nationality?: string;
     items: IImage[];
     email?: string;
     notes?: string;

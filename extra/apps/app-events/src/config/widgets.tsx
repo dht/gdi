@@ -1,11 +1,11 @@
 import React from 'react';
 import { IWidget } from '@gdi/platformer';
-import { EventsSheetsContainer } from '../containers/EventsSheetsContainer';
+import { RemindersContainer } from '../containers/RemindersContainer';
 import { EventsContainer } from '../containers/EventsContainer';
 
 export enum EventsWidgets {
     Events = 'events.Events',
-    Sheets = 'events.Sheets',
+    Reminders = 'events.Reminders',
 }
 export const widgets: IWidget[] = [
     {
@@ -19,13 +19,13 @@ export const widgets: IWidget[] = [
         component: (props: any) => <EventsContainer {...props} />,
     },
     {
-        id: EventsWidgets.Sheets,
-        name: 'Events',
-        description: 'Events',
+        id: EventsWidgets.Reminders,
+        name: 'Reminders',
+        description: 'Reminders',
         defaultDimension: {
             y: 16,
             x: 12,
         },
-        component: (props: any) => <EventsSheetsContainer {...props} />,
+        component: (props: any) => <RemindersContainer {...props} />,
     },
 ];

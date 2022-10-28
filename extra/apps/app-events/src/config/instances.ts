@@ -12,4 +12,13 @@ export const instances: IWidgetInstancesByPageList = {
             allowOverflow: false,
         },
     ],
+    reminders: [
+        {
+            id: 'Reminders',
+            widgetId: EventsWidgets.Reminders,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            allowOverflow: false,
+        },
+    ],
 };

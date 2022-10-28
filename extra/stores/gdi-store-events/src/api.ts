@@ -4,7 +4,12 @@ export const endpointsConfigOverrides = {
         connectionType: 'NONE',
     },
     events: {
-        id: 'appStateEvents',
+        id: 'events',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+    },
+    reminders: {
+        id: 'reminders',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },
