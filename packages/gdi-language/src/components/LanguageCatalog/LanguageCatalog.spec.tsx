@@ -1,4 +1,4 @@
-import { CatalogDriver } from './Catalog.driver';
+import { CatalogDriver } from './LanguageCatalog.driver';
 import Chance from 'chance';
 
 const chance = new Chance();

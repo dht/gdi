@@ -1,7 +1,6 @@
 export type IPplStore = {
     appStatePpl: IPplState;
     persons: IPersons;
-    personsRaw: IGoogleContacts;
 };
 
 export type IPplState = {

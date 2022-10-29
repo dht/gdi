@@ -114,26 +114,34 @@ declare global {
         | 'drillDown';
 
     export type ItemType =
-        | 'article'
-        | 'cart'
-        | 'coupon'
-        | 'image'
-        | 'inbox'
-        | 'event'
-        | 'layout'
-        | 'lead'
-        | 'link'
-        | 'order'
+        // CMS
+        | 'widget'
         | 'page'
         | 'pageInstance'
-        | 'person'
-        | 'post'
-        | 'product'
-        | 'project'
-        | 'sale'
-        | 'ticket'
+        | 'image'
+        | 'layout'
         | 'template'
-        | 'widget';
+        | 'article'
+        | 'comment'
+
+        // CRM & sales
+        | 'person'
+        | 'lead'
+        | 'sale'
+        | 'cart'
+        | 'order'
+        | 'coupon'
+        | 'product'
+        | 'campaign'
+
+        // Project management
+        | 'ticket'
+        | 'project'
+
+        // Other
+        | 'inbox'
+        | 'link'
+        | 'event';
 
     export type IBarTool = 'edit' | 'delete';
 

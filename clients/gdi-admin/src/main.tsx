@@ -10,6 +10,7 @@ import '@gdi/web-ui/dist/index.css';
 import 'firebaseui/dist/firebaseui.css';
 import { SystemLogs } from '@gdi/web-ui';
 import { Dev } from './main.dev';
+import './main.language';
 
 const DEBUG = false;
 const container = document.getElementById('root');

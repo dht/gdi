@@ -8,6 +8,7 @@ declare global {
     export type IEventsStore = StoreStructure & {
         appStateEvents: IEventsState;
         events: IEvents;
+        reminders: IReminders;
     };
 
     export type IEventsState = {
@@ -29,5 +30,17 @@ declare global {
         tags?: string[];
     };
 
+    export type IReminder = {
+        id: string;
+        title: string;
+        description?: string;
+        date: string;
+        itemType: ItemType;
+        itemId: string;
+        isCompleted?: boolean;
+        snoozeUntil?: string;
+    };
+
     export type IEvents = Record<string, IEvent>;
+    export type IReminders = Record<string, IReminder>;
 }

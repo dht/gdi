@@ -19,7 +19,12 @@
             "@gdi/template-starter": ["packages/gdi-template-starter"],
 
             "@gdi/language": ["packages/gdi-language"],
-            "@gdi/language-en": ["packages/gdi-language-en"],
+            "@gdi/language-de": ["submodules/gdi-language-de"],
+            "@gdi/language-es": ["submodules/gdi-language-es"],
+            "@gdi/language-fr": ["submodules/gdi-language-fr"],
+            "@gdi/language-he": ["submodules/gdi-language-he"],
+            "@gdi/language-it": ["submodules/gdi-language-it"],
+            "@gdi/language-nl": ["submodules/gdi-language-nl"],
 
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],

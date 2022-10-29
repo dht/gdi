@@ -1,14 +1,10 @@
 import React from 'react';
-import { Container } from './ItemCoupon.style';
+import { ItemBase, ItemBaseProps } from '../_ItemBase/ItemBase';
 
-export type ItemCouponProps = {};
+export type ItemCouponProps = ItemBaseProps & {};
 
-export function ItemCoupon(_props: ItemCouponProps) {
-    return (
-        <Container className="ItemCoupon-container" data-testid="ItemCoupon-container">
-            ItemCoupon
-        </Container>
-    );
+export function ItemCoupon(props: ItemCouponProps) {
+    return <ItemBase {...props} />;
 }
 
 export default ItemCoupon;

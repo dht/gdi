@@ -40,3 +40,21 @@
 [submodule "submodules/gdi-dnd"]
 	path = submodules/gdi-dnd
 	url = git@github.com:dht/gdi-dnd.git
+[submodule "submodules/gdi-language-de"]
+	path = submodules/gdi-language-de
+	url = git@github.com:dht/gdi-language-de.git
+[submodule "submodules/gdi-language-es"]
+	path = submodules/gdi-language-es
+	url = git@github.com:dht/gdi-language-es.git
+[submodule "submodules/gdi-language-fr"]
+	path = submodules/gdi-language-fr
+	url = git@github.com:dht/gdi-language-fr.git
+[submodule "submodules/gdi-language-he"]
+	path = submodules/gdi-language-he
+	url = git@github.com:dht/gdi-language-he.git
+[submodule "submodules/gdi-language-it"]
+	path = submodules/gdi-language-it
+	url = git@github.com:dht/gdi-language-it.git
+[submodule "submodules/gdi-language-nl"]
+	path = submodules/gdi-language-nl
+	url = git@github.com:dht/gdi-language-nl.git
