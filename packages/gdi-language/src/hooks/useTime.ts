@@ -1,12 +1,20 @@
 import { useMemo } from 'react';
-import { LanguageIso } from '../types';
 import * as h from '../utils/language.time';
+import * as r from '../utils/language.relative';
+import { DateTime } from '../types';
 
-export function useTime(forceLanguageId?: LanguageIso) {
+export function useTime() {
     const methods: H = useMemo(() => {
         return {
-            now: () => h.format(new Date()),
-            time: (date: DateTime) => h.format(date),
+            time: (date: DateTime) => h.time(date),
+            timeDifference: (
+                value: number,
+                unit: Intl.RelativeTimeFormatUnit
+            ) => {
+                return r.timeDifference(value, unit);
+            },
+            timeAgo: (date: Date) => r.timeAgo(date),
+            duration: (seconds: number) => r.duration(seconds),
         };
     }, []);
 
@@ -14,11 +22,18 @@ export function useTime(forceLanguageId?: LanguageIso) {
 }
 
 export type H = {
-    now: () => string;
     time: (date: Date) => string;
+    timeDifference: (
+        value: number,
+        unit: Intl.RelativeTimeFormatUnit
+    ) => string;
+    timeAgo: (date: Date) => string | undefined;
+    duration: (seconds: number) => string;
 };
 
 export const emptyH: H = {
-    now: () => '',
-    time: (date: Date) => '',
+    time: (_date: Date) => '',
+    timeDifference: (_value: number, _unit: Intl.RelativeTimeFormatUnit) => '',
+    timeAgo: (_date: Date) => '',
+    duration: (seconds: number) => '',
 };

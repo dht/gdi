@@ -1,16 +1,7 @@
 import { DateTime } from '../types';
 import { normalize } from './date';
+import { formatObjects } from './formatObjects';
 
-export const now = () => {
-    return '10:00';
-};
-
-export const format = (dateRaw: DateTime) => {
-    const date = normalize(dateRaw);
-
-    if (!date) {
-        return '';
-    }
-
-    return date.toString();
+export const time = (date: DateTime) => {
+    return formatObjects.time.format(normalize(date));
 };

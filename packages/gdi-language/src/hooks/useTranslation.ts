@@ -1,8 +1,7 @@
 import { useCallback } from 'react';
-import { LanguageIso } from '../types';
 import * as t from '../utils/language.translate';
 
-export function useTranslation(forceLanguageId?: LanguageIso) {
+export function useTranslation() {
     const method: T = useCallback((key: string) => {
         return t.translate(key);
     }, []);

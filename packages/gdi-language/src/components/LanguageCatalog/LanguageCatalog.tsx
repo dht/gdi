@@ -6,8 +6,8 @@ import {
     keysByLanguageApp1,
     keysByLanguageApp2,
     v as _v,
-} from './Catalog.data';
-import { Container, Table } from './Catalog.style';
+} from './LanguageCatalog.data';
+import { Container, Table } from './LanguageCatalog.style';
 import { LanguageContextProvider } from '../../context/Language.context';
 import { useLanguage } from '../../hooks/useLanguage';
 import { I18nBuilder } from '../../builders/I18nBuilder';
@@ -19,7 +19,7 @@ const v = _v;
 
 export function TableValues(props: any) {
     const { languageId } = props;
-    const { m, n, d, h, t } = useLanguage(languageId);
+    const { m, n, d, h, t } = useLanguage();
     const { state } = useContext(AppContext);
     const { appId } = state;
 
@@ -107,7 +107,7 @@ export function TableKeys() {
     );
 }
 
-export function Catalog(_props: CatalogProps) {
+export function LanguageCatalog(_props: CatalogProps) {
     const { setAppId } = useContext(AppContext);
 
     useEffect(() => {
@@ -153,4 +153,4 @@ export function Catalog(_props: CatalogProps) {
     );
 }
 
-export default Catalog;
+export default LanguageCatalog;

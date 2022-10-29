@@ -75,6 +75,11 @@ export const alias = {
     isokit: `${cwd}/submodules/isokit/src`,
     firestore: `${cwd}/submodules/firestore-local/src`,
     '@gdi/language': `${cwd}/packages/gdi-language/src`,
-    '@gdi/language-en': `${cwd}/packages/gdi-language-en/src`,
+    '@gdi/language-de': `${cwd}/submodules/gdi-language-de/src`,
+    '@gdi/language-es': `${cwd}/submodules/gdi-language-es/src`,
+    '@gdi/language-fr': `${cwd}/submodules/gdi-language-fr/src`,
+    '@gdi/language-he': `${cwd}/submodules/gdi-language-he/src`,
+    '@gdi/language-it': `${cwd}/submodules/gdi-language-it/src`,
+    '@gdi/language-nl': `${cwd}/submodules/gdi-language-nl/src`,
     ...aliasExtra,
 };

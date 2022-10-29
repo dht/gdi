@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Multi, Form, Theme, Prompt, PieMenu, Buckets } from '@gdi/web-ui';
-import { Catalog } from '@gdi/language';
-import styled from 'styled-components';
+import { LanguageCatalog } from '@gdi/language';
+import 'main.language';
 
 export function Dev() {
     const dispatch = (action: any) => {
@@ -10,9 +10,8 @@ export function Dev() {
 
     return (
         <Theme>
-            {/* <>
-                <Catalog />
-                <Prompt formComponent={Form} />
+            <LanguageCatalog />
+            {/* <Prompt formComponent={Form} />
 
                 <div>
                     <PieMenu
@@ -23,8 +22,6 @@ export function Dev() {
                     />
                 </div>
             </> */}
-
-            <Buckets />
         </Theme>
     );
 }

@@ -1,11 +1,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Catalog, CatalogProps } from './Catalog';
+import { LanguageCatalog, CatalogProps } from './LanguageCatalog';
 import { BaseComponentDriver } from 'testing-base';
 
 export class CatalogDriver extends BaseComponentDriver {
-    private props: Partial<CatalogProps> = {
-    };
+    private props: Partial<CatalogProps> = {};
 
     constructor() {
         super('Catalog');
@@ -13,7 +12,7 @@ export class CatalogDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<Catalog {...(this.props as CatalogProps)} />);
+            render(<LanguageCatalog {...(this.props as CatalogProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,7 +20,9 @@ export class CatalogDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Catalog {...(this.props as CatalogProps)} />);
+            return this.snapshot(
+                <LanguageCatalog {...(this.props as CatalogProps)} />
+            );
         },
     };
 

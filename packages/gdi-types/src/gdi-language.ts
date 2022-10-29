@@ -46,7 +46,14 @@ declare global {
 
     export type ILanguages = Record<LanguageIso, ILanguage>;
 
-    export type ILanguageDefinitions = {};
+    export type ILanguageDefinitions = {
+        dateOptions: Intl.DateTimeFormatOptions;
+        timeOptions: Intl.DateTimeFormatOptions;
+        numberOptions: Intl.NumberFormatOptions;
+        currencyOptions: Intl.NumberFormatOptions;
+        pluralOptions: Intl.PluralRulesOptions;
+        relativeOptions: Intl.RelativeTimeFormatOptions;
+    };
 
     export type IAppKeys = Record<LanguageIso, Json>;
 
