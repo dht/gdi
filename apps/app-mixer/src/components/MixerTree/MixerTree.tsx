@@ -189,6 +189,7 @@ export const PageInstances = (props: PageInstancesProps) => {
             <Instance
                 key={pageInstance.id}
                 className={className}
+                onTouchStart={() => props.onClick(pageInstance)}
                 onMouseDown={() => props.onClick(pageInstance)}
             >
                 <InstanceName>

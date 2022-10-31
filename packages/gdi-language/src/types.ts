@@ -73,3 +73,26 @@ export type TimePeriod =
 export type SecondsPerTimePeriod = Record<TimePeriod, number>;
 
 export type IDuration = Record<TimePeriod, number>;
+
+export type DateInfo = {
+    dayOfWeek: number;
+    dayOfYear?: number;
+    week?: number;
+    year: number;
+    yearShort: string;
+    quarter?: number;
+    hour: string;
+    dayOfWeekName: string;
+    dayOfWeekShortName: string;
+    dateString: string;
+    dateShortString: string;
+    dateStringFull: string;
+    weekAndYear: string;
+    dateStringWeek: string;
+    isToday?: boolean;
+};
+
+export type IInterval = {
+    start: DateTime;
+    end: DateTime;
+};

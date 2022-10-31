@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, DayHeaderContainer, Squares } from './ScheduleDay.style';
-import { format, setDay } from '@gdi/language';
+import { XDate } from '@gdi/language';
 import ScheduleSquare from '../ScheduleSquare/ScheduleSquare';
 
 export type ScheduleDayProps = {
@@ -80,12 +80,10 @@ export function ScheduleDay(props: ScheduleDayProps) {
 }
 
 function DayHeader({ color, day }: any) {
-    const date = setDay(new Date(), day);
+    const dayOfWeekName = new XDate().setDayOfWeek(day).toInfo()?.dayOfWeekName;
 
     return (
-        <DayHeaderContainer color={color}>
-            {format(date, 'eeee')}
-        </DayHeaderContainer>
+        <DayHeaderContainer color={color}>{dayOfWeekName}</DayHeaderContainer>
     );
 }
 

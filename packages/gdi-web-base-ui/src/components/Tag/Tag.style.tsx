@@ -42,7 +42,7 @@ export const Title = styled.div`
 `;
 
 export const Delete = styled.div`
-    border-left: 1.5px solid rgba(0, 0, 0, 0.3);
+    ${(props) => props.theme.borderLeft('1.5px solid rgba(0, 0, 0, 0.3)')}
     padding: 6px 8px 4px;
     border-radius: 0 8px 8px 0;
     font-size: 14px;
@@ -56,6 +56,6 @@ export const Delete = styled.div`
     &:active {
         position: relative;
         bottom: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;

@@ -10,9 +10,9 @@ export const Container = styled.div`
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
+        ${(props) => props.theme.left(0)}
+        ${(props) => props.theme.right(0)}
         bottom: 0;
-        right: 0;
         opacity: 0.2;
         background: repeating-linear-gradient(
             -45deg,

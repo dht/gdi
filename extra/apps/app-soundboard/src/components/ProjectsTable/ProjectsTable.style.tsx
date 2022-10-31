@@ -37,5 +37,5 @@ export const Title = styled.div`
 
 export const Percent = styled.div`
     color: goldenrod;
-    padding-right: 15px;
+    ${(props) => props.theme.paddingRight('15px')}
 `;

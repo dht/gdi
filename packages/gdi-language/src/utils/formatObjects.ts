@@ -1,4 +1,6 @@
-import { ILanguageDefinitions, IWorkdayConfig } from '../types';
+import { ILanguageDefinitions, IWorkdayConfig, LanguageIso } from '../types';
+
+const rtlLanguages = ['ar', 'he', 'fa', 'ur'];
 
 type FormatObjects = {
     date: Intl.DateTimeFormat;
@@ -25,9 +27,22 @@ export let workdayConfig: IWorkdayConfig = {
     hoursPerDay: 8,
 };
 
+export let languageCode: LanguageIso = 'en';
+
+export const getLanguageCode = () => {
+    return languageCode;
+};
+
+export const getIsRtl = () => {
+    return rtlLanguages.includes(getLanguageCode());
+};
+
+export const setLanguageCode = (code: LanguageIso) => {
+    languageCode = code;
+};
+
 export const initFormat = (definitions: ILanguageDefinitions) => {
     const {
-        languageCode,
         dateLongOptions,
         dateOptions,
         timeOptions,
@@ -39,6 +54,8 @@ export const initFormat = (definitions: ILanguageDefinitions) => {
         listOptions,
         suffixes,
     } = definitions;
+
+    setLanguageCode(definitions.languageCode);
 
     formatObjects.dateLong = new Intl.DateTimeFormat(languageCode, dateOptions);
 

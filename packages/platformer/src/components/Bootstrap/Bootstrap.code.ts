@@ -32,12 +32,12 @@ export const bootstrapApp = async (
 
     const { config } = props;
     const {
-        baseURL,
         activeApps,
         initializers,
         menuSections,
         firebaseConfigs,
         noServerMode,
+        languageCode,
     } = config;
 
     const axiosInstance: any = null;
@@ -62,6 +62,7 @@ export const bootstrapApp = async (
             menuSections,
             logger: (message, data) => $s(message, data),
             noServerMode,
+            languageCode,
         },
         patchContext
     );

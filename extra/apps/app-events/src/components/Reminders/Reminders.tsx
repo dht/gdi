@@ -3,6 +3,7 @@ import { Container } from './Reminders.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type RemindersProps = {
     data: Json[];
@@ -17,6 +18,7 @@ export type RemindersProps = {
 export function Reminders(props: RemindersProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('event');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -26,7 +28,7 @@ export function Reminders(props: RemindersProps) {
             <Multi
                 id='Events'
                 itemType='event'
-                header='Reminders'
+                header={t('Reminders')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

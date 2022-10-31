@@ -5,7 +5,7 @@ export const Container = styled.div`
     border: 1px solid #334;
     position: absolute;
     top: 100px;
-    right: 200px;
+    ${(props) => props.theme.right('200px')}
     border-radius: 4px;
     background-color: rgba(10, 10, 20, 0.9);
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);

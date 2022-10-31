@@ -1,19 +1,22 @@
+import React, { useContext, useMemo } from 'react';
+import { $s } from 'shared-base';
 import { AllRoutes } from './Bootstrap.routes';
 import { bootstrapApp } from './Bootstrap.code';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
-import { Theme, ScreenLoader, Prompt, Toast, Form } from '@gdi/web-ui';
 import { Content, Version } from './Bootstrap.style';
+import { Form, Prompt, ScreenLoader, Theme, Toast } from '@gdi/web-ui';
 import { init as initNavigation } from '../../sagas/saga.navigate';
-import { Provider } from 'react-redux';
-import { useMount } from 'react-use';
 import { IPlatformConfig } from '../../types';
+import { LanguageProvider } from '@gdi/language';
+import { Provider } from 'react-redux';
+import { ThemeProvider, useTheme as useThemeO } from 'styled-components';
+import { useMount } from 'react-use';
 import {
     PlatformContext,
     PlatformContextProvider,
 } from '../../core/Platform.context';
-import { LanguageProvider } from '@gdi/language';
-import { $s } from 'shared-base';
-import { useContext } from 'react';
+import { useTheme } from '../../hooks/useTheme';
+import { getLanguageCode, getIsRtl } from '@gdi/language';
 
 export type BootstrapProps = {
     config: IPlatformConfig;
@@ -21,7 +24,7 @@ export type BootstrapProps = {
 
 export const Bootstrap = (props: BootstrapProps) => {
     const { patchContext, state } = useContext(PlatformContext);
-    const { store, isReady, isRtl, i18nKeys } = state;
+    const { store, isReady, i18nKeys, languageCode, isRtl } = state;
 
     useMount(() => {
         bootstrapApp(props, patchContext);
@@ -39,19 +42,17 @@ export const Bootstrap = (props: BootstrapProps) => {
             <Provider store={store}>
                 <LanguageProvider
                     id='main'
-                    config={{}}
-                    options={{}}
-                    initialLanguageId='en'
                     keys={i18nKeys}
+                    initialLanguageId={languageCode}
                 >
                     <Router>
-                        <Content isRtl={isRtl}>
+                        <Content>
                             <AllRoutes />
                         </Content>
                         <History />
                     </Router>
                     <Toast />
-                    <Prompt formComponent={Form} />
+                    <Prompt formComponent={Form} isRtl={isRtl} />
                 </LanguageProvider>
             </Provider>
         </Theme>
@@ -71,17 +72,32 @@ function History() {
 }
 
 export const BootstrapContainer = (props: BootstrapProps) => {
-    const { config } = props;
-    const { version, initialRoute, noServerMode } = config;
+    const config = useMemo(
+        () => ({
+            ...props.config,
+            languageCode: getLanguageCode(),
+            isRtl: getIsRtl(),
+        }),
+        [props.config]
+    );
+
+    const { version, initialRoute, noServerMode, languageCode, isRtl } = config;
+    const theme = useTheme(languageCode, getIsRtl());
+
+    const Cmp: any = ThemeProvider;
 
     return (
-        <PlatformContextProvider
-            initialRoute={initialRoute}
-            noServerMode={noServerMode}
-        >
-            <Bootstrap {...props} />
-            <Version>{version}</Version>
-        </PlatformContextProvider>
+        <Cmp theme={theme}>
+            <PlatformContextProvider
+                initialRoute={initialRoute}
+                noServerMode={noServerMode}
+                languageCode={languageCode}
+                isRtl={isRtl}
+            >
+                <Bootstrap config={config} />
+                <Version>{version}</Version>
+            </PlatformContextProvider>
+        </Cmp>
     );
 };
 

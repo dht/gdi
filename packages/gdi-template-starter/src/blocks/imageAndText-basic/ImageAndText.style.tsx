@@ -98,7 +98,7 @@ export const CTA = styled.a<{ colors: ImageAndTextColors }>`
     &:active {
         position: relative;
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
     }
 
     @media (max-width: 768px) {

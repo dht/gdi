@@ -17,14 +17,14 @@ export const Actions = styled.div`
     padding: 15px 18px 10px;
 
     > button {
-        margin-left: 10px;
+        ${(props) => props.theme.marginLeft('10px')}
     }
 `;
 
 export const Agreements = styled.div``;
 
 export const Agreement = styled.div`
-    margin: 0 0 10px 5px;
+    ${(props) => props.theme.margin('0 0 10px 5px')}
 
     a.agreement-link {
         color: #62bdbd;

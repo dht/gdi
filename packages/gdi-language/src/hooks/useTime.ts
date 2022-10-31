@@ -13,7 +13,7 @@ export function useTime() {
             ) => {
                 return r.timeDifference(value, unit);
             },
-            timeAgo: (date: Date) => r.timeAgo(date),
+            timeAgo: (date: DateTime) => r.timeAgo(date),
             duration: (seconds: number) => r.duration(seconds),
         };
     }, []);

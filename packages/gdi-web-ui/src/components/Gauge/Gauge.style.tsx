@@ -29,7 +29,7 @@ export const DialLine = styled.div`
     width: 5px;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.2);
-    left: -10px;
+    ${(props) => props.theme.left('-10px')}
     top: 50%;
     position: absolute;
 `;
@@ -39,7 +39,7 @@ export const Dial = styled.div`
     width: 50px;
     height: 50px;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
 
     --degrees: 21deg;
     --degrees-delta: 17deg;
@@ -94,7 +94,7 @@ export const Dot = styled.div`
     width: 7px;
     height: 7px;
     top: 4px;
-    left: calc(50% - 4px);
+    ${(props) => props.theme.left('calc(50% - 4px)')}
     border-radius: 4px;
     background-color: white;
     box-shadow: inset 1px 1px 1px 0 rgba(0, 0, 0, 0.4),

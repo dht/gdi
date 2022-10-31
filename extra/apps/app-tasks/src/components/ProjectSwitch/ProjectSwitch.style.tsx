@@ -14,8 +14,8 @@ export const Project = styled.div`
     padding: 3px 10px;
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    float: left;
+    ${(props) => props.theme.borderRight('1px solid rgba(255, 255, 255, 0.1)')}
+    ${(props) => props.theme.floatLeft()}
     width: 80px;
     box-sizing: border-box;
 
@@ -32,7 +32,7 @@ export const Project = styled.div`
     &:active {
         position: relative;
         bottom: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;
 

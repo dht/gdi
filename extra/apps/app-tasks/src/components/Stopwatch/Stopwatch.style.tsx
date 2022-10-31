@@ -29,6 +29,6 @@ export const Seconds = styled.div`
     font-weight: 100;
     font-family: monospace;
     padding-bottom: 8px;
-    padding-left: 6px;
+    ${(props) => props.theme.paddingLeft('6px')}
     opacity: 0.4;
 `;

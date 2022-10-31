@@ -7,8 +7,8 @@ export const Container = styled.div`
     padding: 12px 40px 12px 0;
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}    
     z-index: 2;
     transition: all 350ms linear;
     display: flex;
@@ -80,8 +80,8 @@ export const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}    
     bottom: 0;
     opacity: 0;
     pointer-events: none;
@@ -96,7 +96,7 @@ export const Overlay = styled.div`
 export const MenuWrapper = styled.div`
     position: fixed;
     top: 0;
-    right: 0;
+    ${(props) => props.theme.right(0)}
     width: 400px;
     bottom: 0;
     background-color: white;
@@ -172,7 +172,7 @@ export const Action = styled.a<{ colors: UserBarColors }>`
     &:active {
         position: relative;
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
     }
 
     @media (max-width: 768px) {

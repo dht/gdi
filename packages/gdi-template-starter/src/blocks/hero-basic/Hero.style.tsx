@@ -38,7 +38,7 @@ export const ImageCredits = styled.div`
     flex: 1;
     position: absolute;
     bottom: 15px;
-    right: 15px;
+    ${(props) => props.theme.right('15px')}
     background-color: rgba(0, 0, 0, 0.4);
     padding: 6px 10px;
     border-radius: 3px;
@@ -92,7 +92,7 @@ export const H1 = styled.h1<{ size: number }>`
 
 export const Beta = styled.div`
     font-size: 22px;
-    margin-left: 14px;
+    ${(props) => props.theme.marginLeft('14px')}
     opacity: 0.85;
     text-transform: uppercase;
     color: gold;
@@ -142,7 +142,7 @@ export const CTA = styled.a<{ colors: HeroColors }>`
     &:active {
         position: relative;
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
     }
 
     @media (max-width: 768px) {
@@ -160,7 +160,7 @@ export const SecondButton = styled.a<{ colors: HeroColors }>`
     padding: 10px 50px;
     border: none;
     border-radius: 20px;
-    margin-left: 20px;
+    ${(props) => props.theme.marginLeft('20px')}
     cursor: pointer;
 
     &:hover {
@@ -171,7 +171,7 @@ export const SecondButton = styled.a<{ colors: HeroColors }>`
     &:active {
         position: relative;
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
     }
 
     @media (max-width: 768px) {

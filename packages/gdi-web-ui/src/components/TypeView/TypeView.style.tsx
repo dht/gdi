@@ -4,6 +4,7 @@ export const Container = styled.div`
     flex: 1;
     font-family: monospace;
     padding: 10px;
+    direction: ltr;
 `;
 
 export const Line = styled.div`
@@ -14,27 +15,27 @@ export const Line = styled.div`
 export const Part = styled.span`
     &.export {
         color: #f92672;
-        margin-right: 5px;
+        ${(props) => props.theme.marginRight('5px')}
     }
 
     &.type {
         color: #67d9ef;
-        margin-right: 5px;
+        ${(props) => props.theme.marginRight('5px')}
     }
 
     &.variableName {
         color: #a6e22e;
-        margin-right: 5px;
+        ${(props) => props.theme.marginRight('5px')}
     }
 
     &.fieldName {
-        margin-left: 25px;
+        ${(props) => props.theme.marginLeft('25px')}
         color: #f8f8f2;
     }
 
     &.colon {
         color: #f92672;
-        margin-right: 8px;
+        ${(props) => props.theme.marginRight('8px')}
     }
 
     &.questionMark {

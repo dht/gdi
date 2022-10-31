@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-    padding-right: 10px;
+    ${(props) => props.theme.paddingRight('10px')}
     position: relative;
     bottom: 3px;
 `;

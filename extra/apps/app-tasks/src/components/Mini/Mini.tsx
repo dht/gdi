@@ -7,7 +7,7 @@ import {
     Empty,
 } from './Mini.style';
 import { Stopwatch } from '@gdi/web-ui';
-import { formatDuration } from '@gdi/language';
+import { toDuration } from '@gdi/language';
 
 export type MiniProps = {
     activeTask: IActiveTask;
@@ -27,7 +27,7 @@ export function Mini(props: MiniProps) {
     const { stats, ticket } = activeTask;
 
     const { summary } = ticket ?? {};
-    const estimation = formatDuration(stats.estimation) || '-';
+    const estimation = toDuration(stats.estimation) || '-';
 
     return (
         <Container className='Mini-container' data-testid='Mini-container'>

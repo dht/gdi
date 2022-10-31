@@ -27,5 +27,6 @@ export type { IWidget, IWidgets, IWidgetInstancesByPageList } from 'igrid';
 export { BootstrapContainer as Bootstrap } from './components/Bootstrap/Bootstrap';
 export { CurrentIdsHoc } from './components/Bootstrap/Bootstrap.currentIds';
 export { firebase } from './utils/firebase';
+export { Wrapper } from './components/Wrapper/Wrapper';
 
 export { useCrudDefinitions } from './hooks/useCrudDefinitions';

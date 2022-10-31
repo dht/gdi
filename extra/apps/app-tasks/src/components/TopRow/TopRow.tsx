@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Key, Text } from './TopRow.style';
-import { formatDate, formatTime } from '@gdi/language';
+import { dateLong, time } from '@gdi/language';
 
 export type TopRowProps = {
     activeTask: IActiveTask;
@@ -14,8 +14,8 @@ export function TopRow(props: TopRowProps) {
     }
 
     const dateRaw = new Date(activeTask.session?.startTimestamp);
-    const time = formatTime(dateRaw);
-    const date = formatDate(dateRaw);
+    const timeText = time(dateRaw);
+    const date = dateLong(dateRaw);
 
     return (
         <Container className='TopRow-container' data-testid='TopRow-container'>
@@ -24,7 +24,7 @@ export function TopRow(props: TopRowProps) {
                 {activeTask?.stats?.currentSessionSequence}
             </Text>
             <Text>
-                Started {time} | {date}
+                Started {timeText} | {date}
             </Text>
         </Container>
     );

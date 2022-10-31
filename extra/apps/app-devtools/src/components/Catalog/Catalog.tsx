@@ -12,6 +12,7 @@ import { Multi, Form, TypeView } from '@gdi/web-ui';
 import * as nodes from '@gdi/datasets';
 import { getScreenshotThumb, getScreenshot } from 'shared-base';
 import { PlatformContext } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type CatalogProps = {};
 
@@ -19,6 +20,8 @@ export function Catalog(_props: CatalogProps) {
     const dispatch = useDispatch();
     const { crudDefinitions: allDefinitions } =
         useContext(PlatformContext).state;
+
+    const { t } = useLanguage();
 
     function renderGroup(group: any) {
         const { id, title } = group;
@@ -39,10 +42,10 @@ export function Catalog(_props: CatalogProps) {
                         <Multi
                             id={group.id}
                             itemType={group.id}
-                            header={group.title}
+                            header={t(group.title)}
                             data={group.data}
                             callbacks={{} as any}
-                            definitions={definitions}
+                            definitions={td(definitions)}
                             viewModes={['gallery']}
                             initialViewMode='gallery'
                             dispatch={dispatch}
@@ -53,10 +56,10 @@ export function Catalog(_props: CatalogProps) {
                         <Multi
                             id={group.id}
                             itemType={group.id}
-                            header={group.title}
+                            header={t(group.title)}
                             data={group.data}
                             callbacks={{} as any}
-                            definitions={definitions}
+                            definitions={td(definitions)}
                             viewModes={['table']}
                             initialViewMode='table'
                             dispatch={dispatch}
@@ -67,10 +70,10 @@ export function Catalog(_props: CatalogProps) {
                         <Multi
                             id={group.id}
                             itemType={group.id}
-                            header={group.title}
+                            header={t(group.title)}
                             data={group.data}
                             callbacks={{} as any}
-                            definitions={definitions}
+                            definitions={td(definitions)}
                             viewModes={['spreadsheet']}
                             initialViewMode='spreadsheet'
                             dispatch={dispatch}

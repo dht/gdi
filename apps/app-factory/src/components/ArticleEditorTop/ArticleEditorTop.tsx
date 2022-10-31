@@ -22,7 +22,7 @@ import {
 } from './ArticleEditorTop.style';
 import { SocialIcon } from '@gdi/web-ui';
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
-import { SimpleDate } from '@gdi/language';
+import { dateShort } from '@gdi/language';
 
 export type ArticleEditorTopProps = {
     children: JSX.Element;
@@ -43,7 +43,7 @@ export function ArticleEditorTop(props: ArticleEditorTopProps) {
         categoryBreadcrumbs,
     } = article;
 
-    const date = new SimpleDate(new Date(publishDate)).toText(true);
+    const date = dateShort(publishDate);
 
     function onTitleChange() {
         if (refTitle.current) {

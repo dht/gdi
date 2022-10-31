@@ -4,6 +4,8 @@ import ReduxConnectedDevtoolsContainer from '../containers/ReduxConnectedDevtool
 import HoustonContainer from '../containers/HoustonContainer';
 import { LoginCycleContainer } from '../containers/LoginCycleContainer';
 import { CatalogContainer } from '../containers/CatalogContainer';
+import { IWidget, Wrapper } from '@gdi/platformer';
+import { APP_ID } from './ids';
 
 export enum DevtoolsWidgets {
     ReduxConnectedDevtools = 'devtools.ReduxConnectedDevtools',
@@ -24,7 +26,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <StoreSizeContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={StoreSizeContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: DevtoolsWidgets.ReduxConnectedDevtools,
@@ -35,7 +43,11 @@ export const widgets: IWidget[] = [
             x: 12,
         },
         component: (props: any) => (
-            <ReduxConnectedDevtoolsContainer {...props} />
+            <Wrapper
+                appId={APP_ID}
+                component={ReduxConnectedDevtoolsContainer}
+                props={props}
+            />
         ),
     },
     {
@@ -46,7 +58,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <HoustonContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={HoustonContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: DevtoolsWidgets.LoginCycle,
@@ -56,7 +74,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <LoginCycleContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={LoginCycleContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: DevtoolsWidgets.Catalog,
@@ -66,6 +90,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <CatalogContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={CatalogContainer}
+                props={props}
+            />
+        ),
     },
 ];

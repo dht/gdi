@@ -1,3 +1,7 @@
 export default {
-    key: 'הצלחה',
+  key: "הצלחה",
+  Account: "חֶשְׁבּוֹן",
+  "Active Apps": "אפליקציות פעילות",
+  "Site Properties": "מאפייני האתר",
+  "Navigate: Site Properties": "ניווט: מאפייני אתר",
 };

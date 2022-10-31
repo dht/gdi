@@ -3,6 +3,7 @@ import { Container } from './Articles.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type ArticlesProps = {
     data: Json[];
@@ -17,6 +18,7 @@ export type ArticlesProps = {
 export function Articles(props: ArticlesProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('article');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -26,6 +28,7 @@ export function Articles(props: ArticlesProps) {
             <Multi
                 id='Articles'
                 itemType='article'
+                header={t('Articles')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

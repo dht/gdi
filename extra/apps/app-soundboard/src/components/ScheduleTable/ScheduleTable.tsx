@@ -6,7 +6,6 @@ import {
     Table,
     HeaderContainer,
     Hour,
-    Pencils,
     Placeholder,
     HourTitle,
     Break,
@@ -15,6 +14,7 @@ import {
     Row,
 } from './ScheduleTable.style';
 import { useKey, useMeasure } from 'react-use';
+import { useTheme } from 'styled-components';
 
 export type ScheduleTableProps = {
     isDayTime: boolean;
@@ -106,7 +106,7 @@ export function ScheduleTable(props: ScheduleTableProps) {
                     <Row>{renderDays()}</Row>
                     {renderEmpty()}
                 </Column>
-                {isDayTime ? <Pencils /> : <Placeholder />}
+                {isDayTime && <Placeholder />}
             </Table>
         </Container>
     );
@@ -152,6 +152,8 @@ function ScheduleTableHours({
 export default ScheduleTable;
 
 function useArrowsWithAlt(callback: (key: string) => void) {
+    const { isRtl } = useTheme();
+
     useKey('ArrowUp', (ev) => {
         if (!ev.altKey) {
             return;
@@ -163,7 +165,7 @@ function useArrowsWithAlt(callback: (key: string) => void) {
         if (!ev.altKey) {
             return;
         }
-        callback('right');
+        callback(isRtl ? 'left' : 'right');
     });
 
     useKey('ArrowDown', (ev) => {
@@ -177,6 +179,6 @@ function useArrowsWithAlt(callback: (key: string) => void) {
         if (!ev.altKey) {
             return;
         }
-        callback('left');
+        callback(isRtl ? 'right' : 'left');
     });
 }

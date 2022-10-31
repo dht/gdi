@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import { ArticleEditorBarContainer } from './ArticleEditorBarContainer';
 import { ArticleContextProvider } from '../components/ArticleEditor/ArticleEditor.context';
-import { SimpleDate } from '@gdi/language';
+import { dateDbLong } from '@gdi/language';
 
 export const ArticleEditorContainer = () => {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const ArticleEditorContainer = () => {
         dispatch(
             actions.articles.patch(article.id, {
                 ...change,
-                lastSaveDate: SimpleDate.now().toString(),
+                lastSaveDate: dateDbLong(new Date()),
             })
         );
     };

@@ -54,8 +54,8 @@ export function BarSelect(props: BarSelectProps) {
                 key={key}
                 selected={isSelected}
                 className='option'
-                // onClick={() => onChange(key)}
                 onMouseDown={() => onChange(key)}
+                onTouchStart={() => onChange(key)}
             >
                 {text}
             </Option>

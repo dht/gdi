@@ -27,8 +27,8 @@ export const Options = styled.div`
     position: absolute;
     top: 62px;
     background-color: #223;
-    left: -1px;
-    right: -1px;
+    ${(props) => props.theme.left('-1px')}
+    ${(props) => props.theme.right('-1px')}    
     border-top: none;
     box-shadow: 0 0 3px 7px rgba(0, 0, 0, 0.15);
 `;
@@ -94,7 +94,7 @@ export const KeyWrapper = styled.div`
     &:after {
         content: '';
         width: 100%;
-        left: 0;
+        ${(props) => props.theme.left(0)}
         position: absolute;
         top: 0;
         bottom: -4px;

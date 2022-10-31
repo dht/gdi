@@ -20,6 +20,7 @@ export class RouterBuilder implements IRouterBuilder {
     private contextBarItems: IContextBarItems = [];
     private commandBarItems: ICommandBarItems = [];
     private instancesByPage: IWidgetInstancesByPageDictionary = {};
+    private translations: Json = {};
     private instanceId = 1;
 
     constructor(private menuGroups: string[]) {}
@@ -88,9 +89,14 @@ export class RouterBuilder implements IRouterBuilder {
     }
 
     withMenu(appId: string, menuItems: IMenuItems) {
-        this.menuItems.push(...menuItems);
+        const menuItemsWithAppId = menuItems.map((item) => ({
+            ...item,
+            appId,
+        }));
 
-        const commandBarNavigate = menuItems.map((item) => {
+        this.menuItems.push(...menuItemsWithAppId);
+
+        const commandBarNavigate = menuItemsWithAppId.map((item) => {
             return {
                 id: item.path,
                 label: `Navigate: ${item.label}`,
@@ -118,6 +124,7 @@ export class RouterBuilder implements IRouterBuilder {
             this.contextBarItems.push({
                 ...item,
                 id: contextBarItemId,
+                appId,
             });
         });
 
@@ -137,6 +144,7 @@ export class RouterBuilder implements IRouterBuilder {
                 ...item,
                 action: this.getScopedCommandBarAction(appId, action),
                 id: scopedCommandBarItemId,
+                appId,
             });
         });
 

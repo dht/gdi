@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Overlay = styled.div<{ show: boolean }>`
     position: absolute;
-    left: 70px;
+    ${(props) => props.theme.left('70px')}
     width: 300px;
     height: 380px;
     bottom: 20px;
@@ -35,7 +35,7 @@ export const UserImage = styled.div`
     border-radius: 40px;
     position: absolute;
     top: -25px;
-    left: 106px;
+    ${(props) => props.theme.left('106px')}
     box-shadow: 0 -5px 13px 3px rgba(255, 255, 255, 0.1);
     border: 2px solid #445;
 `;
@@ -44,14 +44,14 @@ export const TopArc = styled.img`
     width: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
 `;
 
 export const Content = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
 `;
 
@@ -88,9 +88,9 @@ export const MenuItem = styled.div`
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            ${(props) => props.theme.left(0)}
+            ${(props) => props.theme.right(0)}
             bottom: 0;
-            right: 0;
             background-color: rgba(0, 0, 0, 0.1);
         }
     }
@@ -103,7 +103,7 @@ export const MenuItem = styled.div`
 `;
 
 export const Title = styled.div`
-    margin-left: 18px;
+    ${(props) => props.theme.marginLeft('18px')}
 `;
 export const Name = styled.div`
     font-size: 28px;

@@ -32,7 +32,7 @@ export const Color = styled.div`
 export const Column = styled.div`
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    ${(props) => props.theme.paddingLeft('10px')}
 `;
 
 export const Title = styled.div`

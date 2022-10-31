@@ -29,7 +29,7 @@ export const Text = styled.div`
 export const Sync = styled.div`
     position: absolute;
     top: 10px;
-    right: 10px;
+    ${(props) => props.theme.right('10px')}
 
     i {
         cursor: pointer;
@@ -41,7 +41,7 @@ export const Sync = styled.div`
 
         &:active {
             bottom: 1px;
-            left: 1px;
+            ${(props) => props.theme.left('1px')}
         }
     }
 `;

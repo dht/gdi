@@ -24,10 +24,12 @@ export type PromptProps = {
     onCancel: () => void;
     onSubmit: (value?: any) => Promise<boolean>;
     formComponent?: FC<IFormProps>;
+    isRtl?: boolean;
 };
 
 export function Prompt(props: PromptProps) {
-    const { title, flavour, params, submitButtonText, formComponent } = props;
+    const { title, flavour, params, submitButtonText, formComponent, isRtl } =
+        props;
 
     const { description, warning, defaultValue = '' } = params;
     const [value, setValue] = useState(defaultValue);
@@ -148,6 +150,7 @@ export function Prompt(props: PromptProps) {
                             onSelect={props.onSubmit}
                             onCancel={onClose}
                             minTop={150}
+                            isRtl={isRtl}
                         />
                     </>
                 );

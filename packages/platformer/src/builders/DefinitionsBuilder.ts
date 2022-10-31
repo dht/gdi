@@ -1,11 +1,17 @@
 import { IDefinitionsBuilder } from '../types';
 import { merge } from 'lodash';
 
-export class DefinitionsBuilder implements IDefinitionsBuilder {
-    private definitions: Partial<ICrudDefinitionsPerItemType> = {};
+type DefinitionsPerApp = Record<string, Partial<ICrudDefinitionsPerItemType>>;
 
-    withDefinitions(definitions: Partial<ICrudDefinitionsPerItemType>) {
-        this.definitions = merge(this.definitions, definitions);
+export class DefinitionsBuilder implements IDefinitionsBuilder {
+    private definitions: Partial<DefinitionsPerApp> = {};
+
+    withDefinitions(
+        appId: string,
+        definitions: Partial<ICrudDefinitionsPerItemType>
+    ) {
+        this.definitions[appId] = this.definitions[appId] || {};
+        this.definitions[appId] = merge(this.definitions[appId], definitions);
         return this;
     }
 

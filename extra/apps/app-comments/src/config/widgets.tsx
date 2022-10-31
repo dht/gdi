@@ -1,6 +1,7 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { CommentsContainer } from '../containers/CommentsContainer';
+import { APP_ID } from './ids';
 
 export enum CommentsWidgets {
     Comments = 'comments.Comments',
@@ -14,6 +15,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <CommentsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={CommentsContainer}
+                props={props}
+            />
+        ),
     },
 ];

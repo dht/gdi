@@ -50,10 +50,10 @@ export const Field = styled.div`
 
     &:after {
         content: '';
-        border-left: 1px solid #899;
+        ${(props) => props.theme.borderLeft('1px solid #899')}
         height: 30px;
         position: absolute;
-        right: 0;
+        ${(props) => props.theme.right(0)}
     }
 
     &:last-child {

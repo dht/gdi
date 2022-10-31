@@ -31,7 +31,7 @@ export const Item = styled.li`
 
 export const A = styled.a`
     cursor: pointer;
-    padding-right: 7px;
+    ${(props) => props.theme.paddingRight('7px')}
 
     &:hover {
         text-decoration: underline;
@@ -46,7 +46,7 @@ export const A = styled.a`
 export const X = styled.div`
     position: relative;
     top: 2px;
-    margin-left: 5px;
+    ${(props) => props.theme.marginLeft('5px')}
     cursor: pointer;
     color: #aaa;
     font-size: 13px;

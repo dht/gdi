@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { ISoundboardStore } from './types';
 import { NowInfo } from './types';
 import { tasks } from '@gdi/store-tasks';
-import { calculateUTC, SimpleDate } from '@gdi/language';
+import { calculateUTC, XDate } from '@gdi/language';
 
 export const $i = (state: { soundboard: ISoundboardStore }) => state.soundboard;
 const $n = (): null => null;
@@ -23,14 +23,14 @@ export const $rawCurrentIds = createSelector($i, (state) => state.currentIdsSoun
 
 export const $now = createSelector($rawSchedulerState, (appState) => {
     const { timeDeltaInMinutes } = appState;
-    let now = new SimpleDate();
+    let now = new XDate();
 
     const utc = calculateUTC(timeDeltaInMinutes);
 
     let isAlternativeNow = !!timeDeltaInMinutes;
 
     if (isAlternativeNow) {
-        now.addMinutes(timeDeltaInMinutes);
+        now.add(timeDeltaInMinutes, 'minute');
     }
     const info = now.toInfo();
 

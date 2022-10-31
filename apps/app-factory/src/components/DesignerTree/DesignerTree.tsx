@@ -150,6 +150,7 @@ export const Resolutions = (props: ResolutionsProps) => {
                 key={resolution.id}
                 className={className}
                 onMouseDown={() => props.onClick(resolution)}
+                onTouchStart={() => props.onClick(resolution)}
                 onMouseOver={() => props.onHover(resolution)}
                 onMouseOut={() => props.onHover(null)}
             >

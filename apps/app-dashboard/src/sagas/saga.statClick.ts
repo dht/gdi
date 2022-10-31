@@ -1,7 +1,7 @@
 import { delay, takeEvery, put, call } from 'saga-ts';
 import { actions } from '../store';
 import { prompt, toast } from '@gdi/web-ui';
-import { format } from '@gdi/language';
+import { dateDb } from '@gdi/language';
 
 type StatClickAction = {
     type: 'STAT_CLICK';
@@ -13,7 +13,7 @@ export function* updateJourney(stat: IStat, newValue: value) {
     const { id } = stat;
 
     const now = new Date();
-    const date = format(now, 'yyyy-MM-dd');
+    const date = dateDb(now);
     const journeyId = `${id}_${date}`;
 
     const journeyItem = {

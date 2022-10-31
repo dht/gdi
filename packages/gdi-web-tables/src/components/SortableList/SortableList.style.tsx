@@ -11,8 +11,8 @@ export const ContainerItem = styled.div<{ selected?: boolean }>`
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
-        right: 0;
+        ${(props) => props.theme.left(0)}
+        ${(props) => props.theme.right(0)}
         bottom: 0;
         border: 1px solid transparent;
         border-color: ${(props) => (props.selected ? 'gold' : 'transparent')};
@@ -29,8 +29,8 @@ export const ContainerNewItem = styled.div<{ selected?: boolean }>`
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
-        right: 0;
+        ${(props) => props.theme.left(0)}
+        ${(props) => props.theme.right(0)}
         bottom: 0;
         border: 1px solid transparent;
         border-color: ${(props) => (props.selected ? 'gold' : 'transparent')};

@@ -8,7 +8,7 @@ import {
 } from './ItemEvent.style';
 import { ItemBase } from '../_ItemBase/ItemBase';
 import { MasonryItemProps } from '../../../Masonry/Masonry';
-import { format } from '@gdi/language';
+import { time } from '@gdi/language';
 
 export type ItemEventProps = MasonryItemProps & {
     item: IEvent;
@@ -18,16 +18,16 @@ export function ItemEvent(props: ItemEventProps) {
     const { item: event } = props;
     const { name, location, date } = event;
 
-    const time = useMemo(() => {
+    const timeText = useMemo(() => {
         try {
-            return format(new Date(date as any), 'HH:mm');
+            return time(date);
         } catch (err) {}
     }, []);
 
     return (
         <ItemBase {...props} backgroundColor='#000' topSectionHeight={200}>
             <Description className='description'>
-                <Time>{time}</Time>
+                <Time>{timeText}</Time>
                 <Title className='title'>{name}</Title>
                 <Location className='author'>
                     at <LocationName>{location}</LocationName>

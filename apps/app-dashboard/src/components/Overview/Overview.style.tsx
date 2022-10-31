@@ -24,9 +24,9 @@ export const Header = styled.div`
 export const Bk = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    right: 0;
     display: flex;
 `;
 
@@ -36,9 +36,9 @@ export const Fg = styled.div`
     padding: 30px;
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    right: 0;
 `;
 
 export const Content = styled.div`
@@ -57,5 +57,33 @@ export const Column = styled.div`
 
     &:nth-child(2) {
         margin: 4px;
+        overflow: auto;
+
+        @media (max-width: 1340px) {
+            max-height: calc(100vh - 130px);
+        }
+    }
+`;
+
+export const Resolution = styled.div`
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 2px 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #eee;
+    direction: ltr;
+    animation-name: fadeOut;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
     }
 `;

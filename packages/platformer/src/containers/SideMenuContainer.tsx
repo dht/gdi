@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import { KeyboardHint, SideMenu, UserMenu } from '@gdi/web-ui';
+import { Icon, KeyboardHint, SideMenu, UserMenu } from '@gdi/web-ui';
 import styled from 'styled-components';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +8,8 @@ import { IMenuItem } from '../types';
 import { auth } from '@gdi/store-auth';
 import { useKey } from '@gdi/hooks';
 import { invokeEvent, sortBy } from 'shared-base';
+import { useLanguage } from '@gdi/language';
+import screenfull from 'screenfull';
 
 type SideMenuContainerProps = {};
 
@@ -43,6 +45,7 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
     const dispatch = useDispatch();
     const { menuItems, menuGroups } = useContext(PlatformContext).state;
     const me = useSelector(auth.selectors.raw.$rawMe);
+    const { t } = useLanguage();
 
     const onUserMenuClick = useCallback((actionId: string) => {
         switch (actionId) {
@@ -76,7 +79,12 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
                     output.push(item);
                 });
         });
+
         return output;
+    }, []);
+
+    const menuGroupsTranslated = useMemo(() => {
+        return menuGroups.map((i) => t(i));
     }, []);
 
     useCycleScreens(menuItems, menuGroups);
@@ -91,31 +99,60 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
 
     function renderKeyboardShortcuts() {
         return (
-            <KeyboardShortcutsWrapper>
+            <ActionWrapper>
                 <KeyboardHint shortKeys={shortKeys} />
-            </KeyboardShortcutsWrapper>
+            </ActionWrapper>
+        );
+    }
+
+    function renderToggleFullscreen() {
+        return (
+            <ActionWrapper onClick={() => screenfull.request()}>
+                <Icon iconName='FullScreen' />
+            </ActionWrapper>
         );
     }
 
     return (
-        <SideMenu data={menuItemsSorted} groups={menuGroups}>
+        <SideMenu
+            data={menuItemsSorted}
+            groups={menuGroups}
+            groupsTranslated={menuGroupsTranslated}
+        >
             {renderUserMenu()}
-            {renderKeyboardShortcuts()}
+            <ActionsWrapper>
+                {renderKeyboardShortcuts()}
+                {renderToggleFullscreen()}
+            </ActionsWrapper>
         </SideMenu>
     );
 }
 
-const KeyboardShortcutsWrapper = styled.div`
+const ActionsWrapper = styled.div`
     position: absolute;
-    bottom: 85px;
-    left: 5px;
-    margin: 0 10px;
+    bottom: 75px;
+    ${(props) => props.theme.left('10px')}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
+const ActionWrapper = styled.div`
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
 `;
 
 const UserMenuWrapper = styled.div`
     position: absolute;
     bottom: 15px;
-    left: 5px;
+    ${(props) => props.theme.left('5px')}
 `;
 
 function useCycleScreens(menuItems: IMenuItems, menuGroups: string[]) {
@@ -187,3 +224,13 @@ const shortKeys: IShortKey[] = [
         description: 'Redux connected network',
     },
 ];
+
+const userAgent = navigator.userAgent.toLowerCase();
+const isTablet =
+    /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(
+        userAgent
+    );
+
+if (screenfull.isEnabled && isTablet) {
+    screenfull.request();
+}

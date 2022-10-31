@@ -14,7 +14,7 @@ export const Rect = styled.div<{ size: number }>`
 export const PickerWrapper = styled.div`
     position: absolute;
     top: 40px;
-    right: 0px;
+    ${(props) => props.theme.right(0)}
     z-index: 999;
     width: 290px;
     background-color: rgba(40, 40, 60, 0.95);

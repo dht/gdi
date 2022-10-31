@@ -5,14 +5,14 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 40px;
+    ${(props) => props.theme.marginLeft('40px')}
     position: relative;
 `;
 
 export const RowHeaderContainer = styled.div<{ selected: boolean }>`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
     height: 40px;
     width: 130px;
     transform-origin: 0 0;
@@ -21,7 +21,7 @@ export const RowHeaderContainer = styled.div<{ selected: boolean }>`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-left: 2px solid #333;
+    ${(props) => props.theme.borderLeft('2px solid #333')}
     font-size: 20px;
     color: ${(props) => (props.selected ? 'gold' : '#667')};
     cursor: pointer;

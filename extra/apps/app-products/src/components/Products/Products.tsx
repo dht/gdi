@@ -3,6 +3,7 @@ import { Container } from './Products.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type ProductsProps = {
     data: Json[];
@@ -17,6 +18,7 @@ export type ProductsProps = {
 export function Products(props: ProductsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('product');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -26,7 +28,7 @@ export function Products(props: ProductsProps) {
             <Multi
                 id='Products'
                 itemType='product'
-                header='Products'
+                header={t('Products')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

@@ -10,8 +10,8 @@ export const Container = styled.div<{
     position: ${(props) => props.position};
     top: ${(props) => (props.position === 'absolute' ? '10px' : 0)};
     z-index: 2;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     min-height: 100px;
     transition: all 150ms ease-out;
     background-color: ${(props) => props.colors.background ?? 'transparent'};

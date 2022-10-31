@@ -9,11 +9,12 @@ import {
     ILanguageState,
     LanguageIso,
 } from '../types';
+import { getLanguageCode } from '../utils/formatObjects';
 
 type LanguageContextProps = {
     id: string;
-    config: ILanguageConfig;
-    options: ILanguageOptions;
+    config?: ILanguageConfig;
+    options?: ILanguageOptions;
     initialLanguageId?: LanguageIso;
     keys: IAppKeys;
 };
@@ -26,6 +27,8 @@ type ILanguageContext = L & {
     callbacks: {
         onLanguageChange: (languageId: string) => void;
     };
+    keys: Partial<IAppKeys>;
+    languageId: LanguageIso;
 };
 
 const initialValue: ILanguageContext = {
@@ -38,7 +41,9 @@ const initialValue: ILanguageContext = {
     callbacks: {
         onLanguageChange: (languageId: string) => {},
     },
+    keys: {},
     ...emptyL,
+    languageId: 'en',
 };
 
 export const LanguageContext = createContext<ILanguageContext>(initialValue);
@@ -46,7 +51,7 @@ export const LanguageContext = createContext<ILanguageContext>(initialValue);
 export const LanguageContextProvider = (
     props: WithChildren<LanguageContextProps>
 ) => {
-    const { id, config, options, initialLanguageId = 'en' } = props;
+    const { id, config = {}, options = {}, keys } = props;
 
     const configValue = useMemo(
         () => ({
@@ -63,7 +68,6 @@ export const LanguageContextProvider = (
         localStorageKey,
         {
             ...initialValue.state,
-            languageId: initialLanguageId,
         }
     );
 
@@ -71,9 +75,7 @@ export const LanguageContextProvider = (
 
     const callbacksLanguage = useMemo(
         () => ({
-            onLanguageChange: (languageId: string) => {
-                console.log('languageId ->', languageId);
-            },
+            onLanguageChange: (languageId: string) => {},
         }),
         [state]
     );
@@ -85,6 +87,8 @@ export const LanguageContextProvider = (
                 state: state!,
                 patchState: patchState as any,
                 callbacks: callbacksLanguage,
+                keys,
+                languageId: getLanguageCode(),
                 m,
                 n,
                 d,

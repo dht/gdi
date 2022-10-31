@@ -20,6 +20,7 @@ import {
     IWidgetInstancesByPageDictionary,
     IWidgetInstancesList,
 } from 'igrid';
+import { AppContextProvider } from '@gdi/language';
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
@@ -81,15 +82,17 @@ export const App = () => {
     return (
         <AppContent>
             <MainRoutes />
-            <OverlayRoutes />
-            <SideMenuContainer />
-            <SwitcherContainer />
-            <ContextBarContainer
-                contextBarItems={contextBarItems}
-                widgetLibrary={widgetLibrary}
-            />
-            <AccountTagContainer />
-            <CommandBar items={commandBarItems} onRun={onCommandBar} />
+            <AppContextProvider appId='platform'>
+                <OverlayRoutes />
+                <SideMenuContainer />
+                <SwitcherContainer />
+                <ContextBarContainer
+                    contextBarItems={contextBarItems}
+                    widgetLibrary={widgetLibrary}
+                />
+                <AccountTagContainer />
+                <CommandBar items={commandBarItems} onRun={onCommandBar} />
+            </AppContextProvider>
         </AppContent>
     );
 };

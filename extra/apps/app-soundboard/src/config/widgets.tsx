@@ -1,5 +1,5 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { ProjectsTableContainer } from '../containers/ProjectsTableContainer';
 import { SoundboardTopContainer } from '../containers/SoundboardTopContainer';
 import { ScheduleTopContainer } from '../containers/ScheduleTopContainer';
@@ -11,6 +11,7 @@ import { ScheduleClockContainer } from '../containers/ScheduleClockContainer';
 import { SimsContainer } from '../containers/SimsContainer';
 import { MiniContainer } from '../containers/MiniContainer';
 import { ScheduleClock2Container } from '../containers/ScheduleClock2Container';
+import { APP_ID } from './ids';
 
 export enum SoundboardWidgets {
     Squares = 'soundboard.Squares',
@@ -34,7 +35,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SquaresContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SquaresContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.SoundboardTop,
@@ -44,7 +51,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SoundboardTopContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SoundboardTopContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.ScheduleTop,
@@ -54,7 +67,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ScheduleTopContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ScheduleTopContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.ProjectsTable,
@@ -64,7 +83,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ProjectsTableContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ProjectsTableContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.ScheduleTable,
@@ -74,7 +99,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ScheduleTableContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ScheduleTableContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.ScheduleCommandBar,
@@ -84,7 +115,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ScheduleCommandBarContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ScheduleCommandBarContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.Switcher,
@@ -94,7 +131,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SwitcherContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SwitcherContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.ScheduleClock,
@@ -104,7 +147,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ScheduleClockContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ScheduleClockContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.ScheduleClock2,
@@ -114,7 +163,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ScheduleClock2Container {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ScheduleClock2Container}
+                props={props}
+            />
+        ),
     },
     {
         id: SoundboardWidgets.Sims,
@@ -124,7 +179,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SimsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={SimsContainer} props={props} />
+        ),
     },
     {
         id: SoundboardWidgets.Mini,
@@ -134,6 +191,8 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MiniContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={MiniContainer} props={props} />
+        ),
     },
 ];

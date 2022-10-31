@@ -36,7 +36,7 @@ export const Links = styled.div`
     align-items: center;
 
     @media (max-width: 768px) {
-        margin-left: 20px;
+        ${(props) => props.theme.marginLeft('20px')}
     }
 `;
 export const Link = styled.a`
@@ -54,11 +54,11 @@ export const Link = styled.a`
 export const Copy = styled.div``;
 
 export const GDI = styled.div`
-    margin-left: 30px;
+    ${(props) => props.theme.marginLeft('30px')}
 
     &:before {
         content: '•';
         position: relative;
-        right: 15px;
+        ${(props) => props.theme.right('15px')}
     }
 `;

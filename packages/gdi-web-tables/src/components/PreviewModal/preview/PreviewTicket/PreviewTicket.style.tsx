@@ -17,7 +17,7 @@ export const TimeEstimate = styled.div`
     span {
         font-size: 15px;
         color: gray;
-        padding-left: 6px;
+        ${(props) => props.theme.paddingLeft('6px')}
     }
 `;
 

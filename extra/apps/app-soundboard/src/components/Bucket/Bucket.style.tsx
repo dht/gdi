@@ -22,8 +22,8 @@ export const Inner = styled.div`
     position: absolute;
     bottom: 0;
     top: 0;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start;
@@ -43,23 +43,23 @@ export const Second = styled.div`
 export const Third = styled.div`
     border-top: 1px dashed #888;
     position: absolute;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
 `;
 
 export const PercentWrapper = styled.div`
     position: absolute;
     top: -25px;
-    left: -30px;
+    ${(props) => props.theme.left('-30px')}
 `;
 
 export const DurationWrapper = styled.div`
     position: absolute;
     bottom: -30px;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     font-size: 18px;
-    right: 0;
     text-align: center;
     opacity: 0.6;
 `;

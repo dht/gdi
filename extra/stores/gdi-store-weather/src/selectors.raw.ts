@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { IWeatherStore } from './types';
 import { soundboard } from '@gdi/store-soundboard';
-import { calculateUTC, SimpleDate } from '@gdi/language';
+import { calculateUTC, XDate } from '@gdi/language';
 
 const selectors = soundboard.selectors;
 
@@ -18,7 +18,7 @@ export const $now = createSelector(
     selectors.raw.$rawSchedulerState,
     (appState) => {
         const { timeDeltaInMinutes } = appState;
-        let now = new SimpleDate();
+        let now = new XDate();
 
         const utc = calculateUTC(timeDeltaInMinutes);
 

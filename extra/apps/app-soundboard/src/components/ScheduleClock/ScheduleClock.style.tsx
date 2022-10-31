@@ -7,7 +7,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
-
+    direction: ltr;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -18,9 +18,9 @@ export const Container = styled.div`
         content: ' ';
         position: absolute;
         top: 0;
-        left: 0;
+        ${(props) => props.theme.left(0)}
+        ${(props) => props.theme.right(0)}
         bottom: 0;
-        right: 0;
         background-color: rgba(0, 0, 0, 0.5);
     }
 
@@ -32,9 +32,9 @@ export const Container = styled.div`
 export const Inner = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,15 +85,15 @@ const Button = styled.a`
 export const Radio = styled(Button)`
     position: absolute;
     bottom: 5px;
-    right: 8px;
-    margin-left: 5px;
+    ${(props) => props.theme.right('8px')}
+    ${(props) => props.theme.marginLeft('5px')}
     z-index: 2;
 `;
 
 export const Clear = styled(Button)`
     position: absolute;
     bottom: 5px;
-    left: 8px;
-    margin-right: 5px;
+    ${(props) => props.theme.left('8px')}
+    ${(props) => props.theme.marginRight('5px')}
     z-index: 2;
 `;

@@ -1,7 +1,8 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { RemindersContainer } from '../containers/RemindersContainer';
 import { EventsContainer } from '../containers/EventsContainer';
+import { APP_ID } from './ids';
 
 export enum EventsWidgets {
     Events = 'events.Events',
@@ -16,7 +17,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <EventsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={EventsContainer} props={props} />
+        ),
     },
     {
         id: EventsWidgets.Reminders,
@@ -26,6 +29,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <RemindersContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={RemindersContainer}
+                props={props}
+            />
+        ),
     },
 ];

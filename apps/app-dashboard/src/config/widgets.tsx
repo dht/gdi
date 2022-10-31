@@ -1,8 +1,9 @@
 import React from 'react';
-import { CurrentIdsHoc, IWidget } from '@gdi/platformer';
+import { Wrapper, IWidget } from '@gdi/platformer';
 import { OverviewContainer } from '../containers/OverviewContainer';
 import { OverviewNavigateContainer } from '../containers/OverviewNavigateContainer';
 import { actions } from '../store';
+import { APP_ID } from './ids';
 
 export enum DashboardWidgets {
     Overview = 'dashboard.Overview',
@@ -17,7 +18,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <OverviewContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={OverviewContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: DashboardWidgets.OverviewNavigate,
@@ -27,9 +34,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) =>
-            CurrentIdsHoc(actions.currentIdsDashboard.patch)(
-                <OverviewNavigateContainer {...props} />
-            ),
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={OverviewNavigateContainer}
+                props={props}
+                currentIdsActionCreator={actions.currentIdsDashboard.patch}
+            />
+        ),
     },
 ];

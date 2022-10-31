@@ -18,7 +18,7 @@ export const ToggleView = styled.div`
 `;
 
 export const H1 = styled.h1`
-    margin-right: 40px;
+    ${(props) => props.theme.marginRight('40px')}
     user-select: none;
 `;
 

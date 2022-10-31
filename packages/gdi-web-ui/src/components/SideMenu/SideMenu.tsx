@@ -17,19 +17,22 @@ import {
     Overlay,
     Title,
 } from './SideMenu.style';
+import { useTheme } from 'styled-components';
 
 export type SideMenuProps = {
     data: IMenuItem[];
     groups: string[];
+    groupsTranslated: string[];
     children?: JSX.Element | JSX.Element[];
 };
 
 export function SideMenu(props: SideMenuProps) {
-    const { data, groups } = props;
+    const { data, groups, groupsTranslated } = props;
     const [sections, updateSections] = useSetState<Record<string, boolean>>({});
     const [slim, toggleSlim] = useToggle(true);
     const location = useLocation();
     const navigate = useNavigate();
+    const { isRtl } = useTheme();
 
     useEffect(() => {
         if (groups.length === 0) {
@@ -68,6 +71,7 @@ export function SideMenu(props: SideMenuProps) {
                 className={className}
                 onClick={() => toggleSlim(true)}
                 onMouseDown={() => navigate(path)}
+                onTouchStart={() => navigate(path)}
             >
                 <Icon className='icon' iconName={icon} />
                 <Title className='title'>{label}</Title>
@@ -83,7 +87,7 @@ export function SideMenu(props: SideMenuProps) {
         );
     }
 
-    function renderGroup(groupId: string) {
+    function renderGroup(groupId: string, index: number) {
         const isSectionVisible = sections[groupId];
 
         const className = classnames('group', {
@@ -104,7 +108,7 @@ export function SideMenu(props: SideMenuProps) {
                     className='title'
                     onMouseDown={() => toggleGroup(groupId)}
                 >
-                    {upperFirst(groupId)}
+                    {upperFirst(groupsTranslated[index])}
                     <Icon iconName='ChevronDown' className='chevron'></Icon>
                 </GroupTitle>
                 {isSectionVisible && renderItems(items)}
@@ -113,11 +117,12 @@ export function SideMenu(props: SideMenuProps) {
     }
 
     function renderGroups() {
-        return groups.map((group) => renderGroup(group));
+        return groups.map((group, index) => renderGroup(group, index));
     }
 
     const className = classnames('SideMenu-container', {
         slim,
+        rtl: isRtl,
     });
 
     return (
@@ -127,7 +132,7 @@ export function SideMenu(props: SideMenuProps) {
                 <Icon
                     className='cancel'
                     iconName='ChevronLeftSmall'
-                    onClick={toggleSlim}
+                    onMouseDown={toggleSlim}
                 />
             </Header>
             {slim ? renderItems(slimItems) : renderGroups()}

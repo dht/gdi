@@ -30,7 +30,7 @@ export const Panel = styled.div`
     flex-direction: column;
 
     h2 {
-        margin-left: 20px;
+        ${(props) => props.theme.marginLeft('20px')}
         position: relative;
         top: 15px;
         color: #99a;

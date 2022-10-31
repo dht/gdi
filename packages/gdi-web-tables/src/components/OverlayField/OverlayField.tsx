@@ -8,7 +8,7 @@ import {
     DateDelta,
     Title,
 } from './OverlayField.style';
-import { format, inTime } from '@gdi/language';
+import { dateShort, timeAgo } from '@gdi/language';
 
 export type OverlayFieldProps = {
     field: IOverlayField;
@@ -52,8 +52,8 @@ export function FieldDate(props: OverlayFieldProps) {
 
     try {
         const date = new Date(item[field.fieldId]);
-        dateDate = format(date, 'eee, dd.MM');
-        dateDelta = inTime(date);
+        dateDate = dateShort(date);
+        dateDelta = timeAgo(date);
     } catch (err) {
         console.log('err ->', err);
     }

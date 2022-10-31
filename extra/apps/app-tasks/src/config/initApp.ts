@@ -56,7 +56,7 @@ export const initApp = (builders: AppBuilders) => {
     apiConfigBuilder //
         .withEndpointsConfigOverrides(endpointsConfig);
 
-    definitionsBuilder.withDefinitions(allDefinitions);
+    definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
 
     pieMenuBuilder.withPieMenuConfigs(APP_ID, pieMenuItems);
 };

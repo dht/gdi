@@ -13,16 +13,14 @@ export const Content = styled.div<{ isRtl?: boolean }>`
 export const Version = styled.div`
     position: fixed;
     bottom: 20px;
-    left: 20px;
     color: white;
     opacity: 0.3;
     font-size: 11px;
 `;
 
-export const AppContent = styled.div<{ isRtl?: boolean }>`
+export const AppContent = styled.div`
     flex: 1;
-    padding-left: ${(props) => (props.isRtl ? '0px' : '46px')};
-    padding-right: ${(props) => (props.isRtl ? '46px' : '0px')};
+    ${(props) => props.theme.paddingLeft('46px')}
     display: flex;
 
     @media (max-width: 768px) {

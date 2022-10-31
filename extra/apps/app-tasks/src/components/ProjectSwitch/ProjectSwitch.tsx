@@ -28,6 +28,7 @@ export function ProjectSwitch(props: ProjectSwitchProps) {
                 title={name}
                 key={id}
                 className={className}
+                onTouchStart={() => props.onSelect(key)}
                 onMouseDown={() => props.onSelect(key)}
             >
                 <ProjectKey>{key}</ProjectKey>

@@ -108,7 +108,7 @@ export const Author = styled.div`
 
 export const AuthorName = styled.div`
     color: #d2126b;
-    margin-left: 5px;
+    ${(props) => props.theme.marginLeft('5px')}
     cursor: pointer;
 
     &:hover {

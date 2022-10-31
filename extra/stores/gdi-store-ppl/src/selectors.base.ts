@@ -1,6 +1,6 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { differenceInYears } from '@gdi/language';
+import { deltaInYears } from '@gdi/language';
 
 const now = new Date();
 
@@ -21,7 +21,7 @@ export const $ppl = createSelector(
 
                 const fullName = `${firstName} ${lastName}`;
 
-                const age = differenceInYears(now, new Date(dateOfBirth ?? ''));
+                const age = deltaInYears(new Date(dateOfBirth ?? ''));
 
                 return {
                     ...person,

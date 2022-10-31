@@ -1,3 +1,6 @@
 export default {
-  key: "success",
+    Schedule: 'Schedule',
+    Soundboard: 'Soundboard',
+    'Navigate: Schedule': 'Navigate: Schedule',
+    'Navigate: Soundboard': 'Navigate: Soundboard',
 };

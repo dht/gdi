@@ -15,14 +15,14 @@ export const Container = styled.div`
         color: white;
         position: relative;
         bottom: 5px;
-        left: 5px;
+        ${(props) => props.theme.left('5px')}
         font-size: 13px;
         opacity: 0.5;
     }
 
     &.small {
         margin-top: 7px;
-        margin-left: 3px;
+        ${(props) => props.theme.marginLeft('3px')}
 
         img.logo {
             width: 41px;

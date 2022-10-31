@@ -39,7 +39,7 @@ export const Row = styled.div`
     align-items: baseline;
     position: absolute;
     top: -9px;
-    left: 5px;
+    ${(props) => props.theme.left('5px')}
     background-color: rgb(31, 31, 47);
     height: 11px;
     padding: 0 3px;

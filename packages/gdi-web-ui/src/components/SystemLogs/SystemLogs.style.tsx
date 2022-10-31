@@ -5,7 +5,7 @@ export const Container = styled.div`
     box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.7);
     position: fixed;
     top: 100px;
-    left: 100px;
+    ${(props) => props.theme.left('100px')}
     height: 700px;
     width: 420px;
     background-color: #334;
@@ -17,7 +17,7 @@ export const Item = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 2px 15px 2px 0;
+    ${(props) => props.theme.padding('2px 15px 2px 0')}
 `;
 
 export const Column = styled.div<{ width?: number }>`

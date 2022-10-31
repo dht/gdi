@@ -37,6 +37,7 @@ export function ScheduleSquare(props: ScheduleSquareProps) {
         <Container
             className={className}
             data-testid='ScheduleSquare-container'
+            onTouchStart={props.onClick}
             onMouseDown={props.onClick}
         >
             <Text style={style}>{text}</Text>

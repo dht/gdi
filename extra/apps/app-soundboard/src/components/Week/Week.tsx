@@ -4,7 +4,7 @@ import Square from '../Square/Square';
 import { soundboardContext } from '../../context/SoundboardContext';
 import SquareSummary from '../SquareSummary/SquareSummary';
 import { useNumpadTiming } from '../../hooks/useNumpadTiming';
-import { SimpleDate } from '@gdi/language';
+import { XDate } from '@gdi/language';
 
 export type WeekProps = {
     weekPointer: WeekPointer;
@@ -56,9 +56,11 @@ export function Week(props: WeekProps) {
     );
 
     function renderColumn(day: any) {
-        const dateInfo = SimpleDate.fromWeek(weekPointer)
-            .setDayOfWeek(day)
-            .toInfo();
+        const dateInfo = XDate.fromWeek(
+            weekPointer.week,
+            weekPointer.year,
+            day
+        ).toInfo();
 
         const dayData = weekData[`d${day}`] || defaultWeekData;
 

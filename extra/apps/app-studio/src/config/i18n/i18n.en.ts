@@ -1,3 +1,5 @@
 export default {
-  key: "success",
+    key: 'success',
+    '3D': '3D',
+    'Navigate: 3D': 'Navigate: 3D',
 };

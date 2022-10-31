@@ -41,7 +41,7 @@ export const Text = styled.div`
     font-size: 50px;
 
     strong {
-        margin-right: 30px;
+        ${(props) => props.theme.marginRight('30px')}
     }
 `;
 
@@ -74,7 +74,7 @@ export const Cta = styled.a<{ colors: LineCtaColors }>`
     &:active {
         position: relative;
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
     }
 
     @media (max-width: 768px) {

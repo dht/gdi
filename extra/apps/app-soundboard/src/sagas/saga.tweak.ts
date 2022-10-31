@@ -1,7 +1,7 @@
 import { soundboard } from '@gdi/store-soundboard';
 import { take, fork, select, takeEvery, put, call } from 'saga-ts';
 import { actions, selectors } from '../store';
-import { SimpleDate } from '@gdi/language';
+import { XDate } from '@gdi/language';
 
 export type UpdateAction = {
     weekPointer: WeekPointer;
@@ -18,7 +18,11 @@ function* updateMinutesForDay(action: UpdateAction & { type: string }) {
         return;
     }
 
-    const changedDate = SimpleDate.fromWeek(weekPointer, day).toText();
+    const changedDate = XDate.fromWeek(
+        weekPointer.week,
+        weekPointer.year,
+        day
+    ).toText();
 
     const expectedManaItem = Object.values(expected).find((item: IMana) => {
         return item.projectKey === projectKey && item.date === changedDate;

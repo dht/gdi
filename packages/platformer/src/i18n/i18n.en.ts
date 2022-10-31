@@ -1,0 +1,17 @@
+export default {
+    'Command Palette': 'Command Palette',
+    'Switch view modes': 'Switch view modes',
+    'Quick Navigation': 'Quick Navigation',
+    'Next Screen': 'Next Screen',
+    'Redux connected network': 'Redux connected network',
+    Account: 'Account',
+    Apps: 'Apps',
+    Settings: 'Settings',
+    Logout: 'Logout',
+    doing: 'Doing',
+    site: 'Site',
+    marketing: 'Marketing',
+    factory: 'Factory',
+    shop: 'Shop',
+    extra: 'Extra',
+};

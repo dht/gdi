@@ -6,6 +6,7 @@ export const Container = styled.div`
     align-items: center;
     flex: 1;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    ${(props) => props.theme.direction()}
 
     .TableRowActions-container {
         opacity: 0;

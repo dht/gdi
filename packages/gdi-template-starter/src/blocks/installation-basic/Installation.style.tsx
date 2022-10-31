@@ -53,7 +53,7 @@ export const MoreInstructions = styled.div`
 
 export const Link = styled.a`
     color: dodgerblue;
-    margin-left: 5px;
+    ${(props) => props.theme.marginLeft('5px')}
     text-decoration: none;
     font-weight: 500;
 

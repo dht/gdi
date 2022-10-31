@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    right: 0;
     margin: 5px;
     background-color: transparent;
     display: flex;
@@ -16,18 +16,18 @@ export const Container = styled.div`
             content: '';
             position: absolute;
             top: -4px;
-            left: -4px;
             bottom: -4px;
-            right: -4px;
+            ${(props) => props.theme.left('-4px')}
+            ${(props) => props.theme.right('-4px')}
         }
 
         &:before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            ${(props) => props.theme.left(0)}
+            ${(props) => props.theme.right(0)}
             bottom: 0;
-            right: 0;
             opacity: 0.2;
             background: repeating-linear-gradient(
                 -45deg,
@@ -43,7 +43,7 @@ export const Container = styled.div`
 export const Selected = styled.div`
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    ${(props) => props.theme.right('10px')}
     border: 1px solid #334;
     width: 40px;
     height: 40px;
@@ -60,7 +60,7 @@ export const Selected = styled.div`
     > i {
         position: relative;
         bottom: 2px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;
 

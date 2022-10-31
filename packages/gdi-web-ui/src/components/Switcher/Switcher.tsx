@@ -17,6 +17,7 @@ import {
     AppName,
 } from './Switcher.style';
 import { gradients } from './Switcher.colors';
+import { useTheme } from 'styled-components';
 
 const COMBINATION: IShortKey = {
     key: 'ArrowUp',
@@ -47,6 +48,8 @@ export function SwitcherInner(props: SwitcherInnerProps) {
     const [selectedIndex, setSelectedIndex] = useLocalStorage('SWITCHER_INDEX', 0); // prettier-ignore
     const [searchTerm, setSearchTerm] = useState('');
     const { screens = [] } = props;
+
+    const { isRtl } = useTheme();
 
     const screensFiltered = useFuzzySearchQ(
         screens,
@@ -113,19 +116,21 @@ export function SwitcherInner(props: SwitcherInnerProps) {
 
             let nextIndex: number = selectedIndex;
 
+            const d = isRtl ? -1 : 1;
+
             switch (shortKey.key) {
                 case 'ArrowUp':
                     nextIndex -= numberOfScreensInRow;
                     break;
                 case 'ArrowRight':
-                    nextIndex++;
+                    nextIndex += d;
                     break;
                 case 'ArrowDown':
                     nextIndex += numberOfScreensInRow;
 
                     break;
                 case 'ArrowLeft':
-                    nextIndex--;
+                    nextIndex -= d;
                     break;
             }
 

@@ -1,7 +1,7 @@
 import { DatePicker, defaultDatePickerStrings } from '@fluentui/react';
 import * as React from 'react';
 import { Container } from './DateInput.style';
-import { format } from '@gdi/language';
+import { dateShort } from '@gdi/language';
 
 export type DateProps = {
     firstDayOfWeek?: number;
@@ -26,7 +26,7 @@ export const DateInput = React.forwardRef((props: DateProps, ref: any) => {
 
     function formatDate(date: Date) {
         try {
-            return format(date, 'dd/MM/yyyy');
+            return dateShort(date);
         } catch (err) {
             return '';
         }

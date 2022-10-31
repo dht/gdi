@@ -32,7 +32,7 @@ export const Tab = styled.div`
     width: 120px;
 
     &:first-child {
-        margin-left: 30px;
+        ${(props) => props.theme.marginLeft('30px')}
     }
 
     &:hover {
@@ -52,8 +52,8 @@ export const Tab = styled.div`
             background: #223;
             position: absolute;
             top: 0;
-            left: 1px;
-            right: 1px;
+            ${(props) => props.theme.left('1px')}
+            ${(props) => props.theme.right('1px')}
             height: 1px;
         }
 
@@ -68,15 +68,15 @@ export const Title = styled.div`
     color: var(--color);
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     text-align: center;
 `;
 
 export const Svg = styled.svg`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
 
     polygon {
         fill: var(--bk-color);

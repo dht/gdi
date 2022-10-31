@@ -18,6 +18,7 @@ import {
     Header,
     HeaderText,
 } from './FilterBar.style';
+import { useLanguage } from '@gdi/language';
 
 export type FilterBarProps = {
     header: string;
@@ -31,6 +32,7 @@ export function FilterBar(props: FilterBarProps) {
 
     const context = useContext(FilterContext);
     const contextSelection = useContext(SelectionContext);
+    const { t } = useLanguage();
 
     const { state, callbacks, config, data = [] } = context;
     const { tag, showFilter, trio } = state;
@@ -48,7 +50,7 @@ export function FilterBar(props: FilterBarProps) {
             <>
                 <Count>
                     <CountText>
-                        <span>{selectedIds.length}</span> selected
+                        <span>{selectedIds.length}</span> {t('selected')}
                     </CountText>
                 </Count>
                 <Clear onClick={callbacksSelection.onSelectionClear}>
@@ -68,7 +70,7 @@ export function FilterBar(props: FilterBarProps) {
                 <HeaderText>{header}</HeaderText>
                 <Count>
                     <CountText>
-                        <span>{data.length}</span> items
+                        <span>{data.length}</span> {t('items')}
                     </CountText>
                     {renderSelectedCount()}
                 </Count>

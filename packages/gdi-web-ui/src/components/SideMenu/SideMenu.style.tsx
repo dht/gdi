@@ -3,52 +3,20 @@ import styled from 'styled-components';
 export const Container = styled.div`
     position: fixed;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
     bottom: 0;
     width: 200px;
     background-color: #232332;
     z-index: 3;
     box-shadow: inset 0 0 3px 3px rgba(0, 0, 0, 0.2);
     user-select: none;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    ${(props) => props.theme.borderRight('1px solid rgba(255, 255, 255, 0.1)')}
     box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);
     transition: all 80ms linear;
     background-image: url(//raw.githubusercontent.com/dht/gdi/main/clients/gdi-admin/public/Group.svg);
 
     @media (max-width: 768px) {
         display: none;
-    }
-
-    &.rtl {
-        left: auto;
-        right: 0;
-
-        .overlay {
-            position: fixed;
-            left: 0;
-            right: 55px;
-            animation-name: fade-right-rtl;
-        }
-
-        .items {
-            .item {
-                .title {
-                    margin-left: 0;
-                    margin-right: 13px;
-                }
-            }
-        }
-
-        @keyframes fade-right-rtl {
-            0% {
-                opacity: 0;
-                right: 0;
-            }
-            100% {
-                right: 200px;
-                opacity: 0.4;
-            }
-        }
     }
 
     &:hover {
@@ -70,8 +38,8 @@ export const Container = styled.div`
         display: block;
         content: ' ';
         position: absolute;
-        left: 0px;
-        right: 0px;
+        ${(props) => props.theme.left(0)}
+        ${(props) => props.theme.right(0)}
         height: 2px;
         top: 0px;
         background-image: linear-gradient(
@@ -135,7 +103,7 @@ export const Item = styled.div`
             display: block;
             content: ' ';
             position: absolute;
-            left: 0px;
+            ${(props) => props.theme.left(0)}
             bottom: 0px;
             width: 2px;
             top: 0px;
@@ -152,7 +120,7 @@ export const Item = styled.div`
     }
 
     .title {
-        margin-left: 13px;
+        ${(props) => props.theme.marginLeft('13px')}
         font-size: 16px;
     }
 
@@ -208,7 +176,7 @@ export const GroupTitle = styled.div`
     }
 
     .chevron {
-        float: right;
+        ${(props) => props.theme.floatRight()}
         font-size: 12px;
         padding-top: 4px;
         opacity: 0;
@@ -238,7 +206,7 @@ export const Header = styled.div`
         background-color: rgba(0, 0, 0, 0.1);
         padding: 5px;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-left: none;
+        ${(props) => props.theme.borderLeft('none')}
         font-size: 12px;
         z-index: 9999;
         top: 50px;
@@ -255,9 +223,9 @@ export const Header = styled.div`
 export const Overlay = styled.div`
     position: fixed;
     top: 0;
-    right: 0;
+    ${(props) => props.theme.left('55px')}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    left: 55px;
     background-color: #001;
     transition: all 180ms linear;
     animation-name: fade-right;
@@ -267,10 +235,11 @@ export const Overlay = styled.div`
     @keyframes fade-right {
         0% {
             opacity: 0;
-            left: 0;
+
+            ${(props) => props.theme.left('0')}
         }
         100% {
-            left: 200px;
+            ${(props) => props.theme.left('200px')}
             opacity: 0.4;
         }
     }

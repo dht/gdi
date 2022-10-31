@@ -1,5 +1,13 @@
 import React from 'react';
-import { Bk, Column, Container, Content, Fg, Header } from './Overview.style';
+import {
+    Bk,
+    Column,
+    Container,
+    Content,
+    Fg,
+    Header,
+    Resolution,
+} from './Overview.style';
 import { OverviewBar } from '../OverviewBar/OverviewBar';
 import { ScreenLoader, TrianglesBk } from '@gdi/web-ui';
 import { Stats } from '../Stats/Stats';
@@ -47,6 +55,10 @@ export function Overview(props: OverviewProps) {
                     <Column>{props.children}</Column>
                     <Column>{renderStats()}</Column>
                 </Content>
+
+                <Resolution>
+                    {width} x {height}px
+                </Resolution>
             </TrianglesBk>
         </Container>
     );

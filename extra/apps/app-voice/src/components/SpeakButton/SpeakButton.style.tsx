@@ -23,7 +23,7 @@ export const Container = styled.div`
         background-color: #464;
         position: relative;
         bottom: 3px;
-        left: 3px;
+        ${(props) => props.theme.left('3px')}
         box-shadow: inset 3px -3px 10px 10px rgba(0, 0, 0, 0.2);
     }
 

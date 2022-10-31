@@ -3,6 +3,7 @@ import { Container } from './Carts.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type CartsProps = {
     data: Json[];
@@ -17,13 +18,14 @@ export type CartsProps = {
 export function Carts(props: CartsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('cart');
+    const { t } = useLanguage();
 
     return (
         <Container className='Carts-container' data-testid='Carts-container'>
             <Multi
                 id='Carts'
                 itemType='cart'
-                header='Carts'
+                header={t('Carts')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

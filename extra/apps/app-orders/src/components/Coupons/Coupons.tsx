@@ -3,6 +3,7 @@ import { Container } from './Coupons.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type CouponsProps = {
     data: Json[];
@@ -17,6 +18,7 @@ export type CouponsProps = {
 export function Coupons(props: CouponsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('coupon');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -26,7 +28,7 @@ export function Coupons(props: CouponsProps) {
             <Multi
                 id='Coupons'
                 itemType='coupon'
-                header='Coupons'
+                header={t('Coupons')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

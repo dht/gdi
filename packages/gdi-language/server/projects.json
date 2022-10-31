@@ -1,0 +1,122 @@
+{
+    "dashboard": {
+        "id": "dashboard",
+        "path": "apps/app-dashboard",
+        "i18n": "src/config/i18n"
+    },
+    "factory": {
+        "id": "factory",
+        "path": "apps/app-factory",
+        "i18n": "src/config/i18n"
+    },
+    "login": {
+        "id": "login",
+        "path": "apps/app-login",
+        "i18n": "src/config/i18n"
+    },
+    "mixer": {
+        "id": "mixer",
+        "path": "apps/app-mixer",
+        "i18n": "src/config/i18n"
+    },
+    "settings": {
+        "id": "settings",
+        "path": "apps/app-settings",
+        "i18n": "src/config/i18n"
+    },
+    "biblo": {
+        "id": "biblo",
+        "path": "extra/apps/app-biblo",
+        "i18n": "src/config/i18n"
+    },
+    "campaigns": {
+        "id": "campaigns",
+        "path": "extra/apps/app-campaigns",
+        "i18n": "src/config/i18n"
+    },
+    "carts": {
+        "id": "carts",
+        "path": "extra/apps/app-carts",
+        "i18n": "src/config/i18n"
+    },
+    "comments": {
+        "id": "comments",
+        "path": "extra/apps/app-comments",
+        "i18n": "src/config/i18n"
+    },
+    "devtools": {
+        "id": "devtools",
+        "path": "extra/apps/app-devtools",
+        "i18n": "src/config/i18n"
+    },
+    "events": {
+        "id": "events",
+        "path": "extra/apps/app-events",
+        "i18n": "src/config/i18n"
+    },
+    "knowledge": {
+        "id": "knowledge",
+        "path": "extra/apps/app-knowledge",
+        "i18n": "src/config/i18n"
+    },
+    "leads": {
+        "id": "leads",
+        "path": "extra/apps/app-leads",
+        "i18n": "src/config/i18n"
+    },
+    "money": {
+        "id": "money",
+        "path": "extra/apps/app-money",
+        "i18n": "src/config/i18n"
+    },
+    "orders": {
+        "id": "orders",
+        "path": "extra/apps/app-orders",
+        "i18n": "src/config/i18n"
+    },
+    "ppl": {
+        "id": "ppl",
+        "path": "extra/apps/app-ppl",
+        "i18n": "src/config/i18n"
+    },
+    "products": {
+        "id": "products",
+        "path": "extra/apps/app-products",
+        "i18n": "src/config/i18n"
+    },
+    "sales": {
+        "id": "sales",
+        "path": "extra/apps/app-sales",
+        "i18n": "src/config/i18n"
+    },
+    "soundboard": {
+        "id": "soundboard",
+        "path": "extra/apps/app-soundboard",
+        "i18n": "src/config/i18n"
+    },
+    "studio": {
+        "id": "studio",
+        "path": "extra/apps/app-studio",
+        "i18n": "src/config/i18n"
+    },
+    "tasks": {
+        "id": "tasks",
+        "path": "extra/apps/app-tasks",
+        "i18n": "src/config/i18n"
+    },
+    "things": {
+        "id": "things",
+        "path": "extra/apps/app-things",
+        "i18n": "src/config/i18n"
+    },
+    "voice": {
+        "id": "voice",
+        "path": "extra/apps/app-voice",
+        "i18n": "src/config/i18n"
+    },
+    "platformer": {
+        "id": "platformer",
+        "path": "platformer",
+        "i18n": "src/i18n"
+    }
+}

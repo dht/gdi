@@ -15,7 +15,7 @@ export const Flex = styled.div`
 `;
 
 export const HeaderText = styled.h1`
-    margin-right: 20px;
+    ${(props) => props.theme.marginRight('20px')}
 `;
 
 export const Count = styled.div`
@@ -50,7 +50,7 @@ export const ContainerBar = styled.div`
 
     > div,
     > button {
-        margin-right: 8px;
+        ${(props) => props.theme.marginRight('8px')}
     }
 `;
 

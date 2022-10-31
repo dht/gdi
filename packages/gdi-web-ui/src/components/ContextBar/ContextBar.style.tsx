@@ -8,8 +8,8 @@ export const Container = styled.div`
     color: #eee;
     position: fixed;
     bottom: 30px;
-    left: 320px;
-    right: 100p;
+    ${(props) => props.theme.left('320px')}
+    ${(props) => props.theme.right('100px')}    
     height: 40px;
     width: 1650px;
     display: flex;
@@ -26,7 +26,7 @@ export const PopoiWrapper = styled.div`
 export const PopoiWindow = styled.div`
     bottom: 40px;
     position: absolute;
-    left: 0;
+    ${(props) => props.theme.left(0)}
     background-color: #223;
     opacity: 0.98;
     display: flex;
@@ -64,12 +64,11 @@ export const PopoiActions = styled.div`
 export const BarItemWrapper = styled.div`
     width: 320px;
     flex: 1;
-    border-right: 1px solid #556;
+    ${(props) => props.theme.borderRight('1px solid #556')}
     display: flex;
     flex-direction: row;
     user-select: none;
-    padding-right: 10px;
-    padding: 9px 10px 4px 13px;
+    ${(props) => props.theme.padding('9px 10px 4px 13px')}
 
     &:hover {
         background-color: rgba(0, 0, 0, 0.4);

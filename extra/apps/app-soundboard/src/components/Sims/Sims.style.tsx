@@ -15,7 +15,7 @@ export const ParameterName = styled.div`
 `;
 
 export const Icon = styled.button`
-    margin-left: 10px;
+    ${(props) => props.theme.marginLeft('10px')}
     background-color: #223;
     color: #556;
     border: none;
@@ -35,6 +35,6 @@ export const Icon = styled.button`
     &:active {
         position: relative;
         bottom: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;

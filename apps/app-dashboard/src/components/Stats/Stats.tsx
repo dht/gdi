@@ -8,6 +8,7 @@ import {
     Value,
 } from './Stats.style';
 import { Graph } from '../Graph/Graph';
+import { useLanguage } from '@gdi/language';
 
 export type StatsProps = {
     stats: IStats;
@@ -50,20 +51,17 @@ type StatProps = {
 export function Stat(props: StatProps) {
     const { stat } = props;
     const { title, value, suffix = '', unit, clickEffect } = stat;
+    const { t, m, tn, n } = useLanguage();
 
     const parsedValue = useMemo(() => {
         let output = value;
 
         if (unit === 'currency') {
-            output = value.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'USD',
-                maximumFractionDigits: 0,
-            });
-        }
-
-        if (suffix) {
-            output += ' ' + suffix;
+            output = m.rounded(value);
+        } else if (suffix) {
+            output = tn(suffix, value);
+        } else {
+            output = n.rounded(value);
         }
 
         return output;
@@ -88,7 +86,7 @@ export function Stat(props: StatProps) {
             title={tip}
         >
             <Column>
-                <Title>{title}</Title>
+                <Title>{t(title)}</Title>
                 {renderValue()}
             </Column>
             <Column>
