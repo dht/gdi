@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrentIdsHoc, IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { MixerContainer } from '../containers/MixerContainer';
 import { MixerPanelContainer } from '../containers/MixerPanelContainer';
 import { PagesContainer } from '../containers/PagesContainer';
@@ -11,6 +11,7 @@ import { ModalImageUploadContainer } from '../containers/modals/ModalImageUpload
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
 import { WindowSize } from '../components/WindowSize/WindowSize';
 import { actions } from '../store';
+import { APP_ID } from './ids';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -35,10 +36,14 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) =>
-            CurrentIdsHoc(actions.currentIds.patch)(
-                <MixerContainer {...props} />
-            ),
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={MixerContainer}
+                props={props}
+                currentIdsActionCreator={actions.currentIds.patch}
+            />
+        ),
     },
     {
         id: MixerWidgets.MixerPanel,
@@ -48,7 +53,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MixerPanelContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={MixerPanelContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.MixerTree,
@@ -58,7 +69,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MixerTreeContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={MixerTreeContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.Pages,
@@ -68,7 +85,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <PagesContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={PagesContainer} props={props} />
+        ),
     },
     {
         id: MixerWidgets.ImageGallery,
@@ -78,7 +97,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <GalleryImagesContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={GalleryImagesContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.WidgetGallery,
@@ -88,7 +113,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <GalleryWidgetsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={GalleryWidgetsContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.ImageUpload,
@@ -98,7 +129,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ModalImageUploadContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ModalImageUploadContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.Preview,
@@ -108,7 +145,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <PreviewContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={PreviewContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.PlayMode,
@@ -118,7 +161,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ModalPlayModeContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ModalPlayModeContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: MixerWidgets.WindowSize,
@@ -128,6 +177,8 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <WindowSize {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={WindowSize} props={props} />
+        ),
     },
 ];

@@ -21,9 +21,9 @@ export const Rectangle = styled.div<{ color: string }>`
 
     &:after {
         content: ' ';
-        left: 0;
+        ${(props) => props.theme.left(0)}
+        ${(props) => props.theme.right(0)}
         top: 0;
-        right: 0;
         bottom: 0;
         position: absolute;
         background: repeating-linear-gradient(
@@ -38,7 +38,7 @@ export const Rectangle = styled.div<{ color: string }>`
 `;
 
 export const Title = styled.div`
-    margin-left: 12px;
+    ${(props) => props.theme.marginLeft('12px')}
     color: gold;
     font-size: 18px;
     text-shadow: 0 0 3px white;

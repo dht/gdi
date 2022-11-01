@@ -1,8 +1,7 @@
-import { delay, put, fork, takeEvery, select, api, call } from 'saga-ts';
+import { put, fork, takeEvery, select, api, call } from 'saga-ts';
 import { actions, selectors, selectorsTasks } from '../store';
-import { format } from '@gdi/language';
 import { byField } from '../utils/sort';
-import { SimpleDate } from '@gdi/language';
+import { XDate, time } from '@gdi/language';
 
 type AttachTicketToBlockAction = {
     type: 'SCHEDULE_ATTACH_TICKET_TO_BLOCK';
@@ -64,7 +63,7 @@ export function* attachTicketToBlock(action: AttachTicketToBlockAction) {
     const scheduleSessions = yield* select(selectors.raw.$rawScheduleSessions);
     const { day, time } = appState;
 
-    const dateInfo = new SimpleDate() //
+    const dateInfo = new XDate() //
         .setDayOfWeek(day)
         .setTime(time)
         .toInfo();
@@ -126,7 +125,7 @@ export function* detachTicketFromBlock(action: DetachTicketToBlockAction) {
         return;
     }
 
-    const dateInfo = new SimpleDate().setDayOfWeek(day).toInfo();
+    const dateInfo = new XDate().setDayOfWeek(day).toInfo();
 
     const existingScheduleSession = Object.values(scheduleSessions).find(
         (item: IScheduleSession) => {
@@ -176,18 +175,18 @@ export function* setCurrentTime() {
     const dayOfTheMonth = now.getDate();
     now.setMinutes(now.getMinutes() + timeDeltaInMinutes);
     now.setDate(dayOfTheMonth);
-    const timeNumber = timeToNumber(format(now, 'HH:mm'));
+    const timeNumber = timeToNumber(time(now));
     const scheduleBlocks = yield* select(selectors.raw.$rawScheduleBlocks);
 
-    const time = Object.values(scheduleBlocks)
+    const timeText = Object.values(scheduleBlocks)
         .sort(byField('startTime'))
         .find((b) => timeToNumber(b.startTime) > timeNumber);
 
-    if (!time) {
+    if (!timeText) {
         return;
     }
 
-    yield* fork(focusOnNextBlock, time.startTime, 'up');
+    yield* fork(focusOnNextBlock, timeText.startTime, 'up');
 }
 
 export function* loadShiftedTime() {}

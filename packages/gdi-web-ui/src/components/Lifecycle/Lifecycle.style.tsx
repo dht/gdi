@@ -80,7 +80,7 @@ export const TimeSeconds = styled.div`
 
 export const Details = styled.div`
     flex: 1;
-    margin-left: 10px;
+    ${(props) => props.theme.marginLeft('10px')}
 `;
 
 export const Subtitle = styled.div`
@@ -109,7 +109,7 @@ export const Button = styled.button`
     &:active {
         position: relative;
         bottom: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;
 

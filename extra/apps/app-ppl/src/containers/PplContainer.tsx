@@ -5,6 +5,7 @@ import { actions, selectors } from '../store';
 import { guid4, invokeEvent } from 'shared-base';
 import { firebase } from '@gdi/platformer';
 import { prompt } from '@gdi/web-base-ui';
+import { useLanguage } from '@gdi/language';
 
 export const PplContainer = () => {
     const dispatch = useDispatch();
@@ -13,25 +14,7 @@ export const PplContainer = () => {
 
     const callbacks = useMemo(
         () => ({
-            onDrillDown: async (itemId: string, point?: Json) => {
-                const { didCancel, value } = await prompt.pie({
-                    options: items,
-                    point,
-                });
-
-                if (didCancel) {
-                    return;
-                }
-
-                const type = ['ITEM_ACTION', 'person', value.id]
-                    .join('_')
-                    .toUpperCase();
-
-                dispatch({
-                    type,
-                    itemId,
-                });
-            },
+            onDrillDown: async (itemId: string) => {},
             onSelectionChange: (ids: string[]) => {
                 console.log('ids ->', ids);
             },

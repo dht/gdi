@@ -30,8 +30,10 @@ export function Panel(props: PanelProps) {
         setDelta({ x, y });
     }
 
+    const Cmp: any = Draggable;
+
     return (
-        <Draggable
+        <Cmp
             nodeRef={draggableRef}
             onStop={onStopDragging}
             defaultPosition={delta}
@@ -54,7 +56,7 @@ export function Panel(props: PanelProps) {
                 </Header>
                 <Content>{props.children}</Content>
             </Container>
-        </Draggable>
+        </Cmp>
     );
 }
 

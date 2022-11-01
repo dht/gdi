@@ -17,9 +17,9 @@ export const Container = styled.div<{ size: number; color: string }>`
         &:after {
             content: '';
             position: absolute;
-            left: 0;
+            ${(props) => props.theme.left(0)}
+            ${(props) => props.theme.right(0)}
             top: 0;
-            right: 0;
             bottom: 0;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: ${(props) => props.size + 'px'};

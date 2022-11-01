@@ -1,9 +1,11 @@
 import {
     IDuration,
+    IInterval,
     IWorkdayConfig,
     SecondsPerTimePeriod,
     TimePeriod,
 } from '../types';
+import { normalize } from './date';
 import { formatObjects } from './formatObjects';
 
 /*
@@ -66,6 +68,21 @@ export const duration = (seconds: number) => {
     return output.join(' ');
 };
 
+export const intervalToDuration = (interval: IInterval) => {
+    const { start, end } = interval;
+    const startNormalized = normalize(start);
+    const endNormalized = normalize(end);
+
+    if (!startNormalized || !endNormalized) {
+        return;
+    }
+
+    const seconds =
+        (endNormalized.getTime() - startNormalized.getTime()) / 1000;
+
+    return toDuration(seconds);
+};
+
 export const getSecondsPerPeriod = (
     workdayConfig?: IWorkdayConfig
 ): SecondsPerTimePeriod => {
@@ -106,7 +123,13 @@ const dividers: [number, Intl.RelativeTimeFormatUnit][] = [
     [60 * 60 * 24 * 365, 'month'],
 ];
 
-export const timeAgo = (date: Date) => {
+export const timeAgo = (value: DateTime) => {
+    const date = normalize(value);
+
+    if (!date || date.toString() === 'Invalid Date') {
+        return '';
+    }
+
     const delta = deltaInSeconds(date);
     const deltaAbs = Math.abs(deltaInSeconds(date));
 
@@ -127,8 +150,36 @@ export const timeAgo = (date: Date) => {
 };
 
 export const deltaInSeconds = (date: Date) => {
+    if (!date || date.toString() === 'Invalid Date') {
+        return 0;
+    }
+
     const now = new Date().getTime();
     const delta = date.getTime() - now;
 
     return Math.floor(delta / 1000);
+};
+
+export const deltaInMinutes = (date: Date = new Date()) => {
+    if (!date) {
+        return 0;
+    }
+
+    return deltaInSeconds(date) / 60;
+};
+
+export const deltaInYears = (date: Date = new Date()) => {
+    if (!date) {
+        return 0;
+    }
+
+    return deltaInMinutes(date) / 60 / 24 / 365;
+};
+
+export const isBefore = (date1: DateTime, date2: DateTime) => {
+    return date1 < date2;
+};
+
+export const isAfter = (date1: DateTime, date2: DateTime) => {
+    return date1 > date2;
 };

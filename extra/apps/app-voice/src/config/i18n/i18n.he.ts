@@ -1,3 +1,5 @@
 export default {
-    key: 'הצלחה',
+  key: "הצלחה",
+  Voice: "קוֹל",
+  "Navigate: Voice": "ניווט: קול",
 };

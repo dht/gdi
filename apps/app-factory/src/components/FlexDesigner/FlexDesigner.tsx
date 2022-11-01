@@ -20,6 +20,7 @@ import {
     useEnter,
     useKey,
 } from '@gdi/hooks';
+import { useTheme } from 'styled-components';
 
 export type FlexAction =
     | 'splitVertically'
@@ -44,6 +45,7 @@ export type FlexDesignerProps = {
 
 export function FlexDesigner(props: FlexDesignerProps) {
     const { items, selectedItemId, callbacks, isLoading } = props;
+    const theme = useTheme();
 
     useKey(
         () => {
@@ -146,6 +148,7 @@ export function FlexDesigner(props: FlexDesignerProps) {
             <Item
                 key={entity.id}
                 onMouseDown={() => callbacks.selectEntity(entity.id)}
+                onTouchStart={() => callbacks.selectEntity(entity.id)}
                 onDoubleClick={onDoubleClick}
                 className={className}
                 style={style}

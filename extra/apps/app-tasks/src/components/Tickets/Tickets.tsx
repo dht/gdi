@@ -3,6 +3,7 @@ import { Container } from './Tickets.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type TicketsProps = {
     data: Json[];
@@ -21,6 +22,7 @@ export function Tickets(props: TicketsProps) {
         props;
 
     const crudDefinitions = useCrudDefinitions('ticket');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -30,7 +32,7 @@ export function Tickets(props: TicketsProps) {
             <Multi
                 id='Tickets'
                 itemType='ticket'
-                header='Tasks'
+                header={t('Tasks')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

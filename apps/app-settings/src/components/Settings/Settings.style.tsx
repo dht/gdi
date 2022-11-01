@@ -27,7 +27,7 @@ export const Actions = styled.div`
 `;
 
 export const Error = styled.div`
-    margin-right: 50px;
+    ${(props) => props.theme.marginRight('50px')}
     color: red;
     font-size: 15px;
 `;
@@ -51,7 +51,7 @@ export const Editors = styled.div`
                 background-color: green;
                 position: absolute;
                 top: -15px;
-                left: 50%;
+                ${(props) => props.theme.left('50%')}
                 width: 140px;
                 text-align: center;
                 padding: 6px 10px;

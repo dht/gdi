@@ -1,6 +1,6 @@
 import React from 'react';
 import { BabylonContainer } from '../containers/BabylonContainer';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { LogoContainer } from '../containers/LogoContainer';
 import { ScheduleContainer } from '../containers/ScheduleContainer';
 import { PoeContainer } from '../containers/PoeContainer';
@@ -13,6 +13,7 @@ import { DomainHistoryContainer } from '../containers/DomainHistoryContainer';
 import { ProTipContainer } from '../containers/ProTipContainer';
 import { RatingContainer } from '../containers/RatingContainer';
 import { LegendContainer } from '../containers/LegendContainer';
+import { APP_ID } from './ids';
 
 export enum StudioWidgets {
     Babylon = 'studio.Babylon',
@@ -27,6 +28,7 @@ export enum StudioWidgets {
     ProTip = 'studio.ProTip',
     Rating = 'studio.Rating',
     Legend = 'studio.Legend',
+    Logo = 'studio.Logo',
 }
 export const widgets: IWidget[] = [
     {
@@ -37,7 +39,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <BabylonContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={BabylonContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.Logo,
@@ -47,7 +55,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <LogoContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={LogoContainer} props={props} />
+        ),
     },
 
     {
@@ -58,7 +68,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ScheduleContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ScheduleContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.Poe,
@@ -68,7 +84,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <PoeContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={PoeContainer} props={props} />
+        ),
     },
     {
         id: StudioWidgets.Switcher,
@@ -78,7 +96,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SwitcherContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SwitcherContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.Ideas,
@@ -88,7 +112,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <IdeasContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={IdeasContainer} props={props} />
+        ),
     },
     {
         id: StudioWidgets.IsoBrowser,
@@ -98,7 +124,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <IsoBrowserContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={IsoBrowserContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.DomainHeader,
@@ -108,7 +140,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <DomainHeaderContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={DomainHeaderContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.DomainPanel,
@@ -118,7 +156,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <DomainPanelContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={DomainPanelContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.DomainHistory,
@@ -128,7 +172,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <DomainHistoryContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={DomainHistoryContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: StudioWidgets.ProTip,
@@ -138,7 +188,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ProTipContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={ProTipContainer} props={props} />
+        ),
     },
     {
         id: StudioWidgets.Rating,
@@ -148,7 +200,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <RatingContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={RatingContainer} props={props} />
+        ),
     },
     {
         id: StudioWidgets.Legend,
@@ -158,6 +212,8 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <LegendContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={LegendContainer} props={props} />
+        ),
     },
 ];

@@ -1,6 +1,7 @@
 import { firebaseConfigs } from './main.firebase';
 import p from '../package.json';
 import { IPlatformConfig } from '@gdi/platformer';
+import { getLanguageCode } from '@gdi/language';
 import { initializers } from './main.apps';
 import { getJson } from 'shared-base';
 import { uniq } from 'lodash';
@@ -28,4 +29,6 @@ export const config: IPlatformConfig = {
     activeApps,
     menuSections,
     noServerMode: false,
+    languageCode: 'en',
+    isRtl: false,
 };

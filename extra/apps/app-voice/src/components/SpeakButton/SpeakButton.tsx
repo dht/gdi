@@ -19,8 +19,10 @@ export function SpeakButton(props: SpeakButtonProps) {
         <Container
             className={className}
             data-testid='SpeakButton-container'
+            onTouchStart={props.onMouseDown}
             onMouseDown={props.onMouseDown}
             onMouseUp={props.onMouseUp}
+            onTouchEnd={props.onMouseUp}
         >
             <i className='material-icons'>micro</i>
         </Container>

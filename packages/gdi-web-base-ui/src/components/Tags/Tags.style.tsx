@@ -8,7 +8,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
 
     > div {
-        margin-right: 5px;
+        ${(props) => props.theme.marginRight('5px')}
         margin-bottom: 5px;
     }
 `;

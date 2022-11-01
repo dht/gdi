@@ -11,7 +11,7 @@ export const Container = styled.div`
         border-radius: 10px;
         position: absolute;
         top: 0;
-        left: 0;
+        ${(props) => props.theme.left(0)}
         border: 1px solid orange;
         animation: rotate 4s linear infinite;
         box-shadow: inset 0 0 3px 3px rgba(0, 0, 0, 0.2);

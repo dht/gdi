@@ -14,12 +14,14 @@ export const PhoneInput = React.forwardRef(
     (props: PhoneInputProps, ref: LegacyRef<any>) => {
         const { value, placeholder, defaultCountry } = props;
 
+        const Cmp: any = PhoneInputBase;
+
         return (
             <Container
                 className='PhoneInput-container'
                 data-testid='PhoneInput-container'
             >
-                <PhoneInputBase
+                <Cmp
                     placeholder={placeholder}
                     defaultCountry={defaultCountry}
                     value={value}

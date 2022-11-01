@@ -9,6 +9,7 @@ const PROMPT_CANCEL_EVENT = 'PROMPT_CANCEL';
 
 type PromptContainerProps = {
     formComponent?: FC<IFormProps>;
+    isRtl?: boolean;
 };
 
 type PromptState = {
@@ -20,7 +21,7 @@ type PromptState = {
 };
 
 export function PromptContainer(props: PromptContainerProps) {
-    const { formComponent } = props;
+    const { formComponent, isRtl } = props;
     const [state, patchState] = useSetState<PromptState>({
         show: false,
         title: '',
@@ -69,6 +70,7 @@ export function PromptContainer(props: PromptContainerProps) {
             onSubmit={onSubmit}
             onCancel={onCancel}
             formComponent={formComponent}
+            isRtl={isRtl}
         />
     );
 }

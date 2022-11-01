@@ -8,10 +8,10 @@ export const Description = styled.div`
 export const IconWrapper = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     font-size: 80px;
     bottom: 0;
-    right: 0;
     display: flex;
     flex-direction: row;
     align-items: center;

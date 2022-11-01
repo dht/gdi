@@ -234,6 +234,7 @@ export function SortableItem(props: SortableItemProps) {
             style={style}
             selected={selected}
             onMouseDown={onSelectItem}
+            onTouchStart={onSelectItem}
             onDoubleClick={onDrillDown}
             {...attributes}
             {...listeners}

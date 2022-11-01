@@ -27,7 +27,7 @@ export const Option = styled.div<{ selected: boolean }>`
     color: #333;
     height: 36px;
     line-height: 36px;
-    border-right: 1px solid #333;
+    ${(props) => props.theme.borderRight('1px solid #333')}
     transition: all 50ms ease-in-out;
     touch-action: manipulation;
     background-color: ${(props) =>

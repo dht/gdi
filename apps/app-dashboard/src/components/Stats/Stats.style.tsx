@@ -2,22 +2,25 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     margin-top: 50px;
-    font-family: 'Encode Sans', sans-serif;
 `;
 
 export const ContainerStat = styled.div`
-    padding: 10px 30px 10px;
+    padding: 10px 30px;
     height: 100px;
     background-color: #223;
     opacity: 0.96;
     width: 300px;
     border-radius: 34px;
     margin: 12px 15px;
-    float: left;
+    ${(props) => props.theme.floatLeft()}
     display: flex;
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+
+    @media (max-width: 1340px) {
+        zoom: 0.7;
+    }
 
     &:hover {
         background-color: #112;
@@ -26,14 +29,14 @@ export const ContainerStat = styled.div`
     &:active {
         position: relative;
         bottom: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;
 
 export const Column = styled.div`
     &:nth-child(1) {
         flex: 3;
-        padding-right: 20px;
+        ${(props) => props.theme.paddingRight('20px')}
     }
     &:nth-child(2) {
         flex: 2;
@@ -75,6 +78,6 @@ export const Value = styled.div`
     &:active {
         position: relative;
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
     }
 `;

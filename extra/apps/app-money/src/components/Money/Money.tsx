@@ -3,6 +3,7 @@ import { Container } from './Money.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type MoneyProps = {
     data: Json[];
@@ -17,12 +18,13 @@ export type MoneyProps = {
 export function Money(props: MoneyProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('image');
+    const { t } = useLanguage();
 
     return (
         <Container className='Money-container' data-testid='Money-container'>
             <Multi
                 id='Money'
-                header='Money'
+                header={t('Money')}
                 itemType='article'
                 data={data}
                 callbacks={callbacks}

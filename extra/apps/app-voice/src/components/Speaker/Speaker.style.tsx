@@ -12,9 +12,9 @@ export const Circle = styled.div<{ animated: boolean }>`
     border-radius: 200px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    ${(props) => props.theme.left('50%')}
     margin-top: -200px;
-    margin-left: -200px;
+    ${(props) => props.theme.marginLeft('-200px')}
     animation-fill-mode: forwards;
     box-shadow: 0 0 300px 100px rgba(255, 255, 255, 0.02);
 
@@ -57,7 +57,7 @@ export const Circle = styled.div<{ animated: boolean }>`
         width: 320px;
         height: 320px;
         margin-top: -160px;
-        margin-left: -160px;
+        ${(props) => props.theme.marginLeft('-160px')}
         animation-duration: 1.5s;
         animation-iteration-count: infinite;
         animation-timing-function: ease-in-out;

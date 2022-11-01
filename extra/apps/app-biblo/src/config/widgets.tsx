@@ -1,6 +1,7 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { InterestingReadsContainer } from '../containers/InterestingReadsContainer';
+import { APP_ID } from './ids';
 
 export enum BibloWidgets {
     InterestingReads = 'biblo.InterestingReads',
@@ -14,6 +15,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <InterestingReadsContainer {...props} />,
+
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={InterestingReadsContainer}
+                props={props}
+            />
+        ),
     },
 ];

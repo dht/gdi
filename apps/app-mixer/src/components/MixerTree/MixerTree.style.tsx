@@ -7,7 +7,7 @@ export const Container = styled.div`
     height: 250px;
     position: absolute;
     z-index: 999;
-    left: 0;
+    ${(props) => props.theme.left(0)}
     top: 0;
     border-radius: 10px;
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2),
@@ -57,7 +57,7 @@ export const ContainerInstances = styled.div`
 `;
 
 export const Instance = styled.div`
-    padding: 10px 3px 10px 8px;
+    ${(props) => props.theme.padding('10px 3px 10px 8px')}
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: row;
@@ -65,7 +65,7 @@ export const Instance = styled.div`
 
     .star {
         color: gold;
-        margin-left: 5px;
+        ${(props) => props.theme.marginLeft('5px')}
         position: relative;
         top: 1px;
     }
@@ -135,20 +135,18 @@ export const HeaderActions = styled.div`
 
 export const HeaderTitle = styled.div`
     flex: 1;
-    padding-left: 10px;
+    ${(props) => props.theme.paddingLeft('10px')}
 `;
 
 export const Toggle = styled.div`
     position: absolute;
-    left: -20px;
+    ${(props) => props.theme.left('-20px')}
     width: 20px;
     background-color: #223;
     height: 50px;
     position: absolute;
     z-index: 999;
     color: #aaa;
-
-    left: -20px;
     top: 24px;
     border-radius: 10px 0 0 10px;
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2),

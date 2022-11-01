@@ -20,18 +20,28 @@ export const Header = styled.div`
     }
 `;
 
-export const Chevron = styled.div<{ open: boolean }>`
+export const Chevron = styled.div`
     width: 18px;
     height: 18px;
-    transform: rotate(${(props) => (props.open ? '90deg' : '0deg')})
-        translateX(${(props) => (props.open ? '3px' : '0')})
-        translateY(${(props) => (props.open ? '3px' : '0')});
+    transform: rotate(0deg) translateX(0) translateY(0);
+
+    &.open {
+        transform: rotate(90deg) translateX(3px) translateY(3px);
+    }
+
+    &.rtl {
+        transform: rotate(180deg) translateX(0) translateY(0);
+
+        &.open {
+            transform: rotate(90deg) translateX(-3px) translateY(3px);
+        }
+    }
 `;
 
 export const Title = styled.div`
     flex: 1;
     font-size: 18px;
-    margin-left: 7px;
+    ${(props) => props.theme.marginLeft('7px')}
 `;
 
 export const Content = styled.div<{ flex?: boolean }>`

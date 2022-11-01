@@ -23,14 +23,14 @@ export const Top = styled.div`
 export const Details = styled.div`
     position: absolute;
     bottom: -50px;
-    left: 50px;
+    ${(props) => props.theme.left('50px')}
     display: flex;
     flex-direction: row;
     align-items: center;
 `;
 
 export const Me = styled.div`
-    margin-left: 40px;
+    ${(props) => props.theme.marginLeft('40px')}
     margin-bottom: 15px;
 `;
 
@@ -96,7 +96,7 @@ export const Color = styled.div<{ value: string }>`
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
+        ${(props) => props.theme.left(0)}
         width: 30px;
         height: 30px;
         border-radius: 50%;
@@ -110,7 +110,7 @@ export const Color = styled.div<{ value: string }>`
 
 export const SettingsWrapper = styled.div`
     position: absolute;
-    left: 500px;
+    ${(props) => props.theme.left('500px')}
     top: 18px;
 `;
 

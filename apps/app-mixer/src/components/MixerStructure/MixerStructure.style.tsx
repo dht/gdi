@@ -11,7 +11,7 @@ export const ContainerItem = styled.div`
     height: 62px;
     border: 1px solid #556;
     line-height: 50px;
-    padding: 10px 15px 10px 20px;
+    ${(props) => props.theme.padding('10px 15px 10px 20px')}
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -61,7 +61,7 @@ export const StatusContent = styled(Status)`
 export const WidgetThumb = styled.div<{ url?: string; ratio?: number }>`
     width: 50px;
     height: 40px;
-    margin-left: 10px;
+    ${(props) => props.theme.marginLeft('10px')}
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
     background-image: url(${(props) => props.url});
@@ -77,7 +77,7 @@ export const WidgetThumb = styled.div<{ url?: string; ratio?: number }>`
     &::before {
         content: '';
         position: absolute;
-        left: -450px;
+        ${(props) => props.theme.left('-450px')}
         width: 400px;
         top: -0px;
         height: ${(props) => (props.ratio ? 400 / props.ratio : 300)}px;

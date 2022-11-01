@@ -64,6 +64,9 @@ export const Id = styled.div`
     color: gold;
     max-width: 100px;
     opacity: 0.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 `;
 
 export const IconWrapper = styled.div<{ color?: string }>`

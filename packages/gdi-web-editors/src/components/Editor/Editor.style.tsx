@@ -7,7 +7,6 @@ export const Container = styled.div`
     font-size: 18px;
     line-height: 26px;
     color: #333;
-    font-family: 'Encode Sans', sans-serif;
     font-weight: 450;
 
     .ProseMirror {
@@ -57,8 +56,8 @@ export const Container = styled.div`
         }
 
         blockquote {
-            padding-left: 1rem;
-            border-left: 2px solid rgba(#0d0d0d, 0.1);
+            ${(props) => props.theme.paddingLeft('1rem')}
+            ${(props) => props.theme.borderLeft('2px solid rgba(#0d0d0d, 0.1)')}
         }
 
         hr {

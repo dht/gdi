@@ -29,7 +29,7 @@ export const Location = styled.div`
 
 export const LocationName = styled.div`
     color: #d2126b;
-    margin-left: 5px;
+    ${(props) => props.theme.marginLeft('5px')}
     cursor: pointer;
 
     &:hover {
@@ -43,5 +43,5 @@ export const Time = styled.div`
     padding: 0 5px;
     background-color: black;
     font-size: 17px;
-    float: right;
+    ${(props) => props.theme.floatRight()}
 `;

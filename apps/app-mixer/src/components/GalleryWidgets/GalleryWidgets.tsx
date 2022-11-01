@@ -3,6 +3,7 @@ import { Container } from './GalleryWidgets.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type GalleryWidgetsProps = {
     data: Json[];
@@ -17,6 +18,7 @@ export type GalleryWidgetsProps = {
 export function GalleryWidgets(props: GalleryWidgetsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('widget');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -26,7 +28,7 @@ export function GalleryWidgets(props: GalleryWidgetsProps) {
             <Multi
                 id='Widgets'
                 itemType='widget'
-                header='Widgets'
+                header={t('Widgets')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

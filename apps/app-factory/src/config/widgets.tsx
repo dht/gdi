@@ -1,5 +1,5 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { FactoryPanel } from '../components/FactoryPanel/FactoryPanel';
 import { ImportExportLayoutContainer } from '../containers/singles/ImportExportLayoutContainer';
 import { DesignerTreeContainer } from '../containers/singles/DesignerTreeContainer';
@@ -8,8 +8,8 @@ import { LayoutsContainer } from '../containers/LayoutsContainer';
 import { LayoutContainer } from '../containers/LayoutContainer';
 import { ArticleEditorContainer } from '../containers/ArticleEditorContainer';
 import { ArticlesContainer } from '../containers/ArticlesContainer';
-import { CurrentIdsHoc } from '@gdi/platformer';
 import { actions } from '../store';
+import { APP_ID } from './ids';
 
 export enum FactoryWidgets {
     FactoryPanel = 'factory.FactoryPanel',
@@ -30,10 +30,14 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) =>
-            CurrentIdsHoc(actions.currentIdsFactory.patch)(
-                <LayoutContainer {...props} />
-            ),
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                currentIdsActionCreator={actions.currentIdsFactory.patch}
+                component={LayoutContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: FactoryWidgets.FactoryPanel,
@@ -43,7 +47,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <FactoryPanel {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={FactoryPanel} props={props} />
+        ),
     },
     {
         id: FactoryWidgets.ImportExportLayouts,
@@ -53,7 +59,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ImportExportLayoutContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ImportExportLayoutContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: FactoryWidgets.DesignerTree,
@@ -63,7 +75,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <DesignerTreeContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={DesignerTreeContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: FactoryWidgets.Layouts,
@@ -73,7 +91,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <LayoutsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={LayoutsContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: FactoryWidgets.Properties,
@@ -83,7 +107,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ModalFlexPropertiesContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ModalFlexPropertiesContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: FactoryWidgets.ArticleEditor,
@@ -93,10 +123,14 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) =>
-            CurrentIdsHoc(actions.currentIdsFactory.patch)(
-                <ArticleEditorContainer {...props} />
-            ),
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                currentIdsActionCreator={actions.currentIdsFactory.patch}
+                component={ArticleEditorContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: FactoryWidgets.Articles,
@@ -106,6 +140,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ArticlesContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ArticlesContainer}
+                props={props}
+            />
+        ),
     },
 ];

@@ -28,7 +28,7 @@ export const Inner = styled.div`
 export const Sync = styled.div`
     position: absolute;
     top: 55px;
-    right: 20px;
+    ${(props) => props.theme.right('20px')}
 
     i {
         cursor: pointer;
@@ -41,7 +41,7 @@ export const Sync = styled.div`
 
         &:active {
             bottom: 1px;
-            left: 1px;
+            ${(props) => props.theme.left('1px')}
         }
     }
 `;
@@ -49,5 +49,5 @@ export const Sync = styled.div`
 export const EstimateWrapper = styled.div`
     position: absolute;
     bottom: 42px;
-    right: 10px;
+    ${(props) => props.theme.right('10px')}
 `;

@@ -1,7 +1,7 @@
 import React, { FC, useContext, useMemo } from 'react';
 import { CellType, ITableField } from '../../types';
 import { Icon, SocialIcon } from '@gdi/web-base-ui';
-import { format, shortDate, timeAgo } from '@gdi/language';
+import { dateDb, dateShort, timeAgo } from '@gdi/language';
 import {
     Container,
     Description,
@@ -156,7 +156,7 @@ export function TableCellDate(props: TableCellProps) {
     const { value } = data;
 
     const dateText = useMemo(() => {
-        return format(new Date(value), 'dd-MM-yyyy');
+        return dateDb(value);
     }, [value]);
 
     return (
@@ -171,7 +171,7 @@ export function TableCellTimeAgo(props: TableCellProps) {
     const { value } = data;
 
     const dateText = useMemo(() => {
-        return shortDate(value);
+        return dateShort(value);
     }, [value]);
 
     const timeAgoText = useMemo(() => {

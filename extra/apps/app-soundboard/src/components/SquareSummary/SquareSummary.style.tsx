@@ -4,7 +4,7 @@ export const Container = styled.div`
     flex: 1;
     width: 70px;
     height: 130px;
-    border-left: 2px solid #333;
+    ${(props) => props.theme.borderLeft('2px solid #333')}
     border-bottom: 2px solid #333;
     display: flex;
     flex-direction: column;

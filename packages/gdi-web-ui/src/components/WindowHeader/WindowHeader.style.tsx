@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     position: fixed;
     top: 0;
-    margin-left: -200px;
+    ${(props) => props.theme.marginLeft('-200px')}
     width: 400px;
     padding: 6px 20px;
     text-align: center;
@@ -20,7 +20,7 @@ export const Container = styled.div`
 
 export const Title = styled.div`
     flex: 1;
-    margin-left: 40px;
+    ${(props) => props.theme.marginLeft('40px')}
 `;
 
 export const Actions = styled.div`
@@ -40,7 +40,7 @@ export const Actions = styled.div`
         &:active {
             position: relative;
             bottom: 1px;
-            left: 1px;
+            ${(props) => props.theme.left('1px')}
         }
     }
 `;

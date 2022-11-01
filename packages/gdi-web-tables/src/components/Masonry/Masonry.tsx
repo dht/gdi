@@ -4,6 +4,7 @@ import { Container, Expander } from './Masonry.style';
 import { IImage } from '../../types';
 import { throttle } from 'lodash';
 import { useWindowSize } from 'react-use';
+import { useTheme } from 'styled-components';
 
 const VIRTUALIZED_SCROLL_GUTTER = 600;
 const VIRTUALIZED_ITEMS_COUNT = 100;
@@ -53,6 +54,7 @@ export function Masonry(props: MasonryProps) {
     const [itemsInViewport, setItemsInViewport] = useState<IItem[]>([]);
     const ref = useRef<HTMLDivElement>(null);
     const { width: windowWidth, height: windowHeight } = useWindowSize();
+    const theme = useTheme();
 
     const virtualItems = useMemo(() => {
         return [...new Array(VIRTUALIZED_ITEMS_COUNT)].map((_i, index) => ({
@@ -82,6 +84,7 @@ export function Masonry(props: MasonryProps) {
             columns,
             gutter,
             fixedRatio,
+            isRtl: theme.isRtl,
         });
 
         setInnerHeight(positionResult.maxBottom);
@@ -208,6 +211,7 @@ type Options = {
     columns: number;
     gutter: number;
     fixedRatio?: number;
+    isRtl?: boolean;
 };
 
 export const positionImages = (allItems: IImage[], options: Options) => {
@@ -254,11 +258,13 @@ export const positionImages = (allItems: IImage[], options: Options) => {
 
         maxBottom = Math.max(maxBottom, bottom);
 
+        const leftKey = options.isRtl ? 'right' : 'left';
+
         return {
             ...item,
             style: {
                 top,
-                left,
+                [leftKey]: left,
                 width,
                 height: height ?? 0,
             },

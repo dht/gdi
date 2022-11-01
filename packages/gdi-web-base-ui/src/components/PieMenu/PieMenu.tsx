@@ -21,12 +21,13 @@ export type PieMenuProps = {
     onSelect: (item: IOption) => void;
     onCancel: () => void;
     minTop?: number;
+    isRtl?: boolean;
 };
 
 export function PieMenu(props: PieMenuProps) {
     const ref = useRef<HTMLDivElement>(null);
     const timeout = useRef<any>(null);
-    const { items = [], origin = {}, minTop = 0 } = props;
+    const { items = [], origin = {}, minTop = 0, isRtl } = props;
     const { x = 0, y = 0 } = origin;
     const count = items.length;
     const [r, setR] = useState(0);
@@ -71,7 +72,7 @@ export function PieMenu(props: PieMenuProps) {
 
             onCancel();
         },
-        []
+        [isOpen]
     );
 
     useEffect(() => {
@@ -116,10 +117,11 @@ export function PieMenu(props: PieMenuProps) {
         const { text, iconName, shortKey } = item;
         const { key = '' } = shortKey ?? {};
 
+        const d = isRtl ? -1 : 1;
         let angle = 360 - ((200 + (360 / count) * index) % 360);
 
         let y = Math.sin((angle * Math.PI) / 180) * r;
-        let x = Math.cos((angle * Math.PI) / 180) * r;
+        let x = Math.cos((angle * Math.PI) / 180) * d * r;
 
         const style: React.CSSProperties = {
             transform: `translate(${x}px, ${y}px)`,
@@ -170,7 +172,7 @@ export function PieMenu(props: PieMenuProps) {
         >
             {renderItems()}
             <Circle radius={95} />
-            <Trigger onMouseDown={onCancel} />
+            <Trigger onMouseDown={onCancel} onTouchStart={onCancel} />
         </Container>
     );
 }

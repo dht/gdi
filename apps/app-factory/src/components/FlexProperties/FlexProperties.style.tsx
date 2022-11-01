@@ -20,7 +20,7 @@ export const Actions = styled.div`
     padding: 25px 10px;
 
     button {
-        margin-right: 10px;
+        ${(props) => props.theme.marginRight('10px')}
     }
 `;
 

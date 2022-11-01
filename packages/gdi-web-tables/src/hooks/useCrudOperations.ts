@@ -4,6 +4,7 @@ import { prompt } from '@gdi/web-base-ui';
 import { DispatchContext } from '../context/Dispatch.context';
 import { guid4 } from 'shared-base';
 import { ICrudOptions } from '../types';
+import { useTranslation } from '@gdi/language';
 
 export function useCrudOperations(
     config: ICrudDefinitions,
@@ -13,6 +14,7 @@ export function useCrudOperations(
     const { nodeName, formNew, formNewDefault, formEdit, pieMenu } = config;
 
     const contextDispatch = useContext(DispatchContext);
+    const { tj, t } = useTranslation();
 
     const dispatch = contextDispatch.callbacks.dispatch;
 
@@ -28,7 +30,7 @@ export function useCrudOperations(
                     form: {
                         config: formNew,
                         data: { ...formNewDefault, ...options.newDataExtra },
-                        allOptions: options.allOptions,
+                        allOptions: tj(options.allOptions),
                         allDetails: options.allDetails,
                         allMethods: options.allMethods,
                     },
@@ -54,7 +56,7 @@ export function useCrudOperations(
                     form: {
                         config: formEdit,
                         data: itemData,
-                        allOptions: options.allOptions,
+                        allOptions: tj(options.allOptions),
                         allDetails: options.allDetails,
                         allMethods: options.allMethods,
                     },
@@ -175,7 +177,7 @@ export function useCrudOperations(
             },
             showMenu: async (itemId: string, point?: Json) => {
                 const { didCancel, value } = await prompt.pie({
-                    options: pieMenu.options,
+                    options: tj(pieMenu.options),
                     point,
                 });
 

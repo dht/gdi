@@ -2,7 +2,8 @@ import { RefObject, useEffect } from 'react';
 
 export function useClickAway(
     ref: RefObject<HTMLDivElement>,
-    callback: () => void
+    callback: () => void,
+    devArray: any[] = []
 ) {
     useEffect(() => {
         function isInRef(element: EventTarget) {
@@ -31,5 +32,5 @@ export function useClickAway(
         return () => {
             document.removeEventListener('click', onClick);
         };
-    }, [callback]);
+    }, [...devArray]);
 }

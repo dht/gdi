@@ -7,7 +7,6 @@ export const Container = styled.div`
     user-select: none;
     position: absolute;
     top: 50px;
-    left: 50px;
     z-index: 3;
     transition: all 50ms ease-out;
 `;
@@ -17,7 +16,10 @@ export const Trigger = styled.div`
     width: 50px;
     height: 40px;
     border-radius: 30px;
-    transform: translate(-50%, -50%);
+    transform: translate(
+        ${(props) => (props.theme.isRtl ? '50%' : '-50%')},
+        -50%
+    );
     cursor: pointer;
     transition: all 500ms ease-out;
 
@@ -33,7 +35,7 @@ export const Point = styled.div`
     position: absolute;
     transition: all 100ms ease-out;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
     width: 3px;
     height: 3px;
 `;
@@ -56,24 +58,24 @@ export const PointInner = styled.div`
 
     &.topLeft {
         bottom: 0;
-        right: 0;
+        ${(props) => props.theme.right(0)}
         flex-direction: row-reverse;
     }
 
     &.topRight {
         bottom: 0;
-        left: 0;
+        ${(props) => props.theme.left(0)}
     }
 
     &.bottomLeft {
         top: 0;
-        right: 0;
+        ${(props) => props.theme.right(0)}
         flex-direction: row-reverse;
     }
 
     &.bottomRight {
         top: 0;
-        left: 0;
+        ${(props) => props.theme.left(0)}
     }
 
     &:hover {
@@ -113,8 +115,9 @@ export const PointInner = styled.div`
 export const Circle = styled.div<{ radius: number }>`
     position: absolute;
     top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
+    ${(props) => props.theme.left(0)}
+    transform: translate(${(props) =>
+        props.theme.isRtl ? '50%' : '-50%'}, -50%);
     width: ${(props) => props.radius * 2}px;
     height: ${(props) => props.radius * 2}px;
     border-radius: 50%;

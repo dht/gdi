@@ -3,7 +3,7 @@ import { Container } from './SheetCellEditing.style';
 import { useEnter, useEscape } from '@gdi/hooks';
 import { Coords } from '../../types';
 import { useCustomEvent } from '@gdi/hooks';
-import { format } from '@gdi/language';
+import { dateDb } from '@gdi/language';
 import { SheetContext } from '../../context/Sheet.context';
 
 export type SheetCellEditingProps = {
@@ -116,7 +116,7 @@ const parseDate = (value: string) => {
     try {
         const dateParts = value.split('.').map((i) => parseInt(i, 10));
         const date = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-        return format(date, 'yyyy-MM-dd');
+        return dateDb(date);
     } catch (_err) {
         return value;
     }

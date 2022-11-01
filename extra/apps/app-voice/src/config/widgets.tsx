@@ -1,9 +1,10 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { VoiceContainer } from '../containers/VoiceContainer';
 import { VoiceTopContainer } from '../containers/VoiceTopContainer';
 import { SpeakerContainer } from '../containers/SpeakerContainer';
 import { TranscriptContainer } from '../containers/TranscriptContainer';
+import { APP_ID } from './ids';
 
 export enum VoiceWidgets {
     Voice = 'voice.Voice',
@@ -20,7 +21,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <VoiceContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={VoiceContainer} props={props} />
+        ),
     },
     {
         id: VoiceWidgets.Speaker,
@@ -30,17 +33,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SpeakerContainer {...props} />,
-    },
-    {
-        id: VoiceWidgets.Viz,
-        name: 'Viz',
-        description: 'Viz',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => <VizContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SpeakerContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: VoiceWidgets.VoiceTop,
@@ -50,7 +49,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <VoiceTopContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={VoiceTopContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: VoiceWidgets.Transcript,
@@ -60,6 +65,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <TranscriptContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={TranscriptContainer}
+                props={props}
+            />
+        ),
     },
 ];

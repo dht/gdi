@@ -9,7 +9,7 @@ export const Squares = styled.div<{ color: string }>`
     border-radius: 8px;
     box-shadow: inset 1px -3px 10px 2px rgba(0, 0, 0, 0.2);
     border: 1px solid #333;
-    border-left: none;
+    ${(props) => props.theme.borderLeft('none')}
 `;
 
 export const DayHeaderContainer = styled.div<{ color: string }>`

@@ -15,7 +15,7 @@ import {
     TimeSeconds,
     Title,
 } from './Lifecycle.style';
-import { format } from '@gdi/language';
+import { time } from '@gdi/language';
 
 export type IStage = {
     id: string;
@@ -88,9 +88,8 @@ export function Lifecycle(props: LifecycleProps) {
                 {timestamp && (
                     <Time>
                         <TimeHoursAndMinutes>
-                            {format(timestamp, 'HH:mm:')}
+                            {time(timestamp) + ':'}
                         </TimeHoursAndMinutes>
-                        <TimeSeconds>{format(timestamp, 'ss')}</TimeSeconds>
                     </Time>
                 )}
             </Step>

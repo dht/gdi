@@ -3,6 +3,7 @@ import { Container } from './Ppl.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type PplProps = {
     data: Json[];
@@ -18,13 +19,14 @@ export type PplProps = {
 export function Ppl(props: PplProps) {
     const { data, callbacks, allOptions, allMethods, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('person');
+    const { t } = useLanguage();
 
     return (
         <Container className='Ppl-container' data-testid='Ppl-container'>
             <Multi
                 id='Ppl'
                 itemType='person'
-                header='People'
+                header={t('People')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

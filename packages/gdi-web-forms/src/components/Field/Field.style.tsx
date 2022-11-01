@@ -11,5 +11,5 @@ export const Container = styled.div`
 
 export const PaddingTop = styled.div`
     padding-top: 15px;
-    padding-left: 10px;
+    ${(props) => props.theme.paddingLeft('10px')}
 `;

@@ -2,7 +2,7 @@ import thunk from 'redux-thunk';
 import { ApiConfigBuilder } from '../builders/ApiConfigBuilder';
 import { AxiosInstance } from 'axios';
 import { firebase } from '../utils/firebase';
-import { I18nBuilder } from '@gdi/language';
+import { I18nBuilder, objectTranslate as to } from '@gdi/language';
 import { InitAppMethod, InitSapMethod, IPlatformState } from '../types';
 import { notifyPubSub } from '@gdi/hooks';
 import { platform } from '../store';
@@ -21,8 +21,9 @@ import {
 } from 'redux-connected';
 import type { IReduxConnectedConfig } from 'redux-connected';
 import type { StoreStructure } from 'redux-store-generator';
-import { DefinitionsBuilder } from '../builders/definitionsBuilder';
-import { PieMenuBuilder } from '../builders/pieMenuBuilder';
+import { DefinitionsBuilder } from '../builders/DefinitionsBuilder';
+import { PieMenuBuilder } from '../builders/PieMenuBuilder';
+import platformI18n from '../i18n';
 
 const DEBUG = false;
 
@@ -37,6 +38,7 @@ type Params = {
     sagas: any[];
     logger: LogMethod;
     noServerMode?: boolean;
+    languageCode?: LanguageIso;
 };
 
 const DEFAULT_ENDPOINT_CONFIG: EndpointConfig = {
@@ -64,6 +66,7 @@ export async function initPlatform<T extends StoreStructure>(
         sagas = [],
         logger = defaultLogger,
         noServerMode,
+        languageCode = 'en',
     } = params;
 
     logger('platform: init');
@@ -83,6 +86,8 @@ export async function initPlatform<T extends StoreStructure>(
         .withDevtoolsExtensions(true)
         .withMiddlewares(thunk)
         .withSagas(...sagas);
+
+    i18nBuilder.withKeysByLanguage('platform', platformI18n);
 
     logger('platform: iterating through apps');
 
@@ -152,13 +157,21 @@ export async function initPlatform<T extends StoreStructure>(
 
     initReduxConnected(config, storeBuilder);
 
-    const routing = routerBuilder.build();
-
     store = storeBuilder.build();
 
     const resources = i18nBuilder.build();
 
+    const routing = routerBuilder.build();
+
     logger('platform: sending PLATFORM_IS_READY');
+
+    const i18nParams = {
+        languageCode,
+        keys: resources,
+    };
+
+    const crudDefinitionsPerApp = definitionsBuilder.build();
+    const crudDefinitions = to.definitions(crudDefinitionsPerApp, i18nParams);
 
     setTimeout(() => {
         patchContext({
@@ -166,14 +179,14 @@ export async function initPlatform<T extends StoreStructure>(
             availableAccounts,
             routes: routing.routes,
             instancesByPage: routing.instancesByPage,
-            menuItems: routing.menuItems,
+            menuItems: to.menu(routing.menuItems, i18nParams),
             menuGroups: routing.menuGroups,
-            contextBarItems: routing.contextBarItems,
-            commandBarItems: routing.commandBarItems,
+            contextBarItems: to.contextBar(routing.contextBarItems, i18nParams),
+            commandBarItems: to.commandBar(routing.commandBarItems, i18nParams),
             widgetLibrary: widgetBuilder.build(),
             selectors: selectorsBuilder.build(),
-            crudDefinitions: definitionsBuilder.build(),
-            pieMenuConfig: pieMenuBuilder.build(),
+            crudDefinitions,
+            pieMenuConfig: to.pieMenu(pieMenuBuilder.build(), i18nParams),
             i18nKeys: resources,
             isReady: true,
             store,

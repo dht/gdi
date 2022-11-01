@@ -1,6 +1,6 @@
 import { intervalToDuration } from '@gdi/language';
 import { ISession, ITicket, ISessionStats, IWorklogs } from '../types';
-import { deltaInSeconds, formatDuration } from '@gdi/language';
+import { deltaInSeconds, duration } from '@gdi/language';
 
 type Params = {
     ticket?: ITicket;
@@ -47,7 +47,7 @@ export const calculateSession = ({
         oneHourPercent = sessionElapsedTime / (60 * 60);
     }
 
-    let duration: any;
+    let durationObject: any;
 
     if (sessionElapsedTime) {
         const d = intervalToDuration({
@@ -55,12 +55,12 @@ export const calculateSession = ({
             end: sessionElapsedTime * 1000,
         });
 
-        duration = {
+        durationObject = {
             totalSeconds: sessionElapsedTime,
             hours: d.hours,
             minutes: d.minutes,
             seconds: d.seconds,
-            totalText: formatDuration(sessionElapsedTime),
+            totalText: duration(sessionElapsedTime),
         };
     }
 
@@ -77,7 +77,7 @@ export const calculateSession = ({
         timeLeft,
         percent,
         oneHourPercent,
-        duration,
+        duration: durationObject,
         isInBreak,
         currentSessionSequence,
         isRunning: !isInBreak,

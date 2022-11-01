@@ -21,9 +21,9 @@ export const Container = styled.div.attrs<{
         &:after {
             content: '';
             position: absolute;
-            left: 0;
+            ${(props) => props.theme.left(0)}
+            ${(props) => props.theme.right(0)}
             top: 0;
-            right: 0;
             bottom: 0;
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid gold;
@@ -40,9 +40,9 @@ export const Container = styled.div.attrs<{
 export const ImageOverlay = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    right: 0;
     user-select: none;
 `;
 
@@ -62,7 +62,7 @@ export const Image = styled.div.attrs<{ url: string }>((props) => ({
     background-repeat: no-repeat;
     position: absolute;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 0;
-    right: 0;
 `;

@@ -57,6 +57,8 @@ export function ItemBase(props: ItemBaseProps) {
             // @ts-expect-error
             backgroundColor={backgroundColor}
             onMouseDown={onClick}
+            // @ts-expect-error
+            onTouchStart={onClick}
             className='ItemBase-container'
             onDoubleClick={onDoubleClick}
             onMouseOver={() => setShowFull(true)}

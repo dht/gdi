@@ -6,6 +6,6 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-        margin-right: 15px;
+        ${(props) => props.theme.marginRight('15px')}
     }
 `;

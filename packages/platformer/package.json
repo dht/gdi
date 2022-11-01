@@ -20,6 +20,7 @@
         "firebaseui": "^6.0.1",
         "igrid": "^0.0.17",
         "lodash": "^4.17.21",
+        "screenfull": "^6.0.2",
         "react-redux": "^8.0.2",
         "react-router-dom": "^6.3.0",
         "react-use": "^17.4.0",

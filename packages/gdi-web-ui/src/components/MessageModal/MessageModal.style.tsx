@@ -8,7 +8,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 50px 50px 50px 40px;
+    ${(props) => props.theme.padding('50px 50px 50px 40px')}
 `;
 
 export const Text = styled.div`
@@ -20,7 +20,7 @@ export const IconWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin-right: 40px;
+    ${(props) => props.theme.marginRight('40px')}
 
     i {
         font-size: 80px;

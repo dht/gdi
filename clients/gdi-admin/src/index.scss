@@ -18,6 +18,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wdth,wght@75..125,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
 
 html {
     min-height: 100%;
@@ -30,11 +31,11 @@ body {
     margin: 0;
     font-family: 'Encode Sans', Courier, monospace;
     background-color: #334;
-    direction: ltr;
     color: #eee;
 
     &.rtl {
         direction: rtl;
+        font-family: 'Heebo', Courier, monospace;
     }
 
     @media (max-width: 768px) {
@@ -43,6 +44,22 @@ body {
         &.no-scroll {
             max-height: 100vh;
             overflow: hidden;
+        }
+    }
+
+    @media (max-width: 1340px) {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        a,
+        input,
+        button {
+            touch-action: manipulation;
         }
     }
 }

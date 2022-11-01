@@ -1,9 +1,10 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { MiniContainer } from '../containers/singles/MiniContainer';
 import { TicketsContainer } from '../containers/TicketsContainer';
 import { ProjectsContainer } from '../containers/ProjectsContainer';
 import { ProjectSwitchContainer } from '../containers/ProjectSwitchContainer';
+import { APP_ID } from './ids';
 
 export enum TasksWidgets {
     Tickets = 'tasks.Tickets',
@@ -21,7 +22,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <TicketsContainer />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={TicketsContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: TasksWidgets.Projects,
@@ -31,7 +38,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ProjectsContainer />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ProjectsContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: TasksWidgets.Mini,
@@ -41,7 +54,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <MiniContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={MiniContainer} props={props} />
+        ),
     },
     {
         id: TasksWidgets.ProjectSwitch,
@@ -51,6 +66,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ProjectSwitchContainer />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ProjectSwitchContainer}
+                props={props}
+            />
+        ),
     },
 ];

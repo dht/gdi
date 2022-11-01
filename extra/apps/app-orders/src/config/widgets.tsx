@@ -1,7 +1,8 @@
 import React from 'react';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { OrdersContainer } from '../containers/OrdersContainer';
 import { CouponsContainer } from '../containers/CouponsContainer';
+import { APP_ID } from './ids';
 
 export enum OrdersWidgets {
     Orders = 'orders.Orders',
@@ -16,7 +17,9 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <OrdersContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={OrdersContainer} props={props} />
+        ),
     },
     {
         id: OrdersWidgets.Coupons,
@@ -26,6 +29,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <CouponsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={CouponsContainer}
+                props={props}
+            />
+        ),
     },
 ];

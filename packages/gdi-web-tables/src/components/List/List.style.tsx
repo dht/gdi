@@ -44,7 +44,7 @@ export const ContainerIcon = styled.div`
     justify-content: center;
     font-size: 24px;
     background-color: #000;
-    margin-right: 15px;
+    ${(props) => props.theme.marginRight('15px')}
     border-radius: 15px;
     opacity: 0;
 `;

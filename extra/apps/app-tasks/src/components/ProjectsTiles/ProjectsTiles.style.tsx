@@ -10,7 +10,7 @@ export const Tile = styled.div`
     height: 90px;
     border: 2px solid #445;
     margin: 5px;
-    float: left;
+    ${(props) => props.theme.floatLeft()}
     color: #889;
     font-size: 20px;
     font-weight: bold;

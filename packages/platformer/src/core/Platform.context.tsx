@@ -5,8 +5,10 @@ import { IPlatformState } from '../types';
 import { createStore } from 'redux';
 
 type PlatformContextProps = {
+    languageCode: LanguageIso;
     initialRoute: string;
     noServerMode?: boolean;
+    isRtl: boolean;
 };
 
 type IPlatformContext = {
@@ -24,7 +26,7 @@ const initialValue: IPlatformContext = {
         availableAccounts: [],
         isReady: false,
         noServerMode: false,
-        locale: 'en',
+        languageCode: 'en',
         isRtl: false,
         initialRoute: '',
         navigate: () => {},
@@ -56,12 +58,14 @@ export const PlatformContext = createContext<IPlatformContext>(initialValue);
 export const PlatformContextProvider = (
     props: WithChildren<PlatformContextProps>
 ) => {
-    const { initialRoute, noServerMode } = props;
+    const { initialRoute, noServerMode, languageCode, isRtl } = props;
 
     const [state, patchContext] = useSetState<IPlatformState>({
         ...initialValue.state,
         initialRoute,
         noServerMode,
+        languageCode,
+        isRtl,
     });
 
     const value = useMemo(

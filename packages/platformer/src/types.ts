@@ -1,3 +1,4 @@
+import { LanguageIso } from '@gdi/language/dist/dts/types';
 import { EndpointsConfigOverrides } from 'redux-connected';
 
 export type IAppConfig = {
@@ -110,9 +111,9 @@ export type IFirebaseConfig = {
 
 export type IPlatformState = {
     isReady: boolean;
-    noServerMode?: boolean;
-    locale: string;
+    languageCode: LanguageIso;
     isRtl: boolean;
+    noServerMode?: boolean;
     routes: IRoutes;
     initialRoute: string;
     accountName: string;
@@ -159,6 +160,8 @@ export type IPlatformConfig = {
     activeApps: string[];
     menuSections: string[];
     noServerMode?: boolean;
+    languageCode: LanguageIso;
+    isRtl: boolean;
 };
 
 export type GoogleUser = Json & {
@@ -243,7 +246,7 @@ export interface IApiConfigBuilder {
 
 /*************** IDefinitionsBuilder ***************/
 export interface IDefinitionsBuilder {
-    withDefinitions: (definitions: Partial<ICrudDefinitionsPerItemType>) => IDefinitionsBuilder; // prettier-ignore
+    withDefinitions: (appId: string, definitions: Partial<ICrudDefinitionsPerItemType>) => IDefinitionsBuilder; // prettier-ignore
     build: () => ICrudDefinitionsPerItemType;
 }
 

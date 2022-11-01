@@ -3,6 +3,7 @@ import { Container } from './Layouts.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type LayoutsProps = ICrudDefinitions & {
     data: Json[];
@@ -17,6 +18,7 @@ export type LayoutsProps = ICrudDefinitions & {
 export function Layouts(props: LayoutsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('layout');
+    const { t } = useLanguage();
 
     return (
         <Container
@@ -26,7 +28,7 @@ export function Layouts(props: LayoutsProps) {
             <Multi
                 id='Layouts'
                 itemType='layout'
-                header='Layouts'
+                header={t('Layouts')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

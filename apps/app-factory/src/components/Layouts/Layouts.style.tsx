@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Id = styled.div`
     position: absolute;
     top: 30px;
-    right: 30px;
+    ${(props) => props.theme.right('30px')}
     font-size: 17px;
     font-weight: 500;
     color: #948e688a;

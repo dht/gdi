@@ -4,9 +4,9 @@ export const Container = styled.div`
     flex: 1;
     position: fixed;
     top: 0;
-    left: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}
     bottom: 3px;
-    right: 0;
     background-color: rgba(0, 0, 0, 0.95);
     z-index: 999;
     display: flex;
@@ -112,7 +112,7 @@ export const RoutePath = styled.div`
     color: #778;
     position: absolute;
     bottom: 10px;
-    left: 10px;
+    ${(props) => props.theme.left('10px')}
 `;
 
 export const AppName = styled.div`
@@ -124,5 +124,5 @@ export const AppName = styled.div`
     border-radius: 10px;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    ${(props) => props.theme.right('10px')}
 `;

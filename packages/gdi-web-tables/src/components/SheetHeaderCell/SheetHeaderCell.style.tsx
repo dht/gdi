@@ -20,5 +20,5 @@ export const Row = styled.div`
 `;
 
 export const Title = styled.div`
-    margin-right: 5px;
+    ${(props) => props.theme.marginRight('5px')}
 `;

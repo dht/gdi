@@ -1,3 +1,13 @@
 export default {
   key: "Succès",
+  Catalog: "Catalogue",
+  "Redux connected devtools": "Outils de développement connectés Redux",
+  "Store size": "Taille du magasin",
+  Houston: "Houston",
+  "Login cycle": "Cycle de connexion",
+  "Show Redux Devtools": "Afficher les outils de développement Redux",
+  "Show Houston": "Afficher Houston",
+  "Show Store Size": "Afficher la taille du magasin",
+  "Show Login cycle": "Afficher le cycle de connexion",
+  "Navigate: Catalog": "Naviguer : Catalogue",
 };

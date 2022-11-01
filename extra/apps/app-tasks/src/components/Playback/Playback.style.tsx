@@ -6,7 +6,7 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    ${(props) => props.theme.marginRight('10px')}
 
     .icon {
         zoom: 2.4;

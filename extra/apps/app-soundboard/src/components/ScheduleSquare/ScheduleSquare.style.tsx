@@ -44,7 +44,7 @@ export const Text = styled.div`
 export const ProjectKey = styled.div`
     position: absolute;
     top: 0;
-    right: 0;
+    ${(props) => props.theme.right(0)}
     font-size: 10px;
     opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.3);
@@ -55,7 +55,7 @@ export const ProjectKey = styled.div`
 export const TicketKey = styled.div`
     position: absolute;
     top: 0;
-    right: 0;
+    ${(props) => props.theme.right(0)}
     font-size: 10px;
     opacity: 0.7;
     background-color: rgba(0, 0, 0, 0.3);

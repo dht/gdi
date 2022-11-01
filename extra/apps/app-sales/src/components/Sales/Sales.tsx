@@ -3,6 +3,7 @@ import { Container } from './Sales.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
+import { useLanguage } from '@gdi/language';
 
 export type SalesProps = {
     data: Json[];
@@ -17,13 +18,14 @@ export type SalesProps = {
 export function Sales(props: SalesProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('sale');
+    const { t } = useLanguage();
 
     return (
         <Container className='Sales-container' data-testid='Sales-container'>
             <Multi
                 id='Sales'
                 itemType='sale'
-                header='Sales'
+                header={t('Sales')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

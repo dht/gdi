@@ -9,6 +9,7 @@ import { PanelPackagesContainer } from '../../containers/panels/PanelPackagesCon
 import { PanelPaletteContainer } from '../../containers/panels/PanelPaletteContainer';
 import { PanelTypographyContainer } from '../../containers/panels/PanelTypographyContainer';
 import { useLanguage } from '@gdi/language';
+import { useTheme } from 'styled-components';
 
 export type MixerPanelProps = {
     onHeaderAction: (panelKey: string, actionId: string) => void;
@@ -16,6 +17,7 @@ export type MixerPanelProps = {
 
 export function MixerPanel(props: MixerPanelProps) {
     const { t } = useLanguage();
+    const { isRtl } = useTheme() as any;
 
     function getHeaderActions(key: string) {
         switch (key) {
@@ -40,6 +42,7 @@ export function MixerPanel(props: MixerPanelProps) {
                 initialPanel='Library'
                 getHeaderActions={getHeaderActions}
                 onHeaderAction={props.onHeaderAction}
+                isRtl={isRtl}
             >
                 <PanelInspectorContainer
                     key='Inspector'

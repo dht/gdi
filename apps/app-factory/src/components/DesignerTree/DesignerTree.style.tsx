@@ -7,7 +7,7 @@ export const Container = styled.div`
     height: 500px;
     position: absolute;
     z-index: 999;
-    left: 0;
+    ${(props) => props.theme.left(0)}
     top: 0;
     border-radius: 10px;
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2),
@@ -18,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.div`
-    padding-left: 10px;
+    ${(props) => props.theme.paddingLeft('10px')}
 `;
 
 export const Title = styled.div`
@@ -55,7 +55,7 @@ export const ContainerResolutions = styled.div`
 `;
 
 export const Resolution = styled.div`
-    padding: 10px 3px 10px 8px;
+    ${(props) => props.theme.padding('10px 3px 10px 8px')}
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: row;
@@ -63,7 +63,7 @@ export const Resolution = styled.div`
 
     .star {
         color: gold;
-        margin-left: 5px;
+        ${(props) => props.theme.marginLeft('5px')}
         position: relative;
         top: 1px;
     }
@@ -94,7 +94,7 @@ export const ResolutionCount = styled.div`
     font-size: 11px;
     color: #778;
     border-radius: 5px;
-    margin-right: 2px;
+    ${(props) => props.theme.marginRight('2px')}
 `;
 
 export const Column = styled.div`

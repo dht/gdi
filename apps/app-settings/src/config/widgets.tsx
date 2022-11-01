@@ -3,8 +3,9 @@ import { AccountContainer } from '../containers/AccountContainer';
 import { ActiveAppsContainer } from '../containers/ActiveAppsContainer';
 import { SettingsContainer } from '../containers/SettingsContainer';
 import { SitePropertiesContainer } from '../containers/SitePropertiesContainer';
-import { IWidget } from '@gdi/platformer';
+import { IWidget, Wrapper } from '@gdi/platformer';
 import { actions } from '../store';
+import { APP_ID } from './ids';
 
 export enum SettingsWidgets {
     Settings = 'settings.Settings',
@@ -21,7 +22,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SettingsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SettingsContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SettingsWidgets.SiteProperties,
@@ -31,7 +38,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <SitePropertiesContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={SitePropertiesContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SettingsWidgets.Account,
@@ -41,7 +54,13 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <AccountContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={AccountContainer}
+                props={props}
+            />
+        ),
     },
     {
         id: SettingsWidgets.ActiveApps,
@@ -51,6 +70,12 @@ export const widgets: IWidget[] = [
             y: 16,
             x: 12,
         },
-        component: (props: any) => <ActiveAppsContainer {...props} />,
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ActiveAppsContainer}
+                props={props}
+            />
+        ),
     },
 ];

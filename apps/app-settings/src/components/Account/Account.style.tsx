@@ -25,14 +25,14 @@ export const Top = styled.div`
 export const Details = styled.div`
     position: absolute;
     bottom: -50px;
-    left: 50px;
+    ${(props) => props.theme.left('50px')}
     display: flex;
     flex-direction: row;
     align-items: center;
 `;
 
 export const Me = styled.div`
-    margin-left: 40px;
+    ${(props) => props.theme.marginLeft('40px')}
     margin-bottom: 15px;
 `;
 
@@ -87,6 +87,6 @@ export const UserField = styled.div<{ color?: string }>`
 
 export const SettingsWrapper = styled.div`
     position: absolute;
-    left: 500px;
+    ${(props) => props.theme.left('500px')}
     top: 18px;
 `;

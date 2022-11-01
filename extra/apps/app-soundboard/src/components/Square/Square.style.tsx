@@ -5,19 +5,19 @@ export const Container = styled.div`
     height: 130px;
     position: relative;
     background-color: darken(#171722, 3%);
-    border-left: 2px solid #333;
+    ${(props) => props.theme.borderLeft('2px solid #333')}
     border-bottom: 2px solid #333;
 
     &.darker {
         background-color: darken(#171722, 3%);
-        border-left: 2px solid #000;
+        ${(props) => props.theme.borderLeft('2px solid #000')}
     }
 `;
 
 export const Title = styled.div`
     position: absolute;
     top: 5px;
-    right: 10px;
+    ${(props) => props.theme.right('10px')}
     font-weight: bold;
     font-size: 16px;
     opacity: 0.2;
@@ -32,7 +32,7 @@ export const Title = styled.div`
 export const Date = styled.div`
     position: absolute;
     top: 5px;
-    left: 3px;
+    ${(props) => props.theme.left('3px')}
     font-size: 16px;
     opacity: 0.2;
 
@@ -45,8 +45,8 @@ export const Date = styled.div`
 export const BucketWrapper = styled.div`
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    ${(props) => props.theme.left(0)}
+    ${(props) => props.theme.right(0)}    
     bottom: 0;
     display: flex;
     flex-direction: row;

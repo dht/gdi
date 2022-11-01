@@ -8,7 +8,7 @@ import {
     Value,
 } from './ArticleEditorBar.style';
 import { invokeEvent } from 'shared-base';
-import { SimpleDate, minutesToDuration, minutesPassed } from '@gdi/language';
+import { timeAgo, minutesToDuration, minutesPassed } from '@gdi/language';
 
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
 
@@ -38,7 +38,7 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
             return '-';
         }
 
-        return new SimpleDate(lastSaveDate).timeAgo() ?? '-';
+        return timeAgo(lastSaveDate) ?? '-';
     }, [lastSaveDate]);
 
     const minutesSpentEditingText = useMemo(() => {

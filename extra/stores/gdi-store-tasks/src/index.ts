@@ -6,7 +6,7 @@ import { selectors } from './selectors.index';
 
 export const issueKeyToUrl = (issueKey: string) => `${issueKey}`;
 
-import { formatTime, formatDate, formatDuration } from '@gdi/language';
+import { time, dateLong, duration } from '@gdi/language';
 export type { ISessionStats, IActiveTask, IProjects, ITicket } from './types';
 
 export const tasks = {
@@ -19,9 +19,9 @@ export const tasks = {
     utils: {
         calculateSession,
         calculateMobileLatency,
-        formatTime,
-        formatDuration,
-        formatDate,
+        time,
+        dateLong,
+        duration,
         issueKeyToUrl,
     },
 };

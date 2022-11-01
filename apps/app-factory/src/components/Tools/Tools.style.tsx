@@ -8,5 +8,5 @@ export const Container = styled.div`
 `;
 
 export const KeyboardWrapper = styled.div`
-    margin-left: 30px;
+    ${(props) => props.theme.marginLeft('30px')}
 `;

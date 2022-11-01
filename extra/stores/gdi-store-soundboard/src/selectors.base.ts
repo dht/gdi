@@ -11,7 +11,7 @@ import {
     WeekPointer,
 } from './types';
 import { tasks } from '@gdi/store-tasks';
-import { SimpleDate } from '@gdi/language';
+import { XDate } from '@gdi/language';
 
 const selectorsTasks = tasks.selectors;
 
@@ -28,10 +28,7 @@ export const $weeks = createSelector(raw.$rawSoundboardState, (appState) => {
 
     const output: WeekPointer[] = [];
 
-    let cursorDate = SimpleDate.fromWeek({
-        week: startWeek,
-        year: startYear,
-    });
+    let cursorDate = XDate.fromWeek(startWeek, startYear);
 
     for (let delta = 0; delta < RANGE_SIZE; delta++) {
         const cursorWeek = cursorDate.toInfo().week;
@@ -46,7 +43,7 @@ export const $weeks = createSelector(raw.$rawSoundboardState, (appState) => {
             isCurrentWeek,
         });
 
-        cursorDate = cursorDate.addWeeks(1);
+        cursorDate = cursorDate.add(1, 'week');
     }
 
     return output;
@@ -72,7 +69,7 @@ export const $expectedManasByProject = createSelector(
                 ? 'currentItemTitles'
                 : 'otherItemsTitles';
 
-            const dateInfo = new SimpleDate(new Date(date)).toInfo();
+            const dateInfo = new XDate(new Date(date)).toInfo();
 
             if (projectKey) {
                 xpath(output, ['byWeek', dateInfo.weekAndYear, `d${dateInfo.dayOfWeek}`, lastKey], (value: number = 0) => value + minutes); // prettier-ignore
@@ -156,7 +153,7 @@ export const $projectsSoundboard = createSelector(
             .map((project) => {
                 let transientMinutes: number | null = null;
 
-                const hoverDate = new SimpleDate().toInfo().dateString;
+                const hoverDate = new XDate().toInfo().dateString;
 
                 transientMinutes = get(
                     expectedManas,

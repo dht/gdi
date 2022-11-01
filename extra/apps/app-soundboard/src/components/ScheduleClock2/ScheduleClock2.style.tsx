@@ -34,15 +34,15 @@ const Button = styled.a`
 export const Radio = styled(Button)`
     position: absolute;
     bottom: 5px;
-    right: 8px;
-    margin-left: 5px;
+    ${(props) => props.theme.right('8px')}
+    ${(props) => props.theme.marginLeft('5px')}
     z-index: 2;
 `;
 
 export const Clear = styled(Button)`
     position: absolute;
     bottom: 5px;
-    left: 8px;
-    margin-right: 5px;
+    ${(props) => props.theme.left('8px')}
+    ${(props) => props.theme.marginRight('5px')}
     z-index: 2;
 `;

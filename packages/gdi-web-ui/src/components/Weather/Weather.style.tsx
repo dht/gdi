@@ -29,7 +29,7 @@ export const Temperature = styled.div`
     font-size: 24px;
 
     i {
-        margin-left: 10px;
+        ${(props) => props.theme.marginLeft('10px')}
         font-size: 30px;
         color: gold;
     }

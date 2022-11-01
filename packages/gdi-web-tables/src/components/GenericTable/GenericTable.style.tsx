@@ -14,6 +14,7 @@ export const Container = styled.div`
 
     .table {
         overflow-x: hidden !important;
+        ${(props) => props.theme.direction(true)}
 
         ::-webkit-scrollbar {
             width: 8px;

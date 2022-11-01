@@ -23,7 +23,7 @@ export const Title = styled.div`
 
 export const Details = styled.div`
     flex: 1;
-    margin-right: 8px;
+    ${(props) => props.theme.marginRight('8px')}
 `;
 
 export const Scope = styled.div`
@@ -36,7 +36,7 @@ export const Summary = styled.div`
     flex: 1;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-right: 8px;
+    ${(props) => props.theme.marginRight('8px')}
     max-width: 565px;
     font-size: 16px;
     color: #ccd;

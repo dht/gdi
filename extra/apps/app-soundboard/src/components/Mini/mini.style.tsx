@@ -8,5 +8,5 @@ export const Container = styled.div`
     border-radius: 15px;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 8px 5px 0 20px;
+    ${(props) => props.theme.padding('8px 5px 0 20px')}
 `;

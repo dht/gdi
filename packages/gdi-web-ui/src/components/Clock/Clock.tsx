@@ -16,7 +16,7 @@ type Time = {
 export function Clock(props: ClockProps) {
     const { h } = useLanguage();
     const { timeDeltaInMinutes = 0 } = props;
-    const [time, setTime] = useState<Time>({ hours: 0, minutes: 0 });
+    const [time, setTime] = useState<Time>({ hours: '0', minutes: '0' });
 
     const updateClock = () => {
         const now = new Date();

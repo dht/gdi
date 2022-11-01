@@ -1,13 +1,13 @@
 import { delay, put, fork } from 'saga-ts';
 import { actions } from '../store';
-import { SimpleDate } from '@gdi/language';
+import { XDate } from '@gdi/language';
 
 export function* init() {
-    const now = new SimpleDate();
+    const now = new XDate();
     const year = now.toInfo().year;
     const week = now.toInfo().week;
 
-    const start = now.addWeeks(-2);
+    const start = now.add(-2, 'week');
     const startYear = start.toInfo().year;
     const startWeek = start.toInfo().week;
 

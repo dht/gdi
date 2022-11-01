@@ -26,7 +26,7 @@ export const Action = styled.div`
 
     &:active {
         bottom: 2px;
-        left: 2px;
+        ${(props) => props.theme.left('2px')}
         position: relative;
     }
 `;

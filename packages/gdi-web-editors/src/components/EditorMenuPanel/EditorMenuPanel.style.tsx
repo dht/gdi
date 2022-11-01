@@ -42,6 +42,6 @@ export const MenuButton = styled.button`
     &:active {
         position: relative;
         top: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;

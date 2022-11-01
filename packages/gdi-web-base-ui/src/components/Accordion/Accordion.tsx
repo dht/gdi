@@ -10,12 +10,14 @@ import {
 } from './Accordion.style';
 import { Icon } from '@fluentui/react';
 import { useMount, useSetState } from 'react-use';
+import classnames from 'classnames';
 
 export type AccordionProps = {
     children: JSX.Element | JSX.Element[];
     getHeaderActions?: (panelKey: string) => HeaderAction[];
     onHeaderAction?: (panelKey: string, actionId: string) => HeaderAction[];
     initialPanel?: string;
+    isRtl?: boolean;
 };
 
 type HeaderAction = {
@@ -24,7 +26,7 @@ type HeaderAction = {
 };
 
 export function Accordion(props: AccordionProps) {
-    const { initialPanel } = props;
+    const { initialPanel, isRtl } = props;
     const [state, patchState] = useSetState<Record<string, boolean>>({});
 
     const children = Array.isArray(props.children)
@@ -92,10 +94,15 @@ export function Accordion(props: AccordionProps) {
         const flex = panel.props['flex'];
         const title = panel.props['title'];
 
+        const className = classnames({
+            open: state[panel.key ?? ''],
+            rtl: isRtl,
+        });
+
         return (
             <React.Fragment key={panel.key}>
                 <Header onClick={(ev) => togglePanel(panel.key, ev)}>
-                    <Chevron open={state[panel.key ?? '']}>
+                    <Chevron className={className}>
                         <Icon iconName='ChevronRightMed' />
                     </Chevron>
 

@@ -47,5 +47,5 @@ export const Button = styled.button`
 export const OtherOptions = styled.div`
     opacity: 0.4;
     text-decoration: underline;
-    margin-left: 40px;
+    ${(props) => props.theme.marginLeft('40px')}
 `;

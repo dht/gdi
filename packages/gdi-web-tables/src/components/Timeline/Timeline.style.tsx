@@ -12,6 +12,7 @@ export const Scroll = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
+    ${(props) => props.theme.right(0)}
     height: 100px;
 `;
 export const Expander = styled.div`

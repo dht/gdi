@@ -18,7 +18,7 @@ export const Title = styled.h1`
     font-variation-settings: 'wdth' 100, 'wght' 580;
     display: block;
     margin-bottom: 6px;
-    padding-right: 50px;
+    ${(props) => props.theme.paddingRight('50px')}
 `;
 
 export const Intro = styled.div`
@@ -50,7 +50,7 @@ export const Author = styled.div`
 
 export const AuthorName = styled.div`
     color: #d2126b;
-    margin-left: 5px;
+    ${(props) => props.theme.marginLeft('5px')}
     cursor: pointer;
 
     &:hover {
@@ -115,7 +115,7 @@ export const ContainerBreadcrumbs = styled.div`
 export const Breadcrumb = styled.a`
     color: #c13b68;
     padding: 5px 10px;
-    border-top: 1.5px solid #c13b68;
+    ${(props) => props.theme.borderRight('1.5px solid #c13b68')}
     cursor: pointer;
 
     &:hover {
@@ -124,7 +124,7 @@ export const Breadcrumb = styled.a`
 `;
 
 export const Line = styled.div`
-    border-right: 1.5px solid #c13b68;
+    ${(props) => props.theme.borderRight('1.5px solid #c13b68')}
     transform: rotate(-15deg) translateY(2px);
     height: 21px;
     width: 1px;

@@ -19,6 +19,6 @@ export const Container = styled.div`
     &:active {
         position: relative;
         bottom: 1px;
-        left: 1px;
+        ${(props) => props.theme.left('1px')}
     }
 `;

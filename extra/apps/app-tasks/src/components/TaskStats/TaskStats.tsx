@@ -1,7 +1,7 @@
 import React from 'react';
 import Field from '../Field/Field';
 import { Container, Flex } from './TaskStats.style';
-import { formatDuration } from '@gdi/language';
+import { toDuration } from '@gdi/language';
 
 export type TaskStatsProps = {
     stats: ISessionStats;
@@ -10,9 +10,9 @@ export type TaskStatsProps = {
 export function TaskStats(props: TaskStatsProps) {
     const { stats } = props;
 
-    const estimation = formatDuration(stats.estimation) || '-';
-    const totalTime = formatDuration(stats.progressWithSession) || '-';
-    const timeLeft = formatDuration(stats.timeLeft) || '-';
+    const estimation = toDuration(stats.estimation) || '-';
+    const totalTime = toDuration(stats.progressWithSession) || '-';
+    const timeLeft = toDuration(stats.timeLeft) || '-';
 
     return (
         <Container

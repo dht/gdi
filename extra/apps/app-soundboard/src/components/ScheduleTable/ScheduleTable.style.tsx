@@ -23,14 +23,6 @@ export const Placeholder = styled.div`
     width: 120px;
 `;
 
-export const Pencils = styled.div`
-    width: 120px;
-    height: 600px;
-    background-image: url(https://appofthebox.web.app/pencils.png);
-    background-position: right;
-    margin-bottom: 10px;
-`;
-
 export const HeaderContainer = styled.div<{ color: string; width?: number }>`
     background-color: ${(props) => props.color};
     font-size: 14px;
@@ -67,7 +59,7 @@ export const Break = styled.div<{ color: string }>`
     height: 52px;
     background-color: ${(props) => props.color};
     top: -1px;
-    left: 100%;
+    ${(props) => props.theme.left('100%')}
     position: absolute;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);

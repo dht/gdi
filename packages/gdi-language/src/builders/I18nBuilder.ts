@@ -1,7 +1,9 @@
 import { IAppKeys, II18nBuilder, LanguageIso } from '../types';
+import { merge } from 'lodash';
 
 export class I18nBuilder implements II18nBuilder {
     private resources: Json = {};
+    private resourcesRaw: Json = {};
 
     getScopedKey(appId: string, key: string) {
         return `${appId}_${key}`;
@@ -18,6 +20,16 @@ export class I18nBuilder implements II18nBuilder {
             ...this.resources[language],
             ...scopedData,
         };
+
+        this.resourcesRaw[language] = this.resourcesRaw[language] || {};
+        this.resourcesRaw[language][appId] =
+            this.resourcesRaw[language][appId] || {};
+
+        this.resourcesRaw = merge(this.resourcesRaw, {
+            [language]: {
+                [appId]: data,
+            },
+        });
 
         return this;
     }
@@ -42,5 +54,9 @@ export class I18nBuilder implements II18nBuilder {
         );
 
         return resources;
+    }
+
+    get raw() {
+        return this.resourcesRaw;
     }
 }

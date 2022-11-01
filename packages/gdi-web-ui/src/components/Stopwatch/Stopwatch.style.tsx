@@ -44,17 +44,17 @@ export const EdgeContainer = styled.div`
 
     &:nth-child(1) {
         top: -6%;
-        left: 10%;
+        ${(props) => props.theme.left('10%')}
     }
 
     &:nth-child(2) {
         top: 47%;
-        left: 10%;
+        ${(props) => props.theme.left('10%')}
     }
 
     &:nth-child(3) {
         top: 100%;
-        left: 10%;
+        ${(props) => props.theme.left('10%')}
     }
 
     &:nth-child(4) {
@@ -65,19 +65,19 @@ export const EdgeContainer = styled.div`
     &:nth-child(5) {
         transform: rotate(90deg);
         transform-origin: 0 0;
-        left: 100%;
+        ${(props) => props.theme.left('100%')}
     }
 
     &:nth-child(6) {
         transform: rotate(90deg);
         transform-origin: 0 0;
-        top: 50%;
+        ${(props) => props.theme.left('50%')}
     }
 
     &:nth-child(7) {
         transform: rotate(90deg);
         transform-origin: 0 0;
-        left: 100%;
+        ${(props) => props.theme.left('100%')}
         top: 50%;
     }
 `;

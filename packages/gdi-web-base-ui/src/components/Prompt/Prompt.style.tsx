@@ -52,7 +52,7 @@ export const Warning = styled.div`
 
 export const WarningIcon = styled.div`
     font-size: 20px;
-    margin-right: 8px;
+    ${(props) => props.theme.marginRight('8px')}
 `;
 
 export const WarningText = styled.div`

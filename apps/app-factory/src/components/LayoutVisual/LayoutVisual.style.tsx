@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Id = styled.div`
     position: absolute;
     top: 30px;
-    right: 30px;
+    ${(props) => props.theme.right('30px')}
     font-size: 17px;
     font-weight: 500;
     color: #ffd9008b;
@@ -21,6 +21,6 @@ export const Id = styled.div`
 `;
 
 export const CurrentResolution = styled(Id)`
-    right: 100px;
+    ${(props) => props.theme.right('100px')}
     color: palevioletred;
 `;

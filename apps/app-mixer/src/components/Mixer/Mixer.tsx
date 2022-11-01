@@ -30,8 +30,6 @@ export function Mixer(props: MixerProps) {
     } = props;
     const crudDefinitions = useCrudDefinitions('article');
 
-    const { t } = useLanguage();
-
     const translatedTools = useMemo(() => {
         // return translateItems(tools, null, t);
     }, [tools]);

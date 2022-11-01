@@ -12,9 +12,9 @@ export const Container = styled.div<{ selected: boolean }>`
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            ${(props) => props.theme.left(0)}
+            ${(props) => props.theme.right(0)}
             bottom: 0;
-            right: 0;
             background-color: rgba(255, 255, 255, 0.1);
             box-shadow: inset 0 0 5px 10px rgba(0, 0, 0, 0.2);
         }
@@ -27,7 +27,7 @@ export const Container = styled.div<{ selected: boolean }>`
 export const LoaderWrapper = styled.div`
     position: absolute;
     top: 50px;
-    left: 50%;
+    ${(props) => props.theme.left('50%')}
     transform: translateX(-50%);
     width: 100px;
 `;
