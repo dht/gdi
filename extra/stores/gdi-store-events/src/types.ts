@@ -22,7 +22,7 @@ export type IEvent = {
     googleEventId?: string;
     imageUrl?: string;
     imageThumbUrl?: string;
-    tags?: string[];
+    tags: string[];
 };
 
 export type IReminder = {

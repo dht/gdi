@@ -11,17 +11,23 @@ export type SelectionContextProps = {
 
 type ISelectionContext = {
     state: string[];
+    focusedId: string;
     callbacks: {
         onSelect: (itemId: string) => void;
         onSelectionClear: () => void;
+        onFocusedSet: (itemId: string) => void;
+        onFocusedClear: () => void;
     };
 };
 
 const initialValue: ISelectionContext = {
     state: [],
+    focusedId: '',
     callbacks: {
         onSelect: (itemId: string) => {},
         onSelectionClear: () => {},
+        onFocusedSet: (itemId: string) => {},
+        onFocusedClear: () => {},
     },
 };
 
@@ -44,7 +50,13 @@ export const SelectionContextProvider = (
 
     const [
         selectedIds,
-        { onClick: onSelectionClick, onClear: onSelectionClear },
+        focusedId,
+        {
+            onClick: onSelectionClick,
+            onClear: onSelectionClear,
+            onFocus: onSelectionFocus,
+            onFocusClear: onSelectionFocusClear,
+        },
     ] = useSelection([], selectionOptions);
 
     const callbacks = useMemo(
@@ -59,13 +71,20 @@ export const SelectionContextProvider = (
             onSelectionClear: () => {
                 onSelectionClear();
             },
+            onFocusedSet: (itemId: string) => {
+                onSelectionFocus(itemId);
+            },
+            onFocusedClear: () => {
+                onSelectionFocusClear();
+            },
         }),
-        [selectedIds]
+        [selectedIds, focusedId]
     );
 
     const value = useMemo(
         () => ({
             state: selectedIds,
+            focusedId,
             callbacks,
         }),
         [callbacks, selectedIds]

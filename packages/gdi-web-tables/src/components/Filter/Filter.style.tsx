@@ -54,3 +54,19 @@ export const X = styled.div`
         color: gold;
     }
 `;
+
+export const ContainerTags = styled.div`
+    flex: 1;
+    margin: 10px 15px;
+
+    .AutoComplete-container {
+        .rs__control {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid dodgerblue;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+`;

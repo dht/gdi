@@ -12,6 +12,7 @@ export class DefinitionsBuilder implements IDefinitionsBuilder {
     ) {
         this.definitions[appId] = this.definitions[appId] || {};
         this.definitions[appId] = merge(this.definitions[appId], definitions);
+
         return this;
     }
 

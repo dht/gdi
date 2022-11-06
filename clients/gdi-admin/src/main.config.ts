@@ -16,7 +16,7 @@ const activeAppsJson = getJson(ACTIVE_APPS_LOCAL_STORAGE_KEY) ?? {};
 const activeAppsFromStorage = Object.keys(activeAppsJson).filter(
     (key) => activeAppsJson[key]
 );
-const requiredApps = ['dashboard', 'login', 'mixer', 'settings'];
+const requiredApps = ['login', 'mixer', 'settings'];
 
 const activeApps = uniq([...activeAppsFromStorage, ...requiredApps]).sort();
 

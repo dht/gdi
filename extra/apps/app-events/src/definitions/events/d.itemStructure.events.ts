@@ -7,4 +7,5 @@ export const itemStructure = `export type IEvent = {
     description?: string;
     link?: string;
     googleEventId?: string;
+    tags: string[];
 };`;

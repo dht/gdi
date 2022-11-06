@@ -34,6 +34,7 @@ export function Campaigns(props: CampaignsProps) {
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

@@ -8,35 +8,18 @@ fields:
     - id: authorName
       title: Author
       cellType: text
-      optionSelectorId: $authors
+      optionSelectorId: $articleAuthors
       allowMultiple: true
     - id: status
       title: Status
       cellType: text
-      options:
-          - id: draft
-            text: Draft
-            value: draft
-          - id: published
-            text: Published
-            value: published
+      optionSelectorId: $articleStatus
       allowMultiple: true
-    - id: wordCount
-      title: Word count
-      cellType: number
-      options:
-          - id: c0-100
-            text: Under 100 words
-            min: 0
-            max: 99
-          - id: c100-500
-            text: 100-500 words
-            min: 100
-            max: 499
-          - id: c500+
-            text: Over 500 words
-            min: 500
-      allowMultiple: true
+    - id: tags
+      title: Tags
+      cellType: tags
+      optionSelectorId: $articleTags
+      allowMultiple: false
 sort:
     - id: publishDate
       text: Publish date

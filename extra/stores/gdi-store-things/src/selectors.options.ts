@@ -2,6 +2,7 @@ import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { minutesThisX } from '@gdi/language';
+import { optionsPeriod } from 'shared-base';
 
 const $i = () => {};
 

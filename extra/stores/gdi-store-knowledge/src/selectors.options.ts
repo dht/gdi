@@ -2,43 +2,46 @@ import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { minutesThisX } from '@gdi/language';
+import { sortBy } from 'shared-base';
+import { itemsTagsToOptions, optionsPeriod } from 'shared-base';
 
 const $i = () => {};
 
 export const $periods = createSelector($i, (_i): IOption[] => {
     const minutes = minutesThisX();
-
-    return [
-        {
-            id: 'lastHour',
-            text: 'Last hour',
-            max: 60,
-        },
-        {
-            id: 'today',
-            text: 'Today',
-            max: minutes.today,
-        },
-        {
-            id: 'thisWeek',
-            text: 'This week',
-            max: minutes.week,
-        },
-        {
-            id: 'thisMonth',
-            text: 'This month',
-            max: minutes.month,
-        },
-        {
-            id: 'thisYear',
-            text: 'This year',
-            max: minutes.year,
-        },
-    ];
+    return optionsPeriod(minutes);
 });
 
-export const $allOptions = createSelector($periods, (periods) => {
-    return {
-        $periods: periods,
-    };
+export const $linkTags = createSelector(raw.$rawLinks, (links): IOption[] => {
+    return itemsTagsToOptions(links);
 });
+
+export const $linkCategories = createSelector(
+    raw.$rawLinkCategories,
+    (categories): IOption[] => {
+        return Object.values(categories)
+            .map((category) => {
+                const { id, name } = category;
+
+                return {
+                    id: id,
+                    text: name,
+                    value: id,
+                };
+            })
+            .sort(sortBy('text'));
+    }
+);
+
+export const $allOptions = createSelector(
+    $periods,
+    $linkTags,
+    $linkCategories,
+    (periods, tags, categories) => {
+        return {
+            $periods: periods,
+            $linkTags: tags,
+            $linkCategories: categories,
+        };
+    }
+);

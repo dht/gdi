@@ -40,6 +40,7 @@ export type MultiProps = {
     allMethods?: any;
     newDataExtra?: Json;
     doubleClickActionId?: string;
+    tags?: IOptions;
 };
 
 export function MultiInner(props: MultiProps) {
@@ -54,6 +55,7 @@ export function MultiInner(props: MultiProps) {
         itemType,
         tools,
         hideParts,
+        initialViewMode,
     } = props;
 
     const contextFilter = useContext(FilterContext);
@@ -189,6 +191,7 @@ export const Multi = (props: MultiProps) => {
         allMethods = {},
         newDataExtra = {},
         doubleClickActionId = 'drillDown',
+        tags = [],
     } = props;
 
     const optionsFilter = useMemo(() => ({}), []);
@@ -216,6 +219,7 @@ export const Multi = (props: MultiProps) => {
                     config={definitions.filters}
                     options={optionsFilter}
                     allOptions={allOptions}
+                    tags={tags}
                 >
                     <CrudContextProvider
                         id={id}

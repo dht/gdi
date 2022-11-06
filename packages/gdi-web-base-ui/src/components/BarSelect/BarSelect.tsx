@@ -1,13 +1,6 @@
 import React from 'react';
 import { Container, Option, Options } from './BarSelect.style';
 
-type IOption = {
-    key: string;
-    text: string;
-    isHeader?: boolean;
-    isDisabled?: boolean;
-};
-
 export type BarSelectProps = {
     options: IOption[];
     label?: string;
@@ -44,18 +37,18 @@ export function BarSelect(props: BarSelectProps) {
     }
 
     function renderOption(option: IOption) {
-        const { key, text } = option;
+        const { id, text } = option;
 
-        const includes = Array.isArray(value) && value.includes(key);
-        const isSelected = value === key || includes;
+        const includes = Array.isArray(value) && value.includes(id);
+        const isSelected = value === id || includes;
 
         return (
             <Option
-                key={key}
+                key={id}
                 selected={isSelected}
                 className='option'
-                onMouseDown={() => onChange(key)}
-                onTouchStart={() => onChange(key)}
+                onMouseDown={() => onChange(id)}
+                onTouchStart={() => onChange(id)}
             >
                 {text}
             </Option>

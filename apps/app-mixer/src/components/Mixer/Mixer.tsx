@@ -43,12 +43,13 @@ export function Mixer(props: MixerProps) {
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}
-                viewModes={['custom', 'custom2', 'table']}
+                viewModes={['custom', 'custom2']}
                 dispatch={dispatch}
                 allOptions={allOptions}
                 tools={tools}
                 customView={customView}
                 customView2={customView2}
+                hideParts={['preview']}
             />
         </Container>
     );

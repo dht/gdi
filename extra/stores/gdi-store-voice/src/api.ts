@@ -1,7 +1,7 @@
 export const endpointsConfigOverrides = {
     appStateVoice: {
         id: 'appStateVoice',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

@@ -16,13 +16,16 @@ export type BucketsProps = {
 
 export function Buckets(props: BucketsProps) {
     const { config, data } = props;
-    const { permutations, titleFieldId } = config;
+    const { permutations = [], titleFieldId } = config;
 
     const contextSelection = useContext(SelectionContext);
 
+    const firstPermutation = permutations[0] || {};
+
     const [permutationId, setPermutationId] = useState<string>(
-        permutations[0].id
+        firstPermutation.id
     );
+
     const permutation = permutations.find((p) => p.id === permutationId);
     const buckets = permutation?.buckets ?? [];
     const scopedPermutationId = `${config.id}-${permutationId}`;

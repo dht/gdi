@@ -1,12 +1,12 @@
 export const endpointsConfigOverrides = {
     appStateCampaigns: {
         id: 'appStateCampaigns',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     campaigns: {
         id: 'campaigns',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

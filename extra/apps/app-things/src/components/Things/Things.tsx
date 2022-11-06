@@ -33,6 +33,7 @@ export function Things(props: ThingsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
                 customView={CustomView}
+                hideParts={['preview']}
             />
         </Container>
     );

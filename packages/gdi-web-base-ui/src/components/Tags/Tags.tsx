@@ -5,13 +5,23 @@ import { Container } from './Tags.style';
 export type TagsProps = {
     tags?: string[];
     color?: string;
+    onDelete?: (tag: string) => void;
+    size?: 'small' | 'medium' | 'large';
 };
 
 export function Tags(props: TagsProps) {
-    const { tags = [], color } = props;
+    const { tags = [], color, size = 'medium' } = props;
 
     function renderTag(tag: string) {
-        return <Tag key={tag} tag={tag} color={color} />;
+        return (
+            <Tag
+                size={size}
+                key={tag}
+                tag={tag}
+                color={color}
+                onDelete={props.onDelete}
+            />
+        );
     }
 
     function renderTags() {

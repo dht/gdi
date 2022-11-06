@@ -6,5 +6,6 @@ export const itemStructure = `export type IProject = {
     projectType?: string;
     color?: string;
     order?: number;
+    tags: string[];
 };
 `;

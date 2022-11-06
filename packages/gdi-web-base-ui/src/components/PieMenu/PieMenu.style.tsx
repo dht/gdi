@@ -123,11 +123,11 @@ export const Circle = styled.div<{ radius: number }>`
     border-radius: 50%;
     transition: all 500ms ease-in-out;
     background-image: radial-gradient(
-        #00000099 0%,
+        #ffffff22 0%,
         transparent 20%,
-        #00000099 30%,
-        #000000aa 45%,
-        #000000aa 55%,
+        #ffffff22 30%,
+        #ffffff33 45%,
+        #ffffff33 55%,
         transparent 70%
     );
     opacity: 1;

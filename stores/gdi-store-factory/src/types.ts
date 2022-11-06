@@ -36,6 +36,7 @@ export type ILayout = {
     id: string;
     name: string;
     items: IFlexEntities;
+    tags: string[];
 };
 
 export type ILayouts = Record<string, ILayout>;

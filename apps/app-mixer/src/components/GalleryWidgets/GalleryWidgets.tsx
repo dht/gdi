@@ -35,6 +35,7 @@ export function GalleryWidgets(props: GalleryWidgetsProps) {
                 viewModes={['gallery']}
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

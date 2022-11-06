@@ -1,8 +1,13 @@
 export const itemStructure = `export type ILead = {
     id: string;
     title: string;
-    startDate: string;
-    leadType: ILeadType;
+    leadName: string;
+    leadCompanyName: string;
+    leadEmail?: string;
+    leadPhoneNumber?: string;
+    leadNotes?: string;
+    source: ILeadSource;
+    sourceId?: string;
     status: ILeadStatus;
     statusDate: string;
     endDate?: string;
@@ -10,12 +15,6 @@ export const itemStructure = `export type ILead = {
     personId: string;
     nextVisitDate: string;
     items: ILeadJournal[];
-    worth?: number;
-    percent?: number;
-    isArchived?: boolean;
-    isSuccessful?: boolean;
-    isLost?: boolean;
     tags: string[];
     dataTags: string[];
-};
-`;
+};`;

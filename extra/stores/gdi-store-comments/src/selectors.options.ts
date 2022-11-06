@@ -1,31 +1,36 @@
 import { createSelector } from 'reselect';
 import { IComments, ICommentsStore } from './types';
 import * as raw from './selectors.raw';
+import { arrayToOptions, itemsTagsToOptions, optionsPeriod } from 'shared-base';
+import { minutesThisX } from '@gdi/language';
 
 export const $i = (state: { comments: ICommentsStore }) => state.comments;
+
+export const $periods = createSelector($i, (_i): IOption[] => {
+    const minutes = minutesThisX();
+    return optionsPeriod(minutes, true);
+});
 
 export const $commentsTags = createSelector(
     raw.$rawComments,
     (comments: IComments) => {
-        const allTags: Record<string, boolean> = {};
-
-        Object.values(comments).forEach((person) => {
-            const { tags } = person;
-
-            tags.forEach((tag) => {
-                allTags[tag] = true;
-            });
-        });
-
-        return Object.keys(allTags).map((tag) => ({
-            id: tag,
-            text: tag,
-        })) as IOptions;
+        return itemsTagsToOptions(comments);
     }
 );
 
-export const $allOptions = createSelector($commentsTags, (commentsTags) => {
-    return {
-        $commentsTags: commentsTags,
-    } as IAllSelectOptions;
+export const $status = createSelector($i, (_i): IOption[] => {
+    return arrayToOptions(['pending', 'approved', 'rejected']);
 });
+
+export const $allOptions = createSelector(
+    $periods,
+    $status,
+    $commentsTags,
+    (periods, status, commentsTags) => {
+        return {
+            $periods: periods,
+            $status: status,
+            $commentsTags: commentsTags,
+        } as IAllSelectOptions;
+    }
+);

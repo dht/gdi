@@ -18,9 +18,10 @@ export const AutoComplete = React.forwardRef(
 
         const optionsParsed = useMemo(() => {
             return options.map((option) => {
-                const { key, text } = option;
+                const { id, text } = option;
+
                 return {
-                    value: key,
+                    value: id,
                     label: text,
                 };
             });
@@ -43,6 +44,7 @@ export const AutoComplete = React.forwardRef(
                     onBlur={props.onBlur}
                     placeholder={placeholder}
                     onKeyDown={props.onKeyDown}
+                    classNamePrefix='rs'
                     theme={(theme) => ({
                         ...theme,
                         colors: {

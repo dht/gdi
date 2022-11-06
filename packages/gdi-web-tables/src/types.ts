@@ -210,7 +210,9 @@ export type IFilterConfig = {
     sort?: ISortOption[];
 };
 
-export type IFilterOptions = {};
+export type IFilterOptions = {
+    isInitiallyOpen?: boolean;
+};
 
 export type IFilterValue = Record<string, string[]>;
 
@@ -232,7 +234,7 @@ export type ISelectionMode = 'browse' | 'single' | 'multiple' | 'collection';
 export type IFilterState = {
     header: string;
     tag?: string;
-    showFilter: boolean;
+    showFilter?: boolean;
     showPreview: boolean;
     trio: ITrio;
     allOptions?: Json;

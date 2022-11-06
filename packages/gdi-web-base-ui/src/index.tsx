@@ -12,6 +12,7 @@ export { ColorPicker } from './components/ColorPicker/ColorPicker';
 export { DateInput } from './components/DateInput/DateInput';
 export { Drawer } from './components/Drawer/Drawer';
 export { Dropdown } from './components/Dropdown/Dropdown';
+export { DoubleDeckerSwitch } from './components/DoubleDeckerSwitch/DoubleDeckerSwitch';
 export { Empty } from './components/Empty/Empty';
 export { FullCalendar } from './components/FullCalendar/FullCalendar';
 export { GliLogo } from './components/GliLogo/GliLogo';

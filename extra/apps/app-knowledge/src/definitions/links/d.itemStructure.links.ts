@@ -4,4 +4,5 @@ export const itemStructure = `export type ILink = {
     category: string;
     description: string;
     revisitDate: string;
+    tags: string[];
 };`;

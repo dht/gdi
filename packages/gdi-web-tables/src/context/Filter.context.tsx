@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import {
@@ -15,6 +15,7 @@ export type FilterContextProps = {
     config: IFilterConfig;
     options: IFilterOptions;
     allOptions?: Json;
+    tags?: IOptions;
 };
 
 type IFilterContext = {
@@ -82,10 +83,11 @@ export const FilterContext = createContext<IFilterContext>(initialValue);
 export const FilterContextProvider = (
     props: WithChildren<FilterContextProps>
 ) => {
-    const { data = [], allOptions = {} } = props;
+    const { data = [], allOptions = {}, options, tags = [] } = props;
 
     const [state, patchState] = useSetState<IFilterState>({
         ...initialValue.state,
+        showFilter: options.isInitiallyOpen,
     });
 
     const configAndOptions = useFilterConfig(
@@ -109,7 +111,15 @@ export const FilterContextProvider = (
                 filterCallbacks.onSearch('');
             },
             onTagClick: async (_currentTag: string) => {
-                response = await prompt.input('Choose a tag');
+                response = await prompt.select({
+                    title: 'Choose tag',
+                    description: 'Choose a tag: ',
+                    placeholder: 'Click to see available tags',
+                    defaultValue: '',
+                    options: tags,
+                    submitButtonText: 'Choose (⌥⏎)',
+                });
+
                 if (response.didCancel) {
                     return;
                 }

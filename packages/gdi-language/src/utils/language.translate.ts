@@ -11,7 +11,7 @@ export const translate = (
     const value = keys[language][`${appId}_${key}`];
 
     if (!value) {
-        log(language, appId, key);
+        // log(language, appId, key);
     }
 
     return value || key;
@@ -68,8 +68,12 @@ export const translateObject = (
         const varType = getVariableType(object[key]);
 
         if (varType === 'array') {
-            acc[key] = object[key].map((item: Json) =>
-                translateObject(keys, language, appId, item, fieldsToTranslate)
+            acc[key] = translateArray(
+                keys,
+                language,
+                appId,
+                object[key],
+                fieldsToTranslate
             );
         } else if (varType === 'object') {
             acc[key] = translateObject(
@@ -104,10 +108,18 @@ export const translateArray = (
     keys: IAppKeys,
     language: LanguageIso,
     appId: string,
-    object: Json[],
+    object: Json[] | string[],
     fieldsToTranslate: string[] = []
-): Json[] => {
-    return object.map((item: Json) =>
+): Json[] | string[] => {
+    const firstObject = object[0];
+
+    if (typeof firstObject === 'string') {
+        return (object as string[]).map((item: string) =>
+            translate(keys, language, appId, item)
+        );
+    }
+
+    return (object as Json[]).map((item: Json) =>
         translateObject(keys, language, appId, item, fieldsToTranslate)
     );
 };

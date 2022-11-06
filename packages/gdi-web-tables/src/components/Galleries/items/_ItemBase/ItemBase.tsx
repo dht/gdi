@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IItem, MasonryItemProps } from '../../../Masonry/Masonry';
 import { Container, Image, ImageOverlay, Images } from './ItemBase.style';
+import classnames from 'classnames';
 
 export type ItemBaseProps = MasonryItemProps & {
     item: IItem;
@@ -10,7 +11,7 @@ export type ItemBaseProps = MasonryItemProps & {
 };
 
 export function ItemBase(props: ItemBaseProps) {
-    const { item: image, backgroundColor, topSectionHeight } = props;
+    const { item: image, backgroundColor, topSectionHeight, isFocused } = props;
     const [showFull, setShowFull] = useState(false);
 
     const { id, style, imageUrl, imageThumbUrl } = image;
@@ -51,15 +52,18 @@ export function ItemBase(props: ItemBaseProps) {
         return <Image url={imageUrl} className='masonry-image' />;
     }
 
+    const className = classnames('ItemBase-container', {
+        focused: isFocused,
+    });
+
     return (
         <Container
             style={style}
-            // @ts-expect-error
             backgroundColor={backgroundColor}
             onMouseDown={onClick}
             // @ts-expect-error
             onTouchStart={onClick}
-            className='ItemBase-container'
+            className={className}
             onDoubleClick={onDoubleClick}
             onMouseOver={() => setShowFull(true)}
         >

@@ -36,6 +36,7 @@ export function Reminders(props: RemindersProps) {
                 allOptions={allOptions}
                 viewModes={['gallery', 'calendar', 'spreadsheet']}
                 customView={CustomView}
+                hideParts={['preview']}
             />
         </Container>
     );

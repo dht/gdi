@@ -34,6 +34,7 @@ export type IProject = {
     projectType?: string;
     color?: string;
     order?: number;
+    tags: string[];
 };
 
 export type ITicket = {

@@ -37,6 +37,7 @@ export function Ppl(props: PplProps) {
                 allMethods={allMethods}
                 customView={CustomView}
                 doubleClickActionId='pie'
+                hideParts={['preview']}
             />
         </Container>
     );

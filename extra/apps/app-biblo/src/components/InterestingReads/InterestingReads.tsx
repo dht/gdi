@@ -34,6 +34,7 @@ export function InterestingReads(props: InterestingReadsProps) {
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

@@ -4,7 +4,7 @@ import { IDevtoolsStore } from './types';
 export const initialState: IDevtoolsStore = {
     appStateDevtools: {
         stateKey: 'devtools',
-        currentNodeId: 'persons',
+        currentNodeId: 'article',
         isOn: true,
     },
     stores: {

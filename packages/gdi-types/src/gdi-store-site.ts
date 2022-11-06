@@ -72,7 +72,6 @@ declare global {
         lastPublishDate?: string;
         pageInstanceId?: string;
         path: string;
-        dealerId?: string;
         isProtected?: boolean;
         tags: string[];
         dataTags: string[];

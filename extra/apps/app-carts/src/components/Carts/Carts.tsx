@@ -31,6 +31,7 @@ export function Carts(props: CartsProps) {
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

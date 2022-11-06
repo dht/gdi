@@ -35,6 +35,12 @@ export const Container = styled.div.attrs<{
             display: block;
         }
     }
+
+    &.focused {
+        border: 5px solid gold;
+        z-index: 999;
+        transform: scale(1.1);
+    }
 `;
 
 export const ImageOverlay = styled.div`

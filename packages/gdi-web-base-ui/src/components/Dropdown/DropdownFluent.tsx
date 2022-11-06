@@ -6,13 +6,6 @@ import {
 import * as React from 'react';
 import { Container } from './Dropdown.style';
 
-type IOption = {
-    id: string;
-    text: string;
-    isHeader?: boolean;
-    isDisabled?: boolean;
-};
-
 export type DropdownProps = {
     options: IOption[];
     label?: string;
@@ -43,10 +36,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
             return {
                 key: option.id,
                 text: option.text,
-                disabled: option.isDisabled,
-                itemType: option.isHeader
-                    ? DropdownMenuItemType.Header
-                    : DropdownMenuItemType.Normal,
+                itemType: DropdownMenuItemType.Normal,
             };
         });
     }, [options]);

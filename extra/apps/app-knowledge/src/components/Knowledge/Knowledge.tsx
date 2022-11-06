@@ -36,6 +36,7 @@ export function Knowledge(props: KnowledgeProps) {
                 allOptions={allOptions}
                 viewModes={['table', 'spreadsheet']}
                 customView={CustomView}
+                hideParts={['preview']}
             />
         </Container>
     );

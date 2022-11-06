@@ -8,7 +8,6 @@ export const itemStructure = `export type IPage = {
     lastPublishDate?: string;
     pageInstanceId?: string;
     path: string;
-    dealerId?: string;
     isProtected?: boolean;
     tags: string[];
     dataTags: string[];

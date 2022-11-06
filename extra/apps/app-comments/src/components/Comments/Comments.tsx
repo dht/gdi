@@ -34,6 +34,7 @@ export function Comments(props: CommentsProps) {
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

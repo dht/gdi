@@ -1,4 +1,4 @@
-import { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { sagas } from '../../sagas';
 import type { BootstrapProps } from './Bootstrap';
 import { IFirebaseConfig, IPlatformState } from '../../types';
@@ -40,7 +40,9 @@ export const bootstrapApp = async (
         languageCode,
     } = config;
 
-    const axiosInstance: any = null;
+    const axiosInstance: any = axios.create({
+        baseURL: 'http://localhost:3009',
+    });
 
     const firebaseConfig = getFirebaseConfig(firebaseConfigs);
     const accountName = firebaseConfig.projectId;

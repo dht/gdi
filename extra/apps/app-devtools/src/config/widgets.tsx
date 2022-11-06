@@ -4,6 +4,7 @@ import ReduxConnectedDevtoolsContainer from '../containers/ReduxConnectedDevtool
 import HoustonContainer from '../containers/HoustonContainer';
 import { LoginCycleContainer } from '../containers/LoginCycleContainer';
 import { CatalogContainer } from '../containers/CatalogContainer';
+import { ItemTypeSwitcherContainer } from '../containers/ItemTypeSwitcherContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
 import { APP_ID } from './ids';
 

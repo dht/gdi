@@ -77,7 +77,6 @@ const apps: Record<string, App> = {
     dashboard: {
         id: 'dashboard',
         nodes: ['dashboard'],
-        isRequired: true,
     },
     factory: {
         id: 'factory',

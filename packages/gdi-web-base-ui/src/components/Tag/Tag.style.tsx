@@ -10,6 +10,48 @@ export const Container = styled.div`
     flex-direction: row;
     align-items: center;
 
+    &.small {
+        font-size: 12px;
+
+        .title {
+            padding: 2px 8px;
+        }
+
+        .delete {
+            padding: 3px 7px 2px 5px;
+            border-radius: 0 4px 4px 0;
+            font-size: 12px;
+        }
+    }
+
+    &.medium {
+        font-size: 16px;
+
+        .title {
+            padding: 4px 10px;
+        }
+
+        .delete {
+            padding: 6px 8px 4px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+        }
+    }
+
+    &.large {
+        font-size: 18px;
+
+        .title {
+            padding: 6px 13px;
+        }
+
+        .delete {
+            padding: 9px 11px 6px;
+            border-radius: 0 10px 10px 0;
+            font-size: 17px;
+        }
+    }
+
     &.type {
         background-color: yellowgreen;
         color: #333;
@@ -37,15 +79,11 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-    padding: 4px 10px;
     user-select: none;
 `;
 
 export const Delete = styled.div`
     ${(props) => props.theme.borderLeft('1.5px solid rgba(0, 0, 0, 0.3)')}
-    padding: 6px 8px 4px;
-    border-radius: 0 8px 8px 0;
-    font-size: 14px;
     user-select: none;
     cursor: pointer;
 
