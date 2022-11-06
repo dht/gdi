@@ -7,26 +7,39 @@ export type TagProps = {
     color?: string;
     onClick?: () => void;
     onDelete?: () => void;
+    size?: 'small' | 'medium' | 'large';
 };
 
 export function Tag(props: TagProps) {
-    const { tag, color } = props;
+    const { tag, color, size = 'medium' } = props;
 
     const tagType = tag.split('-').shift();
 
-    const className = classnames('Tag-container', `tag-${tag}`, tagType, color);
+    const className = classnames(
+        'Tag-container',
+        `tag-${tag}`,
+        tagType,
+        color,
+        size
+    );
 
     function renderDelete() {
         if (!props.onDelete) {
             return null;
         }
 
-        return <Delete onClick={props.onDelete}>✕</Delete>;
+        return (
+            <Delete className='delete' onClick={props.onDelete}>
+                ✕
+            </Delete>
+        );
     }
 
     return (
         <Container className={className} data-testid='Tag-container'>
-            <Title onClick={props.onClick}>{tag}</Title>
+            <Title className='title' onClick={props.onClick}>
+                {tag}
+            </Title>
             {renderDelete()}
         </Container>
     );

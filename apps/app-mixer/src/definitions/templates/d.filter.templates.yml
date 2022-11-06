@@ -1,88 +1,11 @@
 id: TemplateFilter
 fields:
-    - id: uploadDate
-      title: Upload Date
-      cellType: date
-      options:
-          - id: lastHour
-            text: Last hour
-            max: 60
-          - id: today
-            text: Today
-            max: 100
-          - id: thisWeek
-            text: This week
-            max: 200
-          - id: thisMonth
-            text: This month
-            max: 300
-          - id: thisYear
-            text: This year
-            max: 500
-      allowMultiple: false
-    - id: articleType
-      title: Upload Date
-      cellType: text
-      options:
-          - id: video
-            text: Video
-            value: video
-          - id: channel
-            text: Channel
-            value: channel
-          - id: playlist
-            text: Playlist
-            value: playlist
-          - id: movie
-            text: Movie
-            value: movie
-      allowMultiple: true
-    - id: duration
-      title: Duration
-      cellType: number
-      options:
-          - id: m0-4
-            text: Under 4 minutes
-            min: 0
-            max: 3.99
-          - id: m4-20
-            text: 4-20 minutes
-            min: 3.99
-            max: 20
-          - id: m20+
-            text: Over 20 minutes
-            min: 20.01
-      allowMultiple: true
-    - id: features
-      title: Features
+    - id: tags
+      title: Tags
       cellType: tags
-      options:
-          - id: live
-            text: Live
-            value: live
-          - id: 4k
-            text: 4K
-            value: 4k
-          - id: hd
-            text: HD
-            value: hd
-          - id: subtitles
-            text: Subtitles
-            value: subtitles
-          - id: vr
-            text: 360°
-            value: vr
-      allowMultiple: true
+      optionSelectorId: $templateTags
+      allowMultiple: false
 sort:
-    - id: relevance
-      text: Relevance
-      value: relevance
-    - id: uploadDate
-      text: Upload date
-      value: uploadDate
-    - id: viewCount
-      text: View count
-      value: viewCount
-    - id: rating
-      text: Rating
-      value: rating
+    - id: date
+      text: Date
+      value: date

@@ -22,6 +22,7 @@ export type ILink = {
     category: string;
     description: string;
     revisitDate: string;
+    tags: string[];
 };
 
 export type ILinksCategories = Record<string, ILinksCategory>;

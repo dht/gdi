@@ -38,6 +38,7 @@ export {
     ColorPicker,
     DateInput,
     Drawer,
+    DoubleDeckerSwitch,
     Dropdown,
     Empty,
     GliLogo,

@@ -41,6 +41,7 @@ export function Tickets(props: TicketsProps) {
                 customView={customView}
                 viewModes={['buckets', 'custom', 'table', 'spreadsheet']}
                 newDataExtra={newDataExtra}
+                hideParts={['preview']}
             />
         </Container>
     );

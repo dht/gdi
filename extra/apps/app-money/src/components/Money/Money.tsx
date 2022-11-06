@@ -33,6 +33,7 @@ export function Money(props: MoneyProps) {
                 allOptions={allOptions}
                 customView={CustomView}
                 viewModes={['timeline', 'calendar', 'spreadsheet']}
+                hideParts={['preview']}
             />
         </Container>
     );

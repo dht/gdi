@@ -1,11 +1,6 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import { Container } from './Dropdown.style';
 import Select from 'react-select';
-
-type IOption = {
-    value: string;
-    label: string;
-};
 
 export type DropdownProps = {
     options: IOption[];
@@ -28,6 +23,13 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
         }
     }, []);
 
+    const optionsParsed = useMemo(() => {
+        return options.map((option) => ({
+            value: option.id,
+            label: option.text,
+        }));
+    }, [options]);
+
     return (
         <Container
             className='Dropdown-container'
@@ -42,7 +44,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
                 isMulti={isMulti}
                 isRtl={false}
                 isSearchable={true}
-                options={options as any}
+                options={optionsParsed as any}
                 onChange={onChange}
                 theme={(theme) => ({
                     ...theme,

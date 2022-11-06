@@ -37,7 +37,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
     const ref = useRef<HTMLDivElement>(null);
     const { customItem } = props;
     const { options, callbacks, config, configOverlay } = useContext(GalleryContext); // prettier-ignore
-    const { state: selectedIds } = useContext(SelectionContext);
+    const { state: selectedIds, focusedId } = useContext(SelectionContext);
     const filterContext = useContext(FilterContext);
     const { fixedRatio } = config;
     const { columns } = options;
@@ -48,6 +48,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
 
         return (
             <GenericOverlay
+                key={item.id}
                 config={configOverlay}
                 item={item}
                 isSelected={isSelected}
@@ -71,6 +72,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
                 onMouseEvent={callbacks.onMouseEvent}
                 customItem={customItem}
                 fixedRatio={fixedRatio}
+                focusedItemId={focusedId}
             />
         );
     }

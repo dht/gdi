@@ -65,6 +65,21 @@ export const filterText = (
     });
 };
 
+export const filterTags = (
+    data: Json[],
+    field: IFilterField,
+    tags: string[]
+) => {
+    if (isEmpty(tags)) {
+        return data;
+    }
+
+    return data.filter((i) => {
+        const iValue = i[field.id];
+        return tags.some((tag) => iValue.includes(tag));
+    });
+};
+
 export const filterNumber = (
     data: Json[],
     field: IFilterField,
@@ -114,7 +129,7 @@ export const filterDate = (
     return data.filter((i) => {
         const iValue = i[field.id];
 
-        const minutes = minutesPassed(now, new Date(iValue));
+        const minutes = minutesPassed(new Date(iValue)) ?? 0;
 
         return options.find((o) => {
             const { min, max } = o;
@@ -138,7 +153,7 @@ export const filterMethods: Record<CellType, FilterMethod> = {
     icon: filterText,
     number: filterNumber,
     text: filterText,
-    tags: filterText,
+    tags: filterTags,
     date: filterDate,
     timeAgo: filterText,
     id: filterText,

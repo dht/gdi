@@ -5,17 +5,17 @@ export const endpointsConfigOverrides: any = {
     },
     stats: {
         id: 'stats',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     statsJourneys: {
         id: 'statsJourneys',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     inboxMessages: {
         id: 'inboxMessages',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

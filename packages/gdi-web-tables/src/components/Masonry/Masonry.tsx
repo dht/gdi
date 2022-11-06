@@ -1,10 +1,11 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import MasonryItem from '../Galleries/items/ItemImage/ItemImage';
-import { Container, Expander } from './Masonry.style';
+import { Backdrop, Container, Content, Expander } from './Masonry.style';
 import { IImage } from '../../types';
 import { throttle } from 'lodash';
 import { useWindowSize } from 'react-use';
 import { useTheme } from 'styled-components';
+import classnames from 'classnames';
 
 const VIRTUALIZED_SCROLL_GUTTER = 600;
 const VIRTUALIZED_ITEMS_COUNT = 100;
@@ -35,6 +36,7 @@ export type MasonryProps = {
     onBottomReach?: () => void;
     onMouseEvent?: (ev: MouseEv) => void;
     customItem?: FC<MasonryItemProps>;
+    focusedItemId?: string;
 };
 
 export type MasonryItemProps = {
@@ -43,10 +45,18 @@ export type MasonryItemProps = {
     onClick: (id: string, item: IItem) => void;
     onDoubleClick: (id: string) => void;
     onMouseEvent?: (ev: MouseEv) => void;
+    isFocused: boolean;
 };
 
 export function Masonry(props: MasonryProps) {
-    const { columns = 3, gutter = 10, items, customItem, fixedRatio } = props;
+    const {
+        columns = 3,
+        gutter = 10,
+        items,
+        customItem,
+        fixedRatio,
+        focusedItemId,
+    } = props;
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const [innerHeight, setInnerHeight] = useState(0);
@@ -178,6 +188,7 @@ export function Masonry(props: MasonryProps) {
                 onClick={onClick}
                 onDoubleClick={onDoubleClick}
                 onMouseEvent={onMouseEvent}
+                isFocused={focusedItemId === item.id}
             />
         );
     }
@@ -194,14 +205,21 @@ export function Masonry(props: MasonryProps) {
         return <Expander style={style} />;
     }
 
+    const className = classnames('backdrop', {
+        on: typeof focusedItemId === 'string' && focusedItemId.length > 0,
+    });
+
     return (
         <Container
             className='Masonry-container'
             data-testid='Masonry-container'
             ref={ref}
         >
-            {renderExpander()}
-            {renderItems()}
+            <Content>
+                {renderExpander()}
+                {renderItems()}
+            </Content>
+            <Backdrop className={className} />
         </Container>
     );
 }

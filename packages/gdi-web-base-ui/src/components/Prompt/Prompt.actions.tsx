@@ -112,13 +112,6 @@ const input = (
     });
 };
 
-type IOption = {
-    key: string;
-    text: string;
-    isHeader?: boolean;
-    isDisabled?: boolean;
-};
-
 const select = (promptRequest: PromptRequest): Promise<PromptResponse> => {
     const {
         title,
@@ -130,6 +123,8 @@ const select = (promptRequest: PromptRequest): Promise<PromptResponse> => {
         placeholder,
         warning,
     } = promptRequest;
+
+    console.log('options ->', options);
 
     return invokePromptAndListen({
         flavour: 'select',

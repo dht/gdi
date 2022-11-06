@@ -1,12 +1,12 @@
 export const endpointsConfigOverrides: any = {
     users: {
         id: 'users',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     roles: {
         id: 'roles',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

@@ -1,12 +1,12 @@
 export const endpointsConfigOverrides = {
     appStateLeads: {
         id: 'appStateLeads',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     leads: {
         id: 'leads',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

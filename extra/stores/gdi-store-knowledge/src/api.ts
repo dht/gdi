@@ -5,12 +5,12 @@ export const endpointsConfigOverrides = {
     },
     linkCategories: {
         id: 'appStateKnowledge',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     links: {
         id: 'appStateKnowledge',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

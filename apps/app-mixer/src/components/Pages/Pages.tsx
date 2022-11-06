@@ -32,6 +32,7 @@ export function Pages(props: PagesProps) {
                 viewModes={['gallery', 'table', 'spreadsheet']}
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

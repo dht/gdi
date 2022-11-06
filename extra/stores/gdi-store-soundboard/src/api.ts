@@ -5,26 +5,26 @@ export const endpointsConfigOverrides = {
     },
     appStateScheduler: {
         id: 'appStateScheduler',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     actualManas: {
         id: 'actualManas',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     expectedManas: {
         id: 'expectedManas',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     scheduleBlocks: {
         id: 'scheduleBlocks',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
     },
     scheduleSessions: {
         id: 'scheduleSessions',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
         optimisticPosts: true,
     },

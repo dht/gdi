@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSetState } from 'react-use';
 
 type UseFilterValueCallbacks = {
@@ -37,6 +37,7 @@ export function useFilterValue(config: IFilterConfig): UseFilterValueReturn {
                 const { allowMultiple = false } = fieldConfig ?? {};
 
                 const currentValue = idsPerFilter[filterId] ?? [];
+
                 let nextValue = [...currentValue];
 
                 if (remove) {

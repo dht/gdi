@@ -33,6 +33,7 @@ export function Events(props: EventsProps) {
                 allOptions={allOptions}
                 viewModes={['gallery', 'calendar', 'spreadsheet']}
                 customView={CustomView}
+                hideParts={['preview']}
             />
         </Container>
     );

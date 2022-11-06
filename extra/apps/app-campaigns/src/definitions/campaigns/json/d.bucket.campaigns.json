@@ -8,12 +8,16 @@
                 {
                     "id": "back",
                     "title": "Back stage",
-                    "dataTags": ["back"]
+                    "dataTags": [
+                        "back"
+                    ]
                 },
                 {
                     "id": "front",
                     "title": "Front",
-                    "dataTags": ["front"]
+                    "dataTags": [
+                        "front"
+                    ]
                 }
             ]
         }

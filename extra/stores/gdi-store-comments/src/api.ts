@@ -1,12 +1,12 @@
 export const endpointsConfigOverrides = {
     appStateComments: {
         id: 'appStateComments',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     comments: {
         id: 'comments',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
 };

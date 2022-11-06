@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import { Tags } from '@gdi/web-base-ui';
 import { IOverlayField } from '../../types';
 import {
@@ -37,9 +37,13 @@ export function FieldTags(props: OverlayFieldProps) {
         return item[field.fieldId];
     }, []);
 
+    const onDelete = useCallback((tag: string) => {
+        console.log('tag ->', tag);
+    }, []);
+
     return (
         <>
-            <Tags tags={value} color='cyan' />
+            <Tags size='small' tags={value} color='cyan' onDelete={onDelete} />
         </>
     );
 }

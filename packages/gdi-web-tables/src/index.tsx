@@ -16,5 +16,6 @@ export {
 } from './components/Galleries';
 export { Filters } from './components/Filters/Filters';
 export { FilterBar } from './components/FilterBar/FilterBar';
+export { FilterContextProvider } from './context/Filter.context';
 export * from './types';
 export { definitions } from './definitions';

@@ -29,6 +29,7 @@ export const Container = styled.div`
             ${(props) => props.theme.right(0)}
             bottom: 0;
             opacity: 0.2;
+            pointer-events: none;
             background: repeating-linear-gradient(
                 -45deg,
                 goldenrod,

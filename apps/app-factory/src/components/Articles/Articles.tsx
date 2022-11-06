@@ -36,6 +36,7 @@ export function Articles(props: ArticlesProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
                 customView={CustomView}
+                hideParts={['preview']}
             />
         </Container>
     );

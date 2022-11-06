@@ -18,8 +18,8 @@ export const GroupTitle = styled.h2`
 export const GroupContent = styled.div`
     display: grid;
     grid-template-columns: repeat(100, 1fr);
-    grid-template-rows: repeat(90, 1fr);
-    height: 2500px;
+    grid-template-rows: repeat(45, 1fr);
+    height: 100vh;
 `;
 
 export const Panel = styled.div`
@@ -38,28 +38,10 @@ export const Panel = styled.div`
     }
 
     &:nth-child(1) {
-        grid-area: 1 / 1 / 30 / 80;
+        grid-area: 1 / 1 / 40 / 80;
     }
 
     &:nth-child(2) {
-        grid-area: 30 / 1 / 60 / 80;
-    }
-
-    &:nth-child(3) {
-        grid-area: 60 / 1 / 90 / 80;
-    }
-
-    &:nth-child(4) {
-        grid-area: 1 / 80 / 30 / 100;
-    }
-
-    &:nth-child(5) {
-        grid-area: 30 / 80 / 60 / 100;
-    }
-
-    &:nth-child(6) {
-        grid-area: 60 / 80 / 90 / 100;
+        grid-area: 1 / 80 / 40 / 100;
     }
 `;
-
-export const Json = styled.div``;

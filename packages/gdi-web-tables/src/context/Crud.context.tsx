@@ -56,7 +56,8 @@ export const CrudContext = createContext<ICrudContext>(initialValue);
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const { id, config, options, data, callbacks, initialViewMode } = props;
-    const { state: selectedIds } = useContext(SelectionContext);
+    const { state: selectedIds, callbacks: callbacksSelection } =
+        useContext(SelectionContext);
     const lastMousePoint = useRef<Json | undefined>({});
 
     const configValue = useMemo(
@@ -163,7 +164,12 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                         lastMousePoint.current = data;
                         break;
                     case 'pie':
-                        crudCallbacks.showMenu(id, lastMousePoint.current);
+                        callbacksSelection.onFocusedSet(id);
+                        crudCallbacks
+                            .showMenu(id, lastMousePoint.current)
+                            .then(() => {
+                                callbacksSelection.onFocusedClear();
+                            });
                         break;
                 }
             },

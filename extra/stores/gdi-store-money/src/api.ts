@@ -1,16 +1,16 @@
 export const endpointsConfigOverrides = {
     appStateMoney: {
         id: 'appStateMoney',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     moneyLines: {
         id: 'moneyLines',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
         optimistic: true,
     },
     moneyBehaviors: {
         id: 'moneyBehaviors',
-        connectionType: 'FIRESTORE',
+        connectionType: 'REST',
     },
 };

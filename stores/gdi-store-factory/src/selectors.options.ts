@@ -4,70 +4,29 @@ import { createSelector } from 'reselect';
 import { sortBy } from 'shared-base';
 import { minutesThisX } from '@gdi/language';
 import { camelCase } from 'lodash';
+import { arrayToOptions, itemsTagsToOptions, optionsPeriod } from 'shared-base';
 
 const $i = () => {};
 
 export const $flexEntityTypes = createSelector(raw.$i, (_state): IOption[] => {
-    return [
-        {
-            id: 'container',
-            text: 'container',
-        },
-        {
-            id: 'item',
-            text: 'item',
-        },
-    ];
+    return arrayToOptions(['container', 'item']);
 });
 
 export const $flexDirection = createSelector(raw.$i, (_state): IOption[] => {
-    return [
-        {
-            id: 'row',
-            text: 'row',
-        },
-        {
-            id: 'column',
-            text: 'column',
-        },
-    ];
+    return arrayToOptions(['row', 'column']);
 });
 
 export const $resolutions = createSelector(raw.$i, (_state): IOption[] => {
-    return [
-        {
-            id: 'mobile',
-            text: 'mobile',
-        },
-        {
-            id: 'tablet',
-            text: 'tablet',
-        },
-        {
-            id: '720p',
-            text: '720p',
-        },
-        {
-            id: 'HD',
-            text: 'HD',
-        },
-        {
-            id: 'HD+',
-            text: 'HD+',
-        },
-        {
-            id: '1080p',
-            text: '1080p',
-        },
-        {
-            id: '2k',
-            text: '2k',
-        },
-        {
-            id: '4k',
-            text: '4k',
-        },
-    ];
+    return arrayToOptions([
+        'mobile',
+        'tablet',
+        '720p',
+        'HD',
+        'HD+',
+        '1080p',
+        '2k',
+        '4k',
+    ]);
 });
 
 export const $layoutLocationIds = createSelector(
@@ -109,34 +68,11 @@ export const $flexEntityParentIds = createSelector(
 
 export const $periods = createSelector($i, (_i): IOption[] => {
     const minutes = minutesThisX();
+    return optionsPeriod(minutes, true);
+});
 
-    return [
-        {
-            id: 'lastHour',
-            text: 'Last hour',
-            max: 60,
-        },
-        {
-            id: 'today',
-            text: 'Today',
-            max: minutes.today,
-        },
-        {
-            id: 'thisWeek',
-            text: 'This week',
-            max: minutes.week,
-        },
-        {
-            id: 'thisMonth',
-            text: 'This month',
-            max: minutes.month,
-        },
-        {
-            id: 'thisYear',
-            text: 'This year',
-            max: minutes.year,
-        },
-    ];
+export const $articleStatus = createSelector($i, (_i): IOption[] => {
+    return arrayToOptions(['draft', 'published', 'archived']);
 });
 
 export const $articleAuthors = createSelector(
@@ -167,24 +103,14 @@ export const $articleAuthors = createSelector(
 export const $articleTags = createSelector(
     raw.$rawArticles,
     (articles): IOption[] => {
-        const allTags: Json = {};
-        Object.values(articles).forEach((article) => {
-            const { tags = [] } = article;
+        return itemsTagsToOptions(articles);
+    }
+);
 
-            tags.forEach((tag) => {
-                allTags[tag] = true;
-            });
-        }, {} as Json);
-
-        return Object.keys(allTags)
-            .sort()
-            .map((tag) => {
-                return {
-                    id: tag,
-                    text: tag,
-                    value: tag,
-                };
-            });
+export const $layoutTags = createSelector(
+    raw.$rawLayouts,
+    (layouts): IOption[] => {
+        return itemsTagsToOptions(layouts);
     }
 );
 
@@ -196,7 +122,9 @@ export const $allOptions = createSelector(
     $layoutLocationIds,
     $periods,
     $articleAuthors,
+    $articleStatus,
     $articleTags,
+    $layoutTags,
     (
         flexEntityTypes,
         flexDirection,
@@ -205,7 +133,9 @@ export const $allOptions = createSelector(
         layoutLocationIds,
         periods,
         articleAuthors,
-        articleTags
+        articleStatus,
+        articleTags,
+        layoutTags
     ) => {
         return {
             $flexEntityTypes: flexEntityTypes,
@@ -216,6 +146,8 @@ export const $allOptions = createSelector(
             $periods: periods,
             $articleAuthors: articleAuthors,
             $articleTags: articleTags,
+            $articleStatus: articleStatus,
+            $layoutTags: layoutTags,
         };
     }
 );

@@ -1,6 +1,7 @@
 import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
+import { arrayToOptions, itemsTagsToOptions, optionsPeriod } from 'shared-base';
 import { minutesThisX } from '@gdi/language';
 
 const $i = () => {};
@@ -20,21 +21,14 @@ export const $instanceTypes = createSelector(
 export const $imageTags = createSelector(
     base.$libraryImages,
     (images): IOption[] => {
-        const allTags = new Set<string>();
+        return itemsTagsToOptions(images);
+    }
+);
 
-        images.forEach((image) => {
-            const { tags } = image;
-            tags.forEach((tag) => allTags.add(tag));
-        });
-
-        const output = Array.from(allTags);
-
-        output.sort();
-
-        return output.map((tag) => ({
-            id: tag,
-            text: tag,
-        }));
+export const $pageTags = createSelector(
+    raw.$rawLibraryPages,
+    (pages): IOption[] => {
+        return itemsTagsToOptions(pages);
     }
 );
 
@@ -54,46 +48,27 @@ export const $imageFields = createSelector(
 
 export const $periods = createSelector($i, (_i): IOption[] => {
     const minutes = minutesThisX();
+    return optionsPeriod(minutes, true);
+});
 
-    return [
-        {
-            id: 'lastHour',
-            text: 'Last hour',
-            max: 60,
-        },
-        {
-            id: 'today',
-            text: 'Today',
-            max: minutes.today,
-        },
-        {
-            id: 'thisWeek',
-            text: 'This week',
-            max: minutes.week,
-        },
-        {
-            id: 'thisMonth',
-            text: 'This month',
-            max: minutes.month,
-        },
-        {
-            id: 'thisYear',
-            text: 'This year',
-            max: minutes.year,
-        },
-    ];
+export const $pageStatus = createSelector($i, (_i): IOption[] => {
+    return arrayToOptions(['draft', 'production', 'archived']);
 });
 
 export const $allOptions = createSelector(
     $instanceTypes,
     $imageTags,
     $imageFields,
+    $pageStatus,
+    $pageTags,
     $periods,
-    (instanceTypes, imageTags, imageFields, periods) => {
+    (instanceTypes, imageTags, imageFields, pageStatus, pageTags, periods) => {
         return {
             $instanceTypes: instanceTypes,
             $imageTags: imageTags,
             $imageFields: imageFields,
+            $pageStatus: pageStatus,
+            $pageTags: pageTags,
             $periods: periods,
         };
     }

@@ -8,7 +8,7 @@ import {
     Value,
 } from './ArticleEditorBar.style';
 import { invokeEvent } from 'shared-base';
-import { timeAgo, minutesToDuration, minutesPassed } from '@gdi/language';
+import { timeAgo, duration, minutesPassed } from '@gdi/language';
 
 import { ArticleContext } from '../ArticleEditor/ArticleEditor.context';
 
@@ -32,7 +32,7 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
     const { wordCount } = context;
 
     const lastSaveDateText = useMemo(() => {
-        const minutesAgo = minutesPassed(new Date(), new Date(lastSaveDate));
+        const minutesAgo = minutesPassed(new Date(lastSaveDate)) ?? 0;
 
         if (minutesAgo > 60 * 24) {
             return '-';
@@ -42,7 +42,7 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
     }, [lastSaveDate]);
 
     const minutesSpentEditingText = useMemo(() => {
-        return minutesToDuration(minutesSpentEditing) ?? '-';
+        return duration(minutesSpentEditing * 60) ?? '-';
     }, [minutesSpentEditing]);
 
     function onClick() {

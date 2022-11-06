@@ -36,6 +36,7 @@ export function Projects(props: ProjectsProps) {
                 initialViewMode='table'
                 dispatch={dispatch}
                 allOptions={allOptions}
+                hideParts={['preview']}
             />
         </Container>
     );

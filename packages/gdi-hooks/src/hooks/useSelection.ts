@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useState } from 'react';
 import { useList } from 'react-use';
 
 type UseSelectionOptions = {
@@ -10,9 +10,12 @@ type UseSelectionOptions = {
 
 type UseSelectionReturn = [
     string[],
+    string,
     {
         onClick: (id: string) => void;
         onClear: () => void;
+        onFocus: (id: string) => void;
+        onFocusClear: () => void;
     }
 ];
 
@@ -22,6 +25,7 @@ export function useSelection(
 ): UseSelectionReturn {
     const { enabled, allowMultiple, allowEmpty, noUnselect } = options;
     const [value, { push, removeAt, clear }] = useList(initialValues);
+    const [focusedId, setFocusedId] = useState('');
 
     const onClick = useCallback(
         (id: string) => {
@@ -65,5 +69,13 @@ export function useSelection(
         }
     }, [value]);
 
-    return [value, { onClick, onClear }];
+    const onFocus = useCallback((id: string) => {
+        setFocusedId(id);
+    }, []);
+
+    const onFocusClear = useCallback(() => {
+        setFocusedId('');
+    }, []);
+
+    return [value, focusedId, { onClick, onClear, onFocus, onFocusClear }];
 }
