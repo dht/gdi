@@ -5,11 +5,10 @@ export const Container = styled.div<{ horizontal?: boolean }>`
     flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;
     flex: 1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &.horizontal {
         .item {
-            width: 41px;
+            margin: 0 2px;
         }
     }
 `;
@@ -21,13 +20,25 @@ export const Item = styled.div`
     align-items: center;
     justify-content: center;
 
+    i {
+        color: #ddd;
+
+        &:first-child {
+            font-size: 22px;
+        }
+    }
+
     &:hover {
-        color: gold;
+        i {
+            color: gold;
+        }
         cursor: pointer;
     }
 
     &.selected {
-        color: gold;
+        i {
+            color: gold;
+        }
     }
 
     .icon {

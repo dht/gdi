@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { createContext } from 'react';
-import { WithChildren } from '../types';
+import { ISelectionMode, WithChildren } from '../types';
 import { useSelection } from '@gdi/hooks';
 
 export type SelectionContextProps = {
-    mode: ISelectionMode;
+    initialMode: ISelectionMode;
     initialValue?: string[];
     onSelectionChange?: (selectedIds: string[]) => void;
 };
@@ -12,22 +12,26 @@ export type SelectionContextProps = {
 type ISelectionContext = {
     state: string[];
     focusedId: string;
+    selectionMode: ISelectionMode;
     callbacks: {
         onSelect: (itemId: string) => void;
         onSelectionClear: () => void;
         onFocusedSet: (itemId: string) => void;
         onFocusedClear: () => void;
+        onChangeMode: (selectionMode: ISelectionMode) => void;
     };
 };
 
 const initialValue: ISelectionContext = {
     state: [],
     focusedId: '',
+    selectionMode: 'none',
     callbacks: {
         onSelect: (itemId: string) => {},
         onSelectionClear: () => {},
         onFocusedSet: (itemId: string) => {},
         onFocusedClear: () => {},
+        onChangeMode: (selectionMode: ISelectionMode) => {},
     },
 };
 
@@ -36,16 +40,17 @@ export const SelectionContext = createContext<ISelectionContext>(initialValue);
 export const SelectionContextProvider = (
     props: WithChildren<SelectionContextProps>
 ) => {
-    const { mode, onSelectionChange } = props;
+    const { initialMode = 'none', onSelectionChange } = props;
+    const [mode, setMode] = useState<ISelectionMode>(initialMode);
 
     const selectionOptions = useMemo(
         () => ({
-            enabled: mode !== 'collection',
+            enabled: mode !== 'none',
             allowMultiple: mode === 'multiple',
-            allowEmpty: mode === 'browse' || mode === 'multiple',
-            noUnselect: mode === 'browse',
+            allowEmpty: mode === 'choose' || mode === 'multiple',
+            noUnselect: mode === 'choose',
         }),
-        []
+        [mode]
     );
 
     const [
@@ -77,17 +82,21 @@ export const SelectionContextProvider = (
             onFocusedClear: () => {
                 onSelectionFocusClear();
             },
+            onChangeMode: (selectionMode: ISelectionMode) => {
+                setMode(selectionMode);
+            },
         }),
-        [selectedIds, focusedId]
+        [selectedIds, focusedId, mode]
     );
 
     const value = useMemo(
         () => ({
             state: selectedIds,
             focusedId,
+            selectionMode: mode,
             callbacks,
         }),
-        [callbacks, selectedIds]
+        [callbacks, selectedIds, mode]
     );
 
     return (

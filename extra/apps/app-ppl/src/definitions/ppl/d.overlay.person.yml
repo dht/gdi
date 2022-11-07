@@ -7,3 +7,8 @@ fields:
       fieldType: tags
       locationKey: topLeft
       order: 1
+    - id: fullName
+      fieldId: fullName
+      fieldType: text
+      locationKey: bottomRight
+      order: 2

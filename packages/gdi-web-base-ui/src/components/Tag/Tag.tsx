@@ -6,7 +6,7 @@ export type TagProps = {
     tag: string;
     color?: string;
     onClick?: () => void;
-    onDelete?: () => void;
+    onDelete?: (tag: string) => void;
     size?: 'small' | 'medium' | 'large';
 };
 
@@ -23,13 +23,21 @@ export function Tag(props: TagProps) {
         size
     );
 
+    function onDelete() {
+        if (!props.onDelete) {
+            return null;
+        }
+
+        props.onDelete(tag);
+    }
+
     function renderDelete() {
         if (!props.onDelete) {
             return null;
         }
 
         return (
-            <Delete className='delete' onClick={props.onDelete}>
+            <Delete className='delete' onClick={onDelete}>
                 ✕
             </Delete>
         );

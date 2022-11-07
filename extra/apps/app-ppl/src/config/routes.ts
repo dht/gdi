@@ -32,9 +32,9 @@ export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {
             {
                 id: 'mail',
                 iconName: 'Mail',
-                text: 'Email',
+                text: 'eMail',
                 shortKey: {
-                    key: 'e',
+                    key: 'm',
                 },
             },
             {
@@ -59,6 +59,14 @@ export const pieMenuItems: Partial<IPieMenuConfigPerItemType> = {
                 text: 'add Note',
                 shortKey: {
                     key: 'n',
+                },
+            },
+            {
+                id: 'edit',
+                iconName: 'Edit',
+                text: 'Edit',
+                shortKey: {
+                    key: 'e',
                 },
             },
         ],

@@ -86,6 +86,8 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const callbacksCrud = useMemo(
         () => ({
             onAction: (actionId: string, data?: Json) => {
+                console.log('actionId, data ->', actionId, data);
+
                 switch (actionId) {
                     case 'new':
                         crudCallbacks.createForm();
@@ -103,11 +105,13 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                         crudCallbacks.deleteForm(selectedIds);
                         break;
                     default:
-                        callbacks.onCustomAction(actionId, data);
+                        // callbacks.onCustomAction(actionId, data);
                         break;
                 }
             },
             onItemAction: (id: string, actionId: string, data?: Json) => {
+                console.log('id ->', id, actionId, data);
+
                 if (actionId === 'drillDown') {
                     actionId = options.doubleClickActionId;
                 }
@@ -174,7 +178,7 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                 }
             },
         }),
-        [state, selectedIds, options]
+        [state, selectedIds, options, crudCallbacks]
     );
 
     return (

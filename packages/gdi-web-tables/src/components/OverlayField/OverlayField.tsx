@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useMemo } from 'react';
 import { Tags } from '@gdi/web-base-ui';
-import { IOverlayField } from '../../types';
+import { IOverlayField, ItemActionType } from '../../types';
 import {
     Container,
     DateContainer,
@@ -13,6 +13,7 @@ import { dateShort, timeAgo } from '@gdi/language';
 export type OverlayFieldProps = {
     field: IOverlayField;
     item: Json;
+    onAction: (actionId: ItemActionType, data?: Json) => void;
 };
 
 export function OverlayField(props: OverlayFieldProps) {
@@ -38,7 +39,10 @@ export function FieldTags(props: OverlayFieldProps) {
     }, []);
 
     const onDelete = useCallback((tag: string) => {
-        console.log('tag ->', tag);
+        props.onAction('removeTag', {
+            id: item.id,
+            tag,
+        });
     }, []);
 
     return (

@@ -38,6 +38,7 @@ type IFilterContext = {
         ) => void;
         onFilterClear: () => void;
         onSort: (optionId: string) => void;
+        onChangeTool: (toolId: string) => void;
     };
 };
 
@@ -54,6 +55,7 @@ const initialValue: IFilterContext = {
         tag: '',
         showFilter: false,
         showPreview: false,
+        toolId: '',
         trio: {
             sort: {
                 id: '',
@@ -75,6 +77,7 @@ const initialValue: IFilterContext = {
         onFilter: (filterId: string, optionId: string) => {},
         onFilterClear: () => {},
         onSort: (optionId: string) => {},
+        onChangeTool: (toolId: string) => {},
     },
 };
 
@@ -151,6 +154,9 @@ export const FilterContextProvider = (
             },
             onSort: (optionId: string) => {
                 filterCallbacks.onSort(optionId);
+            },
+            onChangeTool: (toolId: string) => {
+                patchState({ toolId });
             },
         }),
         [state, filterCallbacks]

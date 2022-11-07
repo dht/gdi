@@ -1,10 +1,11 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { collection_all } from 'redux-store-generator';
 import { prompt } from '@gdi/web-base-ui';
 import { DispatchContext } from '../context/Dispatch.context';
 import { guid4 } from 'shared-base';
 import { ICrudOptions } from '../types';
 import { useTranslation } from '@gdi/language';
+import { items } from '../components/Galleries/items';
 
 export function useCrudOperations(
     config: ICrudDefinitions,

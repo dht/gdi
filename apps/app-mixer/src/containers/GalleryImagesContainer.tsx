@@ -11,7 +11,7 @@ export const GalleryImagesContainer = (_props: GalleyImagesContainerProps) => {
 
     const galleryOptions: IGalleryOptions = {
         columns: 5,
-        selectionMode: 'browse',
+        selectionMode: 'none',
     };
 
     const callbacks = useMemo(

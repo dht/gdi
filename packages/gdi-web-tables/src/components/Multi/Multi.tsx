@@ -210,7 +210,7 @@ export const Multi = (props: MultiProps) => {
     return (
         <DispatchContextProvider dispatch={dispatch}>
             <SelectionContextProvider
-                mode={'browse'}
+                mode={'none'}
                 initialValue={[]}
                 onSelectionChange={callbacks.onSelectionChange}
             >

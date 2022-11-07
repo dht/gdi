@@ -36,6 +36,7 @@ declare global {
         iconName?: string;
         secondaryText?: string;
         isGap?: boolean;
+        options?: IOptions;
     };
 
     export type ToastFlavour =

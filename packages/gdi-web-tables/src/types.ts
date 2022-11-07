@@ -229,7 +229,7 @@ export type ITrio = {
     search: ISearchValue;
 };
 
-export type ISelectionMode = 'browse' | 'single' | 'multiple' | 'collection';
+export type ISelectionMode = 'none' | 'choose' | 'single' | 'multiple';
 
 export type IFilterState = {
     header: string;
@@ -239,6 +239,7 @@ export type IFilterState = {
     trio: ITrio;
     allOptions?: Json;
     selectedIds: string[];
+    toolId: string;
 };
 
 export type IFilterField = {

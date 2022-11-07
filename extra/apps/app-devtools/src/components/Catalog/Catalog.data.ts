@@ -1,4 +1,5 @@
 import * as nodes from '@gdi/datasets';
+import { deltaInYears } from '@gdi/language';
 import { getScreenshotThumb, getScreenshot } from 'shared-base';
 
 type Group = {
@@ -39,7 +40,7 @@ export const groups: Group[] = [
     {
         id: 'person',
         title: 'People',
-        data: Object.values(nodes.persons),
+        data: $ppl(nodes.persons),
         tagsOptionsPath: 'ppl.$pplTags',
         order: 3,
         shortKey: {
@@ -391,6 +392,22 @@ function $widgets(state: Json) {
             imageUrl: image.imageUrl,
             imageThumbUrl: thumb.thumbUrl,
             ratio: image.imageRatio,
+        };
+    });
+}
+
+function $ppl(state: Json) {
+    return Object.values(state).map((person) => {
+        const { firstName, lastName, dateOfBirth } = person;
+
+        const fullName = `${firstName} ${lastName}`;
+
+        const age = deltaInYears(new Date(dateOfBirth ?? ''));
+
+        return {
+            ...person,
+            fullName,
+            age,
         };
     });
 }

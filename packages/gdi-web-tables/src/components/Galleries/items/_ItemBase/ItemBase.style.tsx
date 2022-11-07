@@ -27,6 +27,7 @@ export const Container = styled.div.attrs<{
             bottom: 0;
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid gold;
+            pointer-events: none;
         }
     }
 
