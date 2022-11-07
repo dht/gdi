@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import Filters from '../Filters/Filters';
 import Tagger from '../Tagger/Tagger';
 import { Button, Search, Toolbar } from '@gdi/web-base-ui';
@@ -22,7 +22,7 @@ import { useLanguage } from '@gdi/language';
 
 export type FilterBarProps = {
     header: string;
-    tools?: IOption[];
+    tools?: IToolbarItem[];
     onAction: (actionId: string) => void;
     hideParts?: FilterPart[];
 };
@@ -35,11 +35,30 @@ export function FilterBar(props: FilterBarProps) {
     const { t } = useLanguage();
 
     const { state, callbacks, config, data = [] } = context;
-    const { tag, showFilter, trio } = state;
+    const { selectionMode } = contextSelection;
+    const { tag, showFilter, trio, toolId } = state;
     const { search } = trio;
 
     const { state: selectedIds, callbacks: callbacksSelection } =
         contextSelection;
+
+    function onToolBarClick(item: any) {
+        const { id } = item;
+
+        callbacks.onChangeTool(id);
+
+        // selection mode change
+        if (['none', 'single', 'multiple'].includes(id)) {
+            contextSelection.callbacks.onChangeMode(id);
+        }
+    }
+
+    const selectedInnerIds = useMemo(
+        () => ({
+            select: selectionMode,
+        }),
+        [selectionMode]
+    );
 
     function renderSelectedCount() {
         if (selectedIds.length === 0) {
@@ -194,7 +213,9 @@ export function FilterBar(props: FilterBarProps) {
                 horizontal
                 calculatedWidth
                 items={tools}
-                onClick={(item: any) => props.onAction(item.id)}
+                selectedId={toolId}
+                selectedInnerIds={selectedInnerIds}
+                onClick={onToolBarClick}
             />
         );
     }
@@ -219,7 +240,29 @@ export function FilterBar(props: FilterBarProps) {
 
 export default FilterBar;
 
-export const defaultTools: IOption[] = [
+export const defaultTools: IToolbarItem[] = [
+    {
+        id: 'select',
+        text: 'Select',
+        iconName: 'BorderDot',
+        options: [
+            {
+                id: 'none',
+                text: 'None',
+                iconName: 'LocationCircle',
+            },
+            {
+                id: 'single',
+                text: 'Single',
+                iconName: 'BorderDot',
+            },
+            {
+                id: 'multiple',
+                text: 'Multiple',
+                iconName: 'TripleColumn',
+            },
+        ],
+    },
     {
         id: 'edit',
         text: 'Edit',

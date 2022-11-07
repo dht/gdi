@@ -33,6 +33,7 @@ export function useSelection(
             const isEmpty = value.length === 0;
 
             if (!enabled) {
+                clear();
                 return;
             }
 
@@ -50,7 +51,7 @@ export function useSelection(
             } else {
                 // prevent multiple
                 if (!allowMultiple && !isEmpty) {
-                    removeAt(0);
+                    clear();
                 }
 
                 push(id);

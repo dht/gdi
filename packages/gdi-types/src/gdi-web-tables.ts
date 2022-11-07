@@ -218,7 +218,9 @@ declare global {
         sort?: ISortOption[];
     };
 
-    export type IFilterOptions = {};
+    export type IFilterOptions = {
+        isInitiallyOpen?: boolean;
+    };
 
     export type IFilterValue = Record<string, string[]>;
 
@@ -235,20 +237,17 @@ declare global {
         search: ISearchValue;
     };
 
-    export type ISelectionMode =
-        | 'browse'
-        | 'single'
-        | 'multiple'
-        | 'collection';
+    export type ISelectionMode = 'none' | 'choose' | 'single' | 'multiple';
 
     export type IFilterState = {
         header: string;
         tag?: string;
-        showFilter: boolean;
+        showFilter?: boolean;
         showPreview: boolean;
         trio: ITrio;
         allOptions?: Json;
         selectedIds: string[];
+        toolId: string;
     };
 
     export type IFilterField = {

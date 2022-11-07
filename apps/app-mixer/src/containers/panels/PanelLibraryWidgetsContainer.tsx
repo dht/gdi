@@ -11,7 +11,7 @@ export const PanelLibraryWidgetsContainer = (_props: any) => {
     const galleryOptions = useMemo(
         () => ({
             columns: 3,
-            selectionMode: 'browse',
+            selectionMode: 'choose',
             hideOverlay: true,
         }),
         []

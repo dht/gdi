@@ -4,14 +4,6 @@ export const Container = styled.div`
     flex: 1;
 `;
 
-export const Title = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
-    font-size: 30px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
-`;
-
 export const DateContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -33,4 +25,20 @@ export const DateDelta = styled.div`
     padding: 2px 5px;
     margin-top: 5px;
     border-radius: 3px;
+`;
+
+export const Title = styled.div`
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    white-space: nowrap;
+`;
+
+export const TitleLarge = styled.div`
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
 `;

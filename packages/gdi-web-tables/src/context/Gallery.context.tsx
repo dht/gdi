@@ -44,7 +44,7 @@ const initialValue: IGalleryContext = {
     configOverlay: { id: '', fields: [] } as any,
     options: {
         columns: 3,
-        selectionMode: 'browse',
+        selectionMode: 'none',
     },
     callbacks: {
         onClick: (id: string, item: IItem) => {},
@@ -91,6 +91,8 @@ export const GalleryContextProvider = (
     const callbacksGallery = useMemo(
         () => ({
             onClick: (id: string, item: IItem) => {
+                console.log('tag ->', tag);
+
                 if (tag) {
                     const actionId = item.tags.includes(tag)
                         ? 'removeTag'
@@ -111,6 +113,16 @@ export const GalleryContextProvider = (
             },
             onAction: (actionId: ItemActionType, data?: Json) => {
                 // props.onAction(actionId, data);
+                console.log('actionId, data ->', actionId, data);
+
+                switch (actionId) {
+                    case 'addTag':
+                        callbacks.onItemAction(data?.id, actionId, data);
+                        break;
+                    case 'removeTag':
+                        callbacks.onItemAction(data?.id, actionId, data);
+                        break;
+                }
             },
             onMouseEvent: (ev: MouseEv) => {
                 const data = {

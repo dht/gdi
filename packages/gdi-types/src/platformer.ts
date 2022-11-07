@@ -115,9 +115,9 @@ declare global {
 
     export type IPlatformState = {
         isReady: boolean;
-        noServerMode?: boolean;
-        locale: string;
+        languageCode: LanguageIso;
         isRtl: boolean;
+        noServerMode?: boolean;
         routes: IRoutes;
         initialRoute: string;
         accountName: string;
@@ -164,6 +164,8 @@ declare global {
         activeApps: string[];
         menuSections: string[];
         noServerMode?: boolean;
+        languageCode: LanguageIso;
+        isRtl: boolean;
     };
 
     export type GoogleUser = Json & {
@@ -248,7 +250,7 @@ declare global {
 
     /*************** IDefinitionsBuilder ***************/
     export interface IDefinitionsBuilder {
-        withDefinitions: (definitions: Partial<ICrudDefinitionsPerItemType>) => IDefinitionsBuilder; // prettier-ignore
+        withDefinitions: (appId: string, definitions: Partial<ICrudDefinitionsPerItemType>) => IDefinitionsBuilder; // prettier-ignore
         build: () => ICrudDefinitionsPerItemType;
     }
 

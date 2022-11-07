@@ -20,7 +20,7 @@ export function AllProviders(props: AllProvidersProps) {
 
     return (
         <SelectionContextProvider
-            mode={'browse'}
+            initialMode='none'
             initialValue={[]}
             onSelectionChange={callbacks.onSelectionChange}
         >

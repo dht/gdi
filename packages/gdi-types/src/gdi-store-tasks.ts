@@ -39,6 +39,7 @@ declare global {
         projectType?: string;
         color?: string;
         order?: number;
+        tags: string[];
     };
 
     export type ITicket = {

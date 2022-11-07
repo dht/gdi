@@ -59,9 +59,9 @@ export function ItemBase(props: ItemBaseProps) {
     return (
         <Container
             style={style}
+            // @ts-expect-error
             backgroundColor={backgroundColor}
             onMouseDown={onClick}
-            // @ts-expect-error
             onTouchStart={onClick}
             className={className}
             onDoubleClick={onDoubleClick}

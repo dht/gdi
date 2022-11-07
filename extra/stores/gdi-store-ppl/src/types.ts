@@ -45,6 +45,9 @@ export type IPerson = {
     tier?: number;
     gender?: string;
     category: string;
+
+    // transient
+    fullName?: string;
 };
 
 export type IDataField = {

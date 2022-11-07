@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Icon } from '@gdi/web-base-ui';
 import { IGalleryOptions, IOverlayConfig, IOverlayField } from '../../types';
 import {
@@ -11,6 +11,7 @@ import {
 import classnames from 'classnames';
 import OverlayField from '../OverlayField/OverlayField';
 import { filter } from 'lodash';
+import { GalleryContext } from '../../context/Gallery.context';
 
 export type GenericOverlayProps = {
     config: IOverlayConfig;
@@ -23,6 +24,8 @@ export function GenericOverlay(props: GenericOverlayProps) {
     const { item, isSelected, options, config } = props;
     const { fields = [], paddingBottom } = config;
     const { hideOverlay } = options ?? {};
+
+    const context = useContext(GalleryContext);
 
     const className = classnames(
         'GenericOverlay-container',
@@ -39,7 +42,14 @@ export function GenericOverlay(props: GenericOverlayProps) {
     }
 
     function renderField(field: IOverlayField) {
-        return <OverlayField key={field.id} field={field} item={item} />;
+        return (
+            <OverlayField
+                key={field.id}
+                field={field}
+                item={item}
+                onAction={context.callbacks.onAction}
+            />
+        );
     }
 
     function renderFields(locationKey: string) {

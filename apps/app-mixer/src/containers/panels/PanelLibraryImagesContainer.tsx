@@ -10,7 +10,7 @@ export const PanelLibraryImagesContainer = (_props: any) => {
 
     const galleryOptions: IGalleryOptions = {
         columns: 3,
-        selectionMode: 'browse',
+        selectionMode: 'none',
         hideOverlay: true,
     };
 
