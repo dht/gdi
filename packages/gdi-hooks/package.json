@@ -1,13 +1,13 @@
 {
     "name": "@gdi/hooks",
-    "version": "0.0.28",
+    "version": "0.0.30",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/language": "^0.0.23",
+        "@gdi/language": "^0.0.26",
         "@gdi/types": "^0.0.47",
         "fuse.js": "^6.6.2",
         "lodash": "^4.17.21",

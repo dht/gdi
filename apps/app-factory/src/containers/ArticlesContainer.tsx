@@ -26,6 +26,7 @@ export const ArticlesContainer = () => {
             data={articles}
             callbacks={callbacks}
             allOptions={allOptions}
+            tags={allOptions.$articleTags}
             dispatch={dispatch}
         />
     );

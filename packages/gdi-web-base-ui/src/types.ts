@@ -13,6 +13,9 @@ export type IOption = {
     value?: string | number | boolean;
     min?: number;
     max?: number;
+    isExtra?: boolean;
+    isGap?: boolean;
+    options?: IOptions;
 };
 
 export type IOptions = IOption[];
@@ -22,16 +25,6 @@ export type SwitchOption = {
     label?: string;
     iconName?: string;
     hint?: string;
-};
-
-export type IToolbarItem = {
-    id: string;
-    text?: string;
-    textKey?: string;
-    iconName?: string;
-    secondaryText?: string;
-    isGap?: boolean;
-    options?: IOptions;
 };
 
 export type ToastFlavour =

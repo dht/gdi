@@ -38,9 +38,21 @@ export const Container = styled.div.attrs<{
     }
 
     &.focused {
-        border: 5px solid gold;
         z-index: 999;
         transform: scale(1.1);
+        transition: transform 0.2s ease-in-out;
+
+        &:after {
+            content: '';
+            position: absolute;
+            ${(props) => props.theme.left(0)}
+            ${(props) => props.theme.right(0)}
+            top: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 5px solid gold;
+            pointer-events: none;
+        }
     }
 `;
 

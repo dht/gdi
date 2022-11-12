@@ -9,6 +9,7 @@ import gallery from './json/d.gallery.products.json';
 import overlay from './json/d.overlay.products.json';
 import sheet from './json/d.sheet.products.json';
 import table from './json/d.table.products.json';
+import multiBar from './json/d.multiBar.products.json';
 import timeline from './json/d.timeline.products.json';
 import { itemStructure } from './d.itemStructure.products';
 
@@ -26,5 +27,6 @@ export const definitions: ICrudDefinitions = {
     timeline,
     formNewDefault,
     bucket,
+    multiBar,
     itemStructure,
 };

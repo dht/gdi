@@ -53,7 +53,15 @@ export const PanelLibraryWidgetsContainer = (_props: any) => {
             items={items}
             callbacks={callbacks}
             galleryOptions={galleryOptions}
-            hideParts={['tagging', 'search', 'filter']}
+            hideParts={[
+                'header',
+                'buttons',
+                'preview',
+                'filter',
+                'search',
+                'tagging',
+                'tools',
+            ]}
         />
     );
 };

@@ -173,15 +173,12 @@ export const Table = (props: any) => {
             key={group.id}
             id={group.id}
             itemType={group.id}
-            header={header}
             data={group.data}
             callbacks={{} as any}
             definitions={definitions}
-            initialViewMode={'table'}
             dispatch={dispatch}
             allOptions={allOptions}
             tags={tags}
-            hideParts={['preview']}
         />
     );
 };
@@ -195,15 +192,12 @@ export const Gallery = (props: any) => {
             key={group.id}
             id={group.id}
             itemType={group.id}
-            header={header}
             data={group.data}
             callbacks={{} as any}
             definitions={definitions}
-            initialViewMode={'gallery'}
             dispatch={dispatch}
             allOptions={allOptions}
             tags={tags}
-            hideParts={['preview']}
         />
     );
 };
@@ -217,15 +211,12 @@ export const Spreadsheet = (props: any) => {
             key={group.id}
             id={group.id}
             itemType={group.id}
-            header={header}
             data={group.data}
             callbacks={{} as any}
             definitions={definitions}
-            initialViewMode={'spreadsheet'}
             dispatch={dispatch}
             allOptions={allOptions}
             tags={tags}
-            hideParts={['preview']}
         />
     );
 };
@@ -239,15 +230,12 @@ export const Timeline = (props: any) => {
             key={group.id}
             id={group.id}
             itemType={group.id}
-            header={header}
             data={group.data}
             callbacks={{} as any}
             definitions={definitions}
-            initialViewMode={'timeline'}
             dispatch={dispatch}
             allOptions={allOptions}
             tags={tags}
-            hideParts={['preview']}
         />
     );
 };
@@ -261,15 +249,12 @@ export const Calendar = (props: any) => {
             key={group.id}
             id={group.id}
             itemType={group.id}
-            header={header}
             data={group.data}
             callbacks={{} as any}
             definitions={definitions}
-            initialViewMode={'calendar'}
             dispatch={dispatch}
             allOptions={allOptions}
             tags={tags}
-            hideParts={['preview']}
         />
     );
 };
@@ -287,11 +272,9 @@ export const Buckets = (props: any) => {
             data={group.data}
             callbacks={{} as any}
             definitions={definitions}
-            initialViewMode={'buckets'}
             dispatch={dispatch}
             allOptions={allOptions}
             tags={tags}
-            hideParts={['preview']}
         />
     );
 };

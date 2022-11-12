@@ -1,16 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Container, Gap, Item } from './Toolbar.style';
-import { IconButton } from '@fluentui/react';
-import { IToolbarItem } from '../../types';
+import { IconButton, IContextualMenuProps } from '@fluentui/react';
+import { IOption } from '../../types';
 
 export type ToolbarProps = {
-    items: IToolbarItem[];
+    items: IOption[];
     selectedId?: string;
     selectedInnerIds?: Json;
     horizontal?: boolean;
     calculatedWidth?: boolean;
-    onClick: (item: IToolbarItem) => void;
+    onClick: (item: IOption, isExtra?: boolean) => void;
 };
 
 export function Toolbar(props: ToolbarProps) {
@@ -28,7 +28,7 @@ export function Toolbar(props: ToolbarProps) {
         style = {};
     }
 
-    function renderItemWithOptions(item: IToolbarItem) {
+    function renderItemWithOptions(item: IOption) {
         let { id, text, iconName, options = [] } = item;
 
         const menuProps: IContextualMenuProps = {
@@ -36,7 +36,7 @@ export function Toolbar(props: ToolbarProps) {
                 key: option.id,
                 text: option.text,
                 iconProps: { iconName: option.iconName },
-                onClick: () => props.onClick(option),
+                onClick: () => props.onClick(option, true),
             })),
             directionalHintFixed: true,
         };
@@ -66,7 +66,7 @@ export function Toolbar(props: ToolbarProps) {
         );
     }
 
-    function renderItem(item: IToolbarItem) {
+    function renderItem(item: IOption) {
         if (item.isGap) {
             return <Gap key={item.id} />;
         }
@@ -93,7 +93,24 @@ export function Toolbar(props: ToolbarProps) {
     }
 
     function renderItems() {
-        return items.map((item: IToolbarItem) => renderItem(item));
+        return items
+            .filter((item) => !item.isExtra)
+            .map((item: IOption) => renderItem(item));
+    }
+
+    function renderExtraItems() {
+        const itemsExtra = items.filter((item) => item.isExtra);
+
+        if (itemsExtra.length === 0) {
+            return null;
+        }
+
+        return renderItemWithOptions({
+            id: 'more',
+            iconName: 'MoreVertical',
+            text: 'More',
+            options: itemsExtra,
+        });
     }
 
     const className = classnames('Toolbar-container', { horizontal });
@@ -106,6 +123,7 @@ export function Toolbar(props: ToolbarProps) {
             style={style}
         >
             {renderItems()}
+            {renderExtraItems()}
         </Container>
     );
 }

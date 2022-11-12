@@ -1,0 +1,36 @@
+id: PageInstancesMultiBar
+header: Page
+initialViewMode: custom
+viewModes:
+    - custom
+    - custom2
+hideParts:
+    - preview
+tools:
+    - id: back
+      text: Back
+      iconName: Back
+    - id: gap1
+      isGap: true
+    - id: versions
+      text: Page versions
+      iconName: WaffleOffice365
+    - id: preview
+      text: Show preview
+      iconName: OpenInNewTab
+    - id: gap2
+      isGap: true
+    - id: promoteInstance
+      text: Promote page
+      iconName: DoubleChevronUp8
+      isExtra: true
+    - id: download
+      text: Download JSON
+      iconName: Download
+      isExtra: true
+    - id: import
+      text: Import JSON
+      iconName: Upload
+      isExtra: true
+toolbarMode: actions
+doubleClickActionId: drillDown

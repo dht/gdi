@@ -244,3 +244,9 @@ export const Overlay = styled.div`
         }
     }
 `;
+
+export const Content = styled.div`
+    overflow-y: auto;
+    margin-bottom: 150px;
+    max-height: calc(100vh - 180px);
+`;

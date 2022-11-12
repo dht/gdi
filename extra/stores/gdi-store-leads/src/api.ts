@@ -5,7 +5,7 @@ export const endpointsConfigOverrides = {
     },
     leads: {
         id: 'leads',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
 };

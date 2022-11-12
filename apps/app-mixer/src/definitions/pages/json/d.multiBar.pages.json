@@ -1,0 +1,61 @@
+{
+    "id": "PagesMultiBar",
+    "header": "Pages",
+    "initialViewMode": "gallery",
+    "viewModes": [
+        "gallery",
+        "table",
+        "spreadsheet"
+    ],
+    "hideParts": [
+        "preview"
+    ],
+    "tools": [
+        {
+            "id": "select",
+            "text": "Select",
+            "iconName": "BorderDot",
+            "options": [
+                {
+                    "id": "none",
+                    "text": "None",
+                    "iconName": "LocationCircle"
+                },
+                {
+                    "id": "single",
+                    "text": "Single",
+                    "iconName": "BorderDot"
+                },
+                {
+                    "id": "multiple",
+                    "text": "Multiple",
+                    "iconName": "TripleColumn"
+                }
+            ]
+        },
+        {
+            "id": "edit",
+            "text": "Edit",
+            "iconName": "Edit"
+        },
+        {
+            "id": "delete",
+            "text": "Delete",
+            "iconName": "Delete"
+        },
+        {
+            "id": "download",
+            "text": "Download JSON",
+            "iconName": "Download",
+            "isExtra": true
+        },
+        {
+            "id": "import",
+            "text": "Import JSON",
+            "iconName": "Upload",
+            "isExtra": true
+        }
+    ],
+    "toolbarMode": "select",
+    "doubleClickActionId": "drillDown"
+}

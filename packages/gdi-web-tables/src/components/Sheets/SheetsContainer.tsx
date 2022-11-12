@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { guid4 } from 'shared-base';
 import { Sheets } from './Sheets';
+import { useMemo } from '@gdi/hooks';
 
 type SheetsContainerProps = {
     dispatch: (action: Action) => void;

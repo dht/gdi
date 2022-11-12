@@ -1,5 +1,7 @@
-import React, { FC, useContext, useMemo } from 'react';
+import React, { FC } from 'react';
+import Buckets from '../Buckets/Buckets';
 import FilterBar from '../FilterBar/FilterBar';
+import PreviewModal from '../PreviewModal/PreviewModal';
 import Sheet from '../Sheet/Sheet';
 import Table from '../Table/Table';
 import Timeline from '../Timeline/Timeline';
@@ -8,15 +10,14 @@ import { Container } from './Multi.style';
 import { CrudContext, CrudContextProvider } from '../../context/Crud.context';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
-import { ItemType } from '../../types';
+import { ItemType, ToolbarMode } from '../../types';
 import { MultiViews } from './Multi.views';
 import { SelectionContextProvider } from '../../context/Selection.context';
+import { useContext, useMemo } from '@gdi/hooks';
 import {
     FilterContext,
     FilterContextProvider,
 } from '../../context/Filter.context';
-import Buckets from '../Buckets/Buckets';
-import PreviewModal from '../PreviewModal/PreviewModal';
 
 export type MultiProps = {
     id: string;
@@ -29,18 +30,13 @@ export type MultiProps = {
         onSelectionChange: (ids: string[]) => void;
         onCustomAction: (actionId: string, data?: Json) => void;
     };
-    tools?: IOption[];
     allOptions?: Json;
     customView?: FC<any>;
     customView2?: FC<any>;
-    dispatch: any;
-    viewModes?: IViewMode[];
-    initialViewMode?: IViewMode;
-    hideParts?: FilterPart[];
     allMethods?: any;
     newDataExtra?: Json;
-    doubleClickActionId?: string;
     tags?: IOptions;
+    dispatch: any;
 };
 
 export function MultiInner(props: MultiProps) {
@@ -50,24 +46,17 @@ export function MultiInner(props: MultiProps) {
         allOptions,
         customView: CustomView,
         customView2: CustomView2,
-        viewModes,
-        header,
         itemType,
-        tools,
-        hideParts,
-        initialViewMode,
     } = props;
 
     const contextFilter = useContext(FilterContext);
     const contextCrud = useContext(CrudContext);
 
-    const { data = [] } = contextFilter;
+    const { data = [], multiBar } = contextFilter;
     const { state, patchState, callbacks, config } = contextCrud;
 
     const customViewExists = typeof CustomView !== 'undefined';
     const customView2Exists = typeof CustomView2 !== 'undefined';
-
-    const isCustomView = state.viewMode === 'custom' || state.viewMode === 'custom2'; // prettier-ignore
 
     function onChangeViewMode(viewMode: string) {
         patchState({ viewMode: viewMode as any });
@@ -160,16 +149,11 @@ export function MultiInner(props: MultiProps) {
 
     return (
         <Container className='Multi-container' data-testid='Multi-container'>
-            <FilterBar
-                header={(header || config.table.header) ?? ''}
-                tools={tools}
-                onAction={callbacks.onAction}
-                hideParts={hideParts}
-            />
+            <FilterBar onAction={callbacks.onAction} />
             {renderInner()}
             {renderPreview()}
             <MultiViews
-                modes={viewModes}
+                modes={multiBar.viewModes}
                 value={state.viewMode}
                 customViewExists={customViewExists}
                 customView2Exists={customView2Exists}
@@ -186,21 +170,28 @@ export const Multi = (props: MultiProps) => {
         callbacks,
         allOptions,
         dispatch,
-        initialViewMode,
         definitions,
-        allMethods = {},
-        newDataExtra = {},
-        doubleClickActionId = 'drillDown',
         tags = [],
     } = props;
 
     const optionsFilter = useMemo(() => ({}), []);
 
+    const allMethods = useMemo(() => {
+        return props.allMethods || {};
+    }, [props.allMethods]);
+
+    const newDataExtra = useMemo(() => {
+        return props.newDataExtra || {};
+    }, [props.newDataExtra]);
+
+    const allDetails = useMemo(() => {
+        return {};
+    }, []);
+
     const optionsCrud = useMemo(
         () => ({
-            doubleClickActionId,
             allOptions,
-            allDetails: {},
+            allDetails,
             allMethods,
             newDataExtra,
         }),
@@ -210,15 +201,16 @@ export const Multi = (props: MultiProps) => {
     return (
         <DispatchContextProvider dispatch={dispatch}>
             <SelectionContextProvider
-                mode={'none'}
+                initialMode='none'
                 initialValue={[]}
                 onSelectionChange={callbacks.onSelectionChange}
             >
                 <FilterContextProvider
                     data={data}
                     config={definitions.filters}
-                    options={optionsFilter}
+                    multiBar={definitions.multiBar}
                     allOptions={allOptions}
+                    options={optionsFilter}
                     tags={tags}
                 >
                     <CrudContextProvider
@@ -227,7 +219,6 @@ export const Multi = (props: MultiProps) => {
                         config={definitions}
                         options={optionsCrud}
                         callbacks={callbacks}
-                        initialViewMode={initialViewMode}
                     >
                         <MultiInner {...props} />
                     </CrudContextProvider>

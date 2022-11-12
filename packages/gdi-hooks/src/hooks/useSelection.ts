@@ -33,7 +33,6 @@ export function useSelection(
             const isEmpty = value.length === 0;
 
             if (!enabled) {
-                clear();
                 return;
             }
 

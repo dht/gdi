@@ -10,6 +10,7 @@ import overlay from './json/d.overlay.layouts.json';
 import sheet from './json/d.sheet.layouts.json';
 import table from './json/d.table.layouts.json';
 import timeline from './json/d.timeline.layouts.json';
+import multiBar from './json/d.multiBar.layouts.json';
 import { itemStructure } from './d.itemStructure.layouts';
 
 export const definitions: ICrudDefinitions = {
@@ -25,5 +26,6 @@ export const definitions: ICrudDefinitions = {
     timeline,
     formNewDefault,
     bucket,
+    multiBar,
     itemStructure,
 };

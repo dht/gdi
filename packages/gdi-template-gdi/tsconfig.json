@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["ES2020", "dom"],
+        "jsx": "react-jsx",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist/dts",
+        "strict": true,
+        "skipLibCheck": true,
+        "types": ["types-base", "@gdi/types", "@types/jest"],
+        "baseUrl": "../../",
+        "paths": {
+            "@gdi/photo-booth": ["packages/gdi-photo-booth"],
+            "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
+            "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/hooks": ["packages/gdi-hooks"],
+            "@gdi/engine": ["packages/gdi-engine"],
+            "shared-base": ["submodules/shared-base"]
+        }
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.png", "src/**/*.webp"]
+}

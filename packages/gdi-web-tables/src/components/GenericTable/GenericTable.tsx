@@ -1,7 +1,8 @@
-import React, { useMemo, useRef } from 'react';
+import React from 'react';
 import { Container, Empty, Item } from './GenericTable.style';
 import { FixedSizeList } from 'react-window';
 import { useBoundingClientRect } from '../../utils/useBoundingClientRect';
+import { useMemo, useRef } from '@gdi/hooks';
 
 export type GenericTableProps = {
     data: Json[];

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React from 'react';
 import Filters from '../Filters/Filters';
 import Tagger from '../Tagger/Tagger';
 import { Button, Search, Toolbar } from '@gdi/web-base-ui';
@@ -19,33 +19,37 @@ import {
     HeaderText,
 } from './FilterBar.style';
 import { useLanguage } from '@gdi/language';
+import { useContext, useMemo } from '@gdi/hooks';
 
 export type FilterBarProps = {
-    header: string;
-    tools?: IToolbarItem[];
     onAction: (actionId: string) => void;
     hideParts?: FilterPart[];
 };
 
 export function FilterBar(props: FilterBarProps) {
-    const { header, tools = defaultTools, hideParts = [] } = props;
-
     const context = useContext(FilterContext);
     const contextSelection = useContext(SelectionContext);
     const { t } = useLanguage();
 
-    const { state, callbacks, config, data = [] } = context;
+    const { state, callbacks, config, data = [], multiBar } = context;
     const { selectionMode } = contextSelection;
     const { tag, showFilter, trio, toolId } = state;
+    const { header, tools = [], toolbarMode } = multiBar;
     const { search } = trio;
+
+    const hideParts = props.hideParts ?? multiBar.hideParts ?? [];
 
     const { state: selectedIds, callbacks: callbacksSelection } =
         contextSelection;
 
-    function onToolBarClick(item: any) {
+    function onToolBarClick(item: any, isExtra?: boolean) {
         const { id } = item;
 
-        callbacks.onChangeTool(id);
+        if (toolbarMode === 'select' && !isExtra) {
+            callbacks.onChangeTool(id);
+        } else {
+            props.onAction(id);
+        }
 
         // selection mode change
         if (['none', 'single', 'multiple'].includes(id)) {
@@ -240,7 +244,7 @@ export function FilterBar(props: FilterBarProps) {
 
 export default FilterBar;
 
-export const defaultTools: IToolbarItem[] = [
+export const defaultTools: IOption[] = [
     {
         id: 'select',
         text: 'Select',

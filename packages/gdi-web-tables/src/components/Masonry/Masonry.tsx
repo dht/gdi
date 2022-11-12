@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
+import React, { FC } from 'react';
 import MasonryItem from '../Galleries/items/ItemImage/ItemImage';
 import { Backdrop, Container, Content, Expander } from './Masonry.style';
 import { IImage } from '../../types';
@@ -6,6 +6,7 @@ import { throttle } from 'lodash';
 import { useWindowSize } from 'react-use';
 import { useTheme } from 'styled-components';
 import classnames from 'classnames';
+import { useEffect, useMemo, useRef, useState } from '@gdi/hooks';
 
 const VIRTUALIZED_SCROLL_GUTTER = 600;
 const VIRTUALIZED_ITEMS_COUNT = 100;
@@ -213,9 +214,8 @@ export function Masonry(props: MasonryProps) {
         <Container
             className='Masonry-container'
             data-testid='Masonry-container'
-            ref={ref}
         >
-            <Content>
+            <Content ref={ref}>
                 {renderExpander()}
                 {renderItems()}
             </Content>

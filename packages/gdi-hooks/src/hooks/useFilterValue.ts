@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useSetState } from 'react-use';
+import { useMemo } from './useMemo';
 
 type UseFilterValueCallbacks = {
     onSearch: (value?: string) => void;
@@ -79,16 +80,21 @@ export function useFilterValue(config: IFilterConfig): UseFilterValueReturn {
                 });
             },
         }),
-        [search, sort, idsPerFilter]
+        [search, sort, idsPerFilter],
+        'useFilterValue|search,sort,idsPerFilter'
     );
 
-    const value = useMemo(() => {
-        return {
-            search,
-            sort,
-            filter: idsPerFilter,
-        };
-    }, [search, sort, idsPerFilter]);
+    const value = useMemo(
+        () => {
+            return {
+                search,
+                sort,
+                filter: idsPerFilter,
+            };
+        },
+        [search, sort, idsPerFilter],
+        'useFilterValue|value'
+    );
 
     return [value, callbacks];
 }

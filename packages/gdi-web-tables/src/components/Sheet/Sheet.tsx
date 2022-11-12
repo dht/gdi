@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo } from 'react';
+import React from 'react';
 import {
     SheetContext,
     SheetContextProvider,
@@ -6,6 +6,7 @@ import {
 import SheetHeader from '../SheetHeader/SheetHeader';
 import SheetRow from '../SheetRow/SheetRow';
 import { Body, Container } from './Sheet.style';
+import { useContext, useEffect, useMemo } from '@gdi/hooks';
 
 export type SheetProps = {
     config: ISheetConfig;

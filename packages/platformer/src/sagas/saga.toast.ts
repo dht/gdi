@@ -4,7 +4,7 @@ import { toast } from '@gdi/web-base-ui';
 type ToastAction = {
     type: 'SHOW_TOAST';
     flavour?: 'error' | 'success' | 'warning' | 'info' | 'custom' | 'promise';
-    message: string;
+    message: string | string[];
     promise?: Promise<any>;
 };
 

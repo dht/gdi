@@ -8,9 +8,6 @@ export const Container = styled.div<{ colors: InstallationColors }>`
     height: 600px;
     display: flex;
     --grid: rgba(0, 0, 0, 0.15);
-    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 25px 25px;
     color: #334;
 
     @media (max-width: 768px) {

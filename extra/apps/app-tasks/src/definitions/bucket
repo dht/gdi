@@ -1,0 +1,9 @@
+  toast.show(
+            [
+                'importing 134 images',
+                'successfully imported 134 images',
+                'failed to import all images',
+            ],
+            'promise',
+            delay(10000)
+        );

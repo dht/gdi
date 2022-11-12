@@ -1,8 +1,9 @@
-import React, { useMemo, useRef } from 'react';
+import React from 'react';
 import Draggable from 'react-draggable';
 import { ContainerViews } from './Multi.style';
 import { Switch } from '@gdi/web-base-ui';
 import { useFunctionKeys } from '@gdi/hooks';
+import { useMemo, useRef } from '@gdi/hooks';
 
 export type MultiViewsProps = {
     value: string;

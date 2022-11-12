@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import GenericGallery from '../GenericGallery/GenericGallery';
 import { Container } from './styles';
 import { items } from './items';
 import { ItemType, IGalleryOptions } from '../../types';
+import { useMemo } from '@gdi/hooks';
 
 export type AnyGalleryProps = {
     items: IImage[];

@@ -7,7 +7,6 @@ export const A3 = {};
 declare global {
     export type IDevtoolsStore = StoreStructure & {
         appStateDevtools: IDevtoolsState;
-        stores: IStores;
     };
 
     export type IDevtoolsState = {
@@ -15,11 +14,4 @@ declare global {
         currentNodeId: string;
         isOn: boolean;
     };
-
-    export type IStore = {
-        id: string;
-        color: string;
-    };
-
-    export type IStores = Record<string, IStore>;
 }

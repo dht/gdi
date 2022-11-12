@@ -14,7 +14,7 @@
         "firebase": "^9.9.3"
     },
     "dependencies": {
-        "@gdi/language": "^0.0.23",
+        "@gdi/language": "^0.0.26",
         "@gdi/platformer": "^0.0.22",
         "@gdi/web-ui": "^0.0.26",
         "firebaseui": "^6.0.1"

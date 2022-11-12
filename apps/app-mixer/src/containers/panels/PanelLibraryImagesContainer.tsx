@@ -10,7 +10,7 @@ export const PanelLibraryImagesContainer = (_props: any) => {
 
     const galleryOptions: IGalleryOptions = {
         columns: 3,
-        selectionMode: 'none',
+        selectionMode: 'choose',
         hideOverlay: true,
     };
 
@@ -50,7 +50,15 @@ export const PanelLibraryImagesContainer = (_props: any) => {
             galleryOptions={galleryOptions}
             items={items}
             callbacks={callbacks}
-            hideParts={['tagging', 'search', 'filter']}
+            hideParts={[
+                'header',
+                'buttons',
+                'preview',
+                'filter',
+                'search',
+                'tagging',
+                'tools',
+            ]}
         />
     );
 };

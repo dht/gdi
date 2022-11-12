@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Container, Title, Item, Items, A, X } from './FilterAuto.style';
 import classnames from 'classnames';
 import { Button, Dropdown, Icon } from '@gdi/web-base-ui';
+import { useMemo } from '@gdi/hooks';
 
 export type FilterAutoProps = {
     filter: IFilterField;

@@ -52,6 +52,7 @@ declare global {
         formNewDefault?: Json;
         formEdit: IFormConfig;
         filters: IFilterConfig;
+        multiBar: IMultiBarConfig;
         gallery?: IGalleryConfig;
         calendar?: ICalendarConfig;
         timeline?: ITimelineConfig;
@@ -85,9 +86,7 @@ declare global {
         | 'custom'
         | 'custom2';
 
-    export type ICrudState = {
-        viewMode: IViewMode;
-    };
+    export type ICrudState = {};
 
     export type ISheetConfig = IFormConfig;
 
@@ -273,6 +272,16 @@ declare global {
         direction: 'asc' | 'desc';
     };
 
+    export type IMultiBarConfig = {
+        header?: string;
+        viewModes?: IViewMode[];
+        initialViewMode?: IViewMode;
+        hideParts?: FilterPart[];
+        tools?: IOption[];
+        toolbarMode?: ToolbarMode;
+        doubleClickActionId?: string;
+    };
+
     // ================== Overlays ==================
     export type OverlayType = 'absolute' | 'centered';
 
@@ -336,4 +345,6 @@ declare global {
         titleFieldId: string;
         permutations: IBucketsPermutation[];
     };
+
+    export type ToolbarMode = 'tools' | 'actions';
 }

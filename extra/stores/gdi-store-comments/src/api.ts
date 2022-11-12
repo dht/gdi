@@ -5,7 +5,7 @@ export const endpointsConfigOverrides = {
     },
     comments: {
         id: 'comments',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
 };

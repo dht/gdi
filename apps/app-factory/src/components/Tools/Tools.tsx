@@ -5,7 +5,7 @@ import { Toolbar } from '@gdi/web-ui';
 import KeyboardShortcuts from '../KeyboardShortcuts/KeyboardShortcuts';
 
 export type ToolsProps = {
-    onClick: (item: IToolbarItem) => void;
+    onClick: (item: IOption) => void;
 };
 
 export function Tools(props: ToolsProps) {

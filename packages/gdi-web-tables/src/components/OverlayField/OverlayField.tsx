@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback } from 'react';
 import { Tags } from '@gdi/web-base-ui';
 import { IOverlayField, ItemActionType } from '../../types';
 import {
@@ -9,6 +9,7 @@ import {
     Title,
 } from './OverlayField.style';
 import { dateShort, timeAgo } from '@gdi/language';
+import { useMemo } from '@gdi/hooks';
 
 export type OverlayFieldProps = {
     field: IOverlayField;
@@ -34,16 +35,17 @@ export function OverlayField(props: OverlayFieldProps) {
 export function FieldTags(props: OverlayFieldProps) {
     const { field, item } = props;
 
-    const value = useMemo(() => {
-        return item[field.fieldId];
-    }, []);
+    const value = item[field.fieldId];
 
-    const onDelete = useCallback((tag: string) => {
-        props.onAction('removeTag', {
-            id: item.id,
-            tag,
-        });
-    }, []);
+    const onDelete = useCallback(
+        (tag: string) => {
+            props.onAction('removeTag', {
+                id: item.id,
+                tag,
+            });
+        },
+        [value]
+    );
 
     return (
         <>

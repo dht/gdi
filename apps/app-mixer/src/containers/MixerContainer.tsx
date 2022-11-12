@@ -30,7 +30,12 @@ export const MixerContainer = () => {
                 // console.log('ids ->', ids);
             },
             onCustomAction: (actionId: string, _data?: Json) => {
+                console.log('actionId ->', actionId);
+
                 switch (actionId) {
+                    case 'back':
+                        invokeEvent('navigate', { path: '/admin/pages' });
+                        break;
                     case 'editPage':
                         dispatch({ type: 'EDIT_PAGE' });
                         break;
@@ -54,13 +59,16 @@ export const MixerContainer = () => {
                         );
                         break;
                     case 'preview':
-                        popup = window.open(
+                        const popup = window.open(
                             document.location.origin + '/preview',
                             '_blank'
                         );
                         break;
                     case 'download':
-                        dispatch({ type: 'EXPORT_SITE' });
+                        dispatch({ type: 'EXPORT_PAGE' });
+                        break;
+                    case 'import':
+                        dispatch({ type: 'EXPORT_PAGE' });
                         break;
                 }
             },

@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { Container } from './Mixer.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
-import { useLanguage } from '@gdi/language';
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type MixerProps = {
@@ -12,6 +11,7 @@ export type MixerProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     dispatch: Dispatch;
     customView?: React.FC<any>;
@@ -19,79 +19,25 @@ export type MixerProps = {
 };
 
 export function Mixer(props: MixerProps) {
-    const {
-        header,
-        data,
-        callbacks,
-        allOptions,
-        dispatch,
-        customView,
-        customView2,
-    } = props;
-    const crudDefinitions = useCrudDefinitions('article');
-
-    const translatedTools = useMemo(() => {
-        // return translateItems(tools, null, t);
-    }, [tools]);
+    const { data, callbacks, allOptions, dispatch, customView, customView2 } =
+        props;
+    const crudDefinitions = useCrudDefinitions('pageInstance');
 
     return (
         <Container className='Mixer-container' data-testid='Mixer-container'>
             <Multi
                 id='PageInstances'
                 itemType='pageInstance'
-                header={header}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}
-                viewModes={['custom', 'custom2']}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                tools={tools}
                 customView={customView}
                 customView2={customView2}
-                hideParts={['preview']}
             />
         </Container>
     );
 }
-
-const tools: IToolbarItem[] = [
-    {
-        id: 'editPage',
-        textKey: 'Edit',
-        iconName: 'Edit',
-    },
-
-    {
-        id: 'versions',
-        textKey: 'Page versions',
-        iconName: 'WaffleOffice365',
-    },
-    {
-        id: 'gap1',
-        isGap: true,
-    },
-    {
-        id: 'download',
-        textKey: 'Download JSON',
-        iconName: 'Download',
-    },
-    {
-        id: 'gap2',
-        isGap: true,
-    },
-
-    {
-        id: 'promoteInstance',
-        textKey: 'Promote page to live',
-        iconName: 'DoubleChevronUp8',
-    },
-
-    {
-        id: 'preview',
-        textKey: 'Show preview',
-        iconName: 'OpenInNewTab',
-    },
-];
 
 export default Mixer;

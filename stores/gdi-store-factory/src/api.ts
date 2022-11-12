@@ -9,19 +9,19 @@ export const endpointsConfigOverrides: any = {
     },
     layouts: {
         id: 'layouts',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
         optimisticPosts: true,
     },
     articles: {
         id: 'articles',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
         optimisticPosts: true,
     },
     articleCategories: {
         id: 'articleCategories',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
         optimisticPosts: true,
     },

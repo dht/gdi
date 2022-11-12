@@ -13,48 +13,48 @@ export const endpointsConfigOverrides: any = {
     },
     pages: {
         id: 'pages',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryImages: {
         id: 'libraryImages',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryWidgets: {
         id: 'libraryWidgets',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryTypography: {
         id: 'libraryTypography',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryPalettes: {
         id: 'libraryPalettes',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryPages: {
         id: 'libraryPages',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryPageInstances: {
         id: 'libraryPageInstances',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     libraryInstances: {
         id: 'libraryInstances',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     libraryInstancesProps: {
         id: 'libraryInstancesProps',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     locales: {
         id: 'locales',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     packages: {
         id: 'packages',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
 };
