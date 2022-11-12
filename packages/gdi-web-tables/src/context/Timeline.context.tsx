@@ -1,7 +1,8 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import { ITimelineConfig } from '../types';
+import { useMemo } from '@gdi/hooks';
 
 type ITimelineContext = {
     patchState: (change: Partial<ITimelineContext>) => void;

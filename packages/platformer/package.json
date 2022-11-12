@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@gdi/hooks": "^0.0.28",
-        "@gdi/language": "^0.0.23",
+        "@gdi/language": "^0.0.26",
         "@gdi/store-auth": "^0.0.20",
         "@gdi/types": "^0.0.47",
         "@gdi/web-base-ui": "^0.0.34",

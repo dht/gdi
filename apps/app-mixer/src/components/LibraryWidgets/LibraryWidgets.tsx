@@ -16,6 +16,8 @@ export type LibraryWidgetsProps = {
 export function LibraryWidgets(props: LibraryWidgetsProps) {
     const { items, callbacks, galleryOptions, hideParts } = props;
 
+    console.log('galleryOptions ->', galleryOptions);
+
     return (
         <Container
             className='LibraryWidgets-container'

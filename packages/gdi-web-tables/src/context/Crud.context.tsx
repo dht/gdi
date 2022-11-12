@@ -1,17 +1,18 @@
-import React, { useContext, useEffect, useMemo, useRef } from 'react';
+import React from 'react';
 import { createContext } from 'react';
 import { emptyFilters, emptyForm } from '../definitions/empty';
 import { ICrudOptions, ICrudState, WithChildren } from '../types';
 import { SelectionContext } from './Selection.context';
 import { useCrudOperations } from '../hooks/useCrudOperations';
 import { useLocalStorage } from 'react-use';
+import { useMemo, useRef, useContext } from '@gdi/hooks';
+import { get } from 'lodash';
 
 type CrudContextProps = {
     id: string;
     config: ICrudDefinitions;
     options: ICrudOptions;
     data: Json;
-    initialViewMode?: IViewMode;
     callbacks: {
         onSelectionChange: (ids: string[]) => void;
         onDrillDown: (itemId: string) => void;
@@ -32,9 +33,7 @@ type ICrudContext = {
 
 const initialValue: ICrudContext = {
     patchState: () => {},
-    state: {
-        viewMode: 'gallery',
-    },
+    state: {},
     config: {
         nodeName: '',
         table: { fields: [], id: '' },
@@ -55,10 +54,11 @@ const initialValue: ICrudContext = {
 export const CrudContext = createContext<ICrudContext>(initialValue);
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
-    const { id, config, options, data, callbacks, initialViewMode } = props;
-    const { state: selectedIds, callbacks: callbacksSelection } =
-        useContext(SelectionContext);
+    const { id, config, options, data, callbacks } = props;
+    const { state: selectedIds, callbacks: callbacksSelection } = useContext(SelectionContext); // prettier-ignore
     const lastMousePoint = useRef<Json | undefined>({});
+
+    const doubleClickActionId = get(config, 'multiBar.doubleClickActionId', 'drillDown'); // prettier-ignore
 
     const configValue = useMemo(
         () => ({
@@ -75,19 +75,11 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
         ...initialValue.state,
     });
 
-    useEffect(() => {
-        if (initialViewMode) {
-            patchState({ viewMode: initialViewMode });
-        }
-    }, []);
-
     const crudCallbacks = useCrudOperations(config, data, options);
 
     const callbacksCrud = useMemo(
         () => ({
             onAction: (actionId: string, data?: Json) => {
-                console.log('actionId, data ->', actionId, data);
-
                 switch (actionId) {
                     case 'new':
                         crudCallbacks.createForm();
@@ -105,15 +97,13 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                         crudCallbacks.deleteForm(selectedIds);
                         break;
                     default:
-                        // callbacks.onCustomAction(actionId, data);
+                        callbacks.onCustomAction(actionId, data);
                         break;
                 }
             },
             onItemAction: (id: string, actionId: string, data?: Json) => {
-                console.log('id ->', id, actionId, data);
-
                 if (actionId === 'drillDown') {
-                    actionId = options.doubleClickActionId;
+                    actionId = doubleClickActionId;
                 }
 
                 switch (actionId) {
@@ -178,7 +168,8 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                 }
             },
         }),
-        [state, selectedIds, options, crudCallbacks]
+        [state, selectedIds, options, crudCallbacks],
+        'Crud.context|state,selectedIds,options,crudCallbacks'
     );
 
     return (

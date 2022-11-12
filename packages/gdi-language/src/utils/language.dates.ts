@@ -333,10 +333,10 @@ export const startOfYear = () => {
 
 export const minutesThisX = () => {
     return {
-        today: deltaInMinutes(startOfDay().value),
-        week: deltaInMinutes(startOfWeek().value),
-        month: deltaInMinutes(startOfMonth().value),
-        year: deltaInMinutes(startOfYear().value),
+        today: deltaInMinutes(startOfDay().value || new Date()),
+        week: deltaInMinutes(startOfWeek().value || new Date()),
+        month: deltaInMinutes(startOfMonth().value || new Date()),
+        year: deltaInMinutes(startOfYear().value || new Date()),
     };
 };
 

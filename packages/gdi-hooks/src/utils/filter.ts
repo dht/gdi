@@ -61,7 +61,7 @@ export const filterText = (
 
     return data.filter((i) => {
         const iValue = i[field.id];
-        return value.includes(iValue);
+        return (value ?? []).includes(iValue);
     });
 };
 
@@ -75,8 +75,8 @@ export const filterTags = (
     }
 
     return data.filter((i) => {
-        const iValue = i[field.id];
-        return tags.some((tag) => iValue.includes(tag));
+        const iValue = i[field.id] ?? [];
+        return (tags ?? []).some((tag) => iValue.includes(tag));
     });
 };
 

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import {
@@ -7,6 +7,7 @@ import {
     ICalendarState,
     WithChildren,
 } from '../types';
+import { useMemo } from '@gdi/hooks';
 
 export type CalendarContextProps = {
     config: ICalendarConfig;

@@ -14,6 +14,7 @@ export const menuItems: IMenuItem[] = [
         icon: 'Diamond',
         label: 'Catalog',
         groupId: 'extra',
+        hidden: true,
         order: 8,
     },
 ];

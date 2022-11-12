@@ -1,14 +1,14 @@
 export const endpointsConfigOverrides = {
     weatherLocations: {
         id: 'weatherLocations',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     weatherHourlyItems: {
         id: 'weatherHourlyItems',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     weatherDailyItems: {
         id: 'weatherDailyItems',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
 };

@@ -14,7 +14,7 @@
         "@babylonjs/core": "^5.23.0",
         "@gdi/app-login": "^0.0.23",
         "@gdi/app-mixer": "^0.0.25",
-        "@gdi/language": "^0.0.23",
+        "@gdi/language": "^0.0.26",
         "@gdi/platformer": "^0.0.22",
         "@gdi/types": "^0.0.47",
         "@gdi/web-ui": "^0.0.31",

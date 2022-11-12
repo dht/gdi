@@ -1,6 +1,6 @@
 enum ConnectionType {
     NONE = 'NONE',
-    FIRESTORE = 'REST',
+    FIRESTORE = 'FIRESTORE',
 }
 
 export const endpointsConfigOverrides = {

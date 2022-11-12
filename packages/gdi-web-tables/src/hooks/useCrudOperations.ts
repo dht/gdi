@@ -1,4 +1,3 @@
-import { useContext, useEffect, useMemo } from 'react';
 import { collection_all } from 'redux-store-generator';
 import { prompt } from '@gdi/web-base-ui';
 import { DispatchContext } from '../context/Dispatch.context';
@@ -6,6 +5,7 @@ import { guid4 } from 'shared-base';
 import { ICrudOptions } from '../types';
 import { useTranslation } from '@gdi/language';
 import { items } from '../components/Galleries/items';
+import { useContext, useEffect, useMemo } from '@gdi/hooks';
 
 export function useCrudOperations(
     config: ICrudDefinitions,
@@ -108,7 +108,8 @@ export function useCrudOperations(
                     return;
                 }
 
-                const tags = [...item.tags, tag];
+                const tags = [...(item.tags ?? []), tag];
+                item.tags = tags;
                 dispatch(actions.patch(id, { tags }));
             },
             removeTag: (id: string, params: Json) => {
@@ -119,7 +120,8 @@ export function useCrudOperations(
                     return;
                 }
 
-                const tags = [...item.tags].filter((t) => t !== tag);
+                const tags = [...(item.tags ?? [])].filter((t) => t !== tag);
+                item.tags = tags;
                 dispatch(actions.patch(id, { tags }));
             },
             addDataTag: (id: string, params: Json) => {
@@ -199,7 +201,8 @@ export function useCrudOperations(
                 });
             },
         }),
-        [data, options]
+        [data, options],
+        'useCrudOperations|data,options'
     );
 
     return callbacks;

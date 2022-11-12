@@ -5,17 +5,17 @@ export const endpointsConfigOverrides = {
     },
     interestingReads: {
         id: 'interestingReads',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     readCategories: {
         id: 'readCategories',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     metaphors: {
         id: 'readCategories',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
 };

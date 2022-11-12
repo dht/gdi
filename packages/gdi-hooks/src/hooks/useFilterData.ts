@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useSetState } from 'react-use';
 import Fuse from 'fuse.js';
 import { filterByConfig } from '../utils/filter';
+import { useMemo } from './useMemo';
 
 export function useFilterData(
     config: IFilterConfig,
@@ -16,16 +17,20 @@ export function useFilterData(
         [data]
     );
 
-    const filteredData = useMemo(() => {
-        let output: Json[];
-        const isSearchEmpty = params.search.length < 2;
+    const filteredData = useMemo(
+        () => {
+            let output: Json[];
+            const isSearchEmpty = params.search.length < 2;
 
-        output = isSearchEmpty
-            ? data
-            : fuse.search(params.search).map((i) => i.item);
+            output = isSearchEmpty
+                ? data
+                : fuse.search(params.search).map((i) => i.item);
 
-        return filterByConfig(config, output, params);
-    }, [params.search, params.sort, params.filter, data]);
+            return filterByConfig(config, output, params);
+        },
+        [params.search, params.sort, params.filter, data],
+        'filterData|search,sort,filter,data'
+    );
 
     return filteredData;
 }

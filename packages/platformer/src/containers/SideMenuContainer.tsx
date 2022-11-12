@@ -118,8 +118,8 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
             data={menuItemsSorted}
             groups={menuGroups}
             groupsTranslated={menuGroupsTranslated}
+            userMenu={renderUserMenu()}
         >
-            {renderUserMenu()}
             <ActionsWrapper>
                 {renderKeyboardShortcuts()}
                 {renderToggleFullscreen()}

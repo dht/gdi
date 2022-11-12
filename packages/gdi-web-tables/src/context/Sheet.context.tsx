@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import { SheetProps } from '../components/Sheet/Sheet';
@@ -6,6 +6,7 @@ import { sortBy } from 'shared-base';
 import { Coords } from '../types';
 import { useDelete, useNudge } from '@gdi/hooks';
 import { invokeEvent } from 'shared-base';
+import { useMemo } from '@gdi/hooks';
 
 type ISheetContext = {
     selectedCoords: Coords | null;

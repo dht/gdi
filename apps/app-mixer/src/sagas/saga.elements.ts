@@ -36,7 +36,7 @@ function* addElement(action: ActionAddElement) {
     console.log('id ->', id);
 
     yield put(
-        actions.instances.add({
+        actions.libraryInstances.add({
             id,
             pageId,
             isPlaceholder: true,
@@ -68,7 +68,7 @@ function* deleteElement(action: ActionDeleteElement) {
         return;
     }
 
-    yield put(actions.instances.delete(action.id));
+    yield put(actions.libraryInstances.delete(action.id));
 }
 
 type ActionShowContentModal = {

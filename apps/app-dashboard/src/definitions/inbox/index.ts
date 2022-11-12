@@ -10,6 +10,7 @@ import overlay from './json/d.overlay.inbox.json';
 import sheet from './json/d.sheet.inbox.json';
 import table from './json/d.table.inbox.json';
 import timeline from './json/d.timeline.inbox.json';
+import multiBar from './json/d.multiBar.inbox.json';
 import { itemStructure } from './d.itemStructure.inbox';
 
 export const definitionType: ItemType = 'inbox';
@@ -28,4 +29,5 @@ export const definitions: ICrudDefinitions = {
     formNewDefault,
     bucket,
     itemStructure,
+    multiBar,
 };

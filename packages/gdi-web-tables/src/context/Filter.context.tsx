@@ -1,18 +1,21 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import {
     IFilterConfig,
     IFilterOptions,
     IFilterState,
+    IMultiBarConfig,
     WithChildren,
 } from '../types';
 import { prompt } from '@gdi/web-base-ui';
 import { useFilterValue, useFilterData } from '@gdi/hooks';
+import { useMemo } from '@gdi/hooks';
 
 export type FilterContextProps = {
     data?: Json[];
     config: IFilterConfig;
+    multiBar: IMultiBarConfig;
     options: IFilterOptions;
     allOptions?: Json;
     tags?: IOptions;
@@ -22,6 +25,7 @@ type IFilterContext = {
     patchState: (change: Partial<IFilterState>) => void;
     data?: Json[];
     config: IFilterConfig;
+    multiBar: IMultiBarConfig;
     options: IFilterOptions;
     state: IFilterState;
     callbacks: {
@@ -49,6 +53,7 @@ const initialValue: IFilterContext = {
         id: '',
         fields: [],
     },
+    multiBar: {},
     options: {},
     state: {
         header: '',
@@ -95,6 +100,7 @@ export const FilterContextProvider = (
 
     const configAndOptions = useFilterConfig(
         props.config,
+        props.multiBar,
         props.options,
         allOptions
     );
@@ -159,7 +165,8 @@ export const FilterContextProvider = (
                 patchState({ toolId });
             },
         }),
-        [state, filterCallbacks]
+        [state, filterCallbacks],
+        'callbacksFilter|state,filterCallbacks'
     );
 
     const value = useMemo(
@@ -186,6 +193,7 @@ export const FilterContextProvider = (
 
 function useFilterConfig(
     config: IFilterConfig,
+    multiBar: IMultiBarConfig,
     options: IFilterOptions,
     allOptions: Json = {}
 ) {
@@ -208,6 +216,10 @@ function useFilterConfig(
                 ...initialValue.config,
                 ...config,
                 fields,
+            },
+            multiBar: {
+                ...initialValue.multiBar,
+                ...multiBar,
             },
             options: {
                 ...initialValue.options,

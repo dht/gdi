@@ -1,9 +1,10 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React from 'react';
 import BucketTabs from '../BucketTabs/BucketTabs';
 import { Container, Content } from './Buckets.style';
 import { getNewDataTagsByList, Trello, usePermutations } from '@gdi/dnd';
 import { IBucketsConfig } from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
+import { useContext, useMemo, useState } from '@gdi/hooks';
 
 export type BucketsProps = {
     config: IBucketsConfig;

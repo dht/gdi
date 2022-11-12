@@ -9,6 +9,7 @@ import {
 } from './DoubleDeckerSwitch.style';
 import classnames from 'classnames';
 import Draggable from 'react-draggable';
+import Toolbar from '../Toolbar/Toolbar';
 
 type DoubleDeckerItem = {
     id: string;
@@ -74,8 +75,10 @@ export function DoubleDeckerSwitch(props: DoubleDeckerSwitchProps) {
         maxWidth: Math.round(items.length / 2) * 71 + 'px',
     };
 
+    const Cmp: any = Draggable;
+
     return (
-        <Draggable nodeRef={ref}>
+        <Cmp nodeRef={ref}>
             <Container
                 ref={ref}
                 className='DoubleDeckerSwitcher-container'
@@ -84,7 +87,7 @@ export function DoubleDeckerSwitch(props: DoubleDeckerSwitchProps) {
             >
                 {renderItems()}
             </Container>
-        </Draggable>
+        </Cmp>
     );
 }
 

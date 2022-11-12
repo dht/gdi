@@ -9,6 +9,7 @@ import './SideMenu.scss';
 import { sortBy } from 'shared-base';
 import {
     Container,
+    Content,
     Group,
     GroupTitle,
     Header,
@@ -23,6 +24,7 @@ export type SideMenuProps = {
     data: IMenuItem[];
     groups: string[];
     groupsTranslated: string[];
+    userMenu?: JSX.Element;
     children?: JSX.Element | JSX.Element[];
 };
 
@@ -135,11 +137,12 @@ export function SideMenu(props: SideMenuProps) {
                     onMouseDown={toggleSlim}
                 />
             </Header>
-            {slim ? renderItems(slimItems) : renderGroups()}
+            <Content>{slim ? renderItems(slimItems) : renderGroups()}</Content>
             {!slim && (
                 <Overlay className='overlay' onClick={toggleSlim}></Overlay>
             )}
-            {props.children}
+            {props.userMenu}
+            {slim && props.children}
         </Container>
     );
 }

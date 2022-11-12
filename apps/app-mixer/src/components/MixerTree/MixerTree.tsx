@@ -1,7 +1,6 @@
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import classnames from 'classnames';
-import Draggable from 'react-draggable';
-import { Icon, IconButton, Toolbar } from '@gdi/web-ui';
+import { Icon, IconButton, Toolbar, Panel } from '@gdi/web-ui';
 import {
     Column,
     Container,
@@ -11,10 +10,7 @@ import {
     InstanceCount,
     InstanceName,
     InstanceTitle,
-    HeaderActions,
-    Header,
     Content,
-    HeaderTitle,
     Description,
     Toggle,
     Actions,
@@ -133,18 +129,13 @@ export function MixerTree(props: MixerTreeProps) {
     });
 
     return (
-        <Draggable nodeRef={ref} handle='.header'>
-            <Container
-                ref={ref}
-                className={className}
-                data-testid='MixerTree-container'
-            >
-                <Header className='header'>
-                    <HeaderTitle>Versions</HeaderTitle>
-                    <HeaderActions>
-                        <Icon iconName='cancel' onClick={callbacks.onClose} />
-                    </HeaderActions>
-                </Header>
+        <Panel
+            transparent
+            id='versions'
+            title='Versions'
+            onClose={callbacks.onClose}
+        >
+            <Container className={className} data-testid='MixerTree-container'>
                 <Content className='content'>
                     <Column className='column'>
                         {renderDescription()}
@@ -162,7 +153,7 @@ export function MixerTree(props: MixerTreeProps) {
                     <Icon className='toggle-icon' iconName='chevronLeft' />
                 </Toggle>
             </Container>
-        </Draggable>
+        </Panel>
     );
 }
 
@@ -190,7 +181,7 @@ export const PageInstances = (props: PageInstancesProps) => {
                 key={pageInstance.id}
                 className={className}
                 onTouchStart={() => props.onClick(pageInstance)}
-                onMouseDown={() => props.onClick(pageInstance)}
+                onClick={() => props.onClick(pageInstance)}
             >
                 <InstanceName>
                     {pageInstance.version}
@@ -210,7 +201,7 @@ export const PageInstances = (props: PageInstancesProps) => {
     return <ContainerInstances>{renderInstances()}</ContainerInstances>;
 };
 
-const tools: IToolbarItem[] = [
+const tools: IOption[] = [
     {
         id: 'duplicateVersion',
         text: 'Duplicate version',

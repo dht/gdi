@@ -1,47 +1,47 @@
 export const endpointsConfigOverrides: any = {
     meta: {
         id: 'meta',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     palette: {
         id: 'palette',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     fonts: {
         id: 'fonts',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     breakpoints: {
         id: 'breakpoints',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     instances: {
         id: 'instances',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     widgets: {
         id: 'widgets',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     images: {
         id: 'images',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     instancesProps: {
         id: 'instancesProps',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     siteProperties: {
         id: 'siteProperties',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
 };

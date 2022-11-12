@@ -3,6 +3,8 @@ import { Icon } from '@fluentui/react';
 import { Actions, Container, Content, Header, Title } from './Panel.style';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { useLocalStorage } from 'react-use';
+import classnames from 'classnames';
+import { IPoint } from '../../types';
 
 const PANEL_POSITION_LOCAL_STORAGE_KEY = 'PANEL_POSITION';
 
@@ -11,10 +13,11 @@ export type PanelProps = {
     title: string;
     children: JSX.Element | JSX.Element[];
     onClose: () => void;
+    transparent?: boolean;
 };
 
 export function Panel(props: PanelProps) {
-    const { id, title } = props;
+    const { id, title, transparent } = props;
     const draggableRef = useRef(null);
 
     const [delta, setDelta] = useLocalStorage<IPoint>(
@@ -32,6 +35,14 @@ export function Panel(props: PanelProps) {
 
     const Cmp: any = Draggable;
 
+    const className = classnames('Panel-container', {
+        transparent,
+    });
+
+    const classNameContent = classnames('content', {
+        transparent,
+    });
+
     return (
         <Cmp
             nodeRef={draggableRef}
@@ -40,7 +51,7 @@ export function Panel(props: PanelProps) {
             handle='.header'
         >
             <Container
-                className='Panel-container'
+                className={className}
                 data-testid='Panel-container'
                 ref={draggableRef}
             >
@@ -54,7 +65,7 @@ export function Panel(props: PanelProps) {
                         />
                     </Actions>
                 </Header>
-                <Content>{props.children}</Content>
+                <Content className={classNameContent}>{props.children}</Content>
             </Container>
         </Cmp>
     );

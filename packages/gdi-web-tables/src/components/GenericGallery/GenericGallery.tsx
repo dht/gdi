@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef } from 'react';
+import React, { FC, useContext, useEffect, useRef } from 'react';
 import GenericOverlay from '../GenericOverlay/GenericOverlay';
 import Masonry, { MasonryItemProps } from '../Masonry/Masonry';
 import { Container, Content } from './GenericGallery.style';

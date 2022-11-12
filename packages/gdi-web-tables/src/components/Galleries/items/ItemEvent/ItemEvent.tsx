@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
     Location,
     LocationName,
@@ -9,6 +9,7 @@ import {
 import { ItemBase } from '../_ItemBase/ItemBase';
 import { MasonryItemProps } from '../../../Masonry/Masonry';
 import { time } from '@gdi/language';
+import { useMemo } from '@gdi/hooks';
 
 export type ItemEventProps = MasonryItemProps & {
     item: IEvent;

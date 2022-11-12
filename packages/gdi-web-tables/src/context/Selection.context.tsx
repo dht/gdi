@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import { createContext } from 'react';
 import { ISelectionMode, WithChildren } from '../types';
 import { useSelection } from '@gdi/hooks';
+import { useMemo, useState } from '@gdi/hooks';
 
 export type SelectionContextProps = {
     initialMode: ISelectionMode;
@@ -86,7 +87,8 @@ export const SelectionContextProvider = (
                 setMode(selectionMode);
             },
         }),
-        [selectedIds, focusedId, mode]
+        [selectedIds, focusedId, mode],
+        'selection.callbacks|selectedIds,focusedId,mode'
     );
 
     const value = useMemo(
@@ -96,7 +98,8 @@ export const SelectionContextProvider = (
             selectionMode: mode,
             callbacks,
         }),
-        [callbacks, selectedIds, mode]
+        [callbacks, selectedIds, mode],
+        'selection.context.value|callbacks,selectedIds,mode'
     );
 
     return (

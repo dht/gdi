@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { PlatformContext } from '../core/Platform.context';
 
-export const useCrudDefinitions = (itemType: ItemType) => {
+export const useCrudDefinitions = (itemType: ItemType, nodeName?: string) => {
     const { crudDefinitions, pieMenuConfig } =
         useContext(PlatformContext).state;
 
@@ -11,6 +11,7 @@ export const useCrudDefinitions = (itemType: ItemType) => {
     const output = useMemo(
         () => ({
             ...definitions,
+            nodeName: nodeName ?? definitions?.nodeName,
             pieMenu,
         }),
         [definitions, pieMenu]

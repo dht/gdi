@@ -18,6 +18,16 @@ export const PagesContainer = () => {
             onSelectionChange: (ids: string[]) => {
                 // console.log('ids ->', ids);
             },
+            onCustomAction: (actionId: string, _data?: Json) => {
+                switch (actionId) {
+                    case 'import':
+                        dispatch({ type: 'IMPORT_SITE' });
+                        break;
+                    case 'download':
+                        dispatch({ type: 'EXPORT_SITE' });
+                        break;
+                }
+            },
         }),
         []
     );

@@ -17,3 +17,5 @@ clients/gdi-admin/config/vite.extra.ts
 *.stl
 *.mtl
 package-lock.json
+.cloc
+today.todo

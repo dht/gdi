@@ -3,7 +3,6 @@ import { Container } from './GalleryImages.style';
 import { Multi } from '@gdi/web-ui';
 import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
-import { useLanguage } from '@gdi/language';
 
 export type GalleryImagesProps = {
     data: Json[];
@@ -18,7 +17,6 @@ export type GalleryImagesProps = {
 export function GalleryImages(props: GalleryImagesProps) {
     const { data, callbacks, allOptions, dispatch } = props;
     const crudDefinitions = useCrudDefinitions('image');
-    const { t } = useLanguage();
 
     return (
         <Container
@@ -28,14 +26,11 @@ export function GalleryImages(props: GalleryImagesProps) {
             <Multi
                 id='Images'
                 itemType='image'
-                header={t('Images')}
                 data={data}
                 definitions={crudDefinitions}
                 callbacks={callbacks}
-                viewModes={['gallery']}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                hideParts={['preview']}
             />
         </Container>
     );

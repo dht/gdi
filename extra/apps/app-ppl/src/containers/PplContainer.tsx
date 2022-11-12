@@ -16,7 +16,7 @@ export const PplContainer = () => {
         () => ({
             onDrillDown: async (itemId: string) => {},
             onSelectionChange: (ids: string[]) => {
-                console.log('ids ->', ids);
+                // console.log('ids ->', ids);
             },
         }),
         []
@@ -40,6 +40,7 @@ export const PplContainer = () => {
             callbacks={callbacks}
             allOptions={allOptions}
             allMethods={allMethods}
+            tags={allOptions.$pplTags}
             dispatch={dispatch}
         />
     );

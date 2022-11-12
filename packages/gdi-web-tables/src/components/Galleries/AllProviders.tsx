@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { FilterContextProvider } from '../../context/Filter.context';
 import { SelectionContextProvider } from '../../context/Selection.context';
+import { useMemo } from '@gdi/hooks';
 
 export type AllProvidersProps = {
     id: string;

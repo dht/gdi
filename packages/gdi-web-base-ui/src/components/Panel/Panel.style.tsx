@@ -11,6 +11,11 @@ export const Container = styled.div`
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
+
+    &.transparent {
+        background-color: transparent;
+        border: none;
+    }
 `;
 
 export const Header = styled.div`
@@ -20,12 +25,17 @@ export const Header = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    background-color: rgba(10, 10, 20, 0.9);
 `;
 
 export const Content = styled.div`
     flex: 1;
     display: flex;
     padding: 10px;
+
+    &.transparent {
+        padding: 0;
+    }
 `;
 
 export const Title = styled.div`

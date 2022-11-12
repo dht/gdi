@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Icon } from '@gdi/web-base-ui';
 import { IGalleryOptions, IOverlayConfig, IOverlayField } from '../../types';
 import {

@@ -2,7 +2,7 @@ import { ToastFlavour } from '../../types';
 import { toast as toastify, ToastOptions } from 'react-toastify';
 
 export function showToast(
-    message: string,
+    message: string | string[],
     flavour?: ToastFlavour,
     promise?: Promise<any>
 ): any {
@@ -25,9 +25,9 @@ export function showToast(
             toastify.promise(
                 promise,
                 {
-                    pending: message,
-                    success: message,
-                    error: message,
+                    pending: message[0],
+                    success: message[1],
+                    error: message[2],
                 },
                 options
             );

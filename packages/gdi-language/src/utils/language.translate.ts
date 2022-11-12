@@ -158,7 +158,7 @@ export const translatePieMenu = (
     const { keys, languageCode } = params;
 
     return Object.keys(config).reduce((acc, key) => {
-        const { options } = config[key];
+        const { options } = (config as any)[key];
 
         const translatedOptions = translateObject(
             keys,
@@ -168,8 +168,8 @@ export const translatePieMenu = (
             ['text']
         );
 
-        acc[key] = {
-            ...config[key],
+        (acc as any)[key] = {
+            ...(config as any)[key],
             options: translatedOptions,
         };
 

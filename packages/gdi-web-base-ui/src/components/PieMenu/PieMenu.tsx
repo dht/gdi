@@ -45,7 +45,7 @@ export function PieMenu(props: PieMenuProps) {
         toggle(false);
         timeout.current = setTimeout(() => {
             props.onCancel();
-        }, 400);
+        }, 50);
     }
 
     const activeKey = useKeyHold(

@@ -1,34 +1,34 @@
 export const endpointsConfigOverrides: any = {
     assets: {
         id: 'assets',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     buildings: {
         id: 'buildings',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     boards: {
         id: 'boards',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     cameras: {
         id: 'cameras',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     grounds: {
         id: 'grounds',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     items: {
         id: 'items',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     lights: {
         id: 'lights',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
     particles: {
         id: 'particles',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
     },
 };

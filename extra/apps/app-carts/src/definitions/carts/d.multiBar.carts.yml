@@ -1,0 +1,30 @@
+id: CartsMultiBar
+header: Carts
+initialViewMode: table
+viewModes:
+    - table
+    - buckets
+hideParts:
+    - preview
+tools:
+    - id: select
+      text: Select
+      iconName: BorderDot
+      options:
+          - id: none
+            text: None
+            iconName: LocationCircle
+          - id: single
+            text: Single
+            iconName: BorderDot
+          - id: multiple
+            text: Multiple
+            iconName: TripleColumn
+    - id: edit
+      text: Edit
+      iconName: Edit
+    - id: delete
+      text: Delete
+      iconName: Delete
+toolbarMode: select
+doubleClickActionId: drillDown

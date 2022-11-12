@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React from 'react';
 import { Container } from './Filters.style';
 import { Filter } from '../Filter/Filter';
 import { FilterAuto } from '../FilterAuto/FilterAuto';

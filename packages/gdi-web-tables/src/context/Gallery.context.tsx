@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { createContext } from 'react';
 import { FilterContext } from './Filter.context';
 import { IItem } from '../components/Masonry/Masonry';
@@ -12,6 +12,7 @@ import {
     WithChildren,
 } from '../types';
 import { SelectionContext } from './Selection.context';
+import { useMemo, useContext } from '@gdi/hooks';
 
 type GalleryContextProps = {
     config: IGalleryConfig;
@@ -91,18 +92,24 @@ export const GalleryContextProvider = (
     const callbacksGallery = useMemo(
         () => ({
             onClick: (id: string, item: IItem) => {
-                console.log('tag ->', tag);
-
                 if (tag) {
-                    const actionId = item.tags.includes(tag)
-                        ? 'removeTag'
-                        : 'addTag';
+                    const { tags = [] } = item;
 
-                    callbacks.onItemAction(id, actionId, {
+                    if (tags.includes(tag)) {
+                        return;
+                    }
+
+                    callbacks.onItemAction(id, 'addTag', {
                         tag,
                     });
 
                     return;
+                }
+
+                if (filterState.toolId === 'edit') {
+                    callbacks.onItemAction(id, 'edit');
+                } else if (filterState.toolId === 'delete') {
+                    callbacks.onItemAction(id, 'delete');
                 }
 
                 callbacksSelect.onSelect(id);
@@ -113,7 +120,6 @@ export const GalleryContextProvider = (
             },
             onAction: (actionId: ItemActionType, data?: Json) => {
                 // props.onAction(actionId, data);
-                console.log('actionId, data ->', actionId, data);
 
                 switch (actionId) {
                     case 'addTag':
@@ -133,7 +139,8 @@ export const GalleryContextProvider = (
                 callbacks.onItemAction('', 'mouse', data);
             },
         }),
-        [state, selectedIds, tag]
+        [state, selectedIds, tag, filterState.toolId],
+        'callbacksGallery|state,selectedIds,tag'
     );
 
     return (

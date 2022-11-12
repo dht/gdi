@@ -4,18 +4,15 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: FeatureColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background ?? '#1e3a5a'};
+    background-color: ${(props) => props.colors.background ?? '#eee'};
     height: 800px;
     display: flex;
     position: relative;
     --grid: rgba(255, 255, 255, 0.05);
-    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-    background-size: 25px 25px;
 
     &.even {
         background-color: ${(props) =>
-            darken(0.03, props.colors.background ?? '#1e3a5a')};
+            darken(0.03, props.colors.background ?? '#fff')};
 
         .wrapper {
             flex-direction: row-reverse;
@@ -79,6 +76,7 @@ export const Slogan = styled.div<{ colors: FeatureColors }>`
 export const H1 = styled.h1`
     font-size: 42px;
     max-width: 400px;
+    color: #333;
 
     @media (max-width: 768px) {
         text-align: center;

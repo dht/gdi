@@ -5,11 +5,7 @@ export const Container = styled.div`
     background-color: #334;
     width: 350px;
     height: 250px;
-    position: absolute;
-    z-index: 999;
-    ${(props) => props.theme.left(0)}
-    top: 0;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2),
         inset 0 0 15px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -113,31 +109,6 @@ export const InstanceCount = styled.div`
     font-size: 17px;
 `;
 
-export const Header = styled.div`
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px 10px 0 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
-
-export const HeaderActions = styled.div`
-    > i {
-        cursor: pointer;
-        color: #aaa;
-        padding: 6px 8px;
-
-        &:hover {
-            color: gold;
-        }
-    }
-`;
-
-export const HeaderTitle = styled.div`
-    flex: 1;
-    ${(props) => props.theme.paddingLeft('10px')}
-`;
-
 export const Toggle = styled.div`
     position: absolute;
     ${(props) => props.theme.left('-20px')}
@@ -147,7 +118,7 @@ export const Toggle = styled.div`
     position: absolute;
     z-index: 999;
     color: #aaa;
-    top: 24px;
+    top: 54px;
     border-radius: 10px 0 0 10px;
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.2),
         inset 0 0 15px 5px rgba(0, 0, 0, 0.1);

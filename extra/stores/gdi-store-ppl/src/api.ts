@@ -1,12 +1,12 @@
 export const endpointsConfigOverrides = {
     appStatePpl: {
         id: 'appStatePpl',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
     persons: {
         id: 'persons',
-        connectionType: 'REST',
+        connectionType: 'FIRESTORE',
         optimistic: true,
     },
 };

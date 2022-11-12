@@ -47,6 +47,7 @@ export type ICrudDefinitions = {
     formNewDefault?: Json;
     formEdit: IFormConfig;
     filters: IFilterConfig;
+    multiBar: IMultiBarConfig;
     gallery?: IGalleryConfig;
     calendar?: ICalendarConfig;
     timeline?: ITimelineConfig;
@@ -77,9 +78,7 @@ export type IViewMode =
     | 'custom'
     | 'custom2';
 
-export type ICrudState = {
-    viewMode: IViewMode;
-};
+export type ICrudState = {};
 
 export type ISheetConfig = IFormConfig;
 
@@ -265,6 +264,16 @@ export type ISortOption = {
     direction: 'asc' | 'desc';
 };
 
+export type IMultiBarConfig = {
+    header?: string;
+    viewModes?: IViewMode[];
+    initialViewMode?: IViewMode;
+    hideParts?: FilterPart[];
+    tools?: IOption[];
+    toolbarMode?: ToolbarMode;
+    doubleClickActionId?: string;
+};
+
 // ================== Overlays ==================
 export type OverlayType = 'absolute' | 'centered';
 
@@ -328,3 +337,5 @@ export type IBucketsConfig = {
     titleFieldId: string;
     permutations: IBucketsPermutation[];
 };
+
+export type ToolbarMode = 'tools' | 'actions';

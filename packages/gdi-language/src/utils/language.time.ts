@@ -4,7 +4,7 @@ import { formatObjects } from './formatObjects';
 import { toDuration } from './language.relative';
 
 export const time = (date: DateTime) => {
-    return formatObjects.time.format(normalize(date));
+    return formatObjects.time.format(normalize(date) ?? new Date());
 };
 
 export const minutesPassed = (date: DateTime) => {
