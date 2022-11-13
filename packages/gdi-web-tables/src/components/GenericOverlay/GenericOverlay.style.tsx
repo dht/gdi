@@ -6,7 +6,7 @@ export const Container = styled.div`
     ${(props) => props.theme.left(0)}
     ${(props) => props.theme.right(0)}
     bottom: 0;
-    margin: 5px;
+    margin: 15px;
     background-color: transparent;
     display: flex;
 

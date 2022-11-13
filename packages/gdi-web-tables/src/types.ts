@@ -283,6 +283,7 @@ export type IOverlayField = {
     fieldType: FieldType;
     locationKey?: string;
     order?: number;
+    params?: Json;
 };
 
 export type IOverlayConfig = {

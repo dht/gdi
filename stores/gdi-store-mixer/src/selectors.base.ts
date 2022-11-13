@@ -364,6 +364,33 @@ export const $isSelectedPlaceholder = createSelector(
     }
 );
 
-export const $libraryPages = createSelector(raw.$rawLibraryPages, (pages) => {
-    return Object.values(pages).sort(sortBy('order', 'asc'));
-});
+export const $libraryPages = createSelector(
+    raw.$rawLibraryPages,
+    raw.$rawLibraryPageInstances,
+    (pages, pageInstances) => {
+        return Object.values(pages)
+            .map((page) => {
+                const { status = 'draft', pageInstanceId } = page;
+
+                let pageInstance: IPageInstance | undefined =
+                    pageInstances[pageInstanceId ?? ''];
+
+                if (!pageInstance) {
+                    pageInstance = Object.values(pageInstances)
+                        .sort(sortBy('order'))
+                        .find((instance) => instance.pageId === page.id);
+                }
+
+                const { version: pageInstanceVersion } = pageInstance ?? {
+                    version: '[O]',
+                };
+
+                return {
+                    ...page,
+                    pageInstanceVersion,
+                    status,
+                };
+            })
+            .sort(sortBy('order', 'asc'));
+    }
+);

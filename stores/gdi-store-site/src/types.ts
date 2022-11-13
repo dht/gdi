@@ -67,6 +67,9 @@ export type IPage = {
     dataTags: string[];
     enabled?: boolean;
     templateId?: TemplateId;
+
+    // transient
+    pageInstanceVersion?: string;
 };
 
 export type IPageInstance = {

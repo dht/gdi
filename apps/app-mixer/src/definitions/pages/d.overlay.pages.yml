@@ -11,4 +11,20 @@ fields:
       fieldId: title
       fieldType: text
       locationKey: bottomLeft
+      params:
+          large: true
       order: 1
+    - id: pageInstanceVersion
+      fieldId: pageInstanceVersion
+      fieldType: select
+      locationKey: topRight
+      params:
+          center: true
+      order: 1
+    - id: status
+      fieldId: status
+      fieldType: select
+      locationKey: bottomRight
+      order: 1
+      params:
+          center: true
