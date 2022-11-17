@@ -1,12 +1,20 @@
 id: PageOverlay
 sequence: 1
 overlayType: absolute
+margin: 15px
 fields:
+    - id: path
+      fieldId: path
+      fieldType: text
+      locationKey: topLeft
+      order: 1
+      params:
+          floatLeft: true
     - id: tags
       fieldId: tags
       fieldType: tags
       locationKey: topLeft
-      order: 1
+      order: 2
     - id: title
       fieldId: title
       fieldType: text
@@ -20,6 +28,7 @@ fields:
       locationKey: topRight
       params:
           center: true
+          floatRight: true
       order: 1
     - id: status
       fieldId: status

@@ -5,20 +5,25 @@ export type ISiteStore = StoreStructure & ISite & {};
 type SiteId = string;
 type TemplateId = string;
 
-export type ISite = {
-    meta: IMetaSite;
-    locale: ILocale;
+export type ISiteP6 = {
     pages: IPages;
     pageInstances: IPageInstances;
     instances: IWidgetInstances;
     instancesProps: Json;
     widgets: IWidgets;
     images: IImages;
+};
+
+export type ISiteOther = {
+    meta: IMetaSite;
+    locale: ILocale;
     palette: IPalette;
     fonts: IFonts;
     breakpoints: IBreakpoints;
     siteProperties: ISiteProperties;
 };
+
+export type ISite = ISiteP6 & ISiteOther;
 
 export type ITemplate = Optional<
     ISite,

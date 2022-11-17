@@ -60,4 +60,6 @@ declare global {
     export type IImageWithWidget = IImage & {
         widget: IWidget;
     };
+
+    export type IP6 = {};
 }

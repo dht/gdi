@@ -27,19 +27,22 @@ export const DateDelta = styled.div`
     border-radius: 3px;
 `;
 
-export const Title = styled.div<{ large?: boolean }>`
+export const Title = styled.div<{
+    large?: boolean;
+    center?: boolean;
+    floatRight?: boolean;
+    floatLeft?: boolean;
+}>`
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 2px 5px;
+    padding: 2px 15px;
     border-radius: 5px;
-    font-size: ${(props) => (props.large ? '24px' : '16px')};
+    font-size: ${(props) => (props.large ? '24px' : '17px')};
     white-space: nowrap;
-`;
-
-export const TitleLarge = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
-    font-size: 30px;
-    padding: 10px;
-    border-radius: 10px;
+    text-align: 
+    border: 1px solid transparent;
+    text-align: ${(props) => (props.center ? 'center' : 'inherit')};
+    ${(props) => (props.floatRight ? props.theme.floatRight() : '')}
+    ${(props) => (props.floatLeft ? props.theme.floatLeft() : '')}
 `;
 
 export const Select = styled.div<{ center?: boolean }>`
@@ -54,7 +57,7 @@ export const Select = styled.div<{ center?: boolean }>`
     ${(props) => props.theme.floatRight()}
 
     &:hover {
-        border: 1px solid black;
+        border: 1px solid dodgerblue;
     }
 
     &.status {

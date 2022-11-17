@@ -12,7 +12,10 @@ export const PanelLibraryContainer = (_props: any) => {
     const currentIds = useSelector(selectors.raw.$rawCurrentIds);
     const imageFields = useSelector(selectors.options.$imageFields);
 
-    const toolId = mixerState.selectedToolId;
+    const toolId =
+        currentIds.selectedInstanceId === '<NEW>'
+            ? 'browse'
+            : mixerState.selectedToolId;
 
     const callbacks = useMemo(
         () => ({

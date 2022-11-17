@@ -92,4 +92,12 @@ export const instances: IWidgetInstancesByPageList = {
             isFullPage: true,
         },
     ],
+    datasets: [
+        {
+            id: 'datasets',
+            widgetId: MixerWidgets.Datasets,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+        },
+    ],
 };

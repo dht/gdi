@@ -65,7 +65,7 @@ export function FieldDate(props: OverlayFieldProps) {
     try {
         const date = new Date(item[field.fieldId]);
         dateDate = dateShort(date);
-        dateDelta = timeAgo(date);
+        dateDelta = timeAgo(date) ?? '';
     } catch (err) {
         console.log('err ->', err);
     }
@@ -107,9 +107,13 @@ export function FieldSelect(props: OverlayFieldProps) {
 
     const className = classnames(field.fieldId, value);
 
+    function onClick() {
+        props.onAction(field.fieldId as ItemActionType, { item });
+    }
+
     return (
         <>
-            <Select className={className} {...params}>
+            <Select className={className} onClick={onClick} {...params}>
                 {value}
             </Select>
         </>

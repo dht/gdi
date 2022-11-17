@@ -5,7 +5,7 @@ export const sampleData: ISampleDataPerFlavour = {
             slogan: 'morning',
             header: 'Wake up each morning to do',
             description:
-                'With morning you are an effective team that gets things done, every minute, every hour, every day',
+                'With GDI you can unlock hundreds of custom designs made by people around the world with a passion for elegant, beautiful UI',
             ctaButtonText: 'Join free',
         },
         colors: {
@@ -13,8 +13,7 @@ export const sampleData: ISampleDataPerFlavour = {
             text: '#aaef69',
         },
         extra: {
-            imageUrl:
-                'https://cdn.greeninvoice.co.il/public-website/assets/1.0.473/img/d9a9eec.svg',
+            imageUrl: 'https://via.placeholder.com/350x150',
             href: '#',
         },
     },

@@ -36,6 +36,7 @@ export {
     Checkbox,
     CircularProgress,
     ColorPicker,
+    CornerTriangle,
     DateInput,
     Drawer,
     DoubleDeckerSwitch,
@@ -116,6 +117,7 @@ export {
     AnyGallery,
     ImageGallery,
     WidgetGallery,
+    VerticalTabs,
 } from '@gdi/web-tables';
 
 export { Code, Editor, JsonEditor } from '@gdi/web-editors';

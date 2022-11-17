@@ -41,6 +41,7 @@ const initialValue: ICrudContext = {
         formNewDefault: {},
         formEdit: { ...emptyForm },
         filters: { ...emptyFilters },
+        multiBar: {},
     },
     options: {
         doubleClickActionId: 'edit',
@@ -164,6 +165,9 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                             .then(() => {
                                 callbacksSelection.onFocusedClear();
                             });
+                        break;
+                    case 'duplicate':
+                        crudCallbacks.duplicate(id);
                         break;
                 }
             },

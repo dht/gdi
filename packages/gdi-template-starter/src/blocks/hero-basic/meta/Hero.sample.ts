@@ -1,42 +1,40 @@
+import { ISampleDataPerFlavour } from '@gdi/web-ui';
+
 export const sampleData: ISampleDataPerFlavour = {
     normal: {
         id: 'normal',
         strings: {
-            ctaButtonText: 'Get Started',
-            secondButtonText: 'Github',
-            header: 'gDI',
+            slogan: 'morning',
+            header: 'Wake up each morning to do',
             description:
-                'An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase //',
-            imageCreditsTitle: 'MidJourney AI-generated image',
-            imageCreditsDescription:
-                'futuristic phone concept neon colorful abstract --ar 3:2',
+                'With GDI you can unlock hundreds of custom designs made by people around the world with a passion for elegant, beautiful UI',
+            ctaButtonText: 'Join free',
         },
         colors: {
-            text: '#fff',
+            background: '#1a7870',
+            text: '#aaef69',
         },
         extra: {
-            href: 'https://github.com/dht/gdi/docs',
-            hrefSecond: 'https://github.com/dht/gdi',
-            imageUrl: 'https://appofthebox.web.app/6.webp',
-            headerFontSize: 70,
+            imageUrl: 'https://via.placeholder.com/350x150',
+            href: '#',
         },
     },
     blue: {
         id: 'blue',
         strings: {
-            ctaButtonText: 'Join',
-            secondButtonText: 'Pricing',
-            header: 'SuperCharger',
-            description: '',
+            slogan: 'Try GDI',
+            header: 'Open Source Web Presence',
+            description:
+                'With GDI you can unlock hundreds of custom designs made by people around the world with a passion for elegant, beautiful UI',
+            ctaButtonText: 'Join free',
         },
         colors: {
-            text: '#fff',
+            background: 'dodgerblue',
+            text: 'pink',
         },
         extra: {
-            href: 'https://github.com/dht/gdi/docs',
-            hrefSecond: 'https://github.com/dht/gdi',
-            imageUrl: 'https://appofthebox.web.app/7.webp',
-            headerFontSize: 70,
+            imageUrl: 'https://picsum.photos/seed/10/400/280',
+            href: '#',
         },
     },
 };

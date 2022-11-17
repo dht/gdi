@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WindowSize snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ hEqbSV WindowSize-container"
+  data-testid="WindowSize-container"
+>
+  <div
+    className="sc-gsnTZi cOFMKY"
+  >
+    <div
+      className="sc-dkzDqf chgQAY"
+    >
+      ∞
+    </div>
+    <div
+      className="sc-hKMtZM hJgazB"
+    >
+      x
+    </div>
+    <div
+      className="sc-eCYdqJ gierlq"
+    >
+      ∞
+    </div>
+    <div
+      className="sc-jSMfEi kOeYUx"
+    >
+      px
+    </div>
+  </div>
+</div>
+`;

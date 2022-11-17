@@ -11,6 +11,7 @@ export { useEnter } from './hooks/useEnter';
 export { useEscape } from './hooks/useEscape';
 export { useFilterData } from './hooks/useFilterData';
 export { useFilterValue } from './hooks/useFilterValue';
+export { useFirstLoad } from './hooks/useFirstLoad';
 export { useFunctionKeys } from './hooks/useFunctionKeys';
 export { useKey } from './hooks/useKey';
 export { useKeyHold } from './hooks/useKeyHold';

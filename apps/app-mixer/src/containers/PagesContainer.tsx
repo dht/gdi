@@ -18,13 +18,21 @@ export const PagesContainer = () => {
             onSelectionChange: (ids: string[]) => {
                 // console.log('ids ->', ids);
             },
-            onCustomAction: (actionId: string, _data?: Json) => {
+            onCustomAction: (actionId: string, data?: Json) => {
+                console.log('actionId ->', actionId);
+
                 switch (actionId) {
                     case 'import':
                         dispatch({ type: 'IMPORT_SITE' });
                         break;
                     case 'download':
                         dispatch({ type: 'EXPORT_SITE' });
+                        break;
+                    case 'status':
+                        dispatch({
+                            type: 'CHANGE_PAGE_STATUS',
+                            pageId: data?.item?.id,
+                        });
                         break;
                 }
             },

@@ -20,6 +20,8 @@ export type WidgetGalleryProps = {
 export function WidgetGallery(props: WidgetGalleryProps) {
     const { items, callbacks, hideParts, definitions } = props;
 
+    console.log('definitions ->', definitions);
+
     if (!definitions || !definitions.gallery) {
         return null;
     }

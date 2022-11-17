@@ -6,6 +6,9 @@ viewModes:
     - custom2
 hideParts:
     - preview
+    - search
+    - tagging
+    - filter
 tools:
     - id: back
       text: Back

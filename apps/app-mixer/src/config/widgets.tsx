@@ -1,17 +1,18 @@
 import React from 'react';
+import { actions } from '../store';
+import { APP_ID } from './ids';
+import { DatasetsContainer } from '../containers/DatasetsContainer';
+import { GalleryImagesContainer } from '../containers/GalleryImagesContainer';
+import { GalleryWidgetsContainer } from '../containers/GalleryWidgetsContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
 import { MixerContainer } from '../containers/MixerContainer';
 import { MixerPanelContainer } from '../containers/MixerPanelContainer';
-import { PagesContainer } from '../containers/PagesContainer';
-import { GalleryImagesContainer } from '../containers/GalleryImagesContainer';
-import { GalleryWidgetsContainer } from '../containers/GalleryWidgetsContainer';
-import { PreviewContainer } from '../containers/PreviewContainer';
 import { MixerTreeContainer } from '../containers/singles/MixerTreeContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
+import { PagesContainer } from '../containers/PagesContainer';
+import { PreviewContainer } from '../containers/PreviewContainer';
 import { WindowSize } from '../components/WindowSize/WindowSize';
-import { actions } from '../store';
-import { APP_ID } from './ids';
 
 export enum MixerWidgets {
     Mixer = 'mixer.Mixer',
@@ -25,6 +26,7 @@ export enum MixerWidgets {
     ImportExport = 'mixer.ImportExport',
     PageTools = 'mixer.PageTools',
     Preview = 'mixer.Preview',
+    Datasets = 'mixer.Datasets',
     WindowSize = 'mixer.WindowSize',
 }
 export const widgets: IWidget[] = [
@@ -179,6 +181,22 @@ export const widgets: IWidget[] = [
         },
         component: (props: any) => (
             <Wrapper appId={APP_ID} component={WindowSize} props={props} />
+        ),
+    },
+    {
+        id: MixerWidgets.Datasets,
+        name: 'Datasets',
+        description: 'Datasets',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={DatasetsContainer}
+                props={props}
+            />
         ),
     },
 ];

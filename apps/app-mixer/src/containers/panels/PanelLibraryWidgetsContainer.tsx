@@ -6,7 +6,9 @@ import LibraryWidgets from '../../components/LibraryWidgets/LibraryWidgets';
 
 export const PanelLibraryWidgetsContainer = (_props: any) => {
     const dispatch = useDispatch();
-    const items = useSelector(selectors.base.$libraryWidgets);
+    const items = useSelector(selectors.base.$libraryWidgetsAll);
+
+    console.log('items ->', items);
 
     const galleryOptions = useMemo(
         () => ({

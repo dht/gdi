@@ -14,6 +14,8 @@ import { root as exportSite } from './export/saga.export';
 import { root as exportPage } from './export/saga.export.page';
 import { root as pages } from './saga.pages';
 import { root as mixer } from './saga.mixer';
+import { root as toLive } from './live/saga.toLive';
+import { root as toDraft } from './live/saga.toDraft';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 
 function* root() {
@@ -32,6 +34,8 @@ function* root() {
     yield* fork(contentImages);
     yield* fork(mixer);
     yield* fork(pages);
+    yield* fork(toLive);
+    yield* fork(toDraft);
     yield* fork(ping);
 }
 

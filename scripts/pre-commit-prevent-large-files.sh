@@ -32,7 +32,7 @@ for file in $( git diff-index --cached --diff-filter=d --name-only "$against" );
 	if [[ -f "$file" ]]; then
 		file_size=$( ls -lan $file | awk '{ print $5 }' )
 		if [ "$file_size" -gt  "$limit" ]; then
-	    	echo File $file is $(( $file_size / 2**20 )) MB, which is larger than our configured limit of $limitInKB KB
+	    	echo File $file is $(( $file_size / 2**10 )) KB, which is larger than our configured limit of $limitInKB KB
         	shouldFail=true
 		fi
 	fi

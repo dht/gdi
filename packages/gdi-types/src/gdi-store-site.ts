@@ -25,6 +25,15 @@ declare global {
         siteProperties: ISiteProperties;
     };
 
+    export type IDataImport = Partial<{
+        pages: IPage[];
+        pageInstances: IPage[];
+        instances: IPageInstance[];
+        instancesProps: Json;
+        widgets: IWidget[];
+        images: IImage[];
+    }>;
+
     export type ITemplate = Optional<
         ISite,
         | 'locale'
@@ -77,6 +86,9 @@ declare global {
         dataTags: string[];
         enabled?: boolean;
         templateId?: TemplateId;
+
+        // transient
+        pageInstanceVersion?: string;
     };
 
     export type IPageInstance = {
@@ -174,4 +186,15 @@ declare global {
         metaTags: IMetaTag[];
         linkTags: ILinkTag[];
     };
+
+    export type IPageInstanceAssets = {
+        id: string;
+        pageInstance: IPageInstance;
+        widgets: IWidget[];
+        instances: IWidgetInstance[];
+        instancesProps: Json;
+        images: IImage[];
+    };
+
+    export type IPagesInstanceAssets = Record<string, IPageInstanceAssets>;
 }

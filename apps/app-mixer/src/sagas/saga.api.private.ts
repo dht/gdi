@@ -28,11 +28,12 @@ function* apiPrivate() {
         yield* put(actions.libraryInstancesProps.get({})),
         yield* put(actions.libraryPages.get({})),
         yield* put(actions.libraryPageInstances.get({})),
-        yield* put(actions.libraryPalettes.get({})),
+        yield* put(actions.libraryPalettes.get()),
         yield* put(actions.libraryTypography.get({})),
         yield* put(actions.locales.get({})),
         yield* put(actions.packages.get({})),
         yield* put(actions.siteProperties.get()),
+        yield* put(actions.datasets.get()),
     ];
 
     yield Promise.all(promises);

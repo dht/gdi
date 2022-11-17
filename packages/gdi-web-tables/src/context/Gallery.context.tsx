@@ -19,7 +19,7 @@ type GalleryContextProps = {
     configOverlay: IOverlayConfig;
     options: IGalleryOptions;
     callbacks: {
-        onAction: (actionId: string) => void;
+        onAction: (actionId: string, data?: Json) => void;
         onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
     };
 };
@@ -110,6 +110,8 @@ export const GalleryContextProvider = (
                     callbacks.onItemAction(id, 'edit');
                 } else if (filterState.toolId === 'delete') {
                     callbacks.onItemAction(id, 'delete');
+                } else if (filterState.toolId === 'duplicate') {
+                    callbacks.onItemAction(id, 'duplicate');
                 }
 
                 callbacksSelect.onSelect(id);
@@ -119,8 +121,6 @@ export const GalleryContextProvider = (
                 callbacks.onItemAction(id, 'drillDown');
             },
             onAction: (actionId: ItemActionType, data?: Json) => {
-                // props.onAction(actionId, data);
-
                 switch (actionId) {
                     case 'addTag':
                         callbacks.onItemAction(data?.id, actionId, data);
@@ -128,6 +128,8 @@ export const GalleryContextProvider = (
                     case 'removeTag':
                         callbacks.onItemAction(data?.id, actionId, data);
                         break;
+                    default:
+                        callbacks.onAction(actionId, data);
                 }
             },
             onMouseEvent: (ev: MouseEv) => {

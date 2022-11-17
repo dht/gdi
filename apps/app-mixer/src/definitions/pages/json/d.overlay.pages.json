@@ -2,13 +2,24 @@
     "id": "PageOverlay",
     "sequence": 1,
     "overlayType": "absolute",
+    "margin": "15px",
     "fields": [
+        {
+            "id": "path",
+            "fieldId": "path",
+            "fieldType": "text",
+            "locationKey": "topLeft",
+            "order": 1,
+            "params": {
+                "floatLeft": true
+            }
+        },
         {
             "id": "tags",
             "fieldId": "tags",
             "fieldType": "tags",
             "locationKey": "topLeft",
-            "order": 1
+            "order": 2
         },
         {
             "id": "title",
@@ -26,7 +37,8 @@
             "fieldType": "select",
             "locationKey": "topRight",
             "params": {
-                "center": true
+                "center": true,
+                "floatRight": true
             },
             "order": 1
         },

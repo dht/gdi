@@ -17,5 +17,6 @@ export {
 export { Filters } from './components/Filters/Filters';
 export { FilterBar } from './components/FilterBar/FilterBar';
 export { FilterContextProvider } from './context/Filter.context';
+export { VerticalTabs } from './components/VerticalTabs/VerticalTabs';
 export * from './types';
 export { definitions } from './definitions';

@@ -102,7 +102,8 @@ export type ItemActionType =
     | 'addTag'
     | 'removeTag'
     | 'mouse'
-    | 'drillDown';
+    | 'drillDown'
+    | string;
 
 export type ItemType =
     // CMS

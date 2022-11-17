@@ -124,8 +124,6 @@ const select = (promptRequest: PromptRequest): Promise<PromptResponse> => {
         warning,
     } = promptRequest;
 
-    console.log('options ->', options);
-
     return invokePromptAndListen({
         flavour: 'select',
         title,
@@ -138,6 +136,20 @@ const select = (promptRequest: PromptRequest): Promise<PromptResponse> => {
             placeholder,
             options,
             warning,
+        },
+    });
+};
+
+const choice = (promptRequest: PromptRequest): Promise<PromptResponse> => {
+    const { title, submitButtonText, options, defaultValue } = promptRequest;
+
+    return invokePromptAndListen({
+        flavour: 'choice',
+        title,
+        submitButtonText,
+        params: {
+            options,
+            defaultValue,
         },
     });
 };
@@ -170,6 +182,7 @@ export const prompt = {
     confirm,
     input,
     select,
+    choice,
     form,
     pie,
 };
