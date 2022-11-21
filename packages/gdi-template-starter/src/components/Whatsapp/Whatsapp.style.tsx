@@ -1,0 +1,45 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+        .content {
+            background-color: #111;
+        }
+
+        .icon {
+            filter: brightness(110%);
+        }
+    }
+`;
+
+export const Content = styled.div`
+    background-color: #000;
+    padding: 10px 40px 10px 80px;
+    border-radius: 40px;
+`;
+
+export const Title = styled.div`
+    font-size: 30px;
+    font-variation-settings: 'wdth' 140, 'wght' 750;
+`;
+
+export const Subtitle = styled.div`
+    font-size: 18px;
+    font-variation-settings: 'wdth' 100, 'wght' 650;
+    color: #47c857;
+`;
+
+export const Icon = styled.div`
+    position: absolute;
+    left: -30px;
+    top: -10px;
+    width: 50px;
+    height: 50px;
+
+    img {
+        width: 100px;
+    }
+`;

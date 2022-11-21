@@ -24,6 +24,7 @@ export type IMixerState = {
     showImageUploadModal: boolean;
     showPlayModeMessage: boolean;
     showMixerTree: boolean;
+    mobileMode: boolean;
 };
 
 export type ICurrentIds = {
@@ -32,7 +33,9 @@ export type ICurrentIds = {
     selectedInstanceId: string;
     contentInstanceId: string;
     libraryInstanceId: string;
+    zoomWidgetId: string;
     fieldId: string;
+    resolution: IResolution;
 };
 
 export type ITypography = {

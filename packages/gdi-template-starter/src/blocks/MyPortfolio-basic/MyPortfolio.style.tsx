@@ -1,13 +1,14 @@
 import styled from 'styled-components';
-import { MyPortfolioColors } from './MyPortfolio';
+import { MyServicesColors } from './MyServices';
 import { darken } from 'polished';
 
-export const Container = styled.div<{ colors: MyPortfolioColors }>`
+export const Container = styled.div<{ colors: MyServicesColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 60vh;
-    max-height: 800px;
+    background-color: ${(props) => props.colors.background || '#223'};
     display: flex;
+    flex-direction: column;
+    font-family: ${(props) => props.theme.fontFamily};
+    padding: 100px 0 90px;
 
     @media (max-width: 768px) {
         height: auto;
@@ -18,10 +19,11 @@ export const Container = styled.div<{ colors: MyPortfolioColors }>`
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     max-width: 1440px;
     margin: 0 auto;
+    justify-content: center;
     flex: 1;
 
     @media (max-width: 768px) {
@@ -29,21 +31,7 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ImageWrapper = styled.div`
-    flex: 1;
-`;
-
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
-`;
-
-export const Details = styled.div`
-    flex: 1;
-`;
-
-export const Slogan = styled.div<{ colors: MyPortfolioColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
+export const Slogan = styled.div`
     font-size: 42px;
     font-weight: bold;
 
@@ -53,9 +41,11 @@ export const Slogan = styled.div<{ colors: MyPortfolioColors }>`
     }
 `;
 
-export const H1 = styled.h1`
-    font-size: 42px;
+export const H2 = styled.h2`
+    font-size: 37px;
     max-width: 400px;
+    margin: 0;
+    padding: 0;
 
     @media (max-width: 768px) {
         text-align: center;
@@ -64,10 +54,12 @@ export const H1 = styled.h1`
     }
 `;
 
-export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
+export const Description = styled.p`
+    font-size: 18px;
+    max-width: 500px;
+    text-align: center;
     line-height: 29px;
+    margin-bottom: 80px;
 
     @media (max-width: 768px) {
         line-height: 34px;
@@ -77,42 +69,8 @@ export const P = styled.p`
     }
 `;
 
-export const Actions = styled.div`
-    margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-`;
-
-export const CTA = styled.a<{ colors: MyPortfolioColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
-    }
-
-    &:active {
-        position: relative;
-        bottom: 2px;
-        left: 2px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
-    }
+export const Portfolio = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;

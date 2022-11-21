@@ -1,118 +1,63 @@
-import styled from 'styled-components';
-import { HeroColors } from './Hero';
-import { darken } from 'polished';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
+import { HeroExtra } from './Hero';
 
-export const Container = styled.div<{ colors: HeroColors }>`
+export const Container = styled.div<{ extra: HeroExtra }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 60vh;
-    max-height: 800px;
+    background-image: url(${(props) => props.extra.imageUrl});
+    background-size: cover;
+    background-position: center bottom;
+    height: 80vh;
+    max-height: 900px;
     display: flex;
-
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
-    }
+    font-family: ${(props) => props.theme.fontFamily};
 `;
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
-`;
-
-export const ImageWrapper = styled.div`
-    flex: 1;
-`;
-
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
-`;
-
-export const Details = styled.div`
-    flex: 1;
-`;
-
-export const Slogan = styled.div<{ colors: HeroColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
-    font-size: 42px;
-    font-weight: bold;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 42px;
-    }
 `;
 
 export const H1 = styled.h1`
     font-size: 42px;
     max-width: 400px;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
+    margin: 10px 0;
+    padding: 0;
+    font-variation-settings: 'wdth' 105, 'wght' 650;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
 `;
 
-export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
-
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
-`;
-
-export const Actions = styled.div`
-    margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-`;
-
-export const CTA = styled.a<{ colors: HeroColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
+export const Greeting = styled.div<{ colors: HeroColors }>`
+    color: #33334499;
+    background-color: #ffffff44;
+    padding: 2px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
     font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
-    }
-
-    &:active {
-        position: relative;
-        bottom: 2px;
-        left: 2px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
-    }
+    font-variation-settings: 'wdth' 125, 'wght' 350;
 `;
+
+export const Skill = styled.div`
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 17px;
+    margin-top: 2px;
+    margin-bottom: 30px;
+    font-variation-settings: 'wdth' 125, 'wght' 350;
+
+    ${mobile(
+        css`
+            text-align: center;
+        `
+    )}
+`;
+
+export const Social = styled.div``;

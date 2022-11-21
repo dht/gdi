@@ -1,28 +1,34 @@
 import React from 'react';
-import { Container, Wrapper, Links, Link, Copy, GDI } from './Footer.style';
-
+import { A, Column, Container, Li, Ul, Wrapper } from './Footer.style';
 export const id = 'com.usegdi.templates.gdi.footer-basic';
 
 export type FooterProps = {
-    sequence?: number;
     strings: FooterStrings;
     colors: FooterColors;
     extra: FooterExtra;
 };
 
 export type FooterStrings = {
-    copyright?: string;
+    slogan?: string;
+    header: string;
+    description?: string;
+    ctaButtonText: string;
 };
 
 export type FooterColors = {
     background?: string;
+    text?: string;
 };
 
-export type FooterExtra = {};
+export type FooterExtra = {
+    href: string;
+    imageUrl: string;
+};
 
 export function Footer(props: FooterProps) {
-    const { strings, colors } = props;
-    const { copyright } = strings;
+    const { strings, colors, extra } = props;
+    const { slogan, header, description, ctaButtonText } = strings;
+    const { imageUrl, href } = extra;
 
     return (
         <Container
@@ -31,17 +37,17 @@ export function Footer(props: FooterProps) {
             colors={colors}
         >
             <Wrapper>
-                <Copy>{copyright}</Copy>
-                <Links>
-                    <Link href='/terms'>Terms of use</Link>
-                    <Link href='/privacy'>Privacy</Link>
-                    <GDI>
-                        Powered by{' '}
-                        <a href='https://usegdi.com' target='_blank'>
-                            gDI
-                        </a>
-                    </GDI>
-                </Links>
+                <Column>&copy; gDI 2022</Column>
+                <Column>
+                    <Ul>
+                        <Li>
+                            <A>Community</A>
+                        </Li>
+                        <Li>
+                            <A>Github</A>
+                        </Li>
+                    </Ul>
+                </Column>
             </Wrapper>
         </Container>
     );

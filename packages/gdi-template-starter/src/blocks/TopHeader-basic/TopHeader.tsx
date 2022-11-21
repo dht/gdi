@@ -1,16 +1,7 @@
-import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './TopHeader.style';
+import React, { useContext } from 'react';
+import { Container, Wrapper, Actions } from './TopHeader.style';
+import { SiteContext } from '@gdi/engine';
+import TopMenu from '../../components/TopMenu/TopMenu';
 
 export const id = 'com.usegdi.templates.starter.topHeader-basic';
 
@@ -41,6 +32,7 @@ export function TopHeader(props: TopHeaderProps) {
     const { strings, colors, extra } = props;
     const { slogan, header, description, ctaButtonText } = strings;
     const { imageUrl, href } = extra;
+    let { menuItems } = useContext(SiteContext);
 
     return (
         <Container
@@ -49,19 +41,9 @@ export function TopHeader(props: TopHeaderProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                logo
+                <TopMenu items={menuItems} />
+                actions
             </Wrapper>
         </Container>
     );

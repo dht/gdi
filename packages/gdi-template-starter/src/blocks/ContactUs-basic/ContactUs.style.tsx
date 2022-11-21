@@ -1,18 +1,32 @@
 import styled from 'styled-components';
-import { ContactUsColors } from './ContactUs';
+import { CtaActionColors } from './CtaAction';
 import { darken } from 'polished';
+import { BaseButton } from '../../components/Base.style';
 
-export const Container = styled.div<{ colors: ContactUsColors }>`
+export const Container = styled.div<{ colors: CtaActionColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 60vh;
-    max-height: 800px;
+    background-color: ${(props) => props.colors.background || '#112'};
+    position: relative;
+    height: 600px;
+    padding: 20px 0 100px;
+    box-sizing: border-box;
     display: flex;
+    --bk-light: green;
+    font-family: ${(props) => props.theme.fontFamily};
 
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
+    &::before {
+        background-image: url(https://static-b9ebe.web.app/ny1.webp);
+        background-size: cover;
+        background-position: bottom center;
+        background-attachment: fixed;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: ;
+        filter: brightness(0.3) opacity(25%) blur(1px) contrast(110%);
     }
 `;
 
@@ -20,99 +34,22 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     @media (max-width: 768px) {
         flex-direction: column;
     }
 `;
 
-export const ImageWrapper = styled.div`
-    flex: 1;
+export const H3 = styled.h3`
+    font-size: 50px;
+    font-variation-settings: 'wdth' 130, 'wght' 200;
 `;
 
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
-`;
-
-export const Details = styled.div`
-    flex: 1;
-`;
-
-export const Slogan = styled.div<{ colors: ContactUsColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
-    font-size: 42px;
-    font-weight: bold;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 42px;
-    }
-`;
-
-export const H1 = styled.h1`
-    font-size: 42px;
-    max-width: 400px;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
-`;
-
-export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
-
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
-`;
-
-export const Actions = styled.div`
-    margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-`;
-
-export const CTA = styled.a<{ colors: ContactUsColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
-    }
-
-    &:active {
-        position: relative;
-        bottom: 2px;
-        left: 2px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
-    }
-`;
+export const Button = styled(BaseButton)``;

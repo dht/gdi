@@ -1,0 +1,17 @@
+id: PageApp
+header: App Page
+layout:
+    flavour: app
+sections:
+    - id: header
+      sectionType: header
+      groupId: top
+    - id: media
+      sectionType: media
+      groupId: center
+    - id: overview
+      sectionType: overview
+      groupId: bottomLeft
+    - id: additionalInfo
+      sectionType: additionalInfo
+      groupId: bottomRight

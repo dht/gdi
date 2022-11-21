@@ -17,6 +17,7 @@ export const pages: IPages = {
         path: '/',
         status: 'draft',
         tags: [],
+        dataTags: [],
     },
 };
 

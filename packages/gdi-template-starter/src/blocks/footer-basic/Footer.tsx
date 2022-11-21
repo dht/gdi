@@ -1,18 +1,7 @@
 import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './Footer.style';
+import { Container, Wrapper, Copy } from './Footer.style';
 
-export const id = 'com.usegdi.templates.starter.footer-basic';
+export const id = 'com.usegdi.templates.gdi.footer-basic';
 
 export type FooterProps = {
     strings: FooterStrings;
@@ -49,19 +38,7 @@ export function Footer(props: FooterProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <Copy>Copyright &copy; 2022 David All Rights Reserved</Copy>
             </Wrapper>
         </Container>
     );

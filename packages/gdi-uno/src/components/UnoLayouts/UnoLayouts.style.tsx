@@ -23,9 +23,10 @@ export const Bottom = styled.div`
     align-items: flex-start;
 `;
 
-export const Column = styled.div`
+export const Column = styled.div<{ flex?: number }>`
     margin-top: 45px;
     padding-bottom: 50px;
+    ${(props) => (props.flex ? `flex: ${props.flex}` : '')}
 
     &:nth-child(1) {
         flex: 3;

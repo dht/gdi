@@ -12,15 +12,6 @@ body {
     &.rtl {
         direction: rtl;
     }
-
-    @media (max-width: 768px) {
-        width: 640px;
-
-        &.no-scroll {
-            max-height: 100vh;
-            overflow: hidden;
-        }
-    }
 }
 
 body,

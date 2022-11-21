@@ -12,6 +12,7 @@ export { Choice } from './components/Choice/Choice';
 export { ColorPicker } from './components/ColorPicker/ColorPicker';
 export { CornerTriangle } from './components/CornerTriangle/CornerTriangle';
 export { DateInput } from './components/DateInput/DateInput';
+export { Device } from './components/Device/Device';
 export { Drawer } from './components/Drawer/Drawer';
 export { Dropdown } from './components/Dropdown/Dropdown';
 export { DoubleDeckerSwitch } from './components/DoubleDeckerSwitch/DoubleDeckerSwitch';
@@ -35,6 +36,7 @@ export { ProgressBarVertical } from './components/ProgressBarVertical/ProgressBa
 export { Search } from './components/Search/Search';
 export { Slider } from './components/Slider/Slider';
 export { SocialIcon } from './components/SocialIcon/SocialIcon';
+export { SocialIcons } from './components/SocialIcons/SocialIcons';
 export { SpinButton } from './components/SpinButton/SpinButton';
 export { Switch } from './components/Switch/Switch';
 export { Tag } from './components/Tag/Tag';

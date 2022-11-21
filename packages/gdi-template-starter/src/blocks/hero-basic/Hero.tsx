@@ -1,16 +1,6 @@
 import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './Hero.style';
+import { Container, H1, Wrapper, Greeting, Skill, Social } from './Hero.style';
+import { SocialIcons } from '@gdi/web-ui';
 
 export const id = 'com.usegdi.templates.starter.hero-basic';
 
@@ -37,31 +27,25 @@ export type HeroExtra = {
     imageUrl: string;
 };
 
+const urls = ['https://twitter.com/elonmusk', 'https://www.behance.net/dlanid'];
+
 export function Hero(props: HeroProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { slogan, header, description } = strings;
 
     return (
         <Container
             className='Hero-container'
             data-testid='Hero-container'
-            colors={colors}
+            extra={extra}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <Greeting colors={colors}>{slogan}</Greeting>
+                <H1>{header}</H1>
+                <Skill>{description}</Skill>
+                <Social>
+                    <SocialIcons grayscale urls={urls} />
+                </Social>
             </Wrapper>
         </Container>
     );

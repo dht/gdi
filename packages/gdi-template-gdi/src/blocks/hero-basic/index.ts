@@ -12,6 +12,7 @@ export const widgetInfo: IWidget = {
     dimensions,
     screenshots,
     tags: ['type-hero'],
+    dataTags: [],
     widgetType: 'hero',
     isBlock: true,
 };

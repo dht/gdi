@@ -1,14 +1,12 @@
+import { Icon } from '@fluentui/react';
 import React from 'react';
 import {
     Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
+    IconWrapper,
+    Number,
+    Numbers,
+    Title,
+    Value,
     Wrapper,
 } from './MyNumbers.style';
 
@@ -42,6 +40,23 @@ export function MyNumbers(props: MyNumbersProps) {
     const { slogan, header, description, ctaButtonText } = strings;
     const { imageUrl, href } = extra;
 
+    function renderNumber(number: Json) {
+        const { iconName, value, title } = number;
+        return (
+            <Number key={number.id} className='number'>
+                <IconWrapper>
+                    <Icon iconName={iconName} />
+                </IconWrapper>
+                <Value>{value}</Value>
+                <Title>{title}</Title>
+            </Number>
+        );
+    }
+
+    function renderNumbers() {
+        return numbers.map((number: Json) => renderNumber(number));
+    }
+
     return (
         <Container
             className='MyNumbers-container'
@@ -49,22 +64,37 @@ export function MyNumbers(props: MyNumbersProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <Numbers>{renderNumbers()}</Numbers>
             </Wrapper>
         </Container>
     );
 }
+
+const numbers = [
+    {
+        id: '1',
+        iconName: 'Edit',
+        value: 100,
+        title: 'Happy Clients',
+    },
+    {
+        id: '2',
+        iconName: 'Edit',
+        value: 100,
+        title: 'Happy Clients',
+    },
+    {
+        id: '3',
+        iconName: 'Edit',
+        value: 100,
+        title: 'Happy Clients',
+    },
+    {
+        id: '4',
+        iconName: 'Edit',
+        value: 100,
+        title: 'Happy Clients',
+    },
+];
 
 export default MyNumbers;

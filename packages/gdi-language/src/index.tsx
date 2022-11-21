@@ -40,6 +40,8 @@ export {
     intervalToDuration,
     duration,
     toDuration,
+    durationMillisNow,
+    durationMillisElapsed,
 } from './utils/language.relative';
 export {
     time,

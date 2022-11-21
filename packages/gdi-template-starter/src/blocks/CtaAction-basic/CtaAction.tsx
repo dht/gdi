@@ -1,16 +1,6 @@
 import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './CtaAction.style';
+import Whatsapp from '../../components/Whatsapp/Whatsapp';
+import { Button, Container, H3, Wrapper } from './CtaAction.style';
 
 export const id = 'com.usegdi.templates.starter.ctaAction-basic';
 
@@ -49,19 +39,8 @@ export function CtaAction(props: CtaActionProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <H3>Join my 15th October course</H3>
+                <Button>Join Course</Button>
             </Wrapper>
         </Container>
     );

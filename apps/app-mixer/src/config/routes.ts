@@ -8,6 +8,7 @@ export const routes: IRoutes = {
     widgetGallery: `${ROOT}/widgetGallery`,
     datasets: `${ROOT}/datasets`,
     preview_static: `/preview`,
+    zoomBuild: `${ROOT}/zoomBuild/:zoomWidgetId`,
 };
 
 export const menuItems: IMenuItem[] = [

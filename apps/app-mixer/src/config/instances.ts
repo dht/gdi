@@ -100,4 +100,13 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 48, x: 88 },
         },
     ],
+    zoomBuild: [
+        {
+            id: 'ZoomBuild',
+            widgetId: MixerWidgets.ZoomBuild,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: true,
+        },
+    ],
 };

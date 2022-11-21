@@ -1,118 +1,166 @@
 import styled from 'styled-components';
-import { QuotesColors } from './Quotes';
-import { darken } from 'polished';
 
-export const Container = styled.div<{ colors: QuotesColors }>`
+export const Container = styled.div`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 60vh;
-    max-height: 800px;
+    background-color: #223;
+    padding: 50px;
     display: flex;
-
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
-    }
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 0 90px;
+    font-family: ${(props) => props.theme.fontFamily};
 `;
 
-export const Wrapper = styled.div`
+export const ContainerItem = styled.div`
+    width: 650px;
+    height: 404px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+`;
+
+export const Image = styled.div<{ url: string }>`
+    background-image: url(${(props) => props.url});
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 404px;
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
+export const Content = styled.div`
+    width: 650px;
+    height: 404px;
+    position: relative;
+    overflow: hidden;
+`;
+
+export const ContainerDots = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
-    flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
+    margin-top: 20px;
 `;
 
-export const ImageWrapper = styled.div`
-    flex: 1;
-`;
-
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
-`;
-
-export const Details = styled.div`
-    flex: 1;
-`;
-
-export const Slogan = styled.div<{ colors: QuotesColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
-    font-size: 42px;
-    font-weight: bold;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 42px;
-    }
-`;
-
-export const H1 = styled.h1`
-    font-size: 42px;
-    max-width: 400px;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
-`;
-
-export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
-
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
-`;
-
-export const Actions = styled.div`
-    margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-`;
-
-export const CTA = styled.a<{ colors: QuotesColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 20px;
+export const Dot = styled.div<{ active?: boolean }>`
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+    border: 1px solid #fff;
+    background-color: ${(props) => (props.active ? '#eee' : 'transparent')};
+    border-radius: 50%;
     cursor: pointer;
+`;
+
+export const ContainerArrows = styled.div`
+    height: 0;
+    width: 100%;
+    position: relative;
+    max-width: 1200px;
+`;
+
+export const Arrow = styled.div`
+    position: absolute;
+    font-size: 50px;
+    margin-top: 170px;
+    background-color: #112;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
 
     &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     }
 
-    &:active {
-        position: relative;
-        bottom: 2px;
-        left: 2px;
+    i {
+        font-size: 40px;
+        color: #555;
     }
 
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
+    &:nth-child(1) {
+        left: 0;
     }
+
+    &:nth-child(2) {
+        right: 0;
+    }
+`;
+
+export const Quote = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 404px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
+`;
+
+export const QuoteContent = styled.div`
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+`;
+
+export const QuoteSign = styled.div`
+    position: relative;
+    right: 5px;
+
+    i {
+        font-size: 50px;
+    }
+`;
+
+export const QuoteBody = styled.div`
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 25px;
+    line-height: 1.5;
+    text-align: center;
+    font-variation-settings: 'wdth' 100, 'wght' 200;
+    padding: 0 10px;
+`;
+
+export const QuotePerson = styled.div`
+    text-align: center;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const QuotePersonImage = styled.div<{ imageUrl: string }>`
+    background-image: url(${(props) => props.imageUrl});
+    background-size: cover;
+    background-position: center center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+`;
+
+export const QuotePersonName = styled.div`
+    font-size: 22px;
+    font-variation-settings: 'wdth' 100, 'wght' 450;
+    margin-bottom: 7px;
+`;
+
+export const QuotePersonJobTitle = styled.div`
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    font-variation-settings: 'wdth' 100, 'wght' 300;
 `;

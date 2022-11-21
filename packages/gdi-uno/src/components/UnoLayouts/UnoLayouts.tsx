@@ -33,9 +33,42 @@ export function LayoutBasic(props: UnoLayoutProps) {
     );
 }
 
+export function LayoutBlog(props: UnoLayoutProps) {
+    return (
+        <Container
+            className='Layouts-container'
+            data-testid='Layouts-container'
+        >
+            <Top>
+                <Wrapper>{props.renderSections('top')}</Wrapper>
+            </Top>
+            <Center>
+                <Wrapper>
+                    <Column flex={5}>
+                        {props.renderSections('centerLeft')}
+                    </Column>
+                    <Column flex={2}>
+                        {props.renderSections('centerRight')}
+                    </Column>
+                </Wrapper>
+            </Center>
+            <Bottom>
+                <Wrapper>
+                    <Column flex={5}>
+                        {props.renderSections('bottomLeft')}
+                    </Column>
+                    <Column flex={2}>
+                        {props.renderSections('bottomRight')}
+                    </Column>
+                </Wrapper>
+            </Bottom>
+        </Container>
+    );
+}
+
 export const layouts: Record<UnoLayoutFlavour, FC<UnoLayoutProps>> = {
     app: LayoutBasic,
     template: LayoutBasic,
-    blog: LayoutBasic,
+    blog: LayoutBlog,
     product: LayoutBasic,
 };

@@ -1,35 +1,71 @@
+import type { IScreenshotsPerFlavour } from '@gdi/web-ui';
+
 export const screenshots: IScreenshotsPerFlavour = {
     normal: {
         desktop: {
             large: {
                 width: 1000,
-                height: 37.92106331168831,
-                ratio: 26.37056856187291,
-                url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.gdi.footer-basic.normal.desktop.large.webp?alt=media',
-                urlIsRemote: true,
+                height: 400,
+                ratio: 2.5,
+                url: 'screenshot.gdi.footer-basic.normal.desktop.large.webp',
+                urlIsRemote: false,
             },
             thumb: {
-                width: 400,
-                height: 15.168425324675324,
-                ratio: 26.37056856187291,
-                url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.gdi.footer-basic.normal.desktop.thumb.webp?alt=media',
-                urlIsRemote: true,
+                width: 1000,
+                height: 400,
+                ratio: 2.5,
+                url: 'screenshot.gdi.footer-basic.normal.desktop.thumb.webp',
+                urlIsRemote: false,
             },
         },
         mobile: {
             large: {
                 width: 500,
-                height: 45.6714527027027,
-                ratio: 10.947757743874249,
-                url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.gdi.footer-basic.normal.mobile.large.webp?alt=media',
-                urlIsRemote: true,
+                height: 1337,
+                ratio: 0.3739715781600598,
+                url: 'screenshot.gdi.footer-basic.normal.mobile.large.webp',
+                urlIsRemote: false,
             },
             thumb: {
-                width: 200,
-                height: 18.26858108108108,
-                ratio: 10.947757743874249,
-                url: 'https://storage.googleapis.com/download/storage/v1/b/usegdi-a56c4.appspot.com/o/screenshots%2Fscreenshot.gdi.footer-basic.normal.mobile.thumb.webp?alt=media',
-                urlIsRemote: true,
+                width: 500,
+                height: 1337,
+                ratio: 0.3739715781600598,
+                url: 'screenshot.gdi.footer-basic.normal.mobile.thumb.webp',
+                urlIsRemote: false,
+            },
+        },
+    },
+    blue: {
+        desktop: {
+            large: {
+                width: 1000,
+                height: 400,
+                ratio: 2.5,
+                url: 'screenshot.gdi.footer-basic.blue.desktop.large.webp',
+                urlIsRemote: false,
+            },
+            thumb: {
+                width: 1000,
+                height: 400,
+                ratio: 2.5,
+                url: 'screenshot.gdi.footer-basic.blue.desktop.thumb.webp',
+                urlIsRemote: false,
+            },
+        },
+        mobile: {
+            large: {
+                width: 500,
+                height: 1383,
+                ratio: 0.3615328994938539,
+                url: 'screenshot.gdi.footer-basic.blue.mobile.large.webp',
+                urlIsRemote: false,
+            },
+            thumb: {
+                width: 500,
+                height: 1383,
+                ratio: 0.3615328994938539,
+                url: 'screenshot.gdi.footer-basic.blue.mobile.thumb.webp',
+                urlIsRemote: false,
             },
         },
     },

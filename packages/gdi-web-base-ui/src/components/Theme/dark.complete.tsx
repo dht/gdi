@@ -2,7 +2,7 @@ import { PartialTheme } from '@fluentui/react';
 
 export const theme: PartialTheme = {
     defaultFontStyle: {
-        fontFamily: 'Heebo',
+        fontFamily: 'Inter',
         fontWeight: 'regular',
     },
     palette: {

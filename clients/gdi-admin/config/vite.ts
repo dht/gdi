@@ -18,6 +18,9 @@ export const alias = {
     '@gdi/store-settings': `${cwd}/stores/gdi-store-settings/src`,
 
     '@gdi/template-starter': `${cwd}/packages/gdi-template-starter/src`,
+    '@gdi/template-tech': `${cwd}/packages/gdi-template-tech/src`,
+    '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi/src`,
+
     '@gdi/platformer': `${cwd}/packages/platformer/src`,
     '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
     '@gdi/web-ui': `${cwd}/packages/gdi-web-ui/src`,
@@ -81,5 +84,6 @@ export const alias = {
     '@gdi/language-he': `${cwd}/submodules/gdi-language-he/src`,
     '@gdi/language-it': `${cwd}/submodules/gdi-language-it/src`,
     '@gdi/language-nl': `${cwd}/submodules/gdi-language-nl/src`,
+    '@gdi/uno': `${cwd}/packages/gdi-uno/src`,
     ...aliasExtra,
 };

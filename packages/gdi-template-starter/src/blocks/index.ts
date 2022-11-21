@@ -31,9 +31,6 @@ import { widgetInfo as QuotesInfo } from './Quotes-basic';
 import { TopHeader } from './TopHeader-basic/TopHeader';
 import { widgetInfo as TopHeaderInfo } from './TopHeader-basic';
 
-import { TopMenu } from './TopMenu-basic/TopMenu';
-import { widgetInfo as TopMenuInfo } from './TopMenu-basic';
-
 export const blocks: IWidgets = {
     'com.usegdi.templates.starter.aboutMe-basic': {
         component: AboutMe,
@@ -78,9 +75,5 @@ export const blocks: IWidgets = {
     'com.usegdi.templates.starter.topHeader-basic': {
         component: TopHeader,
         ...TopHeaderInfo,
-    },
-    'com.usegdi.templates.starter.topMenu-basic': {
-        component: TopMenu,
-        ...TopMenuInfo,
     },
 };

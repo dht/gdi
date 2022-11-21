@@ -4,12 +4,11 @@ import {
     Actions,
     CTA,
     Details,
-    H1,
-    Image,
-    ImageWrapper,
+    H2,
     P,
     Slogan,
     Wrapper,
+    Content,
 } from './AboutMe.style';
 
 export const id = 'com.usegdi.templates.starter.aboutMe-basic';
@@ -49,19 +48,18 @@ export function AboutMe(props: AboutMeProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <Content>
+                    <Details>
+                        {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
+                        <H2>{header}</H2>
+                        {description && <P>{description}</P>}
+                        <Actions>
+                            <CTA colors={colors} href={href}>
+                                {ctaButtonText}
+                            </CTA>
+                        </Actions>
+                    </Details>
+                </Content>
             </Wrapper>
         </Container>
     );

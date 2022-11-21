@@ -3,8 +3,9 @@ import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
 import Placeholder from '../Placeholder/Placeholder';
 import { ActionType } from '../EngineEdit/EngineEdit';
-import { Container, LoaderWrapper } from './ElementEdit.style';
+import { Container, Id, LoaderWrapper, Zoom } from './ElementEdit.style';
 import { EngineContext } from '../../context/Engine.context';
+import { invokeEvent } from 'shared-base';
 
 export type ElementEditProps = {
     sequence?: number;
@@ -46,6 +47,11 @@ export function ElementEdit(props: ElementEditProps) {
         props.onAction('drillDown', element.id);
     }
 
+    function navigateToZoom() {
+        const widgetId = element.widgetId.replace(/\./g, '_');
+        invokeEvent('navigate', { path: `/admin/zoomBuild/${widgetId}` });
+    }
+
     function renderWidget() {
         if (!widget) {
             if (element.isPlaceholder) {
@@ -68,6 +74,14 @@ export function ElementEdit(props: ElementEditProps) {
                 isEditMode={true}
             />
         );
+    }
+
+    function renderZoom() {
+        return <Zoom className='zoom' onClick={navigateToZoom} />;
+    }
+
+    function renderId() {
+        return <Id className='id'>{element.widgetId}</Id>;
     }
 
     function renderLoader() {
@@ -93,6 +107,8 @@ export function ElementEdit(props: ElementEditProps) {
         >
             {renderWidget()}
             {renderLoader()}
+            {renderZoom()}
+            {renderId()}
         </Container>
     );
 }

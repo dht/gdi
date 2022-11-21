@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import { IUnoSection, Json, SectionType } from '../../types';
 import AdditionalInformation from '../AdditionalInformation/AdditionalInformation';
+import ArticleBody from '../ArticleBody/ArticleBody';
+import ArticleComments from '../ArticleComments/ArticleComments';
+import ArticleHeader from '../ArticleHeader/ArticleHeader';
+import ArticleTitle from '../ArticleTitle/ArticleTitle';
 import Media from '../Media/Media';
 import Overview from '../Overview/Overview';
 import UnoHeader from '../UnoHeader/UnoHeader';
@@ -71,11 +75,53 @@ export function SectionAdditionalInfo(props: UnoSectionProps) {
     );
 }
 
+export function SectionArticleHeader(props: UnoSectionProps) {
+    const { section, data } = props;
+
+    return (
+        <Container
+            className='UnoSection-container'
+            data-testid='UnoSection-container'
+        >
+            <ArticleHeader section={section} data={data} />
+        </Container>
+    );
+}
+
+export function SectionArticleBody(props: UnoSectionProps) {
+    const { section, data } = props;
+
+    return (
+        <Container
+            className='UnoSection-container'
+            data-testid='UnoSection-container'
+        >
+            <ArticleBody section={section} data={data} />
+        </Container>
+    );
+}
+
+export function SectionArticleComments(props: UnoSectionProps) {
+    const { section, data } = props;
+
+    return (
+        <Container
+            className='UnoSection-container'
+            data-testid='UnoSection-container'
+        >
+            <ArticleComments section={section} data={data} />
+        </Container>
+    );
+}
+
 export const sections: Record<SectionType, FC<UnoSectionProps>> = {
     header: SectionHeader,
     additionalInfo: SectionAdditionalInfo,
     media: SectionMedia,
     overview: SectionOverview,
+    articleHeader: SectionArticleHeader,
+    articleBody: SectionArticleBody,
+    articleComments: SectionArticleComments,
 };
 
 export default UnoSection;

@@ -8,12 +8,6 @@ export const Container = styled.div<{ colors: $CMPColors }>`
     height: 60vh;
     max-height: 800px;
     display: flex;
-
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
-    }
 `;
 
 export const Wrapper = styled.div`
@@ -23,10 +17,6 @@ export const Wrapper = styled.div`
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
 `;
 
 export const ImageWrapper = styled.div`
@@ -46,47 +36,21 @@ export const Slogan = styled.div<{ colors: $CMPColors }>`
     color: ${(props) => props.colors.text ?? '#aaef69'};
     font-size: 42px;
     font-weight: bold;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 42px;
-    }
 `;
 
 export const H1 = styled.h1`
     font-size: 42px;
     max-width: 400px;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
 `;
 
 export const P = styled.p`
     font-size: 20px;
     max-width: 400px;
     line-height: 29px;
-
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
 `;
 
 export const Actions = styled.div`
     margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
 `;
 
 export const CTA = styled.a<{ colors: $CMPColors }>`
@@ -109,10 +73,5 @@ export const CTA = styled.a<{ colors: $CMPColors }>`
         position: relative;
         bottom: 2px;
         ${(props) => props.theme.left('2px')}
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
     }
 `;

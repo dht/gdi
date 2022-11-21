@@ -1,16 +1,6 @@
 import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './ContactUs.style';
+import Whatsapp from '../../components/Whatsapp/Whatsapp';
+import { Container, H3, Wrapper } from './ContactUs.style';
 
 export const id = 'com.usegdi.templates.starter.contactUs-basic';
 
@@ -49,19 +39,8 @@ export function ContactUs(props: ContactUsProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <H3>Contact me today</H3>
+                <Whatsapp />
             </Wrapper>
         </Container>
     );

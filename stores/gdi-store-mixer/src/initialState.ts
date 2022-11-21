@@ -11,6 +11,7 @@ export const initialState: IMixerStore = {
         showImageUploadModal: false,
         showPlayModeMessage: false,
         showMixerTree: false,
+        mobileMode: false,
     },
     currentIds: {
         pageId: 'home',
@@ -18,7 +19,9 @@ export const initialState: IMixerStore = {
         selectedInstanceId: '',
         contentInstanceId: '',
         libraryInstanceId: '',
+        zoomWidgetId: '',
         fieldId: '',
+        resolution: '2k',
     },
     libraryImages: {
         '1': {

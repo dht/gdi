@@ -125,6 +125,32 @@ export const $instancesForCurrentPage = createSelector(
     }
 );
 
+export const $instancesForCurrentZoomBuild = createSelector(
+    raw.$rawCurrentIds,
+    $instances,
+    (currentIds, instances) => {
+        const { zoomWidgetId: zoomWidgetIdRaw = '' } = currentIds;
+        const zoomWidgetId = zoomWidgetIdRaw.replace(/_/g, '.');
+
+        return instances.filter(
+            (instance: IWidgetInstance) => instance.widgetId === zoomWidgetId
+        );
+    }
+);
+
+export const $widgetForCurrentZoomBuild = createSelector(
+    raw.$rawCurrentIds,
+    raw.$rawLibraryWidgets,
+    (currentIds, widgets) => {
+        const { zoomWidgetId: zoomWidgetIdRaw = '' } = currentIds;
+        const zoomWidgetId = zoomWidgetIdRaw.replace(/_/g, '.');
+
+        return Object.values(widgets).find(
+            (widget: IWidget) => widget.id === zoomWidgetId
+        );
+    }
+);
+
 export const $instancesPropsForCurrentPage = createSelector(
     $instancesForCurrentPage,
     raw.$rawLibraryInstancesProps,

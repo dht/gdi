@@ -1,92 +1,115 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AboutMeColors } from './AboutMe';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ colors: AboutMeColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
+    background-color: ${(props) => props.colors.background || '#111'};
     height: 60vh;
     max-height: 800px;
     display: flex;
+    font-family: ${(props) => props.theme.fontFamily};
+    background-image: url(https://static-b9ebe.web.app/ny-me.webp);
+    background-size: cover;
+    background-position: center center;
+    font-family: ${(props) => props.theme.fontFamily};
 
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
+    ${mobile(css`
+        height: 100vh;
+        background-image: none;
+    `)}
+
+    &&:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) 39%,
+            rgba(0, 0, 0, 0.5) 40%,
+            rgba(0, 0, 0, 0.85) 49%,
+            rgba(0, 0, 0, 0.95) 100%
+        );
+
+        ${mobile(css`
+            display: none;
+        `)}
     }
 `;
 
 export const Wrapper = styled.div`
+    margin: 0 auto;
+    position: relative;
+    width: 1440px;
+
+    ${mobile(css`
+        width: 380px;
+        flex-direction: column;
+    `)}
+`;
+
+export const Content = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
+    justify-content: flex-end;
     flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
-`;
-
-export const ImageWrapper = styled.div`
-    flex: 1;
-`;
-
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
 `;
 
 export const Details = styled.div`
-    flex: 1;
+    box-sizing: border-box;
 `;
 
 export const Slogan = styled.div<{ colors: AboutMeColors }>`
     color: ${(props) => props.colors.text || '#aaef69'};
-    font-size: 42px;
+    font-size: 28px;
     font-weight: bold;
+    font-variation-settings: 'wdth' 95, 'wght' 250;
+    margin-bottom: 10px;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         text-align: center;
-        font-size: 42px;
-    }
+        font-size: 25px;
+    `)}
 `;
 
-export const H1 = styled.h1`
-    font-size: 42px;
-    max-width: 400px;
+export const H2 = styled.h2`
+    font-size: 34px;
+    line-height: 1.4;
+    max-width: 500px;
+    margin: 0 0 20px;
 
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
+    ${mobile(css`
+        max-width: 300px;
+    `)}
 `;
 
 export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
+    font-size: 24px;
+    max-width: 600px;
+    line-height: 38px;
+    font-variation-settings: 'wght' 250;
+    padding: 0;
+    margin: 0;
 
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
+    ${mobile(css`
+        display: none;
+    `)}
 `;
 
 export const Actions = styled.div`
     margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
 `;
 
 export const CTA = styled.a<{ colors: AboutMeColors }>`
@@ -109,10 +132,5 @@ export const CTA = styled.a<{ colors: AboutMeColors }>`
         position: relative;
         bottom: 2px;
         left: 2px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
     }
 `;

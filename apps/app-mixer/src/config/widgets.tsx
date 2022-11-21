@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { ZoomBuildContainer } from '../containers/ZoomBuildContainer';
 import { actions } from '../store';
 import { APP_ID } from './ids';
 import { DatasetsContainer } from '../containers/DatasetsContainer';
@@ -15,6 +17,7 @@ import { PreviewContainer } from '../containers/PreviewContainer';
 import { WindowSize } from '../components/WindowSize/WindowSize';
 
 export enum MixerWidgets {
+    ZoomBuild = 'mixer.ZoomBuild',
     Mixer = 'mixer.Mixer',
     MixerPanel = 'mixer.MixerPanel',
     MixerTree = 'mixer.MixerTree',
@@ -30,6 +33,23 @@ export enum MixerWidgets {
     WindowSize = 'mixer.WindowSize',
 }
 export const widgets: IWidget[] = [
+    {
+        id: MixerWidgets.ZoomBuild,
+        name: 'ZoomBuild',
+        description: 'ZoomBuild',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ZoomBuildContainer}
+                props={props}
+                currentIdsActionCreator={actions.currentIds.patch}
+            />
+        ),
+    },
     {
         id: MixerWidgets.Mixer,
         name: 'Mixer',

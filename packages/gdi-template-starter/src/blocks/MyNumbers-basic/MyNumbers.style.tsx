@@ -4,10 +4,10 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: MyNumbersColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
-    height: 60vh;
-    max-height: 800px;
+    background-color: ${(props) => props.colors.background || '#223'};
     display: flex;
+    padding: 100px 0;
+    font-family: ${(props) => props.theme.fontFamily};
 
     @media (max-width: 768px) {
         height: auto;
@@ -18,8 +18,7 @@ export const Container = styled.div<{ colors: MyNumbersColors }>`
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
@@ -29,90 +28,45 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const ImageWrapper = styled.div`
-    flex: 1;
+export const Numbers = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 `;
 
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
+export const Number = styled.div`
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border-radius: 6px;
 `;
 
-export const Details = styled.div`
-    flex: 1;
-`;
+export const IconWrapper = styled.div`
+    width: 100px;
+    height: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
-export const Slogan = styled.div<{ colors: MyNumbersColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
-    font-size: 42px;
-    font-weight: bold;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 42px;
+    i {
+        font-size: 44px;
     }
 `;
 
-export const H1 = styled.h1`
-    font-size: 42px;
-    max-width: 400px;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
+export const Title = styled.div`
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 20px;
 `;
 
-export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
-
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
-`;
-
-export const Actions = styled.div`
-    margin-top: 70px;
-
-    @media (max-width: 768px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-`;
-
-export const CTA = styled.a<{ colors: MyNumbersColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    font-size: 17px;
-    padding: 10px 50px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-
-    &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
-    }
-
-    &:active {
-        position: relative;
-        bottom: 2px;
-        left: 2px;
-    }
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 15px 40px;
-    }
+export const Value = styled.div`
+    font-size: 44px;
+    padding: 0;
+    margin: 0 0 10px;
 `;

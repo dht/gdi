@@ -6,7 +6,14 @@ export type IUnoLayout = {
     flavour: UnoLayoutFlavour;
 };
 
-export type SectionType = 'header' | 'overview' | 'additionalInfo' | 'media';
+export type SectionType =
+    | 'header'
+    | 'overview'
+    | 'additionalInfo'
+    | 'media'
+    | 'articleHeader'
+    | 'articleBody'
+    | 'articleComments';
 
 export type IUnoSection = {
     id: string;

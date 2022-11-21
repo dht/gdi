@@ -12,6 +12,7 @@ export const widgetInfo: IWidget = {
     dimensions,
     screenshots,
     tags: ['type-footer'],
+    dataTags: [],
     widgetType: 'footer',
     isBlock: true,
 };
