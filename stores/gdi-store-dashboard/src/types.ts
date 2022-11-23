@@ -3,6 +3,7 @@ import type { StoreStructure } from 'redux-store-generator';
 export type IDashboardStore = StoreStructure & IDashboardStructure & {};
 
 export type IDashboardStructure = {
+    meta: IGdiMeta;
     appStateDashboard: IAppStateDashboard;
     currentIdsDashboard: ICurrentIdsDashboard;
     stats: IStats;
@@ -12,7 +13,6 @@ export type IDashboardStructure = {
 
 export type IAppStateDashboard = {
     stateKey: string;
-    openTasks: number;
 };
 
 export type ICurrentIdsDashboard = {

@@ -29,26 +29,20 @@ export type MyResumeProps = {
 };
 
 export type MyResumeStrings = {
-    slogan?: string;
     header: string;
     description?: string;
-    ctaButtonText: string;
 };
 
-export type MyResumeColors = {
-    background?: string;
-    text?: string;
-};
+export type MyResumeColors = {};
 
 export type MyResumeExtra = {
-    href: string;
-    imageUrl: string;
+    servicesDatasetId?: string;
 };
 
 export function MyResume(props: MyResumeProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { header, description } = strings;
+    const { servicesDatasetId } = extra;
 
     const educationItems = items.filter((i) => i.type === 'education');
     const experienceItems = items.filter((i) => i.type === 'experience');

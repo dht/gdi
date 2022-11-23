@@ -2,7 +2,8 @@
     "id": "PageTemplate",
     "header": "Template Page",
     "layout": {
-        "flavour": "template"
+        "flavour": "template",
+        "paletteIndex": 0
     },
     "sections": [
         {

@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-events",
     "version": "0.0.25",
+    "description": "Events",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-events.es.js",
             "require": "./dist/app-events.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-weather",
     "version": "0.0.24",
+    "description": "Weather",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -36,5 +37,10 @@
             "import": "./dist/store-weather.es.js",
             "require": "./dist/store-weather.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

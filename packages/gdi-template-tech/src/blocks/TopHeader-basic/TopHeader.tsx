@@ -22,25 +22,19 @@ export type TopHeaderProps = {
 
 export type TopHeaderStrings = {
     slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
 };
 
-export type TopHeaderColors = {
-    background?: string;
-    text?: string;
-};
+export type TopHeaderColors = {};
 
 export type TopHeaderExtra = {
-    href: string;
-    imageUrl: string;
+    logoImageUrl: string;
+    hrefExtra: string;
 };
 
 export function TopHeader(props: TopHeaderProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { slogan } = strings;
+    const { logoImageUrl, hrefExtra } = extra;
 
     return (
         <Container

@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-studio",
     "version": "0.0.25",
+    "description": "3d studio",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-studio.es.js",
             "require": "./dist/app-studio.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

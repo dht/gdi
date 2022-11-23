@@ -5,17 +5,18 @@ import { darken } from 'polished';
 export const Container = styled.div<{ colors: FourPackColors }>`
     flex: 1;
     display: flex;
+    background-color: white;
 `;
 
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 1440px;
+    align-items: flex-start;
+    max-width: 1200px;
     margin: 0 auto;
     flex: 1;
 
-    @media (max-width: 768px) {
-        flex-direction: column;
+    > div {
+        margin: 5px 0;
     }
 `;

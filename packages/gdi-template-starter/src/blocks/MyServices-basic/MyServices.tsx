@@ -22,26 +22,18 @@ export type MyServicesProps = {
 };
 
 export type MyServicesStrings = {
-    slogan?: string;
     header: string;
     description?: string;
-    ctaButtonText: string;
+    servicesDatasetId: string;
 };
 
-export type MyServicesColors = {
-    background?: string;
-    text?: string;
-};
+export type MyServicesColors = {};
 
-export type MyServicesExtra = {
-    href: string;
-    imageUrl: string;
-};
+export type MyServicesExtra = {};
 
 export function MyServices(props: MyServicesProps) {
-    const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { strings, colors } = props;
+    const { header, description } = strings;
 
     function renderService(service: Json) {
         const { iconName, title, description } = service;

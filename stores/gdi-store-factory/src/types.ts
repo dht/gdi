@@ -1,6 +1,7 @@
 import type { StoreStructure } from 'redux-store-generator';
 
 export type IFactoryStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateFactory: IFactoryState;
     currentIdsFactory: ICurrentIdsFactory;
     layouts: ILayouts;
@@ -67,7 +68,7 @@ export type IArticle = {
     imageThumbUrl: string;
     imageDescription: string;
     imageSource: string;
-    radio?: number;
+    ratio?: number;
     authorName: string;
     publishDate: string;
     lastPublishDate: string;

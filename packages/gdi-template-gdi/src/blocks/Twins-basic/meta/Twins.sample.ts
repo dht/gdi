@@ -4,38 +4,19 @@ export const sampleData: ISampleDataPerFlavour = {
     normal: {
         id: 'normal',
         strings: {
-            slogan: 'morning',
-            header: 'Wake up each morning to do',
+            header: 'Build for [Firebase]',
             description:
-                'With morning you are an effective team that gets things done, every minute, every hour, every day',
-            ctaButtonText: 'Join free',
+                "Use Firebase to host your site, store your data and manage your users. You can do all that with Firebase's free Spark plan*",
+            buttonText: 'See features',
+            headerSecondary: 'Made with [React]',
+            descriptionSecondary:
+                "It's easy to extend the CMS with your React skills. Create new templates, apps or data stores. Use JSONs to import & export anything",
+            buttonTextSecondary: 'Visit Github',
         },
-        colors: {
-            background: '#1a7870',
-            text: '#aaef69',
-        },
+        colors: {},
         extra: {
-            imageUrl:
-                'https://cdn.greeninvoice.co.il/public-website/assets/1.0.473/img/d9a9eec.svg',
             href: '#',
-        },
-    },
-    blue: {
-        id: 'blue',
-        strings: {
-            slogan: 'Try GDI',
-            header: 'Open Source Web Presence',
-            description:
-                'With GDI you can unlock hundreds of custom designs made by people around the world with a passion for elegant, beautiful UI',
-            ctaButtonText: 'Join free',
-        },
-        colors: {
-            background: 'dodgerblue',
-            text: 'pink',
-        },
-        extra: {
-            imageUrl: 'https://picsum.photos/seed/10/400/280',
-            href: '#',
+            hrefSecondary: '#',
         },
     },
 };

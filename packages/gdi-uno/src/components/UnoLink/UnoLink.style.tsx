@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.a`
-    color: dodgerblue;
+    color: var(--main-color);
     font-weight: 500;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 18px;
     display: flex;
     flex-direction: row;
     align-items: center;
     font-variation-settings: 'wdth' 100, 'wght' 580;
-    margin: 5px 0;
+    font-family: ${(props) => props.theme.fontFamily};
+    margin: 15px 0;
 
     i {
         margin-right: 5px;

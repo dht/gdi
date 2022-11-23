@@ -19,6 +19,7 @@
             "@gdi/template-starter": ["packages/gdi-template-starter"],
             "@gdi/template-tech": ["packages/gdi-template-tech"],
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],
+            "@gdi/template-card": ["packages/gdi-template-card"],
 
             "@gdi/language": ["packages/gdi-language"],
             "@gdi/language-de": ["submodules/gdi-language-de"],

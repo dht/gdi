@@ -4,7 +4,7 @@
  * Colorbrewer colors, by Cindy Brewer
  */
 
-export default {
+export const triangleColors = {
     YlGn: [
         '#ffffe5',
         '#f7fcb9',
@@ -321,3 +321,5 @@ export default {
         '#006837',
     ],
 };
+
+export default triangleColors;

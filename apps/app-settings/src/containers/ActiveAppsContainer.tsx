@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ActiveApps from '../components/ActiveApps/ActiveApps';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../selectors';
+import { PlatformContext } from '@gdi/platformer';
 
 export const ActiveAppsContainer = () => {
     const me = useSelector(selectors.raw.$rawMe);
@@ -9,12 +10,15 @@ export const ActiveAppsContainer = () => {
     const activeApps = useSelector(selectors.base.$activeApps);
     const activeAppsStats = useSelector(selectors.base.$activeAppsStats);
 
+    const templatesMeta = useContext(PlatformContext).state.templatesMeta;
+
     return (
         <ActiveApps
             me={me}
             users={users}
             activeApps={activeApps}
             stats={activeAppsStats}
+            templatesMeta={templatesMeta}
         />
     );
 };

@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-sales",
     "version": "0.0.21",
+    "description": "Sales",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -34,5 +35,10 @@
             "import": "./dist/store-sales.es.js",
             "require": "./dist/store-sales.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

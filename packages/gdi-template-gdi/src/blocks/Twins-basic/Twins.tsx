@@ -21,26 +21,32 @@ export type TwinsProps = {
 };
 
 export type TwinsStrings = {
-    slogan?: string;
     header: string;
-    description?: string;
-    ctaButtonText: string;
+    description: string;
+    buttonText: string;
+    headerSecondary: string;
+    descriptionSecondary: string;
+    buttonTextSecondary: string;
 };
 
-export type TwinsColors = {
-    background?: string;
-    text?: string;
-};
+export type TwinsColors = {};
 
 export type TwinsExtra = {
     href: string;
-    imageUrl: string;
+    hrefSecondary: string;
 };
 
 export function Twins(props: TwinsProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const {
+        header,
+        description,
+        buttonText,
+        headerSecondary,
+        descriptionSecondary,
+        buttonTextSecondary,
+    } = strings;
+    const { href, hrefSecondary } = extra;
 
     return (
         <Container className='Twins-container' data-testid='Twins-container'>

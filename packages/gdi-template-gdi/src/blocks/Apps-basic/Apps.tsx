@@ -11,26 +11,19 @@ export type AppsProps = {
 };
 
 export type AppsStrings = {
-    slogan?: string;
     header: string;
-    description?: string;
-    ctaButtonText: string;
 };
 
-export type AppsColors = {
-    background?: string;
-    text?: string;
-};
+export type AppsColors = {};
 
 export type AppsExtra = {
-    href: string;
-    imageUrl: string;
+    appsDatasetId: string;
 };
 
 export function Apps(props: AppsProps) {
-    const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { strings, extra } = props;
+    const { header } = strings;
+    const { appsDatasetId } = extra;
 
     return (
         <Container className='Apps-container' data-testid='Apps-container'>

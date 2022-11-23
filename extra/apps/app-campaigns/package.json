@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-campaigns",
     "version": "0.0.25",
+    "description": "Campaigns",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-campaigns.es.js",
             "require": "./dist/app-campaigns.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

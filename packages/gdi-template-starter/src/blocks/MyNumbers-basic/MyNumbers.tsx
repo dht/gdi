@@ -1,5 +1,5 @@
-import { Icon } from '@fluentui/react';
 import React from 'react';
+import { Icon } from '@fluentui/react';
 import {
     Container,
     IconWrapper,
@@ -18,27 +18,17 @@ export type MyNumbersProps = {
     extra: MyNumbersExtra;
 };
 
-export type MyNumbersStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type MyNumbersStrings = {};
 
-export type MyNumbersColors = {
-    background?: string;
-    text?: string;
-};
+export type MyNumbersColors = {};
 
 export type MyNumbersExtra = {
-    href: string;
-    imageUrl: string;
+    numbersDatasetId: string;
 };
 
 export function MyNumbers(props: MyNumbersProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { numbersDatasetId } = extra;
 
     function renderNumber(number: Json) {
         const { iconName, value, title } = number;

@@ -1,11 +1,16 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
 import { ISiteStore } from './types';
+import p from '../package.json';
 
 export const initialState: ISiteStore = {
     meta: {
         identifier: 'site',
         schemaVersion: '1.0.1',
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
     },
     locale: {
         localeId: 'en-us',
@@ -22,6 +27,7 @@ export const initialState: ISiteStore = {
             path: '/',
             status: 'draft',
             tags: [],
+            dataTags: [],
         },
     },
     pageInstances: {

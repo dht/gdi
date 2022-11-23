@@ -19,26 +19,20 @@ export type FeaturesProps = {
 };
 
 export type FeaturesStrings = {
-    slogan?: string;
     header: string;
-    description?: string;
-    ctaButtonText: string;
+    version?: string;
 };
 
-export type FeaturesColors = {
-    background?: string;
-    text?: string;
-};
+export type FeaturesColors = {};
 
 export type FeaturesExtra = {
-    href: string;
-    imageUrl: string;
+    featuresDatasetId: string;
 };
 
 export function Features(props: FeaturesProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { header, version } = strings;
+    const { featuresDatasetId } = extra;
 
     function renderFeature(feature: Feature) {
         const { title, tag } = feature;

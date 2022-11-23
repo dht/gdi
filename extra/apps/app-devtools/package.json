@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-devtools",
     "version": "0.0.25",
+    "description": "Devtools",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -60,5 +61,10 @@
             "import": "./dist/app-devtools.es.js",
             "require": "./dist/app-devtools.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

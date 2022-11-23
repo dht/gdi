@@ -14,17 +14,13 @@ export type HeroStrings = {
     slogan?: string;
     header: string;
     description?: string;
-    ctaButtonText: string;
 };
 
-export type HeroColors = {
-    background?: string;
-    text?: string;
-};
+export type HeroColors = {};
 
 export type HeroExtra = {
-    href: string;
     imageUrl: string;
+    socialDatasetId: string;
 };
 
 const urls = ['https://twitter.com/elonmusk', 'https://www.behance.net/dlanid'];

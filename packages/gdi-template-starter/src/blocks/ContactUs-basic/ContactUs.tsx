@@ -11,26 +11,17 @@ export type ContactUsProps = {
 };
 
 export type ContactUsStrings = {
-    slogan?: string;
     header: string;
-    description?: string;
-    ctaButtonText: string;
+    phoneNumber: string;
 };
 
-export type ContactUsColors = {
-    background?: string;
-    text?: string;
-};
+export type ContactUsColors = {};
 
-export type ContactUsExtra = {
-    href: string;
-    imageUrl: string;
-};
+export type ContactUsExtra = {};
 
 export function ContactUs(props: ContactUsProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { header, phoneNumber } = strings;
 
     return (
         <Container
@@ -39,7 +30,7 @@ export function ContactUs(props: ContactUsProps) {
             colors={colors}
         >
             <Wrapper>
-                <H3>Contact me today</H3>
+                <H3>Get a quote for your project</H3>
                 <Whatsapp />
             </Wrapper>
         </Container>

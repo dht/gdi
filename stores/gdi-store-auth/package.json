@@ -34,5 +34,10 @@
             "import": "./dist/store-auth.es.js",
             "require": "./dist/store-auth.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": false,
+        "isBeta": true
     }
 }

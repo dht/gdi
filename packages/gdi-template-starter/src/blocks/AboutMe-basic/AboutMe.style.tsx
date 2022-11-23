@@ -13,7 +13,6 @@ export const Container = styled.div<{ colors: AboutMeColors }>`
     background-image: url(https://static-b9ebe.web.app/ny-me.webp);
     background-size: cover;
     background-position: center center;
-    font-family: ${(props) => props.theme.fontFamily};
 
     ${mobile(css`
         height: 100vh;

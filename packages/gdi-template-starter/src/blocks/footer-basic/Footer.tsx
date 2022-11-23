@@ -10,26 +10,16 @@ export type FooterProps = {
 };
 
 export type FooterStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
+    text: string;
 };
 
-export type FooterColors = {
-    background?: string;
-    text?: string;
-};
+export type FooterColors = {};
 
-export type FooterExtra = {
-    href: string;
-    imageUrl: string;
-};
+export type FooterExtra = {};
 
 export function Footer(props: FooterProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { text } = strings;
 
     return (
         <Container

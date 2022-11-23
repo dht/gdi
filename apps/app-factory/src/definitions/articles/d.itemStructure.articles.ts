@@ -6,7 +6,7 @@ export const itemStructure = `export type IArticle = {
     imageThumbUrl: string;
     imageDescription: string;
     imageSource: string;
-    radio?: number;
+    ratio?: number;
     authorName: string;
     publishDate: string;
     lastPublishDate: string;

@@ -19,22 +19,4 @@ export const sampleData: ISampleDataPerFlavour = {
             href: '#',
         },
     },
-    blue: {
-        id: 'blue',
-        strings: {
-            slogan: 'Try GDI',
-            header: 'Open Source Web Presence',
-            description:
-                'With GDI you can unlock hundreds of custom designs made by people around the world with a passion for elegant, beautiful UI',
-            ctaButtonText: 'Join free',
-        },
-        colors: {
-            background: 'dodgerblue',
-            text: 'pink',
-        },
-        extra: {
-            imageUrl: 'https://picsum.photos/seed/10/400/280',
-            href: '#',
-        },
-    },
 };

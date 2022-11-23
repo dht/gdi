@@ -2,7 +2,8 @@
     "id": "PageApp",
     "header": "App Page",
     "layout": {
-        "flavour": "app"
+        "flavour": "app",
+        "paletteIndex": 6
     },
     "sections": [
         {

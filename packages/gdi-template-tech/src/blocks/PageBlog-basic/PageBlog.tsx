@@ -13,27 +13,14 @@ export type PageBlogProps = {
     extra: PageBlogExtra;
 };
 
-export type PageBlogStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type PageBlogStrings = {};
 
-export type PageBlogColors = {
-    background?: string;
-    text?: string;
-};
+export type PageBlogColors = {};
 
-export type PageBlogExtra = {
-    href: string;
-    imageUrl: string;
-};
+export type PageBlogExtra = {};
 
 export function PageBlog(props: PageBlogProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
 
     return (
         <Container
@@ -41,9 +28,7 @@ export function PageBlog(props: PageBlogProps) {
             data-testid='PageBlog-container'
             colors={colors}
         >
-            <Wrapper>
-                <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
-            </Wrapper>
+            <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
         </Container>
     );
 }

@@ -36,7 +36,7 @@ export type ITemplates = Record<string, ITemplate>;
 
 export type ITemplateMetas = Record<string, IMetaSite>;
 
-export type IMetaSite = {
+export type IMetaSite = IGdiMeta & {
     identifier: SiteId | TemplateId;
     schemaVersion?: string;
     author?: IAuthor;

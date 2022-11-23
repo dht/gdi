@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-orders",
     "version": "0.0.21",
+    "description": "Orders",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -34,5 +35,10 @@
             "import": "./dist/store-orders.es.js",
             "require": "./dist/store-orders.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

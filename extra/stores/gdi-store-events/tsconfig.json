@@ -5,6 +5,7 @@
         "lib": ["dom", "ES2020"],
         "moduleResolution": "node",
         "esModuleInterop": true,
+        "resolveJsonModule": true,
         "declaration": true,
         "declarationDir": "dist/dts",
         "forceConsistentCasingInFileNames": true,

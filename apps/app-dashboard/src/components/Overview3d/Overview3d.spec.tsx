@@ -1,13 +1,13 @@
-import { UnoBreadcrumbsDriver } from './UnoBreadcrumbs.driver';
+import { Overview3dDriver } from './Overview3d.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('UnoBreadcrumbs', () => {
-    let driver: UnoBreadcrumbsDriver;
+describe('Overview3d', () => {
+    let driver: Overview3dDriver;
 
     beforeAll(() => {
-        driver = new UnoBreadcrumbsDriver();
+        driver = new Overview3dDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('UnoBreadcrumbs', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('UnoBreadcrumbs-container');
+        expect(containerClassName).toContain('Overview3d-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('UnoBreadcrumbs', () => {
     });
 });
 
-describe('UnoBreadcrumbs snapshots', () => {
-    let driver: UnoBreadcrumbsDriver;
+describe('Overview3d snapshots', () => {
+    let driver: Overview3dDriver;
 
     beforeAll(() => {
-        driver = new UnoBreadcrumbsDriver();
+        driver = new Overview3dDriver();
     });
 
     it('should match snapshot', () => {

@@ -25,23 +25,22 @@ export type HeroProps = {
 export type HeroStrings = {
     slogan?: string;
     header: string;
-    description?: string;
+    installation?: string;
     ctaButtonText: string;
+    secondaryButtonText: string;
 };
 
-export type HeroColors = {
-    background?: string;
-    text?: string;
-};
+export type HeroColors = {};
 
 export type HeroExtra = {
     href: string;
     imageUrl: string;
+    hrefSecondary?: string;
 };
 
 export function Hero(props: HeroProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
+    const { slogan, header, ctaButtonText } = strings;
     const { imageUrl, href } = extra;
 
     return (

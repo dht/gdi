@@ -1,8 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
 import { IAuthStore } from './types';
+import p from '../package.json';
 
 export const initialState: IAuthStore = {
+    meta: {
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     authState: {
         isLoggedIn: false,
     },

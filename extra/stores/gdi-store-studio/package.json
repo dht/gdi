@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-studio",
     "version": "0.0.20",
+    "description": "3d summary",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -35,5 +36,10 @@
             "import": "./dist/store-studio.es.js",
             "require": "./dist/store-studio.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

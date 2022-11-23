@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper, IWidget } from '@gdi/platformer';
-import { OverviewContainer } from '../containers/OverviewContainer';
+import { Overview3dContainer } from '../containers/Overview3dContainer';
 import { OverviewNavigateContainer } from '../containers/OverviewNavigateContainer';
 import { actions } from '../store';
 import { APP_ID } from './ids';
@@ -21,7 +21,7 @@ export const widgets: IWidget[] = [
         component: (props: any) => (
             <Wrapper
                 appId={APP_ID}
-                component={OverviewContainer}
+                component={Overview3dContainer}
                 props={props}
             />
         ),

@@ -1,3 +1,4 @@
+import { TrianglesBk } from '@gdi/web-ui';
 import React, { FC } from 'react';
 import { UnoLayoutFlavour } from '../../types';
 import {
@@ -11,18 +12,25 @@ import {
 
 export type UnoLayoutProps = {
     renderSections: (sectionId: string) => JSX.Element[] | JSX.Element | null;
+    paletteIndex?: number;
 };
 
 export function LayoutBasic(props: UnoLayoutProps) {
+    const { paletteIndex } = props;
+
     return (
         <Container
             className='Layouts-container'
             data-testid='Layouts-container'
         >
             <Top>
-                <Wrapper>{props.renderSections('top')}</Wrapper>
+                <TrianglesBk paletteIndex={paletteIndex}>
+                    <Wrapper align='center' flex={1}>
+                        {props.renderSections('top')}
+                    </Wrapper>
+                </TrianglesBk>
             </Top>
-            <Center>{props.renderSections('center')}</Center>
+            <Center color='#223'>{props.renderSections('center')}</Center>
             <Bottom>
                 <Wrapper>
                     <Column>{props.renderSections('bottomLeft')}</Column>

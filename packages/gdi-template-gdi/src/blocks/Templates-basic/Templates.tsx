@@ -11,26 +11,19 @@ export type TemplatesProps = {
 };
 
 export type TemplatesStrings = {
-    slogan?: string;
     header: string;
-    description?: string;
-    ctaButtonText: string;
 };
 
-export type TemplatesColors = {
-    background?: string;
-    text?: string;
-};
+export type TemplatesColors = {};
 
 export type TemplatesExtra = {
-    href: string;
-    imageUrl: string;
+    templatesDatasetId: string;
 };
 
 export function Templates(props: TemplatesProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { header } = strings;
+    const { templatesDatasetId } = extra;
 
     return (
         <Container

@@ -20,6 +20,7 @@ export const alias = {
     '@gdi/template-starter': `${cwd}/packages/gdi-template-starter/src`,
     '@gdi/template-tech': `${cwd}/packages/gdi-template-tech/src`,
     '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi/src`,
+    '@gdi/template-card': `${cwd}/packages/gdi-template-card/src`,
 
     '@gdi/platformer': `${cwd}/packages/platformer/src`,
     '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,

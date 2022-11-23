@@ -1,10 +1,11 @@
 import React from 'react';
 import Breadcrumbs, { IBreadcrumb } from '../Breadcrumbs/Breadcrumbs';
-import { Container, Content, Top } from './Uno.style';
+import { Container, Content, BreadcrumbsWrapper } from './Uno.style';
 import { IUnoConfig, IUnoSection, Json } from '../../types';
 import { layouts } from '../UnoLayouts/UnoLayouts';
 import { sortBy } from 'shared-base';
 import { UnoSection } from '../UnoSection/UnoSection';
+import classnames from 'classnames';
 
 export type UnoProps = {
     config: IUnoConfig;
@@ -15,7 +16,7 @@ export type UnoProps = {
 export function Uno(props: UnoProps) {
     const { config, breadcrumbs = [], data } = props;
     const { layout, sections } = config;
-    const { flavour } = layout;
+    const { flavour, paletteIndex } = layout;
 
     function renderSection(section: IUnoSection) {
         const { id } = section;
@@ -33,14 +34,18 @@ export function Uno(props: UnoProps) {
     function renderLayout() {
         const Cmp = layouts[flavour];
 
-        return <Cmp renderSections={renderSections} />;
+        return (
+            <Cmp renderSections={renderSections} paletteIndex={paletteIndex} />
+        );
     }
 
+    const className = classnames('Uno-container', `palette-${paletteIndex}`);
+
     return (
-        <Container className='Uno-container' data-testid='Uno-container'>
-            <Top>
+        <Container className={className} data-testid='Uno-container'>
+            <BreadcrumbsWrapper>
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
-            </Top>
+            </BreadcrumbsWrapper>
             <Content>{renderLayout()}</Content>
         </Container>
     );

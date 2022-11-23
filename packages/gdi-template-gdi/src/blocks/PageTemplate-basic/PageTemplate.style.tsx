@@ -12,16 +12,3 @@ export const Container = styled.div`
         padding: 80px 20px;
     }
 `;
-
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
-    flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
-`;

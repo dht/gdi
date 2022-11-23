@@ -16,6 +16,9 @@ import {
     SettingsWrapper,
     ToggleWrapper,
     ToggleAll,
+    Description,
+    Flags,
+    Version,
 } from './ActiveApps.style';
 import { SettingsTab } from '../SettingsTab/SettingsTab';
 import { tabs } from '../SettingsTab/SettingsTab.data';
@@ -30,10 +33,11 @@ export type ActiveAppsProps = {
     users: IUser[];
     activeApps: IActiveApp[];
     stats: IActiveAppStats;
+    templatesMeta: ITemplateMetas;
 };
 
 export function ActiveApps(props: ActiveAppsProps) {
-    const { me, activeApps, stats } = props;
+    const { me, activeApps, stats, templatesMeta } = props;
     const { count, totalSize: allAppsSize } = stats;
     const [toggleAll, setToggleAll] = useToggle(false);
 
@@ -42,7 +46,6 @@ export function ActiveApps(props: ActiveAppsProps) {
     const [activeState, patchActiveState] = useLocalStorage<
         Record<string, boolean>
     >(ACTIVE_APPS_LOCAL_STORAGE_KEY, {
-        dashboard: true,
         login: true,
         mixer: true,
         settings: true,
@@ -57,11 +60,8 @@ export function ActiveApps(props: ActiveAppsProps) {
                 return acc;
             }, {} as Json);
 
-            console.log('all ->', all);
-
             patchActiveState({
                 ...all,
-                dashboard: true,
                 login: true,
                 mixer: true,
                 settings: true,
@@ -81,17 +81,31 @@ export function ActiveApps(props: ActiveAppsProps) {
     );
 
     function renderActiveApp(activeApp: IActiveApp) {
-        const { title, nodeCount, totalSize, color, description } = activeApp;
+        const { id, title, nodeCount, totalSize, color, description } =
+            activeApp;
 
         const sizeColor = totalSize > 1000 ? 'gold' : 'gray';
+
+        const key = id === 'login' ? 'auth' : id;
+        const meta = templatesMeta[key] ?? {};
+        const { isBeta, isDraft, version } = meta || {};
+
+        const flags = isDraft ? 'draft' : isBeta ? 'beta' : '';
 
         return (
             <AppRow key={activeApp.id} className='user'>
                 <AppField>
                     <Color value={color} />
                 </AppField>
-                <AppField color='pink'>{title}</AppField>
-                <AppField>{nodeCount}</AppField>
+                <AppField color='pink'>
+                    {title}
+                    <Description>{meta.description}</Description>
+                </AppField>
+                <AppField>
+                    <Flags className={flags}>{flags}</Flags>
+                    <Version>{version}</Version>
+                </AppField>
+                <AppField>{nodeCount || '-'}</AppField>
                 <AppField color={sizeColor}>{bytes(totalSize)}</AppField>
                 <AppField>{description}</AppField>
                 <ToggleWrapper>

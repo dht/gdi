@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { UnoBreadcrumbs, UnoBreadcrumbsProps } from './UnoBreadcrumbs';
+import { Card, CardProps } from './Card';
 import { BaseComponentDriver } from 'testing-base';
 
-export class UnoBreadcrumbsDriver extends BaseComponentDriver {
-    private props: Partial<UnoBreadcrumbsProps> = {
+export class CardDriver extends BaseComponentDriver {
+    private props: Partial<CardProps> = {
     };
 
     constructor() {
-        super('UnoBreadcrumbs');
+        super('Card');
     }
 
     when: any = {
         rendered: () => {
-            render(<UnoBreadcrumbs {...(this.props as UnoBreadcrumbsProps)} />);
+            render(<Card {...(this.props as CardProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class UnoBreadcrumbsDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<UnoBreadcrumbs {...(this.props as UnoBreadcrumbsProps)} />);
+            return this.snapshot(<Card {...(this.props as CardProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<UnoBreadcrumbsProps>) => {
+        props: (props: Partial<CardProps>) => {
             this.props = props;
             return this;
         },

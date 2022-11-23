@@ -6,6 +6,7 @@ export const A9 = {};
 
 declare global {
     export type IMixerStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateMixer: IMixerState;
         currentIds: ICurrentIds;
         locales: ILocaleOptions;
@@ -17,6 +18,7 @@ declare global {
         libraryImages: IImages;
         libraryPalettes: IPaletteOptions;
         libraryTypography: ITypographyOptions;
+        datasets: Json;
         packages: IPackages;
     };
 
@@ -28,6 +30,7 @@ declare global {
         showImageUploadModal: boolean;
         showPlayModeMessage: boolean;
         showMixerTree: boolean;
+        mobileMode: boolean;
     };
 
     export type ICurrentIds = {
@@ -36,7 +39,9 @@ declare global {
         selectedInstanceId: string;
         contentInstanceId: string;
         libraryInstanceId: string;
+        zoomWidgetId: string;
         fieldId: string;
+        resolution: IResolution;
     };
 
     export type ITypography = {
@@ -60,6 +65,4 @@ declare global {
     export type IImageWithWidget = IImage & {
         widget: IWidget;
     };
-
-    export type IP6 = {};
 }

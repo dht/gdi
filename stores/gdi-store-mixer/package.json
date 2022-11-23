@@ -36,5 +36,10 @@
             "import": "./dist/store-mixer.es.js",
             "require": "./dist/store-mixer.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": false,
+        "isBeta": true
     }
 }

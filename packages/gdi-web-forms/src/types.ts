@@ -31,6 +31,8 @@ export type FieldType =
     | 'number'
     | 'boolean'
     | 'paragraph'
+    | 'dataset'
+    | 'icon'
     | 'phone'
     | 'barSelect'
     | 'password'

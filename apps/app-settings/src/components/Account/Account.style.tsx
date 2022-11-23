@@ -38,7 +38,7 @@ export const Me = styled.div`
 
 export const Content = styled.div`
     flex: 1;
-    padding: 150px 50px;
+    padding: 150px 0;
     display: flex;
     flex-direction: row;
 `;

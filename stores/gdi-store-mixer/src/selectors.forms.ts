@@ -198,6 +198,8 @@ const mapTypeToType: Record<SchemaFieldType, FieldType> = {
     number: 'number',
     text: 'text',
     longText: 'paragraph',
+    dataset: 'dataset',
+    icon: 'icon',
     url: 'url',
     checkbox: 'checkbox',
     image: 'imageUpload',

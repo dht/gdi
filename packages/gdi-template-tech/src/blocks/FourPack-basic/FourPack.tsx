@@ -1,18 +1,7 @@
 import React from 'react';
 import LineArticle from '../../widgets/LineArticle/LineArticle';
 import { data } from '../SixPack-basic/Hero.data';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    Image,
-    ImageWrapper,
-    P,
-    Slogan,
-    Wrapper,
-} from './FourPack.style';
+import { Container, Wrapper } from './FourPack.style';
 
 export const id = 'com.usegdi.templates.tech.fourPack-basic';
 

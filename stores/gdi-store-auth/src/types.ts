@@ -1,6 +1,7 @@
 import type { StoreStructure } from 'redux-store-generator';
 
 export type IAuthStore = StoreStructure & {
+    meta: IGdiMeta;
     authState: IAuthState;
     me: IUser;
     users: IUsers;

@@ -8,6 +8,7 @@ declare global {
     export type IDashboardStore = StoreStructure & IDashboardStructure & {};
 
     export type IDashboardStructure = {
+        meta: IGdiMeta;
         appStateDashboard: IAppStateDashboard;
         currentIdsDashboard: ICurrentIdsDashboard;
         stats: IStats;
@@ -17,7 +18,6 @@ declare global {
 
     export type IAppStateDashboard = {
         stateKey: string;
-        openTasks: number;
     };
 
     export type ICurrentIdsDashboard = {

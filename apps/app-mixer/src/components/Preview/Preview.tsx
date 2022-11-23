@@ -4,6 +4,7 @@ import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateTech } from '@gdi/template-tech';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
+import { initTemplate as initTemplateCard } from '@gdi/template-card';
 
 export type PreviewProps = {
     elements: IElement[];
@@ -17,6 +18,7 @@ export function Preview(props: PreviewProps) {
         initTemplateStarter(libraryBuilder as any);
         initTemplateTech(libraryBuilder as any);
         initTemplateGdi(libraryBuilder as any);
+        initTemplateCard(libraryBuilder as any);
         return libraryBuilder;
     }, []);
 

@@ -26,10 +26,7 @@ export type AboutMeStrings = {
     ctaButtonText: string;
 };
 
-export type AboutMeColors = {
-    background?: string;
-    text?: string;
-};
+export type AboutMeColors = {};
 
 export type AboutMeExtra = {
     href: string;

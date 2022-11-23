@@ -20,6 +20,7 @@ import {
     selectors,
 } from '../store';
 import { allDefinitions } from '../definitions';
+import p from '../../package.json';
 
 export const initApp = (builders: AppBuilders) => {
     const {
@@ -31,6 +32,7 @@ export const initApp = (builders: AppBuilders) => {
         i18nBuilder,
         definitionsBuilder,
         pieMenuBuilder,
+        metaBuilder,
     } = builders;
 
     routerBuilder
@@ -63,4 +65,12 @@ export const initApp = (builders: AppBuilders) => {
     definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
 
     pieMenuBuilder.withPieMenuConfigs(APP_ID, pieMenuItems);
+
+    metaBuilder.withMeta(APP_ID, {
+        version: p.version,
+        description: p.description,
+        packageType: p.gdi.packageType as GdiEntity,
+        isDraft: p.gdi.isDraft,
+        isBeta: p.gdi.isBeta,
+    });
 };

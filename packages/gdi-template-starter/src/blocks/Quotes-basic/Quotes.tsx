@@ -27,21 +27,12 @@ export type QuotesProps = {
     extra: QuotesExtra;
 };
 
-export type QuotesStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type QuotesStrings = {};
 
-export type QuotesColors = {
-    background?: string;
-    text?: string;
-};
+export type QuotesColors = {};
 
 export type QuotesExtra = {
-    href: string;
-    imageUrl: string;
+    quotesDatasetId?: string;
 };
 
 export function Quotes(props: QuotesProps) {

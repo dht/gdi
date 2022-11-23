@@ -7,6 +7,7 @@ import { routes, menuItems, commandBarItems, contextBarItems } from './routes';
 import { widgets } from './widgets';
 import type { AppBuilders } from '@gdi/platformer';
 import i18n from './i18n';
+import p from '../../package.json';
 
 export const initAppStudio = (builders: AppBuilders) => {
     const {
@@ -16,6 +17,7 @@ export const initAppStudio = (builders: AppBuilders) => {
         widgetBuilder,
         apiConfigBuilder,
         i18nBuilder,
+        metaBuilder,
     } = builders;
 
     routerBuilder
@@ -42,4 +44,12 @@ export const initAppStudio = (builders: AppBuilders) => {
 
     apiConfigBuilder //
         .withEndpointsConfigOverrides(endpointsConfig);
+
+    metaBuilder.withMeta(APP_ID, {
+        version: p.version,
+        description: p.description,
+        packageType: p.gdi.packageType as GdiEntity,
+        isDraft: p.gdi.isDraft,
+        isBeta: p.gdi.isBeta,
+    });
 };

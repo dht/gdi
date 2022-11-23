@@ -13,27 +13,14 @@ export type SixPackProps = {
     extra: SixPackExtra;
 };
 
-export type SixPackStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type SixPackStrings = {};
 
-export type SixPackColors = {
-    background?: string;
-    text?: string;
-};
+export type SixPackColors = {};
 
-export type SixPackExtra = {
-    href: string;
-    imageUrl: string;
-};
+export type SixPackExtra = {};
 
 export function SixPack(props: SixPackProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
     const [ref, { width }] = useMeasure<HTMLDivElement>();
 
     console.log('width ->', width);

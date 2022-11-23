@@ -11,27 +11,14 @@ export type CtaLineProps = {
     extra: CtaLineExtra;
 };
 
-export type CtaLineStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type CtaLineStrings = {};
 
-export type CtaLineColors = {
-    background?: string;
-    text?: string;
-};
+export type CtaLineColors = {};
 
-export type CtaLineExtra = {
-    href: string;
-    imageUrl: string;
-};
+export type CtaLineExtra = {};
 
 export function CtaLine(props: CtaLineProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
 
     return (
         <Container

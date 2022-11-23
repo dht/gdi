@@ -2,16 +2,7 @@ import styled from 'styled-components';
 import { ButtonBase } from '../Base.style';
 
 export const Container = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 500px;
-    width: 1200px;
-    margin: 0 auto;
     background-color: white;
-    color: #334;
-    position: relative;
 `;
 
 export const Column = styled.div`
@@ -74,4 +65,14 @@ export const Button = styled(ButtonBase)`
     }
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 500px;
+    width: 1200px;
+    margin: 0 auto;
+    color: #334;
+    position: relative;
+`;

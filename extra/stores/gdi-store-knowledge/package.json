@@ -1,5 +1,6 @@
 {
     "name": "@gdi/store-knowledge",
+    "description": "Links",
     "version": "0.0.20",
     "scripts": {
         "build": "tsc & vite build",
@@ -34,5 +35,10 @@
             "import": "./dist/store-knowledge.es.js",
             "require": "./dist/store-knowledge.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

@@ -3,6 +3,7 @@ import { IUnoSection } from '../../types';
 import Rating from '../Rating/Rating';
 import { UnoButton } from '../UnoButton/UnoButton';
 import UnoLink from '../UnoLink/UnoLink';
+import { TrianglesBk } from '@gdi/web-ui';
 import {
     AuthorLine,
     Category,
@@ -50,9 +51,7 @@ export function UnoHeader(props: UnoHeaderProps) {
             className='UnoHeader-container'
             data-testid='UnoHeader-container'
         >
-            <Column>
-                <Thumb src={thumbUrl} />
-            </Column>
+            <Column>{/* <Thumb src={thumbUrl} /> */}</Column>
             <Column flex>
                 <H1>{header}</H1>
                 <AuthorLine>

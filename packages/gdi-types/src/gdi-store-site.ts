@@ -10,29 +10,25 @@ declare global {
     type SiteId = string;
     type TemplateId = string;
 
-    export type ISite = {
-        meta: IMetaSite;
-        locale: ILocale;
+    export type ISiteP6 = {
         pages: IPages;
         pageInstances: IPageInstances;
         instances: IWidgetInstances;
         instancesProps: Json;
         widgets: IWidgets;
         images: IImages;
+    };
+
+    export type ISiteOther = {
+        meta: IMetaSite;
+        locale: ILocale;
         palette: IPalette;
         fonts: IFonts;
         breakpoints: IBreakpoints;
         siteProperties: ISiteProperties;
     };
 
-    export type IDataImport = Partial<{
-        pages: IPage[];
-        pageInstances: IPage[];
-        instances: IPageInstance[];
-        instancesProps: Json;
-        widgets: IWidget[];
-        images: IImage[];
-    }>;
+    export type ISite = ISiteP6 & ISiteOther;
 
     export type ITemplate = Optional<
         ISite,
@@ -50,7 +46,7 @@ declare global {
 
     export type ITemplateMetas = Record<string, IMetaSite>;
 
-    export type IMetaSite = {
+    export type IMetaSite = IGdiMeta & {
         identifier: SiteId | TemplateId;
         schemaVersion?: string;
         author?: IAuthor;
@@ -186,15 +182,4 @@ declare global {
         metaTags: IMetaTag[];
         linkTags: ILinkTag[];
     };
-
-    export type IPageInstanceAssets = {
-        id: string;
-        pageInstance: IPageInstance;
-        widgets: IWidget[];
-        instances: IWidgetInstance[];
-        instancesProps: Json;
-        images: IImage[];
-    };
-
-    export type IPagesInstanceAssets = Record<string, IPageInstanceAssets>;
 }

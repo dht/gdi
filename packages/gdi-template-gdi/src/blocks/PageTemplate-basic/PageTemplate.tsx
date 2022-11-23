@@ -42,9 +42,7 @@ export function PageTemplate(props: PageTemplateProps) {
             data-testid='PageTemplate-container'
             colors={colors}
         >
-            <Wrapper>
-                <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
-            </Wrapper>
+            <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
         </Container>
     );
 }

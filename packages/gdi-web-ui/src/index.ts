@@ -69,6 +69,7 @@ export {
     TagsInput,
     Triangles,
     TrianglesBk,
+    triangleColors,
     Theme,
     Toast,
     toast,

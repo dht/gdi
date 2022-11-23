@@ -35,38 +35,4 @@ export const screenshots: IScreenshotsPerFlavour = {
             },
         },
     },
-    blue: {
-        desktop: {
-            large: {
-                width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.six pack-basic.blue.desktop.large.webp',
-                urlIsRemote: false,
-            },
-            thumb: {
-                width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.six pack-basic.blue.desktop.thumb.webp',
-                urlIsRemote: false,
-            },
-        },
-        mobile: {
-            large: {
-                width: 500,
-                height: 1383,
-                ratio: 0.3615328994938539,
-                url: 'screenshot.gdi.six pack-basic.blue.mobile.large.webp',
-                urlIsRemote: false,
-            },
-            thumb: {
-                width: 500,
-                height: 1383,
-                ratio: 0.3615328994938539,
-                url: 'screenshot.gdi.six pack-basic.blue.mobile.thumb.webp',
-                urlIsRemote: false,
-            },
-        },
-    },
 };

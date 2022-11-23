@@ -6,6 +6,7 @@ export const A21 = {};
 
 declare global {
     export type IFactoryStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateFactory: IFactoryState;
         currentIdsFactory: ICurrentIdsFactory;
         layouts: ILayouts;
@@ -72,7 +73,7 @@ declare global {
         imageThumbUrl: string;
         imageDescription: string;
         imageSource: string;
-        radio?: number;
+        ratio?: number;
         authorName: string;
         publishDate: string;
         lastPublishDate: string;

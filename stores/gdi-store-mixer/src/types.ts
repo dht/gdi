@@ -1,6 +1,7 @@
 import type { StoreStructure } from 'redux-store-generator';
 
 export type IMixerStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateMixer: IMixerState;
     currentIds: ICurrentIds;
     locales: ILocaleOptions;

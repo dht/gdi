@@ -4,6 +4,7 @@ export type Json = Record<string, any>;
 
 export type IUnoLayout = {
     flavour: UnoLayoutFlavour;
+    paletteIndex?: number;
 };
 
 export type SectionType =

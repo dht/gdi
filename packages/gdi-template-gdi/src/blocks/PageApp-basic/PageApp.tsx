@@ -13,27 +13,18 @@ export type PageAppProps = {
     extra: PageAppExtra;
 };
 
-export type PageAppStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
-};
+export type PageAppStrings = {};
 
-export type PageAppColors = {
-    background?: string;
-    text?: string;
-};
+export type PageAppColors = {};
 
 export type PageAppExtra = {
-    href: string;
-    imageUrl: string;
+    appsDatasetId: string;
+    contentUrl: string;
 };
 
 export function PageApp(props: PageAppProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { appsDatasetId, contentUrl } = extra;
 
     return (
         <Container
@@ -41,9 +32,7 @@ export function PageApp(props: PageAppProps) {
             data-testid='PageApp-container'
             colors={colors}
         >
-            <Wrapper>
-                <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
-            </Wrapper>
+            <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
         </Container>
     );
 }

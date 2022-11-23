@@ -1,11 +1,17 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
 import { IDashboardStore } from './types';
+import p from '../package.json';
 
 export const initialState: IDashboardStore = {
+    meta: {
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateDashboard: {
         stateKey: 'appStateDashboard',
-        openTasks: 10,
     },
     currentIdsDashboard: {
         inboxMessageId: '',

@@ -36,6 +36,8 @@ declare global {
         | 'number'
         | 'boolean'
         | 'paragraph'
+        | 'dataset'
+        | 'icon'
         | 'phone'
         | 'barSelect'
         | 'password'
