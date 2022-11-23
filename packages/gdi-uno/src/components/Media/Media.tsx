@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { IUnoSection } from '../../types';
 import {
     Arrow,
     Container,
@@ -12,6 +13,7 @@ import {
 
 export type MediaProps = {
     data: Json;
+    section: IUnoSection;
 };
 
 export function Media(props: MediaProps) {

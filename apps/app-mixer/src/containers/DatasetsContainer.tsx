@@ -11,7 +11,7 @@ import { useSetState } from 'react-use';
 
 export const DatasetsContainer = () => {
     const dispatch = useDispatch();
-    const dataSets: Json = useSelector(selectors.raw.$rawDatasets);
+    const dataSets: Json = useSelector(selectors.raw.$rawLibraryDatasets);
     const [selectedNodeId, setSelectedNodeId] = useState<string>('');
     const [value, setValue] = useSetState(dataSets);
 
@@ -61,7 +61,7 @@ export const DatasetsContainer = () => {
                 };
 
                 setValue(newValue);
-                dispatch(actions.datasets.patch(newValue));
+                dispatch(actions.libraryDatasets.patch(newValue));
                 toast.show('Datasets saved');
             },
             onChange: (change: Json) => {
@@ -79,7 +79,7 @@ export const DatasetsContainer = () => {
                 };
 
                 setValue(newValue);
-                dispatch(actions.datasets.patch(newValue));
+                dispatch(actions.libraryDatasets.patch(newValue));
                 focusOnFirstNode();
                 toast.show('Dataset deleted');
             },
@@ -119,7 +119,7 @@ export const DatasetsContainer = () => {
                 setSelectedNodeId(newKey);
 
                 dispatch(
-                    actions.datasets.patch({
+                    actions.libraryDatasets.patch({
                         ...value,
                         [newKey]: {},
                     })

@@ -5,6 +5,7 @@ import { selectors } from '../store';
 
 export const SiteContainer = () => {
     const elements = useSelector(selectors.base.$instances);
+    const datasets = useSelector(selectors.raw.$rawDatasets);
 
-    return <Site elements={elements} />;
+    return <Site elements={elements} datasets={datasets} />;
 };

@@ -183,6 +183,14 @@ export const initialState: ISiteStore = {
         metaTags: [],
         linkTags: [],
     },
+    datasets: {
+        templates: {
+            '1': {
+                id: '1',
+                title: 'Template #1',
+            },
+        },
+    },
 };
 
 export const reducers = generateReducersForStore<ISiteStore>(initialState);
@@ -195,6 +203,7 @@ export const clearState = (store: any) => {
         store.dispatch(actions.widgets.setAll({}));
         store.dispatch(actions.instancesProps.setAll({}));
         store.dispatch(actions.images.setAll({}));
+        store.dispatch(actions.datasets.setAll({}));
     });
     return store;
 };

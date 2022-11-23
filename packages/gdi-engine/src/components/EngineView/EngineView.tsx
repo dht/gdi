@@ -10,6 +10,7 @@ import { SiteContextProvider } from '../../context/Site.context';
 export type EngineViewProps = {
     elements: IElement[];
     libraryBuilder: ILibraryBuilder;
+    datasets: Json;
 };
 
 export function EngineInner(props: EngineViewProps) {
@@ -47,11 +48,11 @@ export function EngineInner(props: EngineViewProps) {
 }
 
 export function EngineView(props: EngineViewProps) {
-    const { elements, libraryBuilder } = props;
+    const { elements, libraryBuilder, datasets } = props;
 
     return (
         <EngineContextProvider libraryBuilder={libraryBuilder}>
-            <SiteContextProvider elements={elements}>
+            <SiteContextProvider elements={elements} datasets={datasets}>
                 <EngineInner {...props} />
             </SiteContextProvider>
         </EngineContextProvider>

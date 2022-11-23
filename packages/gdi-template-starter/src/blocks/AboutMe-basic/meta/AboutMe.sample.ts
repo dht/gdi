@@ -4,7 +4,7 @@ export const sampleData: ISampleDataPerFlavour = {
     normal: {
         id: 'normal',
         strings: {
-            slogan: 'My name is David Frank',
+            slogan: 'My name is David Baker',
             header: 'An experienced New York based photographer',
             description: '{lorem-43}',
             ctaButtonText: 'Contact me',

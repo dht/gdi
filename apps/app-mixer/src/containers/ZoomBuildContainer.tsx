@@ -7,6 +7,7 @@ export const ZoomBuildContainer = () => {
     const dispatch = useDispatch();
     const elements = useSelector(selectors.base.$instancesForCurrentZoomBuild);
     const widget = useSelector(selectors.base.$widgetForCurrentZoomBuild);
+    const datasets = useSelector(selectors.raw.$rawLibraryDatasets);
     const mobileMode = useSelector(selectors.raw.$rawMixerState).mobileMode;
 
     const onToggleMobile = useCallback((value: boolean) => {
@@ -21,6 +22,7 @@ export const ZoomBuildContainer = () => {
         <ZoomBuild
             elements={elements}
             widget={widget}
+            datasets={datasets}
             mobileMode={mobileMode}
             onToggleMobile={onToggleMobile}
         />

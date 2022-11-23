@@ -53,8 +53,8 @@ export const endpointsConfigOverrides: any = {
         id: 'locales',
         connectionType: 'FIRESTORE',
     },
-    datasets: {
-        id: 'datasets',
+    libraryDatasets: {
+        id: 'libraryDatasets',
         connectionType: 'FIRESTORE',
         optimistic: true,
     },

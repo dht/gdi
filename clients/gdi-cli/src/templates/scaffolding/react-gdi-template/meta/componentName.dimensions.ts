@@ -1,5 +1,5 @@
 export const dimensions: IDimensionsPerFlavour = {
-    simple: {
+    basic: {
         desktop: {
             width: 1000,
             height: 400,

@@ -18,6 +18,7 @@ import {
     QuotePersonName,
     QuoteSign,
 } from './Quotes.style';
+import { useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.quotes-basic';
 
@@ -36,10 +37,16 @@ export type QuotesExtra = {
 };
 
 export function Quotes(props: QuotesProps) {
+    const { extra } = props;
+    const { quotesDatasetId } = extra;
+
     const [activeIndex, setActiveIndex] = useState(0);
+
+    const items = useDataset(quotesDatasetId);
 
     function renderItem(item: Json, index: number) {
         const { name, jobTitle, company, avatarUrl, description } = item;
+
         const style: React.CSSProperties = {
             transform: `translateX(${(index - activeIndex) * 100}%)`,
         };
@@ -186,44 +193,5 @@ export function Arrows(props: ArrowsProps) {
         </ContainerArrows>
     );
 }
-
-const items = [
-    {
-        id: '1',
-        name: 'William Baker',
-        jobTitle: 'CEO',
-        company: 'Google',
-        avatarUrl: 'https://i.pravatar.cc/100?u=100',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc.',
-    },
-    {
-        id: '2',
-        name: 'William Baker',
-        jobTitle: 'CEO',
-        company: 'Google',
-        avatarUrl: 'https://i.pravatar.cc/100?u=101',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc.',
-    },
-    {
-        id: '3',
-        name: 'William Baker',
-        jobTitle: 'CEO',
-        company: 'Google',
-        avatarUrl: 'https://i.pravatar.cc/100?u=102',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc.',
-    },
-    {
-        id: '4',
-        name: 'William Baker',
-        jobTitle: 'CEO',
-        company: 'Google',
-        avatarUrl: 'https://i.pravatar.cc/100?u=103',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc. Sed euismod, nunc ut aliquam aliquam, nunc elit aliquet nisl, eget aliquam nisl lorem quis nunc.',
-    },
-];
 
 export default Quotes;

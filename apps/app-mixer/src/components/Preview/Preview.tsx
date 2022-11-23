@@ -8,6 +8,7 @@ import { initTemplate as initTemplateCard } from '@gdi/template-card';
 
 export type PreviewProps = {
     elements: IElement[];
+    datasets: Json;
 };
 
 export function Preview(props: PreviewProps) {
@@ -27,7 +28,11 @@ export function Preview(props: PreviewProps) {
             className='Preview-container'
             data-testid='Preview-container'
         >
-            <EngineView elements={elements} libraryBuilder={libraryBuilder} />
+            <EngineView
+                datasets={datasets}
+                elements={elements}
+                libraryBuilder={libraryBuilder}
+            />
         </Container>
     );
 }

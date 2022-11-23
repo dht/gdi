@@ -12,6 +12,7 @@ export type SectionType =
     | 'overview'
     | 'additionalInfo'
     | 'media'
+    | 'mediaGrid'
     | 'articleHeader'
     | 'articleBody'
     | 'articleComments';

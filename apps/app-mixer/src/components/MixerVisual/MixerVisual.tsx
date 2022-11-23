@@ -14,6 +14,7 @@ const NEW_ID = '<NEW>';
 export type MixerVisualProps = {
     currentInstanceId: string;
     pageStructure: IElement[];
+    datasets: Json;
     callbacks: {
         onSelectItem: (instanceId: string) => void;
         onMoveItem: (instanceId: string, newOrderValue: number) => void;
@@ -22,7 +23,7 @@ export type MixerVisualProps = {
 };
 
 export function MixerVisual(props: MixerVisualProps) {
-    const { currentInstanceId, pageStructure, callbacks } = props;
+    const { currentInstanceId, pageStructure, callbacks, datasets } = props;
 
     const style = {
         zoom:
@@ -77,6 +78,7 @@ export function MixerVisual(props: MixerVisualProps) {
                 onAction={callbacks.onAction}
                 elements={pageStructure}
                 libraryBuilder={libraryBuilder}
+                datasets={datasets}
             />
             {renderNewItem()}
         </Container>

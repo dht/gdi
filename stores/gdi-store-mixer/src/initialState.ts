@@ -137,7 +137,7 @@ export const initialState: IMixerStore = {
         '@gdi/store-mixer': '0.0.1',
         '@gdi/store-site': '0.0.1',
     },
-    datasets: {
+    libraryDatasets: {
         templates: {
             '1': {
                 id: '1',
@@ -159,7 +159,7 @@ export const clearState = (store: any) => {
         store.dispatch(actions.libraryInstancesProps.setAll({}));
         store.dispatch(actions.libraryPalettes.setAll({}));
         store.dispatch(actions.libraryTypography.setAll({}));
-        store.dispatch(actions.datasets.setAll({}));
+        store.dispatch(actions.libraryDatasets.setAll({}));
     });
     return store;
 };

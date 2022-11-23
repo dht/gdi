@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext, useMemo } from 'react';
 import { Container, H1, Wrapper, Greeting, Skill, Social } from './Hero.style';
 import { SocialIcons } from '@gdi/web-ui';
+import { useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.hero-basic';
 
@@ -28,6 +29,10 @@ const urls = ['https://twitter.com/elonmusk', 'https://www.behance.net/dlanid'];
 export function Hero(props: HeroProps) {
     const { strings, colors, extra } = props;
     const { slogan, header, description } = strings;
+    const { socialDatasetId } = extra;
+
+    const social = useDataset(socialDatasetId);
+    const urls = Object.values(social).map((i: Json) => i.url);
 
     return (
         <Container

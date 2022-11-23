@@ -7,8 +7,8 @@ sections:
     - id: header
       sectionType: header
       groupId: top
-    - id: media
-      sectionType: media
+    - id: mediaGrid
+      sectionType: mediaGrid
       groupId: center
     - id: overview
       sectionType: overview

@@ -1,5 +1,6 @@
 import { Icon } from '@fluentui/react';
-import React from 'react';
+import { useDataset } from '@gdi/engine';
+import React, { useContext, useMemo } from 'react';
 import {
     Container,
     Description,
@@ -24,16 +25,20 @@ export type MyServicesProps = {
 export type MyServicesStrings = {
     header: string;
     description?: string;
-    servicesDatasetId: string;
 };
 
 export type MyServicesColors = {};
 
-export type MyServicesExtra = {};
+export type MyServicesExtra = {
+    servicesDatasetId: string;
+};
 
 export function MyServices(props: MyServicesProps) {
-    const { strings, colors } = props;
+    const { strings, colors, extra } = props;
     const { header, description } = strings;
+    const { servicesDatasetId } = extra;
+
+    const services = useDataset(servicesDatasetId);
 
     function renderService(service: Json) {
         const { iconName, title, description } = service;
@@ -61,39 +66,12 @@ export function MyServices(props: MyServicesProps) {
             colors={colors}
         >
             <Wrapper>
-                <H2>My Services</H2>
-                <Description>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus molestie, justo nec convallis sollicitudin.
-                </Description>
+                <H2>{header}</H2>
+                <Description>{description}</Description>
                 <Services>{renderServices()}</Services>
             </Wrapper>
         </Container>
     );
 }
-
-const services = [
-    {
-        id: '1',
-        title: 'Responsive',
-        iconName: 'Edit',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-    },
-    {
-        id: '2',
-        title: 'Responsive',
-        iconName: 'Edit',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-    },
-    {
-        id: '3',
-        title: 'Responsive',
-        iconName: 'Edit',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-    },
-];
 
 export default MyServices;

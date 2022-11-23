@@ -4,7 +4,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div<{ colors: FooterColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#1a7870'};
+    background-color: ${(props) => props.colors.background || '#223'};
     display: flex;
     padding: 40px 0;
 

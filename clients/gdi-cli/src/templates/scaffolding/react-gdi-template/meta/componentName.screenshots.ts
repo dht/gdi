@@ -1,5 +1,5 @@
 export const screenshots: IScreenshotsPerFlavour = {
-    simple: {
+    basic: {
         desktop: {
             large: {
                 width: 1000,

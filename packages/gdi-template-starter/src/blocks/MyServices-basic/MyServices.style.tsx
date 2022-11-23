@@ -96,7 +96,7 @@ export const ServiceIcon = styled.div`
     justify-content: center;
 
     i {
-        font-size: 30px;
+        font-size: 50px;
     }
 `;
 
@@ -113,4 +113,5 @@ export const ServiceDescription = styled.p`
     margin: 0;
     text-align: center;
     line-height: 1.5;
+    min-height: 100px;
 `;

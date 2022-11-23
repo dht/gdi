@@ -25,6 +25,7 @@ export { Input } from './components/Input/Input';
 export { InputHidden } from './components/InputHidden/InputHidden';
 export { KeyValue } from './components/KeyValue/KeyValue';
 export { Logo } from './components/Logo/Logo';
+export { LocalGallery } from './components/LocalGallery/LocalGallery';
 export { Modal } from './components/Modal/Modal';
 export { Panel } from './components/Panel/Panel';
 export { PhotoBooth } from './components/PhotoBooth/PhotoBooth';

@@ -12,8 +12,8 @@
             "groupId": "top"
         },
         {
-            "id": "media",
-            "sectionType": "media",
+            "id": "mediaGrid",
+            "sectionType": "mediaGrid",
             "groupId": "center"
         },
         {

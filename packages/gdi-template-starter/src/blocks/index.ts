@@ -25,6 +25,9 @@ import { widgetInfo as MyResumeInfo } from './MyResume-basic';
 import { MyServices } from './MyServices-basic/MyServices';
 import { widgetInfo as MyServicesInfo } from './MyServices-basic';
 
+import { SectionHeader } from './SectionHeader/SectionHeader';
+import { widgetInfo as SectionHeaderInfo } from './SectionHeader';
+
 import { Quotes } from './Quotes-basic/Quotes';
 import { widgetInfo as QuotesInfo } from './Quotes-basic';
 
@@ -67,6 +70,10 @@ export const blocks: IWidgets = {
     'com.usegdi.templates.starter.myServices-basic': {
         component: MyServices,
         ...MyServicesInfo,
+    },
+    'com.usegdi.templates.starter.sectionHeader-basic': {
+        component: SectionHeader,
+        ...SectionHeaderInfo,
     },
     'com.usegdi.templates.starter.quotes-basic': {
         component: Quotes,

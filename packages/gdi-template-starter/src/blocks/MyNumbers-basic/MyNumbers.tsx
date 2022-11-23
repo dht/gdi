@@ -9,6 +9,7 @@ import {
     Value,
     Wrapper,
 } from './MyNumbers.style';
+import { useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.myNumbers-basic';
 
@@ -29,6 +30,8 @@ export type MyNumbersExtra = {
 export function MyNumbers(props: MyNumbersProps) {
     const { strings, colors, extra } = props;
     const { numbersDatasetId } = extra;
+
+    const numbers = useDataset(numbersDatasetId);
 
     function renderNumber(number: Json) {
         const { iconName, value, title } = number;
@@ -59,32 +62,5 @@ export function MyNumbers(props: MyNumbersProps) {
         </Container>
     );
 }
-
-const numbers = [
-    {
-        id: '1',
-        iconName: 'Edit',
-        value: 100,
-        title: 'Happy Clients',
-    },
-    {
-        id: '2',
-        iconName: 'Edit',
-        value: 100,
-        title: 'Happy Clients',
-    },
-    {
-        id: '3',
-        iconName: 'Edit',
-        value: 100,
-        title: 'Happy Clients',
-    },
-    {
-        id: '4',
-        iconName: 'Edit',
-        value: 100,
-        title: 'Happy Clients',
-    },
-];
 
 export default MyNumbers;

@@ -44,4 +44,9 @@ export const endpointsConfigOverrides: any = {
         connectionType: 'FIRESTORE',
         optimistic: true,
     },
+    datasets: {
+        id: 'datasets',
+        connectionType: 'FIRESTORE',
+        optimistic: true,
+    },
 };

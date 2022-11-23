@@ -1,6 +1,6 @@
 import React from 'react';
-import LocalGallery from '../../components/LocalGallery/LocalGallery';
 import { Container, Wrapper, H2 } from './Apps.style';
+import { LocalGallery } from '@gdi/web-ui';
 
 export const id = 'com.usegdi.templates.gdi.apps-basic';
 

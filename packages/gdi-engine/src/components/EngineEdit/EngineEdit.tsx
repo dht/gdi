@@ -15,6 +15,7 @@ export type EngineEditProps = {
     onSelectItem: (id: string) => void;
     onAction?: (action: ActionType, id: string) => void;
     libraryBuilder: ILibraryBuilder;
+    datasets: Json;
 };
 
 export function EngineInner(props: EngineEditProps) {
@@ -60,14 +61,14 @@ export function EngineInner(props: EngineEditProps) {
 }
 
 export function EngineEdit(props: EngineEditProps) {
-    const { elements, libraryBuilder } = props;
+    const { elements, libraryBuilder, datasets } = props;
 
     return (
-        <SiteContextProvider elements={elements}>
-            <EngineContextProvider libraryBuilder={libraryBuilder}>
+        <EngineContextProvider libraryBuilder={libraryBuilder}>
+            <SiteContextProvider elements={elements} datasets={datasets}>
                 <EngineInner {...props} />
-            </EngineContextProvider>
-        </SiteContextProvider>
+            </SiteContextProvider>
+        </EngineContextProvider>
     );
 }
 

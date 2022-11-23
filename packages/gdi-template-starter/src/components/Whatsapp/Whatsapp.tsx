@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Content, Subtitle, Title, Icon } from './Whatsapp.style';
 import w from './WhatsApp.svg';
 
-export const id = 'com.usegdi.templates.gdi.whatsapp-basic';
+export const id = 'com.usegdi.templates.starter.whatsapp-basic';
 
 export type WhatsappProps = {};
 

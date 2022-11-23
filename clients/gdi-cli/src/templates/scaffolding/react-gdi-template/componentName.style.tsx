@@ -19,40 +19,6 @@ export const Wrapper = styled.div`
     flex: 1;
 `;
 
-export const ImageWrapper = styled.div`
-    flex: 1;
-`;
-
-export const Image = styled.img`
-    max-width: 88vw;
-    min-height: 300px;
-`;
-
-export const Details = styled.div`
-    flex: 1;
-`;
-
-export const Slogan = styled.div<{ colors: $CMPColors }>`
-    color: ${(props) => props.colors.text ?? '#aaef69'};
-    font-size: 42px;
-    font-weight: bold;
-`;
-
-export const H1 = styled.h1`
-    font-size: 42px;
-    max-width: 400px;
-`;
-
-export const P = styled.p`
-    font-size: 20px;
-    max-width: 400px;
-    line-height: 29px;
-`;
-
-export const Actions = styled.div`
-    margin-top: 70px;
-`;
-
 export const CTA = styled.a<{ colors: $CMPColors }>`
     background-color: ${(props) => props.colors.text ?? '#aaef69'};
     font-weight: bold;

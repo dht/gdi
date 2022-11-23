@@ -8,4 +8,5 @@ export const Container = styled.div`
     flex-wrap: wrap;
     width: 340px;
     margin: 0 auto;
+    fill: gold;
 `;

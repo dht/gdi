@@ -1,4 +1,6 @@
 import React from 'react';
+import Share from '../Share/Share';
+import { IUnoSection } from '../../types';
 import {
     Author,
     AuthorName,
@@ -15,9 +17,11 @@ import {
     Title,
     Gap,
 } from './ArticleHeader.style';
-import Share from '../Share/Share';
 
-export type ArticleHeaderProps = {};
+export type ArticleHeaderProps = {
+    data: Json;
+    section: IUnoSection;
+};
 
 export function ArticleHeader(_props: ArticleHeaderProps) {
     return (
@@ -25,31 +29,25 @@ export function ArticleHeader(_props: ArticleHeaderProps) {
             className='ArticleHeader-container'
             data-testid='ArticleHeader-container'
         >
-            <Title>
-                Gran Turismo 7 has been largely unplayable for hours due to
-                server maintenance
-            </Title>
+            <Title>Header</Title>
 
             <Row>
                 <Column>
-                    <Intro>
-                        ‘Due to an issue found with Update 1.07, we are
-                        extending the current server maintenance period’
-                    </Intro>
+                    <Intro>Intro</Intro>
                     <Details>
                         <Author>
                             By
                             <AuthorName>Jay Peters</AuthorName>
                         </Author>
                         <Separator> | </Separator>
-                        <DateText>Mar 17, 2022, 7:08pm EDT</DateText>
+                        <DateText>Oct 10, 2023, 7:08pm EDT</DateText>
                     </Details>
                     <Share />
                     <Image src='/images/game.webp' />
                     <ImageDescription>
-                        It has extended server maintenance due to an issue.
+                        Image Description
                         <Separator> | </Separator>
-                        <ImageSource>Image: Sony</ImageSource>
+                        <ImageSource>Image: Source</ImageSource>
                     </ImageDescription>
                     <Gap />
                 </Column>

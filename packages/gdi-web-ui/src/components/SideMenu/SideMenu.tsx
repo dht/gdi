@@ -37,12 +37,17 @@ export function SideMenu(props: SideMenuProps) {
     const { isRtl } = useTheme();
 
     useEffect(() => {
-        if (groups.length === 0) {
+        const visibleGroups = groups.filter((group) => {
+            const items = data.filter((item) => item.groupId === group);
+            return items.length > 0;
+        });
+
+        if (visibleGroups.length === 0) {
             return;
         }
 
         updateSections({
-            [groups[0]]: true,
+            [visibleGroups[0]]: true,
         });
     }, [groups, updateSections]);
 

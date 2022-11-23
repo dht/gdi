@@ -10,13 +10,13 @@ export function MainMenu(_props: MainMenuProps) {
             className='MainMenu-container'
             data-testid='MainMenu-container'
         >
-            <MenuButton title='facebook' url='http://facebook.com' />
-            <MenuButton title='linkedin' url='http://linkedin.com' />
-            <MenuButton title='Whatsapp' url='http://whatsapp.com' />
-            <MenuButton title='instagram' url='http://instagram.com' />
-            <MenuButton title='waze' url='http://maps.google.com' />
-            <MenuButton title='email' url='http://email.com' />
-            <MenuButton title='homepage' url='http://web.com' />
+            <MenuButton title='facebook' iconName='facebook' />
+            <MenuButton title='linkedin' iconName='linkedIn' />
+            <MenuButton title='Whatsapp' iconName='whatsapp' />
+            <MenuButton title='instagram' iconName='instagram' />
+            <MenuButton title='waze' iconName='drive' />
+            <MenuButton title='email' iconName='email' />
+            <MenuButton title='homepage' iconName='home' />
         </Container>
     );
 }

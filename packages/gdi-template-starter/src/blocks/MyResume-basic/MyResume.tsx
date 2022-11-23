@@ -19,6 +19,7 @@ import {
     Row,
     IconWrapper,
 } from './MyResume.style';
+import { useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.myResume-basic';
 
@@ -36,19 +37,22 @@ export type MyResumeStrings = {
 export type MyResumeColors = {};
 
 export type MyResumeExtra = {
-    servicesDatasetId?: string;
+    resumeDatasetId?: string;
 };
 
 export function MyResume(props: MyResumeProps) {
     const { strings, colors, extra } = props;
     const { header, description } = strings;
-    const { servicesDatasetId } = extra;
+    const { resumeDatasetId } = extra;
 
-    const educationItems = items.filter((i) => i.type === 'education');
-    const experienceItems = items.filter((i) => i.type === 'experience');
+    const items = useDataset(resumeDatasetId);
+
+    const educationItems = items.filter((i: Json) => i.type === 'education');
+    const experienceItems = items.filter((i: Json) => i.type === 'experience');
 
     function renderItem(item: Json) {
         const { yearStart, yearEnd, jobTitle, company, description } = item;
+
         return (
             <Item key={item.id} className='item'>
                 <Row>
@@ -76,11 +80,8 @@ export function MyResume(props: MyResumeProps) {
             colors={colors}
         >
             <Wrapper>
-                <H2>My Resume</H2>
-                <Description>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus molestie, justo nec convallis sollicitudin.
-                </Description>
+                <H2>{header}</H2>
+                <Description>{description}</Description>
                 <Resume>
                     <ResumeColumn>
                         <ResumeTitle>
@@ -106,66 +107,4 @@ export function MyResume(props: MyResumeProps) {
     );
 }
 
-const items = [
-    {
-        id: '1',
-        yearStart: '2010',
-        yearEnd: '2012',
-        jobTitle: 'Web Developer',
-        company: 'Google',
-        type: 'education',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin',
-    },
-    {
-        id: '2',
-        yearStart: '2010',
-        yearEnd: '2012',
-        jobTitle: 'Web Developer',
-        company: 'Google',
-        type: 'education',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin',
-    },
-    {
-        id: '3',
-        yearStart: '2010',
-        yearEnd: '2012',
-        jobTitle: 'Web Developer',
-        company: 'Google',
-        type: 'education',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin',
-    },
-    {
-        id: '4',
-        yearStart: '2010',
-        yearEnd: '2012',
-        jobTitle: 'Web Developer',
-        company: 'Google',
-        type: 'experience',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin',
-    },
-    {
-        id: '5',
-        yearStart: '2010',
-        yearEnd: '2012',
-        jobTitle: 'Web Developer',
-        company: 'Google',
-        type: 'experience',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin',
-    },
-    {
-        id: '6',
-        yearStart: '2010',
-        yearEnd: '2012',
-        jobTitle: 'Web Developer',
-        company: 'Google',
-        type: 'experience',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin, lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin',
-    },
-];
 export default MyResume;

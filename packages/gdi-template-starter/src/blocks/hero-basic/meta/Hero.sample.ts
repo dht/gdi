@@ -5,7 +5,7 @@ export const sampleData: ISampleDataPerFlavour = {
         id: 'normal',
         strings: {
             slogan: 'The work of',
-            header: 'David Frank',
+            header: 'David Baker',
             description: 'Portraits * landscapes * photography',
         },
         colors: {},

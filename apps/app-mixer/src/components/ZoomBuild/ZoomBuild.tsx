@@ -11,12 +11,13 @@ import { Device } from '@gdi/web-ui';
 export type ZoomBuildProps = {
     elements: IElement[];
     widget: IWidget;
+    datasets: Json;
     mobileMode: boolean;
     onToggleMobile: (value: boolean) => void;
 };
 
 export function ZoomBuild(props: ZoomBuildProps) {
-    const { elements, widget, mobileMode } = props;
+    const { elements, widget, datasets, mobileMode } = props;
 
     const libraryBuilder = useMemo(() => {
         const libraryBuilder = new LibraryBuilder();
@@ -43,6 +44,7 @@ export function ZoomBuild(props: ZoomBuildProps) {
                         elements={elements}
                         libraryBuilder={libraryBuilder}
                         isMobile={mobileMode}
+                        datasets={datasets}
                     />
                 </Device>
             </Content>

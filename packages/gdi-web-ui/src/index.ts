@@ -48,6 +48,7 @@ export {
     Input,
     InputHidden,
     KeyValue,
+    LocalGallery,
     Logo,
     Modal,
     Panel,

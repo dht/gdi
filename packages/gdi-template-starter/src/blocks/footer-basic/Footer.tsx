@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Wrapper, Copy } from './Footer.style';
 
-export const id = 'com.usegdi.templates.gdi.footer-basic';
+export const id = 'com.usegdi.templates.starter.footer-basic';
 
 export type FooterProps = {
     strings: FooterStrings;
@@ -28,7 +28,7 @@ export function Footer(props: FooterProps) {
             colors={colors}
         >
             <Wrapper>
-                <Copy>Copyright &copy; 2022 David All Rights Reserved</Copy>
+                <Copy>Copyright &copy; {text}</Copy>
             </Wrapper>
         </Container>
     );

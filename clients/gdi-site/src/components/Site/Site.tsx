@@ -8,10 +8,11 @@ import { initTemplate as initTemplateCard } from '@gdi/template-card';
 
 export type SiteProps = {
     elements: IElement[];
+    datasets: Json;
 };
 
 export function Site(props: SiteProps) {
-    const { elements } = props;
+    const { elements, datasets } = props;
 
     const libraryBuilder = useMemo(() => {
         const libraryBuilder = new LibraryBuilder();
@@ -24,7 +25,11 @@ export function Site(props: SiteProps) {
 
     return (
         <Container className='Site-container' data-testid='Site-container'>
-            <EngineView elements={elements} libraryBuilder={libraryBuilder} />
+            <EngineView
+                elements={elements}
+                libraryBuilder={libraryBuilder}
+                datasets={datasets}
+            />
         </Container>
     );
 }

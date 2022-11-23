@@ -17,3 +17,4 @@ export const $rawImages = createSelector($i, (state: ISiteStore) => state.images
 export const $rawWidgets = createSelector($i, (state: ISiteStore) => state.widgets); // prettier-ignore
 export const $rawInstancesProps = createSelector($i, (state: ISiteStore) => state.instancesProps); // prettier-ignore
 export const $rawSiteProperties = createSelector($i, (state: ISiteStore) => state.siteProperties); // prettier-ignore
+export const $rawDatasets = createSelector($i, (state: ISiteStore) => state.datasets); // prettier-ignore

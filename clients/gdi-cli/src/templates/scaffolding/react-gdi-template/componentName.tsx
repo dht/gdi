@@ -21,26 +21,19 @@ export type $CMPProps = {
 };
 
 export type $CMPStrings = {
-    slogan?: string;
-    header: string;
-    description?: string;
-    ctaButtonText: string;
+    ctaButtonText?: string;
 };
 
-export type $CMPColors = {
-    background?: string;
-    text?: string;
-};
+export type $CMPColors = {};
 
 export type $CMPExtra = {
     href: string;
-    imageUrl: string;
 };
 
 export function $CMP(props: $CMPProps) {
     const { strings, colors, extra } = props;
-    const { slogan, header, description, ctaButtonText } = strings;
-    const { imageUrl, href = '#' } = extra;
+    const { ctaButtonText } = strings;
+    const { href = '#' } = extra;
 
     return (
         <Container
@@ -49,19 +42,9 @@ export function $CMP(props: $CMPProps) {
             colors={colors}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1>{header}</H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                    </Actions>
-                </Details>
-                <ImageWrapper>
-                    <Image src={imageUrl} />
-                </ImageWrapper>
+                <CTA colors={colors} href={href}>
+                    {ctaButtonText}
+                </CTA>
             </Wrapper>
         </Container>
     );

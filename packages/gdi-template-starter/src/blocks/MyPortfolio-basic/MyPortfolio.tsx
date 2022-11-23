@@ -1,5 +1,5 @@
-import React from 'react';
-import LocalGallery from '../../components/LocalGallery/LocalGallery';
+import React, { useContext } from 'react';
+import { LocalGallery } from '@gdi/web-ui';
 import {
     Container,
     Wrapper,
@@ -7,6 +7,7 @@ import {
     Description,
     Portfolio,
 } from './MyPortfolio.style';
+import { useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.myPortfolio-basic';
 
@@ -32,6 +33,8 @@ export function MyPortfolio(props: MyPortfolioProps) {
     const { header, description } = strings;
     const { portfolioDatasetId } = extra;
 
+    const items = useDataset(portfolioDatasetId);
+
     return (
         <Container
             className='MyPortfolio-container'
@@ -39,84 +42,14 @@ export function MyPortfolio(props: MyPortfolioProps) {
             colors={colors}
         >
             <Wrapper>
-                <H2>My Services</H2>
-                <Description>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Phasellus molestie, justo nec convallis sollicitudin.
-                </Description>
+                <H2>{header}</H2>
+                <Description>{description}</Description>
                 <Portfolio>
-                    <LocalGallery items={portfolio} />
+                    <LocalGallery items={items} />
                 </Portfolio>
             </Wrapper>
         </Container>
     );
 }
-
-const portfolio = [
-    {
-        id: '1',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/11/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Design', 'Marketing'],
-    },
-    {
-        id: '2',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/12/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Design', 'Photography'],
-    },
-    {
-        id: '3',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/13/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Design', 'Marketing', 'Photography'],
-    },
-    {
-        id: '4',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/14/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Design'],
-    },
-    {
-        id: '5',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/15/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Marketing'],
-    },
-    {
-        id: '6',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/16/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Design', 'Photography'],
-    },
-    {
-        id: '7',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/17/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Marketing'],
-    },
-    {
-        id: '8',
-        title: 'Responsive',
-        imageUrl: 'https://picsum.photos/seed/18/300/300',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus molestie, justo nec convallis sollicitudin.',
-        tags: ['Photography'],
-    },
-];
 
 export default MyPortfolio;
