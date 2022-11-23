@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-login",
     "version": "0.0.23",
+    "description": "Handles login and logout",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -53,5 +54,10 @@
             "import": "./dist/app-login.es.js",
             "require": "./dist/app-login.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": false,
+        "isBeta": false
     }
 }

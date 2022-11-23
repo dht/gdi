@@ -1,8 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
 import { IMixerStore } from './types';
+import p from '../package.json';
 
 export const initialState: IMixerStore = {
+    meta: {
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateMixer: {
         stateKey: 'mixer',
         mode: 'gallery',
@@ -11,6 +18,7 @@ export const initialState: IMixerStore = {
         showImageUploadModal: false,
         showPlayModeMessage: false,
         showMixerTree: false,
+        mobileMode: false,
     },
     currentIds: {
         pageId: 'home',
@@ -18,7 +26,9 @@ export const initialState: IMixerStore = {
         selectedInstanceId: '',
         contentInstanceId: '',
         libraryInstanceId: '',
+        zoomWidgetId: '',
         fieldId: '',
+        resolution: '2k',
     },
     libraryImages: {
         '1': {
@@ -28,6 +38,7 @@ export const initialState: IMixerStore = {
             imageThumbUrl:
                 'https://picsum.photos/seed/1/200/119.02071563088512',
             tags: ['people', 'friend'],
+            dataTags: [],
             ratio: 1.6803797468354431,
         },
     },
@@ -61,6 +72,7 @@ export const initialState: IMixerStore = {
             path: '/',
             status: 'draft',
             tags: [],
+            dataTags: [],
         },
     },
     libraryPageInstances: {
@@ -125,6 +137,14 @@ export const initialState: IMixerStore = {
         '@gdi/store-mixer': '0.0.1',
         '@gdi/store-site': '0.0.1',
     },
+    libraryDatasets: {
+        templates: {
+            '1': {
+                id: '1',
+                title: 'Template #1',
+            },
+        },
+    },
 };
 
 export const reducers = generateReducersForStore<IMixerStore>(initialState);
@@ -139,6 +159,7 @@ export const clearState = (store: any) => {
         store.dispatch(actions.libraryInstancesProps.setAll({}));
         store.dispatch(actions.libraryPalettes.setAll({}));
         store.dispatch(actions.libraryTypography.setAll({}));
+        store.dispatch(actions.libraryDatasets.setAll({}));
     });
     return store;
 };

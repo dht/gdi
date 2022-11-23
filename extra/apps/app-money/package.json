@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-money",
     "version": "0.0.25",
+    "description": "Money",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -53,5 +54,10 @@
             "import": "./dist/app-money.es.js",
             "require": "./dist/app-money.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

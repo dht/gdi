@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemCart snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ WtYQR ItemCart-container"
+  data-testid="ItemCart-container"
+>
+  ItemCart
+</div>
+`;

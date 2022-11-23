@@ -9,6 +9,7 @@ export const MixerVisualContainer = () => {
     const pageStructure = useSelector(selectors.base.$instancesForCurrentPage);
     const currentInstanceId = useSelector(selectors.raw.$rawCurrentIds).selectedInstanceId; // prettier-ignore
     const selectedToolId = useSelector(selectors.raw.$rawMixerState).selectedToolId; // prettier-ignore
+    const datasets = useSelector(selectors.raw.$rawLibraryDatasets);
 
     const callbacks = useMemo(
         () => ({
@@ -48,6 +49,7 @@ export const MixerVisualContainer = () => {
             currentInstanceId={currentInstanceId}
             pageStructure={pageStructure}
             callbacks={callbacks}
+            datasets={datasets}
         />
     );
 };

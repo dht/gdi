@@ -465,6 +465,8 @@ const map: Record<FieldType, FC<FieldProps>> = {
     hidden: FieldHidden,
     color: FieldColor,
     number: FieldNumber,
+    dataset: FieldInput,
+    icon: FieldInput,
     imageUpload: FieldImageUpload,
     boolean: FieldDate,
     slider: FieldSlider,

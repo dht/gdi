@@ -1,0 +1,18 @@
+id: PageTemplate
+header: Template Page
+layout:
+    flavour: template
+    paletteIndex: 0
+sections:
+    - id: header
+      sectionType: header
+      groupId: top
+    - id: mediaGrid
+      sectionType: mediaGrid
+      groupId: center
+    - id: overview
+      sectionType: overview
+      groupId: bottomLeft
+    - id: additionalInfo
+      sectionType: additionalInfo
+      groupId: bottomRight

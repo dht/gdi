@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-events",
     "version": "0.0.20",
+    "description": "Events",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -34,5 +35,10 @@
             "import": "./dist/store-events.es.js",
             "require": "./dist/store-events.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

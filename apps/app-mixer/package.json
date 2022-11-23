@@ -1,5 +1,6 @@
 {
     "name": "@gdi/app-mixer",
+    "description": "Mix widgets to form new pages & sites",
     "version": "0.0.25",
     "scripts": {
         "build": "tsc & vite build",
@@ -55,5 +56,10 @@
             "import": "./dist/app-mixer.es.js",
             "require": "./dist/app-mixer.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": false,
+        "isBeta": false
     }
 }

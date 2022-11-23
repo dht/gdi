@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-soundboard",
     "version": "0.0.25",
+    "description": "Attention management",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -53,5 +54,10 @@
             "import": "./dist/app-soundboard.es.js",
             "require": "./dist/app-soundboard.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

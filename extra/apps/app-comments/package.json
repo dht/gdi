@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-comments",
     "version": "0.0.25",
+    "description": "Comments",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-comments.es.js",
             "require": "./dist/app-comments.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

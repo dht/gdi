@@ -8,7 +8,9 @@
         "spreadsheet"
     ],
     "hideParts": [
-        "preview"
+        "preview",
+        "tagging",
+        "filter"
     ],
     "tools": [
         {
@@ -37,6 +39,11 @@
             "id": "edit",
             "text": "Edit",
             "iconName": "Edit"
+        },
+        {
+            "id": "duplicate",
+            "text": "Duplicate",
+            "iconName": "DuplicateRow"
         },
         {
             "id": "delete",

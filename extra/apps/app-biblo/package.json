@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-biblo",
     "version": "0.0.25",
+    "description": "Interesting reads",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-biblo.es.js",
             "require": "./dist/app-biblo.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-money",
     "version": "0.0.21",
+    "description": "Financial",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -34,5 +35,10 @@
             "import": "./dist/store-money.es.js",
             "require": "./dist/store-money.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

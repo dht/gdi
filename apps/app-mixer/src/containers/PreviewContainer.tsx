@@ -5,6 +5,7 @@ import { selectors } from '../store';
 
 export const PreviewContainer = () => {
     const elements = useSelector(selectors.base.$instancesForCurrentPage);
+    const datasets = useSelector(selectors.raw.$rawLibraryDatasets);
 
-    return <Preview elements={elements} />;
+    return <Preview elements={elements} datasets={datasets} />;
 };

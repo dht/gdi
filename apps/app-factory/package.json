@@ -1,5 +1,6 @@
 {
     "name": "@gdi/app-factory",
+    "description": "Write articles and create new custom widgets",
     "version": "0.0.25",
     "scripts": {
         "build": "tsc & vite build",
@@ -55,5 +56,10 @@
             "import": "./dist/app-factory.es.js",
             "require": "./dist/app-factory.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

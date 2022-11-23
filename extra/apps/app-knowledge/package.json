@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-knowledge",
     "version": "0.0.25",
+    "description": "Links",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-knowledge.es.js",
             "require": "./dist/app-knowledge.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

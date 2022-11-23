@@ -1,15 +1,69 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Bk, Container, ContainerBk, Fg } from './Triangles.style';
 import trianglify from 'trianglify';
-import palette from './Triangles.colors';
+import allPalettes from './Triangles.colors';
 import { useMeasure } from 'react-use';
+
+export type TrianglesBkProps = {
+    children: JSX.Element | JSX.Element[];
+    onLoad?: (palette: string[]) => void;
+    paletteIndex?: number;
+};
+
+export function TrianglesBk(props: TrianglesBkProps) {
+    const { paletteIndex } = props;
+    const [ref, { width, height }] = useMeasure<HTMLDivElement>();
+
+    return (
+        <ContainerBk
+            className='TrianglesBk-container'
+            data-testid='TrianglesBk-container'
+            ref={ref}
+        >
+            <Bk>
+                <Triangles
+                    width={width}
+                    height={height}
+                    onLoad={props.onLoad}
+                    paletteIndex={paletteIndex}
+                />
+            </Bk>
+            <Fg className='fg'>{props.children}</Fg>
+        </ContainerBk>
+    );
+}
+
 export type TrianglesProps = {
     width: number;
     height: number;
+    onLoad?: (palette: string[]) => void;
+    paletteIndex?: number;
 };
 
 export function Triangles(props: TrianglesProps) {
-    const { width, height } = props;
+    const { width, height, paletteIndex } = props;
+
+    const palette = useMemo(() => {
+        const keys = Object.keys(allPalettes);
+        const randomIndex = Math.floor(Math.random() * keys.length);
+
+        const key =
+            typeof paletteIndex !== 'undefined'
+                ? keys[paletteIndex]
+                : keys[randomIndex];
+
+        return {
+            [key]: (allPalettes as any)[key],
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!props.onLoad || !palette) {
+            return;
+        }
+
+        props.onLoad(Object.values(palette)[0]);
+    }, [palette]);
 
     const result = useMemo(() => {
         if (!width || !height) {
@@ -43,26 +97,4 @@ export function Triangles(props: TrianglesProps) {
         ></Container>
     );
 }
-
-export type TrianglesBkProps = {
-    children: JSX.Element | JSX.Element[];
-};
-
-export function TrianglesBk(props: TrianglesBkProps) {
-    const [ref, { width, height }] = useMeasure<HTMLDivElement>();
-
-    return (
-        <ContainerBk
-            className='TrianglesBk-container'
-            data-testid='TrianglesBk-container'
-            ref={ref}
-        >
-            <Bk>
-                <Triangles width={width} height={height} />
-            </Bk>
-            <Fg className='fg'>{props.children}</Fg>
-        </ContainerBk>
-    );
-}
-
 export default Triangles;

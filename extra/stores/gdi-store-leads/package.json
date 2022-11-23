@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-leads",
     "version": "0.0.21",
+    "description": "Leads",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -34,5 +35,10 @@
             "import": "./dist/store-leads.es.js",
             "require": "./dist/store-leads.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

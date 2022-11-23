@@ -4,7 +4,7 @@ export const params: IWidgetParams = {
     id,
     schema: {
         strings: {
-            copyright: { fieldType: 'text', isRequired: true, order: 0 },
+            text: { fieldType: 'text', order: 0 },
         },
         colors: {},
         extra: {},

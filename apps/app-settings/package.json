@@ -1,5 +1,6 @@
 {
     "name": "@gdi/app-settings",
+    "description": "Site and account settings",
     "version": "0.0.25",
     "scripts": {
         "build": "tsc & vite build",
@@ -53,5 +54,10 @@
             "import": "./dist/app-settings.es.js",
             "require": "./dist/app-settings.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": false,
+        "isBeta": true
     }
 }

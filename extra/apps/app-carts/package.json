@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-carts",
     "version": "0.0.25",
+    "description": "Carts",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-carts.es.js",
             "require": "./dist/app-carts.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

@@ -21,7 +21,7 @@ export default {
     Posts: 'Posts',
     People: 'People',
     Sales: 'Sales',
-    Widgets: 'Tickets',
+    Widgets: 'Widgets',
     'Publish Date': 'Publish Date',
     Author: 'Author',
     Status: 'Status',

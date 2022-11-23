@@ -190,18 +190,12 @@ export const selectors = {
     },
 };
 
-export const reducers = mixer.reducers;
-export const reducersSite = site.reducers;
+export const reducers = devtools.reducers;
 
-export const initialState = mixer.initialState;
-export const initialStateSite = site.initialState;
+export const initialState = devtools.initialState;
 
-export const endpointsConfig = {
-    ...mixer.endpointsConfigOverrides,
-    ...site.endpointsConfigOverrides,
-};
+export const endpointsConfig = {};
 
 export const clearState = (store: any) => {
-    mixer.clearState(store);
-    site.clearState(store);
+    devtools.clearState(store);
 };

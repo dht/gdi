@@ -1,24 +1,11 @@
-import React from 'react';
-import {
-    Container,
-    Actions,
-    CTA,
-    Details,
-    H1,
-    P,
-    Slogan,
-    Wrapper,
-    ImageCredits,
-    ImageCreditsTitle,
-    ImageCreditDescription,
-    SecondButton,
-    Beta,
-} from './Hero.style';
+import React, { useContext, useMemo } from 'react';
+import { Container, H1, Wrapper, Greeting, Skill, Social } from './Hero.style';
+import { SocialIcons } from '@gdi/web-ui';
+import { useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.hero-basic';
 
 export type HeroProps = {
-    sequence?: number;
     strings: HeroStrings;
     colors: HeroColors;
     extra: HeroExtra;
@@ -28,84 +15,38 @@ export type HeroStrings = {
     slogan?: string;
     header: string;
     description?: string;
-    ctaButtonText: string;
-    secondButtonText?: string;
-    imageCreditsTitle?: string;
-    imageCreditsDescription?: string;
 };
 
-export type HeroColors = {
-    background?: string;
-    text?: string;
-};
+export type HeroColors = {};
 
 export type HeroExtra = {
-    headerFontSize: number;
-    href: string;
-    hrefSecond?: string;
     imageUrl: string;
-    showBeta?: boolean;
+    socialDatasetId: string;
 };
+
+const urls = ['https://twitter.com/elonmusk', 'https://www.behance.net/dlanid'];
 
 export function Hero(props: HeroProps) {
     const { strings, colors, extra } = props;
-    const {
-        slogan,
-        header,
-        description,
-        ctaButtonText,
-        secondButtonText,
-        imageCreditsTitle,
-        imageCreditsDescription,
-    } = strings;
-    const {
-        imageUrl,
-        href = '#',
-        hrefSecond = '#',
-        headerFontSize = 42,
-        showBeta,
-    } = extra;
+    const { slogan, header, description } = strings;
+    const { socialDatasetId } = extra;
 
-    const style = {
-        backgroundImage: `url(${imageUrl})`,
-    };
+    const social = useDataset(socialDatasetId);
+    const urls = Object.values(social).map((i: Json) => i.url);
 
     return (
         <Container
             className='Hero-container'
             data-testid='Hero-container'
-            colors={colors}
-            style={style}
+            extra={extra}
         >
             <Wrapper>
-                <Details>
-                    {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                    <H1 size={headerFontSize}>
-                        {header}
-                        {showBeta && <Beta>beta</Beta>}
-                    </H1>
-                    {description && <P>{description}</P>}
-                    <Actions>
-                        <CTA colors={colors} href={href}>
-                            {ctaButtonText}
-                        </CTA>
-                        {secondButtonText && (
-                            <SecondButton colors={colors} href={hrefSecond}>
-                                {secondButtonText}
-                            </SecondButton>
-                        )}
-                    </Actions>
-                </Details>
-                {imageCreditsTitle && (
-                    <ImageCredits>
-                        <ImageCreditsTitle>
-                            {imageCreditsTitle}
-                        </ImageCreditsTitle>
-                        <ImageCreditDescription>
-                            {imageCreditsDescription}
-                        </ImageCreditDescription>
-                    </ImageCredits>
-                )}
+                <Greeting colors={colors}>{slogan}</Greeting>
+                <H1>{header}</H1>
+                <Skill>{description}</Skill>
+                <Social>
+                    <SocialIcons grayscale urls={urls} />
+                </Social>
             </Wrapper>
         </Container>
     );

@@ -1,58 +1,86 @@
-import { Feature } from './feature-basic/Feature';
-import { widgetInfo as featureInfo } from './feature-basic';
+import { AboutMe } from './AboutMe-basic/AboutMe';
+import { widgetInfo as AboutMeInfo } from './AboutMe-basic';
 
-import { Footer } from './footer-basic/Footer';
-import { widgetInfo as footerInfo } from './footer-basic';
+import { ContactUs } from './ContactUs-basic/ContactUs';
+import { widgetInfo as ContactUsInfo } from './ContactUs-basic';
 
-import { Hero } from './hero-basic/Hero';
-import { widgetInfo as heroInfo } from './hero-basic';
+import { CtaAction } from './CtaAction-basic/CtaAction';
+import { widgetInfo as CtaActionInfo } from './CtaAction-basic';
 
-import { ImageAndText } from './imageAndText-basic/ImageAndText';
-import { widgetInfo as imageAndTextInfo } from './imageAndText-basic';
+import { Footer } from './Footer-basic/Footer';
+import { widgetInfo as FooterInfo } from './Footer-basic';
 
-import { Installation } from './installation-basic/Installation';
-import { widgetInfo as installationInfo } from './installation-basic';
+import { Hero } from './Hero-basic/Hero';
+import { widgetInfo as HeroInfo } from './Hero-basic';
 
-import { LineCta } from './lineCta-basic/LineCta';
-import { widgetInfo as lineCtaInfo } from './lineCta-basic';
+import { MyNumbers } from './MyNumbers-basic/MyNumbers';
+import { widgetInfo as MyNumbersInfo } from './MyNumbers-basic';
 
-import { SectionHeader } from './sectionHeader-basic/SectionHeader';
-import { widgetInfo as sectionHeaderInfo } from './sectionHeader-basic';
+import { MyPortfolio } from './MyPortfolio-basic/MyPortfolio';
+import { widgetInfo as MyPortfolioInfo } from './MyPortfolio-basic';
 
-import { UserBar } from './userBar-basic/UserBar';
-import { widgetInfo as userBarInfo } from './userBar-basic';
+import { MyResume } from './MyResume-basic/MyResume';
+import { widgetInfo as MyResumeInfo } from './MyResume-basic';
+
+import { MyServices } from './MyServices-basic/MyServices';
+import { widgetInfo as MyServicesInfo } from './MyServices-basic';
+
+import { SectionHeader } from './SectionHeader/SectionHeader';
+import { widgetInfo as SectionHeaderInfo } from './SectionHeader';
+
+import { Quotes } from './Quotes-basic/Quotes';
+import { widgetInfo as QuotesInfo } from './Quotes-basic';
+
+import { TopHeader } from './TopHeader-basic/TopHeader';
+import { widgetInfo as TopHeaderInfo } from './TopHeader-basic';
 
 export const blocks: IWidgets = {
-    'com.usegdi.templates.starter.feature-basic': {
-        component: Feature,
-        ...featureInfo,
+    'com.usegdi.templates.starter.aboutMe-basic': {
+        component: AboutMe,
+        ...AboutMeInfo,
+    },
+    'com.usegdi.templates.starter.contactUs-basic': {
+        component: ContactUs,
+        ...ContactUsInfo,
+    },
+    'com.usegdi.templates.starter.ctaAction-basic': {
+        component: CtaAction,
+        ...CtaActionInfo,
     },
     'com.usegdi.templates.starter.footer-basic': {
         component: Footer,
-        ...footerInfo,
+        ...FooterInfo,
     },
     'com.usegdi.templates.starter.hero-basic': {
         component: Hero,
-        ...heroInfo,
+        ...HeroInfo,
     },
-    'com.usegdi.templates.starter.imageAndText-basic': {
-        component: ImageAndText,
-        ...imageAndTextInfo,
+    'com.usegdi.templates.starter.myNumbers-basic': {
+        component: MyNumbers,
+        ...MyNumbersInfo,
     },
-    'com.usegdi.templates.starter.installation-basic': {
-        component: Installation,
-        ...installationInfo,
+    'com.usegdi.templates.starter.myPortfolio-basic': {
+        component: MyPortfolio,
+        ...MyPortfolioInfo,
     },
-    'com.usegdi.templates.starter.lineCta-basic': {
-        component: LineCta,
-        ...lineCtaInfo,
+    'com.usegdi.templates.starter.myResume-basic': {
+        component: MyResume,
+        ...MyResumeInfo,
+    },
+    'com.usegdi.templates.starter.myServices-basic': {
+        component: MyServices,
+        ...MyServicesInfo,
     },
     'com.usegdi.templates.starter.sectionHeader-basic': {
         component: SectionHeader,
-        ...sectionHeaderInfo,
+        ...SectionHeaderInfo,
     },
-    'com.usegdi.templates.starter.userBar-basic': {
-        component: UserBar,
-        ...userBarInfo,
+    'com.usegdi.templates.starter.quotes-basic': {
+        component: Quotes,
+        ...QuotesInfo,
+    },
+    'com.usegdi.templates.starter.topHeader-basic': {
+        component: TopHeader,
+        ...TopHeaderInfo,
     },
 };

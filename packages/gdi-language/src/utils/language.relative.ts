@@ -68,6 +68,30 @@ export const duration = (seconds: number) => {
     return output.join(' ');
 };
 
+const lz = (value: number, size: number) => {
+    let s = String(value);
+
+    while (s.length < size) {
+        s = '0' + s;
+    }
+
+    return s;
+};
+
+export const durationMillis = (base: number, ts: number) => {
+    const delta = base - ts;
+
+    return {
+        seconds: Math.floor(delta / 1000),
+        millis: lz(Math.round((delta % 1000) / 10), 2),
+    };
+};
+
+const start = Date.now();
+
+export const durationMillisNow = (ts: number) => durationMillis(Date.now(), ts);
+export const durationMillisElapsed = (ts: number) => durationMillis(ts, start);
+
 export const intervalToDuration = (interval: IInterval) => {
     const { start, end } = interval;
     const startNormalized = normalize(start);

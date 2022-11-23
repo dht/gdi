@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddModal snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ WtYQR AddModal-container"
+  data-testid="AddModal-container"
+>
+  AddModal
+</div>
+`;

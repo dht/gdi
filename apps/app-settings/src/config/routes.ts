@@ -7,15 +7,7 @@ export const routes: IRoutes = {
     siteProperties: '/siteProperties',
 };
 
-export const menuItems: IMenuItem[] = [
-    {
-        path: routes.siteProperties,
-        icon: 'DataManagementSettings',
-        label: 'Site Properties',
-        groupId: 'site',
-        order: 8,
-    },
-];
+export const menuItems: IMenuItem[] = [];
 
 export const contextBarItems: IContextBarItem[] = [];
 

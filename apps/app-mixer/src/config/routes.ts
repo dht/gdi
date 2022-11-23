@@ -6,7 +6,9 @@ export const routes: IRoutes = {
     pages: `${ROOT}/pages`,
     imageGallery: `${ROOT}/imageGallery`,
     widgetGallery: `${ROOT}/widgetGallery`,
+    datasets: `${ROOT}/datasets`,
     preview_static: `/preview`,
+    zoomBuild: `${ROOT}/zoomBuild/:zoomWidgetId`,
 };
 
 export const menuItems: IMenuItem[] = [
@@ -30,6 +32,14 @@ export const menuItems: IMenuItem[] = [
         path: routes.imageGallery,
         icon: 'ImageSearch',
         label: 'Image gallery',
+        groupId: 'site',
+        showOnSlim: true,
+        order: 1,
+    },
+    {
+        path: routes.datasets,
+        icon: 'DataManagementSettings',
+        label: 'Datasets',
         groupId: 'site',
         showOnSlim: true,
         order: 1,

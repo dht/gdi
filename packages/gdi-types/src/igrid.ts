@@ -144,6 +144,8 @@ declare global {
         | 'checkbox'
         | 'image'
         | 'color'
+        | 'dataset'
+        | 'icon'
         | 'json';
 
     export type FieldParams = {

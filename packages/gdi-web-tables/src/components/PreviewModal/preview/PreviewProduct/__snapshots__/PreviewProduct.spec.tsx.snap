@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewProduct snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ WtYQR PreviewProduct-container"
+  data-testid="PreviewProduct-container"
+>
+  PreviewProduct
+</div>
+`;

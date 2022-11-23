@@ -24,7 +24,7 @@ export function GalleryImages(props: GalleryImagesProps) {
             data-testid='GalleryImages-container'
         >
             <Multi
-                id='Images'
+                id='ImagesFull'
                 itemType='image'
                 data={data}
                 definitions={crudDefinitions}

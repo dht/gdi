@@ -34,5 +34,10 @@
             "import": "./dist/store-dashboard.es.js",
             "require": "./dist/store-dashboard.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": false,
+        "isBeta": true
     }
 }

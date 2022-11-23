@@ -44,6 +44,12 @@ export const contextBarItems: IContextBarItem[] = [
         widgetId: DevtoolsWidgets.LoginCycle,
         responsive: true,
     },
+    {
+        id: 'console',
+        label: 'Console',
+        widgetId: DevtoolsWidgets.Console,
+        responsive: true,
+    },
 ];
 
 export const commandBarItems: ICommandBarItem[] = [
@@ -54,6 +60,22 @@ export const commandBarItems: ICommandBarItem[] = [
             type: 'ADD_ITEM_TO_CONTEXT_BAR',
             payload: {
                 contextBarItemId: 'devtools_reduxConnectedDevtools',
+            },
+        },
+        shortKeys: [
+            {
+                key: '`',
+                withCtrl: true,
+            },
+        ],
+    },
+    {
+        id: 'console',
+        label: 'Show Console',
+        event: {
+            type: 'ADD_ITEM_TO_CONTEXT_BAR',
+            payload: {
+                contextBarItemId: 'devtools_console',
             },
         },
         shortKeys: [

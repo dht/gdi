@@ -10,20 +10,25 @@ declare global {
     type SiteId = string;
     type TemplateId = string;
 
-    export type ISite = {
-        meta: IMetaSite;
-        locale: ILocale;
+    export type ISiteP6 = {
         pages: IPages;
         pageInstances: IPageInstances;
         instances: IWidgetInstances;
         instancesProps: Json;
         widgets: IWidgets;
         images: IImages;
+    };
+
+    export type ISiteOther = {
+        meta: IMetaSite;
+        locale: ILocale;
         palette: IPalette;
         fonts: IFonts;
         breakpoints: IBreakpoints;
         siteProperties: ISiteProperties;
     };
+
+    export type ISite = ISiteP6 & ISiteOther;
 
     export type ITemplate = Optional<
         ISite,
@@ -41,7 +46,7 @@ declare global {
 
     export type ITemplateMetas = Record<string, IMetaSite>;
 
-    export type IMetaSite = {
+    export type IMetaSite = IGdiMeta & {
         identifier: SiteId | TemplateId;
         schemaVersion?: string;
         author?: IAuthor;
@@ -77,6 +82,9 @@ declare global {
         dataTags: string[];
         enabled?: boolean;
         templateId?: TemplateId;
+
+        // transient
+        pageInstanceVersion?: string;
     };
 
     export type IPageInstance = {

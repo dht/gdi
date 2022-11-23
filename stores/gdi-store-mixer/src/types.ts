@@ -1,6 +1,7 @@
 import type { StoreStructure } from 'redux-store-generator';
 
 export type IMixerStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateMixer: IMixerState;
     currentIds: ICurrentIds;
     locales: ILocaleOptions;
@@ -12,6 +13,7 @@ export type IMixerStore = StoreStructure & {
     libraryImages: IImages;
     libraryPalettes: IPaletteOptions;
     libraryTypography: ITypographyOptions;
+    datasets: Json;
     packages: IPackages;
 };
 
@@ -23,6 +25,7 @@ export type IMixerState = {
     showImageUploadModal: boolean;
     showPlayModeMessage: boolean;
     showMixerTree: boolean;
+    mobileMode: boolean;
 };
 
 export type ICurrentIds = {
@@ -31,7 +34,9 @@ export type ICurrentIds = {
     selectedInstanceId: string;
     contentInstanceId: string;
     libraryInstanceId: string;
+    zoomWidgetId: string;
     fieldId: string;
+    resolution: IResolution;
 };
 
 export type ITypography = {

@@ -6,6 +6,7 @@ export type IEngineContextState = {
 
 export type ISiteContext = {
     menuItems: ITopMenuItem[];
+    datasets: Json;
     patchContext: (change: Partial<ISiteContext>) => void;
 };
 

@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 export type OverviewProps = {
     data: Json;
+    section: IUnoSection;
 };
 
 export function Overview(props: OverviewProps) {

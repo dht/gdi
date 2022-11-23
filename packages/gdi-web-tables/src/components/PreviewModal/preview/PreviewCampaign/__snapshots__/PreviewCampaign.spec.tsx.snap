@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewCampaign snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ WtYQR PreviewCampaign-container"
+  data-testid="PreviewCampaign-container"
+>
+  PreviewCampaign
+</div>
+`;

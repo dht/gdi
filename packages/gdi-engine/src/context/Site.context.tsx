@@ -6,6 +6,7 @@ import { useSiteMenu } from '../hooks/useSiteMenu';
 
 const initialState: ISiteContext = {
     menuItems: [],
+    datasets: {},
     patchContext: () => {},
 };
 
@@ -14,10 +15,11 @@ export const SiteContext = createContext<ISiteContext>(initialState); // prettie
 type SiteProps = {
     children: JSX.Element | JSX.Element[];
     elements: IElement[];
+    datasets: Json;
 };
 
 export const SiteContextProvider = (props: SiteProps) => {
-    const { elements } = props;
+    const { elements, datasets } = props;
 
     const [state, patchState] = useSetState<ISiteContext>({
         ...initialState,
@@ -30,6 +32,7 @@ export const SiteContextProvider = (props: SiteProps) => {
             value={{
                 ...state,
                 menuItems,
+                datasets,
                 patchContext: patchState,
             }}
         >

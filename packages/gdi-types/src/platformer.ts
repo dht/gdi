@@ -84,6 +84,7 @@ declare global {
         i18nBuilder: II18nBuilder;
         definitionsBuilder: IDefinitionsBuilder;
         pieMenuBuilder: IPieMenuBuilder;
+        metaBuilder: IMetaBuilder;
     };
 
     export type SapBuilders = {
@@ -134,7 +135,10 @@ declare global {
         i18nKeys: IAppKeys;
         pieMenuConfig: Partial<IPieMenuConfigPerItemType>;
         crudDefinitions: Partial<ICrudDefinitionsPerItemType>;
+        templatesMeta: ITemplateMeta;
     };
+
+    export type ITemplateMeta = {};
 
     export enum SagaEvents {
         API_ROOT_DONE = 'API_ROOT_DONE',
@@ -302,4 +306,21 @@ declare global {
     };
 
     export type IMenuItems = IMenuItem[];
+
+    export type GdiEntity = 'template' | 'app';
+
+    export type IGdiMeta = {
+        packageType: GdiEntity;
+        version: string;
+        description: string;
+        isDraft?: boolean;
+        isBeta?: boolean;
+    };
+
+    export type IGdiMetas = Record<string, IGdiMeta>;
+
+    export interface IMetaBuilder {
+        withMeta: (appId: string, meta: IGdiMeta) => IMetaBuilder;
+        build: () => IGdiMetas;
+    }
 }

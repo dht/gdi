@@ -15,10 +15,11 @@ import { Icon, Toggle } from '@fluentui/react';
 import { AutoComplete } from '../AutoComplete/AutoComplete';
 import classnames from 'classnames';
 import PieMenu from '../PieMenu/PieMenu';
+import Choice from '../Choice/Choice';
 
 export type PromptProps = {
     title: string;
-    flavour: 'confirm' | 'input' | 'select' | 'form' | 'pie';
+    flavour: 'confirm' | 'input' | 'select' | 'form' | 'pie' | 'choice';
     params: Json;
     submitButtonText: string;
     onCancel: () => void;
@@ -151,6 +152,17 @@ export function Prompt(props: PromptProps) {
                             onCancel={onClose}
                             minTop={150}
                             isRtl={isRtl}
+                        />
+                    </>
+                );
+            case 'choice':
+                return (
+                    <>
+                        <Choice
+                            options={params.options}
+                            value={value}
+                            onKeyDown={onKeyDown}
+                            onChange={setValue}
                         />
                     </>
                 );

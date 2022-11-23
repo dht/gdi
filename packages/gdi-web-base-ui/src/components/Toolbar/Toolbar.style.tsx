@@ -4,7 +4,6 @@ export const Container = styled.div<{ horizontal?: boolean }>`
     display: flex;
     flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;
-    flex: 1;
 
     &.horizontal {
         .item {
@@ -47,5 +46,5 @@ export const Item = styled.div`
 `;
 
 export const Gap = styled.div`
-    flex: 1;
+    width: 20px;
 `;

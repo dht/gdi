@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-sales",
     "version": "0.0.25",
+    "description": "Sales",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-sales.es.js",
             "require": "./dist/app-sales.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

@@ -7,6 +7,8 @@ viewModes:
     - spreadsheet
 hideParts:
     - preview
+    - tagging
+    - filter
 tools:
     - id: select
       text: Select
@@ -24,6 +26,9 @@ tools:
     - id: edit
       text: Edit
       iconName: Edit
+    - id: duplicate
+      text: Duplicate
+      iconName: DuplicateRow
     - id: delete
       text: Delete
       iconName: Delete

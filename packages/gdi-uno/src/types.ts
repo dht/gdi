@@ -4,9 +4,18 @@ export type Json = Record<string, any>;
 
 export type IUnoLayout = {
     flavour: UnoLayoutFlavour;
+    paletteIndex?: number;
 };
 
-export type SectionType = 'header' | 'overview' | 'additionalInfo' | 'media';
+export type SectionType =
+    | 'header'
+    | 'overview'
+    | 'additionalInfo'
+    | 'media'
+    | 'mediaGrid'
+    | 'articleHeader'
+    | 'articleBody'
+    | 'articleComments';
 
 export type IUnoSection = {
     id: string;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PreviewLayout snapshots should match snapshot 1`] = `
+<div
+  className="sc-bczRLJ WtYQR PreviewLayout-container"
+  data-testid="PreviewLayout-container"
+>
+  PreviewLayout
+</div>
+`;

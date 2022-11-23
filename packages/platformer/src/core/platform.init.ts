@@ -24,6 +24,7 @@ import type { StoreStructure } from 'redux-store-generator';
 import { DefinitionsBuilder } from '../builders/DefinitionsBuilder';
 import { PieMenuBuilder } from '../builders/PieMenuBuilder';
 import platformI18n from '../i18n';
+import { MetaBuilder } from '../builders/MetaBuilder';
 
 const DEBUG = false;
 
@@ -79,6 +80,7 @@ export async function initPlatform<T extends StoreStructure>(
     const i18nBuilder = new I18nBuilder();
     const definitionsBuilder = new DefinitionsBuilder();
     const pieMenuBuilder = new PieMenuBuilder();
+    const metaBuilder = new MetaBuilder();
 
     storeBuilder
         .withReducers('platform', platform.reducers)
@@ -109,6 +111,7 @@ export async function initPlatform<T extends StoreStructure>(
             i18nBuilder,
             definitionsBuilder,
             pieMenuBuilder,
+            metaBuilder,
         });
     }
 
@@ -173,6 +176,8 @@ export async function initPlatform<T extends StoreStructure>(
     const crudDefinitionsPerApp = definitionsBuilder.build();
     const crudDefinitions = to.definitions(crudDefinitionsPerApp, i18nParams);
 
+    console.log('metaBuilder.build() ->', metaBuilder.build());
+
     setTimeout(() => {
         patchContext({
             accountName,
@@ -187,6 +192,7 @@ export async function initPlatform<T extends StoreStructure>(
             selectors: selectorsBuilder.build(),
             crudDefinitions,
             pieMenuConfig: to.pieMenu(pieMenuBuilder.build(), i18nParams),
+            templatesMeta: metaBuilder.build(),
             i18nKeys: resources,
             isReady: true,
             store,

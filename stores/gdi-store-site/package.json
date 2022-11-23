@@ -34,5 +34,10 @@
             "import": "./dist/store-site.es.js",
             "require": "./dist/store-site.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": false,
+        "isBeta": true
     }
 }

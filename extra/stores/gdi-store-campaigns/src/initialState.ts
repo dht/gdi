@@ -1,8 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { ICampaignsStore } from './types';
 import { actions } from './actions';
+import p from '../package.json';
 
 export const initialState: ICampaignsStore = {
+    meta: {
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateCampaigns: {
         stateKey: 'campaigns',
     },

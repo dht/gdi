@@ -7,6 +7,7 @@
         "moduleResolution": "node",
         "esModuleInterop": true,
         "declaration": true,
+        "resolveJsonModule": true,
         "declarationDir": "dist/dts",
         "forceConsistentCasingInFileNames": true,
         "strict": true,

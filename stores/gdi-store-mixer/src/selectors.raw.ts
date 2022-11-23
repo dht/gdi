@@ -14,7 +14,8 @@ export const $rawLibraryTypography = createSelector($i, (state: IMixerStore) => 
 export const $rawLibraryPalettes = createSelector($i, (state: IMixerStore) => state.libraryPalettes); // prettier-ignore
 export const $rawLibraryPages = createSelector($i, (state: IMixerStore) => state.libraryPages); // prettier-ignore
 export const $rawLibraryPageInstances = createSelector($i, (state: IMixerStore) => state.libraryPageInstances); // prettier-ignore
-export const $rawInstances = createSelector($i, (state: IMixerStore) => state.libraryInstances); // prettier-ignore
-export const $rawInstancesProps = createSelector($i, (state: IMixerStore) => state.libraryInstancesProps); // prettier-ignore
+export const $rawLibraryInstances = createSelector($i, (state: IMixerStore) => state.libraryInstances); // prettier-ignore
+export const $rawLibraryInstancesProps = createSelector($i, (state: IMixerStore) => state.libraryInstancesProps); // prettier-ignore
+export const $rawLibraryDatasets = createSelector($i, (state: IMixerStore) => state.libraryDatasets); // prettier-ignore
 export const $rawLocales = createSelector($i, (state: IMixerStore) => state.locales); // prettier-ignore
 export const $rawPackages = createSelector($i, (state: IMixerStore) => state.packages); // prettier-ignore

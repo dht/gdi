@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-products",
     "version": "0.0.25",
+    "description": "Products",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-products.es.js",
             "require": "./dist/app-products.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

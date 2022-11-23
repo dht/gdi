@@ -110,7 +110,8 @@ declare global {
         | 'addTag'
         | 'removeTag'
         | 'mouse'
-        | 'drillDown';
+        | 'drillDown'
+        | string;
 
     export type ItemType =
         // CMS
@@ -291,6 +292,7 @@ declare global {
         fieldType: FieldType;
         locationKey?: string;
         order?: number;
+        params?: Json;
     };
 
     export type IOverlayConfig = {

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.a`
     flex: 1;
-    background-color: dodgerblue;
+    background-color: var(--main-color);
     color: white;
     border: none;
     padding: 9px 28px;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 18px;
     font-variation-settings: 'wdth' 100, 'wght' 620;
     position: relative;
     cursor: pointer;

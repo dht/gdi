@@ -17,6 +17,7 @@ import {
     selectors,
 } from '../store';
 import i18n from './i18n';
+import p from '../../package.json';
 import { allDefinitions } from '../definitions';
 
 export const initApp = (builders: AppBuilders) => {
@@ -27,6 +28,7 @@ export const initApp = (builders: AppBuilders) => {
         widgetBuilder,
         apiConfigBuilder,
         i18nBuilder,
+        metaBuilder,
         definitionsBuilder,
         pieMenuBuilder,
     } = builders;
@@ -55,6 +57,14 @@ export const initApp = (builders: AppBuilders) => {
 
     apiConfigBuilder //
         .withEndpointsConfigOverrides(endpointsConfig);
+
+    metaBuilder.withMeta(APP_ID, {
+        version: p.version,
+        description: p.description,
+        packageType: p.gdi.packageType as GdiEntity,
+        isDraft: p.gdi.isDraft,
+        isBeta: p.gdi.isBeta,
+    });
 
     definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
 

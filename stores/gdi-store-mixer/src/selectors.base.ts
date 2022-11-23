@@ -13,16 +13,17 @@ import {
     getScreenshotData,
     unflattenInstanceProps,
 } from 'shared-base';
+import { uniq } from 'lodash';
 
 export const $i = (state: { mixer: IMixerStore }) => state.mixer;
 
 export const $instances = createSelector(
-    raw.$rawInstances,
-    raw.$rawInstancesProps,
+    raw.$rawLibraryInstances,
+    raw.$rawLibraryInstancesProps,
     raw.$rawLibraryWidgets,
     (instances, instancesProps, widgets) => {
         return Object.values(instances)
-            .map((instance) => {
+            .map((instance: any) => {
                 const props = instancesProps[instance.id];
                 const widget = widgets[instance.widgetId];
 
@@ -68,7 +69,7 @@ export const $pageInstances = createSelector(
         }
 
         return Object.values(pageInstances)
-            .filter((i) => i.pageId === pageId)
+            .filter((i: any) => i.pageId === pageId)
             .sort(sortBy('version'));
     }
 );
@@ -105,7 +106,7 @@ export const $pageInstance = createSelector(
 
 export const $instancesForPageInstance = createSelector(
     $pageInstanceId,
-    raw.$rawInstances,
+    raw.$rawLibraryInstances,
     (pageInstanceId, instances) => {
         return Object.values(instances).filter(
             (instance) => instance.pageInstanceId === pageInstanceId
@@ -124,9 +125,35 @@ export const $instancesForCurrentPage = createSelector(
     }
 );
 
+export const $instancesForCurrentZoomBuild = createSelector(
+    raw.$rawCurrentIds,
+    $instances,
+    (currentIds, instances) => {
+        const { zoomWidgetId: zoomWidgetIdRaw = '' } = currentIds;
+        const zoomWidgetId = zoomWidgetIdRaw.replace(/_/g, '.');
+
+        return instances.filter(
+            (instance: IWidgetInstance) => instance.widgetId === zoomWidgetId
+        );
+    }
+);
+
+export const $widgetForCurrentZoomBuild = createSelector(
+    raw.$rawCurrentIds,
+    raw.$rawLibraryWidgets,
+    (currentIds, widgets) => {
+        const { zoomWidgetId: zoomWidgetIdRaw = '' } = currentIds;
+        const zoomWidgetId = zoomWidgetIdRaw.replace(/_/g, '.');
+
+        return Object.values(widgets).find(
+            (widget: IWidget) => widget.id === zoomWidgetId
+        );
+    }
+);
+
 export const $instancesPropsForCurrentPage = createSelector(
     $instancesForCurrentPage,
-    raw.$rawInstancesProps,
+    raw.$rawLibraryInstancesProps,
     (instances, instancesProps) => {
         return instances.reduce((output, instance) => {
             const props = instancesProps[instance.id];
@@ -258,6 +285,7 @@ export const $libraryWidgets = createSelector(
                     ...getScreenshotData(widget),
                     tags,
                     widget,
+                    dataTags: [],
                 });
             }
         });
@@ -364,6 +392,85 @@ export const $isSelectedPlaceholder = createSelector(
     }
 );
 
-export const $libraryPages = createSelector(raw.$rawLibraryPages, (pages) => {
-    return Object.values(pages).sort(sortBy('order', 'asc'));
-});
+export const $libraryPages = createSelector(
+    raw.$rawLibraryPages,
+    raw.$rawLibraryPageInstances,
+    (pages, pageInstances) => {
+        return Object.values(pages)
+            .map((page) => {
+                const { status = 'draft', pageInstanceId } = page;
+
+                let pageInstance: IPageInstance | undefined =
+                    pageInstances[pageInstanceId ?? ''];
+
+                if (!pageInstance) {
+                    pageInstance = Object.values(pageInstances)
+                        .sort(sortBy('order'))
+                        .find((instance) => instance.pageId === page.id);
+                }
+
+                const { version: pageInstanceVersion } = pageInstance ?? {
+                    version: '[=]',
+                };
+
+                return {
+                    ...page,
+                    pageInstanceVersion,
+                    status,
+                };
+            })
+            .sort(sortBy('order', 'asc'));
+    }
+);
+
+export const $libraryPageInstancesAssets = createSelector(
+    raw.$rawLibraryPageInstances,
+    raw.$rawLibraryInstances,
+    raw.$rawLibraryWidgets,
+    raw.$rawLibraryInstancesProps,
+    raw.$rawLibraryImages,
+    (pageInstances, instances, widgets, instancesProps, images) => {
+        const output: IPagesInstanceAssets = {};
+
+        Object.values(pageInstances).forEach((item) => {
+            const { id } = item;
+
+            const instancesForItem = Object.values(instances).filter(
+                (i: IWidgetInstance) => i.pageInstanceId === id
+            );
+
+            const neededWidgets = uniq(
+                instancesForItem.map((i: IWidgetInstance) => i.widgetId)
+            );
+
+            const widgetsForItem = Object.values(widgets).filter((i: IWidget) =>
+                neededWidgets.includes(i.id)
+            );
+
+            const instancesPropsForItem = Object.keys(instancesForItem).reduce(
+                (acc, instanceId) => {
+                    const value = instancesProps[instanceId];
+
+                    if (value) {
+                        acc[instanceId] = value;
+                    }
+                    return acc;
+                },
+                {} as Json
+            );
+
+            const imagesForItem: IImage[] = [];
+
+            output[id] = {
+                id,
+                pageInstance: item,
+                instances: instancesForItem,
+                widgets: widgetsForItem,
+                instancesProps: instancesPropsForItem,
+                images: imagesForItem,
+            };
+        });
+
+        return output;
+    }
+);

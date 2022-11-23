@@ -175,6 +175,23 @@ export function useCrudOperations(
 
                 dispatch(actions.patch(params.id, params));
             },
+            duplicate: async (id: string) => {
+                const { didCancel, value } = await prompt.input({
+                    title: 'Duplicate Page',
+                    placeholder: "New page's name",
+                    submitButtonText: 'Duplicate',
+                });
+
+                if (didCancel || !value) {
+                    return;
+                }
+
+                dispatch({
+                    type: 'DUPLICATE_PAGE',
+                    title: value,
+                    itemId: id,
+                });
+            },
             change: (id: string, change: Json) => {
                 dispatch(actions.patch(id, change));
             },

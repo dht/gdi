@@ -12,6 +12,7 @@ function* apiPublic() {
             'instanceProps',
             'pages',
             'palette',
+            'datasets',
         ],
     });
 
@@ -22,6 +23,7 @@ function* apiPublic() {
         yield* put(actions.instancesProps.get({})),
         yield* put(actions.pages.get({})),
         yield* put(actions.palette.get()),
+        yield* put(actions.datasets.get()),
     ];
 
     yield Promise.all(promises);

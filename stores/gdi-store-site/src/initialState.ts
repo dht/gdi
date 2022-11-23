@@ -1,11 +1,16 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
 import { ISiteStore } from './types';
+import p from '../package.json';
 
 export const initialState: ISiteStore = {
     meta: {
         identifier: 'site',
         schemaVersion: '1.0.1',
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
     },
     locale: {
         localeId: 'en-us',
@@ -22,6 +27,7 @@ export const initialState: ISiteStore = {
             path: '/',
             status: 'draft',
             tags: [],
+            dataTags: [],
         },
     },
     pageInstances: {
@@ -177,6 +183,14 @@ export const initialState: ISiteStore = {
         metaTags: [],
         linkTags: [],
     },
+    datasets: {
+        templates: {
+            '1': {
+                id: '1',
+                title: 'Template #1',
+            },
+        },
+    },
 };
 
 export const reducers = generateReducersForStore<ISiteStore>(initialState);
@@ -189,6 +203,7 @@ export const clearState = (store: any) => {
         store.dispatch(actions.widgets.setAll({}));
         store.dispatch(actions.instancesProps.setAll({}));
         store.dispatch(actions.images.setAll({}));
+        store.dispatch(actions.datasets.setAll({}));
     });
     return store;
 };

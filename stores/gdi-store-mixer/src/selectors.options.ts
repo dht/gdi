@@ -52,7 +52,11 @@ export const $periods = createSelector($i, (_i): IOption[] => {
 });
 
 export const $pageStatus = createSelector($i, (_i): IOption[] => {
-    return arrayToOptions(['draft', 'production', 'archived']);
+    return arrayToOptions([
+        'draft|Lightbulb',
+        'production|Sunny',
+        'archived|PlugDisconnected',
+    ]);
 });
 
 export const $allOptions = createSelector(

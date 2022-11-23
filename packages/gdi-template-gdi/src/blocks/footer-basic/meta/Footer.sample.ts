@@ -1,10 +1,14 @@
+import { ISampleDataPerFlavour } from '@gdi/web-ui';
+
 export const sampleData: ISampleDataPerFlavour = {
     normal: {
         id: 'normal',
         strings: {
-            copyright: 'Copyright 2022 ©',
+            text: '&copy; gDI 2022',
         },
         colors: {},
-        extra: {},
+        extra: {
+            linksDatasetId: 'footerLinks',
+        },
     },
 };

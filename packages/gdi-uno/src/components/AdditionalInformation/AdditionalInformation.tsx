@@ -13,6 +13,7 @@ import { useLanguage } from '@gdi/language';
 
 export type AdditionalInformationProps = {
     data: Json;
+    section: IUnoSection;
 };
 
 export function AdditionalInformation(props: AdditionalInformationProps) {

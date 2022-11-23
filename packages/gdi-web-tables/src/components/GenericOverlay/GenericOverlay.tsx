@@ -10,7 +10,6 @@ import {
 } from './GenericOverlay.style';
 import classnames from 'classnames';
 import OverlayField from '../OverlayField/OverlayField';
-import { filter } from 'lodash';
 import { GalleryContext } from '../../context/Gallery.context';
 
 export type GenericOverlayProps = {
@@ -22,7 +21,7 @@ export type GenericOverlayProps = {
 
 export function GenericOverlay(props: GenericOverlayProps) {
     const { item, isSelected, options, config } = props;
-    const { fields = [], paddingBottom } = config;
+    const { fields = [], paddingBottom, margin = '5px' } = config;
     const { hideOverlay } = options ?? {};
 
     const context = useContext(GalleryContext);
@@ -35,7 +34,9 @@ export function GenericOverlay(props: GenericOverlayProps) {
         }
     );
 
-    const style: React.CSSProperties = {};
+    const style: React.CSSProperties = {
+        margin: margin ?? 0,
+    };
 
     if (paddingBottom) {
         style.paddingBottom = paddingBottom + '%';

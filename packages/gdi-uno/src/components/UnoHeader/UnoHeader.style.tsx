@@ -4,8 +4,9 @@ export const Container = styled.div`
     flex: 1;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    padding: 30px 0 50px;
+    align-items: center;
+    align-self: flex-end;
+    justify-self: flex-end;
 `;
 
 export const Column = styled.div<{ flex?: boolean }>`
@@ -22,6 +23,7 @@ export const H1 = styled.h1`
     font-variation-settings: 'wdth' 110, 'wght' 480;
     padding: 0;
     margin: 6px 0 10px;
+    font-size: 40px;
 `;
 
 export const AuthorLine = styled.div`

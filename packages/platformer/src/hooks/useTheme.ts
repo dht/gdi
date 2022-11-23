@@ -1,6 +1,19 @@
-import { useMemo } from 'react';
+import { useCustomEvent } from '@gdi/hooks';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useWindowSize } from 'react-use';
+import { breakpoints } from '../data/breakpoints';
+import {
+    getCurrentBreakpoint,
+    getCurrentBreakpointByResolutionId,
+} from '../utils/breakpoints';
 
 export function useTheme(languageCode: string, isRtl: boolean) {
+    const { width } = useWidth();
+
+    const breakpoint = useMemo(() => {
+        return getCurrentBreakpoint(breakpoints, width);
+    }, [width]);
+
     const theme = useMemo(() => {
         return {
             paddingLeft: (value: string | number) => {
@@ -114,13 +127,57 @@ export function useTheme(languageCode: string, isRtl: boolean) {
                     direction: [value, suffix].join(' '),
                 };
             },
+            device: (
+                resolutionId: IResolution,
+                css: React.CSSProperties,
+                orLower: boolean = true
+            ) => {
+                const bp = getCurrentBreakpointByResolutionId(
+                    breakpoints,
+                    resolutionId
+                );
+
+                if (!bp || !breakpoint) {
+                    return;
+                }
+
+                const isEqual = bp.index === breakpoint.index;
+                const isLower = bp.index > breakpoint.index;
+
+                if (isEqual || (isLower && orLower)) {
+                    return css;
+                }
+            },
             languageCode,
             fontFamily: isRtl
                 ? "font-family: 'Heebo', Courier, monospace;"
                 : "'Encode Sans', Courier, monospace;",
             isRtl,
         };
-    }, [isRtl]);
+    }, [isRtl, breakpoint]);
 
     return theme;
+}
+
+export function useWidth() {
+    const { width: windowWidth } = useWindowSize();
+    const [width, setWidth] = useState(windowWidth);
+
+    useEffect(() => {
+        setWidth(windowWidth);
+    }, [windowWidth]);
+
+    useCustomEvent('force-width', (data: Json) => {
+        setWidth(data.width);
+    });
+
+    useCustomEvent('force-width-mobile', () => {
+        setWidth(380);
+    });
+
+    useCustomEvent('force-width-clear', () => {
+        setWidth(windowWidth);
+    });
+
+    return { width };
 }

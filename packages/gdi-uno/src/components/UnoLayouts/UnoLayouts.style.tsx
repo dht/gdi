@@ -6,15 +6,29 @@ export const Container = styled.div<{ width?: number }>`
     flex-direction: column;
 `;
 
-export const Top = styled.div``;
-
-export const Center = styled.div``;
-
-export const Wrapper = styled.div<{ orientation?: 'row' | 'column' }>`
-    max-width: 1200px;
-    margin: auto;
+export const Top = styled.div`
+    height: 40vh;
     display: flex;
+    position: relative;
+    display: flex;
+`;
+
+export const Center = styled.div<{ color?: string }>`
+    background-color: ${(props) => props.color || 'white'};
+`;
+
+export const Wrapper = styled.div<{
+    orientation?: 'row' | 'column';
+    align?: 'center' | 'flex-start' | 'flex-end';
+    flex?: number;
+}>`
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
     flex-direction: ${(props) => props.orientation || 'row'};
+    ${(props) => props.flex && `flex: ${props.flex};`}
+    flex-direction: ${(props) => props.orientation || 'row'};
+    align-items: ${(props) => props.align || 'flex-start'};
 `;
 
 export const Bottom = styled.div`
@@ -23,9 +37,10 @@ export const Bottom = styled.div`
     align-items: flex-start;
 `;
 
-export const Column = styled.div`
+export const Column = styled.div<{ flex?: number }>`
     margin-top: 45px;
     padding-bottom: 50px;
+    ${(props) => (props.flex ? `flex: ${props.flex}` : '')}
 
     &:nth-child(1) {
         flex: 3;

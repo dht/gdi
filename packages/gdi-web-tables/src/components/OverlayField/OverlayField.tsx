@@ -6,10 +6,12 @@ import {
     DateContainer,
     DateDate,
     DateDelta,
+    Select,
     Title,
 } from './OverlayField.style';
 import { dateShort, timeAgo } from '@gdi/language';
 import { useMemo } from '@gdi/hooks';
+import classnames from 'classnames';
 
 export type OverlayFieldProps = {
     field: IOverlayField;
@@ -63,7 +65,7 @@ export function FieldDate(props: OverlayFieldProps) {
     try {
         const date = new Date(item[field.fieldId]);
         dateDate = dateShort(date);
-        dateDelta = timeAgo(date);
+        dateDelta = timeAgo(date) ?? '';
     } catch (err) {
         console.log('err ->', err);
     }
@@ -78,14 +80,42 @@ export function FieldDate(props: OverlayFieldProps) {
 
 export function FieldText(props: OverlayFieldProps) {
     const { field, item } = props;
+    const { params } = field;
 
     const value = useMemo(() => {
         return item[field.fieldId];
     }, []);
 
+    const className = classnames(field.fieldId, value);
+
     return (
         <>
-            <Title>{value}</Title>
+            <Title className={className} {...params}>
+                {value}
+            </Title>
+        </>
+    );
+}
+
+export function FieldSelect(props: OverlayFieldProps) {
+    const { field, item } = props;
+    const { params } = field;
+
+    const value = useMemo(() => {
+        return item[field.fieldId];
+    }, []);
+
+    const className = classnames(field.fieldId, value);
+
+    function onClick() {
+        props.onAction(field.fieldId as ItemActionType, { item });
+    }
+
+    return (
+        <>
+            <Select className={className} onClick={onClick} {...params}>
+                {value}
+            </Select>
         </>
     );
 }
@@ -96,7 +126,7 @@ const map: Record<FieldType, FC<OverlayFieldProps>> = {
     choice: FieldText,
     date: FieldDate,
     tags: FieldTags,
-    select: FieldText,
+    select: FieldSelect,
     hidden: FieldText,
     color: FieldText,
     number: FieldText,

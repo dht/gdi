@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-tasks",
     "version": "0.0.25",
+    "description": "Tasks",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -53,5 +54,10 @@
             "import": "./dist/app-tasks.es.js",
             "require": "./dist/app-tasks.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

@@ -1,4 +1,5 @@
 export type ICampaignsStore = {
+    meta: IGdiMeta;
     appStateCampaigns: ICampaignsState;
     campaigns: ICampaigns;
 };

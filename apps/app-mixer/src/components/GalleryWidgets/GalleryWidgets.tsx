@@ -24,7 +24,7 @@ export function GalleryWidgets(props: GalleryWidgetsProps) {
             data-testid='GalleryWidgets-container'
         >
             <Multi
-                id='Widgets'
+                id='WidgetsFull'
                 itemType='widget'
                 data={data}
                 callbacks={callbacks}

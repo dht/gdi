@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-tasks",
     "version": "0.0.22",
+    "description": "Tasks",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -35,5 +36,10 @@
             "import": "./dist/store-tasks.es.js",
             "require": "./dist/store-tasks.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "store",
+        "isDraft": true,
+        "isBeta": false
     }
 }

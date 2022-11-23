@@ -17,6 +17,9 @@
             "@gdi/store-comments": ["stores/gdi-store-comments"],
 
             "@gdi/template-starter": ["packages/gdi-template-starter"],
+            "@gdi/template-tech": ["packages/gdi-template-tech"],
+            "@gdi/template-gdi": ["packages/gdi-template-gdi"],
+            "@gdi/template-card": ["packages/gdi-template-card"],
 
             "@gdi/language": ["packages/gdi-language"],
             "@gdi/language-de": ["submodules/gdi-language-de"],
@@ -74,6 +77,7 @@
             "@gdi/store-voice": ["extra/stores/gdi-store-voice"],
 
             "redux-store-generator": ["submodules/redux-store-generator"],
+            "@gdi/uno": ["packages/gdi-uno"],
             "@gdi/dnd": ["submodules/gdi-dnd"],
             "redux-connected": ["submodules/redux-connected"],
             "redux-connected-devtools": ["submodules/redux-connected-devtools"],

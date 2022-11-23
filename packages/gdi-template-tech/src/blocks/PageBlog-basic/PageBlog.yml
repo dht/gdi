@@ -1,0 +1,14 @@
+id: PageBlog
+header: Blog Page
+layout:
+    flavour: blog
+sections:
+    - id: header
+      sectionType: articleHeader
+      groupId: top
+    - id: articleBody
+      sectionType: articleBody
+      groupId: centerLeft
+    - id: articleComments
+      sectionType: articleComments
+      groupId: bottomLeft

@@ -1,0 +1,18 @@
+id: PageApp
+header: App Page
+layout:
+    flavour: app
+    paletteIndex: 6
+sections:
+    - id: header
+      sectionType: header
+      groupId: top
+    - id: mediaGrid
+      sectionType: mediaGrid
+      groupId: center
+    - id: overview
+      sectionType: overview
+      groupId: bottomLeft
+    - id: additionalInfo
+      sectionType: additionalInfo
+      groupId: bottomRight

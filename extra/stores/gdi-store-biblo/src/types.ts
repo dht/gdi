@@ -1,6 +1,7 @@
 import { StoreStructure } from 'redux-store-generator';
 
 export type IBibloStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateBiblo: IBibloState;
     readCategories: IReadCategories;
     interestingReads: IReads;

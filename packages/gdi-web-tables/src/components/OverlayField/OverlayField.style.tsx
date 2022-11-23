@@ -27,18 +27,52 @@ export const DateDelta = styled.div`
     border-radius: 3px;
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<{
+    large?: boolean;
+    center?: boolean;
+    floatRight?: boolean;
+    floatLeft?: boolean;
+}>`
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 2px 5px;
+    padding: 2px 15px;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: ${(props) => (props.large ? '24px' : '17px')};
     white-space: nowrap;
+    text-align: 
+    border: 1px solid transparent;
+    text-align: ${(props) => (props.center ? 'center' : 'inherit')};
+    ${(props) => (props.floatRight ? props.theme.floatRight() : '')}
+    ${(props) => (props.floatLeft ? props.theme.floatLeft() : '')}
 `;
 
-export const TitleLarge = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
-    font-size: 30px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 10px;
+export const Select = styled.div<{ center?: boolean }>`
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2px 15px;
+    border-radius: 5px;
+    font-size: 17px;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-align: ${(props) => (props.center ? 'center' : 'auto')};
+    ${(props) => props.theme.floatRight()}
+
+    &:hover {
+        border: 1px solid dodgerblue;
+    }
+
+    &.status {
+        &.draft {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        &.production {
+            background-color: goldenrod;
+            color: #333;
+        }
+
+        &.archived {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #777;
+        }
+    }
 `;

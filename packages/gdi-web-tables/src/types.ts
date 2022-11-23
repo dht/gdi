@@ -102,7 +102,8 @@ export type ItemActionType =
     | 'addTag'
     | 'removeTag'
     | 'mouse'
-    | 'drillDown';
+    | 'drillDown'
+    | string;
 
 export type ItemType =
     // CMS
@@ -283,6 +284,7 @@ export type IOverlayField = {
     fieldType: FieldType;
     locationKey?: string;
     order?: number;
+    params?: Json;
 };
 
 export type IOverlayConfig = {

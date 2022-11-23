@@ -1,64 +1,48 @@
 import styled from 'styled-components';
-import { FooterColors } from './Footer';
 
-export const Container = styled.div<{ colors: FooterColors }>`
+export const Container = styled.div`
     flex: 1;
-    background-color: ${(props) => props.colors.background ?? 'white'};
-    padding: 20px 0;
-    color: #353;
+    background-color: #223;
+    color: #fff;
+    padding: 70px calc((100vw - 1200px) / 2);
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    @media (max-width: 768px) {
-        font-size: 24px;
-        padding: 40px 0;
-    }
+    font-size: 18px;
 `;
 
-export const Wrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
+export const Wrapper = styled.div``;
+
+export const Column = styled.div`
     flex: 1;
-    justify-content: center;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
 `;
 
-export const Links = styled.div`
+export const Ul = styled.ul`
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    @media (max-width: 768px) {
-        ${(props) => props.theme.marginLeft('20px')}
-    }
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
 `;
-export const Link = styled.a`
-    margin: 0 10px;
-    color: #343;
-    text-decoration: none;
-    transition: all 30ms linear;
+
+export const Li = styled.li`
+    padding: 0 10px;
+    margin: 0;
+`;
+
+export const A = styled.a`
     cursor: pointer;
 
     &:hover {
-        color: dodgerblue;
+        color: gold;
         text-decoration: underline;
     }
-`;
-export const Copy = styled.div``;
 
-export const GDI = styled.div`
-    ${(props) => props.theme.marginLeft('30px')}
-
-    &:before {
-        content: '•';
+    &:active {
         position: relative;
-        ${(props) => props.theme.right('15px')}
+        bottom: 1px;
+        left: 1px;
     }
 `;

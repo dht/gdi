@@ -5,4 +5,5 @@ export type { EngineEditProps } from './components/EngineEdit/EngineEdit';
 export { LibraryBuilder } from './builders/LibraryBuilder';
 export { SiteContext } from './context/Site.context';
 export { useTemplates } from './hooks/useTemplates';
+export { useDataset } from './hooks/useDataset';
 export * from './types';

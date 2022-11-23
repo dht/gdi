@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Container } from './LibraryWidgets.style';
 import { WidgetGallery } from '@gdi/web-ui';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export type LibraryWidgetsProps = {
     items: IImageWithWidget[];
@@ -15,8 +16,7 @@ export type LibraryWidgetsProps = {
 
 export function LibraryWidgets(props: LibraryWidgetsProps) {
     const { items, callbacks, galleryOptions, hideParts } = props;
-
-    console.log('galleryOptions ->', galleryOptions);
+    const crudDefinitions = useCrudDefinitions('widget');
 
     return (
         <Container
@@ -24,6 +24,7 @@ export function LibraryWidgets(props: LibraryWidgetsProps) {
             data-testid='LibraryWidgets-container'
         >
             <WidgetGallery
+                definitions={crudDefinitions}
                 items={items}
                 options={galleryOptions}
                 callbacks={callbacks}

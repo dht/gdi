@@ -29,11 +29,6 @@ const items = [
         title: 'Settings',
         icon: 'Settings',
     },
-    // {
-    //     id: 'connectDevice',
-    //     title: 'Connect device',
-    //     icon: 'CellPhone',
-    // },
     {
         id: 'logout',
         title: 'Logout',

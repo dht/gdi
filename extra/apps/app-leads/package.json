@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-leads",
     "version": "0.0.25",
+    "description": "Leads",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-leads.es.js",
             "require": "./dist/app-leads.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

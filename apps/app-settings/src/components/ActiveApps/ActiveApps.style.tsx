@@ -36,7 +36,7 @@ export const Me = styled.div`
 
 export const Content = styled.div`
     flex: 1;
-    padding: 100px 50px;
+    padding: 100px 0;
     display: flex;
     flex-direction: row;
 `;
@@ -76,11 +76,30 @@ export const AppField = styled.div<{ color?: string }>`
     display: table-cell;
     padding: 5px;
     height: 50px;
-    line-height: 50px;
     font-size: 18px;
     vertical-align: middle;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: ${(props) => props.color ?? '#ccd'};
+`;
+
+export const Description = styled.div`
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
+
+export const Version = styled.div`
+    color: rgba(255, 255, 255, 0.3);
+`;
+
+export const Flags = styled.div`
+    color: rgba(255, 255, 255, 0.3);
+
+    &.draft {
+        color: #ab2b2b;
+    }
 `;
 
 export const Color = styled.div<{ value: string }>`
@@ -127,5 +146,5 @@ export const ToggleAll = styled.div`
     justify-content: flex-end;
     max-width: 800px;
     box-sizing: border-box;
-    padding: 0 60px 10px;
+    padding: 0 25px 10px;
 `;

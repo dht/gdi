@@ -12,7 +12,7 @@ export default defineConfig({
         sourcemap: true,
         lib: {
             entry: path.resolve(__dirname, 'src/index.tsx'),
-            name: 'Gdi-Language',
+            name: 'GdiLanguage',
             formats: ['es', 'umd'],
             fileName: (format) => `gdi-language.${format}.js`,
         },

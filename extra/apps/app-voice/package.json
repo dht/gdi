@@ -1,6 +1,7 @@
 {
     "name": "@gdi/app-voice",
     "version": "0.0.25",
+    "description": "Voice control",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -54,5 +55,10 @@
             "import": "./dist/app-voice.es.js",
             "require": "./dist/app-voice.umd.js"
         }
+    },
+    "gdi": {
+        "packageType": "app",
+        "isDraft": true,
+        "isBeta": false
     }
 }

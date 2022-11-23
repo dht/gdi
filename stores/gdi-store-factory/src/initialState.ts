@@ -1,8 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { actions } from './actions';
 import { IFactoryStore } from './types';
+import p from '../package.json';
 
 export const initialState: IFactoryStore = {
+    meta: {
+        version: p.version,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateFactory: {
         stateKey: 'factory',
         mode: 'table',
@@ -40,6 +47,7 @@ export const initialState: IFactoryStore = {
                     order: 2,
                 },
             ],
+            tags: [],
         },
     },
     articles: {
@@ -66,6 +74,8 @@ export const initialState: IFactoryStore = {
             tags: [],
             minutesSpentEditing: 0,
             wordCount: 100,
+            dataTags: [],
+            imageThumbUrl: '',
         },
     },
     articleCategories: {

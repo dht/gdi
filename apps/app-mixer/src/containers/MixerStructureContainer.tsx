@@ -22,7 +22,7 @@ export const MixerStructureContainer = () => {
             },
             onMoveItem: (instanceId: string, newOrderValue: number) => {
                 dispatch(
-                    actions.instances.patch(instanceId, {
+                    actions.libraryInstances.patch(instanceId, {
                         order: newOrderValue,
                     })
                 );
