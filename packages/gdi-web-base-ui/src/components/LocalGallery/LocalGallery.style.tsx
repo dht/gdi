@@ -37,3 +37,16 @@ export const SwitchWrapper = styled.div`
     > div {
     }
 `;
+
+export const Title = styled.div`
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    padding: 2px 5px;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;

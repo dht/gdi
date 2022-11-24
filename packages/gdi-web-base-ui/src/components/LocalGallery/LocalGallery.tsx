@@ -1,11 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useBoolean, useMeasure } from 'react-use';
-import { Container, Item, Items, SwitchWrapper } from './LocalGallery.style';
+import {
+    Container,
+    Item,
+    Items,
+    SwitchWrapper,
+    Title,
+} from './LocalGallery.style';
 import { Switch } from '@gdi/web-ui';
 import { useTags } from '../../hooks/useTags';
 import { useItemsPosition } from '../../hooks/useItemsPosition';
 import classnames from 'classnames';
 import { useDelay } from '../../hooks/useDelay';
+import LightBox from '../LightBox/Lightbox';
 
 export type LocalGalleryProps = {
     items: Json[];
@@ -14,6 +21,7 @@ export type LocalGalleryProps = {
 export function LocalGallery(props: LocalGalleryProps) {
     const [ref, { width }] = useMeasure<HTMLDivElement>();
     const [currentTag, setCurrentTag] = useState('All');
+    const [currentItem, setCurrentItem] = useState<Json | null>(null);
 
     const tags = useTags(props.items);
     const animated = useDelay(300);
@@ -25,11 +33,27 @@ export function LocalGallery(props: LocalGalleryProps) {
     });
 
     function renderItem(item: Json) {
-        return <Image key={item.id} item={item} />;
+        return (
+            <Image
+                key={item.id}
+                item={item}
+                onClick={() => setCurrentItem(item)}
+            />
+        );
     }
 
     function renderItems() {
         return items.map((item: Json) => renderItem(item));
+    }
+
+    function renderLightBox() {
+        if (!currentItem) {
+            return null;
+        }
+
+        return (
+            <LightBox item={currentItem} onClose={() => setCurrentItem(null)} />
+        );
     }
 
     const visibleItems = items.filter((i) => i.isVisible).length;
@@ -58,17 +82,19 @@ export function LocalGallery(props: LocalGalleryProps) {
             <Items className='items' style={style}>
                 {renderItems()}
             </Items>
+            {renderLightBox()}
         </Container>
     );
 }
 
 type ImageProps = {
     item: Json;
+    onClick: () => void;
 };
 
 function Image(props: ImageProps) {
     const { item } = props;
-    const { title, imageUrl } = item;
+    const { title, thumbImageUrl, imageUrl } = item;
 
     const style = {
         ...item.style,
@@ -77,8 +103,14 @@ function Image(props: ImageProps) {
     };
 
     return (
-        <Item key={item.id} className='item' imageUrl={imageUrl} style={style}>
-            {title}
+        <Item
+            key={item.id}
+            className='item'
+            imageUrl={thumbImageUrl || imageUrl}
+            style={style}
+            onClick={props.onClick}
+        >
+            <Title>{title}</Title>
         </Item>
     );
 }
