@@ -32,10 +32,8 @@ export function ImageGallery(props: ImageGalleryProps) {
                 callbacks={callbacks}
             >
                 <FilterBar
-                    header=''
-                    onAction={() => {}}
+                    onAction={callbacks.onAction}
                     hideParts={hideParts}
-                    tools={[]}
                 />
                 <AnyGallery
                     itemType='image'

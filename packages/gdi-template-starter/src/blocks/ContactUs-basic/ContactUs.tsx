@@ -17,21 +17,26 @@ export type ContactUsStrings = {
 
 export type ContactUsColors = {};
 
-export type ContactUsExtra = {};
+export type ContactUsExtra = {
+    imageUrl: string;
+};
 
 export function ContactUs(props: ContactUsProps) {
-    const { strings, colors, extra } = props;
+    const { strings, extra } = props;
     const { header, phoneNumber } = strings;
+    const { imageUrl } = extra;
+
+    console.log('props ->', props);
 
     return (
         <Container
             className='ContactUs-container'
             data-testid='ContactUs-container'
-            colors={colors}
+            imageUrl={imageUrl}
         >
             <Wrapper>
-                <H3>Get a quote for your project</H3>
-                <Whatsapp />
+                <H3>{header}</H3>
+                <Whatsapp phoneNumber={phoneNumber} />
             </Wrapper>
         </Container>
     );

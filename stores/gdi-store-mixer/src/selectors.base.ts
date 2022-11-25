@@ -208,7 +208,7 @@ export const $packages = createSelector(raw.$rawPackages, (packages) => {
 export const $libraryImages = createSelector(
     raw.$rawLibraryImages,
     (images) => {
-        return Object.values(images);
+        return Object.values(images).sort(sortBy('_createdDate', 'desc'));
     }
 );
 
@@ -472,5 +472,20 @@ export const $libraryPageInstancesAssets = createSelector(
         });
 
         return output;
+    }
+);
+
+export const $panelLibraryFlavour = createSelector(
+    raw.$rawCurrentIds,
+    raw.$rawMixerState,
+    (currentIds, mixerState) => {
+        const { selectedInstanceId } = currentIds;
+        const { panelLibraryFlavour } = mixerState;
+
+        if (selectedInstanceId === '<NEW>') {
+            return 'widgets';
+        }
+
+        return panelLibraryFlavour;
     }
 );

@@ -190,7 +190,9 @@ export function FilterBar(props: FilterBarProps) {
             return null;
         }
 
-        return <Search value={search} onChange={callbacks.onSearch} />;
+        return (
+            <Search width={160} value={search} onChange={callbacks.onSearch} />
+        );
     }
 
     function renderTagger() {

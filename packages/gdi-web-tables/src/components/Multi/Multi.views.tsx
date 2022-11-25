@@ -10,7 +10,7 @@ export type MultiViewsProps = {
     modes?: IViewMode[];
     customViewExists: boolean;
     customView2Exists: boolean;
-    onChange: (option: SwitchOption) => void;
+    onChange: (option: IOption) => void;
 };
 
 export function MultiViews(props: MultiViewsProps) {

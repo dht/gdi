@@ -41,7 +41,7 @@ export const Chevron = styled.div`
 export const Title = styled.div`
     flex: 1;
     font-size: 18px;
-    ${(props) => props.theme.marginLeft('7px')}
+    ${(props) => props.theme.marginLeft('7px')};
 `;
 
 export const Content = styled.div<{ flex?: boolean }>`
@@ -55,15 +55,6 @@ export const Actions = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-`;
-
-export const Action = styled.div`
-    padding: 5px 8px;
-    font-size: 17px;
-
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: gold;
-        border-radius: 3px;
-    }
+    min-width: 150px;
+    zoom: 0.8;
 `;

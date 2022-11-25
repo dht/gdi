@@ -5,11 +5,12 @@ import { Container } from './Search.style';
 export type SearchProps = {
     placeholder?: string;
     value?: string;
+    width?: number;
     onChange: (newValue?: string) => void;
 };
 
 export function Search(props: SearchProps) {
-    const { value = '', placeholder = 'Search' } = props;
+    const { width, value = '', placeholder = 'Search' } = props;
 
     function onChange(
         _event?: React.ChangeEvent<HTMLInputElement>,
@@ -18,12 +19,23 @@ export function Search(props: SearchProps) {
         props.onChange(newValue);
     }
 
+    let style: React.CSSProperties = {};
+
+    if (width) {
+        style.width = width + 'px';
+    }
+
     return (
-        <Container className='Search-container' data-testid='Search-container'>
+        <Container
+            className='Search-container'
+            data-testid='Search-container'
+            style={style}
+        >
             <SearchBox
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
+                disableAnimation={true}
                 underlined={true}
             />
         </Container>

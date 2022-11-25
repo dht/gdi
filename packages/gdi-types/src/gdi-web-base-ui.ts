@@ -20,17 +20,11 @@ declare global {
         max?: number;
         isExtra?: boolean;
         isGap?: boolean;
+        hint?: string;
         options?: IOptions;
     };
 
     export type IOptions = IOption[];
-
-    export type SwitchOption = {
-        id: string;
-        label?: string;
-        iconName?: string;
-        hint?: string;
-    };
 
     export type ToastFlavour =
         | 'error'

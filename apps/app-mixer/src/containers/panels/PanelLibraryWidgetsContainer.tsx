@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import styled from 'styled-components';
 import { actions, selectors } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import LibraryWidgets from '../../components/LibraryWidgets/LibraryWidgets';
@@ -7,8 +6,6 @@ import LibraryWidgets from '../../components/LibraryWidgets/LibraryWidgets';
 export const PanelLibraryWidgetsContainer = (_props: any) => {
     const dispatch = useDispatch();
     const items = useSelector(selectors.base.$libraryWidgetsAll);
-
-    console.log('items ->', items);
 
     const galleryOptions = useMemo(
         () => ({
@@ -67,9 +64,3 @@ export const PanelLibraryWidgetsContainer = (_props: any) => {
         />
     );
 };
-
-export const Col = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-`;

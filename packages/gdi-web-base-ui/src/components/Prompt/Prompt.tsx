@@ -11,7 +11,7 @@ import {
 import { Modal } from '../Modal/Modal';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
-import { Icon, Toggle } from '@fluentui/react';
+import { Icon } from '@fluentui/react';
 import { AutoComplete } from '../AutoComplete/AutoComplete';
 import classnames from 'classnames';
 import PieMenu from '../PieMenu/PieMenu';

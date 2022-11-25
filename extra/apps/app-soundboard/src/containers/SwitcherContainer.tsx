@@ -2,7 +2,6 @@ import React, { useCallback, useMemo } from 'react';
 import Switcher from '../components/Switcher/Switcher';
 import { actions } from '../store';
 import { selectors } from '../store';
-import { SwitchOption } from '@gdi/web-ui';
 import { useDispatch, useSelector } from 'react-redux';
 
 const options = [
@@ -22,7 +21,7 @@ export const SwitcherContainer = () => {
 
     const value = appState.isDayTime ? 'day' : 'evening';
 
-    const onChange = useCallback((option: SwitchOption) => {
+    const onChange = useCallback((option: IOption) => {
         dispatch(
             actions.appStateScheduler.patch({
                 isDayTime: option.id === 'day',

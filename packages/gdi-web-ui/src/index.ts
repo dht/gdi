@@ -1,3 +1,5 @@
+export { AccountSelector } from './components/AccountSelector/AccountSelector';
+export { AccountTag } from './components/AccountTag/AccountTag';
 export { BigAutoComplete } from './components/BigAutoComplete/BigAutoComplete';
 export { CommandBar } from './components/CommandBar/CommandBar';
 export { ContextBar } from './components/ContextBar/ContextBar';
@@ -9,6 +11,7 @@ export { Gauge } from './components/Gauge/Gauge';
 export { KeyboardShortcuts } from './components/KeyboardShortcuts/KeyboardShortcuts';
 export { KeyboardHint } from './components/KeyboardHint/KeyboardHint';
 export { Layouts } from './components/Layouts/Layouts';
+export { LibrarySelector } from './components/LibrarySelector/LibrarySelector';
 export { Lifecycle } from './components/Lifecycle/Lifecycle';
 export { MessageModal } from './components/MessageModal/MessageModal';
 export { OAuthPopup } from './components/OAuthPopup/OAuthPopup';
@@ -26,8 +29,6 @@ export { siteDefaults } from './definitions/site.defaults';
 
 export {
     Accordion,
-    AccountSelector,
-    AccountTag,
     AutoComplete,
     Avatar,
     BarSelect,
@@ -70,7 +71,8 @@ export {
     TagsInput,
     Triangles,
     TrianglesBk,
-    triangleColors,
+    allColors,
+    groupedColors,
     Theme,
     Toast,
     toast,

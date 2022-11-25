@@ -31,9 +31,11 @@ type ICrudContext = {
     };
 };
 
-const initialValue: ICrudContext = {
+const initialValue = (params: Json): ICrudContext => ({
     patchState: () => {},
-    state: {},
+    state: {
+        viewMode: params.initialViewMode,
+    },
     config: {
         nodeName: '',
         table: { fields: [], id: '' },
@@ -50,20 +52,22 @@ const initialValue: ICrudContext = {
         onAction: (actionId: string) => {},
         onItemAction: (id: string, actionId: string, data?: Json) => {},
     },
-};
+});
 
 export const CrudContext = createContext<ICrudContext>(initialValue);
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const { id, config, options, data, callbacks } = props;
     const { state: selectedIds, callbacks: callbacksSelection } = useContext(SelectionContext); // prettier-ignore
+
     const lastMousePoint = useRef<Json | undefined>({});
 
     const doubleClickActionId = get(config, 'multiBar.doubleClickActionId', 'drillDown'); // prettier-ignore
+    const initialViewMode = get(config, 'multiBar.initialViewMode', 'table'); // prettier-ignore
 
     const configValue = useMemo(
         () => ({
-            ...initialValue,
+            ...initialValue({ initialViewMode }),
             config,
             options,
         }),
@@ -73,7 +77,7 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const localStorageKey = `CRUD_CONTEXT_${id}`;
 
     const [state, patchState] = useLocalStorage<ICrudState>(localStorageKey, {
-        ...initialValue.state,
+        ...configValue.state,
     });
 
     const crudCallbacks = useCrudOperations(config, data, options);

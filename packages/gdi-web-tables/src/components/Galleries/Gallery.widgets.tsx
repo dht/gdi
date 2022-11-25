@@ -20,8 +20,6 @@ export type WidgetGalleryProps = {
 export function WidgetGallery(props: WidgetGalleryProps) {
     const { items, callbacks, hideParts, definitions } = props;
 
-    console.log('definitions ->', definitions);
-
     if (!definitions || !definitions.gallery) {
         return null;
     }
@@ -38,10 +36,8 @@ export function WidgetGallery(props: WidgetGalleryProps) {
                 callbacks={callbacks}
             >
                 <FilterBar
-                    header=''
-                    onAction={() => {}}
+                    onAction={callbacks.onAction}
                     hideParts={hideParts}
-                    tools={[]}
                 />
                 <AnyGallery itemType='widget' {...props} />
             </AllProviders>

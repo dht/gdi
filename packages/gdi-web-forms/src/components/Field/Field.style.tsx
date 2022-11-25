@@ -13,3 +13,9 @@ export const PaddingTop = styled.div`
     padding-top: 15px;
     ${(props) => props.theme.paddingLeft('10px')}
 `;
+
+export const Row = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;

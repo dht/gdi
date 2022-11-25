@@ -3,8 +3,7 @@ import bytes from 'bytes';
 import Datasets from '../components/Datasets/Datasets';
 import { actions, selectors } from '../store';
 import { downloadJson } from 'shared-base';
-import { prompt } from '@gdi/web-ui';
-import { toast } from '@gdi/web-ui';
+import { prompt, toast, allColors } from '@gdi/web-ui';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFirstLoad } from '@gdi/hooks';
 import { useSetState } from 'react-use';
@@ -21,16 +20,17 @@ export const DatasetsContainer = () => {
 
     const nodes = useMemo(() => {
         return Object.keys(dataSets)
+            .sort()
             .filter((key) => !['id', 'stateKey', '_modifiedDate'].includes(key))
             .filter((key) => dataSets[key])
-            .map((key) => {
+            .map((key, index) => {
                 const content = JSON.stringify(dataSets[key]);
                 const contentSize = bytes(content.length);
 
                 return {
                     id: key,
                     nodeType: contentSize,
-                    color: 'green',
+                    color: allColors[index],
                 };
             });
     }, [dataSets]);
@@ -46,6 +46,11 @@ export const DatasetsContainer = () => {
 
     useEffect(() => {
         if (selectedNodeId) {
+            return;
+        }
+
+        if (document.location.hash) {
+            setSelectedNodeId(document.location.hash.replace('#', ''));
             return;
         }
 
@@ -126,6 +131,7 @@ export const DatasetsContainer = () => {
                 );
             },
             onSelectNode: (nodeId: string) => {
+                document.location.hash = nodeId;
                 setSelectedNodeId(nodeId);
             },
         }),

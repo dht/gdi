@@ -1,6 +1,7 @@
 {
     "name": "@gdi/template-gdi",
     "version": "0.0.21",
+    "description": "A template for GDI homepage",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
         "build": "tsc & vite build",
@@ -64,5 +65,9 @@
             "import": "./dist/public/",
             "require": "./dist/public/"
         }
+    },
+    "gdi": {
+        "packageType": "template",
+        "templateId": "com.usegdi.templates.gdi"
     }
 }

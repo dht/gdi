@@ -3,7 +3,6 @@ import Switcher from '../components/Switcher/Switcher';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../selectors';
 import { actions } from '../store';
-import { SwitchOption } from '@gdi/web-ui';
 
 export const SwitcherContainer = () => {
     const dispatch = useDispatch();
@@ -13,11 +12,11 @@ export const SwitcherContainer = () => {
     const options = useMemo(() => {
         return Object.values(boards).map((board) => ({
             id: board.id,
-            label: board.name,
+            text: board.name,
         }));
     }, [boards]);
 
-    const onChange = useCallback((option: SwitchOption) => {
+    const onChange = useCallback((option: IOption) => {
         dispatch(
             actions.appStateStudio.patch({
                 currentBoardId: option.id,

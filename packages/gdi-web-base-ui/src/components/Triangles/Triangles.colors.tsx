@@ -322,4 +322,36 @@ export const triangleColors = {
     ],
 };
 
+export const allColors = [
+    'Spectral',
+    'YlGn',
+    'YlGnBu',
+    'GnBu',
+    'BuGn',
+    'PuBuGn',
+    'PuBu',
+    'BuPu',
+    'RdPu',
+    'PuRd',
+    'OrRd',
+    'YlOrRd',
+    'YlOrBr',
+    'Purples',
+    'Blues',
+    'Greens',
+    'Oranges',
+    'Reds',
+    'Greys',
+    'PuOr',
+    'BrBG',
+    'PRGn',
+    'PiYG',
+    'RdBu',
+    'RdGy',
+    'RdYlBu',
+    'RdYlGn',
+].reduce((acc: string[], key: string) => {
+    return [...acc, ...(triangleColors as any)[key]];
+}, []);
+
 export default triangleColors;

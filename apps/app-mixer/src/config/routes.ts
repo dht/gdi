@@ -21,14 +21,6 @@ export const menuItems: IMenuItem[] = [
         order: 0,
     },
     {
-        path: routes.widgetGallery,
-        icon: 'AddIn',
-        label: 'Widget gallery',
-        groupId: 'site',
-        showOnSlim: true,
-        order: 1,
-    },
-    {
         path: routes.imageGallery,
         icon: 'ImageSearch',
         label: 'Image gallery',
@@ -37,12 +29,20 @@ export const menuItems: IMenuItem[] = [
         order: 1,
     },
     {
+        path: routes.widgetGallery,
+        icon: 'AddIn',
+        label: 'Widget gallery',
+        groupId: 'site',
+        showOnSlim: true,
+        order: 2,
+    },
+    {
         path: routes.datasets,
         icon: 'DataManagementSettings',
         label: 'Datasets',
         groupId: 'site',
         showOnSlim: true,
-        order: 1,
+        order: 3,
     },
 ];
 

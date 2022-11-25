@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import { actions, selectors } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import LibraryImages from '../../components/LibraryImages/LibraryImages';
+import { ElementSelector, LibrarySelector } from '@gdi/web-ui';
 
 export const PanelLibraryImagesContainer = (_props: any) => {
     const dispatch = useDispatch();
     const items = useSelector(selectors.base.$libraryImages);
+    const currentIds = useSelector(selectors.raw.$rawCurrentIds);
+    const imageFields = useSelector(selectors.options.$imageFields);
 
     const galleryOptions: IGalleryOptions = {
         columns: 3,
@@ -26,12 +29,13 @@ export const PanelLibraryImagesContainer = (_props: any) => {
             },
             onAction: (actionId: string) => {
                 switch (actionId) {
-                    case 'selection':
+                    case 'new':
                         dispatch(
                             actions.appStateMixer.patch({
                                 showImageUploadModal: true,
                             })
                         );
+
                         break;
                 }
             },
@@ -41,30 +45,57 @@ export const PanelLibraryImagesContainer = (_props: any) => {
                     imageId: ids[0],
                 });
             },
+            onFieldChange: (value: string = '') => {
+                dispatch(
+                    actions.currentIds.patch({
+                        fieldId: value,
+                    })
+                );
+            },
         }),
         []
     );
 
+    console.log('imageFields ->', imageFields);
+
+    console.log('currentIds.fieldId ->', currentIds.fieldId);
+
     return (
-        <LibraryImages
-            galleryOptions={galleryOptions}
-            items={items}
-            callbacks={callbacks}
-            hideParts={[
-                'header',
-                'buttons',
-                'preview',
-                'filter',
-                'search',
-                'tagging',
-                'tools',
-            ]}
-        />
+        <Row>
+            <Top>
+                <ElementSelector
+                    onChange={callbacks.onFieldChange}
+                    value={currentIds.fieldId}
+                    options={imageFields}
+                />
+            </Top>
+            <LibraryImages
+                galleryOptions={galleryOptions}
+                items={items}
+                callbacks={callbacks}
+                hideParts={['header', 'preview', 'filter', 'tagging', 'tools']}
+            />
+        </Row>
     );
 };
 
-export const Col = styled.div`
+export const Row = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;
+    position: relative;
 `;
+
+export const Top = styled.div`
+    position: absolute;
+    top: 27px;
+    left: 30px;
+    right: 390px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    zoom: 0.9;
+    z-index: 9;
+`;
+
+export const ElementWrapper = styled.div``;

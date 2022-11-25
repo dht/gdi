@@ -10,24 +10,29 @@ import { PanelPaletteContainer } from '../../containers/panels/PanelPaletteConta
 import { PanelTypographyContainer } from '../../containers/panels/PanelTypographyContainer';
 import { useLanguage } from '@gdi/language';
 import { useTheme } from 'styled-components';
+import { LibrarySelector } from '@gdi/web-ui';
 
 export type MixerPanelProps = {
-    onHeaderAction: (panelKey: string, actionId: string) => void;
+    panelLibraryFlavour: string;
+    callbacks: {
+        onLibraryChange: (optionId: string) => void;
+    };
 };
 
 export function MixerPanel(props: MixerPanelProps) {
+    const { panelLibraryFlavour, callbacks } = props;
     const { t } = useLanguage();
     const { isRtl } = useTheme() as any;
 
-    function getHeaderActions(key: string) {
-        switch (key) {
+    function renderActions(panelKey: string) {
+        switch (panelKey) {
             case 'Library':
-                return [
-                    {
-                        id: 'view',
-                        iconName: 'View',
-                    },
-                ];
+                return (
+                    <LibrarySelector
+                        value={panelLibraryFlavour}
+                        onChange={callbacks.onLibraryChange}
+                    />
+                );
             default:
                 return [];
         }
@@ -40,8 +45,7 @@ export function MixerPanel(props: MixerPanelProps) {
         >
             <Accordion
                 initialPanel='Library'
-                getHeaderActions={getHeaderActions}
-                onHeaderAction={props.onHeaderAction}
+                renderActions={renderActions}
                 isRtl={isRtl}
             >
                 <PanelInspectorContainer
@@ -66,14 +70,6 @@ export function MixerPanel(props: MixerPanelProps) {
                 <PanelPaletteContainer //
                     key='Palette'
                     title={t('Palette')}
-                />
-                <PanelLocaleContainer //
-                    key='Locale'
-                    title={t('Locale')}
-                />
-                <PanelPackagesContainer //
-                    key='Packages'
-                    title={t('Packages')}
                 />
             </Accordion>
         </Root>

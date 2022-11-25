@@ -157,7 +157,7 @@ export function MultiInner(props: MultiProps) {
                 value={state.viewMode}
                 customViewExists={customViewExists}
                 customView2Exists={customView2Exists}
-                onChange={(option: SwitchOption) => onChangeViewMode(option.id)}
+                onChange={(option: IOption) => onChangeViewMode(option.id)}
             />
         </Container>
     );

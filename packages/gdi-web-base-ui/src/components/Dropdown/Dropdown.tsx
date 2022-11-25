@@ -30,6 +30,10 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
         }));
     }, [options]);
 
+    const selectedOption = useMemo(() => {
+        return optionsParsed.find((option) => option.value === value);
+    }, [value]);
+
     return (
         <Container
             className='Dropdown-container'
@@ -37,7 +41,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
         >
             <Select
                 placeholder={placeholder}
-                defaultValue={value}
+                value={selectedOption}
                 isDisabled={false}
                 isLoading={false}
                 isClearable={true}

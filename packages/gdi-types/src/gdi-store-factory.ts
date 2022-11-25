@@ -17,7 +17,7 @@ declare global {
     export type IFactoryState = {
         stateKey: string;
         mode: IViewMode;
-        selectedToolId: string;
+        panelLibraryFlavour: string;
         showItemsInTable: boolean;
         showPropertiesModal: boolean;
         isLoadingLayoutItems: boolean;

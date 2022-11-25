@@ -14,7 +14,6 @@ export const initialState: IFactoryStore = {
     appStateFactory: {
         stateKey: 'factory',
         mode: 'table',
-        selectedToolId: 'data',
         showItemsInTable: false,
         showPropertiesModal: false,
         isLoadingLayoutItems: false,

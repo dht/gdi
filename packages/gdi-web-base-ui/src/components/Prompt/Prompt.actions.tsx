@@ -1,3 +1,4 @@
+import React from 'react';
 import { addListener, invokeEvent } from 'shared-base';
 
 type PromptRequest = {

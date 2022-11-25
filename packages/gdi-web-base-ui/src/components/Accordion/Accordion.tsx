@@ -1,12 +1,11 @@
 import React, { Key, useCallback } from 'react';
 import {
-    Action,
-    Actions,
     Chevron,
     Container,
     Content,
     Header,
     Title,
+    Actions,
 } from './Accordion.style';
 import { Icon } from '@fluentui/react';
 import { useMount, useSetState } from 'react-use';
@@ -14,15 +13,9 @@ import classnames from 'classnames';
 
 export type AccordionProps = {
     children: JSX.Element | JSX.Element[];
-    getHeaderActions?: (panelKey: string) => HeaderAction[];
-    onHeaderAction?: (panelKey: string, actionId: string) => HeaderAction[];
+    renderActions?: (panelKey: string) => JSX.Element | null;
     initialPanel?: string;
     isRtl?: boolean;
-};
-
-type HeaderAction = {
-    id: string;
-    iconName: string;
 };
 
 export function Accordion(props: AccordionProps) {
@@ -60,34 +53,12 @@ export function Accordion(props: AccordionProps) {
         [state]
     );
 
-    function onHeaderAction(ev: any, panelKey: string, actionId: string) {
-        ev.stopPropagation();
-
-        if (props.onHeaderAction) {
-            props.onHeaderAction(panelKey, actionId);
-        }
-    }
-
-    function renderHeaderAction(panelKey: string, action: HeaderAction) {
-        return (
-            <Action
-                key={action.id}
-                className='action'
-                onClick={(ev) => onHeaderAction(ev, panelKey, action.id)}
-            >
-                <Icon iconName={action.iconName} />
-            </Action>
-        );
-    }
-
     function renderHeaderActions(panelKey: string) {
-        const actions = props.getHeaderActions
-            ? props.getHeaderActions(panelKey)
-            : [];
+        if (!props.renderActions) {
+            return null;
+        }
 
-        return actions.map((action: HeaderAction) =>
-            renderHeaderAction(panelKey, action)
-        );
+        return props.renderActions(panelKey);
     }
 
     function renderPanel(panel: JSX.Element) {
@@ -101,7 +72,7 @@ export function Accordion(props: AccordionProps) {
 
         return (
             <React.Fragment key={panel.key}>
-                <Header onClick={(ev) => togglePanel(panel.key, ev)}>
+                <Header onMouseDown={(ev) => togglePanel(panel.key, ev)}>
                     <Chevron className={className}>
                         <Icon iconName='ChevronRightMed' />
                     </Chevron>

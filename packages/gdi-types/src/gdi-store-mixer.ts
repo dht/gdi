@@ -25,7 +25,7 @@ declare global {
     export type IMixerState = {
         stateKey: string;
         mode: IViewMode;
-        selectedToolId: string;
+        panelLibraryFlavour: string;
         paletteId: string;
         showImageUploadModal: boolean;
         showPlayModeMessage: boolean;

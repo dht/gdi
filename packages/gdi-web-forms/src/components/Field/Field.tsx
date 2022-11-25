@@ -6,7 +6,7 @@ import {
     IFormField,
     LabelSize,
 } from '../../types';
-import { Container, PaddingTop } from './Field.style';
+import { Container, PaddingTop, Row } from './Field.style';
 import { Label } from '../Label/Label';
 import {
     DateInput as DateUI,
@@ -21,9 +21,11 @@ import {
     BarSelect,
     ColorPicker,
     Checkbox,
+    IconButton,
 } from '@gdi/web-base-ui';
 import { useController, Control, useFormContext } from 'react-hook-form';
 import { sortBy } from '../../utils/sortBy';
+import { invokeEvent } from 'shared-base';
 
 export type FieldProps = {
     field: IFormField;
@@ -455,6 +457,35 @@ export function FieldDetails(props: FieldProps) {
     return <Cmp data={data} />;
 }
 
+export function FieldDataset(props: FieldProps) {
+    const { field, control } = props;
+    const { placeholder } = field;
+
+    const { field: fieldMethods } = useController({
+        name: field.id,
+        control,
+    });
+
+    function onNavigateToDataset() {
+        invokeEvent('showDataset', {
+            datasetId: fieldMethods.value,
+        });
+    }
+
+    return (
+        <Row>
+            <Input
+                placeholder={placeholder}
+                value={fieldMethods.value}
+                onChange={fieldMethods.onChange}
+                onBlur={fieldMethods.onBlur}
+                ref={fieldMethods.ref}
+            />
+            <IconButton onClick={onNavigateToDataset} iconName='View' />
+        </Row>
+    );
+}
+
 const map: Record<FieldType, FC<FieldProps>> = {
     checkbox: FieldCheckbox,
     text: FieldInput,
@@ -465,7 +496,7 @@ const map: Record<FieldType, FC<FieldProps>> = {
     hidden: FieldHidden,
     color: FieldColor,
     number: FieldNumber,
-    dataset: FieldInput,
+    dataset: FieldDataset,
     icon: FieldInput,
     imageUpload: FieldImageUpload,
     boolean: FieldDate,

@@ -5,4 +5,4 @@ itemType: image
 actions:
     - id: new
       iconName: add
-      title: Upload Image
+      title: ''

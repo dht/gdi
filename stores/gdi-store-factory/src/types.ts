@@ -12,7 +12,6 @@ export type IFactoryStore = StoreStructure & {
 export type IFactoryState = {
     stateKey: string;
     mode: IViewMode;
-    selectedToolId: string;
     showItemsInTable: boolean;
     showPropertiesModal: boolean;
     isLoadingLayoutItems: boolean;
