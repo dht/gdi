@@ -1,6 +1,4 @@
 export { Accordion } from './components/Accordion/Accordion';
-export { AccountSelector } from './components/AccountSelector/AccountSelector';
-export { AccountTag } from './components/AccountTag/AccountTag';
 export { AutoComplete } from './components/AutoComplete/AutoComplete';
 export { Avatar } from './components/Avatar/Avatar';
 export { BarSelect } from './components/BarSelect/BarSelect';
@@ -49,7 +47,10 @@ export { toast } from './components/Toast/Toast.actions';
 export { Toggle } from './components/Toggle/Toggle';
 export { Toolbar } from './components/Toolbar/Toolbar';
 export { Triangles, TrianglesBk } from './components/Triangles/Triangles';
-export { triangleColors } from './components/Triangles/Triangles.colors';
+export {
+    allColors,
+    triangleColors as groupedColors,
+} from './components/Triangles/Triangles.colors';
 export { UserMenu } from './components/UserMenu/UserMenu';
 export { WireFrames } from './components/WireFrames/WireFrames';
 export { Breadcrumb, Icon, Pivot, PivotItem, Callout } from '@fluentui/react';

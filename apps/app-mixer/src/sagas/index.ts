@@ -10,6 +10,7 @@ import { root as importData } from './import/saga.import.data';
 import { root as importPage } from './import/saga.import.page';
 import { root as importSite } from './import/saga.import.site';
 import { root as importImages } from './import/saga.import.images';
+import { root as innerNav } from './saga.innerNav';
 import { root as exportSite } from './export/saga.export';
 import { root as exportPage } from './export/saga.export.page';
 import { root as pages } from './saga.pages';
@@ -30,6 +31,7 @@ function* root() {
     yield* fork(importPage);
     yield* fork(importSite);
     yield* fork(importImages);
+    yield* fork(innerNav);
     yield* fork(exportSite);
     yield* fork(exportPage);
     yield* fork(contentImages);

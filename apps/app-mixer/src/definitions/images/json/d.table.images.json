@@ -41,7 +41,7 @@
         {
             "id": "new",
             "iconName": "add",
-            "title": "New item"
+            "title": ""
         }
     ]
 }

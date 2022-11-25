@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container } from './Switcher.style';
-import { Switch, SwitchOption } from '@gdi/web-ui';
+import { Switch } from '@gdi/web-ui';
 
 export type SwitcherProps = {
-    options: SwitchOption[];
+    options: IOption[];
     value: string;
-    onChange: (option: SwitchOption) => void;
+    onChange: (option: IOption) => void;
 };
 
 export function Switcher(props: SwitcherProps) {

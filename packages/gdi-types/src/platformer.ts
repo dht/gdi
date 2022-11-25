@@ -177,6 +177,7 @@ declare global {
         noServerMode?: boolean;
         languageCode: LanguageIso;
         isRtl: boolean;
+        connectionType?: ConnectionType;
     };
 
     export type GoogleUser = Json & {

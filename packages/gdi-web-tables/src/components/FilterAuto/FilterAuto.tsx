@@ -15,13 +15,6 @@ export function FilterAuto(props: FilterAutoProps) {
     const { filter, value = [] } = props;
     const { title, options = [] } = filter;
 
-    const optionsForDropdown = useMemo(() => {
-        return options.map((option) => ({
-            value: option.id,
-            label: option.text,
-        }));
-    }, []);
-
     function renderOption(option: IFilterOption) {
         const { text } = option;
 
@@ -61,7 +54,7 @@ export function FilterAuto(props: FilterAutoProps) {
             <Items>{renderOptions()}</Items>
             <Button title='go' onClick={() => props.onClick('Alex Miller')} />
             <Dropdown
-                options={optionsForDropdown}
+                options={options}
                 onChange={(optionId?: string) => props.onClick(optionId ?? '')}
             />
         </Container>

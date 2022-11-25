@@ -25,62 +25,70 @@ import { widgetInfo as MyResumeInfo } from './MyResume-basic';
 import { MyServices } from './MyServices-basic/MyServices';
 import { widgetInfo as MyServicesInfo } from './MyServices-basic';
 
-import { SectionHeader } from './SectionHeader/SectionHeader';
-import { widgetInfo as SectionHeaderInfo } from './SectionHeader';
-
 import { Quotes } from './Quotes-basic/Quotes';
 import { widgetInfo as QuotesInfo } from './Quotes-basic';
+
+import { SectionHeader } from './SectionHeader-basic/SectionHeader';
+import { widgetInfo as SectionHeaderInfo } from './SectionHeader-basic';
+
+import { Tester } from './Tester-basic/Tester';
+import { widgetInfo as TesterInfo } from './Tester-basic';
 
 import { TopHeader } from './TopHeader-basic/TopHeader';
 import { widgetInfo as TopHeaderInfo } from './TopHeader-basic';
 
-export const blocks: IWidgets = {
-    'com.usegdi.templates.starter.aboutMe-basic': {
-        component: AboutMe,
-        ...AboutMeInfo,
-    },
-    'com.usegdi.templates.starter.contactUs-basic': {
-        component: ContactUs,
-        ...ContactUsInfo,
-    },
-    'com.usegdi.templates.starter.ctaAction-basic': {
-        component: CtaAction,
-        ...CtaActionInfo,
-    },
-    'com.usegdi.templates.starter.footer-basic': {
-        component: Footer,
-        ...FooterInfo,
-    },
-    'com.usegdi.templates.starter.hero-basic': {
-        component: Hero,
-        ...HeroInfo,
-    },
-    'com.usegdi.templates.starter.myNumbers-basic': {
-        component: MyNumbers,
-        ...MyNumbersInfo,
-    },
-    'com.usegdi.templates.starter.myPortfolio-basic': {
-        component: MyPortfolio,
-        ...MyPortfolioInfo,
-    },
-    'com.usegdi.templates.starter.myResume-basic': {
-        component: MyResume,
-        ...MyResumeInfo,
-    },
-    'com.usegdi.templates.starter.myServices-basic': {
-        component: MyServices,
-        ...MyServicesInfo,
-    },
-    'com.usegdi.templates.starter.sectionHeader-basic': {
-        component: SectionHeader,
-        ...SectionHeaderInfo,
-    },
-    'com.usegdi.templates.starter.quotes-basic': {
-        component: Quotes,
-        ...QuotesInfo,
-    },
-    'com.usegdi.templates.starter.topHeader-basic': {
-        component: TopHeader,
-        ...TopHeaderInfo,
-    },
+
+export const blocks: IWidgets = {    
+      'com.usegdi.templates.starter.aboutMe-basic': {
+    component: AboutMe,
+    ...AboutMeInfo
+  },
+  'com.usegdi.templates.starter.contactUs-basic': {
+    component: ContactUs,
+    ...ContactUsInfo
+  },
+  'com.usegdi.templates.starter.ctaAction-basic': {
+    component: CtaAction,
+    ...CtaActionInfo
+  },
+  'com.usegdi.templates.starter.footer-basic': {
+    component: Footer,
+    ...FooterInfo
+  },
+  'com.usegdi.templates.starter.hero-basic': {
+    component: Hero,
+    ...HeroInfo
+  },
+  'com.usegdi.templates.starter.myNumbers-basic': {
+    component: MyNumbers,
+    ...MyNumbersInfo
+  },
+  'com.usegdi.templates.starter.myPortfolio-basic': {
+    component: MyPortfolio,
+    ...MyPortfolioInfo
+  },
+  'com.usegdi.templates.starter.myResume-basic': {
+    component: MyResume,
+    ...MyResumeInfo
+  },
+  'com.usegdi.templates.starter.myServices-basic': {
+    component: MyServices,
+    ...MyServicesInfo
+  },
+  'com.usegdi.templates.starter.quotes-basic': {
+    component: Quotes,
+    ...QuotesInfo
+  },
+  'com.usegdi.templates.starter.sectionHeader-basic': {
+    component: SectionHeader,
+    ...SectionHeaderInfo
+  },
+  'com.usegdi.templates.starter.tester-basic': {
+    component: Tester,
+    ...TesterInfo
+  },
+  'com.usegdi.templates.starter.topHeader-basic': {
+    component: TopHeader,
+    ...TopHeaderInfo
+  },
 };

@@ -9,24 +9,26 @@ type ActionSwitchImage = {
 };
 
 function* switchImage(action: ActionSwitchImage) {
-    const { imageId, unselect } = action;
-    const images = yield* select(selectors.raw.$rawLibraryImages);
-    const params = yield* select(selectors.base.$selectedElementImageId);
-    const { instanceId, fieldId } = params;
+    try {
+        const { imageId, unselect } = action;
+        const images = yield* select(selectors.raw.$rawLibraryImages);
+        const params = yield* select(selectors.base.$selectedElementImageId);
+        const { instanceId, fieldId } = params;
 
-    const image = images[imageId];
+        const image = images[imageId];
 
-    if (!image) {
-        return;
-    }
+        if (!image) {
+            return;
+        }
 
-    const fieldIdWithDashes = fieldId.replace(/\./g, '_');
+        const fieldIdWithDashes = fieldId.replace(/\./g, '_');
 
-    yield put(
-        actions.libraryInstancesProps.patch(instanceId, {
-            [fieldIdWithDashes]: unselect ? '' : image.imageUrl,
-        })
-    );
+        yield put(
+            actions.libraryInstancesProps.patch(instanceId, {
+                [fieldIdWithDashes]: unselect ? '' : image.imageUrl,
+            })
+        );
+    } catch (_err) {}
 }
 
 function* chooseFirstImageField(action: any) {

@@ -15,7 +15,7 @@ export function useTags(items: Json[]) {
             .sort()
             .map((tag) => ({
                 id: tag,
-                label: tag,
+                text: tag,
             }));
     }, [items]);
 

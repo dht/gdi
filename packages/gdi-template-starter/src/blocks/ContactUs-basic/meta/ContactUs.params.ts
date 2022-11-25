@@ -8,6 +8,8 @@ export const params: IWidgetParams = {
             phoneNumber: { fieldType: 'text', order: 2 },
         },
         colors: {},
-        extra: {},
+        extra: {
+            imageUrl: { fieldType: 'image', isRequired: true, order: 0 },
+        },
     },
 };

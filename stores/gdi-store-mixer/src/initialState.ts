@@ -14,7 +14,7 @@ export const initialState: IMixerStore = {
     appStateMixer: {
         stateKey: 'mixer',
         mode: 'gallery',
-        selectedToolId: 'data',
+        panelLibraryFlavour: 'images',
         paletteId: 'green',
         showImageUploadModal: false,
         showPlayModeMessage: false,

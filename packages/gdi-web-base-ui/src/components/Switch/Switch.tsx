@@ -1,15 +1,14 @@
-import { useMeasure, useMount } from 'react-use';
-import React, { useRef, useState } from 'react';
+import { useMeasure } from 'react-use';
+import React, { useState } from 'react';
 import { Bk, Container, Option } from './Switch.style';
-import { SwitchOption } from '../../types';
 import classnames from 'classnames';
 
 export type SwitchProps = {
-    options: SwitchOption[];
+    options: IOption[];
     value?: string;
     defaultValue?: string;
     vertical?: boolean;
-    onChange?: (option: SwitchOption) => void;
+    onChange?: (option: IOption) => void;
 };
 
 export function Switch(props: SwitchProps) {
@@ -21,7 +20,9 @@ export function Switch(props: SwitchProps) {
 
     const value = isControlled ? controlledValue : localValue;
 
-    function onClick(option: SwitchOption) {
+    function onClick(option: IOption, ev: React.MouseEvent) {
+        ev.stopPropagation();
+
         if (isControlled && props.onChange) {
             props.onChange(option);
         } else {
@@ -29,10 +30,12 @@ export function Switch(props: SwitchProps) {
         }
     }
 
-    function renderOption(option: SwitchOption) {
+    function renderOption(option: IOption) {
         const selected = value === option.id;
 
-        const Icon = <i className='material-icons'>{option.iconName}</i>;
+        const Icon = (
+            <i className='material-symbols-outlined'>{option.iconName}</i>
+        );
 
         return (
             <Option
@@ -40,17 +43,17 @@ export function Switch(props: SwitchProps) {
                 className='option'
                 selected={selected}
                 title={option.hint}
-                onMouseDown={() => onClick(option)}
-                onTouchStart={() => onClick(option)}
+                onMouseDown={(ev) => onClick(option, ev)}
+                onTouchStart={(ev) => onClick(option, ev)}
             >
-                {option.label}
+                {option.text}
                 {option.iconName && Icon}
             </Option>
         );
     }
 
     function renderOptions() {
-        return options.map((option: SwitchOption) => renderOption(option));
+        return options.map((option: IOption) => renderOption(option));
     }
 
     function renderBk() {

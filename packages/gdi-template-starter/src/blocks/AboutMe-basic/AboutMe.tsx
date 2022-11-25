@@ -42,7 +42,7 @@ export function AboutMe(props: AboutMeProps) {
         <Container
             className='AboutMe-container'
             data-testid='AboutMe-container'
-            colors={colors}
+            imageUrl={imageUrl}
         >
             <Wrapper>
                 <Content>

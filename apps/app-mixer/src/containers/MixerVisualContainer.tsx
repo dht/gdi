@@ -8,7 +8,7 @@ export const MixerVisualContainer = () => {
     const dispatch = useDispatch();
     const pageStructure = useSelector(selectors.base.$instancesForCurrentPage);
     const currentInstanceId = useSelector(selectors.raw.$rawCurrentIds).selectedInstanceId; // prettier-ignore
-    const selectedToolId = useSelector(selectors.raw.$rawMixerState).selectedToolId; // prettier-ignore
+    const panelLibraryFlavour = useSelector(selectors.raw.$rawMixerState).panelLibraryFlavour; // prettier-ignore
     const datasets = useSelector(selectors.raw.$rawLibraryDatasets);
 
     const callbacks = useMemo(
@@ -41,7 +41,7 @@ export const MixerVisualContainer = () => {
                 }
             },
         }),
-        [selectedToolId]
+        [panelLibraryFlavour]
     );
 
     return (

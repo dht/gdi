@@ -3,14 +3,14 @@ import { AboutMeColors } from './AboutMe';
 import { darken } from 'polished';
 import { mobile } from '../Base.style';
 
-export const Container = styled.div<{ colors: AboutMeColors }>`
+export const Container = styled.div<{ imageUrl: string }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#111'};
+    background-color: #111;
     height: 60vh;
     max-height: 800px;
     display: flex;
     font-family: ${(props) => props.theme.fontFamily};
-    background-image: url(https://static-b9ebe.web.app/ny-me.webp);
+    background-image: url(${(props) => props.imageUrl});
     background-size: cover;
     background-position: center center;
 

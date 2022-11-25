@@ -127,7 +127,7 @@ export class Firebase {
         const uiConfig: firebaseui.auth.Config = {
             siteName: 'gDI',
             signInFlow: 'popup',
-            signInSuccessUrl: '/admin/pages',
+            signInSuccessUrl: '/admin/pages/home',
             signInOptions: [
                 {
                     provider: GoogleAuthProvider.PROVIDER_ID,

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Dropdown } from '@gdi/web-base-ui';
 import { Container } from './ElementSelector.style';
 
@@ -16,13 +16,6 @@ export type ElementSelectorProps = {
 export function ElementSelector(props: ElementSelectorProps) {
     const { value, options } = props;
 
-    const optionsParsed = useMemo(() => {
-        return options.map((option) => ({
-            value: option.id,
-            label: option.text,
-        }));
-    }, [options]);
-
     return (
         <Container
             className='ElementSelector-container'
@@ -31,8 +24,8 @@ export function ElementSelector(props: ElementSelectorProps) {
             <Dropdown
                 value={value}
                 onChange={props.onChange}
-                options={optionsParsed}
-                placeholder='Choose an image field'
+                options={options}
+                placeholder='Image field'
             />
         </Container>
     );
