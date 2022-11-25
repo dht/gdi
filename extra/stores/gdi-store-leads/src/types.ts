@@ -1,4 +1,5 @@
 export type ILeadsStore = {
+    meta: IGdiMeta;
     appStateLeads: ILeadsState;
     leads: ILeads;
 };

@@ -38,6 +38,7 @@ export const bootstrapApp = async (
         firebaseConfigs,
         noServerMode,
         languageCode,
+        connectionType,
     } = config;
 
     const axiosInstance: any = axios.create({
@@ -65,6 +66,7 @@ export const bootstrapApp = async (
             logger: (message, data) => $s(message, data),
             noServerMode,
             languageCode,
+            connectionType,
         },
         patchContext
     );

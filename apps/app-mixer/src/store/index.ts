@@ -34,10 +34,10 @@ export const reducersSite = site.reducers;
 export const initialState = mixer.initialState;
 export const initialStateSite = site.initialState;
 
-export const endpointsConfig = {
-    ...mixer.endpointsConfigOverrides,
-    ...site.endpointsConfigOverrides,
-};
+export const endpointsConfig = (connectionType: ConnectionType) => ({
+    ...mixer.endpointsConfigOverrides(connectionType),
+    ...site.endpointsConfigOverrides(connectionType),
+});
 
 export const clearState = (store: any) => {
     mixer.clearState(store);

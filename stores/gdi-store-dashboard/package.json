@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-dashboard",
     "version": "0.0.31",
+    "description": "",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

@@ -1,4 +1,5 @@
 export type ISoundboardStore = {
+    meta: IGdiMeta;
     appStateSoundboard: ISoundboardState;
     currentIdsSoundboard: ICurrentIdsSoundboard;
     appStateScheduler: ISchedulerState;

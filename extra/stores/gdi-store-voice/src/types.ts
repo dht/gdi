@@ -1,6 +1,7 @@
 import { StoreStructure } from 'redux-store-generator';
 
 export type IVoiceStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateVoice: IVoiceState;
 };
 

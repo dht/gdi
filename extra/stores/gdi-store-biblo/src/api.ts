@@ -1,21 +1,21 @@
-export const endpointsConfigOverrides = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateBiblo: {
         id: 'appStateBiblo',
         connectionType: 'NONE',
     },
     interestingReads: {
         id: 'interestingReads',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     readCategories: {
         id: 'readCategories',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     metaphors: {
         id: 'readCategories',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
-};
+});

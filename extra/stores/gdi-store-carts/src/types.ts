@@ -1,4 +1,5 @@
 export type ICartsStore = {
+    meta: IGdiMeta;
     appStateCarts: ICartsState;
     currentIdsCarts: ICurrentIdsCarts;
     carts: ICarts;

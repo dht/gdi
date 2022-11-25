@@ -1,1 +1,3 @@
-export const endpointsConfigOverrides: any = {};
+export const endpointsConfigOverrides = (
+    connectionType: ConnectionType
+) => ({});

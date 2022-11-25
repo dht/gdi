@@ -6,6 +6,7 @@ export const A11 = {};
 
 declare global {
     export type IEventsStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateEvents: IEventsState;
         events: IEvents;
         reminders: IReminders;

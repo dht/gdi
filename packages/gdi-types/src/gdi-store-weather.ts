@@ -4,6 +4,7 @@ export const A13 = {};
 
 declare global {
     export type IWeatherStore = {
+        meta: IGdiMeta;
         weatherLocations: IWeatherLocations;
         weatherHourlyItems: IWeatherHourlyItems;
         weatherDailyItems: IWeatherDailyItems;

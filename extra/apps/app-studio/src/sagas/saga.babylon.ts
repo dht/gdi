@@ -3,7 +3,6 @@ import { BabylonApi } from 'isokit';
 import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
 import { RefObject } from 'react';
 import { selectors } from '../selectors';
-import { Action } from '../types';
 import { actions } from '../store';
 
 globals.babylon = new BabylonApi();

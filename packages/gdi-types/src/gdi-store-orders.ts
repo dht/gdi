@@ -4,6 +4,7 @@ export const A7 = {};
 
 declare global {
     export type IOrdersStore = {
+        meta: IGdiMeta;
         appStateOrders: IOrdersState;
         currentIdsOrders: ICurrentIdsOrders;
         orders: IOrders;

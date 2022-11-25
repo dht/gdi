@@ -20,7 +20,10 @@ import {
 } from '../store';
 import { allDefinitions } from '../definitions';
 
-export const initApp = (builders: AppBuilders) => {
+export const initApp = (
+    builders: AppBuilders,
+    connectionType: ConnectionType
+) => {
     const {
         storeBuilder,
         selectorsBuilder,
@@ -56,7 +59,7 @@ export const initApp = (builders: AppBuilders) => {
         .withSelectors(APP_ID, selectors);
 
     apiConfigBuilder //
-        .withEndpointsConfigOverrides(endpointsConfig);
+        .withEndpointsConfigOverrides(endpointsConfig(connectionType));
 
     metaBuilder.withMeta(APP_ID, {
         version: p.version,

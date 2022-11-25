@@ -43,7 +43,7 @@ export const initAppStudio = (builders: AppBuilders) => {
         .withSelectors(APP_ID, selectors);
 
     apiConfigBuilder //
-        .withEndpointsConfigOverrides(endpointsConfig);
+        .withEndpointsConfigOverrides(endpointsConfig(connectionType));
 
     metaBuilder.withMeta(APP_ID, {
         version: p.version,

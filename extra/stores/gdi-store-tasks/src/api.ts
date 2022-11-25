@@ -3,7 +3,7 @@ enum ConnectionType {
     FIRESTORE = 'FIRESTORE',
 }
 
-export const endpointsConfigOverrides = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateTasks: {
         id: 'appStateTasks',
         connectionType: ConnectionType.NONE,
@@ -34,4 +34,4 @@ export const endpointsConfigOverrides = {
         connectionType: ConnectionType.FIRESTORE,
         optimistic: true,
     },
-};
+});

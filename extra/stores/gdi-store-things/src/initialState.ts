@@ -1,7 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { IThingsStore } from './types';
+import p from '../package.json';
 
 export const initialState: IThingsStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateThings: {
         stateKey: 'things',
         currentMood: '',

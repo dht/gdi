@@ -8,6 +8,7 @@ export const initialState: ISiteStore = {
         identifier: 'site',
         schemaVersion: '1.0.1',
         version: p.version,
+        description: p.description,
         isBeta: p.gdi.isBeta,
         isDraft: p.gdi.isDraft,
         packageType: p.gdi.packageType as GdiEntity,

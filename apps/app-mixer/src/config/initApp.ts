@@ -22,7 +22,10 @@ import {
 import { allDefinitions } from '../definitions';
 import p from '../../package.json';
 
-export const initApp = (builders: AppBuilders) => {
+export const initApp = (
+    builders: AppBuilders,
+    connectionType: ConnectionType
+) => {
     const {
         storeBuilder,
         selectorsBuilder,
@@ -60,7 +63,7 @@ export const initApp = (builders: AppBuilders) => {
         .withSelectors(APP_ID, selectors);
 
     apiConfigBuilder //
-        .withEndpointsConfigOverrides(endpointsConfig);
+        .withEndpointsConfigOverrides(endpointsConfig(connectionType));
 
     definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
 

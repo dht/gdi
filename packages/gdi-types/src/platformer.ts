@@ -92,8 +92,15 @@ declare global {
         selectorsBuilder: ISelectorsBuilder;
     };
 
-    export type InitAppMethod = (builders: AppBuilders) => void;
-    export type InitSapMethod = (builders: SapBuilders) => void;
+    export type InitAppMethod = (
+        builders: AppBuilders,
+        connectionType: ConnectionType
+    ) => void;
+
+    export type InitSapMethod = (
+        builders: SapBuilders,
+        connectionType: ConnectionType
+    ) => void;
 
     export enum PlatformLifeCycleEvents {
         PLATFORM_IS_READY = 'PLATFORM_IS_READY',
@@ -248,7 +255,7 @@ declare global {
 
     /*************** IApiConfigBuilder ***************/
     export interface IApiConfigBuilder {
-        withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
+        withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides, connectionType: ConnectionType) => IApiConfigBuilder; // prettier-ignore
         build: () => EndpointsConfigOverrides;
     }
 
@@ -323,4 +330,6 @@ declare global {
         withMeta: (appId: string, meta: IGdiMeta) => IMetaBuilder;
         build: () => IGdiMetas;
     }
+
+    export type ConnectionType = 'NONE' | 'REST' | 'FIRESTORE';
 }

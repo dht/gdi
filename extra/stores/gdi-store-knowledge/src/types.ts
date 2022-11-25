@@ -1,6 +1,7 @@
 import { StoreStructure } from 'redux-store-generator';
 
 export type IKnowledgeStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateKnowledge: IKnowledgeState;
     linkCategories: ILinksCategories;
     links: ILinks;

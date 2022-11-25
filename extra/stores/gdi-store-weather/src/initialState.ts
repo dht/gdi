@@ -3,8 +3,16 @@ import {
     generateActionsForStore,
 } from 'redux-store-generator';
 import { IWeatherStore } from './types';
+import p from '../package.json';
 
 export const initialState: IWeatherStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     weatherLocations: {
         '1': {
             id: '1',

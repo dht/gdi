@@ -25,6 +25,7 @@ export type IMoneyLines = Record<string, IMoneyLine>;
 export type IMoneyBehaviors = Record<string, IMoneyBehavior>;
 
 export type IMoneyStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateMoney: IMoneyState;
     moneyLines: IMoneyLines;
     moneyBehaviors: IMoneyBehaviors;

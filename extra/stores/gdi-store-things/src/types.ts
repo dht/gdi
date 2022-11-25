@@ -1,6 +1,7 @@
 import { StoreStructure } from 'redux-store-generator';
 
 export type IThingsStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateThings: IThingsState;
     things: IThings;
 };
