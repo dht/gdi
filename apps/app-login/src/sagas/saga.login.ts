@@ -1,28 +1,14 @@
 import { actions } from '../store';
 import { call, takeEvery } from 'saga-ts';
 import { authChangeChannel } from './channels/channel.authChange';
-import { put } from 'redux-saga/effects';
+import { fork, put } from 'redux-saga/effects';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { $s, invokeEvent, setBoolean } from 'shared-base';
 import { toast } from '@gdi/web-base-ui';
 
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 
-function* authChange({ user }: any) {
-    $s('authChange', { user });
-
-    if (!user) {
-        yield put(
-            actions.authState.patch({
-                isLoggedIn: false,
-            })
-        );
-
-        yield call(navigateToLogin);
-
-        return;
-    }
-
+export function* onLogin(user: any) {
     yield put(
         actions.authState.patch({
             isLoggedIn: true,
@@ -64,6 +50,24 @@ function* authChange({ user }: any) {
     const to = localStorage.getItem(REQUESTED_PATH_KEY) ?? '/';
 
     yield* call(navigate, to);
+}
+
+function* authChange({ user }: any) {
+    $s('authChange', { user });
+
+    if (!user) {
+        yield put(
+            actions.authState.patch({
+                isLoggedIn: false,
+            })
+        );
+
+        yield call(navigateToLogin);
+
+        return;
+    }
+
+    yield fork(onLogin, user);
 }
 
 function* saveCurrentPath() {

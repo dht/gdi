@@ -1,4 +1,5 @@
 export type IPplStore = {
+    meta: IGdiMeta;
     appStatePpl: IPplState;
     persons: IPersons;
 };

@@ -4,6 +4,7 @@ export const A14 = {};
 
 declare global {
     export type IPplStore = {
+        meta: IGdiMeta;
         appStatePpl: IPplState;
         persons: IPersons;
     };

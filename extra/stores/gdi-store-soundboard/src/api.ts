@@ -1,31 +1,31 @@
-export const endpointsConfigOverrides = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateSoundboard: {
         id: 'appStateSoundboard',
         connectionType: 'NONE',
     },
     appStateScheduler: {
         id: 'appStateScheduler',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     actualManas: {
         id: 'actualManas',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     expectedManas: {
         id: 'expectedManas',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     scheduleBlocks: {
         id: 'scheduleBlocks',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     scheduleSessions: {
         id: 'scheduleSessions',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
         optimisticPosts: true,
     },
-};
+});

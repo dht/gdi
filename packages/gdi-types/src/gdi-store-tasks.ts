@@ -6,6 +6,7 @@ export const A18 = {};
 
 declare global {
     export type ITasksStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateTasks: ITasksState;
         currentIdsTasks: ICurrentIdsTasks;
         projects: IProjects;

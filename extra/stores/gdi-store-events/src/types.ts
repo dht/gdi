@@ -1,6 +1,7 @@
 import { StoreStructure } from 'redux-store-generator';
 
 export type IEventsStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateEvents: IEventsState;
     events: IEvents;
     reminders: IReminders;

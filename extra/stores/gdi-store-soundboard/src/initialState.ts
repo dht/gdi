@@ -3,8 +3,16 @@ import {
     generateActionsForStore,
 } from 'redux-store-generator';
 import { IChartMode, IPeriodMode, ISoundboardStore } from './types';
+import p from '../package.json';
 
 export const initialState: ISoundboardStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateSoundboard: {
         stateKey: 'soundboard',
         hoverDate: '',

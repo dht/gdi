@@ -4,6 +4,7 @@ export const A16 = {};
 
 declare global {
     export type ISoundboardStore = {
+        meta: IGdiMeta;
         appStateSoundboard: ISoundboardState;
         currentIdsSoundboard: ICurrentIdsSoundboard;
         appStateScheduler: ISchedulerState;

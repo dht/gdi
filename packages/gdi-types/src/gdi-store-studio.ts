@@ -6,6 +6,7 @@ export const A17 = {};
 
 declare global {
     export type IStudioStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateStudio: IStudioState;
         boards: IBoards;
         buildings: IBuildings;

@@ -1,52 +1,52 @@
-export const endpointsConfigOverrides: any = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     meta: {
         id: 'meta',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     palette: {
         id: 'palette',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     fonts: {
         id: 'fonts',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     breakpoints: {
         id: 'breakpoints',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     instances: {
         id: 'instances',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     widgets: {
         id: 'widgets',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     images: {
         id: 'images',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     instancesProps: {
         id: 'instancesProps',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     siteProperties: {
         id: 'siteProperties',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     datasets: {
         id: 'datasets',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
-};
+});

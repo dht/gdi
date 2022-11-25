@@ -1,4 +1,5 @@
 export type ICommentsStore = {
+    meta: IGdiMeta;
     appStateComments: ICommentsState;
     pendingComments: IComments;
     comments: IComments;

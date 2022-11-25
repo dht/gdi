@@ -1,4 +1,4 @@
-export const endpointsConfigOverrides: any = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateFactory: {
         id: 'appStateFactory',
         connectionType: 'NONE',
@@ -9,20 +9,20 @@ export const endpointsConfigOverrides: any = {
     },
     layouts: {
         id: 'layouts',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
         optimisticPosts: true,
     },
     articles: {
         id: 'articles',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
         optimisticPosts: true,
     },
     articleCategories: {
         id: 'articleCategories',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
         optimisticPosts: true,
     },
-};
+});

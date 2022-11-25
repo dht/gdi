@@ -1,7 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { IEventsStore } from './types';
+import p from '../package.json';
 
 export const initialState: IEventsStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateEvents: {
         stateKey: 'events',
         currentNodeId: 'events',

@@ -1,4 +1,4 @@
-export const endpointsConfigOverrides: any = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     meta: {
         id: 'meta',
         connectionType: 'NONE',
@@ -13,53 +13,53 @@ export const endpointsConfigOverrides: any = {
     },
     pages: {
         id: 'pages',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryImages: {
         id: 'libraryImages',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryWidgets: {
         id: 'libraryWidgets',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryTypography: {
         id: 'libraryTypography',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryPalettes: {
         id: 'libraryPalettes',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryPages: {
         id: 'libraryPages',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryPageInstances: {
         id: 'libraryPageInstances',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryInstances: {
         id: 'libraryInstances',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     libraryInstancesProps: {
         id: 'libraryInstancesProps',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     locales: {
         id: 'locales',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     libraryDatasets: {
         id: 'libraryDatasets',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
     packages: {
         id: 'packages',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
-};
+});

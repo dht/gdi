@@ -1,6 +1,7 @@
 import type { StoreStructure } from 'redux-store-generator';
 
 export type IStudioStore = StoreStructure & {
+    meta: IGdiMeta;
     appStateStudio: IStudioState;
     boards: IBoards;
     buildings: IBuildings;

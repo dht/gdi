@@ -40,6 +40,7 @@ type Params = {
     logger: LogMethod;
     noServerMode?: boolean;
     languageCode?: LanguageIso;
+    connectionType?: ConnectionType;
 };
 
 const DEFAULT_ENDPOINT_CONFIG: EndpointConfig = {
@@ -68,6 +69,7 @@ export async function initPlatform<T extends StoreStructure>(
         logger = defaultLogger,
         noServerMode,
         languageCode = 'en',
+        connectionType = 'NONE',
     } = params;
 
     logger('platform: init');
@@ -102,17 +104,20 @@ export async function initPlatform<T extends StoreStructure>(
 
         logger(`platform: initMethod for ${appId}`);
 
-        initMethod({
-            storeBuilder: storeBuilder as any,
-            selectorsBuilder,
-            routerBuilder,
-            widgetBuilder,
-            apiConfigBuilder,
-            i18nBuilder,
-            definitionsBuilder,
-            pieMenuBuilder,
-            metaBuilder,
-        });
+        initMethod(
+            {
+                storeBuilder: storeBuilder as any,
+                selectorsBuilder,
+                routerBuilder,
+                widgetBuilder,
+                apiConfigBuilder,
+                i18nBuilder,
+                definitionsBuilder,
+                pieMenuBuilder,
+                metaBuilder,
+            },
+            connectionType
+        );
     }
 
     logger('platform: iterating through saps');
@@ -126,10 +131,13 @@ export async function initPlatform<T extends StoreStructure>(
 
         logger(`platform: initMethod for ${sapId}`);
 
-        initMethod({
-            storeBuilder: storeBuilder as any,
-            selectorsBuilder,
-        });
+        initMethod(
+            {
+                storeBuilder: storeBuilder as any,
+                selectorsBuilder,
+            },
+            connectionType
+        );
     }
 
     const endpointsConfigOverrides = apiConfigBuilder
@@ -175,8 +183,6 @@ export async function initPlatform<T extends StoreStructure>(
 
     const crudDefinitionsPerApp = definitionsBuilder.build();
     const crudDefinitions = to.definitions(crudDefinitionsPerApp, i18nParams);
-
-    console.log('metaBuilder.build() ->', metaBuilder.build());
 
     setTimeout(() => {
         patchContext({

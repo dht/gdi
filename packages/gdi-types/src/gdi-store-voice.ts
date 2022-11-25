@@ -6,6 +6,7 @@ export const A19 = {};
 
 declare global {
     export type IVoiceStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateVoice: IVoiceState;
     };
 

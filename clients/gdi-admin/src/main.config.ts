@@ -31,4 +31,5 @@ export const config: IPlatformConfig = {
     noServerMode: false,
     languageCode: 'en',
     isRtl: false,
+    connectionType: 'FIRESTORE',
 };

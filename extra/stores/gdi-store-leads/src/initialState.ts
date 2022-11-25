@@ -1,8 +1,16 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { ILeadsStore } from './types';
+import p from '../package.json';
 import { actions } from './actions';
 
 export const initialState: ILeadsStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateLeads: {
         stateKey: 'leads',
     },

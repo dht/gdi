@@ -1,4 +1,5 @@
 export type IProductsStore = {
+    meta: IGdiMeta;
     appStateProducts: IProductsState;
     currentIdsProducts: ICurrentIdsProducts;
     products: IProducts;

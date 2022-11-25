@@ -1,34 +1,34 @@
-export const endpointsConfigOverrides: any = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     assets: {
         id: 'assets',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     buildings: {
         id: 'buildings',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     boards: {
         id: 'boards',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     cameras: {
         id: 'cameras',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     grounds: {
         id: 'grounds',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     items: {
         id: 'items',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     lights: {
         id: 'lights',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
     particles: {
         id: 'particles',
-        connectionType: 'FIRESTORE',
+        connectionType,
     },
-};
+});

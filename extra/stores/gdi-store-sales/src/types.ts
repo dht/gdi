@@ -1,4 +1,5 @@
 export type ISalesStore = {
+    meta: IGdiMeta;
     appStateSales: ISalesState;
     sales: ISales;
 };

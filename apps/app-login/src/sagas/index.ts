@@ -1,6 +1,6 @@
 import ping from './ping';
-import { fork, take } from 'saga-ts';
-import { root as login } from './saga.login';
+import { call, fork, take } from 'saga-ts';
+import { onLogin, root as login } from './saga.login';
 import { root as logout } from './saga.logout';
 import { root as api } from './saga.api.private';
 import { PlatformLifeCycleEvents } from '@gdi/types';
@@ -13,6 +13,15 @@ function* root() {
     yield* fork(api);
     yield* fork(logout);
     yield* fork(ping);
+
+    yield call(onLogin, {
+        uid: '1',
+        displayName: 'Name',
+        email: 'email',
+        emailVerified: true,
+        phoneNumber: '',
+        photoURL: '',
+    });
 }
 
 export const appSagas = [root];

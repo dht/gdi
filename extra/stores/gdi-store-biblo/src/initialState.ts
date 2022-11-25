@@ -7,6 +7,7 @@ export const initialState: IBibloStore = {
         version: p.version,
         isBeta: p.gdi.isBeta,
         isDraft: p.gdi.isDraft,
+        description: p.description,
         packageType: p.gdi.packageType as GdiEntity,
     },
     appStateBiblo: {

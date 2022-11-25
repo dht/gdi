@@ -6,6 +6,7 @@ export const A3 = {};
 
 declare global {
     export type IDevtoolsStore = StoreStructure & {
+        meta: IGdiMeta;
         appStateDevtools: IDevtoolsState;
     };
 

@@ -6,6 +6,7 @@ import p from '../package.json';
 export const initialState: IDashboardStore = {
     meta: {
         version: p.version,
+        description: p.description,
         isBeta: p.gdi.isBeta,
         isDraft: p.gdi.isDraft,
         packageType: p.gdi.packageType as GdiEntity,

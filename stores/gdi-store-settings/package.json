@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-settings",
     "version": "0.0.28",
+    "description": "",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

@@ -1,6 +1,7 @@
 {
     "name": "@gdi/store-site",
     "version": "0.0.24",
+    "description": "",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

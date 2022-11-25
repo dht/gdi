@@ -1,7 +1,15 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { IVoiceStore } from './types';
+import p from '../package.json';
 
 export const initialState: IVoiceStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateVoice: {
         stateKey: 'voice',
         isSpeaking: false,

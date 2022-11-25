@@ -4,6 +4,7 @@ export const A4 = {};
 
 declare global {
     export type ICartsStore = {
+        meta: IGdiMeta;
         appStateCarts: ICartsState;
         currentIdsCarts: ICurrentIdsCarts;
         carts: ICarts;

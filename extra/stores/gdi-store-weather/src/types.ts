@@ -1,4 +1,5 @@
 export type IWeatherStore = {
+    meta: IGdiMeta;
     weatherLocations: IWeatherLocations;
     weatherHourlyItems: IWeatherHourlyItems;
     weatherDailyItems: IWeatherDailyItems;

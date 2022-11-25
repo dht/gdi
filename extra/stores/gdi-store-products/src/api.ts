@@ -1,11 +1,11 @@
-export const endpointsConfigOverrides = {
+export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateProducts: {
         id: 'appStateProducts',
         connectionType: 'NONE',
     },
     products: {
         id: 'products',
-        connectionType: 'FIRESTORE',
+        connectionType,
         optimistic: true,
     },
-};
+});

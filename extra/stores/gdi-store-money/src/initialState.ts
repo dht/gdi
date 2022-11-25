@@ -1,8 +1,16 @@
 import { generateReducersForStore } from 'redux-store-generator';
 import { IMoneyStore } from './types';
 import { actions } from './actions';
+import p from '../package.json';
 
 export const initialState: IMoneyStore = {
+    meta: {
+        version: p.version,
+        description: p.description,
+        isBeta: p.gdi.isBeta,
+        isDraft: p.gdi.isDraft,
+        packageType: p.gdi.packageType as GdiEntity,
+    },
     appStateMoney: {
         stateKey: 'money',
         currentCategory: 'income',
