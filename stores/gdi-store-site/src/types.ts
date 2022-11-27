@@ -12,6 +12,7 @@ export type ISiteP6 = {
     instancesProps: Json;
     widgets: IWidgets;
     images: IImages;
+    datasets: Json;
 };
 
 export type ISiteOther = {

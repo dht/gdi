@@ -11,6 +11,7 @@ import { MixerContainer } from '../containers/MixerContainer';
 import { MixerPanelContainer } from '../containers/MixerPanelContainer';
 import { MixerTreeContainer } from '../containers/singles/MixerTreeContainer';
 import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
+import { ModalAdhocLogsContainer } from '../containers/modals/ModalAdhocLogsContainer';
 import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
 import { PagesContainer } from '../containers/PagesContainer';
 import { PreviewContainer } from '../containers/PreviewContainer';
@@ -27,6 +28,7 @@ export enum MixerWidgets {
     WidgetGallery = 'mixer.WidgetGallery',
     PlayMode = 'mixer.PlayMode',
     ImportExport = 'mixer.ImportExport',
+    AdhocLogs = 'mixer.AdhocLogs',
     PageTools = 'mixer.PageTools',
     Preview = 'mixer.Preview',
     Datasets = 'mixer.Datasets',
@@ -215,6 +217,22 @@ export const widgets: IWidget[] = [
             <Wrapper
                 appId={APP_ID}
                 component={DatasetsContainer}
+                props={props}
+            />
+        ),
+    },
+    {
+        id: MixerWidgets.AdhocLogs,
+        name: 'AdhocLogs',
+        description: 'AdhocLogs',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ModalAdhocLogsContainer}
                 props={props}
             />
         ),

@@ -1,13 +1,13 @@
-import { SystemLogsDriver } from './SystemLogs.driver';
+import { ImportExportDriver } from './ImportExport.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('SystemLogs', () => {
-    let driver: SystemLogsDriver;
+describe('ImportExport', () => {
+    let driver: ImportExportDriver;
 
     beforeAll(() => {
-        driver = new SystemLogsDriver();
+        driver = new ImportExportDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('SystemLogs', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('SystemLogs-container');
+        expect(containerClassName).toContain('ImportExport-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('SystemLogs', () => {
     });
 });
 
-describe('SystemLogs snapshots', () => {
-    let driver: SystemLogsDriver;
+describe('ImportExport snapshots', () => {
+    let driver: ImportExportDriver;
 
     beforeAll(() => {
-        driver = new SystemLogsDriver();
+        driver = new ImportExportDriver();
     });
 
     it('should match snapshot', () => {

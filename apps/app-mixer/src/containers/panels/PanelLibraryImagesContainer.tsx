@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { actions, selectors } from '../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import LibraryImages from '../../components/LibraryImages/LibraryImages';
-import { ElementSelector, LibrarySelector } from '@gdi/web-ui';
+import { ElementSelector } from '@gdi/web-ui';
 
 export const PanelLibraryImagesContainer = (_props: any) => {
     const dispatch = useDispatch();
@@ -55,10 +55,6 @@ export const PanelLibraryImagesContainer = (_props: any) => {
         }),
         []
     );
-
-    console.log('imageFields ->', imageFields);
-
-    console.log('currentIds.fieldId ->', currentIds.fieldId);
 
     return (
         <Row>

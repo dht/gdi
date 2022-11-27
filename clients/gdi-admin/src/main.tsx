@@ -3,15 +3,13 @@ import { $s } from 'shared-base';
 import { Bootstrap } from '@gdi/platformer';
 import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
-import { Dev } from './main.dev';
-import { SystemLogs } from '@gdi/web-ui';
+import { LogsSystem } from '@gdi/web-ui';
 import './index.scss';
 import './main.language';
 import 'igrid/dist/index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '@gdi/web-ui/dist/index.css';
 import 'firebaseui/dist/firebaseui.css';
-import { ErrorBoundary } from './main.errors';
 
 const DEBUG = false;
 const container = document.getElementById('root');
@@ -24,7 +22,7 @@ if (container) {
         <React.StrictMode>
             {/* <Dev /> */}
             <Bootstrap config={config} />
-            {/* {DEBUG && <SystemLogs />} */}
+            {DEBUG && <LogsSystem />}
         </React.StrictMode>
     );
 }

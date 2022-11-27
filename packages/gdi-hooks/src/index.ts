@@ -1,4 +1,5 @@
 export { useAction } from './hooks/useAction';
+export { useAdhocLogs } from './hooks/useAdhocLogs';
 export { useArrows } from './hooks/useArrows';
 export { useAuthMount } from './hooks/useAuthMount';
 export { useBackspace } from './hooks/useBackspace';

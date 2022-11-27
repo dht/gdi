@@ -19,6 +19,7 @@ export const initialState: IMixerStore = {
         showImageUploadModal: false,
         showPlayModeMessage: false,
         showMixerTree: false,
+        showConsoleLogs: false,
         mobileMode: false,
     },
     currentIds: {

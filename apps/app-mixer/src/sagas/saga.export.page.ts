@@ -1,15 +1,15 @@
-import { selectors } from '../../store';
+import { selectors } from '../store';
 import { delay, select, takeEvery } from 'saga-ts';
 import { downloadJson } from 'shared-base';
 import { dateFilename } from '@gdi/language';
 import { toast } from '@gdi/web-ui';
 
 function* exportPage(_action: any) {
-    const siteData = yield* select(selectors.base.$siteData);
-    const filename = dateFilename('siteData.json');
+    const siteData = yield* select(selectors.base.$pageData);
+    const filename = dateFilename('pageData.json');
     downloadJson(filename, siteData);
 
-    toast.show(`Site data generated as ${filename}`);
+    toast.show(`Page data generated as ${filename}`);
 }
 
 export function* root() {

@@ -10,10 +10,11 @@ export type CheckboxProps = {
         checked?: boolean
     ) => void;
     children?: JSX.Element;
+    disabled?: boolean;
 };
 
 export function Checkbox(props: CheckboxProps) {
-    const { label, value = false } = props;
+    const { label, value = false, disabled } = props;
 
     return (
         <Container
@@ -22,8 +23,9 @@ export function Checkbox(props: CheckboxProps) {
         >
             <CheckboxFluent
                 label={label}
-                defaultChecked={value}
+                checked={value}
                 onChange={props.onChange}
+                disabled={disabled}
             />
             {props.children && <Content>{props.children}</Content>}
         </Container>

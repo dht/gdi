@@ -26,8 +26,6 @@ export function ContactUs(props: ContactUsProps) {
     const { header, phoneNumber } = strings;
     const { imageUrl } = extra;
 
-    console.log('props ->', props);
-
     return (
         <Container
             className='ContactUs-container'

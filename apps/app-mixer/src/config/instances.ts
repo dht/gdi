@@ -52,6 +52,14 @@ export const instances: IWidgetInstancesByPageList = {
             isTransparent: false,
             allowOverflow: false,
         },
+        {
+            id: 'AdhocLogs',
+            widgetId: MixerWidgets.AdhocLogs,
+            position: { y: 1, x: 1 },
+            dimension: { y: 1, x: 1 },
+            isTransparent: true,
+            allowOverflow: true,
+        },
     ],
     imageGallery: [
         {

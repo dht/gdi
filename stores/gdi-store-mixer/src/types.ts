@@ -25,6 +25,7 @@ export type IMixerState = {
     showImageUploadModal: boolean;
     showPlayModeMessage: boolean;
     showMixerTree: boolean;
+    showConsoleLogs: boolean;
     mobileMode: boolean;
 };
 

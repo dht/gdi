@@ -51,15 +51,15 @@
             "iconName": "Delete"
         },
         {
-            "id": "download",
-            "text": "Download JSON",
-            "iconName": "Download",
-            "isExtra": true
-        },
-        {
             "id": "import",
             "text": "Import JSON",
             "iconName": "Upload",
+            "isExtra": true
+        },
+        {
+            "id": "download",
+            "text": "Export JSON",
+            "iconName": "Download",
             "isExtra": true
         }
     ],

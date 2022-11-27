@@ -10,13 +10,16 @@ export type IOption = {
     iconName?: string;
     secondaryText?: string;
     shortKey?: IShortKey;
-    value?: string | number | boolean;
-    min?: number;
-    max?: number;
     isExtra?: boolean;
     isGap?: boolean;
     hint?: string;
+    groupId?: string;
     options?: IOptions;
+    // for filters
+    value?: string | number | boolean;
+    min?: number;
+    max?: number;
+    disabled?: boolean;
 };
 
 export type IOptions = IOption[];
