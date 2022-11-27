@@ -17,6 +17,7 @@ declare global {
         instancesProps: Json;
         widgets: IWidgets;
         images: IImages;
+        datasets: Json;
     };
 
     export type ISiteOther = {

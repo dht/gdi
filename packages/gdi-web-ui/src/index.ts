@@ -20,7 +20,8 @@ export { SideMenu } from './components/SideMenu/SideMenu';
 export { SidePanel } from './components/SidePanel/SidePanel';
 export { Sort } from './components/Sort/Sort';
 export { Stopwatch } from './components/Stopwatch/Stopwatch';
-export { SystemLogs } from './components/SystemLogs/SystemLogs';
+export { LogsConsole } from './components/LogsConsole/LogsConsole';
+export { LogsSystem } from './components/LogsSystem/LogsSystem';
 export { Switcher } from './components/Switcher/Switcher';
 export { TypeView } from './components/TypeView/TypeView';
 export { Weather } from './components/Weather/Weather';
@@ -37,6 +38,7 @@ export {
     Checkbox,
     CircularProgress,
     ColorPicker,
+    Checkboxes,
     CornerTriangle,
     DateInput,
     Drawer,
@@ -46,6 +48,8 @@ export {
     Empty,
     GliLogo,
     ImageUpload,
+    ImportExport,
+    ImportExportSummary,
     Input,
     InputHidden,
     KeyValue,

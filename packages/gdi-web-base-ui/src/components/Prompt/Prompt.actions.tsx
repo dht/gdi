@@ -12,6 +12,8 @@ type PromptRequest = {
     placeholder?: string;
     submitButtonText?: string;
     point?: Json;
+    component?: React.FC<any>;
+    componentProps?: Json;
 };
 
 type PromptResponse = {
@@ -179,6 +181,19 @@ const pie = (promptRequest: PromptRequest): Promise<PromptResponse> => {
     });
 };
 
+const custom = (promptRequest: PromptRequest): Promise<PromptResponse> => {
+    const { title, component, componentProps } = promptRequest;
+
+    return invokePromptAndListen({
+        flavour: 'custom',
+        title,
+        params: {
+            component,
+            componentProps,
+        },
+    });
+};
+
 export const prompt = {
     confirm,
     input,
@@ -186,4 +201,5 @@ export const prompt = {
     choice,
     form,
     pie,
+    custom,
 };

@@ -19,7 +19,14 @@ import Choice from '../Choice/Choice';
 
 export type PromptProps = {
     title: string;
-    flavour: 'confirm' | 'input' | 'select' | 'form' | 'pie' | 'choice';
+    flavour:
+        | 'confirm'
+        | 'input'
+        | 'select'
+        | 'form'
+        | 'pie'
+        | 'choice'
+        | 'custom';
     params: Json;
     submitButtonText: string;
     onCancel: () => void;
@@ -166,11 +173,25 @@ export function Prompt(props: PromptProps) {
                         />
                     </>
                 );
+            case 'custom':
+                const Custom = params.component;
+
+                if (typeof Custom !== 'function') {
+                    return null;
+                }
+
+                return (
+                    <Custom
+                        {...params.componentProps}
+                        onSubmit={props.onSubmit}
+                        onCancel={onClose}
+                    />
+                );
         }
     }
 
     function renderActions() {
-        if (flavour === 'form') {
+        if (flavour === 'form' || flavour === 'custom') {
             return null;
         }
 

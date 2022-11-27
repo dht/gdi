@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { SystemLogs, SystemLogsProps } from './SystemLogs';
+import { ConsoleLogs, ConsoleLogsProps } from './ConsoleLogs';
 import { BaseComponentDriver } from 'testing-base';
 
-export class SystemLogsDriver extends BaseComponentDriver {
-    private props: Partial<SystemLogsProps> = {
+export class ConsoleLogsDriver extends BaseComponentDriver {
+    private props: Partial<ConsoleLogsProps> = {
     };
 
     constructor() {
-        super('SystemLogs');
+        super('ConsoleLogs');
     }
 
     when: any = {
         rendered: () => {
-            render(<SystemLogs {...(this.props as SystemLogsProps)} />);
+            render(<ConsoleLogs {...(this.props as ConsoleLogsProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class SystemLogsDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SystemLogs {...(this.props as SystemLogsProps)} />);
+            return this.snapshot(<ConsoleLogs {...(this.props as ConsoleLogsProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<SystemLogsProps>) => {
+        props: (props: Partial<ConsoleLogsProps>) => {
             this.props = props;
             return this;
         },

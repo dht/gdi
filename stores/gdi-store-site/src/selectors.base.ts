@@ -51,33 +51,39 @@ export const $siteData = createSelector(
     raw.$rawMeta,
     raw.$rawLocale,
     raw.$rawPages,
+    raw.$rawPageInstances,
     raw.$rawPalette,
     raw.$rawImages,
     raw.$rawFonts,
     raw.$rawInstances,
     raw.$rawWidgets,
     raw.$rawInstancesProps,
+    raw.$rawDatasets,
     (
         meta,
         locale,
         pages,
+        pageInstances,
         palette,
         images,
         fonts,
         widgets,
         instances,
-        instancesProps
+        instancesProps,
+        datasets
     ) => {
         return {
             meta,
             locale,
             pages,
+            pageInstances,
             palette,
             images,
             fonts,
             widgets,
             instances,
             instancesProps,
+            datasets,
         };
     }
 );

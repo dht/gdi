@@ -31,9 +31,5 @@ tools:
       text: Download JSON
       iconName: Download
       isExtra: true
-    - id: import
-      text: Import JSON
-      iconName: Upload
-      isExtra: true
 toolbarMode: actions
 doubleClickActionId: drillDown

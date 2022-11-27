@@ -114,6 +114,14 @@ export const $instancesForPageInstance = createSelector(
     }
 );
 
+export const $currentPageInstances = createSelector(
+    $pageInstanceId,
+    raw.$rawLibraryPageInstances,
+    (pageInstanceId, pageInstances) => {
+        return pageInstances[pageInstanceId];
+    }
+);
+
 export const $instancesForCurrentPage = createSelector(
     $pageInstanceId,
     $instances,
@@ -487,5 +495,75 @@ export const $panelLibraryFlavour = createSelector(
         }
 
         return panelLibraryFlavour;
+    }
+);
+
+export const $pageData = createSelector(
+    $pageInstanceId,
+    raw.$rawLibraryPageInstances,
+    raw.$rawLibraryInstances,
+    raw.$rawLibraryInstancesProps,
+    (
+        pageInstanceId,
+        allLibraryPageInstances,
+        allLibraryInstances,
+        allLibraryInstancesProps
+    ) => {
+        const libraryPageInstances = pickBy(
+            allLibraryPageInstances,
+            (i) => i.id === pageInstanceId
+        );
+
+        const libraryInstances = pickBy(
+            allLibraryInstances,
+            (i) => i.pageInstanceId === pageInstanceId
+        );
+
+        const libraryInstancesIds = Object.keys(libraryInstances);
+
+        const libraryInstancesProps = pickBy(allLibraryInstancesProps, (i) =>
+            libraryInstancesIds.includes(i.id)
+        );
+
+        return {
+            libraryPageInstances,
+            libraryInstances,
+            libraryInstancesProps,
+        };
+    }
+);
+
+export const $libraryData = createSelector(
+    raw.$rawLibraryImages,
+    raw.$rawLibraryWidgets,
+    raw.$rawLibraryTypography,
+    raw.$rawLibraryPalettes,
+    raw.$rawLibraryPages,
+    raw.$rawLibraryPageInstances,
+    raw.$rawLibraryInstances,
+    raw.$rawLibraryInstancesProps,
+    raw.$rawLibraryDatasets,
+    (
+        libraryImages,
+        libraryWidgets,
+        libraryTypography,
+        libraryPalettes,
+        libraryPages,
+        libraryPageInstances,
+        libraryInstances,
+        libraryInstancesProps,
+        libraryDatasets
+    ) => {
+        return {
+            libraryImages,
+            libraryWidgets,
+            libraryTypography,
+            libraryPalettes,
+            libraryPages,
+            libraryPageInstances,
+            libraryInstances,
+            libraryInstancesProps,
+            libraryDatasets,
+        };
     }
 );

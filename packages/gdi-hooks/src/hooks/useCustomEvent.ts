@@ -3,7 +3,8 @@ import { addListener } from 'shared-base';
 
 export function useCustomEvent(
     eventName: string,
-    callback: (data: Json) => void
+    callback: (data: Json) => void,
+    depArray: any[] = []
 ) {
     useEffect(() => {
         const clear = addListener(eventName, callback);
@@ -11,5 +12,5 @@ export function useCustomEvent(
         return () => {
             clear();
         };
-    }, []);
+    }, depArray);
 }
