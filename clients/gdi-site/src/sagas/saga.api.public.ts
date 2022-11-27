@@ -22,6 +22,7 @@ function* apiPublic() {
         yield* put(actions.instances.get({})),
         yield* put(actions.instancesProps.get({})),
         yield* put(actions.pages.get({})),
+        yield* put(actions.pageInstances.get({})),
         yield* put(actions.palette.get()),
         yield* put(actions.datasets.get()),
     ];

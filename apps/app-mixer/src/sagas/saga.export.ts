@@ -15,6 +15,7 @@ function* exportSite(_action: any) {
         componentProps: {
             id: 'ModalExportSite',
             ctaButtonText: 'Export',
+            showExportMessage: true,
             json: {
                 ...siteData,
                 ...libraryData,

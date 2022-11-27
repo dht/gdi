@@ -11,10 +11,6 @@ export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
         id: 'currentIds',
         connectionType: 'NONE',
     },
-    pages: {
-        id: 'pages',
-        connectionType,
-    },
     libraryImages: {
         id: 'libraryImages',
         connectionType,

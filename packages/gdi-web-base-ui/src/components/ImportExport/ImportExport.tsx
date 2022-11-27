@@ -11,12 +11,13 @@ export type ImportExportProps = {
     id: string;
     ctaButtonText: string;
     json: Json;
+    showExportMessage?: boolean;
     onSubmit: (value: Json) => void;
     onCancel: () => void;
 };
 
 export function ImportExport(props: ImportExportProps) {
-    const { id, json = {}, ctaButtonText } = props;
+    const { id, json = {}, ctaButtonText, showExportMessage } = props;
 
     const [state, patchState] = useLocalStorage<Record<string, boolean>>(
         `CHECKBOXES_${id}`,
@@ -90,6 +91,7 @@ export function ImportExport(props: ImportExportProps) {
                 <ImportExportSummary
                     totalSize={sizeAndCount.size}
                     count={sizeAndCount.count}
+                    showExportMessage={showExportMessage}
                 />
                 <Button title='Cancel' onClick={props.onCancel} />
                 <Button title={ctaButtonText} primary onClick={onSubmit} />

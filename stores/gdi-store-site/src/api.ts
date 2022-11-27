@@ -14,6 +14,14 @@ export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
         connectionType,
         optimistic: true,
     },
+    pages: {
+        id: 'pages',
+        connectionType,
+    },
+    pageInstances: {
+        id: 'pageInstances',
+        connectionType,
+    },
     breakpoints: {
         id: 'breakpoints',
         connectionType,

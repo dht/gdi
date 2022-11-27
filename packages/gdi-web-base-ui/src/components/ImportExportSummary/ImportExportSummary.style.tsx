@@ -5,8 +5,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
     padding-right: 50px;
+    min-width: 580px;
 `;
 
 export const Pair = styled.div`
@@ -23,4 +23,20 @@ export const Value = styled.div`
     font-size: 30px;
     font-weight: 200;
     color: gold;
+`;
+
+export const P = styled.p`
+    max-width: 300px;
+    font-size: 12px;
+    line-height: 1.2;
+    color: gray;
+
+    &::before {
+        content: '* ';
+        margin-left: -9px;
+    }
+`;
+
+export const Flex = styled.div`
+    flex: 1;
 `;
