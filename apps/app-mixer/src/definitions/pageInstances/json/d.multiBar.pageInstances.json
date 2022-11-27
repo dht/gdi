@@ -2,8 +2,16 @@
     "id": "PageInstancesMultiBar",
     "header": "Page",
     "initialViewMode": "custom",
-    "viewModes": ["custom", "custom2"],
-    "hideParts": ["preview", "search", "tagging", "filter"],
+    "viewModes": [
+        "custom",
+        "custom2"
+    ],
+    "hideParts": [
+        "preview",
+        "search",
+        "tagging",
+        "filter"
+    ],
     "tools": [
         {
             "id": "back",
@@ -36,7 +44,7 @@
         },
         {
             "id": "download",
-            "text": "Export JSON",
+            "text": "Download JSON",
             "iconName": "Download",
             "isExtra": true
         }
