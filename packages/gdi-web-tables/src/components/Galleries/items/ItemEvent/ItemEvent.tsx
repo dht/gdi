@@ -21,7 +21,7 @@ export function ItemEvent(props: ItemEventProps) {
 
     const timeText = useMemo(() => {
         try {
-            return time(date);
+            return time(date || '');
         } catch (err) {}
     }, []);
 

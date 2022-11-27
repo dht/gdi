@@ -30,6 +30,7 @@ declare global {
         showImageUploadModal: boolean;
         showPlayModeMessage: boolean;
         showMixerTree: boolean;
+        showConsoleLogs: boolean;
         mobileMode: boolean;
     };
 

@@ -1,16 +1,14 @@
-import { IDimensionsPerFlavour } from '@gdi/web-ui';
-
 export const dimensions: IDimensionsPerFlavour = {
     normal: {
         desktop: {
             width: 1000,
-            height: 400,
-            ratio: 2.5,
+            height: 71.52777777777779,
+            ratio: 13.980582524271844,
         },
         mobile: {
             width: 500,
-            height: 1337,
-            ratio: 0.3739715781600598,
+            height: 61.824406804265195,
+            ratio: 8.08742090454648,
         },
     },
 };

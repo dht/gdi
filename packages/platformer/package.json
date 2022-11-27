@@ -9,12 +9,12 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/hooks": "^0.0.28",
+        "@gdi/hooks": "^0.0.31",
         "@gdi/language": "^0.0.26",
         "@gdi/store-auth": "^0.0.20",
-        "@gdi/types": "^0.0.47",
-        "@gdi/web-base-ui": "^0.0.34",
-        "@gdi/web-ui": "^0.0.31",
+        "@gdi/types": "^0.0.48",
+        "@gdi/web-base-ui": "^0.0.35",
+        "@gdi/web-ui": "^0.0.33",
         "axios": "^0.27.2",
         "firebase": "^9.9.1",
         "firebaseui": "^6.0.1",

@@ -9,8 +9,7 @@ import {
     ContainerTags,
 } from './Filter.style';
 import classnames from 'classnames';
-import { Icon } from '@gdi/web-base-ui';
-import { AutoComplete } from '@gdi/web-ui';
+import { AutoComplete, Icon } from '@gdi/web-base-ui';
 
 export type FilterProps = {
     filter: IFilterField;

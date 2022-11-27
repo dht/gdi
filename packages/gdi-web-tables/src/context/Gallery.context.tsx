@@ -141,8 +141,7 @@ export const GalleryContextProvider = (
                 callbacks.onItemAction('', 'mouse', data);
             },
         }),
-        [state, selectedIds, tag, filterState.toolId],
-        'callbacksGallery|state,selectedIds,tag'
+        [state, selectedIds, tag, filterState.toolId]
     );
 
     return (

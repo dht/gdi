@@ -13,13 +13,13 @@ import { ICrudDefinitions } from '../types';
 
 export const definitions: ICrudDefinitions = {
     nodeName: 'libraryImages', // @ts-expect-error
-    filters,
-    formEdit,
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
     calendar, // @ts-expect-error
     gallery, // @ts-expect-error
-    overlay,
+    overlay, // @ts-expect-error
     sheet,
     timeline,
     formNewDefault,

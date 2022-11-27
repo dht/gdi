@@ -4,8 +4,7 @@ import { DispatchContext } from '../context/Dispatch.context';
 import { guid4 } from 'shared-base';
 import { ICrudOptions } from '../types';
 import { useTranslation } from '@gdi/language';
-import { items } from '../components/Galleries/items';
-import { useContext, useEffect, useMemo } from '@gdi/hooks';
+import { useContext, useMemo } from '@gdi/hooks';
 
 export function useCrudOperations(
     config: ICrudDefinitions,
@@ -31,7 +30,7 @@ export function useCrudOperations(
                     form: {
                         config: formNew,
                         data: { ...formNewDefault, ...options.newDataExtra },
-                        allOptions: tj(options.allOptions),
+                        allOptions: tj(options.allOptions ?? {}),
                         allDetails: options.allDetails,
                         allMethods: options.allMethods,
                     },
@@ -57,7 +56,7 @@ export function useCrudOperations(
                     form: {
                         config: formEdit,
                         data: itemData,
-                        allOptions: tj(options.allOptions),
+                        allOptions: tj(options.allOptions ?? {}),
                         allDetails: options.allDetails,
                         allMethods: options.allMethods,
                     },
@@ -196,16 +195,21 @@ export function useCrudOperations(
                 dispatch(actions.patch(id, change));
             },
             showMenu: async (itemId: string, point?: Json) => {
+                const options: IOption[] = tj(
+                    (pieMenu ?? {}).options ?? {}
+                ) as IOption[];
+
                 const { didCancel, value } = await prompt.pie({
-                    options: tj(pieMenu.options),
+                    title: '',
+                    options,
                     point,
                 });
 
-                if (didCancel) {
+                if (didCancel || !value) {
                     return;
                 }
 
-                const type = ['ITEM_ACTION', 'person', value.id]
+                const type = ['ITEM_ACTION', 'person', (value as Json).id]
                     .join('_')
                     .toUpperCase();
 
@@ -218,8 +222,7 @@ export function useCrudOperations(
                 });
             },
         }),
-        [data, options],
-        'useCrudOperations|data,options'
+        [data, options]
     );
 
     return callbacks;

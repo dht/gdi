@@ -56,7 +56,7 @@ export function SheetInner(props: SheetProps) {
             <SheetHeader cells={fields} />
             <Body
                 onMouseDown={context.onMouseDown}
-                onTouchStart={context.onMouseDown}
+                onTouchStart={context.onMouseDown as any}
                 onDoubleClick={context.onDoubleClick}
             >
                 {renderRows()}

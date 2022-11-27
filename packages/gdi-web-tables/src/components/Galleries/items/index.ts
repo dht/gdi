@@ -29,8 +29,8 @@ export const items: Record<ItemType, FC<ItemImageProps>> = {
     article: ItemArticle,
     cart: ItemCart,
     campaign: ItemCampaign,
-    coupon: ItemCoupon, // @ts-expect-error
-    comment: ItemComment,
+    coupon: ItemCoupon,
+    comment: ItemComment, // @ts-expect-error
     event: ItemEvent,
     image: ItemImage,
     inbox: ItemInbox,

@@ -12,7 +12,8 @@ export const sampleData: ISampleDataPerFlavour = {
             text: '#aaef69',
         },
         extra: {
-            imageUrl: 'https://picsum.photos/seed/12/1557/882',
+            backgroundImageUrl: 'https://picsum.photos/seed/5/1338/850',
+            imageUrl: 'https://picsum.photos/seed/12/300/300',
             href: '#',
         },
     },

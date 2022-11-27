@@ -32,14 +32,14 @@ export function WidgetGallery(props: WidgetGalleryProps) {
             <AllProviders
                 id='widgetGallery'
                 data={items}
-                definitions={definitions}
+                definitions={definitions as any}
                 callbacks={callbacks}
             >
                 <FilterBar
                     onAction={callbacks.onAction}
                     hideParts={hideParts}
                 />
-                <AnyGallery itemType='widget' {...props} />
+                <AnyGallery itemType='widget' {...(props as any)} />
             </AllProviders>
         </Container>
     );

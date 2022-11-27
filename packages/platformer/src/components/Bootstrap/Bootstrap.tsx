@@ -9,13 +9,13 @@ import { init as initNavigation } from '../../sagas/saga.navigate';
 import { IPlatformConfig } from '../../types';
 import { LanguageProvider } from '@gdi/language';
 import { Provider } from 'react-redux';
-import { ThemeProvider, useTheme as useThemeO } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { useMount } from 'react-use';
 import {
     PlatformContext,
     PlatformContextProvider,
 } from '../../core/Platform.context';
-import { useTheme } from '../../hooks/useTheme';
+import { useStyledTheme } from '@gdi/hooks';
 import { getLanguageCode, getIsRtl } from '@gdi/language';
 
 export type BootstrapProps = {
@@ -82,7 +82,7 @@ export const BootstrapContainer = (props: BootstrapProps) => {
     );
 
     const { version, initialRoute, noServerMode, languageCode, isRtl } = config;
-    const theme = useTheme(languageCode, getIsRtl());
+    const theme = useStyledTheme(languageCode, getIsRtl());
 
     const Cmp: any = ThemeProvider;
 

@@ -34,7 +34,7 @@ export function SideMenu(props: SideMenuProps) {
     const [slim, toggleSlim] = useToggle(true);
     const location = useLocation();
     const navigate = useNavigate();
-    const { isRtl } = useTheme();
+    const { isRtl } = useTheme() as any;
 
     useEffect(() => {
         const visibleGroups = groups.filter((group) => {

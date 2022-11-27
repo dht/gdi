@@ -44,7 +44,7 @@ export function Switch(props: SwitchProps) {
                 selected={selected}
                 title={option.hint}
                 onMouseDown={(ev) => onClick(option, ev)}
-                onTouchStart={(ev) => onClick(option, ev)}
+                onTouchStart={(ev) => onClick(option, ev as any)}
             >
                 {option.text}
                 {option.iconName && Icon}

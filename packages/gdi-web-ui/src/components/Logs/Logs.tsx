@@ -29,7 +29,7 @@ type RowProps = {
 };
 
 export function Logs(props: LogsProps) {
-    const { items, flavour = 'small', showStatus, showData, isSuccess } = props;
+    const { items, flavour = 'small', showStatus, showData } = props;
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
     const ref = useRef<HTMLDivElement>(null);

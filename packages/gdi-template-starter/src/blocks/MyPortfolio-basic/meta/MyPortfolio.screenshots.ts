@@ -1,37 +1,35 @@
-import type { IScreenshotsPerFlavour } from '@gdi/web-ui';
-
 export const screenshots: IScreenshotsPerFlavour = {
     normal: {
         desktop: {
             large: {
                 width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.my portfolio-basic.normal.desktop.large.webp',
-                urlIsRemote: false,
+                height: 739.2686631944445,
+                ratio: 1.3526882036077557,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.myPortfolio-basic.normal.desktop.large.webp?alt=media',
+                urlIsRemote: true,
             },
             thumb: {
-                width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.my portfolio-basic.normal.desktop.thumb.webp',
-                urlIsRemote: false,
+                width: 400,
+                height: 295.70746527777777,
+                ratio: 1.3526882036077557,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.myPortfolio-basic.normal.desktop.thumb.webp?alt=media',
+                urlIsRemote: true,
             },
         },
         mobile: {
             large: {
                 width: 500,
-                height: 1337,
-                ratio: 0.3739715781600598,
-                url: 'screenshot.gdi.my portfolio-basic.normal.mobile.large.webp',
-                urlIsRemote: false,
+                height: 359.4594594594595,
+                ratio: 1.3909774436090225,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.myPortfolio-basic.normal.mobile.large.webp?alt=media',
+                urlIsRemote: true,
             },
             thumb: {
-                width: 500,
-                height: 1337,
-                ratio: 0.3739715781600598,
-                url: 'screenshot.gdi.my portfolio-basic.normal.mobile.thumb.webp',
-                urlIsRemote: false,
+                width: 200,
+                height: 143.78378378378378,
+                ratio: 1.3909774436090225,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.myPortfolio-basic.normal.mobile.thumb.webp?alt=media',
+                urlIsRemote: true,
             },
         },
     },

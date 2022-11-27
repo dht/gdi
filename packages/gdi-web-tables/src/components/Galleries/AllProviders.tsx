@@ -30,6 +30,7 @@ export function AllProviders(props: AllProvidersProps) {
                 config={definitions.filters}
                 options={optionsFilter}
                 allOptions={allOptions}
+                multiBar={{}}
             >
                 {props.children}
             </FilterContextProvider>

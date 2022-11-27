@@ -40,7 +40,7 @@ export const previews: Record<ItemType, FC<PreviewImageProps>> = {
     page: PreviewPage,
     pageInstance: PreviewPageInstance,
     person: PreviewPerson,
-    product: PreviewProduct,
+    product: PreviewProduct, // @ts-expect-error
     post: PreviewPost,
     project: PreviewProject,
     sale: PreviewSale,

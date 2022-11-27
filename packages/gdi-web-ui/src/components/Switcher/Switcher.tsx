@@ -49,7 +49,7 @@ export function SwitcherInner(props: SwitcherInnerProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const { screens = [] } = props;
 
-    const { isRtl } = useTheme();
+    const { isRtl } = useTheme() as any;
 
     const screensFiltered = useFuzzySearchQ(
         screens,

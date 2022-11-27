@@ -10,12 +10,7 @@ export const Container = styled.div<{
     overflow: hidden;
     display: flex;
     background-color: #223;
-
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
-    }
+    font-family: ${(props) => props.theme.fontFamily};
 `;
 
 export const Wrapper = styled.div`

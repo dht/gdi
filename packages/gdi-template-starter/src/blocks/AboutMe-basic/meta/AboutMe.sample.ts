@@ -11,7 +11,7 @@ export const sampleData: ISampleDataPerFlavour = {
         },
         colors: {},
         extra: {
-            imageUrl: 'https://via.placeholder.com/350x150',
+            imageUrl: 'https://static-b9ebe.web.app/ny-me.webp',
             href: '#contactMe',
         },
     },

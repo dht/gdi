@@ -25,6 +25,7 @@ export function MultiViews(props: MultiViewsProps) {
                 iconName: icons[mode],
                 hint: `${mode} (${keys[index]})`,
                 key: keys[index],
+                text: '',
             }))
             .filter((i) => i.id !== 'custom' || customViewExists)
             .filter((i) => i.id !== 'custom2' || customView2Exists);
@@ -50,8 +51,10 @@ export function MultiViews(props: MultiViewsProps) {
         return null;
     }
 
+    const Cmp: any = Draggable;
+
     return (
-        <Draggable nodeRef={ref}>
+        <Cmp nodeRef={ref}>
             <ContainerViews
                 className='MultiViews-container'
                 data-testid='Multi-container'
@@ -64,7 +67,7 @@ export function MultiViews(props: MultiViewsProps) {
                     vertical={true}
                 />
             </ContainerViews>
-        </Draggable>
+        </Cmp>
     );
 }
 

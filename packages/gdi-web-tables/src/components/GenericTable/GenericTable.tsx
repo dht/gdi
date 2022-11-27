@@ -72,8 +72,10 @@ export function GenericTable(props: GenericTableProps) {
     const itemData = mode === 'grid' ? rows : data;
 
     function renderTable() {
+        const Cmp: any = FixedSizeList;
+
         return (
-            <FixedSizeList
+            <Cmp
                 className='table'
                 height={autoHeight ? height : props.height ?? 0}
                 itemCount={itemData.length}
@@ -82,7 +84,7 @@ export function GenericTable(props: GenericTableProps) {
                 width='100%'
             >
                 {TableRow}
-            </FixedSizeList>
+            </Cmp>
         );
     }
 
