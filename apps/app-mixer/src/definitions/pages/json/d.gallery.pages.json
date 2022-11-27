@@ -3,11 +3,16 @@
     "header": "Pages",
     "itemType": "page",
     "fixedRatio": 1,
-    "actions": [
+    "actionsEmpty": [
         {
-            "id": "new",
-            "iconName": "add",
-            "title": "New Page"
+            "id": "importStarterKit",
+            "iconName": "AssessmentGroup",
+            "text": "Import StarterKit"
+        },
+        {
+            "id": "importJson",
+            "iconName": "CloudDownload",
+            "text": "Import Json"
         }
     ]
 }

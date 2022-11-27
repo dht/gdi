@@ -1,12 +1,5 @@
 {
     "id": "CartGallery",
     "header": "Carts",
-    "itemType": "cart",
-    "actions": [
-        {
-            "id": "new",
-            "iconName": "add",
-            "title": "New Cart"
-        }
-    ]
+    "itemType": "cart"
 }

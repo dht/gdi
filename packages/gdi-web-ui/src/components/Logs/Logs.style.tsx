@@ -110,8 +110,8 @@ export const Dot = styled.div`
     }
 
     &.success {
-        background-color: green;
-        border: 1px solid green;
+        background-color: greenyellow;
+        border: 1px solid greenyellow;
     }
 
     &.error {

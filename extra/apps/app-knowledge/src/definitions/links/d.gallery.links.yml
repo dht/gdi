@@ -1,7 +1,3 @@
 id: LinkGallery
 header: Links
 itemType: link
-actions:
-    - id: new
-      iconName: add
-      title: New Link

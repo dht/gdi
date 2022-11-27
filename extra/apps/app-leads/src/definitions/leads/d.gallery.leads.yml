@@ -1,7 +1,3 @@
 id: LeadGallery
 header: Leads
 itemType: lead
-actions:
-    - id: new
-      iconName: add
-      title: New Lead

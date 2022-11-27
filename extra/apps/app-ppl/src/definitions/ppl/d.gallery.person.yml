@@ -3,7 +3,3 @@ header: People
 itemType: person
 fixedRatio: 0.8
 columns: 10
-actions:
-    - id: new
-      iconName: add
-      title: New Person
