@@ -1,48 +1,112 @@
 import { actions, selectors } from '../store';
 import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
-import { downloadJson, invokeEvent, isEmpty } from 'shared-base';
-import { dateFilename } from '@gdi/language';
+import { invokeEvent, isEmpty } from 'shared-base';
 import { prompt, toast, ImportExport, LogsConsole } from '@gdi/web-ui';
+import axios from 'axios';
+
+const singles = [
+    'fonts',
+    'datasets',
+    'locale',
+    'palette',
+    'siteProperties',
+    'libraryDatasets',
+];
 
 function* importSite(_action: any) {
     const { value, didCancel: didCancel1 } = yield* call(prompt.input, {
         title: 'Import site JSON',
         description: 'Enter a URL with a valid site JSON:',
         placeholder: 'https://app.firebase.com/backup/site.json',
-        warning:
-            'This will replace all the current site structure & data. Please make sure you back up your current site data before hand',
+        defaultValue:
+            'https://raw.githubusercontent.com/dht/gdi-jsons/main/starter.json',
         submitButtonText: 'Import',
     });
+
     if (didCancel1) {
         return;
     }
-    const { didCancel: didCancel2 } = yield* call(prompt.confirm, {
-        title: 'Import site JSON',
-        description: `Are you sure you want to OVERWRITE the site structure & data?`,
-        warning: 'This operation CANNOT be undone',
-        submitButtonText: "Yes, I'm sure",
-    });
-    if (didCancel2) {
+
+    const response: any = yield* call(axios.get as any, value);
+
+    if (!response || !response.data) {
+        toast.show('Invalid JSON', 'error');
         return;
     }
+
     const url = 'https';
     toast.show(`Site data imported from ${url}`);
-    const { value: value3, didCancel: didCancel3 } = yield prompt.custom({
+    const { value: value2, didCancel: didCancel2 } = yield prompt.custom({
+        title: '',
         component: ImportExport,
         componentProps: {
-            id: 'ModalExport',
-            json: {
-                pages: {
-                    '1': {
-                        id: '1',
-                    },
-                },
-            },
+            id: 'ModalImportSite',
+            json: response.data,
+            ctaButtonText: 'Import',
         },
     });
-    if (didCancel3 || isEmpty(value3)) {
+    if (didCancel2 || isEmpty(value2)) {
         return;
     }
+
+    yield put(
+        actions.appStateMixer.patch({
+            showConsoleLogs: true,
+        })
+    );
+
+    invokeEvent('ADHOC_LOG', {
+        eventId: 'Starting import',
+    });
+
+    for (let key of Object.keys(value2)) {
+        const nodeValue = value2[key];
+
+        if (singles.includes(key)) {
+            invokeEvent('ADHOC_LOG_START', {
+                eventId: `Importing ${key}`,
+                statusText: 'importing...',
+            });
+
+            yield put(actions[key].patch(nodeValue));
+        } else {
+            const ids = Object.keys(nodeValue);
+
+            invokeEvent('ADHOC_LOG_START', {
+                eventId: `Importing ${key}`,
+                statusText: 'importing ' + ids.length + ' items...',
+            });
+
+            for (let id of ids) {
+                const item = nodeValue[id];
+                yield put((actions as any)[key]['add'](item));
+            }
+        }
+
+        yield delay(100);
+
+        invokeEvent('ADHOC_LOG_END', {
+            eventId: `Importing ${key}`,
+            statusText: 'success',
+            result: 'success',
+        });
+    }
+
+    yield delay(1000);
+
+    yield put(
+        actions.appStateMixer.patch({
+            showConsoleLogs: false,
+        })
+    );
+
+    try {
+        const keysPages = Object.keys(value2.libraryPages);
+        yield invokeEvent('navigate', { path: `/admin/pages/${keysPages[0]}` });
+
+        const keysInstances = Object.keys(value2.libraryInstances);
+        yield put(actions.currentIds.patch({selectedInstanceId: keysInstances[0]})); // prettier-ignore
+    } catch (_err) {}
 }
 
 export function* root() {
