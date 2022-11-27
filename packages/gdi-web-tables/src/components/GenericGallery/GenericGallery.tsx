@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useRef } from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import GenericOverlay from '../GenericOverlay/GenericOverlay';
 import Masonry, { MasonryItemProps } from '../Masonry/Masonry';
 import { Container, Content } from './GenericGallery.style';
@@ -39,7 +39,7 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
     const { options, callbacks, config, configOverlay } = useContext(GalleryContext); // prettier-ignore
     const { state: selectedIds, focusedId } = useContext(SelectionContext);
     const filterContext = useContext(FilterContext);
-    const { fixedRatio } = config;
+    const { fixedRatio, actionsEmpty } = config;
     const { columns } = options;
     const { data = [] } = filterContext;
 
@@ -59,7 +59,14 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
 
     function renderContent() {
         if (data.length === 0) {
-            return <Empty message='no items' withIcon />;
+            return (
+                <Empty
+                    message='no items'
+                    withIcon
+                    actions={actionsEmpty}
+                    onAction={callbacks.onAction}
+                />
+            );
         }
 
         return (

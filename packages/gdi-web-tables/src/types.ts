@@ -153,6 +153,7 @@ export type IGalleryConfig = {
     columns?: number;
     fixedRatio?: number;
     itemType?: ItemType;
+    actionsEmpty?: IOption[];
 };
 
 export type IGalleryOptions = {

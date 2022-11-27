@@ -1,11 +1,14 @@
 import React from 'react';
 import { Icon } from '@fluentui/react';
-import { Container, Message } from './Empty.style';
+import { Action, Actions, Container, Message } from './Empty.style';
+import Button from '../Button/Button';
 
 export type EmptyProps = {
     message?: string;
     withIcon?: boolean;
     iconName?: string;
+    actions?: IOptions;
+    onAction?: (actionId: string) => void;
 };
 
 export function Empty(props: EmptyProps) {
@@ -13,12 +16,38 @@ export function Empty(props: EmptyProps) {
         message = 'no items',
         iconName = 'CheckListText',
         withIcon,
+        actions = [],
     } = props;
 
+    function onAction(action: IOption) {
+        if (props.onAction) {
+            props.onAction(action.id);
+        }
+    }
+
+    function renderAction(action: IOption) {
+        const { text, iconName } = action;
+
+        return (
+            <Action key={action.id} className='action'>
+                <Button
+                    title={text}
+                    iconName={iconName}
+                    primary
+                    onClick={() => onAction(action)}
+                />
+            </Action>
+        );
+    }
+
+    function renderActions() {
+        return actions.map((action: IOption) => renderAction(action));
+    }
     return (
         <Container className='Empty-container' data-testid='Empty-container'>
             {withIcon && <Icon iconName={iconName} />}
             <Message>{message}</Message>
+            <Actions>{renderActions()}</Actions>
         </Container>
     );
 }

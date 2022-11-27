@@ -4,6 +4,9 @@ import { invokeEvent, isEmpty } from 'shared-base';
 import { prompt, toast, ImportExport, LogsConsole } from '@gdi/web-ui';
 import axios from 'axios';
 
+const STARTER_KIT_URL =
+    'https://raw.githubusercontent.com/dht/gdi-jsons/main/starter.json';
+
 const singles = [
     'fonts',
     'datasets',
@@ -13,13 +16,21 @@ const singles = [
     'libraryDatasets',
 ];
 
-function* importSite(_action: any) {
+type ActionImportSite = {
+    type: 'IMPORT_SITE';
+    source: 'json' | 'starterKit';
+};
+
+function* importSite(action: ActionImportSite) {
+    const { source } = action;
+
+    const defaultValue = source === 'starterKit' ? STARTER_KIT_URL : '';
+
     const { value, didCancel: didCancel1 } = yield* call(prompt.input, {
         title: 'Import site JSON',
         description: 'Enter a URL with a valid site JSON:',
         placeholder: 'https://app.firebase.com/backup/site.json',
-        defaultValue:
-            'https://raw.githubusercontent.com/dht/gdi-jsons/main/starter.json',
+        defaultValue,
         submitButtonText: 'Import',
     });
 
@@ -99,6 +110,8 @@ function* importSite(_action: any) {
             showConsoleLogs: false,
         })
     );
+
+    toast.show('Site data imported successfully');
 
     try {
         const keysPages = Object.keys(value2.libraryPages);

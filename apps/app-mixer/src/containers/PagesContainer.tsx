@@ -23,7 +23,13 @@ export const PagesContainer = () => {
 
                 switch (actionId) {
                     case 'import':
-                        dispatch({ type: 'IMPORT_SITE' });
+                        dispatch({ type: 'IMPORT_SITE', source: 'json' });
+                        break;
+                    case 'importStarterKit':
+                        dispatch({ type: 'IMPORT_SITE', source: 'starterKit' });
+                        break;
+                    case 'importJson':
+                        dispatch({ type: 'IMPORT_SITE', source: 'json' });
                         break;
                     case 'download':
                         dispatch({ type: 'EXPORT_SITE' });
