@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Link } from './TopMenu.style';
+import classnames from 'classnames';
 
 export type TopMenuProps = {
     items: IMenuItem[];
@@ -15,8 +16,17 @@ export function TopMenu(props: TopMenuProps) {
 
     function renderItem(item: IMenuItem, index: number) {
         const { title, href } = item;
+
+        const className = classnames(item, {
+            selected: false,
+        });
+
         return (
-            <Link key={item.title + String(index)} className='item' href={href}>
+            <Link
+                key={item.title + String(index)}
+                className={className}
+                href={href}
+            >
                 {title}
             </Link>
         );
