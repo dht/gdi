@@ -37,3 +37,5 @@ export const KnowledgeSheetsContainer = () => {
         />
     );
 };
+
+export default KnowledgeSheetsContainer;

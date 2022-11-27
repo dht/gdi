@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const TicketsTableContainer = () => {
     return <TicketsTable />;
 };
+
+export default TicketsTableContainer;

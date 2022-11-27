@@ -30,3 +30,5 @@ export const SalesContainer = () => {
         />
     );
 };
+
+export default SalesContainer;

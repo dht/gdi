@@ -25,3 +25,5 @@ export const PanelInspectorContainer = (
 
     return <Inspector data={inspector} />;
 };
+
+export default PanelInspectorContainer;

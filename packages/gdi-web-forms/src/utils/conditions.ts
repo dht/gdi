@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import { boolean } from 'yup';
 export type Json = Record<string, any>;
 

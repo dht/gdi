@@ -4,7 +4,7 @@ import { IPlatformConfig } from '@gdi/platformer';
 import { getLanguageCode } from '@gdi/language';
 import { initializers } from './main.apps';
 import { getJson } from 'shared-base';
-import { uniq } from 'lodash';
+import uniq from 'lodash/uniq';
 
 const baseURL = import.meta.env.VITE_API_SERVER_DOMAIN + '/v1';
 const menuSections = import.meta.env.VITE_MENU.split(',');

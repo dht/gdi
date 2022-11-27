@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const LegendContainer = () => {
     return <Legend />;
 };
+
+export default LegendContainer;

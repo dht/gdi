@@ -7,3 +7,5 @@ export const ScheduleContainer = () => {
     const scheduleSessions = useSelector(selectorsSoundboard.base.$agenda);
     return <Schedule items={scheduleSessions} />;
 };
+
+export default ScheduleContainer;

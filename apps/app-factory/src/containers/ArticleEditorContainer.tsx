@@ -30,3 +30,5 @@ export const ArticleEditorContainer = () => {
         </ArticleContextProvider>
     );
 };
+
+export default ArticleEditorContainer;

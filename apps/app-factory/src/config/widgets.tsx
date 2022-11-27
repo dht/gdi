@@ -1,15 +1,16 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { FactoryPanel } from '../components/FactoryPanel/FactoryPanel';
-import { ImportExportLayoutContainer } from '../containers/singles/ImportExportLayoutContainer';
-import { DesignerTreeContainer } from '../containers/singles/DesignerTreeContainer';
-import { ModalFlexPropertiesContainer } from '../containers/modals/ModalFlexPropertiesContainer';
-import { LayoutsContainer } from '../containers/LayoutsContainer';
-import { LayoutContainer } from '../containers/LayoutContainer';
-import { ArticleEditorContainer } from '../containers/ArticleEditorContainer';
-import { ArticlesContainer } from '../containers/ArticlesContainer';
 import { actions } from '../store';
 import { APP_ID } from './ids';
+
+const FactoryPanel = React.lazy(() => import('../components/FactoryPanel/FactoryPanel')); // prettier-ignore
+const ImportExportLayoutContainer = React.lazy(() => import('../containers/singles/ImportExportLayoutContainer')); // prettier-ignore
+const DesignerTreeContainer = React.lazy(() => import('../containers/singles/DesignerTreeContainer')); // prettier-ignore
+const ModalFlexPropertiesContainer = React.lazy(() => import('../containers/modals/ModalFlexPropertiesContainer')); // prettier-ignore
+const LayoutsContainer = React.lazy(() => import('../containers/LayoutsContainer')); // prettier-ignore
+const LayoutContainer = React.lazy(() => import('../containers/LayoutContainer')); // prettier-ignore
+const ArticleEditorContainer = React.lazy(() => import('../containers/ArticleEditorContainer')); // prettier-ignore
+const ArticlesContainer = React.lazy(() => import('../containers/ArticlesContainer')); // prettier-ignore
 
 export enum FactoryWidgets {
     FactoryPanel = 'factory.FactoryPanel',

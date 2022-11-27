@@ -145,8 +145,6 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                     resolutionId
                 );
 
-                console.log('bp ->', bp);
-
                 if (!bp || !breakpoint) {
                     return;
                 }
@@ -155,8 +153,6 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                 const isLower = bp.index > breakpoint.index;
 
                 if (isEqual || (isLower && orLower)) {
-                    console.log('123 ->', 123);
-
                     return css;
                 }
             },

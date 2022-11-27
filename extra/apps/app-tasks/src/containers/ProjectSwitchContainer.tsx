@@ -38,3 +38,5 @@ export const ProjectSwitchContainer = () => {
         />
     );
 };
+
+export default ProjectSwitchContainer;

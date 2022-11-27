@@ -6,3 +6,5 @@ import { selectors } from '../selectors';
 export const SimsContainer = () => {
     return <Sims />;
 };
+
+export default SimsContainer;

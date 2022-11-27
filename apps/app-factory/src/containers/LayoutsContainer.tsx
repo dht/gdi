@@ -61,3 +61,5 @@ export const LayoutsContainer = () => {
         />
     );
 };
+
+export default LayoutsContainer;

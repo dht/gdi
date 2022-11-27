@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const TicketsByProjectContainer = () => {
     return <TicketsByProject />;
 };
+
+export default TicketsByProjectContainer;

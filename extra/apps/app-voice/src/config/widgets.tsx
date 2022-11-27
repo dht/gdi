@@ -1,10 +1,11 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { VoiceContainer } from '../containers/VoiceContainer';
-import { VoiceTopContainer } from '../containers/VoiceTopContainer';
-import { SpeakerContainer } from '../containers/SpeakerContainer';
-import { TranscriptContainer } from '../containers/TranscriptContainer';
 import { APP_ID } from './ids';
+
+const VoiceContainer = React.lazy(() => import('../containers/VoiceContainer')); // prettier-ignore
+const VoiceTopContainer = React.lazy(() => import('../containers/VoiceTopContainer')); // prettier-ignore
+const SpeakerContainer = React.lazy(() => import('../containers/SpeakerContainer')); // prettier-ignore
+const TranscriptContainer = React.lazy(() => import('../containers/TranscriptContainer')); // prettier-ignore
 
 export enum VoiceWidgets {
     Voice = 'voice.Voice',

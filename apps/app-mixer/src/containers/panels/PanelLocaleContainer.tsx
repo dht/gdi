@@ -24,3 +24,5 @@ export const PanelLocaleContainer = (_props: any) => {
         />
     );
 };
+
+export default PanelLocaleContainer;

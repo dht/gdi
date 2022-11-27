@@ -48,3 +48,5 @@ export const PlaybackContainer = () => {
 
     return <Playback callbacks={callbacks} activeTask={activeTask} />;
 };
+
+export default PlaybackContainer;

@@ -20,3 +20,5 @@ export const EstimateContainer = () => {
 
     return <Estimate estimations={estimations} onClick={onClick} />;
 };
+
+export default EstimateContainer;

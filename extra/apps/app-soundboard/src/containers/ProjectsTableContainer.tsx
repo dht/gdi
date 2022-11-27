@@ -33,3 +33,5 @@ export const ProjectsTableContainer = () => {
         />
     );
 };
+
+export default ProjectsTableContainer;

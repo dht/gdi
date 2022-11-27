@@ -5,7 +5,7 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as globby from 'globby';
 import chalk from 'chalk';
-import { upperFirst } from 'lodash';
+import upperFirst from 'lodash/upperFirst';
 
 const argv = parseArgv(process.argv);
 const { cwd } = argv;

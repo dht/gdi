@@ -1,7 +1,9 @@
 import React from 'react';
-import { LoginContainer } from '../containers/LoginContainer';
+
 import { APP_ID } from './ids';
 import { IWidget, Wrapper } from '@gdi/platformer';
+
+const LoginContainer = React.lazy(() => import('../containers/LoginContainer')); // prettier-ignore
 
 export enum LoginWidgets {
     Login = 'login.Login',

@@ -10,3 +10,5 @@ export const MiniContainer = () => {
 
     return <Mini projects={projectsSoundboard} dailyHours={dailyHours} />;
 };
+
+export default MiniContainer;

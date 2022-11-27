@@ -38,3 +38,5 @@ export const Row = styled.div`
     flex: 1;
     position: relative;
 `;
+
+export default PanelLibraryContainer;

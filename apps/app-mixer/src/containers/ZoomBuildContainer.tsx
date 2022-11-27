@@ -28,3 +28,5 @@ export const ZoomBuildContainer = () => {
         />
     );
 };
+
+export default ZoomBuildContainer;

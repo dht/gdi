@@ -30,3 +30,5 @@ export const RemindersContainer = () => {
         />
     );
 };
+
+export default RemindersContainer;

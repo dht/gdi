@@ -19,3 +19,5 @@ export const ImportExportLayoutContainer = () => {
 
     return <ImportExportLayout callbacks={callbacks} />;
 };
+
+export default ImportExportLayoutContainer;

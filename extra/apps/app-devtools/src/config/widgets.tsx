@@ -1,14 +1,12 @@
 import React from 'react';
-
-import { ConsoleContainer } from '../containers/ConsoleContainer';
-import StoreSizeContainer from '../containers/StoreSizeContainer';
-import ReduxConnectedDevtoolsContainer from '../containers/ReduxConnectedDevtoolsContainer';
-import HoustonContainer from '../containers/HoustonContainer';
-import { LoginCycleContainer } from '../containers/LoginCycleContainer';
-import { CatalogContainer } from '../containers/CatalogContainer';
-import { ItemTypeSwitcherContainer } from '../containers/ItemTypeSwitcherContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
 import { APP_ID } from './ids';
+
+const ConsoleContainer = React.lazy(() => import('../containers/ConsoleContainer')); // prettier-ignore
+const StoreSizeContainer = React.lazy(() => import('../containers/StoreSizeContainer')); // prettier-ignore
+const ReduxConnectedDevtoolsContainer = React.lazy(() => import('../containers/ReduxConnectedDevtoolsContainer')); // prettier-ignore
+const HoustonContainer = React.lazy(() => import('../containers/HoustonContainer')); // prettier-ignore
+const LoginCycleContainer = React.lazy(() => import('../containers/LoginCycleContainer')); // prettier-ignore
 
 export enum DevtoolsWidgets {
     Console = 'devtools.Console',
@@ -92,22 +90,6 @@ export const widgets: IWidget[] = [
             <Wrapper
                 appId={APP_ID}
                 component={LoginCycleContainer}
-                props={props}
-            />
-        ),
-    },
-    {
-        id: DevtoolsWidgets.Catalog,
-        name: 'Catalog',
-        description: 'Catalog',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper
-                appId={APP_ID}
-                component={CatalogContainer}
                 props={props}
             />
         ),

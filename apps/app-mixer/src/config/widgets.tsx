@@ -1,21 +1,21 @@
 import React from 'react';
-
-import { ZoomBuildContainer } from '../containers/ZoomBuildContainer';
 import { actions } from '../store';
 import { APP_ID } from './ids';
-import { DatasetsContainer } from '../containers/DatasetsContainer';
-import { GalleryImagesContainer } from '../containers/GalleryImagesContainer';
-import { GalleryWidgetsContainer } from '../containers/GalleryWidgetsContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { MixerContainer } from '../containers/MixerContainer';
-import { MixerPanelContainer } from '../containers/MixerPanelContainer';
-import { MixerTreeContainer } from '../containers/singles/MixerTreeContainer';
-import { ModalImageUploadContainer } from '../containers/modals/ModalImageUploadContainer';
-import { ModalAdhocLogsContainer } from '../containers/modals/ModalAdhocLogsContainer';
-import { ModalPlayModeContainer } from '../containers/modals/ModalPlayModeContainer';
-import { PagesContainer } from '../containers/PagesContainer';
-import { PreviewContainer } from '../containers/PreviewContainer';
-import { WindowSize } from '../components/WindowSize/WindowSize';
+
+const ZoomBuildContainer = React.lazy(() => import('../containers/ZoomBuildContainer')); // prettier-ignore
+const DatasetsContainer = React.lazy(() => import('../containers/DatasetsContainer')); // prettier-ignore
+const GalleryImagesContainer = React.lazy(() => import('../containers/GalleryImagesContainer')); // prettier-ignore
+const GalleryWidgetsContainer = React.lazy(() => import('../containers/GalleryWidgetsContainer')); // prettier-ignore
+const MixerContainer = React.lazy(() => import('../containers/MixerContainer')); // prettier-ignore
+const MixerPanelContainer = React.lazy(() => import('../containers/MixerPanelContainer')); // prettier-ignore
+const MixerTreeContainer = React.lazy(() => import('../containers/singles/MixerTreeContainer')); // prettier-ignore
+const ModalImageUploadContainer = React.lazy(() => import('../containers/modals/ModalImageUploadContainer')); // prettier-ignore
+const ModalAdhocLogsContainer = React.lazy(() => import('../containers/modals/ModalAdhocLogsContainer')); // prettier-ignore
+const ModalPlayModeContainer = React.lazy(() => import('../containers/modals/ModalPlayModeContainer')); // prettier-ignore
+const PagesContainer = React.lazy(() => import('../containers/PagesContainer')); // prettier-ignore
+const PreviewContainer = React.lazy(() => import('../containers/PreviewContainer')); // prettier-ignore
+const WindowSize = React.lazy(() => import('../components/WindowSize/WindowSize')); // prettier-ignore
 
 export enum MixerWidgets {
     ZoomBuild = 'mixer.ZoomBuild',

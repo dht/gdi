@@ -26,3 +26,5 @@ export const ArticleEditorBarContainer = () => {
 
     return <ArticleEditorBar meta={meta} />;
 };
+
+export default ArticleEditorBarContainer;

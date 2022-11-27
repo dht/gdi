@@ -52,3 +52,5 @@ export const DesignerTreeContainer = () => {
         />
     );
 };
+
+export default DesignerTreeContainer;

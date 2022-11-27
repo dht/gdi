@@ -18,3 +18,5 @@ export const BabylonContainer = () => {
 
     return <Babylon init={init} />;
 };
+
+export default BabylonContainer;

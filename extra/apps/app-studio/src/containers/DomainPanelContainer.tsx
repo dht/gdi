@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const DomainPanelContainer = () => {
     return <DomainPanel />;
 };
+
+export default DomainPanelContainer;

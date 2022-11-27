@@ -16,3 +16,5 @@ export const IsoBrowserContainer = () => {
         <IsoBrowser onSelect={onSelect} assets={assets} buildings={buildings} />
     );
 };
+
+export default IsoBrowserContainer;

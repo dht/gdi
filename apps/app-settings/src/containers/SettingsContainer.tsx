@@ -20,3 +20,5 @@ export const SettingsContainer = () => {
         <Settings settings={settings} onSave={onSave} onDownload={onDownload} />
     );
 };
+
+export default SettingsContainer;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { KnowledgeContainer } from '../containers/KnowledgeContainer';
 import { APP_ID } from './ids';
+
+const KnowledgeContainer = React.lazy(() => import('../containers/KnowledgeContainer')); // prettier-ignore
 
 export enum KnowledgeWidgets {
     Knowledge = 'knowledge.Knowledge',

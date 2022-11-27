@@ -24,3 +24,5 @@ export const SitePropertiesContainer = () => {
         />
     );
 };
+
+export default SitePropertiesContainer;

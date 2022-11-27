@@ -3,7 +3,7 @@ import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { sortBy } from 'shared-base';
 import { minutesThisX } from '@gdi/language';
-import { camelCase } from 'lodash';
+import camelCase from 'lodash/camelCase';
 import { arrayToOptions, itemsTagsToOptions, optionsPeriod } from 'shared-base';
 
 const $i = () => {};

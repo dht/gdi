@@ -17,3 +17,5 @@ export const HoustonContainer = () => {
         </Houston>
     );
 };
+
+export default HoustonContainer;

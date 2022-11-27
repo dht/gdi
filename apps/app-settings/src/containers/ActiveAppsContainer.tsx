@@ -22,3 +22,5 @@ export const ActiveAppsContainer = () => {
         />
     );
 };
+
+export default ActiveAppsContainer;

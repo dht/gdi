@@ -41,3 +41,5 @@ export const FlexPropertiesContainer = (props: FlexPropertiesContainer) => {
 
     return <FlexProperties flexEntity={flexEntity} callbacks={callbacks} />;
 };
+
+export default FlexPropertiesContainer;

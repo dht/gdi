@@ -88,3 +88,5 @@ export const MixerContainer = () => {
         </>
     );
 };
+
+export default MixerContainer;

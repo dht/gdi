@@ -24,3 +24,5 @@ export const PanelPaletteContainer = (_props: any) => {
         />
     );
 };
+
+export default PanelPaletteContainer;

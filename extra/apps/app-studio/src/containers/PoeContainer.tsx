@@ -6,3 +6,5 @@ import { selectors } from '../selectors';
 export const PoeContainer = () => {
     return <Poe />;
 };
+
+export default PoeContainer;

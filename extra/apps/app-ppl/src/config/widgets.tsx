@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { PplContainer } from '../containers/PplContainer';
 import { APP_ID } from './ids';
+
+const PplContainer = React.lazy(() => import('../containers/PplContainer')); // prettier-ignore
 
 export enum PplWidgets {
     Ppl = 'ppl.Ppl',

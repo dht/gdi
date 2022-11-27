@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { Container } from './Page.style';
 import { Grid, IWidgetInstances, IWidgets } from 'igrid';
-import { pickBy } from 'lodash';
+import pickBy from 'lodash/pickBy';
 import { PlatformContext } from '../../core/Platform.context';
 import './Page.scss';
 

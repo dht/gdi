@@ -17,3 +17,5 @@ export const TicketsRecentContainer = () => {
 
     return <TicketsRecent selector={selector} callbacks={callbacks} />;
 };
+
+export default TicketsRecentContainer;

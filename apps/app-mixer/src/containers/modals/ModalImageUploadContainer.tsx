@@ -23,3 +23,5 @@ export const ModalImageUploadContainer = () => {
         </Modal>
     );
 };
+
+export default ModalImageUploadContainer;

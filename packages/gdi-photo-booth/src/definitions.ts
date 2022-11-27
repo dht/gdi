@@ -1,6 +1,8 @@
 import fs from 'fs-extra';
 import path from 'path';
-import { capitalize, set, get } from 'lodash';
+import capitalize from 'lodash/capitalize';
+import set from 'lodash/set';
+import get from 'lodash/get';
 import { formatCode } from './code';
 
 export const writeDefinitionsFiles = async (

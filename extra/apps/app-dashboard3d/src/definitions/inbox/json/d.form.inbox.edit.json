@@ -1,0 +1,27 @@
+{
+    "id": "InboxEdit",
+    "header": "Edit Inbox",
+    "layout": {
+        "flavour": "singleColumn",
+        "width": 300,
+        "labelSize": "compact"
+    },
+    "groups": [
+        {
+            "id": "basic",
+            "layoutColumnIndex": 0
+        }
+    ],
+    "fields": [
+        {
+            "id": "name",
+            "fieldType": "text",
+            "placeholder": "Name",
+            "label": "Name",
+            "groupId": "basic"
+        }
+    ],
+    "submit": {
+        "title": "Save & close"
+    }
+}

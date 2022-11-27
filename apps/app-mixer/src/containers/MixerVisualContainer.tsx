@@ -53,3 +53,5 @@ export const MixerVisualContainer = () => {
         />
     );
 };
+
+export default MixerVisualContainer;

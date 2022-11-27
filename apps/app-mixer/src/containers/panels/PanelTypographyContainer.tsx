@@ -24,3 +24,5 @@ export const PanelTypographyContainer = (_props: any) => {
         />
     );
 };
+
+export default PanelTypographyContainer;

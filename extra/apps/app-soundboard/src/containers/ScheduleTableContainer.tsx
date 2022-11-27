@@ -42,3 +42,5 @@ export const ScheduleTableContainer = () => {
         </SoundboardContextProvider>
     );
 };
+
+export default ScheduleTableContainer;

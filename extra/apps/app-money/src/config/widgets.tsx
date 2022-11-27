@@ -1,7 +1,8 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { MoneyContainer } from '../containers/MoneyContainer';
 import { APP_ID } from './ids';
+
+const MoneyContainer = React.lazy(() => import('../containers/MoneyContainer')); // prettier-ignore
 
 export enum MoneyWidgets {
     Money = 'money.Money',

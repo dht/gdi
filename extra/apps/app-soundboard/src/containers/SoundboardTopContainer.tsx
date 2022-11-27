@@ -4,3 +4,5 @@ import SoundboardTop from '../components/SoundboardTop/SoundboardTop';
 export const SoundboardTopContainer = () => {
     return <SoundboardTop />;
 };
+
+export default SoundboardTopContainer;

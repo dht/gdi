@@ -11,3 +11,5 @@ export type ContentContainerProps = {
 export const PanelContentContainer = (props: ContentContainerProps) => {
     return <FlexPropertiesContainer />;
 };
+
+export default PanelContentContainer;

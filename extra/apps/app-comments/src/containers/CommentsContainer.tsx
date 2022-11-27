@@ -30,3 +30,5 @@ export const CommentsContainer = () => {
         />
     );
 };
+
+export default CommentsContainer;

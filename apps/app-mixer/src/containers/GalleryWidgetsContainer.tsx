@@ -40,3 +40,5 @@ export const GalleryWidgetsContainer = () => {
 
     return <GalleryWidgets data={data} callbacks={callbacks} />;
 };
+
+export default GalleryWidgetsContainer;

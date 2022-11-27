@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import MasonryItem from '../Galleries/items/ItemImage/ItemImage';
 import { Backdrop, Container, Content, Expander } from './Masonry.style';
 import { IImage } from '../../types';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 import { useWindowSize } from 'react-use';
 import { useTheme } from 'styled-components';
 import classnames from 'classnames';

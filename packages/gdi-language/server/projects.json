@@ -94,11 +94,6 @@
         "path": "extra/apps/app-soundboard",
         "i18n": "src/config/i18n"
     },
-    "studio": {
-        "id": "studio",
-        "path": "extra/apps/app-studio",
-        "i18n": "src/config/i18n"
-    },
     "tasks": {
         "id": "tasks",
         "path": "extra/apps/app-tasks",

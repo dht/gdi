@@ -3,7 +3,8 @@ import Filters from '../Filters/Filters';
 import Tagger from '../Tagger/Tagger';
 import { Button, Search, Toolbar } from '@gdi/web-base-ui';
 import { FilterContext } from '../../context/Filter.context';
-import { flatten, isEmpty } from 'lodash';
+import flatten from 'lodash/flatten';
+import isEmpty from 'lodash/isEmpty';
 import { FilterPart, IBarAction } from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
 import {

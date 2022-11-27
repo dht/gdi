@@ -13,3 +13,5 @@ export const LayoutContainer = () => {
         <LayoutVisualContainer />
     );
 };
+
+export default LayoutContainer;

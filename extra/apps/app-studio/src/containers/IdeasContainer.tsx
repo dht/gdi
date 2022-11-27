@@ -6,3 +6,5 @@ import { selectors } from '../selectors';
 export const IdeasContainer = () => {
     return <Ideas />;
 };
+
+export default IdeasContainer;

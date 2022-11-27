@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const LogoContainer = () => {
     return <Logo />;
 };
+
+export default LogoContainer;

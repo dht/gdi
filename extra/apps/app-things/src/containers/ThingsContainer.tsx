@@ -30,3 +30,5 @@ export const ThingsContainer = () => {
         />
     );
 };
+
+export default ThingsContainer;

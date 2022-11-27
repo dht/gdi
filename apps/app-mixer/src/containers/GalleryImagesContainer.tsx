@@ -53,3 +53,5 @@ export const GalleryImagesContainer = (_props: GalleyImagesContainerProps) => {
         />
     );
 };
+
+export default GalleryImagesContainer;

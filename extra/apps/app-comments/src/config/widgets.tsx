@@ -1,7 +1,8 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { CommentsContainer } from '../containers/CommentsContainer';
 import { APP_ID } from './ids';
+
+const CommentsContainer = React.lazy(() => import('../containers/CommentsContainer')); // prettier-ignore
 
 export enum CommentsWidgets {
     Comments = 'comments.Comments',

@@ -12,7 +12,6 @@ import { initApp as initPpl } from '@gdi/app-ppl';
 import { initApp as initProducts } from '@gdi/app-products';
 import { initApp as initSales } from '@gdi/app-sales';
 import { initApp as initSoundboard } from '@gdi/app-soundboard';
-import { initApp as initStudio } from '@gdi/app-studio';
 import { initApp as initTasks } from '@gdi/app-tasks';
 import { initApp as initThings } from '@gdi/app-things';
 import { initApp as initVoice } from '@gdi/app-voice';
@@ -32,7 +31,6 @@ export const initializersExtra = {
     products: initProducts,
     sales: initSales,
     soundboard: initSoundboard,
-    studio: initStudio,
     tasks: initTasks,
     things: initThings,
     voice: initVoice,

@@ -30,3 +30,5 @@ export const CartsContainer = () => {
         />
     );
 };
+
+export default CartsContainer;

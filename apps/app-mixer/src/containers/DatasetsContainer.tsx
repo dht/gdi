@@ -147,3 +147,5 @@ export const DatasetsContainer = () => {
         />
     );
 };
+
+export default DatasetsContainer;

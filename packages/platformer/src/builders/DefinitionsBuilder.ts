@@ -1,5 +1,5 @@
 import { IDefinitionsBuilder } from '../types';
-import { merge } from 'lodash';
+import merge from 'lodash/merge';
 
 type DefinitionsPerApp = Record<string, Partial<ICrudDefinitionsPerItemType>>;
 

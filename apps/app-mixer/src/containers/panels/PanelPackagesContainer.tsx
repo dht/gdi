@@ -8,3 +8,5 @@ export const PanelPackagesContainer = (_props: any) => {
 
     return <Packages items={packages} />;
 };
+
+export default PanelPackagesContainer;

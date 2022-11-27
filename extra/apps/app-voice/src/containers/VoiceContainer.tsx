@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const VoiceContainer = () => {
     return <Voice />;
 };
+
+export default VoiceContainer;

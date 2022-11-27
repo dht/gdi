@@ -9,7 +9,7 @@ import {
 import { Code } from '@gdi/web-ui';
 import { Button, Pivot, PivotItem } from '@gdi/web-ui';
 import { useEnter } from '@gdi/hooks';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/isequal';
 import { useToggle } from 'react-use';
 
 export type FlexPropertiesProps = {
