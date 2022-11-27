@@ -1,20 +1,21 @@
-import styled from 'styled-components';
-import { MyServicesColors } from './MyServices';
+import styled, { css } from 'styled-components';
+import { MyResumeColors } from './MyResume';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
-export const Container = styled.div<{ colors: MyServicesColors }>`
+export const Container = styled.div<{ colors: MyResumeColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#223'};
+    background-color: ${(props) => props.colors.background || '#112'};
     display: flex;
     padding: 100px 0 90px;
     flex-direction: column;
     font-family: ${(props) => props.theme.fontFamily};
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         height: auto;
         max-height: none;
-        padding: 80px 20px;
-    }
+        padding: 80px 0;
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -26,17 +27,52 @@ export const Wrapper = styled.div`
     justify-content: center;
     flex: 1;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         flex-direction: column;
-    }
+        width: auto;
+    `)}
 `;
 
-export const Resume = styled.div`
+export const H2 = styled.h2`
+    font-size: 37px;
+    max-width: 400px;
+    margin: 0;
+    padding: 0;
+
+    ${mobile(css`
+        margin-top: 40px;
+        text-align: center;
+        font-size: 40px;
+        line-height: 58px;
+    `)}
+`;
+
+export const Description = styled.p`
+    font-size: 18px;
+    max-width: 500px;
+    text-align: justify;
+    line-height: 29px;
+    color: rgba(255, 255, 255, 0.6);
+
+    ${mobile(css`
+        line-height: 34px;
+        font-size: 22px;
+        font-weight: 300;
+        text-align: center;
+    `)}
+`;
+
+export const ResumeRow = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     flex: 1;
     width: 1200px;
+
+    ${mobile(css`
+        width: auto;
+        flex-direction: column;
+    `)}
 `;
 
 export const ResumeColumn = styled.div`
@@ -44,6 +80,10 @@ export const ResumeColumn = styled.div`
     margin: 30px 50px;
     display: flex;
     flex-direction: column;
+
+    ${mobile(css`
+        margin: 30px 0;
+    `)}
 `;
 
 export const IconWrapper = styled.div`
@@ -57,6 +97,10 @@ export const IconWrapper = styled.div`
     i {
         font-size: 40px;
     }
+
+    ${mobile(css`
+        display: none;
+    `)}
 `;
 
 export const ResumeTitle = styled.h3`
@@ -68,6 +112,10 @@ export const ResumeTitle = styled.h3`
     flex-direction: row;
     align-items: center;
     font-variation-settings: 'wdth' 115, 'wght' 250;
+
+    ${mobile(css`
+        font-size: 34px;
+    `)}
 `;
 
 export const ResumeTitleText = styled.div`
@@ -75,6 +123,10 @@ export const ResumeTitleText = styled.div`
     flex: 1;
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 8px;
+
+    ${mobile(css`
+        text-align: center;
+    `)}
 `;
 
 export const JobTitle = styled.div`
@@ -84,10 +136,10 @@ export const JobTitle = styled.div`
     margin-top: 8px;
     margin-bottom: 10px;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
+        font-size: 28px;
         text-align: center;
-        font-size: 42px;
-    }
+    `)}
 `;
 
 export const Row = styled.div`
@@ -95,6 +147,11 @@ export const Row = styled.div`
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+
+    ${mobile(css`
+        flex-direction: column;
+        align-items: center;
+    `)}
 `;
 
 export const Period = styled.div`
@@ -102,6 +159,11 @@ export const Period = styled.div`
     flex-direction: row;
     align-items: center;
     font-size: 21px;
+
+    ${mobile(css`
+        margin-top: 8px;
+        color: goldenrod;
+    `)}
 `;
 
 export const Year = styled.div``;
@@ -116,38 +178,10 @@ export const JobCompany = styled.div`
     font-variation-settings: 'wdth' 105, 'wght' 350;
     color: gold;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
+        font-size: 28px;
         text-align: center;
-        font-size: 42px;
-    }
-`;
-
-export const H2 = styled.h2`
-    font-size: 37px;
-    max-width: 400px;
-    margin: 0;
-    padding: 0;
-
-    @media (max-width: 768px) {
-        text-align: center;
-        font-size: 45px;
-        line-height: 58px;
-    }
-`;
-
-export const Description = styled.p`
-    font-size: 18px;
-    max-width: 500px;
-    text-align: justify;
-    line-height: 29px;
-    color: rgba(255, 255, 255, 0.6);
-
-    @media (max-width: 768px) {
-        line-height: 34px;
-        font-size: 22px;
-        font-weight: 300;
-        text-align: center;
-    }
+    `)}
 `;
 
 export const Items = styled.div``;
@@ -155,4 +189,19 @@ export const Items = styled.div``;
 export const Item = styled.div`
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
     padding: 20px;
+`;
+
+export const JobDescription = styled.p`
+    font-size: 18px;
+    max-width: 500px;
+    text-align: justify;
+    line-height: 29px;
+    color: rgba(255, 255, 255, 0.6);
+
+    ${mobile(css`
+        line-height: 34px;
+        font-size: 22px;
+        font-weight: 300;
+        text-align: center;
+    `)}
 `;

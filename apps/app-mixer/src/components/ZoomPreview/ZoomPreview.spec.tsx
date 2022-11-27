@@ -1,13 +1,13 @@
-import { ImportExportWidgetDriver } from './ImportExportWidget.driver';
+import { ZoomPreviewDriver } from './ZoomPreview.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('ImportExportWidget', () => {
-    let driver: ImportExportWidgetDriver;
+describe('ZoomPreview', () => {
+    let driver: ZoomPreviewDriver;
 
     beforeAll(() => {
-        driver = new ImportExportWidgetDriver();
+        driver = new ZoomPreviewDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('ImportExportWidget', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ImportExportWidget-container');
+        expect(containerClassName).toContain('ZoomPreview-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('ImportExportWidget', () => {
     });
 });
 
-describe('ImportExportWidget snapshots', () => {
-    let driver: ImportExportWidgetDriver;
+describe('ZoomPreview snapshots', () => {
+    let driver: ZoomPreviewDriver;
 
     beforeAll(() => {
-        driver = new ImportExportWidgetDriver();
+        driver = new ZoomPreviewDriver();
     });
 
     it('should match snapshot', () => {

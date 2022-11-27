@@ -7,8 +7,7 @@ export const Container = styled.div<{ extra: HeroExtra }>`
     background-image: url(${(props) => props.extra.imageUrl});
     background-size: cover;
     background-position: center bottom;
-    height: 80vh;
-    max-height: 900px;
+    height: ${(props) => props.theme.vh(88)};
     display: flex;
     font-family: ${(props) => props.theme.fontFamily};
 `;

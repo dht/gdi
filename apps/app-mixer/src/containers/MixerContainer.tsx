@@ -59,10 +59,7 @@ export const MixerContainer = () => {
                         );
                         break;
                     case 'preview':
-                        const popup = window.open(
-                            document.location.origin + '/preview',
-                            '_blank'
-                        );
+                        invokeEvent('navigate', { path: '/admin/preview' });
                         break;
                     case 'download':
                         dispatch({ type: 'EXPORT_PAGE' });

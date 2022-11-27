@@ -5,6 +5,7 @@ export const ContainerMobile = styled.div`
     width: 380px;
     border-radius: 30px;
     max-width: 400px;
+    max-height: 800px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;

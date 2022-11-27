@@ -8,7 +8,7 @@ import { breakpoints } from '../utils/breakpoints.data';
 import { useCustomEvent } from './useCustomEvent';
 
 export function useStyledTheme(languageCode: string, isRtl: boolean) {
-    const { width } = useWidth();
+    const { width, height } = useWidthHeight();
 
     const breakpoint = useMemo(() => {
         return getCurrentBreakpoint(breakpoints, width);
@@ -127,6 +127,14 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                     direction: [value, suffix].join(' '),
                 };
             },
+            vh: (value: number) => {
+                const parsedHeight = Math.floor((value / 100) * height);
+                return `${parsedHeight}px`;
+            },
+            vw: (value: number) => {
+                const parsedWidth = Math.floor((value / 100) * width);
+                return `${parsedWidth}px`;
+            },
             device: (
                 resolutionId: IResolution,
                 css: React.CSSProperties,
@@ -137,6 +145,8 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                     resolutionId
                 );
 
+                console.log('bp ->', bp);
+
                 if (!bp || !breakpoint) {
                     return;
                 }
@@ -145,6 +155,8 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                 const isLower = bp.index > breakpoint.index;
 
                 if (isEqual || (isLower && orLower)) {
+                    console.log('123 ->', 123);
+
                     return css;
                 }
             },
@@ -154,14 +166,15 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                 : "'Encode Sans', Courier, monospace;",
             isRtl,
         };
-    }, [isRtl, breakpoint]);
+    }, [isRtl, breakpoint, width, height]);
 
     return theme;
 }
 
-export function useWidth() {
-    const { width: windowWidth } = useWindowSize();
+export function useWidthHeight() {
+    const { width: windowWidth, height: windowHeight } = useWindowSize();
     const [width, setWidth] = useState(windowWidth);
+    const [height, setHeight] = useState(windowHeight);
 
     useEffect(() => {
         setWidth(windowWidth);
@@ -171,13 +184,24 @@ export function useWidth() {
         setWidth(data.width);
     });
 
-    useCustomEvent('force-width-mobile', () => {
+    useCustomEvent('force-height', (data: Json) => {
+        setHeight(data.height);
+    });
+
+    useCustomEvent('force-dimensions-mobile', () => {
         setWidth(380);
+        setHeight(765);
     });
 
-    useCustomEvent('force-width-clear', () => {
+    useCustomEvent('force-dimensions-desktop', () => {
+        setWidth(1440);
+        setHeight(940);
+    });
+
+    useCustomEvent('force-dimensions-clear', () => {
         setWidth(windowWidth);
+        setHeight(windowHeight);
     });
 
-    return { width };
+    return { width, height };
 }

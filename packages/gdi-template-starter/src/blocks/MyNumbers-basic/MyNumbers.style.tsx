@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { MyNumbersColors } from './MyNumbers';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ colors: MyNumbersColors }>`
     flex: 1;
@@ -9,11 +10,11 @@ export const Container = styled.div<{ colors: MyNumbersColors }>`
     padding: 100px 0;
     font-family: ${(props) => props.theme.fontFamily};
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         height: auto;
         max-height: none;
-        padding: 80px 20px;
-    }
+        padding: 80px 0;
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -22,16 +23,16 @@ export const Wrapper = styled.div`
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
 `;
 
 export const Numbers = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    ${mobile(css`
+        flex-direction: column;
+    `)}
 `;
 
 export const Number = styled.div`

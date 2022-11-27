@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div`
     display: flex;
@@ -36,6 +37,10 @@ export const SwitchWrapper = styled.div`
 
     > div {
     }
+
+    ${mobile(css`
+        display: none;
+    `)}
 `;
 
 export const Title = styled.div`

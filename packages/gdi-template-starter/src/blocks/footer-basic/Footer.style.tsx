@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FooterColors } from './Footer';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ colors: FooterColors }>`
     flex: 1;
@@ -9,11 +10,11 @@ export const Container = styled.div<{ colors: FooterColors }>`
     padding: 40px 0;
     font-family: ${(props) => props.theme.fontFamily};
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         height: auto;
         max-height: none;
         padding: 80px 20px;
-    }
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -25,9 +26,9 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     flex: 1;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         flex-direction: column;
-    }
+    `)}
 `;
 
 export const Copy = styled.div`

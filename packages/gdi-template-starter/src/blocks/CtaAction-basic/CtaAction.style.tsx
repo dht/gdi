@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CtaActionColors } from './CtaAction';
 import { darken } from 'polished';
 import { BaseButton } from '../../components/Base.style';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ colors: CtaActionColors }>`
     flex: 1;
@@ -13,6 +14,10 @@ export const Container = styled.div<{ colors: CtaActionColors }>`
     display: flex;
     --bk-light: gold;
     font-family: ${(props) => props.theme.fontFamily};
+
+    ${mobile(css`
+        padding: 100px 50px;
+    `)}
 
     &::before {
         background-image: url(https://static-b9ebe.web.app/ny2.webp);
@@ -41,9 +46,9 @@ export const Wrapper = styled.div`
     flex-direction: row;
     align-items: center;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         flex-direction: column;
-    }
+    `)}
 `;
 
 export const H3 = styled.h3`

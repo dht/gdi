@@ -1,8 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { TopHeaderColors } from './TopHeader';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
-export const Container = styled.div<{ colors: TopHeaderColors }>`
+export const Container = styled.div<{
+    colors: TopHeaderColors;
+    position: string;
+}>`
     display: flex;
     position: ${(props) => props.position};
     top: ${(props) => (props.position === 'absolute' ? '10px' : 0)};
@@ -15,11 +19,11 @@ export const Container = styled.div<{ colors: TopHeaderColors }>`
     background-color: ${(props) => props.colors.background ?? 'transparent'};
     font-family: ${(props) => props.theme.fontFamily};
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         height: auto;
         max-height: none;
         padding: 80px 20px;
-    }
+    `)}
 
     &.inverted {
         background-color: rgba(255, 255, 255, 0.9);
@@ -35,9 +39,9 @@ export const Wrapper = styled.div`
     padding: 10px 0;
     flex: 1;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         flex-direction: column;
-    }
+    `)}
 `;
 
 export const Actions = styled.div`
@@ -45,11 +49,11 @@ export const Actions = styled.div`
     flex-direction: row;
     align-items: center;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         margin-bottom: 50px;
-    }
+    `)}
 `;

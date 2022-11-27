@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { BaseButton } from '../../components/Base.style';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ imageUrl: string }>`
     flex: 1;
     background-color: #112;
     position: relative;
-    height: 600px;
-    padding: 20px 0 100px;
+    padding: ${(props) => props.theme.vh(20)} 40px;
     box-sizing: border-box;
     display: flex;
     --bk-light: #112;
@@ -30,8 +30,6 @@ export const Container = styled.div<{ imageUrl: string }>`
 
 export const Wrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
     max-width: 1440px;
     margin: 0 auto;
@@ -40,14 +38,18 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
+    ${mobile(css`
+        margin: 0;
+    `)}
 `;
 
 export const H3 = styled.h3`
     font-size: 50px;
     font-variation-settings: 'wdth' 130, 'wght' 200;
+
+    ${mobile(css`
+        font-size: 40px;
+    `)}
 `;
 
 export const Button = styled(BaseButton)``;

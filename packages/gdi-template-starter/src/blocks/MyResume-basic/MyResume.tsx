@@ -5,7 +5,7 @@ import {
     Wrapper,
     H2,
     Description,
-    Resume,
+    ResumeRow,
     ResumeColumn,
     ResumeTitle,
     ResumeTitleText,
@@ -18,6 +18,7 @@ import {
     Dash,
     Row,
     IconWrapper,
+    JobDescription,
 } from './MyResume.style';
 import { useDataset } from '@gdi/engine';
 
@@ -64,7 +65,7 @@ export function MyResume(props: MyResumeProps) {
                     </Period>
                 </Row>
                 <JobTitle>{jobTitle}</JobTitle>
-                <Description>{description}</Description>
+                <JobDescription>{description}</JobDescription>
             </Item>
         );
     }
@@ -82,7 +83,7 @@ export function MyResume(props: MyResumeProps) {
             <Wrapper>
                 <H2>{header}</H2>
                 <Description>{description}</Description>
-                <Resume>
+                <ResumeRow>
                     <ResumeColumn>
                         <ResumeTitle>
                             <ResumeTitleText>Resume</ResumeTitleText>
@@ -101,7 +102,7 @@ export function MyResume(props: MyResumeProps) {
                         </ResumeTitle>
                         <Items>{renderItems(experienceItems)}</Items>
                     </ResumeColumn>
-                </Resume>
+                </ResumeRow>
             </Wrapper>
         </Container>
     );

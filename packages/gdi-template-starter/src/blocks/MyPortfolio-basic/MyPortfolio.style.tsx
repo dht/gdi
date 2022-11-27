@@ -1,20 +1,21 @@
-import styled from 'styled-components';
-import { MyServicesColors } from './MyServices';
+import styled, { css } from 'styled-components';
+import { MyPortfolioColors } from './MyPortfolio';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
-export const Container = styled.div<{ colors: MyServicesColors }>`
+export const Container = styled.div<{ colors: MyPortfolioColors }>`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#223'};
+    background-color: #112;
     display: flex;
     flex-direction: column;
     font-family: ${(props) => props.theme.fontFamily};
     padding: 100px 0 90px;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         height: auto;
         max-height: none;
-        padding: 80px 20px;
-    }
+        padding: 80px 0;
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -25,20 +26,16 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     justify-content: center;
     flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
 `;
 
 export const Slogan = styled.div`
     font-size: 42px;
     font-weight: bold;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         text-align: center;
         font-size: 42px;
-    }
+    `)}
 `;
 
 export const H2 = styled.h2`
@@ -47,11 +44,11 @@ export const H2 = styled.h2`
     margin: 0;
     padding: 0;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         text-align: center;
         font-size: 45px;
         line-height: 58px;
-    }
+    `)}
 `;
 
 export const Description = styled.p`
@@ -61,16 +58,20 @@ export const Description = styled.p`
     line-height: 29px;
     margin-bottom: 80px;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         line-height: 34px;
         font-size: 22px;
         font-weight: 300;
         text-align: center;
-    }
+    `)}
 `;
 
 export const Portfolio = styled.div`
     display: flex;
     flex: 1;
     min-width: 1200px;
+
+    ${mobile(css`
+        min-width: ${(props) => props.theme.vw(100)};
+    `)}
 `;

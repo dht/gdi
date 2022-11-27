@@ -26,10 +26,12 @@ export function LocalGallery(props: LocalGalleryProps) {
     const tags = useTags(props.items);
     const animated = useDelay(300);
 
+    const isMobile = width < 600;
+
     const items = useItemsPosition(props.items, currentTag, {
         width,
-        itemsPerRow: 4,
-        itemHeight: 290,
+        itemsPerRow: isMobile ? 2 : 4,
+        itemHeight: isMobile ? 150 : 290,
     });
 
     function renderItem(item: Json) {
