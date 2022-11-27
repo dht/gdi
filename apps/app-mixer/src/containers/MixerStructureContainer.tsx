@@ -52,3 +52,5 @@ export const MixerStructureContainer = () => {
         />
     );
 };
+
+export default MixerStructureContainer;

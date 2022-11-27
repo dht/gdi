@@ -13,7 +13,8 @@ import { FormProvider, useForm, UseFormWatch } from 'react-hook-form';
 import { useMount, useSetState } from 'react-use';
 import { Submit } from '../Submit/Submit';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { get, isEmpty } from 'lodash';
+import get from 'lodash/get';
+import isEmpty from 'lodash/isEmpty';
 import { rulesToYup } from '../../utils/yup';
 
 export function Form(props: IFormProps) {

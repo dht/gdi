@@ -1,7 +1,8 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { CartsContainer } from '../containers/CartsContainer';
 import { APP_ID } from './ids';
+
+const CartsContainer = React.lazy(() => import('../containers/CartsContainer')); // prettier-ignore
 
 export enum CartsWidgets {
     Carts = 'carts.Carts',

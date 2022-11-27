@@ -30,3 +30,5 @@ export const CampaignsContainer = () => {
         />
     );
 };
+
+export default CampaignsContainer;

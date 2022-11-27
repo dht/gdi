@@ -1,4 +1,4 @@
-import { get, sample } from 'lodash';
+import get from 'lodash/get';
 
 export const getWidgetTypeFromTags = (tags: string[] = []) => {
     const firstTypeTag = tags.find((item) => item.match(/type-[a-z]+/i));

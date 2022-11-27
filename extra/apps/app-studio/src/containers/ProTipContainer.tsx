@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const ProTipContainer = () => {
     return <ProTip />;
 };
+
+export default ProTipContainer;

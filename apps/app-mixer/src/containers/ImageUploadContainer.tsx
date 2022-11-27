@@ -57,3 +57,5 @@ export const ImageUploadContainer = (props: ImageUploadContainerProps) => {
 
     return <ImageUpload allOptions={allOptions} callbacks={callbacks} />;
 };
+
+export default ImageUploadContainer;

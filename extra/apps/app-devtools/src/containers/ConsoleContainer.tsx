@@ -10,3 +10,5 @@ export const ConsoleContainer = () => {
 
     return <Console logs={logs} />;
 };
+
+export default ConsoleContainer;

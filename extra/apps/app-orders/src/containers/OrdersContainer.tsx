@@ -30,3 +30,5 @@ export const OrdersContainer = () => {
         />
     );
 };
+
+export default OrdersContainer;

@@ -10,3 +10,5 @@ export const MiniContainer = () => {
 
     return <Mini activeTask={activeTask} />;
 };
+
+export default MiniContainer;

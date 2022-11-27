@@ -24,3 +24,5 @@ export const SpeakButtonContainer = () => {
         />
     );
 };
+
+export default SpeakButtonContainer;

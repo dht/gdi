@@ -45,3 +45,5 @@ export const PplContainer = () => {
         />
     );
 };
+
+export default PplContainer;

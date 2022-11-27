@@ -31,3 +31,5 @@ export const ArticlesContainer = () => {
         />
     );
 };
+
+export default ArticlesContainer;

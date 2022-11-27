@@ -15,7 +15,6 @@ export * from './gdi-store-weather';
 export * from './gdi-store-ppl';
 export * from './gdi-store-products';
 export * from './gdi-store-soundboard';
-export * from './gdi-store-studio';
 export * from './gdi-store-tasks';
 export * from './gdi-store-voice';
 export * from './gdi-store-site';

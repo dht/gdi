@@ -1,4 +1,4 @@
-import { cloneDeep, get, set } from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 type Translate = (key: string) => string;
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Wrapper, IWidget } from '@gdi/platformer';
-import { Overview3dContainer } from '../containers/Overview3dContainer';
-import { OverviewNavigateContainer } from '../containers/OverviewNavigateContainer';
 import { actions } from '../store';
 import { APP_ID } from './ids';
+
+const OverviewContainer = React.lazy(() => import('../containers/OverviewContainer')); // prettier-ignore
+const OverviewNavigateContainer = React.lazy(() => import('../containers/OverviewNavigateContainer')); // prettier-ignore
 
 export enum DashboardWidgets {
     Overview = 'dashboard.Overview',
@@ -21,7 +22,7 @@ export const widgets: IWidget[] = [
         component: (props: any) => (
             <Wrapper
                 appId={APP_ID}
-                component={Overview3dContainer}
+                component={OverviewContainer}
                 props={props}
             />
         ),

@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import chalk from 'chalk';
-import { snakeCase } from 'lodash';
+import snakeCase from 'lodash/snakeCase';
 
 const cobolCase = (str: string) =>
     snakeCase(str).replace(/-/g, '_').toUpperCase();

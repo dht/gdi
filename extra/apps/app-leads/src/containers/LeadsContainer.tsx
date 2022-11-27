@@ -30,3 +30,5 @@ export const LeadsContainer = () => {
         />
     );
 };
+
+export default LeadsContainer;

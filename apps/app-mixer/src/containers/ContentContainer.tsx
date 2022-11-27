@@ -55,3 +55,5 @@ export const ContentContainer = (props: ContentContainerProps) => {
         />
     );
 };
+
+export default ContentContainer;

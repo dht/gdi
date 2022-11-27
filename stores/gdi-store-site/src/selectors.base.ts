@@ -1,8 +1,8 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { getWidgetTypeFromTags } from './utils/widgets';
 import { ISiteStore } from './types';
-import { mapValues, set } from 'lodash';
+import mapValues from 'lodash/mapValues';
+import set from 'lodash/set';
 import { sortBy } from 'shared-base';
 
 export const $i = (state: { site: ISiteStore }) => state.site;

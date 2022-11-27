@@ -1,10 +1,12 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { MiniContainer } from '../containers/singles/MiniContainer';
-import { TicketsContainer } from '../containers/TicketsContainer';
-import { ProjectsContainer } from '../containers/ProjectsContainer';
-import { ProjectSwitchContainer } from '../containers/ProjectSwitchContainer';
+
 import { APP_ID } from './ids';
+
+const MiniContainer = React.lazy(() => import('../containers/singles/MiniContainer')); // prettier-ignore
+const TicketsContainer = React.lazy(() => import('../containers/TicketsContainer')); // prettier-ignore
+const ProjectsContainer = React.lazy(() => import('../containers/ProjectsContainer')); // prettier-ignore
+const ProjectSwitchContainer = React.lazy(() => import('../containers/ProjectSwitchContainer')); // prettier-ignore
 
 export enum TasksWidgets {
     Tickets = 'tasks.Tickets',

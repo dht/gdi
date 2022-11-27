@@ -28,3 +28,5 @@ export const LiveTaskContainer = () => {
 
     return <LiveTask callbacks={callbacks} activeTask={activeTask} />;
 };
+
+export default LiveTaskContainer;

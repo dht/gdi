@@ -37,3 +37,5 @@ export const ThingsSheetsContainer = () => {
         />
     );
 };
+
+export default ThingsSheetsContainer;

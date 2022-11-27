@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const RatingContainer = () => {
     return <Rating />;
 };
+
+export default RatingContainer;

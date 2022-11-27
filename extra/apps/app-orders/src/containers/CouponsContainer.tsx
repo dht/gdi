@@ -30,3 +30,5 @@ export const CouponsContainer = () => {
         />
     );
 };
+
+export default CouponsContainer;

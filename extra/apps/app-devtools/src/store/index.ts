@@ -18,7 +18,6 @@ import { ppl } from '@gdi/store-ppl';
 import { products } from '@gdi/store-products';
 import { sales } from '@gdi/store-sales';
 import { soundboard } from '@gdi/store-soundboard';
-import { studio } from '@gdi/store-studio';
 import { tasks } from '@gdi/store-tasks';
 import { things } from '@gdi/store-things';
 import { voice } from '@gdi/store-voice';
@@ -45,7 +44,6 @@ export const actions = {
     ...products.actions,
     ...sales.actions,
     ...soundboard.actions,
-    ...studio.actions,
     ...tasks.actions,
     ...things.actions,
     ...voice.actions,
@@ -74,7 +72,6 @@ export const selectors = {
         ...products.selectors.raw,
         ...sales.selectors.raw,
         ...soundboard.selectors.raw,
-        ...studio.selectors.raw,
         ...tasks.selectors.raw,
         ...things.selectors.raw,
         ...voice.selectors.raw,
@@ -101,7 +98,6 @@ export const selectors = {
         ...products.selectors.base,
         ...sales.selectors.base,
         ...soundboard.selectors.base,
-        ...studio.selectors.base,
         ...tasks.selectors.base,
         ...things.selectors.base,
         ...voice.selectors.base,
@@ -128,7 +124,6 @@ export const selectors = {
         ...products.selectors.forms,
         ...sales.selectors.forms,
         ...soundboard.selectors.forms,
-        ...studio.selectors.forms,
         ...tasks.selectors.forms,
         ...things.selectors.forms,
         ...voice.selectors.forms,
@@ -155,7 +150,6 @@ export const selectors = {
         ...products.selectors.tables,
         ...sales.selectors.tables,
         ...soundboard.selectors.tables,
-        ...studio.selectors.tables,
         ...tasks.selectors.tables,
         ...things.selectors.tables,
         ...voice.selectors.tables,
@@ -182,7 +176,6 @@ export const selectors = {
         products: products.selectors.options,
         sales: sales.selectors.options,
         soundboard: soundboard.selectors.options,
-        studio: studio.selectors.options,
         tasks: tasks.selectors.options,
         things: things.selectors.options,
         voice: voice.selectors.options,
@@ -194,7 +187,7 @@ export const reducers = devtools.reducers;
 
 export const initialState = devtools.initialState;
 
-export const endpointsConfig = {};
+export const endpointsConfig = devtools.endpointsConfig;
 
 export const clearState = (store: any) => {
     devtools.clearState(store);

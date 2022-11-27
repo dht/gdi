@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 
 type Point = {
     x: number;

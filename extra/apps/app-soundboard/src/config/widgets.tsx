@@ -1,17 +1,18 @@
 import React from 'react';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { ProjectsTableContainer } from '../containers/ProjectsTableContainer';
-import { SoundboardTopContainer } from '../containers/SoundboardTopContainer';
-import { ScheduleTopContainer } from '../containers/ScheduleTopContainer';
-import { SquaresContainer } from '../containers/SquaresContainer';
-import { ScheduleTableContainer } from '../containers/ScheduleTableContainer';
-import { SwitcherContainer } from '../containers/SwitcherContainer';
-import { ScheduleCommandBarContainer } from '../containers/ScheduleCommandBarContainer';
-import { ScheduleClockContainer } from '../containers/ScheduleClockContainer';
-import { SimsContainer } from '../containers/SimsContainer';
-import { MiniContainer } from '../containers/MiniContainer';
-import { ScheduleClock2Container } from '../containers/ScheduleClock2Container';
 import { APP_ID } from './ids';
+
+const ProjectsTableContainer = React.lazy(() => import('../containers/ProjectsTableContainer')); // prettier-ignore
+const SoundboardTopContainer = React.lazy(() => import('../containers/SoundboardTopContainer')); // prettier-ignore
+const ScheduleTopContainer = React.lazy(() => import('../containers/ScheduleTopContainer')); // prettier-ignore
+const SquaresContainer = React.lazy(() => import('../containers/SquaresContainer')); // prettier-ignore
+const ScheduleTableContainer = React.lazy(() => import('../containers/ScheduleTableContainer')); // prettier-ignore
+const SwitcherContainer = React.lazy(() => import('../containers/SwitcherContainer')); // prettier-ignore
+const ScheduleCommandBarContainer = React.lazy(() => import('../containers/ScheduleCommandBarContainer')); // prettier-ignore
+const ScheduleClockContainer = React.lazy(() => import('../containers/ScheduleClockContainer')); // prettier-ignore
+const SimsContainer = React.lazy(() => import('../containers/SimsContainer')); // prettier-ignore
+const MiniContainer = React.lazy(() => import('../containers/MiniContainer')); // prettier-ignore
+const ScheduleClock2Container = React.lazy(() => import('../containers/ScheduleClock2Container')); // prettier-ignore
 
 export enum SoundboardWidgets {
     Squares = 'soundboard.Squares',

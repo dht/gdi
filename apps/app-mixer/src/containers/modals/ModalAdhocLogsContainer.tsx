@@ -28,3 +28,5 @@ export const ModalAdhocLogsContainer = () => {
         </Modal>
     );
 };
+
+export default ModalAdhocLogsContainer;

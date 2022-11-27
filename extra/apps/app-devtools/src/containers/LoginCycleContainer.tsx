@@ -52,3 +52,5 @@ export const LoginCycleContainer = (props: LoginCycleContainerProps) => {
         />
     );
 };
+
+export default LoginCycleContainer;

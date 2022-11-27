@@ -1,4 +1,4 @@
-import { max } from 'lodash';
+import max from 'lodash/max';
 import { sortBy } from 'shared-base';
 import { guid4 } from 'shared-base';
 

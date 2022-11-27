@@ -2,7 +2,7 @@ import * as base from './selectors.base';
 import { createSelector } from 'reselect';
 import { IMixerStore } from './types';
 import { sortBy } from 'shared-base';
-import { upperFirst } from 'lodash';
+import upperFirst from 'lodash/upperFirst';
 import { flattenInstanceProps } from 'shared-base';
 
 export const $i = (state: { mixer: IMixerStore }) => state.mixer;

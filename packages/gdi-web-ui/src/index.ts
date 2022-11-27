@@ -69,6 +69,7 @@ export {
     SocialIcon,
     SocialIcons,
     SpinButton,
+    Spinner,
     Switch,
     Tag,
     Tags,

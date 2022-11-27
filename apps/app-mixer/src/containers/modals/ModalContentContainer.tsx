@@ -30,3 +30,5 @@ export const ModalContentContainer = () => {
         </Modal>
     );
 };
+
+export default ModalContentContainer;

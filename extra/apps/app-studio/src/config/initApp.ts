@@ -9,7 +9,10 @@ import type { AppBuilders } from '@gdi/platformer';
 import i18n from './i18n';
 import p from '../../package.json';
 
-export const initAppStudio = (builders: AppBuilders) => {
+export const initAppStudio = (
+    builders: AppBuilders,
+    connectionType: ConnectionType
+) => {
     const {
         storeBuilder,
         selectorsBuilder,

@@ -1,8 +1,10 @@
 import React from 'react';
-import { AccountContainer } from '../containers/AccountContainer';
-import { ActiveAppsContainer } from '../containers/ActiveAppsContainer';
-import { SettingsContainer } from '../containers/SettingsContainer';
-import { SitePropertiesContainer } from '../containers/SitePropertiesContainer';
+
+const AccountContainer = React.lazy(() => import('../containers/AccountContainer')); // prettier-ignore
+const ActiveAppsContainer = React.lazy(() => import('../containers/ActiveAppsContainer')); // prettier-ignore
+const SettingsContainer = React.lazy(() => import('../containers/SettingsContainer')); // prettier-ignore
+const SitePropertiesContainer = React.lazy(() => import('../containers/SitePropertiesContainer')); // prettier-ignore
+
 import { IWidget, Wrapper } from '@gdi/platformer';
 import { actions } from '../store';
 import { APP_ID } from './ids';

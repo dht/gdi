@@ -27,3 +27,5 @@ export const MixerPanelContainer = () => {
         />
     );
 };
+
+export default MixerPanelContainer;

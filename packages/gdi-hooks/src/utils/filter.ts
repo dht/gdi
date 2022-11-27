@@ -1,4 +1,4 @@
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 import { sortBy } from 'shared-base';
 import { minutesPassed } from '@gdi/language';
 

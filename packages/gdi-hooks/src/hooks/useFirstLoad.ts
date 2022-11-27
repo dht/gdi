@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { isEmpty } from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 export type Callback = () => void;
 

@@ -85,3 +85,5 @@ export const LayoutTableContainer = () => {
         />
     );
 };
+
+export default LayoutTableContainer;

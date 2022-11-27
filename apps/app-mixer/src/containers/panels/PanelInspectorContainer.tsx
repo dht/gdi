@@ -19,3 +19,5 @@ export const PanelInspectorContainer = (_props: any) => {
 
     return <Inspector data={inspector} />;
 };
+
+export default PanelInspectorContainer;

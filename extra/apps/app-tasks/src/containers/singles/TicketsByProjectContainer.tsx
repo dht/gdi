@@ -40,3 +40,5 @@ export const TicketsByProjectContainer = () => {
         />
     );
 };
+
+export default TicketsByProjectContainer;

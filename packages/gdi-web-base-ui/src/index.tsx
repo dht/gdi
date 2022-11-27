@@ -40,6 +40,7 @@ export { Slider } from './components/Slider/Slider';
 export { SocialIcon } from './components/SocialIcon/SocialIcon';
 export { SocialIcons } from './components/SocialIcons/SocialIcons';
 export { SpinButton } from './components/SpinButton/SpinButton';
+export { Spinner } from './components/Spinner/Spinner';
 export { Switch } from './components/Switch/Switch';
 export { Tag } from './components/Tag/Tag';
 export { Tags } from './components/Tags/Tags';

@@ -64,3 +64,5 @@ export const PanelLibraryWidgetsContainer = (_props: any) => {
         />
     );
 };
+
+export default PanelLibraryWidgetsContainer;

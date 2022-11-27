@@ -18,3 +18,5 @@ export const ModalPlayModeContainer = () => {
 
     return <PlayMode onClose={onClose} showModal={showPlayModeMessage} />;
 };
+
+export default ModalPlayModeContainer;

@@ -1,4 +1,4 @@
-import { merge as _merge } from 'lodash';
+import _merge from 'lodash/merge';
 import { ISelectorsBucket, ISelectorsBuilder, ISelectorsByApp } from '../types';
 
 export class SelectorsBuilder implements ISelectorsBuilder {

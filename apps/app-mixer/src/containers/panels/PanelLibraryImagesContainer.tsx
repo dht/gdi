@@ -95,3 +95,5 @@ export const Top = styled.div`
 `;
 
 export const ElementWrapper = styled.div``;
+
+export default PanelLibraryImagesContainer;

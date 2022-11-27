@@ -116,3 +116,5 @@ export const LayoutVisualContainer = () => {
         />
     );
 };
+
+export default LayoutVisualContainer;

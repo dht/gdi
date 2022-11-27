@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const DomainHistoryContainer = () => {
     return <DomainHistory />;
 };
+
+export default DomainHistoryContainer;

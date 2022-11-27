@@ -20,3 +20,5 @@ export const FlexDesignerContainer = () => {
 
     return <FlexDesigner callbacks={callbacks} />;
 };
+
+export default FlexDesignerContainer;

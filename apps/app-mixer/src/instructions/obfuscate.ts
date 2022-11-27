@@ -1,6 +1,7 @@
 import { Entity, IMixerInstructions } from '../types';
 import { guid4 } from 'shared-base';
-import { get, set } from 'lodash';
+import get from 'lodash/get';
+import set from 'lodash/set';
 
 export function obfuscateInstructions(
     instructions: IMixerInstructions,

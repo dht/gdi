@@ -1,0 +1,19 @@
+{
+    "id": "InboxFilter",
+    "fields": [
+        {
+            "id": "date",
+            "title": "Date",
+            "cellType": "date",
+            "optionSelectorId": "$periods",
+            "allowMultiple": false
+        }
+    ],
+    "sort": [
+        {
+            "id": "date",
+            "text": "Date",
+            "value": "date"
+        }
+    ]
+}

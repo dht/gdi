@@ -5,19 +5,9 @@ export const routes: IRoutes = {
     userDrawer: `${ROOT}/users/:userId`,
     devtoolsDrawer: `${ROOT}/users/:userId`,
     devtoolsModal: `${ROOT}/announcement/:flavour/for/:name`,
-    catalog: `${ROOT}/catalog`,
 };
 
-export const menuItems: IMenuItem[] = [
-    {
-        path: routes.catalog,
-        icon: 'Diamond',
-        label: 'Catalog',
-        groupId: 'extra',
-        hidden: true,
-        order: 8,
-    },
-];
+export const menuItems: IMenuItem[] = [];
 
 export const contextBarItems: IContextBarItem[] = [
     {

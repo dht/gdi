@@ -8,7 +8,7 @@ import {
 import { extractTree } from './extractTree';
 import { nodeNames } from './mixerInstructions.maps';
 import { obfuscateInstructions } from './obfuscate';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import { actions } from '../store';
 
 export const parseMixerRequest = (

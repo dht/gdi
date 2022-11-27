@@ -13,3 +13,5 @@ export const TranscriptContainer = () => {
 
     return <Transcript showStateDrawer={showStateDrawer} />;
 };
+
+export default TranscriptContainer;

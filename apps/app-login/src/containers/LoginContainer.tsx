@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const LoginContainer = () => {
     return <Login />;
 };
+
+export default LoginContainer;

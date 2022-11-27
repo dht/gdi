@@ -42,3 +42,5 @@ export const TicketsContainer = () => {
         />
     );
 };
+
+export default TicketsContainer;

@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import { ITasksStore } from './types';
-import { pickBy } from 'lodash';
 
 export const $i = (state: { tasks: ITasksStore }) => state.tasks;
 export const $n = (): null => null;

@@ -6,3 +6,5 @@ import { selectors } from '../store';
 export const DomainHeaderContainer = () => {
     return <DomainHeader />;
 };
+
+export default DomainHeaderContainer;

@@ -28,3 +28,5 @@ export const PreviewContainer = () => {
         />
     );
 };
+
+export default PreviewContainer;

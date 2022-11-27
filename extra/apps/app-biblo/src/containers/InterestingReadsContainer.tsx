@@ -30,3 +30,5 @@ export const InterestingReadsContainer = () => {
         />
     );
 };
+
+export default InterestingReadsContainer;

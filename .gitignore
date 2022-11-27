@@ -19,3 +19,4 @@ clients/gdi-admin/config/vite.extra.ts
 package-lock.json
 .cloc
 .todos
+clients/gdi-admin/stats.html

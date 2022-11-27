@@ -31,3 +31,5 @@ export const SwitcherContainer = () => {
 
     return <Switcher value={value} options={options} onChange={onChange} />;
 };
+
+export default SwitcherContainer;

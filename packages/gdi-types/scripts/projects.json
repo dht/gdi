@@ -84,11 +84,6 @@
         "path": "extra/stores/gdi-store-soundboard",
         "types": "src/types.ts"
     },
-    "gdi-store-studio": {
-        "id": "gdi-store-studio",
-        "path": "extra/stores/gdi-store-studio",
-        "types": "src/types.ts"
-    },
     "gdi-store-tasks": {
         "id": "gdi-store-tasks",
         "path": "extra/stores/gdi-store-tasks",

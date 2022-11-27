@@ -1,19 +1,20 @@
 import React from 'react';
-import { BabylonContainer } from '../containers/BabylonContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
-import { LogoContainer } from '../containers/LogoContainer';
-import { ScheduleContainer } from '../containers/ScheduleContainer';
-import { PoeContainer } from '../containers/PoeContainer';
-import { SwitcherContainer } from '../containers/SwitcherContainer';
-import { IdeasContainer } from '../containers/IdeasContainer';
-import { IsoBrowserContainer } from '../containers/IsoBrowserContainer';
-import { DomainHeaderContainer } from '../containers/DomainHeaderContainer';
-import { DomainPanelContainer } from '../containers/DomainPanelContainer';
-import { DomainHistoryContainer } from '../containers/DomainHistoryContainer';
-import { ProTipContainer } from '../containers/ProTipContainer';
-import { RatingContainer } from '../containers/RatingContainer';
-import { LegendContainer } from '../containers/LegendContainer';
 import { APP_ID } from './ids';
+
+const BabylonContainer = React.lazy(() => import('../containers/BabylonContainer')); // prettier-ignore
+const LogoContainer = React.lazy(() => import('../containers/LogoContainer')); // prettier-ignore
+const ScheduleContainer = React.lazy(() => import('../containers/ScheduleContainer')); // prettier-ignore
+const PoeContainer = React.lazy(() => import('../containers/PoeContainer')); // prettier-ignore
+const SwitcherContainer = React.lazy(() => import('../containers/SwitcherContainer')); // prettier-ignore
+const IdeasContainer = React.lazy(() => import('../containers/IdeasContainer')); // prettier-ignore
+const IsoBrowserContainer = React.lazy(() => import('../containers/IsoBrowserContainer')); // prettier-ignore
+const DomainHeaderContainer = React.lazy(() => import('../containers/DomainHeaderContainer')); // prettier-ignore
+const DomainPanelContainer = React.lazy(() => import('../containers/DomainPanelContainer')); // prettier-ignore
+const DomainHistoryContainer = React.lazy(() => import('../containers/DomainHistoryContainer')); // prettier-ignore
+const ProTipContainer = React.lazy(() => import('../containers/ProTipContainer')); // prettier-ignore
+const RatingContainer = React.lazy(() => import('../containers/RatingContainer')); // prettier-ignore
+const LegendContainer = React.lazy(() => import('../containers/LegendContainer')); // prettier-ignore
 
 export enum StudioWidgets {
     Babylon = 'studio.Babylon',

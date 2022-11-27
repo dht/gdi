@@ -75,3 +75,5 @@ export const MixerTreeContainer = () => {
         />
     );
 };
+
+export default MixerTreeContainer;

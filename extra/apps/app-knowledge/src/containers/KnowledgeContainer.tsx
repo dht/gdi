@@ -30,3 +30,5 @@ export const KnowledgeContainer = () => {
         />
     );
 };
+
+export default KnowledgeContainer;

@@ -30,3 +30,5 @@ export const MoneyContainer = () => {
         />
     );
 };
+
+export default MoneyContainer;

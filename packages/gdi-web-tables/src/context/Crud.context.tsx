@@ -6,7 +6,7 @@ import { SelectionContext } from './Selection.context';
 import { useCrudOperations } from '../hooks/useCrudOperations';
 import { useLocalStorage } from 'react-use';
 import { useMemo, useRef, useContext } from '@gdi/hooks';
-import { get } from 'lodash';
+import get from 'lodash/get';
 
 type CrudContextProps = {
     id: string;

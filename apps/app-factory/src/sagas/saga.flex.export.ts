@@ -12,7 +12,7 @@ import { toast } from '@gdi/web-ui';
 
 import { downloadJson } from 'shared-base';
 import { dateFilename } from '@gdi/language';
-import { camelCase } from 'lodash';
+import camelCase from 'lodash/camelCase';
 
 type ActionExportLayout = {
     type: 'EXPORT_LAYOUT';

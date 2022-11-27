@@ -32,3 +32,5 @@ export const SwitcherContainer = () => {
         />
     );
 };
+
+export default SwitcherContainer;

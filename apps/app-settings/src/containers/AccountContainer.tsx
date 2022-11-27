@@ -9,3 +9,5 @@ export const AccountContainer = () => {
 
     return <Account me={me} users={users} />;
 };
+
+export default AccountContainer;

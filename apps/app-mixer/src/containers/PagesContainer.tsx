@@ -55,3 +55,5 @@ export const PagesContainer = () => {
         />
     );
 };
+
+export default PagesContainer;

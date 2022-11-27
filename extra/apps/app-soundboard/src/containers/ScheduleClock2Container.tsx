@@ -25,3 +25,5 @@ export const ScheduleClock2Container = () => {
         />
     );
 };
+
+export default ScheduleClock2Container;

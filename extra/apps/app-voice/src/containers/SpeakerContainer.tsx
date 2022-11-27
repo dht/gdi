@@ -8,3 +8,5 @@ export const SpeakerContainer = () => {
 
     return <Speaker isSpeaking={isSpeaking} />;
 };
+
+export default SpeakerContainer;
