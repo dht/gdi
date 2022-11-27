@@ -1,13 +1,13 @@
-import { useCustomEvent } from '@gdi/hooks';
-import React, { useState, useMemo, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useWindowSize } from 'react-use';
-import { breakpoints } from '../data/breakpoints';
 import {
     getCurrentBreakpoint,
     getCurrentBreakpointByResolutionId,
 } from '../utils/breakpoints';
+import { breakpoints } from '../utils/breakpoints.data';
+import { useCustomEvent } from './useCustomEvent';
 
-export function useTheme(languageCode: string, isRtl: boolean) {
+export function useStyledTheme(languageCode: string, isRtl: boolean) {
     const { width } = useWidth();
 
     const breakpoint = useMemo(() => {

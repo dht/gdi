@@ -7,7 +7,7 @@ import { Icon } from '@fluentui/react';
 
 export type ChoiceProps = {
     value?: string;
-    options: Options<any>;
+    options: IOption[];
     onChange: (value: string, isNew?: boolean) => void;
     onKeyDown?: (ev: React.KeyboardEvent<HTMLInputElement>) => void;
 };

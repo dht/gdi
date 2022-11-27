@@ -165,8 +165,7 @@ export const FilterContextProvider = (
                 patchState({ toolId });
             },
         }),
-        [state, filterCallbacks],
-        'callbacksFilter|state,filterCallbacks'
+        [state, filterCallbacks]
     );
 
     const value = useMemo(

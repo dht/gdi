@@ -13,6 +13,7 @@ export const Container = styled.div<{ imageUrl: string }>`
     background-image: url(${(props) => props.imageUrl});
     background-size: cover;
     background-position: center center;
+    position: relative;
 
     ${mobile(css`
         height: 100vh;

@@ -1,13 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { PhotoBooth } from '@gdi/web-ui';
-import { LibraryBuilder } from '@gdi/engine';
 import { initTemplate } from './template.init';
+import { LibraryBuilder } from '@gdi/engine';
+import { libraryDatasets, parseData } from '@gdi/datasets';
+import { PhotoBooth } from '@gdi/web-ui';
+import './index.scss';
 import '@gdi/web-base-ui/dist/normalize.css';
 import '@gdi/web-base-ui/dist/index.css';
 import '@gdi/web-ui/dist/index.css';
 import 'igrid/index.css';
-import './index.scss';
 
 const libraryBuilder = new LibraryBuilder();
 
@@ -19,10 +20,16 @@ const container = document.getElementById('root');
 
 if (container) {
     const root = createRoot(container);
+    const datasets = libraryDatasets;
+    const elements: any[] = [];
 
     root.render(
         <React.StrictMode>
-            <PhotoBooth widgets={widgets} />
+            <PhotoBooth
+                widgets={widgets}
+                datasets={parseData(datasets)}
+                elements={elements}
+            />
         </React.StrictMode>
     );
 }

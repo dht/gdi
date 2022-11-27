@@ -95,11 +95,11 @@ export function Masonry(props: MasonryProps) {
             columns,
             gutter,
             fixedRatio,
-            isRtl: theme.isRtl,
+            isRtl: (theme as any).isRtl,
         });
 
         setInnerHeight(positionResult.maxBottom);
-        setItemsWithPositions(positionResult.items);
+        setItemsWithPositions(positionResult.items as any);
     }, [width, items]);
 
     // find items in current viewport

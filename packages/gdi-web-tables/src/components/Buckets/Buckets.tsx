@@ -11,7 +11,11 @@ export type BucketsProps = {
     data: Json[];
     callbacks: {
         onAction: (actionId: string, data?: Json) => void;
-        onItemAction: (id: string, action: ItemActionType, data?: Json) => void;
+        onItemAction: (
+            id: string,
+            action: ItemActionType,
+            data?: Json
+        ) => Promise<boolean>;
     };
 };
 
@@ -57,7 +61,7 @@ export function Buckets(props: BucketsProps) {
                 const dataTags = getNewDataTagsByList(
                     scopedPermutationId,
                     item.dataTags ?? [],
-                    buckets,
+                    buckets as any,
                     destinationListId
                 );
 
@@ -85,7 +89,7 @@ export function Buckets(props: BucketsProps) {
                 const dataTags = getNewDataTagsByList(
                     scopedPermutationId,
                     [],
-                    buckets,
+                    buckets as any,
                     listId
                 );
 
@@ -118,6 +122,7 @@ export function Buckets(props: BucketsProps) {
     function renderInner() {
         return (
             <Trello
+                id={config.id}
                 lists={lists}
                 items={items}
                 callbacks={callbacks}

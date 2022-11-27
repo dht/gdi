@@ -87,8 +87,7 @@ export const SelectionContextProvider = (
                 setMode(selectionMode);
             },
         }),
-        [selectedIds, focusedId, mode],
-        'selection.callbacks|selectedIds,focusedId,mode'
+        [selectedIds, focusedId, mode]
     );
 
     const value = useMemo(
@@ -98,8 +97,7 @@ export const SelectionContextProvider = (
             selectionMode: mode,
             callbacks,
         }),
-        [callbacks, selectedIds, mode],
-        'selection.context.value|callbacks,selectedIds,mode'
+        [callbacks, selectedIds, mode]
     );
 
     return (

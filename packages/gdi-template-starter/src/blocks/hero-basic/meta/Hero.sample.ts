@@ -10,7 +10,7 @@ export const sampleData: ISampleDataPerFlavour = {
         },
         colors: {},
         extra: {
-            imageUrl: 'https://via.placeholder.com/350x150',
+            imageUrl: 'https://picsum.photos/seed/11/1557/882',
             socialDatasetId: 'social',
         },
     },

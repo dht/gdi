@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useBoolean, useMeasure } from 'react-use';
+import React, { useState } from 'react';
+import { useMeasure } from 'react-use';
 import {
     Container,
     Item,
@@ -7,12 +7,12 @@ import {
     SwitchWrapper,
     Title,
 } from './LocalGallery.style';
-import { Switch } from '@gdi/web-ui';
 import { useTags } from '../../hooks/useTags';
 import { useItemsPosition } from '../../hooks/useItemsPosition';
 import classnames from 'classnames';
 import { useDelay } from '../../hooks/useDelay';
-import LightBox from '../LightBox/Lightbox';
+import LightBox from '../LightBox/LightBox';
+import Switch from '../Switch/Switch';
 
 export type LocalGalleryProps = {
     items: Json[];

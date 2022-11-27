@@ -7,6 +7,7 @@ export const Container = styled.div<{ colors: FooterColors }>`
     background-color: ${(props) => props.colors.background || '#223'};
     display: flex;
     padding: 40px 0;
+    font-family: ${(props) => props.theme.fontFamily};
 
     @media (max-width: 768px) {
         height: auto;

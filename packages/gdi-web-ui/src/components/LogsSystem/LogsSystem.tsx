@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo } from 'react';
 import Draggable from 'react-draggable';
 import Logs from '../Logs/Logs';
 import { Container, Header } from './LogsSystem.style';
@@ -9,7 +9,6 @@ export type LogsSystemProps = {};
 
 export function LogsSystem(_props: LogsSystemProps) {
     const events = useSystemEvents();
-    const ref = useRef<HTMLDivElement>(null);
 
     const eventsSorted = useMemo(() => {
         return events.sort(sortBy('id'));
@@ -22,7 +21,6 @@ export function LogsSystem(_props: LogsSystemProps) {
             <Container
                 className='LogsSystem-container'
                 data-testid='LogsSystem-container'
-                nodeRef={ref}
             >
                 <Header>System Logs</Header>
                 <Logs items={eventsSorted} showData={true} />

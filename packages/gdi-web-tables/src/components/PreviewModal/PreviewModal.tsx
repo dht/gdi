@@ -1,6 +1,6 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import { Container } from './PreviewModal.style';
-import { Empty, Icon, Panel } from '@gdi/web-ui';
+import { Empty, Panel } from '@gdi/web-base-ui';
 import { previews } from './preview';
 import { SelectionContext } from '../../context/Selection.context';
 

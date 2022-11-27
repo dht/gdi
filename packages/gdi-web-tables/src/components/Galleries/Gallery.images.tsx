@@ -28,7 +28,7 @@ export function ImageGallery(props: ImageGalleryProps) {
             <AllProviders
                 id='imageGallery'
                 data={items}
-                definitions={definitions}
+                definitions={definitions as any}
                 callbacks={callbacks}
             >
                 <FilterBar
@@ -37,7 +37,7 @@ export function ImageGallery(props: ImageGalleryProps) {
                 />
                 <AnyGallery
                     itemType='image'
-                    definitions={definitions}
+                    definitions={definitions as any}
                     {...props}
                 />
             </AllProviders>

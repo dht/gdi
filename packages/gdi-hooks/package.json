@@ -1,6 +1,6 @@
 {
     "name": "@gdi/hooks",
-    "version": "0.0.30",
+    "version": "0.0.31",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -8,7 +8,7 @@
     },
     "dependencies": {
         "@gdi/language": "^0.0.26",
-        "@gdi/types": "^0.0.47",
+        "@gdi/types": "^0.0.48",
         "fuse.js": "^6.6.2",
         "lodash": "^4.17.21",
         "react-redux": "^8.0.4",

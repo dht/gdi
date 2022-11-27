@@ -8,6 +8,8 @@ export const sampleData: ISampleDataPerFlavour = {
             phoneNumber: '1234567890',
         },
         colors: {},
-        extra: {},
+        extra: {
+            imageUrl: 'https://static-b9ebe.web.app/ny1.webp',
+        },
     },
 };

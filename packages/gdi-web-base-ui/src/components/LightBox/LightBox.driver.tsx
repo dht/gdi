@@ -4,8 +4,7 @@ import { LightBox, LightBoxProps } from './LightBox';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LightBoxDriver extends BaseComponentDriver {
-    private props: Partial<LightBoxProps> = {
-    };
+    private props: Partial<LightBoxProps> = {};
 
     constructor() {
         super('LightBox');
@@ -21,7 +20,9 @@ export class LightBoxDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<LightBox {...(this.props as LightBoxProps)} />);
+            return this.snapshot(
+                <LightBox {...(this.props as LightBoxProps)} />
+            );
         },
     };
 

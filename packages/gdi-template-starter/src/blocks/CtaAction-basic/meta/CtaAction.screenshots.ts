@@ -1,37 +1,35 @@
-import type { IScreenshotsPerFlavour } from '@gdi/web-ui';
-
 export const screenshots: IScreenshotsPerFlavour = {
     normal: {
         desktop: {
             large: {
                 width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.cta action-basic.normal.desktop.large.webp',
-                urlIsRemote: false,
+                height: 416.6666666666667,
+                ratio: 2.4,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.ctaAction-basic.normal.desktop.large.webp?alt=media',
+                urlIsRemote: true,
             },
             thumb: {
-                width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.cta action-basic.normal.desktop.thumb.webp',
-                urlIsRemote: false,
+                width: 400,
+                height: 166.66666666666669,
+                ratio: 2.4,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.ctaAction-basic.normal.desktop.thumb.webp?alt=media',
+                urlIsRemote: true,
             },
         },
         mobile: {
             large: {
                 width: 500,
-                height: 1337,
-                ratio: 0.3739715781600598,
-                url: 'screenshot.gdi.cta action-basic.normal.mobile.large.webp',
-                urlIsRemote: false,
+                height: 202.70270270270268,
+                ratio: 2.466666666666667,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.ctaAction-basic.normal.mobile.large.webp?alt=media',
+                urlIsRemote: true,
             },
             thumb: {
-                width: 500,
-                height: 1337,
-                ratio: 0.3739715781600598,
-                url: 'screenshot.gdi.cta action-basic.normal.mobile.thumb.webp',
-                urlIsRemote: false,
+                width: 200,
+                height: 81.08108108108108,
+                ratio: 2.466666666666667,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.ctaAction-basic.normal.mobile.thumb.webp?alt=media',
+                urlIsRemote: true,
             },
         },
     },

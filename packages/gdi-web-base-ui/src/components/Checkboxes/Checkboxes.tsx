@@ -27,7 +27,7 @@ export function Checkboxes(props: CheckboxesProps) {
     const { id, groups, options, values } = props;
 
     const onCheck = useCallback(
-        (id: string, check: boolean) => {
+        (id: string, check?: boolean) => {
             props.onChange({
                 ...values,
                 [id]: check,
@@ -43,7 +43,7 @@ export function Checkboxes(props: CheckboxesProps) {
                 .reduce((acc, item: IOption) => {
                     acc[item.id] = true;
                     return acc;
-                }, {});
+                }, {} as Json);
 
             props.onChange({
                 ...values,
@@ -60,7 +60,7 @@ export function Checkboxes(props: CheckboxesProps) {
                 .reduce((acc, item: IOption) => {
                     acc[item.id] = false;
                     return acc;
-                }, {});
+                }, {} as Json);
 
             props.onChange({
                 ...values,

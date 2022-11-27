@@ -24,16 +24,18 @@ export function LibrarySelector(props: LibrarySelectorProps) {
     );
 }
 
-const switchItems = [
+const switchItems: IOptions = [
     {
         id: 'images',
         iconName: 'image',
         hint: 'Images',
+        text: '',
     },
     {
         id: 'widgets',
         iconName: 'widgets',
         hint: 'Widgets',
+        text: '',
     },
 ];
 

@@ -171,15 +171,16 @@ export function Popoi(props: PopoiProps) {
         }
 
         if (state === PopoiState.FLOATING) {
+            const Cmp: any = Draggable;
             return (
-                <Draggable
+                <Cmp
                     nodeRef={draggableRef}
                     onStop={props.onStopDragging}
                     defaultPosition={props.draggableDelta}
                     handle='.header'
                 >
                     {renderWindow()}
-                </Draggable>
+                </Cmp>
             );
         }
 

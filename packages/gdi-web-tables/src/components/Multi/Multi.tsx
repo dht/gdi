@@ -112,9 +112,9 @@ export function MultiInner(props: MultiProps) {
             case 'buckets':
                 return (
                     <Buckets
-                        config={config.bucket}
+                        config={config.bucket!}
                         data={data}
-                        callbacks={callbacks}
+                        callbacks={callbacks as any}
                     />
                 );
             case 'custom':
@@ -194,6 +194,7 @@ export const Multi = (props: MultiProps) => {
             allDetails,
             allMethods,
             newDataExtra,
+            doubleClickActionId: 'drillDown',
         }),
         [allMethods]
     );

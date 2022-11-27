@@ -1,37 +1,35 @@
-import type { IScreenshotsPerFlavour } from '@gdi/web-ui';
-
 export const screenshots: IScreenshotsPerFlavour = {
     normal: {
         desktop: {
             large: {
                 width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.section header-basic.normal.desktop.large.webp',
-                urlIsRemote: false,
+                height: 69.44444444444444,
+                ratio: 14.4,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.sectionHeader-basic.normal.desktop.large.webp?alt=media',
+                urlIsRemote: true,
             },
             thumb: {
-                width: 1000,
-                height: 400,
-                ratio: 2.5,
-                url: 'screenshot.gdi.section header-basic.normal.desktop.thumb.webp',
-                urlIsRemote: false,
+                width: 400,
+                height: 27.77777777777778,
+                ratio: 14.4,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.sectionHeader-basic.normal.desktop.thumb.webp?alt=media',
+                urlIsRemote: true,
             },
         },
         mobile: {
             large: {
                 width: 500,
-                height: 1337,
-                ratio: 0.3739715781600598,
-                url: 'screenshot.gdi.section header-basic.normal.mobile.large.webp',
-                urlIsRemote: false,
+                height: 33.78394874366554,
+                ratio: 14.799927734727857,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.sectionHeader-basic.normal.mobile.large.webp?alt=media',
+                urlIsRemote: true,
             },
             thumb: {
-                width: 500,
-                height: 1337,
-                ratio: 0.3739715781600598,
-                url: 'screenshot.gdi.section header-basic.normal.mobile.thumb.webp',
-                urlIsRemote: false,
+                width: 200,
+                height: 13.513579497466216,
+                ratio: 14.799927734727857,
+                url: 'https://storage.googleapis.com/download/storage/v1/b/life-b033c.appspot.com/o/screenshots%2Fscreenshot.starter.sectionHeader-basic.normal.mobile.thumb.webp?alt=media',
+                urlIsRemote: true,
             },
         },
     },

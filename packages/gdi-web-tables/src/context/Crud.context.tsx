@@ -54,7 +54,7 @@ const initialValue = (params: Json): ICrudContext => ({
     },
 });
 
-export const CrudContext = createContext<ICrudContext>(initialValue);
+export const CrudContext = createContext<ICrudContext>(initialValue({}));
 
 export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
     const { id, config, options, data, callbacks } = props;
@@ -176,8 +176,7 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
                 }
             },
         }),
-        [state, selectedIds, options, crudCallbacks],
-        'Crud.context|state,selectedIds,options,crudCallbacks'
+        [state, selectedIds, options, crudCallbacks]
     );
 
     return (

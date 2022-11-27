@@ -26,6 +26,7 @@ export { useSelection } from './hooks/useSelection';
 export { useShortKey, useShortKeys } from './hooks/useShortKeys';
 export { useSpace } from './hooks/useSpace';
 export { useStartTyping } from './hooks/useStartTyping';
+export { useStyledTheme } from './hooks/useStyledTheme';
 export { useTabFocus } from './hooks/useTabFocus';
 export { useTabStopwatch } from './hooks/useTabStopwatch';
 

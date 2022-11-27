@@ -78,7 +78,9 @@ export type IViewMode =
     | 'custom'
     | 'custom2';
 
-export type ICrudState = {};
+export type ICrudState = {
+    viewMode: IViewMode;
+};
 
 export type ISheetConfig = IFormConfig;
 
@@ -293,6 +295,7 @@ export type IOverlayConfig = {
     paddingBottom?: number;
     overlayType?: OverlayType;
     fields: IOverlayFields;
+    margin?: string;
 };
 
 export type IOverlayFields = Record<string, IOverlayField>;
@@ -340,4 +343,4 @@ export type IBucketsConfig = {
     permutations: IBucketsPermutation[];
 };
 
-export type ToolbarMode = 'tools' | 'actions';
+export type ToolbarMode = 'tools' | 'select' | 'actions';
