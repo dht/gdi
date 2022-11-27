@@ -5,6 +5,8 @@ export const sampleData: ISampleDataPerFlavour = {
         id: 'normal',
         strings: {},
         colors: {},
-        extra: {},
+        extra: {
+            logoUrl: 'https://static-b9ebe.web.app/logo-blake3-black.svg',
+        },
     },
 };

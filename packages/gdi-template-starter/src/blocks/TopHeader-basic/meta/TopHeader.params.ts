@@ -5,6 +5,8 @@ export const params: IWidgetParams = {
     schema: {
         strings: {},
         colors: {},
-        extra: {},
+        extra: {
+            logoUrl: { fieldType: 'image', isRequired: true, order: 1 },
+        },
     },
 };
