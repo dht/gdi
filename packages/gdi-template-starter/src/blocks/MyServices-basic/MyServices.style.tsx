@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { MyServicesColors } from './MyServices';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ colors: MyServicesColors }>`
     flex: 1;
@@ -8,13 +9,11 @@ export const Container = styled.div<{ colors: MyServicesColors }>`
     display: flex;
     flex-direction: column;
     font-family: ${(props) => props.theme.fontFamily};
-    padding: 100px 0 90px;
+    min-height: ${(props) => props.theme.vh(70)};
 
-    @media (max-width: 768px) {
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
-    }
+    ${mobile(css`
+        padding: 100px 0;
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -25,20 +24,16 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     justify-content: center;
     flex: 1;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-    }
 `;
 
 export const Slogan = styled.div`
     font-size: 42px;
     font-weight: bold;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         text-align: center;
         font-size: 42px;
-    }
+    `)}
 `;
 
 export const H2 = styled.h2`
@@ -47,11 +42,12 @@ export const H2 = styled.h2`
     margin: 0;
     padding: 0;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
+        margin-top: 40px;
         text-align: center;
-        font-size: 45px;
+        font-size: 40px;
         line-height: 58px;
-    }
+    `)}
 `;
 
 export const Description = styled.p`
@@ -61,18 +57,22 @@ export const Description = styled.p`
     line-height: 29px;
     margin-bottom: 80px;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         line-height: 34px;
         font-size: 22px;
         font-weight: 300;
         text-align: center;
-    }
+    `)}
 `;
 
 export const Services = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    ${mobile(css`
+        flex-direction: column;
+    `)}
 `;
 
 export const Service = styled.div`

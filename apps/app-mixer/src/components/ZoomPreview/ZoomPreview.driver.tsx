@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { ImportExportWidget, ImportExportWidgetProps } from './ImportExportWidget';
+import { ZoomPreview, ZoomPreviewProps } from './ZoomPreview';
 import { BaseComponentDriver } from 'testing-base';
 
-export class ImportExportWidgetDriver extends BaseComponentDriver {
-    private props: Partial<ImportExportWidgetProps> = {
+export class ZoomPreviewDriver extends BaseComponentDriver {
+    private props: Partial<ZoomPreviewProps> = {
     };
 
     constructor() {
-        super('ImportExportWidget');
+        super('ZoomPreview');
     }
 
     when: any = {
         rendered: () => {
-            render(<ImportExportWidget {...(this.props as ImportExportWidgetProps)} />);
+            render(<ZoomPreview {...(this.props as ZoomPreviewProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class ImportExportWidgetDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ImportExportWidget {...(this.props as ImportExportWidgetProps)} />);
+            return this.snapshot(<ZoomPreview {...(this.props as ZoomPreviewProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<ImportExportWidgetProps>) => {
+        props: (props: Partial<ZoomPreviewProps>) => {
             this.props = props;
             return this;
         },

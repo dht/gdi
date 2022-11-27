@@ -12,11 +12,14 @@ type ActionMobileMode = {
 
 function* mobileMode(action: ActionMobileMode) {
     invokeEvent(
-        action.payload?.mobileMode ? 'force-width-mobile' : 'force-width-clear',
+        action.payload?.mobileMode
+            ? 'force-dimensions-mobile'
+            : 'force-dimensions-desktop',
         {}
     );
 }
 
 export function* root() {
+    invokeEvent('force-dimensions-desktop', {});
     yield takeEvery(onMobileModeChange, mobileMode);
 }

@@ -13,15 +13,6 @@ function* root() {
     yield* fork(api);
     yield* fork(logout);
     yield* fork(ping);
-
-    yield call(onLogin, {
-        uid: '1',
-        displayName: 'Name',
-        email: 'email',
-        emailVerified: true,
-        phoneNumber: '',
-        photoURL: '',
-    });
 }
 
 export const appSagas = [root];

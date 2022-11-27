@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div`
     flex: 1;
@@ -7,7 +8,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 100px 0 90px;
+    padding: ${(props) => props.theme.vh(20)} 0;
+    display: flex;
     font-family: ${(props) => props.theme.fontFamily};
 `;
 
@@ -19,6 +21,11 @@ export const ContainerItem = styled.div`
     left: 0;
     transition: transform 0.5s ease-in-out;
     text-align: center;
+
+    ${mobile(css`
+        width: ${(props) => props.theme.vw(95)};
+        height: ${(props) => props.theme.vh(75)};
+    `)}
 `;
 
 export const Image = styled.div<{ url: string }>`
@@ -31,6 +38,11 @@ export const Image = styled.div<{ url: string }>`
     position: absolute;
     top: 0;
     left: 0;
+
+    ${mobile(css`
+        width: ${(props) => props.theme.vw(95)};
+        height: ${(props) => props.theme.vh(75)};
+    `)}
 `;
 
 export const Content = styled.div`
@@ -38,6 +50,11 @@ export const Content = styled.div`
     height: 404px;
     position: relative;
     overflow: hidden;
+
+    ${mobile(css`
+        width: ${(props) => props.theme.vw(95)};
+        height: ${(props) => props.theme.vh(75)};
+    `)}
 `;
 
 export const ContainerDots = styled.div`
@@ -55,6 +72,11 @@ export const Dot = styled.div<{ active?: boolean }>`
     background-color: ${(props) => (props.active ? '#eee' : 'transparent')};
     border-radius: 50%;
     cursor: pointer;
+
+    ${mobile(css`
+        width: 18px;
+        height: 18px;
+    `)}
 `;
 
 export const ContainerArrows = styled.div`
@@ -62,6 +84,7 @@ export const ContainerArrows = styled.div`
     width: 100%;
     position: relative;
     max-width: 1200px;
+    z-index: 9;
 `;
 
 export const Arrow = styled.div`
@@ -78,6 +101,11 @@ export const Arrow = styled.div`
     justify-content: center;
     cursor: pointer;
     user-select: none;
+
+    ${mobile(css`
+        margin-top: 0;
+        top: ${(props) => props.theme.vh(60)};
+    `)}
 
     &:hover {
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -107,6 +135,11 @@ export const Quote = styled.div`
     top: 0;
     left: 0;
     transition: transform 0.5s ease-in-out;
+
+    ${mobile(css`
+        width: ${(props) => props.theme.vw(95)};
+        height: ${(props) => props.theme.vh(75)};
+    `)}
 `;
 
 export const QuoteContent = styled.div`
@@ -132,6 +165,10 @@ export const QuoteBody = styled.div`
     text-align: center;
     font-variation-settings: 'wdth' 100, 'wght' 200;
     padding: 0 10px;
+
+    ${mobile(css`
+        font-size: 24px;
+    `)}
 `;
 
 export const QuotePerson = styled.div`

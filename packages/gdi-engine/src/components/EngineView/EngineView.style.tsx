@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     flex: 1;
+
+    .SectionHeader-container {
+        max-height: 0;
+        overflow: hidden;
+    }
 `;
 
 export const Loading = styled.div`

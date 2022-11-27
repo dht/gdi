@@ -4,11 +4,9 @@ export const Container = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+`;
 
-    > button {
-        margin: 4px 0;
-        min-width: auto;
-        border: none;
-    }
+export const Content = styled.div`
+    display: flex;
+    flex: 1;
 `;

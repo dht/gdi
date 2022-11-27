@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
 import { SectionHeaderColors } from './SectionHeader';
 
 export const Container = styled.div<{
@@ -21,8 +22,10 @@ export const Wrapper = styled.div`
     max-width: 1440px;
     margin: 0 auto;
     flex: 1;
-    @media (max-width: 768px) {
+
+    ${mobile(css`
         flex-direction: column;
+    `)}
     }
 `;
 
@@ -32,8 +35,8 @@ export const Text = styled.h1`
 
     font-variation-settings: 'wdth' 100, 'wght' 250;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         text-align: center;
         font-size: 42px;
-    }
+    `)}
 `;

@@ -89,15 +89,14 @@ export const instances: IWidgetInstancesByPageList = {
             allowOverflow: false,
         },
     ],
-    preview_static: [
+    preview: [
         {
             id: 'preview',
             widgetId: MixerWidgets.Preview,
             position: { y: 1, x: 10 },
             dimension: { y: 48, x: 88 },
-            isTransparent: false,
+            isTransparent: true,
             allowOverflow: false,
-            isFullPage: true,
         },
     ],
     datasets: [

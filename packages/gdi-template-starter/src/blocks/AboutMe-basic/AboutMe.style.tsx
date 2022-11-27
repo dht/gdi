@@ -6,8 +6,7 @@ import { mobile } from '../Base.style';
 export const Container = styled.div<{ imageUrl: string }>`
     flex: 1;
     background-color: #111;
-    height: 60vh;
-    max-height: 800px;
+    height: ${(props) => props.theme.vh(80)};
     display: flex;
     font-family: ${(props) => props.theme.fontFamily};
     background-image: url(${(props) => props.imageUrl});
@@ -16,7 +15,7 @@ export const Container = styled.div<{ imageUrl: string }>`
     position: relative;
 
     ${mobile(css`
-        height: 100vh;
+        height: ${(props) => props.theme.vh(100)};
         background-image: none;
     `)}
 
@@ -49,7 +48,6 @@ export const Wrapper = styled.div`
 
     ${mobile(css`
         width: 380px;
-        flex-direction: column;
     `)}
 `;
 
@@ -65,6 +63,10 @@ export const Content = styled.div`
     right: 0;
     bottom: 0;
     z-index: 1;
+
+    ${mobile(css`
+        width: 380px;
+    `)}
 `;
 
 export const Details = styled.div`

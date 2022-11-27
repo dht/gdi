@@ -12,7 +12,7 @@ export type PreviewProps = {
 };
 
 export function Preview(props: PreviewProps) {
-    const { elements } = props;
+    const { elements, datasets } = props;
 
     const libraryBuilder = useMemo(() => {
         const libraryBuilder = new LibraryBuilder();

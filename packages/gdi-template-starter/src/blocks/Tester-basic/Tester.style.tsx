@@ -9,7 +9,7 @@ export const Container = styled.div<{ colors: TesterColors; imageUrl: string }>`
     background-image: url(${(props) => props.imageUrl});
     background-size: cover;
     background-position: center center;
-    height: 60vh;
+    height: ${(props) => props.theme.vh(60)};
     max-height: 800px;
     display: flex;
 
@@ -33,7 +33,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-    max-width: 18vw;
+    max-width: ${(props) => props.theme.vw(18)};
     min-height: 300px;
 `;
 

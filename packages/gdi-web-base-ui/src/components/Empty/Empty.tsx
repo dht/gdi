@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from '@fluentui/react';
 import { Action, Actions, Container, Message } from './Empty.style';
 import Button from '../Button/Button';
+import classnames from 'classnames';
 
 export type EmptyProps = {
     message?: string;
@@ -43,8 +44,13 @@ export function Empty(props: EmptyProps) {
     function renderActions() {
         return actions.map((action: IOption) => renderAction(action));
     }
+
+    const className = classnames('Empty-container', {
+        noActions: actions.length === 0,
+    });
+
     return (
-        <Container className='Empty-container' data-testid='Empty-container'>
+        <Container className={className} data-testid='Empty-container'>
             {withIcon && <Icon iconName={iconName} />}
             <Message>{message}</Message>
             <Actions>{renderActions()}</Actions>

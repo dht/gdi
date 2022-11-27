@@ -8,6 +8,10 @@ export const Container = styled.div`
     justify-content: center;
     font-size: 50px;
     color: #ccd;
+
+    &.noActions {
+        color: #889;
+    }
 `;
 
 export const Message = styled.div`
