@@ -190,10 +190,16 @@ export async function initPlatform<T extends StoreStructure>(
             availableAccounts,
             routes: routing.routes,
             instancesByPage: routing.instancesByPage,
-            menuItems: to.menu(routing.menuItems, i18nParams),
+            menuItems: to.menu(routing.menuItems, i18nParams) as any,
             menuGroups: routing.menuGroups,
-            contextBarItems: to.contextBar(routing.contextBarItems, i18nParams),
-            commandBarItems: to.commandBar(routing.commandBarItems, i18nParams),
+            contextBarItems: to.contextBar(
+                routing.contextBarItems,
+                i18nParams
+            ) as any,
+            commandBarItems: to.commandBar(
+                routing.commandBarItems as any,
+                i18nParams
+            ) as any,
             widgetLibrary: widgetBuilder.build(),
             selectors: selectorsBuilder.build(),
             crudDefinitions,

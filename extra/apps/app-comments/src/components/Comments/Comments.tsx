@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Comments.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type CommentsProps = {
@@ -11,7 +11,7 @@ export type CommentsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Comments(props: CommentsProps) {

@@ -1,4 +1,3 @@
-import { ICrudDefinitions, ItemType } from '@gdi/web-tables';
 import bucket from './json/d.bucket.pages.json';
 import calendar from './json/d.calendar.pages.json';
 import filters from './json/d.filter.pages.json';
@@ -24,8 +23,8 @@ export const definitions: ICrudDefinitions = {
     overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
-    bucket,
+    formNewDefault, // @ts-expect-error
+    bucket, // @ts-expect-error
     multiBar,
     itemStructure,
 };

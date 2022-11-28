@@ -5,7 +5,7 @@ import ImportExportSummary from '../ImportExportSummary/ImportExportSummary';
 import bytes from 'bytes';
 import Button from '../Button/Button';
 import { useLocalStorage } from 'react-use';
-import pickBy from 'lodash/pickBy';
+import { pickBy } from 'shared-base';
 
 export type ImportExportProps = {
     id: string;

@@ -12,6 +12,7 @@ import '@gdi/web-ui/dist/index.css';
 import 'firebaseui/dist/firebaseui.css';
 
 const DEBUG = false;
+
 const container = document.getElementById('root');
 
 if (container) {
@@ -20,7 +21,6 @@ if (container) {
 
     root.render(
         <React.StrictMode>
-            {/* <Dev /> */}
             <Bootstrap config={config} />
             {DEBUG && <LogsSystem />}
         </React.StrictMode>

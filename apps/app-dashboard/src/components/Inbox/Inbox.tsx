@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Container } from './Inbox.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type InboxProps = {
@@ -11,7 +10,7 @@ export type InboxProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Inbox(props: InboxProps) {

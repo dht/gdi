@@ -12,7 +12,7 @@ const argv = parseArgv(process.argv);
 type ValidTypes = 'widget' | 'site';
 
 const entityType = argv._[0] as ValidTypes;
-const isScaffolding = scaffoldingVerbs[entityType];
+const isScaffolding = (scaffoldingVerbs as any)[entityType];
 
 const midTemplate = middlewaresByEntityTypes.create[entityType];
 

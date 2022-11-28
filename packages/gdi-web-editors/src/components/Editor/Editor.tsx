@@ -69,7 +69,7 @@ export function Editor(props: EditorProps) {
             <EditorMenuPanel
                 barActions={barActions}
                 onExternalAction={onExternalAction}
-                editor={editor}
+                editor={editor as any}
             />
             <EditorContent editor={editor} />
         </Container>

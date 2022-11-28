@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A30 = {};
+export const A28 = {};
 
 declare global {
     export type NodeType = 'single' | 'collection' | 'groupedList';

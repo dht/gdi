@@ -18,7 +18,6 @@ export const alias = {
     '@gdi/store-settings': `${cwd}/stores/gdi-store-settings/src`,
 
     '@gdi/template-starter': `${cwd}/packages/gdi-template-starter/src`,
-    '@gdi/template-tech': `${cwd}/packages/gdi-template-tech/src`,
     '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi/src`,
     '@gdi/template-card': `${cwd}/packages/gdi-template-card/src`,
 
@@ -66,7 +65,6 @@ export const alias = {
     '@gdi/store-tasks': `${cwd}/extra/stores/gdi-store-tasks/src`,
     '@gdi/store-things': `${cwd}/extra/stores/gdi-store-things/src`,
     '@gdi/store-voice': `${cwd}/extra/stores/gdi-store-voice/src`,
-    '@gdi/store-weather': `${cwd}/extra/stores/gdi-store-weather/src`,
 
     'redux-connected': `${cwd}/submodules/redux-connected/src`,
     'shared-base': `${cwd}/submodules/shared-base/src`,

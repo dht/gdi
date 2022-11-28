@@ -5,7 +5,7 @@ import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as globby from 'globby';
 import chalk from 'chalk';
-import upperFirst from 'lodash/upperFirst';
+import { upperFirst } from 'shared-base';
 
 const argv = parseArgv(process.argv);
 const { cwd } = argv;
@@ -84,7 +84,7 @@ const appsToMainLines = (apps: string[]) => {
     return apps.reduce(
         (output: Lines, fullAppName) => {
             const appName = fullAppName.split('-').pop();
-            const initVariableName = `init${upperFirst(appName)}`;
+            const initVariableName = `init${upperFirst(appName!)}`;
 
             output.imports.push(
                 `import { initApp as ${initVariableName} } from '@gdi/app-${appName}';`

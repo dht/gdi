@@ -42,7 +42,7 @@ export function PhotoBoothInner(props: PhotoBoothProps) {
 
 export function PhotoBooth(props: PhotoBoothProps) {
     const { datasets, elements } = props;
-    const theme = useStyledTheme();
+    const theme = useStyledTheme('en', false);
     const Cmp: any = ThemeProvider;
 
     return (

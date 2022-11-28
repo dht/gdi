@@ -1,9 +1,7 @@
 import React from 'react';
 import { Container } from './Pages.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
-import { toast } from '@gdi/web-ui';
 import { useMount } from 'react-use';
 
 export type PagesProps = {
@@ -14,7 +12,7 @@ export type PagesProps = {
         onSelectionChange: (ids: string[]) => void;
         onCustomAction: (actionId: string, data?: Json) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Pages(props: PagesProps) {

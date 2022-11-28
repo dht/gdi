@@ -1,8 +1,7 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { ILayouts } from './types';
-import { sortBy } from 'shared-base';
-import cloneDeep from 'lodash/cloneDeep';
+import { sortBy, cloneDeep } from 'shared-base';
 
 export const $layouts = createSelector(
     raw.$rawCurrentIds,

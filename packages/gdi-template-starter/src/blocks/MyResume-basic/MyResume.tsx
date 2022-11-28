@@ -1,4 +1,4 @@
-import { Icon } from '@fluentui/react';
+import { Icon } from '@gdi/web-ui';
 import React from 'react';
 import {
     Container,

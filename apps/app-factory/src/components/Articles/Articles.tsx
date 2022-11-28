@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Container } from './Articles.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type ArticlesProps = {
@@ -12,7 +11,7 @@ export type ArticlesProps = {
         onSelectionChange: (ids: string[]) => void;
     };
     tags: IOptions;
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Articles(props: ArticlesProps) {

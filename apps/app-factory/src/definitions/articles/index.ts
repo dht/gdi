@@ -1,4 +1,3 @@
-import { ICrudDefinitions, ItemType } from '@gdi/web-tables';
 import bucket from './json/d.bucket.articles.json';
 import calendar from './json/d.calendar.articles.json';
 import filters from './json/d.filter.articles.json';
@@ -15,17 +14,17 @@ import { itemStructure } from './d.itemStructure.articles';
 
 export const definitions: ICrudDefinitions = {
     nodeName: 'articles', // @ts-expect-error
-    filters,
-    formEdit,
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
     calendar, // @ts-expect-error
     gallery, // @ts-expect-error
-    overlay,
+    overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
+    formNewDefault, // @ts-expect-error
     bucket,
-    itemStructure,
+    itemStructure, // @ts-expect-error
     multiBar,
 };

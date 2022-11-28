@@ -1,5 +1,5 @@
 import { takeEvery } from 'saga-ts';
-import { toast } from '@gdi/web-base-ui';
+import { toast } from '@gdi/web-ui';
 
 type ToastAction = {
     type: 'SHOW_TOAST';

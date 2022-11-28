@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A23 = {};
+export const A21 = {};
 
 declare global {
     // =============== Tables ===============
@@ -86,7 +86,9 @@ declare global {
         | 'custom'
         | 'custom2';
 
-    export type ICrudState = {};
+    export type ICrudState = {
+        viewMode: IViewMode;
+    };
 
     export type ISheetConfig = IFormConfig;
 
@@ -159,6 +161,7 @@ declare global {
         columns?: number;
         fixedRatio?: number;
         itemType?: ItemType;
+        actionsEmpty?: IOption[];
     };
 
     export type IGalleryOptions = {
@@ -301,6 +304,7 @@ declare global {
         paddingBottom?: number;
         overlayType?: OverlayType;
         fields: IOverlayFields;
+        margin?: string;
     };
 
     export type IOverlayFields = Record<string, IOverlayField>;
@@ -348,5 +352,5 @@ declare global {
         permutations: IBucketsPermutation[];
     };
 
-    export type ToolbarMode = 'tools' | 'actions';
+    export type ToolbarMode = 'tools' | 'select' | 'actions';
 }

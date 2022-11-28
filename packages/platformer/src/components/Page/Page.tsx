@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { Container } from './Page.style';
 import { Grid, IWidgetInstances, IWidgets } from 'igrid';
-import pickBy from 'lodash/pickBy';
+import { pickBy } from 'shared-base';
 import { PlatformContext } from '../../core/Platform.context';
 import './Page.scss';
 
@@ -36,11 +36,11 @@ export const createPage = (pageId: string) => () => {
     const instances = instancesByPage[pageId];
 
     const instancesIngrid = useMemo(() => {
-        return pickBy(instances, (i) => i.position);
+        return pickBy(instances, (i) => typeof i.position !== 'undefined');
     }, [instances]);
 
     const instancesOverlays = useMemo(() => {
-        return pickBy(instances, (i) => i.overlayRoute);
+        return pickBy(instances, (i) => typeof i.overlayRoute !== 'undefined');
     }, [instances]);
 
     return (

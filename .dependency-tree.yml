@@ -1,0 +1,57 @@
+- 1. no dependencies
+  - gdi-types
+  - shared-base
+  - engine
+  - language
+
+- 2. hooks
+  - language
+
+- 3. web-base-ui
+  - engine
+  - hooks
+  - language
+
+- 4. web-editors
+  - web-base-ui
+
+- 5. web-forms
+  - web-base-ui
+
+- 6. web-tables
+  - web-base-ui
+  - hooks
+  - language
+
+- 7. web-ui
+  - web-base-ui
+  - web-editors
+  - web-forms
+  - web-tables
+  - hooks
+  - language
+
+- 8. photo-booth
+  - engine
+  - types
+  - web-ui
+
+- 9. uno
+  - hooks
+  - language
+  - web-ui
+
+- 10. all stores
+  - language
+
+- 11. platformer
+  - web-ui
+  - hooks
+  - language
+  - store-auth
+
+- 12. all templates
+
+- 13. all apps
+
+- 14. all clients

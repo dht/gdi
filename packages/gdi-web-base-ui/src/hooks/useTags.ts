@@ -1,4 +1,4 @@
-import uniq from 'lodash/uniq';
+import { uniq } from 'shared-base';
 import { useMemo } from 'react';
 
 export function useTags(items: Json[]) {

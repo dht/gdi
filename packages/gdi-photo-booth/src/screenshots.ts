@@ -1,6 +1,4 @@
-import capitalize from 'lodash/capitalize';
-import cloneDeep from 'lodash/cloneDeep';
-import set from 'lodash/set';
+import { capitalize, cloneDeep, set } from 'shared-base';
 import { cropImage, image, resizeImageFromPath, Sharp } from './image';
 import type { Page } from 'playwright';
 

@@ -3,7 +3,7 @@ import { calculateSession } from './utils/session';
 import { createSelector } from 'reselect';
 import { IActiveTask, IProjects, ProjectColors } from './types';
 import { ITasksStore } from './types';
-import pickBy from 'lodash/pickBy';
+import { pickBy } from 'shared-base';
 
 export const $currentSession = createSelector(
     raw.$rawSessions,

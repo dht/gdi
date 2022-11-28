@@ -1,4 +1,4 @@
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'shared-base';
 import { boolean } from 'yup';
 export type Json = Record<string, any>;
 

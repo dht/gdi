@@ -1,9 +1,8 @@
 import * as base from './selectors.base';
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { sortBy } from 'shared-base';
+import { sortBy, camelCase } from 'shared-base';
 import { minutesThisX } from '@gdi/language';
-import camelCase from 'lodash/camelCase';
 import { arrayToOptions, itemsTagsToOptions, optionsPeriod } from 'shared-base';
 
 const $i = () => {};

@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-money",
-    "version": "0.0.21",
+    "version": "0.0.25",
     "description": "Financial",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,9 +8,9 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.48",
-        "lodash": "^4.17.21",
-        "redux-store-generator": "^0.9.86",
+        "@gdi/types": "^0.0.51",
+        "@gdi/language": "^0.0.32",
+        "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },
     "devDependencies": {
@@ -18,7 +18,7 @@
         "jest": "^28.1.3",
         "jest-cli": "^28.1.3",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.20",
+        "shared-base": "^0.0.26",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
         "vite": "^3.0.3",

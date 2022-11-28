@@ -13,7 +13,7 @@ export function* changeAccount(action: ChangeAccountAction): any {
     const { accountName, availableAccounts } = action;
 
     const options = availableAccounts.map((account) => ({
-        key: account,
+        id: account,
         text: account,
     }));
 

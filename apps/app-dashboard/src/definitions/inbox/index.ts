@@ -1,4 +1,3 @@
-import { ICrudDefinitions, ItemType } from '@gdi/web-tables';
 import bucket from './json/d.calendar.inbox.json';
 import calendar from './json/d.calendar.inbox.json';
 import filters from './json/d.filter.inbox.json';
@@ -17,17 +16,17 @@ export const definitionType: ItemType = 'inbox';
 
 export const definitions: ICrudDefinitions = {
     nodeName: 'inboxMessages', // @ts-expect-error
-    filters,
-    formEdit,
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
     calendar, // @ts-expect-error
     gallery, // @ts-expect-error
-    overlay,
+    overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
+    formNewDefault, // @ts-expect-error
     bucket,
-    itemStructure,
+    itemStructure, // @ts-expect-error
     multiBar,
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import throttle from 'lodash/throttle';
+import { throttle } from 'shared-base';
 
 type Point = {
     x: number;

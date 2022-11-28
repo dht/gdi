@@ -28,8 +28,9 @@ const run = async () => {
     const { projectId } = firebaseConfig;
 
     writeEnvVite(`${cwd}/gdi-admin`, firebaseConfig, {
-        firebaseActiveApps: ['login', 'mixer'].join(','),
-        firebaseMenu: ['site'].join(','),
+        menu: ['doing', 'site', 'marketing', 'factory', 'shop', 'extra'].join(
+            ','
+        ),
     });
 
     writeEnvVite(`${cwd}/gdi-site`, firebaseConfig);

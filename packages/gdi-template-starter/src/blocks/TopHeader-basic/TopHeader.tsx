@@ -25,8 +25,6 @@ export function TopHeader(props: TopHeaderProps) {
     const { logoUrl } = extra;
     let { menuItems } = useContext(SiteContext);
 
-    console.log('menuItems ->', menuItems);
-
     return (
         <Container
             className='TopHeader-container'

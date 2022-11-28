@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Container } from './Mixer.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type MixerProps = {
@@ -13,7 +13,7 @@ export type MixerProps = {
         onSelectionChange: (ids: string[]) => void;
         onCustomAction: (actionId: string, data?: Json) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
     customView?: React.FC<any>;
     customView2?: React.FC<any>;
 };

@@ -4,7 +4,7 @@ import { authChangeChannel } from './channels/channel.authChange';
 import { fork, put } from 'redux-saga/effects';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { $s, invokeEvent, setBoolean } from 'shared-base';
-import { toast } from '@gdi/web-base-ui';
+import { toast } from '@gdi/web-ui';
 
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 

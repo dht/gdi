@@ -16,7 +16,7 @@ rm tsconfig.json
 mv tsconfig.prod.json tsconfig.json
 rm vite.config.js
 mv vite.config.prod.js vite.config.js
-
+ 
 cd ../gdi-site
 rm tsconfig.json
 mv tsconfig.prod.json tsconfig.json
@@ -27,6 +27,7 @@ cd ..
 
 git init
 git add .
+git checkout -b main
 git commit -am "initial commit"
 
 # Install dependencies

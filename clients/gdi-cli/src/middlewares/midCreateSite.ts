@@ -14,6 +14,8 @@ const preRun = () => async (command: Command, next: any) => {
     const { params } = local;
     const { cwd, entityName, templatesPath } = params;
 
+    console.log(chalk.cyan(`creating a new site: "${entityName}"`));
+
     const templates = fs
         .readdirSync(templatesPath)
         .filter(

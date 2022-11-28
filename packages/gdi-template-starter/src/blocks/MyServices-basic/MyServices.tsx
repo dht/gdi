@@ -1,4 +1,4 @@
-import { Icon } from '@fluentui/react';
+import { Icon } from '@gdi/web-ui';
 import { useDataset } from '@gdi/engine';
 import React, { useContext, useMemo } from 'react';
 import {

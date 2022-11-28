@@ -1,14 +1,14 @@
 {
     "name": "@gdi/web-editors",
-    "version": "0.0.30",
+    "version": "0.0.33",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.48",
-        "@gdi/web-base-ui": "^0.0.35",
+        "@gdi/types": "^0.0.51",
+        "@gdi/web-base-ui": "^0.0.40",
         "@monaco-editor/react": "^4.4.5",
         "@tiptap/extension-character-count": "^2.0.0-beta.195",
         "@tiptap/extension-text-align": "^2.0.0-beta.196",
@@ -16,8 +16,8 @@
         "@tiptap/react": "^2.0.0-beta.114",
         "@tiptap/starter-kit": "^2.0.0-beta.191",
         "classnames": "^2.3.2",
-        "lodash": "^4.17.21",
         "monaco-editor": "^0.34.0",
+        "react-draggable": "^4.4.5",
         "react-use": "^17.4.0",
         "styled-components": "^5.3.5"
     },
@@ -38,7 +38,7 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.20",
+        "shared-base": "^0.0.26",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

@@ -1,14 +1,13 @@
 {
     "name": "@gdi/engine",
-    "version": "0.0.20",
+    "version": "0.0.24",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.48",
-        "lodash": "^4.17.21",
+        "@gdi/types": "^0.0.51",
         "react-use": "^17.4.0",
         "styled-components": "^5.3.5"
     },
@@ -30,7 +29,7 @@
         "jest-cli": "^28.1.3",
         "jest-environment-jsdom": "^28.1.3",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.20",
+        "shared-base": "^0.0.26",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

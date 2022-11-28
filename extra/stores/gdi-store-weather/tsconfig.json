@@ -8,7 +8,6 @@
         "esModuleInterop": true,
         "resolveJsonModule": true,
         "declaration": true,
-        "reslveJsonModule": true,
         "declarationDir": "dist/dts",
         "forceConsistentCasingInFileNames": true,
         "strict": true,

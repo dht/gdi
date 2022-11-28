@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash/cloneDeep';
+import { cloneDeep } from 'shared-base';
 
 type Translate = (key: string) => string;
 
@@ -46,7 +46,7 @@ export const translateOptions = (optionsMap: OptionsMap, t: Translate) => {
     const output = cloneDeep(optionsMap);
 
     for (let listId of Object.keys(output)) {
-        output[listId] = output[listId].map((option) => {
+        output[listId] = output[listId].map((option: IOption) => {
             const { text } = option;
             return {
                 ...option,

@@ -6,6 +6,6 @@ export const Container = styled.div`
     align-items: baseline;
 
     img {
-        height: 60px;
+        height: 80px;
     }
 `;

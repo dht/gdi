@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, ContainerButton } from './BottomBar.style';
-import { Icon } from '@gdi/web-base-ui';
+import { Icon } from '@gdi/web-ui';
 
 export type BottomBarProps = {};
 

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import MasonryItem from '../Galleries/items/ItemImage/ItemImage';
 import { Backdrop, Container, Content, Expander } from './Masonry.style';
 import { IImage } from '../../types';
-import throttle from 'lodash/throttle';
+import { throttle } from 'shared-base';
 import { useWindowSize } from 'react-use';
 import { useTheme } from 'styled-components';
 import classnames from 'classnames';
@@ -314,10 +314,7 @@ function useThrottledScroll(
             setScrollTop(ev.target.scrollTop);
         };
 
-        const onScrollThrottled = throttle(onScroll, throttleValue, {
-            leading: true,
-            trailing: true,
-        });
+        const onScrollThrottled = throttle(onScroll, throttleValue);
 
         ref.current.addEventListener('scroll', onScrollThrottled);
 

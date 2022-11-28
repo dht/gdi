@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 
-export const A25 = {};
+export const A23 = {};
 
 declare global {
     export type EditorInput = string;

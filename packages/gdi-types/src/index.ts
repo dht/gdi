@@ -11,7 +11,6 @@ export * from './gdi-store-mixer';
 export * from './gdi-store-money';
 export * from './gdi-store-events';
 export * from './gdi-store-sales';
-export * from './gdi-store-weather';
 export * from './gdi-store-ppl';
 export * from './gdi-store-products';
 export * from './gdi-store-soundboard';

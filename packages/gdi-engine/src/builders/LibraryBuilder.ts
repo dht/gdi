@@ -8,6 +8,7 @@ export class LibraryBuilder implements ILibraryBuilder {
         instances: {},
         instancesProps: {},
         widgets: {},
+        datasets: {},
     };
 
     constructor() {}
@@ -17,7 +18,7 @@ export class LibraryBuilder implements ILibraryBuilder {
 
         this.library.templates = {
             ...this.library.templates,
-            [meta.id]: meta,
+            [meta.id as string]: meta,
         };
 
         this.library.pages = {

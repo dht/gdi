@@ -1,7 +1,7 @@
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import chalk from 'chalk';
-import snakeCase from 'lodash/snakeCase';
+import { snakeCase } from 'shared-base';
 
 const cobolCase = (str: string) =>
     snakeCase(str).replace(/-/g, '_').toUpperCase();
@@ -47,13 +47,13 @@ export const readEnv = (cwd: string, requiredKeys: string[] = []) => {
 
 export const readEnvVite = (cwd: string) => {
     return readEnv(cwd, [
-        'VITE_FIREBASE_API_KEY',
-        'VITE_FIREBASE_AUTH_DOMAIN',
-        'VITE_FIREBASE_DATABASE_URL',
-        'VITE_FIREBASE_PROJECT_ID',
-        'VITE_FIREBASE_STORAGE_BUCKET',
-        'VITE_FIREBASE_MESSAGING_SENDER_ID',
-        'VITE_FIREBASE_APP_ID',
+        'VITE_FIREBASE_API_KEY_1',
+        'VITE_FIREBASE_AUTH_DOMAIN_1',
+        'VITE_FIREBASE_DATABASE_URL_1',
+        'VITE_FIREBASE_PROJECT_ID_1',
+        'VITE_FIREBASE_STORAGE_BUCKET_1',
+        'VITE_FIREBASE_MESSAGING_SENDER_ID_1',
+        'VITE_FIREBASE_APP_ID_1',
     ]);
 };
 
@@ -82,14 +82,18 @@ const configToViteEnv = (firebaseConfig: Json) => {
         measurementId,
     } = firebaseConfig;
 
-    return `VITE_FIREBASE_API_KEY=${apiKey}
-VITE_FIREBASE_AUTH_DOMAIN=${authDomain}
-VITE_FIREBASE_DATABASE_URL=https://${projectId}.firebaseio.com
-VITE_FIREBASE_PROJECT_ID=${projectId}
-VITE_FIREBASE_STORAGE_BUCKET=${storageBucket}
-VITE_FIREBASE_MESSAGING_SENDER_ID=${messagingSenderId}
-VITE_FIREBASE_APP_ID=${appId}
-VITE_FIREBASE_MEASUREMENT_ID=${measurementId}
+    return `VITE_FIREBASE_API_TITLE_1=main
+VITE_FIREBASE_API_KEY_1=${apiKey}
+VITE_FIREBASE_AUTH_DOMAIN_1=${authDomain}
+VITE_FIREBASE_DATABASE_URL_1=https://${projectId}.firebaseio.com
+VITE_FIREBASE_PROJECT_ID_1=${projectId}
+VITE_FIREBASE_STORAGE_BUCKET_1=${storageBucket}
+VITE_FIREBASE_MESSAGING_SENDER_ID_1=${messagingSenderId}
+VITE_FIREBASE_APP_ID_1=${appId}
+VITE_FIREBASE_MEASUREMENT_ID_1=${measurementId}
+
+VITE_FIREBASE_ACCOUNTS=1
+VITE_INITIAL_ROUTE=/admin/pages
 `;
 };
 

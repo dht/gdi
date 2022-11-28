@@ -1,9 +1,5 @@
 import { createSelector } from 'reselect';
 import { IWeatherStore } from './types';
-import { soundboard } from '@gdi/store-soundboard';
-import { calculateUTC, XDate } from '@gdi/language';
-
-const selectors = soundboard.selectors;
 
 export const $i = (state: { weather: IWeatherStore }) => state.weather;
 const $n = (): null => null;
@@ -14,30 +10,10 @@ export const $rawWeatherLocations = createSelector($i, (state) => state.weatherL
 export const $rawWeatherHourly = createSelector($i, (state) => state.weatherHourlyItems); // prettier-ignore
 export const $rawWeatherDaily = createSelector($i, (state) => state.weatherDailyItems); // prettier-ignore
 
-export const $now = createSelector(
-    selectors.raw.$rawSchedulerState,
-    (appState) => {
-        const { timeDeltaInMinutes } = appState;
-        let now = new XDate();
-
-        const utc = calculateUTC(timeDeltaInMinutes);
-
-        let isAlternativeNow = !!timeDeltaInMinutes;
-
-        if (isAlternativeNow) {
-            now.addMinutes(timeDeltaInMinutes);
-        }
-        const info = now.toInfo();
-
-        return {
-            week: info.week,
-            day: info.dayOfWeek,
-            year: info.year,
-            dayOfWeekName: info.dayOfWeekName,
-            shortDateText: info.dateShortString,
-            isAlternativeNow,
-            timeDeltaInMinutes,
-            ...utc,
-        } as NowInfo;
-    }
-);
+export const $now = createSelector($i, (_state) => {
+    return {
+        day: 1,
+        week: 1,
+        year: 1,
+    };
+});

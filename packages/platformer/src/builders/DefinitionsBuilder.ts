@@ -1,5 +1,5 @@
 import { IDefinitionsBuilder } from '../types';
-import merge from 'lodash/merge';
+import { merge } from 'shared-base';
 
 type DefinitionsPerApp = Record<string, Partial<ICrudDefinitionsPerItemType>>;
 
@@ -11,7 +11,10 @@ export class DefinitionsBuilder implements IDefinitionsBuilder {
         definitions: Partial<ICrudDefinitionsPerItemType>
     ) {
         this.definitions[appId] = this.definitions[appId] || {};
-        this.definitions[appId] = merge(this.definitions[appId], definitions);
+        this.definitions[appId] = merge(
+            this.definitions[appId] ?? {},
+            definitions
+        );
 
         return this;
     }

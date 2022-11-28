@@ -1,6 +1,6 @@
 {
     "name": "@gdi/cli",
-    "version": "0.1.20",
+    "version": "0.1.25",
     "description": "",
     "license": "UNLICENSED",
     "main": "src/index.js",
@@ -9,8 +9,8 @@
     },
     "scripts": {
         "start": "npm link",
-        "build": "npm run copy:collections && tsc && npm run copy:bin && npm run copy:templates",
-        "rebuild": "al rebuild",
+        "build": "npm run copy:collections && tsc && npm run copy:bin && npm run copy:templates && npm run rebuild",
+        "rebuild": "gdi rebuild",
         "copy:collections": "cp -rp ./src/collections/ ./dist/collections/",
         "copy:bin": "cp -rp ./bin/ ./dist/bin/",
         "copy:templates": "cp -rp ./src/templates/ ./dist/templates/",
@@ -18,18 +18,22 @@
     },
     "author": "",
     "dependencies": {
-        "@gdi/types": "^0.0.48",
+        "@gdi/types": "^0.0.51",
+        "@google-cloud/storage": "^6.7.0",
         "@types/cli-table": "^0.3.0",
         "chalk": "^4.1.2",
         "cli-table": "^0.3.11",
         "enquirer": "^2.3.6",
+        "firebase": "^9.9.3",
+        "firebase-admin": "^11.3.0",
         "fs-extra": "^9.0.1",
         "globby": "^11.0.2",
+        "json-server": "^0.17.1",
         "lodash": "^4.17.21",
         "prettier": "^2.5.1",
+        "shared-base": "^0.0.27",
         "yargs": "^17.2.1",
-        "yup": "^0.32.11",
-        "firebase": "^9.9.3"
+        "yup": "^0.32.11"
     },
     "devDependencies": {
         "@types/fs-extra": "^9.0.13",

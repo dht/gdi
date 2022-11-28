@@ -27,7 +27,7 @@ export function Spinner(props: SpinnerProps) {
     const show = useDelay(delay);
 
     if (!show) {
-        return;
+        return null;
     }
 
     const count = divCount[flavour];

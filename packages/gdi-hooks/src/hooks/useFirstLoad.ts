@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'shared-base';
 
 export type Callback = () => void;
 

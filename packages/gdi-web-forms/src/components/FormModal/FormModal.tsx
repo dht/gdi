@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal } from '@gdi/web-base-ui';
-import Form, { FormProps } from '../Form/Form';
+import Form from '../Form/Form';
 import { Container } from './FormModal.style';
 
-export type FormModalProps = FormProps & {
+export type FormModalProps = IFormProps & {
     title?: string;
     onClose: () => void;
 };

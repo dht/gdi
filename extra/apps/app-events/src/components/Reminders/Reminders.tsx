@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Reminders.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type RemindersProps = {
@@ -11,7 +11,7 @@ export type RemindersProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Reminders(props: RemindersProps) {

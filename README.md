@@ -14,9 +14,11 @@
 
 # Installation
 
-> Note: make sure you have all the [prerequisites](https://usegdi.com/docs/docs/getting-started/prerequisites.md) prepared before installation
+> Note: make sure you have all the [prerequisites](https://usegdi.com/docs/docs/getting-started/prerequisites) prepared before installation
 
 ## Install the CLI
+
+Run:
 
 ```sh
 npm install -g @gdi/cli
@@ -30,15 +32,13 @@ gdi rebuild
 
 ## Create a new site
 
-> Note: Make sure you have your Firebase web configuration ready for this stage
-
 ```sh
 gdi create site [site-name]
 ```
 
 > Note: this clones the template and installs dependencies and may take a few moments
 
-This will create a new folder with two main packages:
+A new project with two main packages was created:
 
 -   `gdi-admin`: holds the admin UI
 -   `gdi-site`: holds the public facing site
@@ -51,9 +51,9 @@ cd [site-name]
 
 ## Connect Firebase
 
-In the `root` create a `/firebase.json` file with your `firebase` configuration:
+Create a [Firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project), enable [Google Authentication](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project#enable-sign-in-with-Google), Firestore and Hosting.
 
-> Note: `measurementId` can be excluded. It will only appear if you enabled `Google Analytics` in the Firebase project
+In the project's `root` create a new `/firebase.json` file with your `firebase` configuration:
 
 ```json title="firebase.json"
 {
@@ -63,39 +63,19 @@ In the `root` create a `/firebase.json` file with your `firebase` configuration:
     "storageBucket": "******",
     "messagingSenderId": "******",
     "appId": "******",
-    "measurementId": "******"
+    "measurementId": "******" // <== optional
 }
 ```
 
-> Note: To retrieve this information follow the [Create a new firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project) guide
-
-Once your `firebase.json` is saved you can connect `firebase` to this site.
-
-In the project's `root`:
+and bootstrap the project:
 
 ```sh
-gdi connect
+gdi bootstrap
 ```
 
-## Seeding initial database
+> Note: Before bootstrapping make sure you have [firebase-tools](https://firebase.google.com/docs/cli) installed: npm install -g firebase-tools
 
-> Note: Make sure you have [enables Firestore Database](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project#enable-firestore-database) in `Test mode`. If you receive a `permission error` or `bad request` while running the following command, try waiting around **2 minutes** for the rules to kick in
-
-In the project's `root` run:
-
-```sh
-gdi seed --data
-```
-
-## Bootstrapping apps
-
-> Note: This command refreshes the `vite` and `tsconfig` configuration for the installed apps. Every time you install a new `gdi` app, run this
-
-```sh
-gdi apps
-```
-
-## Running the Admin
+## Running the Admin UI
 
 In the project's `root` run:
 
@@ -105,14 +85,11 @@ gdi start
 
 Navigate to [http://localhost:3000](http://localhost:3000)
 
-> Note: If you receive `Firebase: Error(auth/configuration-not-found)` while trying to sign in with `Google`, follow the [Enable Sign-in with Google](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project#enable-sign-in-with-Google)
-> section in the `Create & setup a Firebase project` how-to
-
 ## Setting the admin user
 
-Once you log in with your `Google` account, you'' be able to choose the site's admin.
+Log in to the [Admin UI](http://localhost:3000/admin) with your `Google Account`.
 
-To do so, in the project's `root`, run:
+Then, in the project's `root` run:
 
 ```sh
 gdi setAdmin
@@ -120,33 +97,26 @@ gdi setAdmin
 
 ## Deploying
 
-To deploy your `admin` console and the `site` run
-in the project's `root`:
+In the project's `root` run:
 
 ```sh
 gdi deploy
 ```
 
-After a successful deployment, the `admin` console will be served from:
+> Note: this will deploy both the `Admin UI` and the `Site`
 
-[https://FIREBASE_PROJECT_DOMAIN/admin](https://FIREBASE_PROJECT_DOMAIN/admin)
-
-The `site` will be served from:
-
-[https://FIREBASE_PROJECT_DOMAIN](https://FIREBASE_PROJECT_DOMAIN)
-
-> Note: `gdi` image upload feature requires `cloud functions`, which in turn requires upgrading Firebase to the `Blaze` plan. If you wish to stay on the `Spark plan` (the free plan) and not use `image upload`, please refer to [these](https://usegdi.com/docs/docs/topics/image-upload#disabling-cloud-function) instructions.
+After a successful deployment, the `Admin UI` will be served from the `/admin` path.
 
 ## CLI commands
 
 | Command                     | Description                                                     |
 | --------------------------- | --------------------------------------------------------------- |
 | gdi create site [site-name] | Creates a new gDI repo with admin + site packages               |
-| gdi connect                 | Validates and links site to Firebase                            |
-| gdi seed --data             | Seeds the current site with data                                |
-| gdi setAdmin                | Choose an admin for the current site                            |
-| gdi list projects           | Shows Firebase projects. A wrapper for `firebase projects:list` |
+| gdi bootstrap               | Bootstraps the project, runs these command: connect + apps      |
 | gdi start                   | Starts `gdi-admin` in development mode                          |
-| gdi preview                 | Starts `gdi-site` in development mode                           |
+| gdi setAdmin                | Choose an admin for the current site                            |
 | gdi deploy                  | Builds & deploy both `gdi-admin` and `gdi-site`                 |
+| gdi connect                 | Validates and links site to Firebase                            |
+| gdi list projects           | Shows Firebase projects. A wrapper for `firebase projects:list` |
+| gdi preview                 | Starts `gdi-site` in development mode                           |
 | gdi apps                    | Scans for new apps and sets up the `vite` and `tsconfig` files  |

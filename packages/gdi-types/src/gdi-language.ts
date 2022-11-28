@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A27 = {};
+export const A25 = {};
 
 declare global {
     export type ILanguageConfig = {};

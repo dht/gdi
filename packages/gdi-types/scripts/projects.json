@@ -64,11 +64,6 @@
         "path": "extra/stores/gdi-store-sales",
         "types": "src/types.ts"
     },
-    "gdi-store-weather": {
-        "id": "gdi-store-weather",
-        "path": "extra/stores/gdi-store-weather",
-        "types": "src/types.ts"
-    },
     "gdi-store-ppl": {
         "id": "gdi-store-ppl",
         "path": "extra/stores/gdi-store-ppl",

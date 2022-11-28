@@ -87,8 +87,10 @@ export function EditorMenuPanel(props: EditorMenuPanelProps) {
         return barActions.map((action: IEditorAction) => renderAction(action));
     }
 
+    const Cmp: any = Draggable;
+
     return (
-        <Draggable nodeRef={ref}>
+        <Cmp nodeRef={ref}>
             <Container
                 ref={ref}
                 className='EditorMenuPanel-container'
@@ -96,7 +98,7 @@ export function EditorMenuPanel(props: EditorMenuPanelProps) {
             >
                 {renderActions()}
             </Container>
-        </Draggable>
+        </Cmp>
     );
 }
 

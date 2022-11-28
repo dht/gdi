@@ -1,9 +1,7 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { IImageWithWidget, IMixerStore } from './types';
-import get from 'lodash/get';
-import pickBy from 'lodash/pickBy';
-import isEmpty from 'lodash/isEmpty';
+import { get, pickBy, isEmpty } from 'shared-base';
 import {
     getWidgetTypeFromElement,
     getWidgetTypeFromTags,
@@ -14,8 +12,8 @@ import {
     getScreenshotThumb,
     getScreenshotData,
     unflattenInstanceProps,
+    uniq,
 } from 'shared-base';
-import uniq from 'lodash/uniq';
 
 export const $i = (state: { mixer: IMixerStore }) => state.mixer;
 

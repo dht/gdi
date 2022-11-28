@@ -1,7 +1,4 @@
-import get from 'lodash/get';
-import isBoolean from 'lodash/isBoolean';
-import isNumber from 'lodash/isNumber';
-import isString from 'lodash/isString';
+import { get, isBoolean, isNumber, isString } from 'shared-base';
 import { PlatformContext } from './Platform.context';
 import { useMemo, useContext } from 'react';
 import { useSelector, useStore } from 'react-redux';

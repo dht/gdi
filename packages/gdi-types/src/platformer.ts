@@ -2,7 +2,7 @@
 
 import { EndpointsConfigOverrides } from 'redux-connected';
 
-export const A28 = {};
+export const A26 = {};
 
 declare global {
     export type IAppConfig = {
@@ -256,7 +256,7 @@ declare global {
 
     /*************** IApiConfigBuilder ***************/
     export interface IApiConfigBuilder {
-        withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides, connectionType: ConnectionType) => IApiConfigBuilder; // prettier-ignore
+        withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
         build: () => EndpointsConfigOverrides;
     }
 
@@ -279,13 +279,16 @@ declare global {
         widgetId: string;
         responsive?: boolean;
         icon?: string;
+        appId?: string;
     };
 
     export type ICommandBarItem = {
         id: string;
         label: string;
-        event: ICustomEvent;
+        event?: ICustomEvent;
         shortKeys?: IShortKey[];
+        appId?: string;
+        action?: Action;
     };
 
     export type IShortKey = {
