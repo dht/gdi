@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ITemplates } from '../types';
 
 export function useTemplates(libraryBuilder: ILibraryBuilder) {
     const [isReady, setIsReady] = useState(false);
     const [widgets, setWidgets] = useState<IWidgets>({});
-    const [templates, setTemplates] = useState<ITemplates>({});
+    const [templates, setTemplates] = useState<ITemplateMetas>({});
 
     useEffect(() => {
         if (!libraryBuilder) {

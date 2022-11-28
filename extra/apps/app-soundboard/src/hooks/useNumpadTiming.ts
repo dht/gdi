@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useMemo, useState } from 'react';
 import { useBoolean } from 'react-use';
-import debounce from 'lodash/debounce';
+import { debounce } from 'shared-base';
 
 type OnChangeCallback = (newValue: number) => void;
 

@@ -1,7 +1,8 @@
 import { IAppKeys, LanguageIso } from '../types';
-import { getVariableType } from 'shared-base';
+// import { getVariableType } from 'shared-base';
 import { log } from './language.log';
 
+const getVariableType: any = () => {};
 export const translate = (
     keys: IAppKeys,
     language: LanguageIso,

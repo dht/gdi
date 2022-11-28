@@ -1,6 +1,6 @@
 {
     "name": "@gdi/language",
-    "version": "0.0.26",
+    "version": "0.0.30",
     "scripts": {
         "dev": "vite",
         "build": "tsc & vite build",
@@ -9,8 +9,7 @@
     },
     "author": "dht",
     "dependencies": {
-        "@gdi/types": "^0.0.48",
-        "lodash": "^4.17.21",
+        "@gdi/types": "^0.0.49",
         "react-use": "^17.4.0"
     },
     "peerDependencies": {
@@ -30,7 +29,7 @@
         "react-dom": "^18.2.0",
         "rollup-plugin-analyzer": "^4.0.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.21",
+        "shared-base": "^0.0.26",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

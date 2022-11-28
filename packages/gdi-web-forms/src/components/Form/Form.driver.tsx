@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Form, FormProps } from './Form';
+import { Form } from './Form';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FormDriver extends BaseComponentDriver {
-    private props: Partial<FormProps> = {};
+    private props: Partial<IFormProps> = {};
 
     constructor() {
         super('Form');
@@ -12,7 +12,7 @@ export class FormDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<Form {...(this.props as FormProps)} />);
+            render(<Form {...(this.props as IFormProps)} />);
             return this;
         },
         click: () => {
@@ -22,7 +22,7 @@ export class FormDriver extends BaseComponentDriver {
     };
 
     given: any = {
-        props: (props: Partial<FormProps>) => {
+        props: (props: Partial<IFormProps>) => {
             this.props = props;
             return this;
         },

@@ -66,7 +66,7 @@ export const bootstrapApp = async (
             logger: (message, data) => $s(message, data),
             noServerMode,
             languageCode,
-            connectionType,
+            connectionType: connectionType as any,
         },
         patchContext
     );

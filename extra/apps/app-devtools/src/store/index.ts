@@ -21,7 +21,6 @@ import { soundboard } from '@gdi/store-soundboard';
 import { tasks } from '@gdi/store-tasks';
 import { things } from '@gdi/store-things';
 import { voice } from '@gdi/store-voice';
-import { weather } from '@gdi/store-weather';
 
 export const actions = {
     ...auth.actions,
@@ -47,7 +46,6 @@ export const actions = {
     ...tasks.actions,
     ...things.actions,
     ...voice.actions,
-    ...weather.actions,
 };
 
 export const selectors = {
@@ -75,7 +73,6 @@ export const selectors = {
         ...tasks.selectors.raw,
         ...things.selectors.raw,
         ...voice.selectors.raw,
-        ...weather.selectors.raw,
     },
     base: {
         ...auth.selectors.base,
@@ -101,7 +98,6 @@ export const selectors = {
         ...tasks.selectors.base,
         ...things.selectors.base,
         ...voice.selectors.base,
-        ...weather.selectors.base,
     },
     forms: {
         ...auth.selectors.forms,
@@ -127,7 +123,6 @@ export const selectors = {
         ...tasks.selectors.forms,
         ...things.selectors.forms,
         ...voice.selectors.forms,
-        ...weather.selectors.forms,
     },
     tables: {
         ...auth.selectors.tables,
@@ -153,7 +148,6 @@ export const selectors = {
         ...tasks.selectors.tables,
         ...things.selectors.tables,
         ...voice.selectors.tables,
-        ...weather.selectors.tables,
     },
     options: {
         auth: auth.selectors.options,
@@ -179,7 +173,6 @@ export const selectors = {
         tasks: tasks.selectors.options,
         things: things.selectors.options,
         voice: voice.selectors.options,
-        weather: weather.selectors.options,
     },
 };
 

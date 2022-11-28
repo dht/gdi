@@ -51,7 +51,7 @@ export const initApp = (
         .withSelectors(APP_ID, selectors);
 
     apiConfigBuilder //
-        .withEndpointsConfigOverrides(endpointsConfig(connectionType));
+        .withEndpointsConfigOverrides(endpointsConfig(connectionType) as any);
 
     metaBuilder.withMeta(APP_ID, {
         version: p.version,

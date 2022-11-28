@@ -252,7 +252,7 @@ export type CommandBarAction = {
 
 /*************** IApiConfigBuilder ***************/
 export interface IApiConfigBuilder {
-    withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides, connectionType: ConnectionType) => IApiConfigBuilder; // prettier-ignore
+    withEndpointsConfigOverrides:(overrides: EndpointsConfigOverrides) => IApiConfigBuilder; // prettier-ignore
     build: () => EndpointsConfigOverrides;
 }
 
@@ -275,13 +275,16 @@ export type IContextBarItem = {
     widgetId: string;
     responsive?: boolean;
     icon?: string;
+    appId?: string;
 };
 
 export type ICommandBarItem = {
     id: string;
     label: string;
-    event: ICustomEvent;
+    event?: ICustomEvent;
     shortKeys?: IShortKey[];
+    appId?: string;
+    action?: Action;
 };
 
 export type IShortKey = {

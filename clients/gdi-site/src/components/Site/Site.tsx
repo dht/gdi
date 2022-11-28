@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 import { Container } from './Site.style';
 import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
-import { initTemplate as initTemplateTech } from '@gdi/template-tech';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
 import { initTemplate as initTemplateCard } from '@gdi/template-card';
 

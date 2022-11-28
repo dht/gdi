@@ -1,5 +1,4 @@
 import React from 'react';
-import { MarkerType } from 'react-flow-renderer';
 
 export const nodes = [
     {
@@ -70,7 +69,7 @@ export const edges = [
         target: '5',
         label: 'edge with arrow head',
         markerEnd: {
-            type: MarkerType.ArrowClosed,
+            // type: MarkerType.ArrowClosed,
         },
     },
     {

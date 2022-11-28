@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import { Estimation } from '../../containers/EstimateContainer.data';
 import { Container, Option, Options } from './Estimate.style';
-import { DefaultButton } from '@fluentui/react';
-import { useToggle } from 'react-use';
 import { Callout } from '@gdi/web-ui';
 import './Estimate.scss';
 

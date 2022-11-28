@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Container } from './Ppl.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 import { useLanguage } from '@gdi/language';
 
@@ -14,7 +14,7 @@ export type PplProps = {
     };
     allMethods: any;
     tags: IOptions;
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Ppl(props: PplProps) {

@@ -1,5 +1,5 @@
 import { IAppKeys, II18nBuilder, LanguageIso } from '../types';
-import merge from 'lodash/merge';
+import { merge } from 'shared-base';
 
 export class I18nBuilder implements II18nBuilder {
     private resources: Json = {};

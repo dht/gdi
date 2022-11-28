@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Leads.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type LeadsProps = {
@@ -11,7 +11,7 @@ export type LeadsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Leads(props: LeadsProps) {

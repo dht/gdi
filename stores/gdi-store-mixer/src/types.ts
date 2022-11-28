@@ -13,7 +13,7 @@ export type IMixerStore = StoreStructure & {
     libraryImages: IImages;
     libraryPalettes: IPaletteOptions;
     libraryTypography: ITypographyOptions;
-    datasets: Json;
+    libraryDatasets: Json;
     packages: IPackages;
 };
 

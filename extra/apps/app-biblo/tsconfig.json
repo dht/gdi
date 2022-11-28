@@ -4,6 +4,7 @@
         "target": "ES2020",
         "module": "ES2022",
         "lib": ["dom", "ES2020"],
+        "preserveSymlinks": true,
         "moduleResolution": "node",
         "esModuleInterop": true,
         "resolveJsonModule": true,
@@ -16,7 +17,9 @@
         "baseUrl": "../../",
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
-            "@gdi/store-biblo": ["stores/gdi-store-biblo"]
+            "@gdi/store-biblo": ["stores/gdi-store-biblo"],
+            "redux-connected": ["submodules/redux-connected"],
+            "redux-store-generator": ["submodules/redux-store-generator"]
         }
     },
     "include": ["src/*.ts", "test/*.ts"]

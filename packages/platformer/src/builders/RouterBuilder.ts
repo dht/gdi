@@ -140,9 +140,13 @@ export class RouterBuilder implements IRouterBuilder {
                 item.id
             );
 
+            const scopedAction = action
+                ? this.getScopedCommandBarAction(appId, action)
+                : undefined;
+
             this.commandBarItems.push({
                 ...item,
-                action: this.getScopedCommandBarAction(appId, action),
+                action: scopedAction,
                 id: scopedCommandBarItemId,
                 appId,
             });

@@ -75,6 +75,10 @@ export const App = () => {
 
     function onCommandBar(command: ICommandBarItem) {
         const { event } = command;
+
+        if (!event) {
+            return;
+        }
         const { type, payload = {} } = event;
         invokeEvent(type, payload);
     }
@@ -91,7 +95,10 @@ export const App = () => {
                     widgetLibrary={widgetLibrary}
                 />
                 <AccountTagContainer />
-                <CommandBar items={commandBarItems} onRun={onCommandBar} />
+                <CommandBar
+                    items={commandBarItems as any}
+                    onRun={onCommandBar}
+                />
             </AppContextProvider>
         </AppContent>
     );

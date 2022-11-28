@@ -12,11 +12,12 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.20",
-        "@gdi/types": "^0.0.48",
-        "@gdi/web-ui": "^0.0.33",
+        "@gdi/engine": "^0.0.22",
+        "@gdi/types": "^0.0.49",
+        "@gdi/uno": "^0.0.5",
+        "@gdi/web-ui": "^0.0.34",
         "classnames": "^2.3.1",
-        "lodash": "^4.17.21",
+        "igrid": "^0.0.18",
         "polished": "^4.2.2",
         "react-draggable": "^4.4.5",
         "react-router-dom": "^6.3.0",
@@ -43,12 +44,13 @@
         "rollup-plugin-analyzer": "^4.0.0",
         "rollup-plugin-copy": "^3.4.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.20",
+        "shared-base": "^0.0.26",
         "testing-base": "^0.0.1",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
         "vite": "^3.0.4",
-        "vite-plugin-dts": "^1.4.0"
+        "vite-plugin-dts": "^1.4.0",
+        "vite-tsconfig-paths": "^3.6.0"
     },
     "files": [
         "dist"

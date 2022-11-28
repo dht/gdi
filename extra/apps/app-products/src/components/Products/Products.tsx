@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Products.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 import { useLanguage } from '@gdi/language';
 
@@ -12,7 +12,7 @@ export type ProductsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Products(props: ProductsProps) {

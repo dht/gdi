@@ -134,7 +134,6 @@ const apps: Record<string, App> = {
         id: 'money',
         nodes: ['money'],
     },
-
     orders: {
         id: 'orders',
         nodes: ['orders'],
@@ -154,10 +153,6 @@ const apps: Record<string, App> = {
     soundboard: {
         id: 'soundboard',
         nodes: ['soundboard'],
-    },
-    studio: {
-        id: 'studio',
-        nodes: ['studio'],
     },
     tasks: {
         id: 'tasks',

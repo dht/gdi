@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Campaigns.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type CampaignsProps = {
@@ -11,7 +11,7 @@ export type CampaignsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Campaigns(props: CampaignsProps) {

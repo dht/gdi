@@ -50,6 +50,7 @@ const initialValue: IPlatformContext = {
         },
         crudDefinitions: {},
         pieMenuConfig: {},
+        templatesMeta: {},
     },
 };
 

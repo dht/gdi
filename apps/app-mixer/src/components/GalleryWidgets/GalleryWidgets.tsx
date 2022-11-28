@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './GalleryWidgets.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type GalleryWidgetsProps = {
@@ -11,7 +11,7 @@ export type GalleryWidgetsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function GalleryWidgets(props: GalleryWidgetsProps) {

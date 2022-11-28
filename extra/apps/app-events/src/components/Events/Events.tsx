@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Events.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
+
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type EventsProps = {
@@ -11,7 +11,7 @@ export type EventsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function Events(props: EventsProps) {

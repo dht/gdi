@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from './GalleryImages.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type GalleryImagesProps = {
@@ -11,7 +10,7 @@ export type GalleryImagesProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function GalleryImages(props: GalleryImagesProps) {

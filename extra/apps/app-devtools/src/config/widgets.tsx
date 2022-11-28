@@ -5,14 +5,12 @@ import { APP_ID } from './ids';
 const ConsoleContainer = React.lazy(() => import('../containers/ConsoleContainer')); // prettier-ignore
 const StoreSizeContainer = React.lazy(() => import('../containers/StoreSizeContainer')); // prettier-ignore
 const ReduxConnectedDevtoolsContainer = React.lazy(() => import('../containers/ReduxConnectedDevtoolsContainer')); // prettier-ignore
-const HoustonContainer = React.lazy(() => import('../containers/HoustonContainer')); // prettier-ignore
 const LoginCycleContainer = React.lazy(() => import('../containers/LoginCycleContainer')); // prettier-ignore
 
 export enum DevtoolsWidgets {
     Console = 'devtools.Console',
     ReduxConnectedDevtools = 'devtools.ReduxConnectedDevtools',
     StoreSize = 'devtools.StoreSize',
-    Houston = 'devtools.Houston',
     Users = 'devtools.Users',
     Minimal = 'devtools.Minimal',
     LoginCycle = 'devtools.LoginCycle',
@@ -58,22 +56,6 @@ export const widgets: IWidget[] = [
             <Wrapper
                 appId={APP_ID}
                 component={ReduxConnectedDevtoolsContainer}
-                props={props}
-            />
-        ),
-    },
-    {
-        id: DevtoolsWidgets.Houston,
-        name: 'Houston',
-        description: 'Houston',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper
-                appId={APP_ID}
-                component={HoustonContainer}
                 props={props}
             />
         ),

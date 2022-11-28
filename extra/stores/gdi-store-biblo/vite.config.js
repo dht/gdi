@@ -21,7 +21,9 @@ export default defineConfig({
         },
         rollupOptions: {
             plugins: [analyze()],
-            ...externals(p.dependencies),
+            ...externals({
+                ...p.dependencies,
+            }),
         },
     },
 });

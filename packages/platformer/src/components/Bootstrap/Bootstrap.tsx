@@ -52,7 +52,7 @@ export const Bootstrap = (props: BootstrapProps) => {
                         <History />
                     </Router>
                     <Toast />
-                    <Prompt formComponent={Form} isRtl={isRtl} />
+                    <Prompt formComponent={Form as any} isRtl={isRtl} />
                 </LanguageProvider>
             </Provider>
         </Theme>

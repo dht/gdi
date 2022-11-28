@@ -4,7 +4,7 @@ import { Icon, Logo } from '@gdi/web-base-ui';
 import { useNavigate } from 'react-router-dom';
 import { useCallback, useEffect } from 'react';
 import { useLocation, useSetState, useToggle } from 'react-use';
-import upperFirst from 'lodash/upperFirst';
+import { upperFirst } from 'shared-base';
 import './SideMenu.scss';
 import { sortBy } from 'shared-base';
 import {

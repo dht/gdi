@@ -1,4 +1,4 @@
-import _merge from 'lodash/merge';
+import { merge } from 'shared-base';
 import { ISelectorsBucket, ISelectorsBuilder, ISelectorsByApp } from '../types';
 
 export class SelectorsBuilder implements ISelectorsBuilder {
@@ -7,9 +7,9 @@ export class SelectorsBuilder implements ISelectorsBuilder {
     constructor() {}
 
     withSelectors(appId: string, selectorsBucket: ISelectorsBucket) {
-        this.selectors = _merge(this.selectors, {
+        this.selectors = merge(this.selectors, {
             [appId]: selectorsBucket,
-        });
+        }) as ISelectorsByApp;
 
         return this;
     }

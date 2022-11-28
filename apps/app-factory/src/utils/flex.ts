@@ -1,6 +1,4 @@
-import max from 'lodash/max';
-import { sortBy } from 'shared-base';
-import { guid4 } from 'shared-base';
+import { max, sortBy, guid4 } from 'shared-base';
 
 export type IItemInfo = {
     item?: IFlexEntity;

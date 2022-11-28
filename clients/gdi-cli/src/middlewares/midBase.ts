@@ -14,6 +14,7 @@ type MiddlewareOptions = {
 const input =
     (options: MiddlewareOptions = {}) =>
     (command: Command, next: any) => {
+        console.time('gathering input');
         if (options.skip) {
             next();
             return;
@@ -22,6 +23,7 @@ const input =
         const { argv } = command;
 
         const ROOT_TEMPLATES_PATH = path.resolve(`${__dirname}/../../src/templates/scaffolding`); // prettier-ignore
+
         const cwd = argv.cwd;
 
         const entityType = argv._[0];
@@ -37,6 +39,8 @@ const input =
             templatePath: '',
         };
 
+        console.timeEnd('gathering input');
+
         next();
     };
 
@@ -48,15 +52,22 @@ const scanTemplateFiles =
             return;
         }
 
+        console.log(123);
+
+        console.time(`scanning terminal files`);
+
         const {
             params,
             rulesReplaceFileName = {},
             rulesReplaceContent = {},
         } = command.local;
 
+        console.log('params => ', JSON.stringify(params));
+
         const { outputDir, templatesPath, template } = params;
-        const templatePath =
-            params.templatePath ?? `${templatesPath}/${template}`;
+        const templatePath = `${templatesPath}/${template}`;
+
+        console.log('path => ', templatePath);
 
         command.local.params.templatePath = templatePath;
         command.local.filesToCreate = globby
@@ -84,6 +95,7 @@ const scanTemplateFiles =
                 };
             });
 
+        console.timeEnd('scanning terminal files');
         next();
     };
 
@@ -105,6 +117,8 @@ const writeFiles =
             next();
             return;
         }
+
+        console.time('writing files');
 
         const { params, filesToCreate } = command.local;
         const { outputDir = '' } = params;
@@ -139,6 +153,7 @@ const writeFiles =
             console.log(chalk.green('Ok'));
         });
 
+        console.timeEnd('writing files');
         next();
     };
 

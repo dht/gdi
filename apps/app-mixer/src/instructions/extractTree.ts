@@ -1,8 +1,6 @@
 import { IMixerRequest } from '../types';
 import { nodeNames } from './mixerInstructions.maps';
-import merge from 'lodash/merge';
-import get from 'lodash/get';
-import cloneDeep from 'lodash/cloneDeep';
+import { merge, get, cloneDeep } from 'shared-base';
 
 export function extractTree(request: IMixerRequest, state: Json) {
     const { source, entityType, itemId } = request;

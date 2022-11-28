@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from './InterestingReads.style';
 import { Multi } from '@gdi/web-ui';
-import { Dispatch } from 'redux';
 import { useCrudDefinitions } from '@gdi/platformer';
 
 export type InterestingReadsProps = {
@@ -11,7 +10,7 @@ export type InterestingReadsProps = {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
     };
-    dispatch: Dispatch;
+    dispatch: any;
 };
 
 export function InterestingReads(props: InterestingReadsProps) {
@@ -27,8 +26,8 @@ export function InterestingReads(props: InterestingReadsProps) {
                 id='InterestingReads'
                 itemType='link'
                 data={data}
-                callbacks={callbacks}
-                definitions={crudDefinitions}
+                callbacks={callbacks as any}
+                definitions={crudDefinitions as any}
                 dispatch={dispatch}
                 allOptions={allOptions}
             />

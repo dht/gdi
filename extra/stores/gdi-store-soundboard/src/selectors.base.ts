@@ -1,6 +1,6 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import get from 'lodash/get';
+import { get } from 'shared-base';
 import {
     DayAndTime,
     GroupedMana,

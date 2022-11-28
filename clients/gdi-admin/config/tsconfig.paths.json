@@ -17,7 +17,6 @@
             "@gdi/store-comments": ["stores/gdi-store-comments"],
 
             "@gdi/template-starter": ["packages/gdi-template-starter"],
-            "@gdi/template-tech": ["packages/gdi-template-tech"],
             "@gdi/template-gdi": ["packages/gdi-template-gdi"],
             "@gdi/template-card": ["packages/gdi-template-card"],
 
@@ -57,7 +56,6 @@
             "@gdi/app-voice": ["extra/apps/app-voice"],
 
             "@gdi/store-biblo": ["extra/stores/gdi-store-biblo"],
-            "@gdi/store-weather": ["extra/stores/gdi-store-weather"],
             "@gdi/store-carts": ["extra/stores/gdi-store-carts"],
             "@gdi/store-campaigns": ["extra/stores/gdi-store-campaigns"],
             "@gdi/store-devtools": ["extra/stores/gdi-store-devtools"],

@@ -1,7 +1,6 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import pickBy from 'lodash/pickBy';
-import mapValues from 'lodash/mapValues';
+import { pickBy, mapValues } from 'shared-base';
 
 export const $mode = createSelector(raw.$rawStudioState, (studioState) => {
     return studioState.mode;

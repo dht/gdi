@@ -23,12 +23,6 @@ export const contextBarItems: IContextBarItem[] = [
         responsive: true,
     },
     {
-        id: 'houston',
-        label: 'Houston',
-        widgetId: DevtoolsWidgets.Houston,
-        responsive: true,
-    },
-    {
         id: 'loginCycle',
         label: 'Login cycle',
         widgetId: DevtoolsWidgets.LoginCycle,

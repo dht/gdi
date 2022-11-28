@@ -11,8 +11,8 @@ import { Spinner } from '@gdi/web-base-ui';
 type WrapperProps = {
     appId: string;
     component: React.FC<any>;
-    props: any;
-    currentIdsActionCreator: (change: Json) => Action;
+    props?: any;
+    currentIdsActionCreator?: (change: Json) => Action;
 };
 
 export function Wrapper(props: WrapperProps) {
@@ -35,7 +35,7 @@ export function Wrapper(props: WrapperProps) {
         <AppContextProvider appId={appId}>
             <Suspense fallback={<Loader />}>
                 <React.Fragment>
-                    <Cmp {...props.props} />
+                    <Cmp {...(props.props ?? {})} />
                 </React.Fragment>
             </Suspense>
         </AppContextProvider>

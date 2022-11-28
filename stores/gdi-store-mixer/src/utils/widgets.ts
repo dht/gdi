@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import { get } from 'shared-base';
 
 export const getWidgetTypeFromTags = (tags: string[] = []) => {
     const firstTypeTag = tags.find((item) => item.match(/type-[a-z]+/i));
