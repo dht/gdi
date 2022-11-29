@@ -1,7 +1,7 @@
-import { actions, selectors } from '../store';
-import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
+import { actions } from '../store';
+import { call, delay, put, takeEvery } from 'saga-ts';
 import { invokeEvent, isEmpty } from 'shared-base';
-import { prompt, toast, ImportExport, LogsConsole } from '@gdi/web-ui';
+import { prompt, toast, ImportExport } from '@gdi/web-ui';
 import axios from 'axios';
 
 const STARTER_KIT_URL =
@@ -45,8 +45,6 @@ function* importSite(action: ActionImportSite) {
         return;
     }
 
-    const url = 'https';
-    toast.show(`Site data imported from ${url}`);
     const { value: value2, didCancel: didCancel2 } = yield prompt.custom({
         title: '',
         component: ImportExport,

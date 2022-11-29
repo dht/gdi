@@ -16,9 +16,11 @@ import Switch from '../Switch/Switch';
 
 export type LocalGalleryProps = {
     items: Json[];
+    itemsPerRow?: number;
 };
 
 export function LocalGallery(props: LocalGalleryProps) {
+    let { itemsPerRow } = props;
     const [ref, { width }] = useMeasure<HTMLDivElement>();
     const [currentTag, setCurrentTag] = useState('All');
     const [currentItem, setCurrentItem] = useState<Json | null>(null);
@@ -28,19 +30,31 @@ export function LocalGallery(props: LocalGalleryProps) {
 
     const isMobile = width < 600;
 
+    let itemHeight = isMobile ? 150 : 290;
+
+    if (!itemsPerRow) {
+        itemsPerRow = isMobile ? 2 : 4;
+    }
+
     const items = useItemsPosition(props.items, currentTag, {
         width,
-        itemsPerRow: isMobile ? 2 : 4,
-        itemHeight: isMobile ? 150 : 290,
+        itemsPerRow,
+        itemHeight,
     });
+
+    function onClick(item: Json) {
+        const { href } = item;
+
+        if (href) {
+            window.open(href, '_blank');
+        }
+
+        setCurrentItem(item);
+    }
 
     function renderItem(item: Json) {
         return (
-            <Image
-                key={item.id}
-                item={item}
-                onClick={() => setCurrentItem(item)}
-            />
+            <Image key={item.id} item={item} onClick={() => onClick(item)} />
         );
     }
 

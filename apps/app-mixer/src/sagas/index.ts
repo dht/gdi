@@ -2,6 +2,7 @@ import ping from './ping';
 import { fork, take } from 'saga-ts';
 import { root as apiPublic } from './saga.api.public';
 import { root as apiPrivate } from './saga.api.private';
+import { root as bootstrap } from './saga.bootstrap';
 import { root as elements } from './saga.elements';
 import { root as contentImages } from './saga.content.images';
 import { root as demo } from './saga.demo';
@@ -21,6 +22,7 @@ function* root() {
     yield* fork(apiPublic);
     yield take(PlatformLifeCycleEvents.AUTHENTICATION_COMPLETED);
     yield* fork(apiPrivate);
+    yield* fork(bootstrap);
     yield* fork(elements);
     yield* fork(gallery);
     yield* fork(demo);
