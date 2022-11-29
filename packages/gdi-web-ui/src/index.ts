@@ -27,6 +27,7 @@ export { TypeView } from './components/TypeView/TypeView';
 export { Weather } from './components/Weather/Weather';
 export { WindowHeader } from './components/WindowHeader/WindowHeader';
 export { siteDefaults } from './definitions/site.defaults';
+import { useCrudDefinitions } from '@gdi/platformer';
 
 export {
     Accordion,
