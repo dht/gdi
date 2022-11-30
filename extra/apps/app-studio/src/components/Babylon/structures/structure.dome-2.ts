@@ -112,7 +112,6 @@ export const addStructure = (scene: BABYLON.Scene) => {
         plane.position.y = 12;
 
         const y = ((i - 2) * (12 * Math.PI)) / 180;
-        console.log('y ->', y);
 
         plane.rotation.y = (-Math.PI / 8) * 4 + y;
 

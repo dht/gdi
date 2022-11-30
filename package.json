@@ -1,7 +1,7 @@
 {
     "name": "gdi-root",
     "private": true,
-    "version": "0.0.1",
+    "version": "0.0.4",
     "scripts": {
         "depcheck": "./scripts/depcheck.sh",
         "screenshots:server": "npm run dev --workspace=@gdi/photo-booth",

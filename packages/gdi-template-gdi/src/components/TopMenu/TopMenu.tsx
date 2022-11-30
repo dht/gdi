@@ -1,55 +1,53 @@
 import React from 'react';
-import Search from '../Search/Search';
-import SocialMenu from '../SocialMenu/SocialMenu';
-import {
-    Container,
-    Flex,
-    Github,
-    Inner,
-    MenuItem,
-    MenuItemLink,
-} from './TopMenu.style';
+import { Container, MenuItem, MenuItemLink } from './TopMenu.style';
+import classnames from 'classnames';
 
-export type TopMenuProps = {};
+export type TopMenuProps = {
+    items: IMenuItem[];
+};
 
-export function TopMenu(_props: TopMenuProps) {
+type IMenuItem = {
+    href: string;
+    title: string;
+};
+
+export function TopMenu(props: TopMenuProps) {
+    const { items } = props;
+
+    function renderItem(item: IMenuItem, index: number) {
+        const { title, href } = item;
+
+        if (!title) {
+            return null;
+        }
+
+        const className = classnames(item, {
+            selected: false,
+        });
+
+        return (
+            <MenuItem key={href}>
+                <MenuItemLink
+                    key={item.title + String(index)}
+                    className={className}
+                    href={href}
+                >
+                    {title}
+                </MenuItemLink>
+            </MenuItem>
+        );
+    }
+
+    function renderItems() {
+        return items.map((item: IMenuItem, index) => renderItem(item, index));
+    }
+
     return (
         <Container
             className='TopMenu-container'
             data-testid='TopMenu-container'
         >
-            <Inner>
-                <MenuItem>
-                    <MenuItemLink href='#templates'>Templates</MenuItemLink>
-                </MenuItem>
-                <MenuItem>
-                    <MenuItemLink href='#apps'>Apps</MenuItemLink>
-                </MenuItem>
-                <MenuItem>
-                    <MenuItemLink
-                        href='https://usegdi.com/docs/docs/getting-started/installation'
-                        target='_blank'
-                    >
-                        Docs
-                    </MenuItemLink>
-                </MenuItem>
-                <MenuItem>
-                    <MenuItemLink
-                        href='https://github.com/dht/gdi/discussions'
-                        target='_blank'
-                    >
-                        Community
-                    </MenuItemLink>
-                </MenuItem>
-                <MenuItem>
-                    <MenuItemLink href='#features'>Features</MenuItemLink>
-                </MenuItem>
-                <Flex />
-                <SocialMenu />
-                <Github href='https://github.com/dht/gdi' target='_blank'>
-                    <img src='/github.svg' />
-                </Github>
-            </Inner>
+            {renderItems()}
         </Container>
     );
 }

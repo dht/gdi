@@ -38,3 +38,7 @@ export const ButtonBase = styled.a`
         box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.05);
     }
 `;
+
+export const mobile = (css: any) => (props: any) => {
+    return props.theme.device('mobile', css);
+};

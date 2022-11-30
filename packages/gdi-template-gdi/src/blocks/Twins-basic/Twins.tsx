@@ -27,6 +27,7 @@ export type TwinsStrings = {
     headerSecondary: string;
     descriptionSecondary: string;
     buttonTextSecondary: string;
+    notes?: string;
 };
 
 export type TwinsColors = {};
@@ -34,10 +35,11 @@ export type TwinsColors = {};
 export type TwinsExtra = {
     href: string;
     hrefSecondary: string;
+    rotation: number;
 };
 
 export function Twins(props: TwinsProps) {
-    const { strings, colors, extra } = props;
+    const { strings, extra } = props;
     const {
         header,
         description,
@@ -45,49 +47,65 @@ export function Twins(props: TwinsProps) {
         headerSecondary,
         descriptionSecondary,
         buttonTextSecondary,
+        notes,
     } = strings;
-    const { href, hrefSecondary } = extra;
+    const { href, hrefSecondary, rotation } = extra;
+
+    function renderH2(text: string = '', className?: string) {
+        const parts = text.split(/\[/gi);
+
+        return (
+            <H2 className={className}>
+                {parts.map((part, index) => {
+                    if (index % 2 === 1) {
+                        return (
+                            <span key={index}>
+                                {part.replace(/[\[\]]/g, '')}
+                            </span>
+                        );
+                    } else {
+                        return part;
+                    }
+                })}
+            </H2>
+        );
+    }
+
+    const target = (linkHref: string = '') => {
+        if (linkHref.startsWith('http')) {
+            return '_blank';
+        }
+    };
 
     return (
-        <Container className='Twins-container' data-testid='Twins-container'>
-            <Layered degree={-3}>
+        <Container
+            className='Twins-container'
+            data-testid='Twins-container'
+            rotation={rotation}
+        >
+            <Layered degree={rotation}>
                 <BkGrid color1='#f2c973' color2='#000' />
                 <Wrapper>
                     <Row>
                         <Column>
-                            <H2>
-                                Built for <span>Firebase</span>
-                            </H2>
-                            <P>
-                                Use Firebase to host your site, store your data
-                                and manage your users. You can do all that with
-                                Firebase's free Spark plan*
-                            </P>
-                            <Button href='#features'>See features</Button>
+                            {renderH2(header)}
+                            <P>{description}</P>
+                            <Button href={href} target={target(href)}>
+                                {buttonText}
+                            </Button>
                         </Column>
                         <Column>
-                            <H2>
-                                Made with{' '}
-                                <span style={{ color: 'pink' }}>React</span>
-                            </H2>
-                            <P>
-                                It's easy to extend the CMS with your React
-                                skills. Create new templates, apps or data
-                                stores. Use JSONs to import & export anything
-                            </P>
+                            {renderH2(headerSecondary, 'pink')}
+                            <P>{descriptionSecondary}</P>
                             <Button
-                                href='https://github.com/dht/gdi'
-                                target='_blank'
+                                href={hrefSecondary}
+                                target={target(hrefSecondary)}
                             >
-                                Visit GitHub
+                                {buttonTextSecondary}
                             </Button>
                         </Column>
                     </Row>
-                    <Notes>
-                        * The Blaze plan is required for Image Uploading.
-                        Thumbnail resizing is done via Cloud Functions. It can
-                        still be free for low usage.
-                    </Notes>
+                    <Notes>{notes}</Notes>
                 </Wrapper>
             </Layered>
         </Container>

@@ -7,6 +7,7 @@ export const sampleData: ISampleDataPerFlavour = {
         colors: {},
         extra: {
             id: 'features',
+            href: '',
         },
     },
 };

@@ -8,8 +8,6 @@ export const useAction = (actionType: string, callback: Callback) => {
     const store = useStore();
 
     useEffect(() => {
-        console.log('actionType ->', actionType);
-
         let unsubscribe = store.subscribe(() => {
             const state = store.getState() as any;
             const lastAction = state._lastAction;

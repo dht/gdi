@@ -4,7 +4,7 @@ export const sampleData: ISampleDataPerFlavour = {
     normal: {
         id: 'normal',
         strings: {
-            text: '&copy; gDI 2022',
+            text: 'gDI 2022',
         },
         colors: {},
         extra: {

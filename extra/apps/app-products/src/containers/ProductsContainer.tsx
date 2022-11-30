@@ -15,7 +15,7 @@ export const ProductsContainer = () => {
                 invokeEvent('navigatePush', { path: `/${itemId}` });
             },
             onSelectionChange: (ids: string[]) => {
-                console.log('ids ->', ids);
+                // console.log('ids ->', ids);
             },
         }),
         []

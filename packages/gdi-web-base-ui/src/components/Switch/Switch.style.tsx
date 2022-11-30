@@ -13,6 +13,15 @@ export const Container = styled.div`
     align-items: center;
     position: relative;
     min-height: 34px;
+    --gold: gold;
+
+    &.lightMode {
+        --gold: #333;
+
+        .bk {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
 
     &.vertical {
         flex-direction: column;
@@ -25,13 +34,13 @@ export const Option = styled.div<{ selected: boolean }>`
     text-align: center;
     font-size: 17px;
     font-weight: bold;
-    color: ${(props) => (props.selected ? 'gold' : '#667')};
+    color: ${(props) => (props.selected ? 'var(--gold)' : '#667')};
     cursor: pointer;
     transition: all 50ms ease-in-out;
     text-align: center;
 
     &:hover {
-        color: ${(props) => (props.selected ? 'gold' : '#aaa')};
+        color: ${(props) => (props.selected ? 'var(--gold)' : '#aaa')};
     }
 
     i {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Wrapper, Text } from './SectionHeader.style';
 
-export const id = 'com.usegdi.templates.starter.sectionHeader-basic';
+export const id = 'com.usegdi.templates.gdi.sectionHeader-basic';
 
 export type SectionHeaderProps = {
     sequence?: number;

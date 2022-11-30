@@ -5,7 +5,7 @@ export const sampleData: ISampleDataPerFlavour = {
         id: 'normal',
         strings: {
             header: 'Features',
-            version: '0.9.1',
+            version: 'v0.16.0',
         },
         colors: {},
         extra: {

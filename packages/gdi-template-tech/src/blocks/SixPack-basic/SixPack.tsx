@@ -23,8 +23,6 @@ export function SixPack(props: SixPackProps) {
     const { strings, colors, extra } = props;
     const [ref, { width }] = useMeasure<HTMLDivElement>();
 
-    console.log('width ->', width);
-
     function renderArticle(article: any, index: number) {
         return (
             <HeroArticle

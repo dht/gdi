@@ -1,6 +1,16 @@
-import React from 'react';
-import { Container, Logo, Svg, Wrapper } from './TopHeader.style';
+import React, { useContext } from 'react';
+import {
+    Container,
+    Flex,
+    Github,
+    Logo,
+    LogoWrapper,
+    Svg,
+    Wrapper,
+} from './TopHeader.style';
 import TopMenu from '../../components/TopMenu/TopMenu';
+import SocialMenu from '../../components/SocialMenu/SocialMenu';
+import { SiteContext, useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.gdi.topHeader-basic';
 
@@ -15,23 +25,33 @@ export type TopHeaderStrings = {};
 export type TopHeaderColors = {};
 
 export type TopHeaderExtra = {
-    logoImageUrl: string;
+    logoUrl: string;
     githubUrl?: string;
     socialDatasetId?: string;
 };
 
 export function TopHeader(props: TopHeaderProps) {
     const { strings, colors, extra } = props;
-    const { logoImageUrl, githubUrl, socialDatasetId } = extra;
+    const { logoUrl, githubUrl, socialDatasetId = '' } = extra;
+    const { menuItems } = useContext(SiteContext);
+
+    const socialLinks = useDataset(socialDatasetId);
 
     return (
         <Container
             className='TopHeader-container'
             data-testid='TopHeader-container'
         >
-            <Logo src='/logo.svg' />
+            <Logo src={logoUrl} />
             <Wrapper>
-                <TopMenu />
+                <TopMenu items={menuItems} />
+                <Flex />
+                <SocialMenu items={socialLinks} />
+                {githubUrl && (
+                    <Github href={githubUrl} target='_blank'>
+                        <img src='https://static-b9ebe.web.app/github.svg' />
+                    </Github>
+                )}
             </Wrapper>
             <Svg
                 viewBox='0 0 1200 21'

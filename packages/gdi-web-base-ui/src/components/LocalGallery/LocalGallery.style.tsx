@@ -23,12 +23,27 @@ export const Items = styled.div`
     border: 1px solid gold;
 `;
 
-export const Item = styled.div<{ imageUrl: string }>`
+export const Item = styled.div<{
+    imageUrl: string;
+    contain?: boolean;
+    itemHeight: number;
+}>`
     background-image: url(${(props) => props.imageUrl});
-    height: 290px;
-    background-size: cover;
+    height: ${(props) => props.itemHeight}px;
+    background-size: ${(props) => (props.contain ? 'contain' : 'cover')};
     background-position: center center;
+    background-repeat: no-repeat;
     position: absolute;
+    background-color: white;
+
+    .overlay {
+    }
+
+    &:hover {
+        .overlay {
+            background-color: #ffd9001b;
+        }
+    }
 `;
 
 export const SwitchWrapper = styled.div`
@@ -54,4 +69,13 @@ export const Title = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+`;
+
+export const Overlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
 `;

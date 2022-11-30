@@ -22,11 +22,17 @@ export const params: IWidgetParams = {
                 isRequired: true,
                 order: 3,
             },
+            notes: {
+                fieldType: 'longText',
+                isRequired: false,
+                order: 4,
+            },
         },
         colors: {},
         extra: {
             href: { fieldType: 'url', isRequired: true, order: 0 },
-            hrefSecondary: { fieldType: 'url', isRequired: true, order: 0 },
+            hrefSecondary: { fieldType: 'url', isRequired: true, order: 1 },
+            rotation: { fieldType: 'number', isRequired: false, order: 2 },
         },
     },
 };

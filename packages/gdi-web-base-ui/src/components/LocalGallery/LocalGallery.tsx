@@ -6,6 +6,7 @@ import {
     Items,
     SwitchWrapper,
     Title,
+    Overlay,
 } from './LocalGallery.style';
 import { useTags } from '../../hooks/useTags';
 import { useItemsPosition } from '../../hooks/useItemsPosition';
@@ -17,10 +18,14 @@ import Switch from '../Switch/Switch';
 export type LocalGalleryProps = {
     items: Json[];
     itemsPerRow?: number;
+    itemHeight?: number;
+    lightMode: boolean;
+    contain: boolean;
+    renderOverlay: (item: Json) => JSX.Element;
 };
 
 export function LocalGallery(props: LocalGalleryProps) {
-    let { itemsPerRow } = props;
+    let { itemsPerRow, itemHeight, lightMode, contain } = props;
     const [ref, { width }] = useMeasure<HTMLDivElement>();
     const [currentTag, setCurrentTag] = useState('All');
     const [currentItem, setCurrentItem] = useState<Json | null>(null);
@@ -30,10 +35,12 @@ export function LocalGallery(props: LocalGalleryProps) {
 
     const isMobile = width < 600;
 
-    let itemHeight = isMobile ? 150 : 290;
-
     if (!itemsPerRow) {
         itemsPerRow = isMobile ? 2 : 4;
+    }
+
+    if (!itemHeight) {
+        itemHeight = isMobile ? 150 : 290;
     }
 
     const items = useItemsPosition(props.items, currentTag, {
@@ -47,6 +54,7 @@ export function LocalGallery(props: LocalGalleryProps) {
 
         if (href) {
             window.open(href, '_blank');
+            return;
         }
 
         setCurrentItem(item);
@@ -54,7 +62,14 @@ export function LocalGallery(props: LocalGalleryProps) {
 
     function renderItem(item: Json) {
         return (
-            <Image key={item.id} item={item} onClick={() => onClick(item)} />
+            <Image
+                key={item.id}
+                item={item}
+                onClick={() => onClick(item)}
+                contain={contain}
+                renderOverlay={props.renderOverlay}
+                itemHeight={itemHeight}
+            />
         );
     }
 
@@ -92,6 +107,7 @@ export function LocalGallery(props: LocalGalleryProps) {
                 <Switch
                     options={tags}
                     value={currentTag}
+                    lightMode={lightMode}
                     onChange={(option) => setCurrentTag(option.id)}
                 />
             </SwitchWrapper>
@@ -106,10 +122,13 @@ export function LocalGallery(props: LocalGalleryProps) {
 type ImageProps = {
     item: Json;
     onClick: () => void;
+    contain?: boolean;
+    renderOverlay: (item: Json) => JSX.Element | null;
+    itemHeight?: number;
 };
 
 function Image(props: ImageProps) {
-    const { item } = props;
+    const { item, contain, itemHeight = 290 } = props;
     const { title, thumbImageUrl, imageUrl } = item;
 
     const style = {
@@ -118,6 +137,14 @@ function Image(props: ImageProps) {
         left: `${item.position.left}px`,
     };
 
+    function renderOverlay() {
+        if (!props.renderOverlay) {
+            return null;
+        }
+
+        return props.renderOverlay(item);
+    }
+
     return (
         <Item
             key={item.id}
@@ -125,8 +152,11 @@ function Image(props: ImageProps) {
             imageUrl={thumbImageUrl || imageUrl}
             style={style}
             onClick={props.onClick}
+            contain={contain}
+            itemHeight={itemHeight}
         >
-            <Title>{title}</Title>
+            <Overlay className='overlay'>{renderOverlay()}</Overlay>
+            {props.renderOverlay === null && <Title>{title}</Title>}
         </Item>
     );
 }

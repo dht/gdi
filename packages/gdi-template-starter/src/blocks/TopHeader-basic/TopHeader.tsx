@@ -23,7 +23,7 @@ export type TopHeaderExtra = {
 export function TopHeader(props: TopHeaderProps) {
     const { extra } = props;
     const { logoUrl } = extra;
-    let { menuItems } = useContext(SiteContext);
+    const { menuItems } = useContext(SiteContext);
 
     return (
         <Container

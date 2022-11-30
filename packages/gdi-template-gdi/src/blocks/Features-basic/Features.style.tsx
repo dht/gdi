@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     flex: 1;
-    height: 800px;
     padding-top: 70px;
+    padding-bottom: 150px;
     background-color: white;
 `;
 
@@ -41,7 +41,7 @@ export const H3 = styled.h3`
 
 export const Ul = styled.ul`
     font-size: 24px;
-    line-height: 32px;
+    line-height: 1.9;
 `;
 
 export const Li = styled.li`

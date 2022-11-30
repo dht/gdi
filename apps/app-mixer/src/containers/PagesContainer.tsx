@@ -19,8 +19,6 @@ export const PagesContainer = () => {
                 // console.log('ids ->', ids);
             },
             onCustomAction: (actionId: string, data?: Json) => {
-                console.log('actionId ->', actionId);
-
                 switch (actionId) {
                     case 'import':
                         dispatch({ type: 'IMPORT_SITE', source: 'json' });

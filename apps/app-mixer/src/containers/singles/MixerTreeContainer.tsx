@@ -40,8 +40,6 @@ export const MixerTreeContainer = () => {
             },
 
             onCustomAction: (actionId: string, _data?: Json) => {
-                console.log('actionId ->', actionId);
-
                 switch (actionId) {
                     case 'duplicateVersion':
                         dispatch({ type: 'DUPLICATE_PAGE_INSTANCE' });

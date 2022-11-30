@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDataset } from '@gdi/engine';
 import {
     Container,
     H2,
@@ -30,11 +31,13 @@ export type FeaturesExtra = {
 };
 
 export function Features(props: FeaturesProps) {
-    const { strings, colors, extra } = props;
+    const { strings, extra } = props;
     const { header, version } = strings;
     const { featuresDatasetId } = extra;
 
-    function renderFeature(feature: Feature) {
+    const features = useDataset(featuresDatasetId);
+
+    function renderFeature(feature: Json) {
         const { title, tag } = feature;
 
         return (
@@ -45,25 +48,24 @@ export function Features(props: FeaturesProps) {
         );
     }
 
-    function renderFeatures(features: Feature[], isSupported: boolean) {
+    function renderFeatures(features: Json[], isSupported: boolean) {
         return features
             .filter(
                 (f) =>
                     f.isSupported === isSupported ||
                     (!isSupported && typeof f.isSupported === 'undefined')
             )
-            .map((feature: Feature) => renderFeature(feature));
+            .map((feature: Json) => renderFeature(feature));
     }
 
     return (
         <Container
             className='Features-container'
             data-testid='Features-container'
-            colors={colors}
         >
             <Wrapper>
                 <H2 id='features'>
-                    Features <span>v0.9.1</span>
+                    {header} <span>{version}</span>
                 </H2>
 
                 <Row>
@@ -90,63 +92,5 @@ type Feature = {
     tag: string;
     isSupported?: boolean;
 };
-
-const features: Feature[] = [
-    {
-        id: '1',
-        title: 'React',
-        tag: '',
-        isSupported: true,
-    },
-    {
-        id: '2',
-        title: 'React',
-        tag: '',
-        isSupported: true,
-    },
-    {
-        id: '3',
-        title: 'React',
-        tag: '',
-        isSupported: true,
-    },
-    {
-        id: '4',
-        title: 'React',
-        tag: '',
-        isSupported: true,
-    },
-    {
-        id: '5',
-        title: 'React',
-        tag: '',
-        isSupported: true,
-    },
-    {
-        id: '1',
-        title: 'React',
-        tag: '',
-    },
-    {
-        id: '2',
-        title: 'React',
-        tag: '',
-    },
-    {
-        id: '3',
-        title: 'React',
-        tag: '',
-    },
-    {
-        id: '4',
-        title: 'React',
-        tag: 'not planned',
-    },
-    {
-        id: '5',
-        title: 'React',
-        tag: 'v0.9.3',
-    },
-];
 
 export default Features;

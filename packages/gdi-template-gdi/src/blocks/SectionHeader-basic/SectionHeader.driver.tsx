@@ -1,19 +1,19 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { PageTemplate, PageTemplateProps } from './PageTemplate';
+import { SectionHeader, SectionHeaderProps } from './SectionHeader';
 import { BaseComponentDriver } from 'testing-base';
 
-export class PageTemplateDriver extends BaseComponentDriver {
-    private props: Partial<PageTemplateProps> = {
+export class SectionHeaderDriver extends BaseComponentDriver {
+    private props: Partial<SectionHeaderProps> = {
     };
 
     constructor() {
-        super('PageTemplate');
+        super('SectionHeader');
     }
 
     when: any = {
         rendered: () => {
-            render(<PageTemplate {...(this.props as PageTemplateProps)} />);
+            render(<SectionHeader {...(this.props as SectionHeaderProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,12 +21,12 @@ export class PageTemplateDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PageTemplate {...(this.props as PageTemplateProps)} />);
+            return this.snapshot(<SectionHeader {...(this.props as SectionHeaderProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<PageTemplateProps>) => {
+        props: (props: Partial<SectionHeaderProps>) => {
             this.props = props;
             return this;
         },

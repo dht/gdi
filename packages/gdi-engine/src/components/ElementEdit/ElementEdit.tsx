@@ -54,9 +54,6 @@ export function ElementEdit(props: ElementEditProps) {
 
     function renderWidget() {
         if (!widget) {
-            console.log('widgets ->', widgets);
-            console.log('element.widgetId ->', element.widgetId);
-
             if (element.isPlaceholder) {
                 return <Placeholder element={element} />;
             } else {

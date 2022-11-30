@@ -7,6 +7,7 @@ export const Container = styled.div<{ selected: boolean }>`
     border: 2px solid transparent;
     border-color: ${(props) => (props.selected ? 'gold' : 'transparent')};
     background-color: #334;
+    overflow-x: hidden;
 
     &:hover {
         &:after {

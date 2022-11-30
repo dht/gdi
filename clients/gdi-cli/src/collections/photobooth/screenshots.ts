@@ -1,4 +1,4 @@
-// shortcuts: screenshot
+// shortcuts: screenshot, screenshots
 // desc: takes screenshots for current template
 import fs from 'fs-extra';
 import { chromium, Page } from 'playwright';

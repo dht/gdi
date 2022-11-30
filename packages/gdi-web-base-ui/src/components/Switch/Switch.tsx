@@ -8,11 +8,18 @@ export type SwitchProps = {
     value?: string;
     defaultValue?: string;
     vertical?: boolean;
+    lightMode?: boolean;
     onChange?: (option: IOption) => void;
 };
 
 export function Switch(props: SwitchProps) {
-    const { options, value: controlledValue, defaultValue, vertical } = props;
+    const {
+        options,
+        value: controlledValue,
+        defaultValue,
+        vertical,
+        lightMode,
+    } = props;
     const [localValue, setLocalValue] = useState(defaultValue);
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 
@@ -76,11 +83,12 @@ export function Switch(props: SwitchProps) {
             style.left = index * itemWidth;
         }
 
-        return <Bk style={style} />;
+        return <Bk className='bk' style={style} />;
     }
 
     const className = classnames('Switch-container', {
         vertical,
+        lightMode,
     });
 
     return (

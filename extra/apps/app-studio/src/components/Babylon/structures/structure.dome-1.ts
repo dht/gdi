@@ -66,7 +66,6 @@ export const addStructure = (scene: BABYLON.Scene) => {
     particleSystem.emitter = new BABYLON.Vector3(-12, 5 + 12, -6);
 
     particleSystem.start();
-    console.log('particleSystem ->', particleSystem);
 
     BABYLON.ParticleHelper.CreateDefault(
         new BABYLON.Vector3(-12, 15, -6),
