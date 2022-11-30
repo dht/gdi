@@ -12,11 +12,13 @@ export const sampleData: ISampleDataPerFlavour = {
             descriptionSecondary:
                 "It's easy to extend the CMS with your React skills. Create new templates, apps or data stores. Use JSONs to import & export anything",
             buttonTextSecondary: 'Visit Github',
+            notes: '* The Blaze plan is required for Image Uploading. Thumbnail resizing is done via Cloud Functions. It can still be free for low usage.',
         },
         colors: {},
         extra: {
-            href: '#',
-            hrefSecondary: '#',
+            href: '#features',
+            hrefSecondary: 'https://github.com/dht/gdi',
+            rotation: 0,
         },
     },
 };

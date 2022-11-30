@@ -6,9 +6,9 @@ export const sampleData: ISampleDataPerFlavour = {
         strings: {},
         colors: {},
         extra: {
-            logoImageUrl: '',
-            githubUrl: '#',
-            socialDatasetId: '',
+            logoUrl: 'https://static-b9ebe.web.app/logo-gdi.svg',
+            githubUrl: 'https://github.com/dht/gdi',
+            socialDatasetId: 'topLinks',
         },
     },
 };

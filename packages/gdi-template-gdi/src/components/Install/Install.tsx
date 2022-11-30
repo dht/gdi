@@ -1,9 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Container } from './Install.style';
 
-export type InstallProps = {};
+export type InstallProps = {
+    installation?: string;
+};
 
-export function Install(_props: InstallProps) {
+export function Install(props: InstallProps) {
+    const { installation } = props;
     const ref = useTypeIn();
 
     return (
@@ -16,7 +19,7 @@ export function Install(_props: InstallProps) {
             spellCheck='false'
             ref={ref}
         >
-            npm install -g @gdi/cli
+            {installation}
         </Container>
     );
 }

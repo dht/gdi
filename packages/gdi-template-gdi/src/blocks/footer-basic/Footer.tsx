@@ -1,3 +1,4 @@
+import { useDataset } from '@gdi/engine';
 import React from 'react';
 import { A, Column, Container, Li, Ul, Wrapper } from './Footer.style';
 export const id = 'com.usegdi.templates.gdi.footer-basic';
@@ -14,29 +15,39 @@ export type FooterStrings = {
 
 export type FooterColors = {};
 
-export type FooterExtra = {};
+export type FooterExtra = {
+    linksDatasetId?: string;
+};
 
 export function Footer(props: FooterProps) {
     const { strings, colors, extra } = props;
     const { text } = strings;
+    const { linksDatasetId = '' } = extra;
+
+    const links = useDataset(linksDatasetId);
+
+    function renderLink(link: Json) {
+        const { title, href } = link;
+
+        return (
+            <Li key={link.id}>
+                <A href={href} target='_blank'>
+                    {title}
+                </A>
+            </Li>
+        );
+    }
+
+    function renderLinks() {
+        return links.map((link: Json) => renderLink(link));
+    }
 
     return (
-        <Container
-            className='Footer-container'
-            data-testid='Footer-container'
-            colors={colors}
-        >
+        <Container className='Footer-container' data-testid='Footer-container'>
             <Wrapper>
-                <Column>&copy; gDI 2022</Column>
+                <Column>&copy; {text}</Column>
                 <Column>
-                    <Ul>
-                        <Li>
-                            <A>Community</A>
-                        </Li>
-                        <Li>
-                            <A>Github</A>
-                        </Li>
-                    </Ul>
+                    <Ul>{renderLinks()}</Ul>
                 </Column>
             </Wrapper>
         </Container>

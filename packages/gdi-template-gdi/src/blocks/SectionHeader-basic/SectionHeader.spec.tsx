@@ -1,13 +1,13 @@
-import { PageTemplateDriver } from './PageTemplate.driver';
+import { SectionHeaderDriver } from './SectionHeader.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('PageTemplate', () => {
-    let driver: PageTemplateDriver;
+describe('SectionHeader', () => {
+    let driver: SectionHeaderDriver;
 
     beforeAll(() => {
-        driver = new PageTemplateDriver();
+        driver = new SectionHeaderDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('PageTemplate', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('PageTemplate-container');
+        expect(containerClassName).toContain('SectionHeader-container');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('PageTemplate', () => {
     });
 });
 
-describe('PageTemplate snapshots', () => {
-    let driver: PageTemplateDriver;
+describe('SectionHeader snapshots', () => {
+    let driver: SectionHeaderDriver;
 
     beforeAll(() => {
-        driver = new PageTemplateDriver();
+        driver = new SectionHeaderDriver();
     });
 
     it('should match snapshot', () => {

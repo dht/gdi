@@ -11,10 +11,10 @@ export const ProjectsContainer = () => {
     const callbacks = useMemo(
         () => ({
             onDrillDown: (itemId: string) => {
-                console.log('itemId ->', itemId);
+                // console.log('itemId ->', itemId);
             },
             onSelectionChange: (ids: string[]) => {
-                console.log('ids ->', ids);
+                // console.log('ids ->', ids);
             },
         }),
         []

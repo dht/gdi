@@ -33,8 +33,6 @@ function* addElement(action: ActionAddElement) {
 
     const id = `${pageId}-${placeholderType}-${guid4()}`;
 
-    console.log('id ->', id);
-
     yield put(
         actions.libraryInstances.add({
             id,

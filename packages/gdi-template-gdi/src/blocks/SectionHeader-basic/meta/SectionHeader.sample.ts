@@ -1,13 +1,13 @@
-import { ISampleDataPerFlavour } from '@gdi/web-ui';
-
 export const sampleData: ISampleDataPerFlavour = {
     normal: {
         id: 'normal',
-        strings: {},
+        strings: {
+            text: 'Features',
+        },
         colors: {},
         extra: {
-            appsDatasetId: 'apps',
-            contentUrl: '#',
+            id: 'features',
+            href: '',
         },
     },
 };

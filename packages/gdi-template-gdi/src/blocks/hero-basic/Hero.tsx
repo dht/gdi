@@ -25,7 +25,6 @@ export type HeroProps = {
 export type HeroStrings = {
     slogan?: string;
     header: string;
-    installation?: string;
     ctaButtonText: string;
     secondaryButtonText: string;
 };
@@ -36,30 +35,27 @@ export type HeroExtra = {
     href: string;
     imageUrl: string;
     hrefSecondary?: string;
+    installation?: string;
 };
 
 export function Hero(props: HeroProps) {
-    const { strings, colors, extra } = props;
-    const { slogan, header, ctaButtonText } = strings;
-    const { imageUrl, href } = extra;
+    const { strings, extra } = props;
+    const { slogan, header, ctaButtonText, secondaryButtonText } = strings;
+    const { imageUrl, href, hrefSecondary, installation } = extra;
 
     return (
         <Container className='Hero-container' data-testid='Hero-container'>
             <Wrapper>
                 <Column>
-                    <Slogan>There's a new CMS in town</Slogan>
-                    <H1>gDI</H1>
-
-                    <Install />
+                    <Slogan>{slogan}</Slogan>
+                    <H1>{header}</H1>
+                    <Install installation={installation} />
                     <Actions>
-                        <Button
-                            href='https://usegdi.com/docs/docs/getting-started/installation'
-                            target='_blank'
-                        >
-                            Get started
+                        <Button href={href} target='_blank'>
+                            {ctaButtonText}
                         </Button>
-                        <Button href='https://usegdi.com/demo' target='new'>
-                            View demo
+                        <Button href={hrefSecondary} target='_blank'>
+                            {secondaryButtonText}
                         </Button>
                     </Actions>
                 </Column>
@@ -67,7 +63,7 @@ export function Hero(props: HeroProps) {
                     <Demo className='animate__animated animate__fadeInRight'>
                         <DemoTop />
                         <DemoBottom />
-                        <Image src='/hero.png' />
+                        <Image src={imageUrl} />
                     </Demo>
                 </Column>
             </Wrapper>

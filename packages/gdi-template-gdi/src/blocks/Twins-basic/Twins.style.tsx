@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import { ButtonBase } from '../Base.style';
 
-export const Container = styled.div`
+export const Container = styled.div<{ rotation?: number }>`
     flex: 1;
     height: 750px;
     margin-bottom: 100px;
+    background-color: white;
+    --rotation: ${(props) => props.rotation || 0}deg;
 `;
 
 export const Wrapper = styled.div`
@@ -41,6 +43,12 @@ export const H2 = styled.h2`
     span {
         color: #f2c973;
     }
+
+    &.pink {
+        span {
+            color: pink;
+        }
+    }
 `;
 
 export const P = styled.div`
@@ -57,5 +65,5 @@ export const Button = styled(ButtonBase)`
 export const Notes = styled.div`
     line-height: 20px;
     opacity: 0.5;
-    transform: rotate(-3deg);
+    transform: rotate(var(--rotation));
 `;

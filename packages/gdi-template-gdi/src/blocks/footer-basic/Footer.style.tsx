@@ -4,14 +4,17 @@ export const Container = styled.div`
     flex: 1;
     background-color: #223;
     color: #fff;
-    padding: 70px calc((100vw - 1200px) / 2);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    padding: 50px 0;
     font-size: 18px;
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+`;
 
 export const Column = styled.div`
     flex: 1;
@@ -34,6 +37,8 @@ export const Li = styled.li`
 
 export const A = styled.a`
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 
     &:hover {
         color: gold;

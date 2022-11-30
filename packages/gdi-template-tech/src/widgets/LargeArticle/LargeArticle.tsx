@@ -21,8 +21,6 @@ export function LargeArticle(props: LargeArticleProps) {
     const { horizontal, article } = props;
     const { title, slogan, authorName, imageUrl } = article;
 
-    console.log('horizontal ->', horizontal);
-
     const className = classnames('LargeArticle-container', {
         horizontal,
     });

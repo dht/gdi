@@ -30,8 +30,6 @@ export const MixerContainer = () => {
                 // console.log('ids ->', ids);
             },
             onCustomAction: (actionId: string, _data?: Json) => {
-                console.log('actionId ->', actionId);
-
                 switch (actionId) {
                     case 'back':
                         invokeEvent('navigate', { path: '/admin/pages' });

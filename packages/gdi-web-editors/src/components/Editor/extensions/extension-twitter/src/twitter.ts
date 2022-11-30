@@ -154,7 +154,6 @@ export const Twitter = Node.create<TwitterOptions>({
 */
 
 /*
-  console.log('1 ->', 1);
 
         const tweetId = '1571929797185667072';
 

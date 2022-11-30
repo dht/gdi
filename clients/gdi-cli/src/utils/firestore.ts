@@ -55,6 +55,8 @@ export const initFirebaseAdmin = () => {
         '../../firebaseServiceAccount.json'
     );
 
+    console.log('serviceAccountPath ->', serviceAccountPath);
+
     if (!fs.existsSync(serviceAccountPath)) {
         throw new Error('Service account file not found');
     }

@@ -6,9 +6,7 @@ type SettingsChangeAction = {
     data: Json;
 };
 
-function* settingsChange(action: SettingsChangeAction) {
-    console.log('save ->', action);
-}
+function* settingsChange(action: SettingsChangeAction) {}
 
 export function* root() {
     yield takeEvery('SETTINGS_CHANGE', settingsChange);

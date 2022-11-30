@@ -5,6 +5,7 @@ export const Container = styled.div`
     background-size: cover;
     background-color: black;
     position: relative;
+    overflow-x: hidden;
 `;
 
 export const Wrapper = styled.div`
@@ -50,4 +51,24 @@ export const Svg = styled.svg`
 
 export const Polygon = styled.polygon`
     fill: white;
+`;
+
+export const Flex = styled.div`
+    flex: 1;
+`;
+
+export const Github = styled.a`
+    opacity: 0.9;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:active {
+        position: relative;
+        top: 1px;
+        left: 1px;
+    }
 `;
