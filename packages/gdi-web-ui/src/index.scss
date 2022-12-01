@@ -1,3 +1,4 @@
+@import './normalize.scss';
 @import './components/AccountSelector/AccountSelector.scss';
 @import './components/AccountTag/AccountTag.scss';
 @import './components/BigAutoComplete/BigAutoComplete.scss';
@@ -20,3 +21,19 @@
 @import './components/Switcher/Switcher.scss';
 @import './components/TypeView/TypeView.scss';
 @import './components/WindowHeader/WindowHeader.scss';
+
+.base-drawer .ms-Overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.base-drawer .ms-Panel-main {
+    background-color: #334;
+}
+
+.Modal-container {
+    background-color: rgb(31, 31, 47);
+    min-width: 500px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid goldenrod;
+    overflow-y: visible;
+}

@@ -18,6 +18,7 @@ export const Container = styled.div<{ colors: MyNumbersColors }>`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     max-width: 1440px;

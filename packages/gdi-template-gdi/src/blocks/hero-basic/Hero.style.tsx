@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { ButtonBase, mobile } from '../Base.style';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    background-color: white;
+`;
 
 export const Column = styled.div`
     flex: 1;
@@ -70,6 +72,7 @@ export const Button = styled(ButtonBase)`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -81,9 +84,10 @@ export const Wrapper = styled.div`
     position: relative;
 
     ${mobile(css`
-        width: 380px;
+        width: 99vw;
         flex-direction: column;
-        margin: 50px 20px;
+        margin: 0;
         text-align: center;
+        padding: 40px 0 0;
     `)}
 `;

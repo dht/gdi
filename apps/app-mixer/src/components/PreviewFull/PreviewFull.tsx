@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { Container } from './PreviewFull.style';
 import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
@@ -15,6 +15,7 @@ export type PreviewFullProps = {
 };
 
 export function PreviewFull(props: PreviewFullProps) {
+    const ref = useRef<HTMLDivElement>(null);
     const { elements, widget, datasets, mobileMode } = props;
 
     const libraryBuilder = useMemo(() => {
@@ -30,6 +31,12 @@ export function PreviewFull(props: PreviewFullProps) {
             show: false,
         });
 
+        const box = ref.current?.getBoundingClientRect();
+
+        if (box && box.width < 768) {
+            props.onToggleMobile(true);
+        }
+
         return () => {
             invokeEvent('side-menu', {
                 show: true,
@@ -41,6 +48,7 @@ export function PreviewFull(props: PreviewFullProps) {
         <Container
             className='PreviewFull-container'
             data-testid='PreviewFull-container'
+            ref={ref}
         >
             <EngineView
                 elements={elements}

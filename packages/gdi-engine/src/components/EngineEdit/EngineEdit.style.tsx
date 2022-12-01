@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ backgroundColor: string }>`
+    flex: 1;
+    background-color: ${(props) => props.backgroundColor};
     flex: 1;
     width: 1920px;
 `;

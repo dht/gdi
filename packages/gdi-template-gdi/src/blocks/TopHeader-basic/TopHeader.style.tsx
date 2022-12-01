@@ -9,6 +9,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -17,7 +18,7 @@ export const Wrapper = styled.div`
     justify-content: center;
 
     ${mobile(css`
-        width: 380px;
+        width: 99vw;
         height: 80px;
         padding-left: 150px;
     `)}
@@ -89,4 +90,8 @@ export const Github = styled.a`
         top: 1px;
         left: 1px;
     }
+
+    ${mobile(css`
+        display: none;
+    `)}
 `;

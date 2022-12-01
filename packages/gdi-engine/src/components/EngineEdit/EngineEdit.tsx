@@ -16,10 +16,11 @@ export type EngineEditProps = {
     onAction?: (action: ActionType, id: string) => void;
     libraryBuilder: ILibraryBuilder;
     datasets: Json;
+    backgroundColor?: string;
 };
 
 export function EngineInner(props: EngineEditProps) {
-    const { elements, selectedId } = props;
+    const { elements, selectedId, backgroundColor = 'transparent' } = props;
     const { isReady } = useContext(EngineContext);
 
     function renderElement(element: IElement, index: number) {
@@ -54,6 +55,7 @@ export function EngineInner(props: EngineEditProps) {
         <Container
             className='EngineEdit-container'
             data-testid='EngineEdit-container'
+            backgroundColor={backgroundColor}
         >
             {renderInner()}
         </Container>

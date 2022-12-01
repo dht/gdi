@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-tech",
-    "version": "0.0.25",
+    "version": "0.0.26",
     "description": "Template for a tech blog",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -12,9 +12,9 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.33",
-        "@gdi/types": "^0.0.58",
-        "@gdi/web-ui": "^0.0.41",
+        "@gdi/engine": "^0.0.38",
+        "@gdi/types": "^0.0.59",
+        "@gdi/web-ui": "^0.0.42",
         "classnames": "^2.3.1",
         "polished": "^4.2.2",
         "react-draggable": "^4.4.5",

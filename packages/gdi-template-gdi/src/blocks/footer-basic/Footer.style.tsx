@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     width: 1200px;
     display: flex;
     flex-direction: row;
@@ -17,7 +18,8 @@ export const Wrapper = styled.div`
     margin: auto;
 
     ${mobile(css`
-        width: 380px;
+        width: 99vw;
+        padding: 0 10px;
     `)}
 `;
 

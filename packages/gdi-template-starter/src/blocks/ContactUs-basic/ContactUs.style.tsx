@@ -29,6 +29,7 @@ export const Container = styled.div<{ imageUrl: string }>`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     max-width: 1440px;

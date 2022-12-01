@@ -20,14 +20,16 @@ export const H2 = styled.h2`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     width: 1200px;
     margin: 0 auto;
     padding: 50px 0;
     color: #333;
 
     ${mobile(css`
-        width: 380px;
-        margin: 0 30px;
+        width: 99vw;
+        margin: 0;
+        padding: 0 20px;
     `)}
 `;
 

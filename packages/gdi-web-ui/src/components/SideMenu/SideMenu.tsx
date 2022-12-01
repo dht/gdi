@@ -33,7 +33,7 @@ export function SideMenu(props: SideMenuProps) {
     const { data, groups, groupsTranslated } = props;
     const [sections, updateSections] = useSetState<Record<string, boolean>>({});
     const [slim, toggleSlim] = useToggle(true);
-    const [hidden, toggleHidden] = useToggle(true);
+    const [hidden, toggleHidden] = useToggle(false);
     const location = useLocation();
     const navigate = useNavigate();
     const { isRtl } = useTheme() as any;

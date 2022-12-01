@@ -35,6 +35,7 @@ export const Container = styled.div<{ colors: CtaActionColors }>`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
