@@ -6,8 +6,6 @@
   An open-source & extendable content management system (CMS) written in ReactJS, hosted on <a href="https://firebase.google.com" target="_blank">Firebase</a>
 </p>
 <p align="center">
-  <a href="https://usegdi.com/docs/docs/getting-started/installation" target="_blank">Getting Started</a>&nbsp;//&nbsp;
-  <a href="https://usegdi.com/admin/demo" target="_blank">Demo</a>&nbsp;//&nbsp;
   <a href="https://usegdi.com/docs/" target="_blank">Documentation</a>&nbsp;//&nbsp;
   <a href="https://usegdi.com" target="_blank">Homepage</a>
 </p>
@@ -106,6 +104,8 @@ gdi deploy
 > Note: this will deploy both the `Admin UI` and the `Site`
 
 After a successful deployment, the `Admin UI` will be served from the `/admin` path.
+
+> Note: change your site's favIcons and meta tags before deployment
 
 ## CLI commands
 

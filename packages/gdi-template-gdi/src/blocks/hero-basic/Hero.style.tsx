@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { ButtonBase } from '../Base.style';
 
-export const Container = styled.div`
-    background-color: white;
-`;
+export const Container = styled.div``;
 
 export const Column = styled.div`
     flex: 1;

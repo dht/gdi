@@ -1,0 +1,32 @@
+{
+    "theme_color": "#fff",
+    "background_color": "#333",
+    "display": "browser",
+    "scope": "/admin",
+    "start_url": "/admin",
+    "name": "gDI -  Open Source CMS for Firebase",
+    "short_name": "gDI",
+    "description": "An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase. Build and manage your site & business. Extend via NPM packages.",
+    "icons": [
+        {
+            "src": "/fav/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/fav/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/fav/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/fav/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
