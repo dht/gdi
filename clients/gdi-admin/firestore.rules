@@ -13,8 +13,8 @@ service cloud.firestore {
       return uid == request.auth.uid;
     }
     
-    match /singles/{name} {
-      allow read: if isPublic(name) || isAdmin();
+    match /singles/{document=**}  {
+      allow read: if isPublic() || isAdmin();
       allow write: if isAdmin();
     }
 
@@ -44,6 +44,11 @@ service cloud.firestore {
     }
 
     match /pageInstances/{document=**} {
+      allow read;
+      allow write: if isAdmin();
+    }
+    
+    match /widgets/{document=**} {
       allow read;
       allow write: if isAdmin();
     }

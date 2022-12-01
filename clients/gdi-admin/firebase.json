@@ -22,6 +22,14 @@
                 "destination": "/docs/index.html"
             },
             {
+                "source": "/fav/**",
+                "destination": "/admin/fav/**"
+            },
+            {
+                "source": "/manifest.json",
+                "destination": "/admin/manifest.json"
+            },
+            {
                 "source": "/**",
                 "destination": "/site/index.html"
             }
@@ -38,6 +46,15 @@
             },
             {
                 "source": "**/*.@(jpg|jpeg|gif|png)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=7200"
+                    }
+                ]
+            },
+            {
+                "source": "assets/*.js",
                 "headers": [
                     {
                         "key": "Cache-Control",
