@@ -24,6 +24,7 @@
         "submodules/extra/stores/*",
         "submodules/extra/apps/*"
     ],
+    "license": "MIT",
     "devDependencies": {
         "@types/jest": "^27.5.1",
         "base-types": "^0.0.4",

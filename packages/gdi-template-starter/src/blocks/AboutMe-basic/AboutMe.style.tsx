@@ -42,12 +42,13 @@ export const Container = styled.div<{ imageUrl: string }>`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     margin: 0 auto;
     position: relative;
     width: 1440px;
 
     ${mobile(css`
-        width: 380px;
+        width: 100vw;
     `)}
 `;
 
@@ -65,7 +66,7 @@ export const Content = styled.div`
     z-index: 1;
 
     ${mobile(css`
-        width: 380px;
+        width: 100vw;
     `)}
 `;
 

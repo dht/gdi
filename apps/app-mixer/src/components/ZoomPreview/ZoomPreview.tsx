@@ -43,6 +43,7 @@ export function ZoomPreview(props: ZoomPreviewProps) {
                         libraryBuilder={libraryBuilder}
                         isMobile={mobileMode}
                         datasets={datasets}
+                        backgroundColor='#fff'
                     />
                 </Device>
             </Content>

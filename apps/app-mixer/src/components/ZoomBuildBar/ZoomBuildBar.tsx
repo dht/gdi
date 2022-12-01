@@ -27,6 +27,11 @@ export function ZoomBuildBar(props: ZoomBuildBarProps) {
             case 'back':
                 invokeEvent('navigateBack', {});
                 break;
+            case 'fullscreen':
+                invokeEvent('navigate', {
+                    path: '/admin/preview/full',
+                });
+                break;
         }
     }
 
@@ -73,6 +78,10 @@ const toolbarItems = [
     {
         id: 'back',
         iconName: 'Back',
+    },
+    {
+        id: 'fullscreen',
+        iconName: 'FullWidth',
     },
 ];
 

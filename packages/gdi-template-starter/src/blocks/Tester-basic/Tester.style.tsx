@@ -14,12 +14,13 @@ export const Container = styled.div<{ colors: TesterColors; imageUrl: string }>`
     display: flex;
 
     ${mobile(css`
-        width: 380px;
+        width: 100vw;
         flex-direction: column;
     `)}
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     align-items: center;

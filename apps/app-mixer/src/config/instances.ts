@@ -99,6 +99,18 @@ export const instances: IWidgetInstancesByPageList = {
             allowOverflow: false,
         },
     ],
+    previewFull: [
+        {
+            id: 'previewFull',
+            widgetId: MixerWidgets.PreviewFull,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+            isTransparent: true,
+            allowOverflow: false,
+            isFullPage: true,
+        },
+    ],
+
     datasets: [
         {
             id: 'datasets',

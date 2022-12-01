@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ButtonBase } from '../Base.style';
+import styled, { css } from 'styled-components';
+import { ButtonBase, mobile } from '../Base.style';
 
 export const Container = styled.div<{ rotation?: number }>`
     flex: 1;
@@ -7,9 +7,15 @@ export const Container = styled.div<{ rotation?: number }>`
     margin-bottom: 100px;
     background-color: white;
     --rotation: ${(props) => props.rotation || 0}deg;
+
+    ${mobile(css`
+        --rotation: 0deg;
+        height: 1500px;
+    `)}
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     width: 1200px;
     margin: 0 auto;
     padding: 50px 0;
@@ -19,6 +25,12 @@ export const Wrapper = styled.div`
     justify-content: center;
     color: #fff;
     display: flex;
+
+    ${mobile(css`
+        width: 99vw;
+        flex-direction: column;
+        margin: 0;
+    `)}
 `;
 
 export const Row = styled.div`
@@ -30,11 +42,20 @@ export const Row = styled.div`
     &:first-child {
         margin-bottom: 100px;
     }
+
+    ${mobile(css`
+        width: 100vw;
+        flex-direction: column;
+    `)}
 `;
 
 export const Column = styled.div`
     flex: 1;
     padding: 50px;
+
+    ${mobile(css`
+        box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.15);
+    `)}
 `;
 
 export const H2 = styled.h2`
@@ -66,4 +87,12 @@ export const Notes = styled.div`
     line-height: 20px;
     opacity: 0.5;
     transform: rotate(var(--rotation));
+
+    ${mobile(css`
+        box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    `)}
 `;

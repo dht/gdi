@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div`
     flex: 1;
@@ -11,12 +12,23 @@ export const H2 = styled.h2`
     padding: 0;
     margin: 0;
     margin-bottom: 50px;
+    color: white;
+
+    ${mobile(css`
+        text-align: center;
+    `)}
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     width: 1200px;
     margin: 0 auto;
     padding: 50px 0;
+
+    ${mobile(css`
+        width: 99vw;
+        margin: 0;
+    `)}
 `;
 
 export const Overlay = styled.div`
@@ -34,6 +46,10 @@ export const Title = styled.div`
     font-size: 26px;
     font-weight: bold;
     text-transform: uppercase;
+
+    ${mobile(css`
+        font-size: 18px;
+    `)}
 `;
 
 export const Description = styled.div`
@@ -41,6 +57,10 @@ export const Description = styled.div`
     margin-top: 10px;
     line-height: 1.3;
     color: rgba(255, 255, 255, 0.5);
+
+    ${mobile(css`
+        width: 100px;
+    `)}
 `;
 
 export const Tag = styled.div`

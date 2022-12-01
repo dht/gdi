@@ -7,6 +7,7 @@ export const routes: IRoutes = {
     imageGallery: `${ROOT}/imageGallery`,
     widgetGallery: `${ROOT}/widgetGallery`,
     datasets: `${ROOT}/datasets`,
+    previewFull: `${ROOT}/preview/full`,
     preview: `${ROOT}/preview`,
     zoomBuild: `${ROOT}/zoomBuild/:zoomWidgetId`,
 };

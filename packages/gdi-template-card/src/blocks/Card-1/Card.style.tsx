@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CardColors } from './Card';
 import { darken } from 'polished';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div<{ colors: CardColors }>`
     flex: 1;
@@ -14,11 +15,11 @@ export const Container = styled.div<{ colors: CardColors }>`
 
     background-size: cover;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         height: auto;
         max-height: none;
         padding: 80px 20px;
-    }
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -28,9 +29,9 @@ export const Wrapper = styled.div`
     flex: 1;
     position: relative;
 
-    @media (max-width: 768px) {
+    ${mobile(css`
         flex-direction: column;
-    }
+    `)}
 `;
 
 export const Content = styled.div`

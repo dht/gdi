@@ -15,6 +15,7 @@ const ModalAdhocLogsContainer = React.lazy(() => import('../containers/modals/Mo
 const ModalPlayModeContainer = React.lazy(() => import('../containers/modals/ModalPlayModeContainer')); // prettier-ignore
 const PagesContainer = React.lazy(() => import('../containers/PagesContainer')); // prettier-ignore
 const PreviewContainer = React.lazy(() => import('../containers/PreviewContainer')); // prettier-ignore
+const PreviewFullContainer = React.lazy(() => import('../containers/PreviewFullContainer')); // prettier-ignore
 const WindowSize = React.lazy(() => import('../components/WindowSize/WindowSize')); // prettier-ignore
 
 export enum MixerWidgets {
@@ -31,6 +32,7 @@ export enum MixerWidgets {
     AdhocLogs = 'mixer.AdhocLogs',
     PageTools = 'mixer.PageTools',
     Preview = 'mixer.Preview',
+    PreviewFull = 'mixer.PreviewFull',
     Datasets = 'mixer.Datasets',
     WindowSize = 'mixer.WindowSize',
 }
@@ -173,6 +175,22 @@ export const widgets: IWidget[] = [
             <Wrapper
                 appId={APP_ID}
                 component={PreviewContainer}
+                props={props}
+            />
+        ),
+    },
+    {
+        id: MixerWidgets.PreviewFull,
+        name: 'PreviewFull',
+        description: 'PreviewFull',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={PreviewFullContainer}
                 props={props}
             />
         ),

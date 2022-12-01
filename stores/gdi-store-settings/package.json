@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-settings",
-    "version": "0.0.37",
+    "version": "0.0.39",
     "description": "",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/language": "^0.0.35",
-        "@gdi/types": "^0.0.58",
+        "@gdi/language": "^0.0.37",
+        "@gdi/types": "^0.0.60",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

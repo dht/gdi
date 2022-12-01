@@ -27,6 +27,7 @@ export function Site(props: SiteProps) {
                 elements={elements}
                 libraryBuilder={libraryBuilder}
                 datasets={datasets}
+                backgroundColor='#fff'
             />
         </Container>
     );

@@ -13,6 +13,7 @@ export const Container = styled.div<{ extra: HeroExtra }>`
 `;
 
 export const Wrapper = styled.div`
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;

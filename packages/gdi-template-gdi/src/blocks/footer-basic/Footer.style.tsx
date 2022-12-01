@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div`
     flex: 1;
@@ -9,11 +10,17 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    max-width: 1200px;
+    box-sizing: border-box;
+    width: 1200px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin: auto;
+
+    ${mobile(css`
+        width: 99vw;
+        padding: 0 10px;
+    `)}
 `;
 
 export const Column = styled.div`

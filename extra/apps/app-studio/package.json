@@ -10,9 +10,9 @@
     "dependencies": {
         "@babylonjs/gui": "^5.22.1",
         "@babylonjs/materials": "^5.22.1",
-        "@gdi/store-studio": "^0.0.24",
-        "@gdi/types": "^0.0.58",
-        "@gdi/web-ui": "^0.0.41",
+        "@gdi/store-studio": "^0.0.26",
+        "@gdi/types": "^0.0.60",
+        "@gdi/web-ui": "^0.0.44",
         "@testing-library/react": "^13.3.0",
         "babylonjs": "^5.22.1",
         "babylonjs-loaders": "^5.30.0",

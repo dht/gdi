@@ -1,6 +1,6 @@
 {
     "name": "@gdi/platformer",
-    "version": "0.0.33",
+    "version": "0.0.35",
     "scripts": {
         "build": "tsc & vite build",
         "clean": "rm -rf dist",
@@ -10,10 +10,10 @@
     },
     "dependencies": {
         "@gdi/hooks": "^0.0.33",
-        "@gdi/language": "^0.0.35",
-        "@gdi/store-auth": "^0.0.26",
-        "@gdi/types": "^0.0.58",
-        "@gdi/web-ui": "^0.0.41",
+        "@gdi/language": "^0.0.37",
+        "@gdi/store-auth": "^0.0.28",
+        "@gdi/types": "^0.0.60",
+        "@gdi/web-ui": "^0.0.44",
         "axios": "^0.27.2",
         "firebase": "^9.9.1",
         "firebaseui": "^6.0.1",

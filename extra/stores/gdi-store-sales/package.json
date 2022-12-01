@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-sales",
-    "version": "0.0.27",
+    "version": "0.0.29",
     "description": "Sales",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.58",
-        "@gdi/language": "^0.0.35",
+        "@gdi/types": "^0.0.60",
+        "@gdi/language": "^0.0.37",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

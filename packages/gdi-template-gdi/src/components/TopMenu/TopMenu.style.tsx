@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../../blocks/Base.style';
 
 export const Container = styled.div`
     flex: 1;
@@ -10,6 +11,10 @@ export const Container = styled.div`
     max-width: 1100px;
     margin-left: 200px;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 0 gold;
+
+    ${mobile(css`
+        display: none;
+    `)}
 `;
 
 export const MenuItem = styled.div`

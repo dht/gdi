@@ -1,6 +1,6 @@
 {
     "name": "@gdi/language",
-    "version": "0.0.35",
+    "version": "0.0.37",
     "scripts": {
         "dev": "vite",
         "build": "tsc & vite build",
@@ -9,7 +9,7 @@
     },
     "author": "dht",
     "dependencies": {
-        "@gdi/types": "^0.0.58",
+        "@gdi/types": "^0.0.60",
         "react-use": "^17.4.0"
     },
     "peerDependencies": {
