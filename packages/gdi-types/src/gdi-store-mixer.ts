@@ -18,7 +18,7 @@ declare global {
         libraryImages: IImages;
         libraryPalettes: IPaletteOptions;
         libraryTypography: ITypographyOptions;
-        libraryDatasets: Json;
+        libraryDatasets: LibraryDatasets;
         packages: IPackages;
     };
 
@@ -65,5 +65,9 @@ declare global {
 
     export type IImageWithWidget = IImage & {
         widget: IWidget;
+    };
+
+    export type LibraryDatasets = {
+        dataset: Json;
     };
 }

@@ -23,7 +23,7 @@ export default function Page(props: PageProps) {
                 defaultInstances={instancesIngrid}
                 widgets={widgetLibrary}
                 flavour={flavour}
-                ignoreWindowWidth={true}
+                ignoreWindowWidth={false}
             />
         </Container>
     );

@@ -1,13 +1,5 @@
 import React, { useContext } from 'react';
-import {
-    Container,
-    Flex,
-    Github,
-    Logo,
-    LogoWrapper,
-    Svg,
-    Wrapper,
-} from './TopHeader.style';
+import { Container, Flex, Github, Logo, Svg, Wrapper } from './TopHeader.style';
 import TopMenu from '../../components/TopMenu/TopMenu';
 import SocialMenu from '../../components/SocialMenu/SocialMenu';
 import { SiteContext, useDataset } from '@gdi/engine';
@@ -42,14 +34,19 @@ export function TopHeader(props: TopHeaderProps) {
             className='TopHeader-container'
             data-testid='TopHeader-container'
         >
-            <Logo src={logoUrl} />
+            <Logo src={logoUrl} alt='logo' />
             <Wrapper>
                 <TopMenu items={menuItems} />
                 <Flex />
                 <SocialMenu items={socialLinks} />
                 {githubUrl && (
                     <Github href={githubUrl} target='_blank'>
-                        <img src='https://static-b9ebe.web.app/github.svg' />
+                        <img
+                            width='28px'
+                            height='28px'
+                            alt='github'
+                            src='https://static-b9ebe.web.app/github.svg'
+                        />
                     </Github>
                 )}
             </Wrapper>

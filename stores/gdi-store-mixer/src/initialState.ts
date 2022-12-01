@@ -140,12 +140,7 @@ export const initialState: IMixerStore = {
         '@gdi/store-site': '0.0.1',
     },
     libraryDatasets: {
-        templates: {
-            '1': {
-                id: '1',
-                title: 'Template #1',
-            },
-        },
+        dataset: {},
     },
 };
 

@@ -12,7 +12,7 @@ export type ISiteP6 = {
     instancesProps: Json;
     widgets: IWidgets;
     images: IImages;
-    datasets: Json;
+    datasets: Datasets;
 };
 
 export type ISiteOther = {
@@ -171,4 +171,8 @@ export type ISiteProperties = {
     title: string;
     metaTags: IMetaTag[];
     linkTags: ILinkTag[];
+};
+
+type Datasets = {
+    dataset: Json;
 };

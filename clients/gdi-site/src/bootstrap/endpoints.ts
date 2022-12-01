@@ -32,4 +32,19 @@ export const endpointsConfigOverrides: EndpointsConfigOverrides = {
         connectionType: ConnectionType.FIRESTORE,
         optimistic: true,
     },
+    datasets: {
+        id: 'datasets',
+        connectionType: ConnectionType.FIRESTORE,
+        optimistic: true,
+    },
+    pages: {
+        id: 'pages',
+        connectionType: ConnectionType.FIRESTORE,
+        optimistic: true,
+    },
+    pageInstances: {
+        id: 'pageInstances',
+        connectionType: ConnectionType.FIRESTORE,
+        optimistic: true,
+    },
 };

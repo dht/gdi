@@ -162,6 +162,7 @@ export const initialState: ISiteStore = {
                 'https://picsum.photos/seed/1/200/119.02071563088512',
             tags: ['people', 'friend'],
             ratio: 1.6803797468354431,
+            dataTags: [],
         },
     },
     instancesProps: {
@@ -185,12 +186,7 @@ export const initialState: ISiteStore = {
         linkTags: [],
     },
     datasets: {
-        templates: {
-            '1': {
-                id: '1',
-                title: 'Template #1',
-            },
-        },
+        dataset: {},
     },
 };
 

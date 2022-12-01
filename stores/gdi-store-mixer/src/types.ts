@@ -13,7 +13,7 @@ export type IMixerStore = StoreStructure & {
     libraryImages: IImages;
     libraryPalettes: IPaletteOptions;
     libraryTypography: ITypographyOptions;
-    libraryDatasets: Json;
+    libraryDatasets: LibraryDatasets;
     packages: IPackages;
 };
 
@@ -60,4 +60,8 @@ export type IPackages = Json;
 
 export type IImageWithWidget = IImage & {
     widget: IWidget;
+};
+
+export type LibraryDatasets = {
+    dataset: Json;
 };

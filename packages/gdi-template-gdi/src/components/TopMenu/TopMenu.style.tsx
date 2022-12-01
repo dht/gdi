@@ -29,5 +29,5 @@ export const MenuItemLink = styled.a`
     color: white;
     text-decoration: none;
     font-size: 18px;
-    font-variation-settings: 'wdth' 100, 'wght' 550;
+    font-variation-settings: 'wdth' 110, 'wght' 650;
 `;

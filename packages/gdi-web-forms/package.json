@@ -1,6 +1,6 @@
 {
     "name": "@gdi/web-forms",
-    "version": "0.0.27",
+    "version": "0.0.31",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",
@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.51",
-        "@gdi/web-base-ui": "^0.0.40",
+        "@gdi/types": "^0.0.58",
+        "@gdi/web-base-ui": "^0.0.44",
         "@hookform/resolvers": "^2.9.7",
         "react-hook-form": "^7.34.0",
         "react-use": "^17.4.0",

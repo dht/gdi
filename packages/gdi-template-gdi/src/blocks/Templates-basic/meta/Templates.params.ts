@@ -3,7 +3,9 @@ import { id } from '../Templates';
 export const params: IWidgetParams = {
     id,
     schema: {
-        strings: {},
+        strings: {
+            header: { fieldType: 'text', isRequired: true, order: 1 },
+        },
         colors: {},
         extra: {
             appsDatasetId: {
@@ -11,7 +13,6 @@ export const params: IWidgetParams = {
                 isRequired: true,
                 order: 0,
             },
-            contentUrl: { fieldType: 'url', isRequired: true, order: 1 },
         },
     },
 };

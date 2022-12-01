@@ -2,6 +2,17 @@
     "name": "$SITE",
     "private": true,
     "version": "0.0.1",
+    "workspaces": {
+        "packages": [
+            "gdi-admin",
+            "gdi-site",
+            "gdi-admin/scripts"
+        ],
+        "nohoist": [
+            "**/@gdi/engine",
+            "**/@gdi/template-*"
+        ]
+    },
     "scripts": {
         "build:admin": "cd gdi-admin && npm run build",
         "build:site": "cd gdi-site && npm run build",

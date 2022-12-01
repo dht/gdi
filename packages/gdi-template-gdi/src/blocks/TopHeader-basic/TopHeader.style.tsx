@@ -22,7 +22,7 @@ export const Logo = styled.img`
     position: absolute;
     left: 100px;
     top: 8px;
-    z-index: 9;
+    z-index: 999;
 `;
 
 export const Text = styled.div`
