@@ -17,7 +17,7 @@ declare global {
         instancesProps: Json;
         widgets: IWidgets;
         images: IImages;
-        datasets: Json;
+        datasets: Datasets;
     };
 
     export type ISiteOther = {
@@ -182,5 +182,9 @@ declare global {
         title: string;
         metaTags: IMetaTag[];
         linkTags: ILinkTag[];
+    };
+
+    type Datasets = {
+        dataset: Json;
     };
 }

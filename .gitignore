@@ -20,3 +20,4 @@ package-lock.json
 .cloc
 .todos
 clients/gdi-admin/stats.html
+clients/site

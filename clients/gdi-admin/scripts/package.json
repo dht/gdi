@@ -5,7 +5,12 @@
     "license": "MIT",
     "scripts": {
         "generate": "npx ts-node index.ts",
-        "build": "echo no build needed"
+        "build": "echo no build needed",
+        "test": "echo none needed",
+        "coverage": "echo none needed",
+        "deploy:all": "echo none needed",
+        "deploy:content": "echo none needed",
+        "deploy:functions": "echo none needed"
     },
     "devDependencies": {
         "@types/dotenv-flow": "^3.2.0",
@@ -15,7 +20,7 @@
     },
     "dependencies": {
         "@gdi/language": "^0.0.30",
-        "@gdi/platformer": "^0.0.29",
+        "@gdi/platformer": "^0.0.30",
         "@gdi/web-ui": "^0.0.35",
         "firebaseui": "^6.0.1"
     }

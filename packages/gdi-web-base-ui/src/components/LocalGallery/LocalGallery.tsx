@@ -19,9 +19,9 @@ export type LocalGalleryProps = {
     items: Json[];
     itemsPerRow?: number;
     itemHeight?: number;
-    lightMode: boolean;
+    lightMode?: boolean;
     contain: boolean;
-    renderOverlay: (item: Json) => JSX.Element;
+    renderOverlay?: (item: Json) => JSX.Element;
 };
 
 export function LocalGallery(props: LocalGalleryProps) {
@@ -123,7 +123,7 @@ type ImageProps = {
     item: Json;
     onClick: () => void;
     contain?: boolean;
-    renderOverlay: (item: Json) => JSX.Element | null;
+    renderOverlay?: (item: Json) => JSX.Element | null;
     itemHeight?: number;
 };
 

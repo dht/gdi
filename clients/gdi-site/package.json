@@ -10,11 +10,13 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.51",
-        "@gdi/engine": "^0.0.24",
-        "@gdi/store-site": "^0.0.27",
-        "@gdi/template-starter": "^0.0.24",
-        "@gdi/web-ui": "^0.0.37",
+        "@gdi/types": "^0.0.58",
+        "@gdi/engine": "^0.0.32",
+        "@gdi/store-site": "^0.0.31",
+        "@gdi/template-card": "^0.0.28",
+        "@gdi/template-starter": "^0.0.27",
+        "@gdi/template-gdi": "^0.0.30",
+        "@gdi/web-ui": "^0.0.41",
         "firebaseui": "^6.0.1",
         "redux-connected": "^0.0.103",
         "igrid": "^0.0.21",

@@ -31,12 +31,4 @@ git checkout -b main
 git commit -am "initial commit"
 
 # Install dependencies
-cd gdi-admin
-npm install
-cd scripts
-npm install
-cd ../../
-
-cd gdi-site
-npm install
-cd ..
+yarn
