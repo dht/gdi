@@ -43,6 +43,7 @@ export function ZoomBuild(props: ZoomBuildProps) {
                         libraryBuilder={libraryBuilder}
                         isMobile={mobileMode}
                         datasets={datasets}
+                        backgroundColor='#fff'
                     />
                 </Device>
             </Content>

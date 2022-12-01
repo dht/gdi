@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ButtonBase } from '../Base.style';
+import styled, { css } from 'styled-components';
+import { ButtonBase, mobile } from '../Base.style';
 
 export const Container = styled.div<{ rotation?: number }>`
     flex: 1;
@@ -7,6 +7,10 @@ export const Container = styled.div<{ rotation?: number }>`
     margin-bottom: 100px;
     background-color: white;
     --rotation: ${(props) => props.rotation || 0}deg;
+
+    ${mobile(css`
+        height: 1500px;
+    `)}
 `;
 
 export const Wrapper = styled.div`
@@ -19,6 +23,12 @@ export const Wrapper = styled.div`
     justify-content: center;
     color: #fff;
     display: flex;
+
+    ${mobile(css`
+        width: 380px;
+        flex-direction: column;
+        margin: 0;
+    `)}
 `;
 
 export const Row = styled.div`
@@ -30,6 +40,11 @@ export const Row = styled.div`
     &:first-child {
         margin-bottom: 100px;
     }
+
+    ${mobile(css`
+        width: 380px;
+        flex-direction: column;
+    `)}
 `;
 
 export const Column = styled.div`

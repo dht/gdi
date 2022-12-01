@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../Base.style';
 
 export const Container = styled.div`
     flex: 1;
@@ -23,12 +24,21 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     padding: 50px 0;
     color: #333;
+
+    ${mobile(css`
+        width: 380px;
+        margin: 0 30px;
+    `)}
 `;
 
 export const Row = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+
+    ${mobile(css`
+        flex-direction: column;
+    `)}
 `;
 
 export const Column = styled.div`

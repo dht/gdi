@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@gdi/types": "^0.0.58",
-        "@gdi/engine": "^0.0.32",
+        "@gdi/engine": "^0.0.33",
         "@gdi/store-site": "^0.0.31",
         "@gdi/template-card": "^0.0.28",
         "@gdi/template-starter": "^0.0.27",

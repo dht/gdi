@@ -58,3 +58,6 @@
 [submodule "submodules/gdi-language-nl"]
 	path = submodules/gdi-language-nl
 	url = git@github.com:dht/gdi-language-nl.git
+[submodule "submodules/gdi-docs"]
+	path = submodules/gdi-docs
+	url = git@github.com:dht/gdi-docs

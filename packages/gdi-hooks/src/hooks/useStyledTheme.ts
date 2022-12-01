@@ -14,6 +14,8 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
         return getCurrentBreakpoint(breakpoints, width);
     }, [width]);
 
+    console.log('breakpoint ->', breakpoint);
+
     const theme = useMemo(() => {
         return {
             paddingLeft: (value: string | number) => {

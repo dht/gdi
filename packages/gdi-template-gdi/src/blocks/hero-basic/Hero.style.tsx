@@ -1,10 +1,16 @@
-import styled from 'styled-components';
-import { ButtonBase } from '../Base.style';
+import styled, { css } from 'styled-components';
+import { ButtonBase, mobile } from '../Base.style';
 
 export const Container = styled.div``;
 
 export const Column = styled.div`
     flex: 1;
+
+    ${mobile(css`
+        &:last-child {
+            display: none;
+        }
+    `)}
 `;
 
 export const Slogan = styled.div`
@@ -73,4 +79,11 @@ export const Wrapper = styled.div`
     margin: 0 auto;
     color: #334;
     position: relative;
+
+    ${mobile(css`
+        width: 380px;
+        flex-direction: column;
+        margin: 50px 20px;
+        text-align: center;
+    `)}
 `;

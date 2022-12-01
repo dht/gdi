@@ -8,7 +8,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.32",
+        "@gdi/engine": "^0.0.33",
         "@gdi/hooks": "^0.0.33",
         "@gdi/language": "^0.0.35",
         "@gdi/platformer": "^0.0.33",

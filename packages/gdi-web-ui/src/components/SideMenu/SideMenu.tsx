@@ -19,6 +19,7 @@ import {
     Title,
 } from './SideMenu.style';
 import { useTheme } from 'styled-components';
+import { useCustomEvent } from '@gdi/hooks';
 
 export type SideMenuProps = {
     data: IMenuItem[];
@@ -32,6 +33,7 @@ export function SideMenu(props: SideMenuProps) {
     const { data, groups, groupsTranslated } = props;
     const [sections, updateSections] = useSetState<Record<string, boolean>>({});
     const [slim, toggleSlim] = useToggle(true);
+    const [hidden, toggleHidden] = useToggle(true);
     const location = useLocation();
     const navigate = useNavigate();
     const { isRtl } = useTheme() as any;
@@ -51,6 +53,11 @@ export function SideMenu(props: SideMenuProps) {
         });
     }, [groups, updateSections]);
 
+    useCustomEvent('side-menu', (data) => {
+        const { show } = data;
+        toggleHidden(!show);
+    });
+
     const slimItems = data.filter(
         (item) => item.showOnSlim || item.path === location.pathname
     );
@@ -63,6 +70,10 @@ export function SideMenu(props: SideMenuProps) {
         },
         [sections, updateSections]
     );
+
+    if (hidden) {
+        return null;
+    }
 
     function renderItem(item: IMenuItem) {
         const { icon, label, path } = item;

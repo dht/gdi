@@ -11,10 +11,11 @@ export type EngineViewProps = {
     elements: IElement[];
     libraryBuilder: ILibraryBuilder;
     datasets: Json;
+    backgroundColor?: string;
 };
 
 export function EngineInner(props: EngineViewProps) {
-    const { elements } = props;
+    const { elements, backgroundColor = 'white' } = props;
     const { isReady } = useContext(EngineContext);
 
     function renderElement(element: IElement, index: number) {
@@ -41,6 +42,7 @@ export function EngineInner(props: EngineViewProps) {
         <Container
             className='EngineView-container'
             data-testid='EngineView-container'
+            backgroundColor={backgroundColor}
         >
             {renderInner()}
         </Container>

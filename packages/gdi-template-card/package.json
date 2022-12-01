@@ -12,7 +12,7 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.32",
+        "@gdi/engine": "^0.0.33",
         "@gdi/types": "^0.0.58",
         "@gdi/web-ui": "^0.0.41",
         "classnames": "^2.3.1",

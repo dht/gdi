@@ -8,7 +8,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.32",
+        "@gdi/engine": "^0.0.33",
         "@gdi/platformer": "^0.0.33",
         "@gdi/store-soundboard": "^0.0.30",
         "@gdi/types": "^0.0.58",

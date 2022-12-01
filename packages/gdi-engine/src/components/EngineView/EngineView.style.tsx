@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ backgroundColor: string }>`
     flex: 1;
+    background-color: ${(props) => props.backgroundColor};
 
     .SectionHeader-container {
         max-height: 0;
