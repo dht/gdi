@@ -17,7 +17,6 @@ clients/gdi-admin/config/vite.extra.ts
 *.obj
 *.stl
 *.mtl
-package-lock.json
 .cloc
 .todos
 clients/gdi-admin/stats.html

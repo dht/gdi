@@ -29,6 +29,3 @@ git init
 git add .
 git checkout -b main
 git commit -am "initial commit"
-
-# Install dependencies
-yarn
