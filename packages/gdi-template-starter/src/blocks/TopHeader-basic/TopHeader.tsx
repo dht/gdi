@@ -23,7 +23,15 @@ export type TopHeaderExtra = {
 export function TopHeader(props: TopHeaderProps) {
     const { extra } = props;
     const { logoUrl } = extra;
-    const { menuItems } = useContext(SiteContext);
+    const { menuItems, ga } = useContext(SiteContext);
+
+    const onClick = (componentName: string) => (item: Json) => {
+        ga('navigate', {
+            category: 'menu',
+            label: componentName,
+            destination: item.url,
+        });
+    };
 
     return (
         <Container
@@ -33,7 +41,7 @@ export function TopHeader(props: TopHeaderProps) {
             <Wrapper>
                 <Logo url={logoUrl} />
                 <Flex />
-                <TopMenu items={menuItems} />
+                <TopMenu items={menuItems} onClick={onClick('topMenu')} />
             </Wrapper>
         </Container>
     );

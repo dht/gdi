@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { Footer, FooterProps } from './Footer';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FooterDriver extends BaseComponentDriver {
-    private props: Partial<FooterProps> = {
-    };
+    private props: Partial<FooterProps> = {};
 
     constructor() {
         super('Footer');

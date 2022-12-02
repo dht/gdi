@@ -8,6 +8,7 @@ firebaseConfig.ts
 firebaseServiceAccount.json
 clients/gdi-admin/.firebaserc
 scripts/publishAll.sh
+scripts/pushO.sh
 scripts/updateDependencies.js
 firebase-debug.log
 clients/gdi-admin/config/tsconfig.paths.extra.json

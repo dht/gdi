@@ -1,18 +1,17 @@
 import { FirebaseApp, initializeApp } from 'firebase/app';
-// import {
-//     Analytics,
-//     getAnalytics,
-//     logEvent,
-//     setUserId,
-//     setUserProperties,
-// } from 'firebase/analytics';
+import {
+    Analytics,
+    logEvent,
+    setUserId,
+    setUserProperties,
+    initializeAnalytics,
+} from 'firebase/analytics';
 import {
     FirebaseStorage,
     getStorage,
     uploadBytes,
     ref,
 } from 'firebase/storage';
-import { Firestore, getFirestore } from 'firebase/firestore/lite';
 import {
     Auth,
     getAuth,
@@ -36,26 +35,9 @@ export type FirebaseConfig = {
     measurementId: string;
 };
 
-export type EventId =
-    | 'ad_impression'
-    | 'earn_virtual_currency'
-    | 'join_group'
-    | 'login'
-    | 'purchase'
-    | 'refund'
-    | 'search'
-    | 'select_content'
-    | 'share'
-    | 'sign_up'
-    | 'sign_up_progress'
-    | 'spend_virtual_currency'
-    | 'tutorial_begin'
-    | 'tutorial_complete';
-
 export class Firebase {
     private app: FirebaseApp;
-    // private analytics: Analytics;
-    private db: Firestore;
+    private analytics: Analytics;
     private auth: Auth;
     private ui: firebaseui.auth.AuthUI;
     private authListeners: AuthListener[] = [];
@@ -66,8 +48,11 @@ export class Firebase {
 
     constructor(firebaseConfig: FirebaseConfig) {
         this.app = initializeApp(firebaseConfig);
-        // this.analytics = getAnalytics(this.app);
-        this.db = getFirestore(this.app);
+        this.analytics = initializeAnalytics(this.app, {
+            config: {
+                send_page_view: false,
+            },
+        });
         this.auth = getAuth(this.app);
         this.ui = new firebaseui.auth.AuthUI(this.auth);
         this.uid = '';
@@ -97,16 +82,16 @@ export class Firebase {
         this.authListeners.splice(index, 1);
     }
 
-    log(eventName: EventId, data?: Json) {
-        // logEvent(this.analytics, eventName as string, data);
+    log(eventName: GaId, data?: Json) {
+        logEvent(this.analytics, eventName as string, data);
     }
 
     setUserId(userId: string) {
-        // setUserId(this.analytics, userId);
+        setUserId(this.analytics, userId);
     }
 
     setUserProperties(data: Json) {
-        // setUserProperties(this.analytics, data);
+        setUserProperties(this.analytics, data);
     }
 
     signIn() {

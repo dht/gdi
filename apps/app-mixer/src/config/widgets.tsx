@@ -65,6 +65,7 @@ export const widgets: IWidget[] = [
         component: (props: any) => (
             <Wrapper
                 appId={APP_ID}
+                title='Mixer'
                 component={MixerContainer}
                 props={props}
                 currentIdsActionCreator={actions.currentIds.patch}

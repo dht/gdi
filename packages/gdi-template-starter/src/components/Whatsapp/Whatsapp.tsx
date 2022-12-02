@@ -6,20 +6,27 @@ export const id = 'com.usegdi.templates.starter.whatsapp-basic';
 
 export type WhatsappProps = {
     phoneNumber: string;
+    onClick?: (href: string) => void;
 };
 
 export function Whatsapp(props: WhatsappProps) {
     const { phoneNumber } = props;
 
+    const href = `https://wa.me/${phoneNumber}`;
+
     function onClick() {
-        window.open(`https://wa.me/${phoneNumber}`, '_blank');
+        if (props.onClick) {
+            props.onClick(href);
+        }
     }
 
     return (
         <Container
             className='Whatsapp-container'
             data-testid='Whatsapp-container'
-            onMouseDown={onClick}
+            onClick={onClick}
+            href={href}
+            target='_blank'
         >
             <Icon className='icon'>
                 <img src={w} />

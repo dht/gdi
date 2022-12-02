@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Whatsapp from '../../components/Whatsapp/Whatsapp';
 import { Container, H3, Wrapper } from './ContactUs.style';
+import { SiteContext } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.contactUs-basic';
 
@@ -25,6 +26,14 @@ export function ContactUs(props: ContactUsProps) {
     const { strings, extra } = props;
     const { header, phoneNumber } = strings;
     const { imageUrl } = extra;
+    const { ga } = useContext(SiteContext);
+
+    function onClick(_href: string) {
+        ga('navigate', {
+            category: 'contactUs',
+            label: 'whatsapp',
+        });
+    }
 
     return (
         <Container
@@ -34,7 +43,7 @@ export function ContactUs(props: ContactUsProps) {
         >
             <Wrapper>
                 <H3>{header}</H3>
-                <Whatsapp phoneNumber={phoneNumber} />
+                <Whatsapp phoneNumber={phoneNumber} onClick={onClick} />
             </Wrapper>
         </Container>
     );

@@ -3,6 +3,7 @@ import { call, fork, take } from 'saga-ts';
 import { onLogin, root as login } from './saga.login';
 import { root as logout } from './saga.logout';
 import { root as api } from './saga.api.private';
+import { root as analytics } from './saga.analytics';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { setBoolean } from 'shared-base';
 
@@ -12,6 +13,7 @@ function* root() {
     yield* fork(login);
     yield* fork(api);
     yield* fork(logout);
+    yield* fork(analytics);
     yield* fork(ping);
 }
 

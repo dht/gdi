@@ -8,9 +8,9 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.39",
-        "@gdi/types": "^0.0.60",
-        "@gdi/web-ui": "^0.0.44",
+        "@gdi/engine": "^0.0.41",
+        "@gdi/types": "^0.0.65",
+        "@gdi/web-ui": "^0.0.47",
         "@google-cloud/storage": "^6.5.2",
         "chalk": "^5.1.2",
         "chance": "^1.1.8",

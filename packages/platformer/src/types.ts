@@ -139,6 +139,7 @@ export type IPlatformState = {
     pieMenuConfig: Partial<IPieMenuConfigPerItemType>;
     crudDefinitions: Partial<ICrudDefinitionsPerItemType>;
     templatesMeta: ITemplateMeta;
+    analyticsOn: boolean;
 };
 
 export type ITemplateMeta = {};
@@ -332,3 +333,22 @@ export interface IMetaBuilder {
 }
 
 export type ConnectionType = 'NONE' | 'REST' | 'FIRESTORE';
+
+export type GaId =
+    | 'page_view' // web
+    | 'screen_view' // mobile
+    | 'ad_impression'
+    | 'earn_virtual_currency'
+    | 'join_group'
+    | 'login'
+    | 'purchase'
+    | 'refund'
+    | 'search'
+    | 'select_content'
+    | 'share'
+    | 'sign_up'
+    | 'sign_up_progress'
+    | 'spend_virtual_currency'
+    | 'tutorial_begin'
+    | 'tutorial_complete'
+    | string;

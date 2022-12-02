@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { Container, Wrapper, Text } from './SectionHeader.style';
 
 export const id = 'com.usegdi.templates.starter.sectionHeader-basic';

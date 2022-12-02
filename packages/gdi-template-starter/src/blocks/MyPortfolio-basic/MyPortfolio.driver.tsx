@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { MyPortfolio, MyPortfolioProps } from './MyPortfolio';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MyPortfolioDriver extends BaseComponentDriver {
-    private props: Partial<MyPortfolioProps> = {
-    };
+    private props: Partial<MyPortfolioProps> = {};
 
     constructor() {
         super('MyPortfolio');
@@ -21,7 +21,9 @@ export class MyPortfolioDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MyPortfolio {...(this.props as MyPortfolioProps)} />);
+            return this.snapshot(
+                <MyPortfolio {...(this.props as MyPortfolioProps)} />
+            );
         },
     };
 

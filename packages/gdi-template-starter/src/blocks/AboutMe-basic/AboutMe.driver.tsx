@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { AboutMe, AboutMeProps } from './AboutMe';
 import { BaseComponentDriver } from 'testing-base';
 
 export class AboutMeDriver extends BaseComponentDriver {
-    private props: Partial<AboutMeProps> = {
-    };
+    private props: Partial<AboutMeProps> = {};
 
     constructor() {
         super('AboutMe');

@@ -15,7 +15,7 @@ export function* onLogin(user: any) {
         })
     );
 
-    yield put({ type: PlatformLifeCycleEvents.AUTHENTICATION_COMPLETED });
+    yield put({ type: PlatformLifeCycleEvents.AUTHENTICATION_COMPLETED, user });
     invokeEvent(PlatformLifeCycleEvents.AUTHENTICATION_COMPLETED, {});
     setBoolean('AUTHENTICATION_COMPLETED', true);
 

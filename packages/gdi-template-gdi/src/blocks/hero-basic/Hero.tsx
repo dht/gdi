@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import {
     Actions,
     Column,
@@ -8,8 +9,6 @@ import {
     Button,
     Image,
     Slogan,
-    DemoTop,
-    DemoBottom,
     Wrapper,
 } from './Hero.style';
 import Install from '../../components/Install/Install';
@@ -43,6 +42,15 @@ export function Hero(props: HeroProps) {
     const { slogan, header, ctaButtonText, secondaryButtonText } = strings;
     const { imageUrl, href, hrefSecondary, installation } = extra;
 
+    const { ga } = useContext(SiteContext);
+
+    const onClick = (label: string) => () => {
+        ga('navigate', {
+            category: 'hero',
+            label,
+        });
+    };
+
     return (
         <Container className='Hero-container' data-testid='Hero-container'>
             <Wrapper>
@@ -51,18 +59,24 @@ export function Hero(props: HeroProps) {
                     <H1>{header}</H1>
                     <Install installation={installation} />
                     <Actions>
-                        <Button href={href} target='_blank'>
+                        <Button
+                            href={href}
+                            target='_blank'
+                            onClick={onClick('href')}
+                        >
                             {ctaButtonText}
                         </Button>
-                        <Button href={hrefSecondary} target='_blank'>
+                        <Button
+                            href={hrefSecondary}
+                            target='_blank'
+                            onClick={onClick('hrefSecond')}
+                        >
                             {secondaryButtonText}
                         </Button>
                     </Actions>
                 </Column>
                 <Column>
                     <Demo className='animate__animated animate__fadeInRight'>
-                        <DemoTop />
-                        <DemoBottom />
                         <Image src={imageUrl} />
                     </Demo>
                 </Column>

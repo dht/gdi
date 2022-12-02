@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-auth",
-    "version": "0.0.28",
+    "version": "0.0.30",
     "description": "",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/language": "^0.0.37",
-        "@gdi/types": "^0.0.60",
+        "@gdi/language": "^0.0.39",
+        "@gdi/types": "^0.0.65",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

@@ -4,18 +4,19 @@ import { AppContextProvider } from '@gdi/language';
 import { useDispatch } from 'react-redux';
 import { useMount } from 'react-use';
 import { useParams } from 'react-router-dom';
-import './Wrapper.scss';
-import { LoaderContainer } from './Wrapper.style';
+import './Sleeve.scss';
+import { LoaderContainer } from './Sleeve.style';
 import { Spinner } from '@gdi/web-ui';
 
-type WrapperProps = {
+type SleeveProps = {
     appId: string;
     component: React.FC<any>;
+    title?: string;
     props?: any;
     currentIdsActionCreator?: (change: Json) => Action;
 };
 
-export function Wrapper(props: WrapperProps) {
+export function Sleeve(props: SleeveProps) {
     const { appId, component: Cmp, currentIdsActionCreator } = props;
     const dispatch = useDispatch();
     const params: Json = useParams();
@@ -50,4 +51,4 @@ function Loader() {
     );
 }
 
-export default Wrapper;
+export default Sleeve;

@@ -20,8 +20,11 @@ export type LocalGalleryProps = {
     itemsPerRow?: number;
     itemHeight?: number;
     lightMode?: boolean;
-    contain: boolean;
+    contain?: boolean;
     renderOverlay?: (item: Json) => JSX.Element;
+    onClick?: (item: Json) => void;
+    onView?: (item: Json) => void;
+    onTagChange?: (tagId: string) => void;
 };
 
 export function LocalGallery(props: LocalGalleryProps) {
@@ -49,15 +52,28 @@ export function LocalGallery(props: LocalGalleryProps) {
         itemHeight,
     });
 
+    function onTagChange(option: IOption) {
+        setCurrentTag(option.id);
+
+        if (props.onTagChange) {
+            props.onTagChange(option.id);
+        }
+    }
+
     function onClick(item: Json) {
         const { href } = item;
 
         if (href) {
-            window.open(href, '_blank');
-            return;
-        }
+            if (props.onClick) {
+                props.onClick(item);
+            }
+        } else {
+            if (props.onView) {
+                props.onView(item);
+            }
 
-        setCurrentItem(item);
+            setCurrentItem(item);
+        }
     }
 
     function renderItem(item: Json) {
@@ -108,7 +124,7 @@ export function LocalGallery(props: LocalGalleryProps) {
                     options={tags}
                     value={currentTag}
                     lightMode={lightMode}
-                    onChange={(option) => setCurrentTag(option.id)}
+                    onChange={onTagChange}
                 />
             </SwitchWrapper>
             <Items className='items' style={style}>
@@ -129,7 +145,7 @@ type ImageProps = {
 
 function Image(props: ImageProps) {
     const { item, contain, itemHeight = 290 } = props;
-    const { title, thumbImageUrl, imageUrl } = item;
+    const { title, thumbImageUrl, imageUrl, href } = item;
 
     const style = {
         ...item.style,
@@ -154,6 +170,8 @@ function Image(props: ImageProps) {
             onClick={props.onClick}
             contain={contain}
             itemHeight={itemHeight}
+            href={href}
+            target='_blank'
         >
             <Overlay className='overlay'>{renderOverlay()}</Overlay>
             {props.renderOverlay === null && <Title>{title}</Title>}

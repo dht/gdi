@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import BkGrid from '../../components/BkGrid/BkGrid';
 import Layered from '../../components/Layered/Layered';
 import {
@@ -51,6 +52,8 @@ export function Twins(props: TwinsProps) {
     } = strings;
     const { href, hrefSecondary, rotation } = extra;
 
+    const { ga } = useContext(SiteContext);
+
     function renderH2(text: string = '', className?: string) {
         const parts = text.split(/\[/gi);
 
@@ -77,6 +80,13 @@ export function Twins(props: TwinsProps) {
         }
     };
 
+    const onClick = (label: string) => () => {
+        ga('navigate', {
+            category: 'twins',
+            label,
+        });
+    };
+
     return (
         <Container
             className='Twins-container'
@@ -90,7 +100,11 @@ export function Twins(props: TwinsProps) {
                         <Column>
                             {renderH2(header)}
                             <P>{description}</P>
-                            <Button href={href} target={target(href)}>
+                            <Button
+                                href={href}
+                                target={target(href)}
+                                onClick={onClick('href')}
+                            >
                                 {buttonText}
                             </Button>
                         </Column>
@@ -100,6 +114,7 @@ export function Twins(props: TwinsProps) {
                             <Button
                                 href={hrefSecondary}
                                 target={target(hrefSecondary)}
+                                onClick={onClick('hrefSecond')}
                             >
                                 {buttonTextSecondary}
                             </Button>

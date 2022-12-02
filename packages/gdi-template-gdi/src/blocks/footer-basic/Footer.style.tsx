@@ -58,3 +58,8 @@ export const A = styled.a`
         left: 1px;
     }
 `;
+
+export const Copy = styled.div`
+    font-size: 20px;
+    font-variation-settings: 'wdth' 100, 'wght' 300;
+`;

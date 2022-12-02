@@ -1,14 +1,14 @@
 {
     "name": "@gdi/web-editors",
-    "version": "0.0.39",
+    "version": "0.0.41",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/types": "^0.0.60",
-        "@gdi/web-base-ui": "^0.0.47",
+        "@gdi/types": "^0.0.65",
+        "@gdi/web-base-ui": "^0.0.50",
         "@monaco-editor/react": "^4.4.5",
         "@tiptap/extension-character-count": "^2.0.0-beta.195",
         "@tiptap/extension-text-align": "^2.0.0-beta.196",

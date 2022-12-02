@@ -31,6 +31,17 @@ body {
         // font-family: 'Heebo', Courier, monospace;
     }
 
+    &.hide-menu {
+        .SideMenu-container {
+            display: none;
+        }
+
+        .AppContainer-container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
     @media (max-width: 768px) {
         width: 640px;
 
@@ -77,22 +88,18 @@ body {
     border-color: transparent;
 }
 
-/* width */
 ::-webkit-scrollbar {
     width: 5px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background: #333;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #666;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #888;
 }

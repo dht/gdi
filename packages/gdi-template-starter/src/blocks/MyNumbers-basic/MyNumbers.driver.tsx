@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { MyNumbers, MyNumbersProps } from './MyNumbers';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MyNumbersDriver extends BaseComponentDriver {
-    private props: Partial<MyNumbersProps> = {
-    };
+    private props: Partial<MyNumbersProps> = {};
 
     constructor() {
         super('MyNumbers');
@@ -21,7 +21,9 @@ export class MyNumbersDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MyNumbers {...(this.props as MyNumbersProps)} />);
+            return this.snapshot(
+                <MyNumbers {...(this.props as MyNumbersProps)} />
+            );
         },
     };
 

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { MyResume, MyResumeProps } from './MyResume';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MyResumeDriver extends BaseComponentDriver {
-    private props: Partial<MyResumeProps> = {
-    };
+    private props: Partial<MyResumeProps> = {};
 
     constructor() {
         super('MyResume');
@@ -21,7 +21,9 @@ export class MyResumeDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MyResume {...(this.props as MyResumeProps)} />);
+            return this.snapshot(
+                <MyResume {...(this.props as MyResumeProps)} />
+            );
         },
     };
 

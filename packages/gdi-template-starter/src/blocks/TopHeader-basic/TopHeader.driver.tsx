@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { TopHeader, TopHeaderProps } from './TopHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TopHeaderDriver extends BaseComponentDriver {
-    private props: Partial<TopHeaderProps> = {
-    };
+    private props: Partial<TopHeaderProps> = {};
 
     constructor() {
         super('TopHeader');
@@ -21,7 +21,9 @@ export class TopHeaderDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<TopHeader {...(this.props as TopHeaderProps)} />);
+            return this.snapshot(
+                <TopHeader {...(this.props as TopHeaderProps)} />
+            );
         },
     };
 
