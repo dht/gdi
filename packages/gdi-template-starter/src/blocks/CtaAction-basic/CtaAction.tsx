@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, H3, Wrapper } from './CtaAction.style';
+import { SiteContext } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.ctaAction-basic';
 
@@ -24,6 +25,15 @@ export function CtaAction(props: CtaActionProps) {
     const { strings, colors, extra } = props;
     const { ctaButtonText, slogan } = strings;
     const { href } = extra;
+    const { ga } = useContext(SiteContext);
+
+    function onClick() {
+        ga('navigate', {
+            category: 'ctaAction',
+            label: ctaButtonText,
+            destination: href,
+        });
+    }
 
     return (
         <Container
@@ -33,7 +43,9 @@ export function CtaAction(props: CtaActionProps) {
         >
             <Wrapper>
                 <H3>{slogan}</H3>
-                <Button href={href}>{ctaButtonText}</Button>
+                <Button onClick={onClick} href={href} target='_blank'>
+                    {ctaButtonText}
+                </Button>
             </Wrapper>
         </Container>
     );

@@ -7,7 +7,7 @@ import {
     Description,
     Portfolio,
 } from './MyPortfolio.style';
-import { useDataset } from '@gdi/engine';
+import { SiteContext, useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.myPortfolio-basic';
 
@@ -35,6 +35,33 @@ export function MyPortfolio(props: MyPortfolioProps) {
 
     const items = useDataset(portfolioDatasetId);
 
+    const { ga } = useContext(SiteContext);
+
+    function onClick(item: Json) {
+        ga('navigate', {
+            category: 'gallery',
+            label: item.id,
+            source: 'portfolio',
+        });
+    }
+
+    function onView(item: Json) {
+        ga('view', {
+            category: 'gallery',
+            label: item.id,
+            source: 'portfolio',
+        });
+    }
+
+    function onTagChange(tagId: string) {
+        ga('component', {
+            category: 'gallery',
+            label: 'tagChange',
+            tagId,
+            source: 'portfolio',
+        });
+    }
+
     return (
         <Container
             className='MyPortfolio-container'
@@ -45,7 +72,12 @@ export function MyPortfolio(props: MyPortfolioProps) {
                 <H2>{header}</H2>
                 <Description>{description}</Description>
                 <Portfolio>
-                    <LocalGallery items={items} />
+                    <LocalGallery
+                        items={items}
+                        onClick={onClick}
+                        onView={onView}
+                        onTagChange={onTagChange}
+                    />
                 </Portfolio>
             </Wrapper>
         </Container>

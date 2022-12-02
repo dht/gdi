@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { MyServices, MyServicesProps } from './MyServices';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MyServicesDriver extends BaseComponentDriver {
-    private props: Partial<MyServicesProps> = {
-    };
+    private props: Partial<MyServicesProps> = {};
 
     constructor() {
         super('MyServices');
@@ -21,7 +21,9 @@ export class MyServicesDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MyServices {...(this.props as MyServicesProps)} />);
+            return this.snapshot(
+                <MyServices {...(this.props as MyServicesProps)} />
+            );
         },
     };
 

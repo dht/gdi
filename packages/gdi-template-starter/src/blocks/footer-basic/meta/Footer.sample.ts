@@ -7,6 +7,8 @@ export const sampleData: ISampleDataPerFlavour = {
             text: '2022 David All Rights Reserved',
         },
         colors: {},
-        extra: {},
+        extra: {
+            linksDatasetId: 'footerLinks',
+        },
     },
 };

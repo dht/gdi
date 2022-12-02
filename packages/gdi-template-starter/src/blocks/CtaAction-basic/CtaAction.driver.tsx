@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { CtaAction, CtaActionProps } from './CtaAction';
 import { BaseComponentDriver } from 'testing-base';
 
 export class CtaActionDriver extends BaseComponentDriver {
-    private props: Partial<CtaActionProps> = {
-    };
+    private props: Partial<CtaActionProps> = {};
 
     constructor() {
         super('CtaAction');
@@ -21,7 +21,9 @@ export class CtaActionDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<CtaAction {...(this.props as CtaActionProps)} />);
+            return this.snapshot(
+                <CtaAction {...(this.props as CtaActionProps)} />
+            );
         },
     };
 

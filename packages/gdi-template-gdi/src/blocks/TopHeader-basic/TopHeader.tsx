@@ -25,9 +25,17 @@ export type TopHeaderExtra = {
 export function TopHeader(props: TopHeaderProps) {
     const { strings, colors, extra } = props;
     const { logoUrl, githubUrl, socialDatasetId = '' } = extra;
-    const { menuItems } = useContext(SiteContext);
+    const { menuItems, ga } = useContext(SiteContext);
 
     const socialLinks = useDataset(socialDatasetId);
+
+    const onClick = (componentName: string) => (item: Json) => {
+        ga('navigate', {
+            category: 'menu',
+            label: componentName,
+            destination: item.url,
+        });
+    };
 
     return (
         <Container
@@ -36,9 +44,12 @@ export function TopHeader(props: TopHeaderProps) {
         >
             <Logo src={logoUrl} alt='logo' />
             <Wrapper>
-                <TopMenu items={menuItems} />
+                <TopMenu onClick={onClick('TopMenu')} items={menuItems} />
                 <Flex />
-                <SocialMenu items={socialLinks} />
+                <SocialMenu
+                    onClick={onClick('SocialMenu')}
+                    items={socialLinks}
+                />
                 {githubUrl && (
                     <Github href={githubUrl} target='_blank'>
                         <img

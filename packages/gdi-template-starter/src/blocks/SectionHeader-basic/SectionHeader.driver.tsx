@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SiteContext } from '@gdi/engine';
 import { render, fireEvent } from '@testing-library/react';
 import { SectionHeader, SectionHeaderProps } from './SectionHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SectionHeaderDriver extends BaseComponentDriver {
-    private props: Partial<SectionHeaderProps> = {
-    };
+    private props: Partial<SectionHeaderProps> = {};
 
     constructor() {
         super('SectionHeader');
@@ -21,7 +21,9 @@ export class SectionHeaderDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SectionHeader {...(this.props as SectionHeaderProps)} />);
+            return this.snapshot(
+                <SectionHeader {...(this.props as SectionHeaderProps)} />
+            );
         },
     };
 

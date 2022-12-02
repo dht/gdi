@@ -5,6 +5,7 @@ import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
 import { initTemplate as initTemplateCard } from '@gdi/template-card';
 import { invokeEvent } from 'shared-base';
+import { useWindowSize } from 'react-use';
 
 export type PreviewFullProps = {
     elements: IElement[];
@@ -15,8 +16,9 @@ export type PreviewFullProps = {
 };
 
 export function PreviewFull(props: PreviewFullProps) {
-    const ref = useRef<HTMLDivElement>(null);
-    const { elements, widget, datasets, mobileMode } = props;
+    const { width } = useWindowSize();
+
+    const { elements, datasets, mobileMode } = props;
 
     const libraryBuilder = useMemo(() => {
         const libraryBuilder = new LibraryBuilder();
@@ -27,28 +29,25 @@ export function PreviewFull(props: PreviewFullProps) {
     }, []);
 
     useEffect(() => {
-        invokeEvent('side-menu', {
-            show: false,
-        });
-
-        const box = ref.current?.getBoundingClientRect();
-
-        if (box && box.width < 768) {
-            props.onToggleMobile(true);
+        if (width === 0) {
+            return;
         }
 
+        document.body.classList.add('hide-menu');
+
+        const isMobile = width < 768;
+
+        props.onToggleMobile(isMobile);
+
         return () => {
-            invokeEvent('side-menu', {
-                show: true,
-            });
+            document.body.classList.remove('hide-menu');
         };
-    }, []);
+    }, [width]);
 
     return (
         <Container
             className='PreviewFull-container'
             data-testid='PreviewFull-container'
-            ref={ref}
         >
             <EngineView
                 elements={elements}

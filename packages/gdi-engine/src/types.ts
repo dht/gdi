@@ -4,10 +4,20 @@ export type IEngineContextState = {
     patchContext: (change: Partial<IEngineContextState>) => void;
 };
 
-export type ISiteContext = {
-    menuItems: ITopMenuItem[];
-    datasets: Json;
-    patchContext: (change: Partial<ISiteContext>) => void;
+export type IGaEvent = {
+    eventId: GaId;
+    data: IGaData;
+    nonInteractive?: boolean;
+};
+
+export type IGaData = {
+    category: string;
+    label: string;
+    value?: number;
+} & Json;
+
+export type ISiteState = {
+    analyticsOn: boolean;
 };
 
 export type ITopMenuItem = {

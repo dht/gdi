@@ -1,5 +1,5 @@
 import { Icon } from '@gdi/web-ui';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     Arrow,
     Container,
@@ -18,7 +18,7 @@ import {
     QuotePersonName,
     QuoteSign,
 } from './Quotes.style';
-import { useDataset } from '@gdi/engine';
+import { SiteContext, useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.quotes-basic';
 
@@ -42,7 +42,22 @@ export function Quotes(props: QuotesProps) {
 
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const items = useDataset(quotesDatasetId);
+    const items = useDataset(quotesDatasetId ?? '');
+
+    const { ga } = useContext(SiteContext);
+
+    function onChange(index: number) {
+        setActiveIndex(index);
+
+        const item = items[index];
+        const { quoteId = '' } = item ?? {};
+
+        ga('component', {
+            category: 'quotes',
+            label: 'quoteChange',
+            quoteId,
+        });
+    }
 
     function renderItem(item: Json, index: number) {
         const { name, jobTitle, company, avatarUrl, description } = item;
@@ -80,14 +95,10 @@ export function Quotes(props: QuotesProps) {
             <Arrows
                 items={items}
                 activeIndex={activeIndex}
-                onChange={setActiveIndex}
+                onChange={onChange}
             />
             <Content>{renderItems()}</Content>
-            <Dots
-                items={items}
-                activeIndex={activeIndex}
-                onChange={setActiveIndex}
-            />
+            <Dots items={items} activeIndex={activeIndex} onChange={onChange} />
         </Container>
     );
 }

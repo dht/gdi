@@ -1,6 +1,7 @@
 import { root as account } from './saga.account';
 import { root as apiRoot } from './saga.apiRoot';
 import { root as bootstrap } from './saga.bootstrap';
+import { root as analytics } from './saga.analytics.admin';
 import { root as navigate } from './saga.navigate';
 import { root as toast } from './saga.toast';
 import { delay, fork, put } from 'saga-ts';
@@ -13,6 +14,7 @@ function* root() {
     yield* fork(bootstrap);
     yield* fork(navigate);
     yield* fork(register);
+    yield* fork(analytics);
 
     yield delay(1000);
     yield put({ type: 'PROMPT' });

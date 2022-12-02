@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
-import { IPlatformState } from '../types';
+import { GaId, IPlatformState } from '../types';
 import { createStore } from 'redux';
+import { invokeEvent } from 'shared-base';
 
 type PlatformContextProps = {
     languageCode: LanguageIso;
@@ -13,6 +14,8 @@ type PlatformContextProps = {
 
 type IPlatformContext = {
     patchContext: (change: Partial<IPlatformState>) => void;
+    ga: (eventId: GaId, data: IGaData) => void;
+    gan: (eventId: GaId, data: IGaData) => void; // non-interactive
     state: IPlatformState;
 };
 
@@ -22,6 +25,7 @@ const emptyStore = createStore(reducer) as any;
 const initialValue: IPlatformContext = {
     patchContext: () => {},
     state: {
+        analyticsOn: true,
         accountName: '',
         availableAccounts: [],
         isReady: false,
@@ -52,6 +56,8 @@ const initialValue: IPlatformContext = {
         pieMenuConfig: {},
         templatesMeta: {},
     },
+    ga: (_eventId: GaId, _data: IGaData) => {},
+    gan: (_eventId: GaId, _data: IGaData) => {}, // non-interactive
 };
 
 export const PlatformContext = createContext<IPlatformContext>(initialValue);
@@ -73,6 +79,20 @@ export const PlatformContextProvider = (
         () => ({
             state: state!,
             patchContext: patchContext as any,
+            ga: (eventId: GaId, data: IGaData) => {
+                if (!state.analyticsOn) {
+                    return;
+                }
+
+                invokeEvent('gaAdmin', { eventId, data });
+            },
+            gan: (eventId: GaId, data: IGaData) => {
+                if (!state.analyticsOn) {
+                    return;
+                }
+
+                invokeEvent('gaAdmin', { eventId, data, nonInteractive: true });
+            },
         }),
         [state]
     );

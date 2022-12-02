@@ -23,7 +23,7 @@ export const Items = styled.div`
     border: 1px solid gold;
 `;
 
-export const Item = styled.div<{
+export const Item = styled.a<{
     imageUrl: string;
     contain?: boolean;
     itemHeight: number;

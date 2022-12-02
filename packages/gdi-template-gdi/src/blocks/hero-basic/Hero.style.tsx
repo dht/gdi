@@ -3,6 +3,7 @@ import { ButtonBase, mobile } from '../Base.style';
 
 export const Container = styled.div`
     background-color: white;
+    position: relative;
 `;
 
 export const Column = styled.div`
@@ -27,32 +28,15 @@ export const H1 = styled.h1`
 
 export const Demo = styled.div`
     border-top: 2px solid #23221f;
-    max-width: 600px;
-    top: 50px;
     width: 500px;
-    height: 800px;
     position: absolute;
-`;
-
-export const DemoTop = styled.div`
-    box-shadow: 0 0 356px 0 rgb(130 215 247 / 60%);
-    width: 500px;
-    height: 400px;
-    position: absolute;
-`;
-
-export const DemoBottom = styled.div`
-    box-shadow: 0 0 356px 0 rgb(130 215 247 / 20%);
-    width: 500px;
-    height: 400px;
-    position: absolute;
-    top: 400px;
+    bottom: -5px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.15);
 `;
 
 export const Image = styled.img`
     width: 500px;
-    position: absolute;
-    top: 0;
 `;
 
 export const Actions = styled.div`
@@ -77,7 +61,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 500px;
+    padding: 100px 0 100px;
     width: 1200px;
     margin: 0 auto;
     color: #334;
@@ -88,6 +72,6 @@ export const Wrapper = styled.div`
         flex-direction: column;
         margin: 0;
         text-align: center;
-        padding: 40px 0 0;
+        padding: 100px 0 120px;
     `)}
 `;

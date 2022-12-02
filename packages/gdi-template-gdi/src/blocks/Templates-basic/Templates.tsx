@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Wrapper, H2 } from './Templates.style';
 import { LocalGallery } from '@gdi/web-ui';
-import { useDataset } from '@gdi/engine';
+import { SiteContext, useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.gdi.templates-basic';
 
@@ -25,8 +25,34 @@ export function Templates(props: TemplatesProps) {
     const { strings, extra } = props;
     const { header } = strings;
     const { templatesDatasetId } = extra;
-
     const templates = useDataset(templatesDatasetId);
+
+    const { ga } = useContext(SiteContext);
+
+    function onClick(item: Json) {
+        ga('navigate', {
+            category: 'gallery',
+            label: item.id,
+            source: 'templates',
+        });
+    }
+
+    function onView(item: Json) {
+        ga('view', {
+            category: 'gallery',
+            label: item.id,
+            source: 'templates',
+        });
+    }
+
+    function onTagChange(tagId: string) {
+        ga('component', {
+            category: 'gallery',
+            label: 'tagChange',
+            tagId,
+            source: 'templates',
+        });
+    }
 
     return (
         <Container
@@ -40,6 +66,9 @@ export function Templates(props: TemplatesProps) {
                     lightMode
                     itemsPerRow={2}
                     itemHeight={376}
+                    onClick={onClick}
+                    onView={onView}
+                    onTagChange={onTagChange}
                 />
             </Wrapper>
         </Container>

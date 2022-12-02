@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 export type TopMenuProps = {
     items: IMenuItem[];
+    onClick: (item: IMenuItem) => void;
 };
 
 type IMenuItem = {
@@ -26,6 +27,7 @@ export function TopMenu(props: TopMenuProps) {
                 key={item.title + String(index)}
                 className={className}
                 href={href}
+                onClick={() => props.onClick(item)}
             >
                 {title}
             </Link>

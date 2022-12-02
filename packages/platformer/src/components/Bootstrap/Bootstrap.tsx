@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { $s } from 'shared-base';
 import { AllRoutes } from './Bootstrap.routes';
 import { bootstrapApp } from './Bootstrap.code';

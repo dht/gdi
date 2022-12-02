@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo } from 'react';
+import { useCallback, useContext, useEffect, useMemo } from 'react';
 import ContextBarContainer from '../../containers/ContextBarContainer';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import useMount from 'react-use/lib/useMount';
@@ -8,7 +8,7 @@ import { AppContent } from './Bootstrap.style';
 import { CommandBar } from '@gdi/web-ui';
 import { createPage } from '../Page/Page';
 import { ICommandBarItem } from '../../types';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { OverlayContainer } from '../../containers/OverlayContainer';
 import { PlatformContext } from '../../core/Platform.context';
 import { PlatformLifeCycleEvents } from '@gdi/types';
@@ -21,6 +21,7 @@ import {
     IWidgetInstancesList,
 } from 'igrid';
 import { AppContextProvider } from '@gdi/language';
+import { firebase } from '../../utils/firebase';
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
@@ -84,7 +85,7 @@ export const App = () => {
     }
 
     return (
-        <AppContent>
+        <AppContent className='AppContainer-container'>
             <MainRoutes />
             <AppContextProvider appId='platform'>
                 <OverlayRoutes />
@@ -106,10 +107,15 @@ export const App = () => {
 
 export const AllRoutes = () => {
     const { routes } = useContext(PlatformContext).state;
+    const location = useLocation();
 
     useMount(() => {
         $s('all routes');
     });
+
+    useEffect(() => {
+        firebase.log('page_view');
+    }, [location]);
 
     return (
         <Routes>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     Container,
     Wrapper,
@@ -10,7 +10,7 @@ import {
 } from './Apps.style';
 import { LocalGallery } from '@gdi/web-ui';
 import classnames from 'classnames';
-import { useDataset } from '@gdi/engine';
+import { SiteContext, useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.gdi.apps-basic';
 
@@ -37,6 +37,33 @@ export function Apps(props: AppsProps) {
 
     const apps = useDataset(appsDatasetId);
 
+    const { ga } = useContext(SiteContext);
+
+    function onClick(item: Json) {
+        ga('navigate', {
+            category: 'gallery',
+            label: item.id,
+            source: 'apps',
+        });
+    }
+
+    function onView(item: Json) {
+        ga('view', {
+            category: 'gallery',
+            label: item.id,
+            source: 'apps',
+        });
+    }
+
+    function onTagChange(tagId: string) {
+        ga('component', {
+            category: 'gallery',
+            label: 'tagChange',
+            tagId,
+            source: 'apps',
+        });
+    }
+
     function renderOverlay(item: Json) {
         const { title, description, tags } = item;
 
@@ -61,6 +88,9 @@ export function Apps(props: AppsProps) {
                     items={apps}
                     contain
                     renderOverlay={renderOverlay}
+                    onClick={onClick}
+                    onView={onView}
+                    onTagChange={onTagChange}
                 />
             </Wrapper>
         </Container>

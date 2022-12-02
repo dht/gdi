@@ -1,35 +1,62 @@
 import styled, { css } from 'styled-components';
-import { FooterColors } from './Footer';
-import { darken } from 'polished';
 import { mobile } from '../Base.style';
 
-export const Container = styled.div<{ colors: FooterColors }>`
+export const Container = styled.div`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#223'};
-    display: flex;
-    padding: 40px 0;
-    font-family: ${(props) => props.theme.fontFamily};
-
-    ${mobile(css`
-        height: auto;
-        max-height: none;
-        padding: 80px 20px;
-    `)}
+    background-color: #223;
+    color: #fff;
+    padding: 50px 0;
+    font-size: 18px;
 `;
 
 export const Wrapper = styled.div`
     box-sizing: border-box;
+    width: 1200px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    max-width: 1440px;
-    margin: 0 auto;
-    flex: 1;
+    margin: auto;
 
     ${mobile(css`
-        flex-direction: column;
+        width: 99vw;
+        padding: 0 10px;
     `)}
+`;
+
+export const Column = styled.div`
+    flex: 1;
+`;
+
+export const Ul = styled.ul`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: flex-end;
+`;
+
+export const Li = styled.li`
+    padding: 0 10px;
+    margin: 0;
+`;
+
+export const A = styled.a`
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+        color: gold;
+        text-decoration: underline;
+    }
+
+    &:active {
+        position: relative;
+        bottom: 1px;
+        left: 1px;
+    }
 `;
 
 export const Copy = styled.div`

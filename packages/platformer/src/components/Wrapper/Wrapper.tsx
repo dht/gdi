@@ -11,6 +11,7 @@ import { Spinner } from '@gdi/web-ui';
 type WrapperProps = {
     appId: string;
     component: React.FC<any>;
+    title?: string;
     props?: any;
     currentIdsActionCreator?: (change: Json) => Action;
 };

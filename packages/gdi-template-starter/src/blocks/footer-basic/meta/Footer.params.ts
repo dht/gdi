@@ -7,6 +7,8 @@ export const params: IWidgetParams = {
             text: { fieldType: 'text', order: 0 },
         },
         colors: {},
-        extra: {},
+        extra: {
+            linksDatasetId: { fieldType: 'dataset', order: 0 },
+        },
     },
 };

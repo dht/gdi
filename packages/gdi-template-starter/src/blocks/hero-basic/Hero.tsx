@@ -1,7 +1,7 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import { Container, H1, Wrapper, Greeting, Skill, Social } from './Hero.style';
 import { SocialIcons } from '@gdi/web-ui';
-import { useDataset } from '@gdi/engine';
+import { SiteContext, useDataset } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.hero-basic';
 
@@ -24,15 +24,22 @@ export type HeroExtra = {
     socialDatasetId: string;
 };
 
-const urls = ['https://twitter.com/elonmusk', 'https://www.behance.net/dlanid'];
-
 export function Hero(props: HeroProps) {
     const { strings, colors, extra } = props;
     const { slogan, header, description } = strings;
     const { socialDatasetId } = extra;
 
+    const { ga } = useContext(SiteContext);
+
     const social = useDataset(socialDatasetId);
     const urls = Object.values(social).map((i: Json) => i.url);
+
+    const onClick = (url: string) => () => {
+        ga('navigate', {
+            category: 'hero',
+            label: url,
+        });
+    };
 
     return (
         <Container
@@ -45,7 +52,7 @@ export function Hero(props: HeroProps) {
                 <H1>{header}</H1>
                 <Skill>{description}</Skill>
                 <Social>
-                    <SocialIcons grayscale urls={urls} />
+                    <SocialIcons grayscale urls={urls} onClick={onClick} />
                 </Social>
             </Wrapper>
         </Container>

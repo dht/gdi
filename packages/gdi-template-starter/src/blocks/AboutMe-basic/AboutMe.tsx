@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     Container,
     Actions,
@@ -10,6 +10,7 @@ import {
     Wrapper,
     Content,
 } from './AboutMe.style';
+import { SiteContext } from '@gdi/engine';
 
 export const id = 'com.usegdi.templates.starter.aboutMe-basic';
 
@@ -37,6 +38,15 @@ export function AboutMe(props: AboutMeProps) {
     const { strings, colors, extra } = props;
     const { slogan, header, description, ctaButtonText } = strings;
     const { imageUrl, href } = extra;
+    const { ga } = useContext(SiteContext);
+
+    function onClick() {
+        ga('navigate', {
+            category: 'aboutMe',
+            label: ctaButtonText,
+            destination: href,
+        });
+    }
 
     return (
         <Container
@@ -51,7 +61,7 @@ export function AboutMe(props: AboutMeProps) {
                         <H2>{header}</H2>
                         {description && <P>{description}</P>}
                         <Actions>
-                            <CTA colors={colors} href={href}>
+                            <CTA onClick={onClick} colors={colors} href={href}>
                                 {ctaButtonText}
                             </CTA>
                         </Actions>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const BaseButton = styled.button<{ white?: boolean }>`
+export const BaseButton = styled.a<{ white?: boolean }>`
     background-color: ${(props) => (props.white ? 'white' : 'var(--bk-light)')};
     color: var(--bk);
     font-size: 20px;

@@ -3,6 +3,7 @@ import { Button, Container, Icon } from './SocialMenu.style';
 
 export type SocialMenuProps = {
     items: Json[];
+    onClick: (item: Json) => void;
 };
 
 export function SocialMenu(props: SocialMenuProps) {
@@ -12,7 +13,12 @@ export function SocialMenu(props: SocialMenuProps) {
         const { href, iconName } = item;
 
         return (
-            <Button href={href} target='_blank' key={item.href}>
+            <Button
+                key={href}
+                onClick={() => props.onClick(item)}
+                href={href}
+                target='_blank'
+            >
                 <Icon src={iconName} />
             </Button>
         );
