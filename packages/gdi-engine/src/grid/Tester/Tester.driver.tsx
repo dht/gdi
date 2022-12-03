@@ -16,7 +16,7 @@ export class TesterDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.Wrapper);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -33,10 +33,10 @@ export class TesterDriver extends BaseComponentDriver {
 
     get = {
         WrapperClassName: () => {
-            return this.Wrapper.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.Wrapper.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

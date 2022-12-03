@@ -3,7 +3,7 @@ import { Wrapper } from './Column.style';
 import classnames from 'classnames';
 
 export type ColumnProps = {
-    children: JSX.Element | JSX.Element[];
+    children?: JSX.Element | JSX.Element[] | null;
     className?: string;
 };
 

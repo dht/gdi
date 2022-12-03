@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { Grid } from '@gdi/engine';
+
+export const Container = styled(Grid.Container)`
+    border-color: 1px solid green;
+`;
 
 export const Wrapper = styled.div`
     flex: 1;
@@ -60,13 +65,13 @@ export const AuthorName = styled.div`
     }
 `;
 
-export const Row = styled.div`
+export const Row = styled(Grid.Row)`
     display: flex;
     flex-direction: row;
     align-items: center;
 `;
 
-export const Column = styled.div`
+export const Column = styled(Grid.Column)`
     &:nth-child(1) {
         flex: 1;
     }

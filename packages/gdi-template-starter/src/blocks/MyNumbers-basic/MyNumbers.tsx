@@ -55,7 +55,6 @@ export function MyNumbers(props: MyNumbersProps) {
         <Wrapper
             className='MyNumbers-container'
             data-testid='MyNumbers-container'
-            colors={colors}
         >
             <Container>
                 <Row>{renderNumbers()}</Row>

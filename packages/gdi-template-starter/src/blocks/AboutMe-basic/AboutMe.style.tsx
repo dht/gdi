@@ -35,7 +35,7 @@ export const Column = styled(Grid.Column)``;
 export const Details = styled.div``;
 
 export const Slogan = styled.div<{ colors: AboutMeColors }>`
-    color: ${(props) => props.colors.text || '#aaef69'};
+    color: #aaef69;
     font-size: 28px;
     font-weight: bold;
     font-variation-settings: 'wdth' 95, 'wght' 250;
@@ -76,7 +76,7 @@ export const Actions = styled.div`
 `;
 
 export const CTA = styled.a<{ colors: AboutMeColors }>`
-    background-color: ${(props) => props.colors.text || '#aaef69'};
+    background-color: #aaef69;
     font-weight: bold;
     color: #333;
     text-decoration: none;
@@ -87,8 +87,7 @@ export const CTA = styled.a<{ colors: AboutMeColors }>`
     cursor: pointer;
 
     &:hover {
-        background-color: ${(props) =>
-            darken(0.1, props.colors.text || '#aaef69')};
+        background-color: ${(props) => darken(0.1, '#aaef69')};
     }
 
     &:active {

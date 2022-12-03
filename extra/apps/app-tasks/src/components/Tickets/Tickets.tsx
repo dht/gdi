@@ -10,6 +10,7 @@ export type TicketsProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     dispatch: any;
     customView?: FC<any>;

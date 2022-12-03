@@ -21,3 +21,4 @@ clients/gdi-admin/config/vite.extra.ts
 .todos
 clients/gdi-admin/stats.html
 clients/site
+scripts/errors.txt

@@ -12,6 +12,9 @@ export const template: ITemplate = {
         ...blocks,
         ...widgets,
     },
+    datasets: {
+        dataset: {},
+    },
 };
 
 export const initTemplate = (libraryBuilder: ILibraryBuilder) => {

@@ -3,11 +3,11 @@ import { Bar, BarInner, Wrapper } from './Graph.style';
 import { sortBy } from 'shared-base';
 
 export type GraphProps = {
-    journey: IStatJourney[];
+    journey?: IStatJourney[];
 };
 
 export function Graph(props: GraphProps) {
-    const { journey } = props;
+    const { journey = [] } = props;
 
     const journeyWithPercent = useMemo(() => {
         const max = Math.max(...journey.map((j) => j.value));

@@ -21,5 +21,5 @@ export const useCrudDefinitions = (itemType: ItemType, nodeName?: string) => {
         throw new Error(`No crud definitions for item type ${itemType}`);
     }
 
-    return output;
+    return output as ICrudDefinitions;
 };

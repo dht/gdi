@@ -14,19 +14,18 @@ import timeline from './json/d.timeline.sales.json';
 import { itemStructure } from './d.itemStructure.sales';
 
 export const definitions: ICrudDefinitions = {
-    // @ts-expect-error
-    nodeName: 'sales',
-    filters,
-    formEdit,
+    nodeName: 'sales', // @ts-expect-error
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
-    calendar,
-    gallery,
-    overlay,
+    calendar, // @ts-expect-error
+    gallery, // @ts-expect-error
+    overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
-    bucket,
+    formNewDefault, // @ts-expect-error
+    bucket, // @ts-expect-error
     multiBar,
     itemStructure,
 };

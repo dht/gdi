@@ -4,8 +4,7 @@ import { FourPack, FourPackProps } from './FourPack';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FourPackDriver extends BaseComponentDriver {
-    private props: Partial<FourPackProps> = {
-    };
+    private props: Partial<FourPackProps> = {};
 
     constructor() {
         super('FourPack');
@@ -17,11 +16,13 @@ export class FourPackDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FourPack {...(this.props as FourPackProps)} />);
+            return this.snapshot(
+                <FourPack {...(this.props as FourPackProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class FourPackDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

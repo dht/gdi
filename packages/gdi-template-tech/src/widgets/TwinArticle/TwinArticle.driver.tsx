@@ -4,8 +4,7 @@ import { TwinArticle, TwinArticleProps } from './TwinArticle';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TwinArticleDriver extends BaseComponentDriver {
-    private props: Partial<TwinArticleProps> = {
-    };
+    private props: Partial<TwinArticleProps> = {};
 
     constructor() {
         super('TwinArticle');
@@ -17,11 +16,13 @@ export class TwinArticleDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<TwinArticle {...(this.props as TwinArticleProps)} />);
+            return this.snapshot(
+                <TwinArticle {...(this.props as TwinArticleProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class TwinArticleDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { MyNumbersColors } from './MyNumbers';
 import { Grid, mobile, css } from '@gdi/engine';
 
-export const Wrapper = styled.div<{ colors: MyNumbersColors }>`
+export const Wrapper = styled.div`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#223'};
+    background-color: #223;
     display: flex;
     padding: 100px 0;
     font-family: ${(props) => props.theme.fontFamily};

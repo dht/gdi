@@ -69,7 +69,6 @@ export const icons: Record<IconName, string> = {
     wikipedia: '68',
     wix: '69',
     weebly: '70',
-    other14: '71',
     google2: '72',
     barnesAndNobles: '73',
     readLater: '74',

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container, Wrapper } from './PageBlog.style';
+import { Wrapper } from './PageBlog.style';
 import config from './json/PageBlog.json';
 import { breadcrumbs } from './PageBlog.breadcrumbs';
 import { data } from './PageBlog.data';
@@ -23,13 +23,13 @@ export function PageBlog(props: PageBlogProps) {
     const { strings, colors, extra } = props;
 
     return (
-        <Container
+        <Wrapper
             className='PageBlog-container'
             data-testid='PageBlog-container'
             colors={colors}
         >
-            <Uno config={config} data={data} breadcrumbs={breadcrumbs} />
-        </Container>
+            <Uno config={config as any} data={data} breadcrumbs={breadcrumbs} />
+        </Wrapper>
     );
 }
 

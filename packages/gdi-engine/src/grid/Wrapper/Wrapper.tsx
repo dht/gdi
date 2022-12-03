@@ -12,6 +12,7 @@ export type WrapperProps = {
     children: JSX.Element | JSX.Element[];
     bk?: JSX.Element | JSX.Element[];
     className?: string;
+    onClick?: () => void;
 };
 
 export function Wrapper(props: WrapperProps) {
@@ -24,7 +25,11 @@ export function Wrapper(props: WrapperProps) {
     const className = classnames('Wrapper-wrapper', props.className);
 
     return (
-        <WrapperSimple className={className} data-testid='Wrapper-wrapper'>
+        <WrapperSimple
+            className={className}
+            data-testid='Wrapper-wrapper'
+            onClick={props.onClick}
+        >
             {props.children}
         </WrapperSimple>
     );
@@ -53,7 +58,11 @@ export function LayeredWrapper(props: WrapperProps) {
     const className = classnames('Wrapper-wrapper', props.className);
 
     return (
-        <WrapperLayered className={className} data-testid='Wrapper-wrapper'>
+        <WrapperLayered
+            className={className}
+            data-testid='Wrapper-wrapper'
+            onClick={props.onClick}
+        >
             <Bks>{renderBks()}</Bks>
             <Content className='content'>{props.children}</Content>
         </WrapperLayered>

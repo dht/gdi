@@ -5,6 +5,7 @@ import { Grid, mobile, css } from '@gdi/engine';
 export const Wrapper = styled.div`
     background-color: white;
     position: relative;
+    color: #334;
 `;
 
 export const Container = styled(Grid.Container)`

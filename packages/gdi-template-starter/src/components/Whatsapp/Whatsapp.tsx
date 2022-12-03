@@ -1,6 +1,5 @@
 import React from 'react';
 import { Wrapper, Content, Subtitle, Title, Icon } from './Whatsapp.style';
-import w from './WhatsApp.svg';
 
 export const id = 'com.usegdi.templates.starter.whatsapp-basic';
 
@@ -29,7 +28,7 @@ export function Whatsapp(props: WhatsappProps) {
             target='_blank'
         >
             <Icon className='icon'>
-                <img src={w} />
+                <img src='//static-b9ebe.web.app/whatsapp.svg' />
             </Icon>
             <Content className='content'>
                 <Title>Whatsapp</Title>

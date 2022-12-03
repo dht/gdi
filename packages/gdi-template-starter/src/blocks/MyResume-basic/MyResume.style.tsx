@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { MyResumeColors } from './MyResume';
 import { mobile, Grid, css } from '@gdi/engine';
 
-export const Wrapper = styled.div<{ colors: MyResumeColors }>`
+export const Wrapper = styled.div`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#112'};
+    background-color: #112;
     display: flex;
     padding: 100px 0 90px;
     flex-direction: column;

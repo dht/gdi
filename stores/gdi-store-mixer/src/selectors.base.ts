@@ -2,11 +2,7 @@ import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
 import { IImageWithWidget, IMixerStore } from './types';
 import { get, pickBy, isEmpty } from 'shared-base';
-import {
-    getWidgetTypeFromElement,
-    getWidgetTypeFromTags,
-    getSchemaPropertiesByType,
-} from './utils/widgets';
+import { getSchemaPropertiesByType } from './utils/widgets';
 import {
     sortBy,
     getScreenshotThumb,
@@ -118,6 +114,10 @@ export const $currentPageInstances = createSelector(
     $pageInstanceId,
     raw.$rawLibraryPageInstances,
     (pageInstanceId, pageInstances) => {
+        if (!pageInstanceId) {
+            return;
+        }
+
         return pageInstances[pageInstanceId];
     }
 );
@@ -335,7 +335,7 @@ export const $inspector = createSelector($instanceSelected, (instance) => {
 export const $instanceSelectedSchema = createSelector(
     $instanceSelected,
     (instance) => {
-        return get(instance, 'widget.params.schema');
+        return get(instance ?? {}, 'widget.params.schema');
     }
 );
 
@@ -366,7 +366,7 @@ export const $selectedElementImageId = createSelector(
 
         if (instance && fieldId) {
             const { instanceProps } = instance;
-            const imageUrl = get(instanceProps, fieldId);
+            const imageUrl = get(instanceProps ?? {}, fieldId);
             output.imageUrl = imageUrl;
             const image = images.find((i) => i.imageUrl === imageUrl);
 
@@ -438,7 +438,7 @@ export const $libraryPageInstancesAssets = createSelector(
     raw.$rawLibraryInstancesProps,
     raw.$rawLibraryImages,
     (pageInstances, instances, widgets, instancesProps, images) => {
-        const output: IPagesInstanceAssets = {};
+        const output: Json = {};
 
         Object.values(pageInstances).forEach((item) => {
             const { id } = item;

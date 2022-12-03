@@ -31,7 +31,7 @@ export const H1 = styled.h1`
     text-align: center;
 `;
 
-export const Greeting = styled.div<{ colors: HeroColors }>`
+export const Greeting = styled.div`
     color: #33334499;
     background-color: #ffffff44;
     padding: 2px 30px;

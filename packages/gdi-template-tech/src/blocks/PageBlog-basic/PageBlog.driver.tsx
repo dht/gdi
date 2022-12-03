@@ -4,8 +4,7 @@ import { PageBlog, PageBlogProps } from './PageBlog';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PageBlogDriver extends BaseComponentDriver {
-    private props: Partial<PageBlogProps> = {
-    };
+    private props: Partial<PageBlogProps> = {};
 
     constructor() {
         super('PageBlog');
@@ -17,11 +16,13 @@ export class PageBlogDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PageBlog {...(this.props as PageBlogProps)} />);
+            return this.snapshot(
+                <PageBlog {...(this.props as PageBlogProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PageBlogDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

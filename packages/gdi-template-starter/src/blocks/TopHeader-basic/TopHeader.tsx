@@ -39,7 +39,7 @@ export function TopHeader(props: TopHeaderProps) {
             data-testid='TopHeader-container'
         >
             <Container>
-                <Row center>
+                <Row>
                     <Logo url={logoUrl} />
                     <Flex />
                     <TopMenu items={menuItems} onClick={onClick('topMenu')} />

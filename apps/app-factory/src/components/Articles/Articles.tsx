@@ -9,6 +9,7 @@ export type ArticlesProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     tags: IOptions;
     dispatch: any;

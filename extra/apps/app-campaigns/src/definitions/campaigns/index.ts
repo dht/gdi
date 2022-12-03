@@ -13,18 +13,17 @@ import timeline from './json/d.timeline.campaigns.json';
 import { itemStructure } from './d.itemStructure.campaigns';
 
 export const definitions: ICrudDefinitions = {
-    // @ts-expect-error
-    nodeName: 'campaigns',
-    filters,
-    formEdit,
+    nodeName: 'campaigns', // @ts-expect-error
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
-    calendar,
-    gallery,
-    overlay,
+    calendar, // @ts-expect-error
+    gallery, // @ts-expect-error
+    overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
+    formNewDefault, // @ts-expect-error
     bucket,
     itemStructure,
 };

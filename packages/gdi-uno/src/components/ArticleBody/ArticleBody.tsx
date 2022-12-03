@@ -1,6 +1,6 @@
 import React from 'react';
 import { IUnoSection } from '../../types';
-import { Column, Container, P, Row, Quote } from './ArticleBody.style';
+import { Column, Wrapper, P, Row, Quote } from './ArticleBody.style';
 
 export type ArticleBodyProps = {
     data: Json;

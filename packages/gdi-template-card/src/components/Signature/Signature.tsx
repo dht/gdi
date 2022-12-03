@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrapper } from './Signature.style';
 
 export type SignatureProps = {
-    children: string;
+    children: React.ReactNode;
 };
 
 export function Signature(props: SignatureProps) {

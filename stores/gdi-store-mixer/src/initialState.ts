@@ -156,7 +156,11 @@ export const clearState = (store: any) => {
         store.dispatch(actions.libraryInstancesProps.setAll({}));
         store.dispatch(actions.libraryPalettes.setAll({}));
         store.dispatch(actions.libraryTypography.setAll({}));
-        store.dispatch(actions.libraryDatasets.setAll({}));
+        store.dispatch(
+            actions.libraryDatasets.setAll({
+                dataset: {},
+            })
+        );
     });
     return store;
 };

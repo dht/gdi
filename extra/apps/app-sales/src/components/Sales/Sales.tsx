@@ -11,6 +11,7 @@ export type SalesProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     dispatch: any;
 };
@@ -31,7 +32,6 @@ export function Sales(props: SalesProps) {
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                hideParts={['preview']}
             />
         </Wrapper>
     );

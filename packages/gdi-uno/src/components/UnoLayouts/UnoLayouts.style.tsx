@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Grid } from '@gdi/engine';
 
 export const Wrapper = styled.div<{ width?: number }>`
     flex: 1;
@@ -17,7 +18,7 @@ export const Center = styled.div<{ color?: string }>`
     background-color: ${(props) => props.color || 'white'};
 `;
 
-export const Wrapper = styled.div<{
+export const Container = styled(Grid.Container)<{
     orientation?: 'row' | 'column';
     align?: 'center' | 'flex-start' | 'flex-end';
     flex?: number;
@@ -37,7 +38,11 @@ export const Bottom = styled.div`
     align-items: flex-start;
 `;
 
-export const Column = styled.div<{ flex?: number }>`
+export const Row = styled(Grid.Row)`
+    border-color: 1px solid green;
+`;
+
+export const Column = styled(Grid.Column)<{ flex?: number }>`
     margin-top: 45px;
     padding-bottom: 50px;
     ${(props) => (props.flex ? `flex: ${props.flex}` : '')}

@@ -1,6 +1,12 @@
+import p from '../package.json';
+
 export const meta: IMetaSite = {
     identifier: 'com.usegdi.templates.starter',
-    version: '',
+    description: p.description,
+    packageType: p.gdi.packageType as any,
+    isBeta: p.gdi.isBeta,
+    isDraft: p.gdi.isDraft,
+    version: p.version,
     author: {
         name: '',
     },

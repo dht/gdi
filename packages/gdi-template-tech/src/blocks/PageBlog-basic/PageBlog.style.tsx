@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PageBlogColors } from './PageBlog';
 
-export const Container = styled.div<{ colors: PageBlogColors }>`
+export const Wrapper = styled.div<{ colors: PageBlogColors }>`
     flex: 1;
     background-color: white;
     color: #333;

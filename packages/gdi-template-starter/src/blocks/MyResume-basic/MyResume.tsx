@@ -1,6 +1,5 @@
 import { Icon } from '@gdi/web-ui';
-import React, { useContext } from 'react';
-import { SiteContext } from '@gdi/engine';
+import React from 'react';
 import {
     Container,
     Wrapper,
@@ -43,7 +42,7 @@ export type MyResumeExtra = {
 };
 
 export function MyResume(props: MyResumeProps) {
-    const { strings, colors, extra } = props;
+    const { strings, extra } = props;
     const { header, description } = strings;
     const { resumeDatasetId } = extra;
 
@@ -79,7 +78,6 @@ export function MyResume(props: MyResumeProps) {
         <Wrapper
             className='MyResume-container'
             data-testid='MyResume-container'
-            colors={colors}
         >
             <Container>
                 <H2>{header}</H2>

@@ -6,14 +6,21 @@ import classnames from 'classnames';
 export type SocialIconsProps = {
     urls: string[];
     grayscale: boolean;
+    onClick?: (url: string) => void;
 };
 
 export function SocialIcons(props: SocialIconsProps) {
     const { urls, grayscale } = props;
 
+    function onClick(url: string) {
+        if (props.onClick) {
+            props.onClick(url);
+        }
+    }
+
     function renderUrl(url: string) {
         return (
-            <Icon key={url} className='icon'>
+            <Icon key={url} className='icon' onClick={() => onClick(url)}>
                 <SocialIcon url={url} />
             </Icon>
         );

@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { MyServicesColors } from './MyServices';
 import { Grid, mobile, css } from '@gdi/engine';
 
-export const Wrapper = styled.div<{ colors: MyServicesColors }>`
+export const Wrapper = styled.div`
     flex: 1;
-    background-color: ${(props) => props.colors.background || '#223'};
+    background-color: #223;
     display: flex;
     flex-direction: column;
     font-family: ${(props) => props.theme.fontFamily};

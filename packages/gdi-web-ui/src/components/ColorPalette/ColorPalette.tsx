@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper, ContainerColor } from './ColorPalette.style';
+import { Wrapper, WrapperColor } from './ColorPalette.style';
 
 export type ColorPaletteProps = {
     palette: IPalette;

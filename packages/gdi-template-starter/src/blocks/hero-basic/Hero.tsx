@@ -48,7 +48,7 @@ export function Hero(props: HeroProps) {
             extra={extra}
         >
             <Container>
-                <Greeting colors={colors}>{slogan}</Greeting>
+                <Greeting>{slogan}</Greeting>
                 <H1>{header}</H1>
                 <Skill>{description}</Skill>
                 <Social>

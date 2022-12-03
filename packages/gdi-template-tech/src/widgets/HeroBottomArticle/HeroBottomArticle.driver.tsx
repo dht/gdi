@@ -4,8 +4,7 @@ import { HeroBottomArticle, HeroBottomArticleProps } from './HeroBottomArticle';
 import { BaseComponentDriver } from 'testing-base';
 
 export class HeroBottomArticleDriver extends BaseComponentDriver {
-    private props: Partial<HeroBottomArticleProps> = {
-    };
+    private props: Partial<HeroBottomArticleProps> = {};
 
     constructor() {
         super('HeroBottomArticle');
@@ -13,15 +12,23 @@ export class HeroBottomArticleDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<HeroBottomArticle {...(this.props as HeroBottomArticleProps)} />);
+            render(
+                <HeroBottomArticle
+                    {...(this.props as HeroBottomArticleProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<HeroBottomArticle {...(this.props as HeroBottomArticleProps)} />);
+            return this.snapshot(
+                <HeroBottomArticle
+                    {...(this.props as HeroBottomArticleProps)}
+                />
+            );
         },
     };
 
@@ -34,10 +41,10 @@ export class HeroBottomArticleDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

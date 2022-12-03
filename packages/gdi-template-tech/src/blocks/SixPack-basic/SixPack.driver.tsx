@@ -4,8 +4,7 @@ import { SixPack, SixPackProps } from './SixPack';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SixPackDriver extends BaseComponentDriver {
-    private props: Partial<SixPackProps> = {
-    };
+    private props: Partial<SixPackProps> = {};
 
     constructor() {
         super('SixPack');
@@ -17,7 +16,7 @@ export class SixPackDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class SixPackDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

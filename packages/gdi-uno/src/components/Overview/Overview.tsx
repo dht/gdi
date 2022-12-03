@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrapper, H2 } from './Overview.style';
 import ReactMarkdown from 'react-markdown';
+import { IUnoSection } from '../../types';
 
 export type OverviewProps = {
     data: Json;

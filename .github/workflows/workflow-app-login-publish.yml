@@ -1,0 +1,24 @@
+name: app-login publish
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - apps/app-login/**
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: npm ci
+            - run: npm run build
+              working-directory: apps/app-login/
+            - run: npm publish
+              working-directory: apps/app-login/
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

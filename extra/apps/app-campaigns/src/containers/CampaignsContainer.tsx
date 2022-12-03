@@ -17,6 +17,7 @@ export const CampaignsContainer = () => {
             onSelectionChange: (ids: string[]) => {
                 console.log('ids ->', ids);
             },
+            onCustomAction: (actionId: string, data?: Json) => {},
         }),
         []
     );

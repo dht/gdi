@@ -10,5 +10,6 @@ export const itemStructure = `export type ITemplate = {
     palette: IPalette;
     fonts: IFonts;
     breakpoints: IBreakpoints;
+    datasets: IDatasets;
 };
 `;

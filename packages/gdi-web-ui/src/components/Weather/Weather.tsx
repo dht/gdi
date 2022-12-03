@@ -12,7 +12,7 @@ import { Clock } from '../Clock/Clock';
 
 export type WeatherProps = {
     locationName: string;
-    data: IWeatherDailyItem;
+    data: Json;
     timeDeltaInMinutes?: number;
     dateText: string;
 };

@@ -4,8 +4,7 @@ import { LineArticle, LineArticleProps } from './LineArticle';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LineArticleDriver extends BaseComponentDriver {
-    private props: Partial<LineArticleProps> = {
-    };
+    private props: Partial<LineArticleProps> = {};
 
     constructor() {
         super('LineArticle');
@@ -17,11 +16,13 @@ export class LineArticleDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<LineArticle {...(this.props as LineArticleProps)} />);
+            return this.snapshot(
+                <LineArticle {...(this.props as LineArticleProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class LineArticleDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

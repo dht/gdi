@@ -10,9 +10,9 @@
     "dependencies": {
         "@babylonjs/gui": "^5.22.1",
         "@babylonjs/materials": "^5.22.1",
-        "@gdi/store-studio": "^0.0.27",
-        "@gdi/types": "^0.0.70",
-        "@gdi/web-ui": "^0.0.47",
+        "@gdi/store-studio": "^0.0.35",
+        "@gdi/types": "^0.0.82",
+        "@gdi/web-ui": "^0.0.57",
         "@testing-library/react": "^13.3.0",
         "babylonjs": "^5.22.1",
         "babylonjs-loaders": "^5.30.0",
@@ -41,7 +41,7 @@
         "types-base": "^0.0.2",
         "typescript": "^4.7.4",
         "vite": "^3.0.3",
-        "vite-plugin-dts": "^1.4.0"
+        "vite-plugin-dts": "^1.7.1"
     },
     "files": [
         "dist"

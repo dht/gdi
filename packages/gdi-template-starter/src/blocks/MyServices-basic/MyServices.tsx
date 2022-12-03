@@ -33,7 +33,7 @@ export type MyServicesExtra = {
 };
 
 export function MyServices(props: MyServicesProps) {
-    const { strings, colors, extra } = props;
+    const { strings, extra } = props;
     const { header, description } = strings;
     const { servicesDatasetId } = extra;
 
@@ -61,7 +61,6 @@ export function MyServices(props: MyServicesProps) {
         <Wrapper
             className='MyServices-container'
             data-testid='MyServices-container'
-            colors={colors}
         >
             <Container>
                 <H2>{header}</H2>
