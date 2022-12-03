@@ -4,8 +4,7 @@ import { JsonEditor, JsonEditorProps } from './JsonEditor';
 import { BaseComponentDriver } from 'testing-base';
 
 export class JsonEditorDriver extends BaseComponentDriver {
-    private props: Partial<JsonEditorProps> = {
-    };
+    private props: Partial<JsonEditorProps> = {};
 
     constructor() {
         super('JsonEditor');
@@ -17,11 +16,13 @@ export class JsonEditorDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<JsonEditor {...(this.props as JsonEditorProps)} />);
+            return this.snapshot(
+                <JsonEditor {...(this.props as JsonEditorProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class JsonEditorDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

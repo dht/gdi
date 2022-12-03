@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { Container } from './SheetCellEditing.style';
+import { Wrapper } from './SheetCellEditing.style';
 import { useEnter, useEscape } from '@gdi/hooks';
 import { Coords } from '../../types';
 import { useCustomEvent } from '@gdi/hooks';
@@ -91,18 +91,18 @@ export function SheetCellEditing(props: SheetCellEditingProps) {
     }, []);
 
     return (
-        <Container
+        <Wrapper
             ref={ref}
             spellCheck={false}
-            className='SheetCellEditing-container cell'
-            data-testid='SheetCellEditing-container'
+            className='SheetCellEditing-wrapper cell'
+            data-testid='SheetCellEditing-wrapper'
             contentEditable={true}
             placeholder='title'
             defaultValue={String(value)}
             suppressContentEditableWarning={true}
         >
             {value}
-        </Container>
+        </Wrapper>
     );
 }
 

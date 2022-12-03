@@ -4,8 +4,7 @@ import { KeyValue, KeyValueProps } from './KeyValue';
 import { BaseComponentDriver } from 'testing-base';
 
 export class KeyValueDriver extends BaseComponentDriver {
-    private props: Partial<KeyValueProps> = {
-    };
+    private props: Partial<KeyValueProps> = {};
 
     constructor() {
         super('KeyValue');
@@ -17,11 +16,13 @@ export class KeyValueDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<KeyValue {...(this.props as KeyValueProps)} />);
+            return this.snapshot(
+                <KeyValue {...(this.props as KeyValueProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class KeyValueDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

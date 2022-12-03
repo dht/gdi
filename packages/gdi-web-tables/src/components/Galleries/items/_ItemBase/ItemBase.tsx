@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IItem, MasonryItemProps } from '../../../Masonry/Masonry';
-import { Container, Image, ImageOverlay, Images } from './ItemBase.style';
+import { Wrapper, Image, ImageOverlay, Images } from './ItemBase.style';
 import classnames from 'classnames';
 
 export type ItemBaseProps = MasonryItemProps & {
@@ -52,12 +52,12 @@ export function ItemBase(props: ItemBaseProps) {
         return <Image url={imageUrl} className='masonry-image' />;
     }
 
-    const className = classnames('ItemBase-container', {
+    const className = classnames('ItemBase-wrapper', {
         focused: isFocused,
     });
 
     return (
-        <Container
+        <Wrapper
             style={style}
             backgroundColor={backgroundColor}
             onMouseDown={onClick}
@@ -74,7 +74,7 @@ export function ItemBase(props: ItemBaseProps) {
             </Images>
             {props.children}
             <ImageOverlay>{props.renderOverlay(image)}</ImageOverlay>
-        </Container>
+        </Wrapper>
     );
 }
 

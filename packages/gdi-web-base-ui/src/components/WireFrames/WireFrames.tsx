@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
-    Container,
+    Wrapper,
     Table,
     TableHeader,
     TableRow,
@@ -38,13 +38,13 @@ export function WireFrames(props: WireFramesProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             ref={ref}
-            className='WireFrames-container'
-            data-testid='WireFrames-container'
+            className='WireFrames-wrapper'
+            data-testid='WireFrames-wrapper'
         >
             {renderInner()}
-        </Container>
+        </Wrapper>
     );
 }
 

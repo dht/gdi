@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Wrapper, Text } from './SectionHeader.style';
+import { Wrapper, Container, Text } from './SectionHeader.style';
 
 export const id = 'com.usegdi.templates.gdi.sectionHeader-basic';
 
@@ -28,16 +28,18 @@ export function SectionHeader(props: SectionHeaderProps) {
     const { text } = strings;
 
     return (
-        <Container
-            className='SectionHeader-container'
-            data-testid='SectionHeader-container'
+        <Wrapper
+            className='SectionHeader-wrapper'
+            data-testid='SectionHeader-wrapper'
             colors={colors}
             hidden={isHidden}
         >
-            <Wrapper>
-                <Text id={id}>{text}</Text>
-            </Wrapper>
-        </Container>
+            <Container>
+                <Row>
+                    <Text id={id}>{text}</Text>
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

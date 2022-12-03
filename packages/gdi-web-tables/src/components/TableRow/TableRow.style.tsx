@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -8,7 +8,7 @@ export const Container = styled.div`
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     ${(props) => props.theme.direction()}
 
-    .TableRowActions-container {
+    .TableRowActions-wrapper {
         opacity: 0;
         pointer-events: none;
     }
@@ -18,7 +18,7 @@ export const Container = styled.div`
     }
 
     &:hover {
-        .TableRowActions-container {
+        .TableRowActions-wrapper {
             opacity: 1;
             pointer-events: all;
         }

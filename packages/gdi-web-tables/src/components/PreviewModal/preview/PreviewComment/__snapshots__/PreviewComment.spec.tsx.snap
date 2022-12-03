@@ -2,8 +2,8 @@
 
 exports[`PreviewComment snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR PreviewComment-container"
-  data-testid="PreviewComment-container"
+  className="sc-bczRLJ WtYQR PreviewComment-wrapper"
+  data-testid="PreviewComment-wrapper"
 >
   PreviewComment
 </div>

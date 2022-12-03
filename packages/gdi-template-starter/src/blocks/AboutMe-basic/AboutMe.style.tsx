@@ -1,78 +1,38 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { AboutMeColors } from './AboutMe';
 import { darken } from 'polished';
-import { mobile } from '../Base.style';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ imageUrl: string }>`
-    flex: 1;
+export const Wrapper = styled(Grid.Wrapper)`
     background-color: #111;
     height: ${(props) => props.theme.vh(80)};
     display: flex;
     font-family: ${(props) => props.theme.fontFamily};
-    background-image: url(${(props) => props.imageUrl});
-    background-size: cover;
-    background-position: center center;
-    position: relative;
+    color: #fff;
+
+    > .content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 
     ${mobile(css`
         height: ${(props) => props.theme.vh(100)};
         background-image: none;
     `)}
-
-    &&:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0) 0%,
-            rgba(0, 0, 0, 0) 39%,
-            rgba(0, 0, 0, 0.5) 40%,
-            rgba(0, 0, 0, 0.85) 49%,
-            rgba(0, 0, 0, 0.95) 100%
-        );
-
-        ${mobile(css`
-            display: none;
-        `)}
-    }
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    margin: 0 auto;
-    position: relative;
-    width: 1440px;
-
-    ${mobile(css`
-        width: 100vw;
-    `)}
+export const Container = styled(Grid.Container)`
+    ${mobile(css``)}
 `;
 
-export const Content = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-
-    ${mobile(css`
-        width: 100vw;
-    `)}
+export const Row = styled(Grid.Row)`
+    ${mobile(css``)}
 `;
 
-export const Details = styled.div`
-    box-sizing: border-box;
-`;
+export const Column = styled(Grid.Column)``;
+
+export const Details = styled.div``;
 
 export const Slogan = styled.div<{ colors: AboutMeColors }>`
     color: ${(props) => props.colors.text || '#aaef69'};

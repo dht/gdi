@@ -1,5 +1,5 @@
 import React, { ForwardedRef } from 'react';
-import { Container } from './Slider.style';
+import { Wrapper } from './Slider.style';
 import { RefObject, Slider as SliderFluent } from '@fluentui/react';
 
 export type SliderProps = {
@@ -28,10 +28,7 @@ export const Slider = React.forwardRef(
         const { min, max, step, value, label, showValue, isDisabled } = props;
 
         return (
-            <Container
-                className='Slider-container'
-                data-testid='Slider-container'
-            >
+            <Wrapper className='Slider-wrapper' data-testid='Slider-wrapper'>
                 <SliderFluent
                     label={label}
                     ref={ref}
@@ -44,7 +41,7 @@ export const Slider = React.forwardRef(
                     disabled={isDisabled}
                     onChange={props.onChange}
                 />
-            </Container>
+            </Wrapper>
         );
     }
 );

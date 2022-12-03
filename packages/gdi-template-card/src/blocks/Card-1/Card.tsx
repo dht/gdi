@@ -46,12 +46,12 @@ export function Card(props: CardProps) {
     const { imageUrl, href } = extra;
 
     return (
-        <Container
-            className='Card-container'
-            data-testid='Card-container'
+        <Wrapper
+            className='Card-wrapper'
+            data-testid='Card-wrapper'
             colors={colors}
         >
-            <Wrapper>
+            <Container>
                 <Bk color='#f3f3f3'>
                     <Signature>
                         David
@@ -71,8 +71,8 @@ export function Card(props: CardProps) {
                         <BottomBar />
                     </Bottom>
                 </Content>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewCart.style';
+import { Wrapper } from './PreviewCart.style';
 
 export type PreviewCartProps = {};
 
 export function PreviewCart(_props: PreviewCartProps) {
     return (
-        <Container className="PreviewCart-container" data-testid="PreviewCart-container">
+        <Wrapper
+            className='PreviewCart-wrapper'
+            data-testid='PreviewCart-wrapper'
+        >
             PreviewCart
-        </Container>
+        </Wrapper>
     );
 }
 

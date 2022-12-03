@@ -9,7 +9,8 @@ export const params: IWidgetParams = {
         },
         colors: {},
         extra: {
-            href: { fieldType: 'url', isRequired: true, order: 0 },
+            imageUrl: { fieldType: 'image', isRequired: true, order: 0 },
+            href: { fieldType: 'url', isRequired: true, order: 1 },
         },
     },
 };

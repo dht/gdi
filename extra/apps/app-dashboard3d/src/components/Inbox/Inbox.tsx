@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container } from './Inbox.style';
+import { Wrapper } from './Inbox.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,7 +19,7 @@ export function Inbox(props: InboxProps) {
     const crudDefinitions = useCrudDefinitions('inbox');
 
     return (
-        <Container className='Inbox-container' data-testid='Inbox-container'>
+        <Wrapper className='Inbox-wrapper' data-testid='Inbox-wrapper'>
             <Multi
                 id='Inbox'
                 itemType='inbox'
@@ -29,7 +29,7 @@ export function Inbox(props: InboxProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

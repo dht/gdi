@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     height: 52px;
     flex-direction: row;
@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     position: relative;
     padding: 2px 8px;
-    box-sizing: border-box;
+
     border: 3px solid transparent;
 
     .key {
@@ -22,7 +22,6 @@ export const Container = styled.div`
     }
 
     &.current {
-        box-sizing: border-box;
         border: 3px solid magenta;
         box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3),
             inset 0 0 3px 3px rgba(0, 0, 0, 0.1);

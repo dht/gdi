@@ -4,8 +4,7 @@ import { Templates, TemplatesProps } from './Templates';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TemplatesDriver extends BaseComponentDriver {
-    private props: Partial<TemplatesProps> = {
-    };
+    private props: Partial<TemplatesProps> = {};
 
     constructor() {
         super('Templates');
@@ -17,11 +16,13 @@ export class TemplatesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Templates {...(this.props as TemplatesProps)} />);
+            return this.snapshot(
+                <Templates {...(this.props as TemplatesProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class TemplatesDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

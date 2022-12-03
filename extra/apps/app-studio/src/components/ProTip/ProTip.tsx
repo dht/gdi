@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Box,
     Slogan,
     Title,
@@ -13,7 +13,7 @@ export type ProTipProps = {};
 
 export function ProTip(_props: ProTipProps) {
     return (
-        <Container className='ProTip-container' data-testid='ProTip-container'>
+        <Wrapper className='ProTip-wrapper' data-testid='ProTip-wrapper'>
             <Box>
                 <Slogan>Protip</Slogan>
                 <Title>QuickBooks</Title>
@@ -25,7 +25,7 @@ export function ProTip(_props: ProTipProps) {
                 <Button>Set it up for me</Button>
                 <OtherOptions>See other options</OtherOptions>
             </Box>
-        </Container>
+        </Wrapper>
     );
 }
 

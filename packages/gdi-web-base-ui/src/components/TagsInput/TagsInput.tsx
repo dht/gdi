@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Container } from './TagsInput.style';
+import { Wrapper } from './TagsInput.style';
 import Creatable from 'react-select/creatable';
 import { Options } from 'react-select';
 
@@ -20,10 +20,7 @@ export function TagsInput(props: TagsInputProps) {
     }, []);
 
     return (
-        <Container
-            className='TagsInput-container'
-            data-testid='TagsInput-container'
-        >
+        <Wrapper className='TagsInput-wrapper' data-testid='TagsInput-wrapper'>
             <Creatable
                 isMulti
                 options={options}
@@ -54,7 +51,7 @@ export function TagsInput(props: TagsInputProps) {
                     },
                 })}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

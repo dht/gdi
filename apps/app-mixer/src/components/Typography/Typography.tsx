@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title } from './Typography.style';
+import { Wrapper, Title } from './Typography.style';
 import { List } from '@gdi/web-ui';
 import classnames from 'classnames';
 
@@ -31,9 +31,9 @@ export function Typography(props: TypographyProps) {
     }
 
     return (
-        <Container
-            className='Typography-container'
-            data-testid='Typography-container'
+        <Wrapper
+            className='Typography-wrapper'
+            data-testid='Typography-wrapper'
         >
             <List
                 options={options}
@@ -41,7 +41,7 @@ export function Typography(props: TypographyProps) {
                 onSelect={props.onSelect}
                 selectedOptionId={selectedTypographyId}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

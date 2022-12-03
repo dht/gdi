@@ -1,7 +1,7 @@
 import React from 'react';
 import UnoLink from '../UnoLink/UnoLink';
 import {
-    Container,
+    Wrapper,
     Content,
     Field,
     H2,
@@ -36,9 +36,9 @@ export function AdditionalInformation(props: AdditionalInformationProps) {
     }
 
     return (
-        <Container
-            className='AdditionalInformation-container'
-            data-testid='AdditionalInformation-container'
+        <Wrapper
+            className='AdditionalInformation-wrapper'
+            data-testid='AdditionalInformation-wrapper'
         >
             <H2>Additional Information</H2>
 
@@ -68,7 +68,7 @@ export function AdditionalInformation(props: AdditionalInformationProps) {
                     </Field>
                 )}
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

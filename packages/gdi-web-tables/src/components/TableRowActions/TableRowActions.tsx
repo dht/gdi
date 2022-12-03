@@ -1,7 +1,7 @@
 import { Icon } from '@gdi/web-base-ui';
 import React from 'react';
 import { ITableRowAction } from '../../types';
-import { Action, Container } from './TableRowActions.style';
+import { Action, Wrapper } from './TableRowActions.style';
 
 export type TableRowActionsProps = {
     actions?: ITableRowAction[];
@@ -31,12 +31,12 @@ export function TableRowActions(props: TableRowActionsProps) {
     }
 
     return (
-        <Container
-            className='TableRowActions-container'
-            data-testid='TableRowActions-container'
+        <Wrapper
+            className='TableRowActions-wrapper'
+            data-testid='TableRowActions-wrapper'
         >
             {renderActions()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -22,7 +22,7 @@ describe('ZoomBuildDevice', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ZoomBuildDevice-container');
+        expect(containerClassName).toContain('ZoomBuildDevice-wrapper');
         expect(innerText).toBe(label);
     });
 

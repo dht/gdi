@@ -13,7 +13,7 @@ describe('Rating', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Rating-container');
+        expect(containerClassName).toBe('Rating-wrapper');
     });
 });
 

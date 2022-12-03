@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import SheetCell from '../SheetCell/SheetCell';
-import { Container } from './SheetRow.style';
+import { Wrapper } from './SheetRow.style';
 import classnames from 'classnames';
 import SheetCellEditing from '../SheetCellEditing/SheetCellEditing';
 import SheetCellSelected from '../SheetCellSelected/SheetCellSelected';
@@ -63,12 +63,12 @@ export function SheetRow(props: SheetRowProps) {
         );
     }
 
-    const className = classnames('SheetRow-container', {
+    const className = classnames('SheetRow-wrapper', {
         selected: isSelected,
     });
 
     return (
-        <Container className={className} data-testid='SheetRow-container'>
+        <Wrapper className={className} data-testid='SheetRow-wrapper'>
             <SheetCell
                 key='id'
                 value={rowData['id']}
@@ -80,7 +80,7 @@ export function SheetRow(props: SheetRowProps) {
             />
 
             {renderCells()}
-        </Container>
+        </Wrapper>
     );
 }
 

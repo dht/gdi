@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, MenuItem, MenuItemLink } from './TopMenu.style';
+import { Wrapper, MenuItem, MenuItemLink } from './TopMenu.style';
 import classnames from 'classnames';
 
 export type TopMenuProps = {
@@ -45,12 +45,9 @@ export function TopMenu(props: TopMenuProps) {
     }
 
     return (
-        <Container
-            className='TopMenu-container'
-            data-testid='TopMenu-container'
-        >
+        <Wrapper className='TopMenu-wrapper' data-testid='TopMenu-wrapper'>
             {renderItems()}
-        </Container>
+        </Wrapper>
     );
 }
 

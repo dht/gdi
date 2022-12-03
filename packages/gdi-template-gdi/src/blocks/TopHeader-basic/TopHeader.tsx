@@ -1,5 +1,13 @@
 import React, { useContext } from 'react';
-import { Container, Flex, Github, Logo, Svg, Wrapper } from './TopHeader.style';
+import {
+    Wrapper,
+    Flex,
+    Github,
+    Logo,
+    Svg,
+    Container,
+    Row,
+} from './TopHeader.style';
 import TopMenu from '../../components/TopMenu/TopMenu';
 import SocialMenu from '../../components/SocialMenu/SocialMenu';
 import { SiteContext, useDataset } from '@gdi/engine';
@@ -38,29 +46,28 @@ export function TopHeader(props: TopHeaderProps) {
     };
 
     return (
-        <Container
-            className='TopHeader-container'
-            data-testid='TopHeader-container'
-        >
+        <Wrapper className='TopHeader-wrapper' data-testid='TopHeader-wrapper'>
             <Logo src={logoUrl} alt='logo' />
-            <Wrapper>
-                <TopMenu onClick={onClick('TopMenu')} items={menuItems} />
-                <Flex />
-                <SocialMenu
-                    onClick={onClick('SocialMenu')}
-                    items={socialLinks}
-                />
-                {githubUrl && (
-                    <Github href={githubUrl} target='_blank'>
-                        <img
-                            width='28px'
-                            height='28px'
-                            alt='github'
-                            src='https://static-b9ebe.web.app/github.svg'
-                        />
-                    </Github>
-                )}
-            </Wrapper>
+            <Container>
+                <Row>
+                    <TopMenu onClick={onClick('TopMenu')} items={menuItems} />
+                    <Flex />
+                    <SocialMenu
+                        onClick={onClick('SocialMenu')}
+                        items={socialLinks}
+                    />
+                    {githubUrl && (
+                        <Github href={githubUrl} target='_blank'>
+                            <img
+                                width='28px'
+                                height='28px'
+                                alt='github'
+                                src='https://static-b9ebe.web.app/github.svg'
+                            />
+                        </Github>
+                    )}
+                </Row>
+            </Container>
             <Svg
                 viewBox='0 0 1200 21'
                 version='1.1'
@@ -74,7 +81,7 @@ export function TopHeader(props: TopHeaderProps) {
                     ></path>
                 </g>
             </Svg>
-        </Container>
+        </Wrapper>
     );
 }
 

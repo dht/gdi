@@ -4,8 +4,7 @@ import { TopHeader, TopHeaderProps } from './TopHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TopHeaderDriver extends BaseComponentDriver {
-    private props: Partial<TopHeaderProps> = {
-    };
+    private props: Partial<TopHeaderProps> = {};
 
     constructor() {
         super('TopHeader');
@@ -17,11 +16,13 @@ export class TopHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<TopHeader {...(this.props as TopHeaderProps)} />);
+            return this.snapshot(
+                <TopHeader {...(this.props as TopHeaderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class TopHeaderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

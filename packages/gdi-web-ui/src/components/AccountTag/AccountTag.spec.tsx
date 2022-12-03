@@ -22,7 +22,7 @@ describe('AccountTag', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('AccountTag-container');
+        expect(containerClassName).toContain('AccountTag-wrapper');
         expect(innerText).toBe(label);
     });
 

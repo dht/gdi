@@ -13,7 +13,7 @@ describe('Form', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Form-container');
+        expect(containerClassName).toBe('Form-wrapper');
     });
 });
 

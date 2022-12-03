@@ -19,10 +19,10 @@ describe('Articles', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Articles-container');
+        expect(wrapperClassName).toContain('Articles-wrapper');
         expect(innerText).toBe(label);
     });
 

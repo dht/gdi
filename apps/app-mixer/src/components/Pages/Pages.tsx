@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Pages.style';
+import { Wrapper } from './Pages.style';
 import { Multi } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 import { useMount } from 'react-use';
@@ -22,7 +22,7 @@ export function Pages(props: PagesProps) {
     useMount(() => {});
 
     return (
-        <Container className='Pages-container' data-testid='Pages-container'>
+        <Wrapper className='Pages-wrapper' data-testid='Pages-wrapper'>
             <Multi
                 id='Pages'
                 itemType='page'
@@ -32,7 +32,7 @@ export function Pages(props: PagesProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

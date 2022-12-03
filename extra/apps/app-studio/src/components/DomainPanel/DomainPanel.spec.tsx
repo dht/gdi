@@ -13,7 +13,7 @@ describe('DomainPanel', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('DomainPanel-container');
+        expect(containerClassName).toBe('DomainPanel-wrapper');
     });
 });
 

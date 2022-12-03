@@ -4,8 +4,7 @@ import { ItemCampaign, ItemCampaignProps } from './ItemCampaign';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemCampaignDriver extends BaseComponentDriver {
-    private props: Partial<ItemCampaignProps> = {
-    };
+    private props: Partial<ItemCampaignProps> = {};
 
     constructor() {
         super('ItemCampaign');
@@ -17,11 +16,13 @@ export class ItemCampaignDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemCampaign {...(this.props as ItemCampaignProps)} />);
+            return this.snapshot(
+                <ItemCampaign {...(this.props as ItemCampaignProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemCampaignDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

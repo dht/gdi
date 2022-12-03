@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './UnoLink.style';
+import { Wrapper } from './UnoLink.style';
 
 export type UnoLinkProps = {
     children: string;
@@ -11,15 +11,15 @@ export function UnoLink(props: UnoLinkProps) {
     const { href, iconName } = props;
 
     return (
-        <Container
+        <Wrapper
             href={href}
             target='_blank'
-            className='UnoLink-container'
-            data-testid='UnoLink-container'
+            className='UnoLink-wrapper'
+            data-testid='UnoLink-wrapper'
         >
             <i className='material-icons'>{iconName}</i>
             {props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

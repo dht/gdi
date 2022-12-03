@@ -22,7 +22,7 @@ describe('ElementView', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ElementView-container');
+        expect(containerClassName).toContain('ElementView-wrapper');
         expect(innerText).toBe(label);
     });
 

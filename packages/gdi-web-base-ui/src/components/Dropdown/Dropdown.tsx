@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './Dropdown.style';
+import { Wrapper } from './Dropdown.style';
 import Select from 'react-select';
 
 export type DropdownProps = {
@@ -35,10 +35,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
     }, [value]);
 
     return (
-        <Container
-            className='Dropdown-container'
-            data-testid='Dropdown-container'
-        >
+        <Wrapper className='Dropdown-wrapper' data-testid='Dropdown-wrapper'>
             <Select
                 placeholder={placeholder}
                 value={selectedOption}
@@ -73,7 +70,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
                     },
                 })}
             />
-        </Container>
+        </Wrapper>
     );
 });
 

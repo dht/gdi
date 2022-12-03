@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { TesterColors } from './Tester';
 import { darken } from 'polished';
-import { mobile } from '../Base.style';
+import { mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ colors: TesterColors; imageUrl: string }>`
+export const Wrapper = styled.div<{ colors: TesterColors; imageUrl: string }>`
     flex: 1;
     background-color: ${(props) => props.colors.background || '#1a7870'};
     background-image: url(${(props) => props.imageUrl});
@@ -19,8 +19,7 @@ export const Container = styled.div<{ colors: TesterColors; imageUrl: string }>`
     `)}
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
+export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Flex,
     H1,
     Id,
@@ -25,7 +25,7 @@ export function ZoomBuildBar(props: ZoomBuildBarProps) {
 
         switch (id) {
             case 'back':
-                invokeEvent('navigateBack', {});
+                invokeEvent('navigateBack');
                 break;
             case 'fullscreen':
                 invokeEvent('navigate', {
@@ -36,9 +36,9 @@ export function ZoomBuildBar(props: ZoomBuildBarProps) {
     }
 
     return (
-        <Container
-            className='ZoomBuildBar-container'
-            data-testid='ZoomBuildBar-container'
+        <Wrapper
+            className='ZoomBuildBar-wrapper'
+            data-testid='ZoomBuildBar-wrapper'
         >
             <H1>{name}</H1>
             <ToolbarWrapper>
@@ -59,7 +59,7 @@ export function ZoomBuildBar(props: ZoomBuildBarProps) {
                     options={switchItems}
                 />
             </SwitchWrapper>
-        </Container>
+        </Wrapper>
     );
 }
 

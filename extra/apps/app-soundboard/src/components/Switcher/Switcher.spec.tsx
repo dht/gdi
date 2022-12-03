@@ -13,7 +13,7 @@ describe('Switcher', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Switcher-container');
+        expect(containerClassName).toBe('Switcher-wrapper');
     });
 });
 

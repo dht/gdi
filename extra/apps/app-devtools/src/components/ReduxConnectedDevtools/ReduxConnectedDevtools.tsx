@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './ReduxConnectedDevtools.style';
+import { Wrapper } from './ReduxConnectedDevtools.style';
 import { DevtoolsApp } from 'redux-connected-devtools';
 
 export type ReduxConnectedDevtoolsProps = {
@@ -10,12 +10,12 @@ export function ReduxConnectedDevtools(props: ReduxConnectedDevtoolsProps) {
     const { connectedStore } = props;
 
     return (
-        <Container
-            className='ReduxConnectedDevtools-container'
-            data-testid='ReduxConnectedDevtools-container'
+        <Wrapper
+            className='ReduxConnectedDevtools-wrapper'
+            data-testid='ReduxConnectedDevtools-wrapper'
         >
             <DevtoolsApp idDarkMode={true} connectedStore={connectedStore} />
-        </Container>
+        </Wrapper>
     );
 }
 

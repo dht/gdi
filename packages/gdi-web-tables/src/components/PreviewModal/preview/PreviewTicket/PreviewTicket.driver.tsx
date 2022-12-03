@@ -4,8 +4,7 @@ import { PreviewTicket, PreviewTicketProps } from './PreviewTicket';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewTicketDriver extends BaseComponentDriver {
-    private props: Partial<PreviewTicketProps> = {
-    };
+    private props: Partial<PreviewTicketProps> = {};
 
     constructor() {
         super('PreviewTicket');
@@ -17,11 +16,13 @@ export class PreviewTicketDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewTicket {...(this.props as PreviewTicketProps)} />);
+            return this.snapshot(
+                <PreviewTicket {...(this.props as PreviewTicketProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewTicketDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

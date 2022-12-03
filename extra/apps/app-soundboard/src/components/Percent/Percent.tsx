@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Percent.style';
+import { Wrapper } from './Percent.style';
 
 export type PercentProps = {
     value: number;
@@ -19,12 +19,9 @@ export function Percent(props: PercentProps) {
     }
 
     return (
-        <Container
-            className='Percent-container'
-            data-testid='Percent-container'
-        >
+        <Wrapper className='Percent-wrapper' data-testid='Percent-wrapper'>
             {text}
-        </Container>
+        </Wrapper>
     );
 }
 

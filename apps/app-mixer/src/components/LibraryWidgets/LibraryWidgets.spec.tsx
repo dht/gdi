@@ -22,7 +22,7 @@ describe('LibraryWidgets', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('LibraryWidgets-container');
+        expect(containerClassName).toContain('LibraryWidgets-wrapper');
         expect(innerText).toBe(label);
     });
 

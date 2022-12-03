@@ -2,8 +2,8 @@
 
 exports[`Code snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ kexDMJ Code-container"
-  data-testid="Code-container"
+  className="sc-bczRLJ kexDMJ Code-wrapper"
+  data-testid="Code-wrapper"
 >
   <section
     style={

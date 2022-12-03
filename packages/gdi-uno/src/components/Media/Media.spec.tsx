@@ -22,7 +22,7 @@ describe('Media', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Media-container');
+        expect(containerClassName).toContain('Media-wrapper');
         expect(innerText).toBe(label);
     });
 

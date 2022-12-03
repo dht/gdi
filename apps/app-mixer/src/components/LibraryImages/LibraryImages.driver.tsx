@@ -4,8 +4,7 @@ import { LibraryImages, LibraryImagesProps } from './LibraryImages';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LibraryImagesDriver extends BaseComponentDriver {
-    private props: Partial<LibraryImagesProps> = {
-    };
+    private props: Partial<LibraryImagesProps> = {};
 
     constructor() {
         super('LibraryImages');
@@ -17,11 +16,13 @@ export class LibraryImagesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<LibraryImages {...(this.props as LibraryImagesProps)} />);
+            return this.snapshot(
+                <LibraryImages {...(this.props as LibraryImagesProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class LibraryImagesDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

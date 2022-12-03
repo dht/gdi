@@ -22,7 +22,7 @@ describe('TypeView', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('TypeView-container');
+        expect(containerClassName).toContain('TypeView-wrapper');
         expect(innerText).toBe(label);
     });
 

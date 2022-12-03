@@ -13,7 +13,7 @@ describe('Weather', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Weather-container');
+        expect(containerClassName).toBe('Weather-wrapper');
     });
 });
 

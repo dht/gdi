@@ -5,7 +5,7 @@ import {
     Bottom,
     Center,
     Column,
-    Container,
+    Wrapper,
     Top,
     Wrapper,
 } from './UnoLayouts.style';
@@ -19,10 +19,7 @@ export function LayoutBasic(props: UnoLayoutProps) {
     const { paletteIndex } = props;
 
     return (
-        <Container
-            className='Layouts-container'
-            data-testid='Layouts-container'
-        >
+        <Wrapper className='Layouts-wrapper' data-testid='Layouts-wrapper'>
             <Top>
                 <TrianglesBk paletteIndex={paletteIndex}>
                     <Wrapper align='center' flex={1}>
@@ -37,16 +34,13 @@ export function LayoutBasic(props: UnoLayoutProps) {
                     <Column>{props.renderSections('bottomRight')}</Column>
                 </Wrapper>
             </Bottom>
-        </Container>
+        </Wrapper>
     );
 }
 
 export function LayoutBlog(props: UnoLayoutProps) {
     return (
-        <Container
-            className='Layouts-container'
-            data-testid='Layouts-container'
-        >
+        <Wrapper className='Layouts-wrapper' data-testid='Layouts-wrapper'>
             <Top>
                 <Wrapper>{props.renderSections('top')}</Wrapper>
             </Top>
@@ -70,7 +64,7 @@ export function LayoutBlog(props: UnoLayoutProps) {
                     </Column>
                 </Wrapper>
             </Bottom>
-        </Container>
+        </Wrapper>
     );
 }
 

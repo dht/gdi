@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Transcript.style';
+import { Wrapper } from './Transcript.style';
 import { Button } from '@gdi/web-ui';
 import { SpeakButtonContainer } from '../../containers/SpeakButtonContainer';
 
@@ -9,13 +9,13 @@ export type TranscriptProps = {
 
 export function Transcript(props: TranscriptProps) {
     return (
-        <Container
-            className='Transcript-container'
-            data-testid='Transcript-container'
+        <Wrapper
+            className='Transcript-wrapper'
+            data-testid='Transcript-wrapper'
         >
             <Button text='viz' onClick={props.showStateDrawer} />
             <SpeakButtonContainer />
-        </Container>
+        </Wrapper>
     );
 }
 

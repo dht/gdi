@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContainerMobile = styled.div`
+export const WrapperMobile = styled.div`
     border: 4px solid var(--color);
     width: 380px;
     border-radius: 30px;
@@ -44,7 +44,7 @@ export const MobileContent = styled.div`
     border-radius: 10px 10px 30px 30px;
 `;
 
-export const ContainerDesktop = styled.div`
+export const WrapperDesktop = styled.div`
     border: 4px solid var(--color);
     width: 1440px;
     border-radius: 30px 30px 0 0;

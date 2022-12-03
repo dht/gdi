@@ -4,8 +4,7 @@ import { GenericTable, GenericTableProps } from './GenericTable';
 import { BaseComponentDriver } from 'testing-base';
 
 export class GenericTableDriver extends BaseComponentDriver {
-    private props: Partial<GenericTableProps> = {
-    };
+    private props: Partial<GenericTableProps> = {};
 
     constructor() {
         super('GenericTable');
@@ -17,11 +16,13 @@ export class GenericTableDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<GenericTable {...(this.props as GenericTableProps)} />);
+            return this.snapshot(
+                <GenericTable {...(this.props as GenericTableProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class GenericTableDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Tag } from '@gdi/web-base-ui';
-import { Container } from './Tagger.style';
+import { Wrapper } from './Tagger.style';
 
 export type TaggerProps = {
     tag?: string;
@@ -12,7 +12,7 @@ export function Tagger(props: TaggerProps) {
     const { tag } = props;
 
     return (
-        <Container className='Tagger-container' data-testid='Tagger-container'>
+        <Wrapper className='Tagger-wrapper' data-testid='Tagger-wrapper'>
             <Button iconName='tag' onClick={() => props.onClick('')} />
             {tag && (
                 <Tag
@@ -22,7 +22,7 @@ export function Tagger(props: TaggerProps) {
                     onDelete={props.onClear}
                 />
             )}
-        </Container>
+        </Wrapper>
     );
 }
 

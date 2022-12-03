@@ -4,8 +4,7 @@ import { ItemLead, ItemLeadProps } from './ItemLead';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemLeadDriver extends BaseComponentDriver {
-    private props: Partial<ItemLeadProps> = {
-    };
+    private props: Partial<ItemLeadProps> = {};
 
     constructor() {
         super('ItemLead');
@@ -17,11 +16,13 @@ export class ItemLeadDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemLead {...(this.props as ItemLeadProps)} />);
+            return this.snapshot(
+                <ItemLead {...(this.props as ItemLeadProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemLeadDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

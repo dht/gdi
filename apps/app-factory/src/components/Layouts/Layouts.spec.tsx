@@ -19,10 +19,10 @@ describe('Layouts', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Layouts-container');
+        expect(wrapperClassName).toContain('Layouts-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -4,8 +4,7 @@ import { PreviewFull, PreviewFullProps } from './PreviewFull';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewFullDriver extends BaseComponentDriver {
-    private props: Partial<PreviewFullProps> = {
-    };
+    private props: Partial<PreviewFullProps> = {};
 
     constructor() {
         super('PreviewFull');
@@ -17,11 +16,13 @@ export class PreviewFullDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewFull {...(this.props as PreviewFullProps)} />);
+            return this.snapshot(
+                <PreviewFull {...(this.props as PreviewFullProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewFullDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

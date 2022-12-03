@@ -13,7 +13,7 @@ describe('Mini', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Mini-container');
+        expect(containerClassName).toBe('Mini-wrapper');
     });
 });
 

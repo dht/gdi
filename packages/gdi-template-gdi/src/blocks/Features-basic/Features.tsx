@@ -59,11 +59,8 @@ export function Features(props: FeaturesProps) {
     }
 
     return (
-        <Container
-            className='Features-container'
-            data-testid='Features-container'
-        >
-            <Wrapper>
+        <Wrapper className='Features-wrapper' data-testid='Features-wrapper'>
+            <Container>
                 <H2 id='features'>
                     {header} <span>{version}</span>
                 </H2>
@@ -81,8 +78,8 @@ export function Features(props: FeaturesProps) {
                         <Ul>{renderFeatures(features, false)}</Ul>
                     </Column>
                 </Row>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

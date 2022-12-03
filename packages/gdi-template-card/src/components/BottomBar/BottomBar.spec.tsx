@@ -22,7 +22,7 @@ describe('BottomBar', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('BottomBar-container');
+        expect(containerClassName).toContain('BottomBar-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Bk.style';
+import { Wrapper } from './Bk.style';
 
 export type BkProps = {
     color: string;
@@ -14,13 +14,9 @@ export function Bk(props: BkProps) {
     };
 
     return (
-        <Container
-            className='Bk-container'
-            data-testid='Bk-container'
-            style={style}
-        >
+        <Wrapper className='Bk-wrapper' data-testid='Bk-wrapper' style={style}>
             {props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

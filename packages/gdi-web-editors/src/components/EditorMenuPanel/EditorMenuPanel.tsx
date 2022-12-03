@@ -1,5 +1,5 @@
 import React, { CSSProperties, useRef } from 'react';
-import { Container, MenuButton } from './EditorMenuPanel.style';
+import { Wrapper, MenuButton } from './EditorMenuPanel.style';
 import classnames from 'classnames';
 import Draggable from 'react-draggable';
 import { Editor } from '@tiptap/react';
@@ -91,13 +91,13 @@ export function EditorMenuPanel(props: EditorMenuPanelProps) {
 
     return (
         <Cmp nodeRef={ref}>
-            <Container
+            <Wrapper
                 ref={ref}
-                className='EditorMenuPanel-container'
-                data-testid='EditorMenuPanel-container'
+                className='EditorMenuPanel-wrapper'
+                data-testid='EditorMenuPanel-wrapper'
             >
                 {renderActions()}
-            </Container>
+            </Wrapper>
         </Cmp>
     );
 }

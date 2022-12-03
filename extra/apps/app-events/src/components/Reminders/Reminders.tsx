@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Reminders.style';
+import { Wrapper } from './Reminders.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,10 +19,7 @@ export function Reminders(props: RemindersProps) {
     const crudDefinitions = useCrudDefinitions('reminder');
 
     return (
-        <Container
-            className='Reminders-container'
-            data-testid='Reminders-container'
-        >
+        <Wrapper className='Reminders-wrapper' data-testid='Reminders-wrapper'>
             <Multi
                 id='Reminders'
                 itemType='reminder'
@@ -33,7 +30,7 @@ export function Reminders(props: RemindersProps) {
                 allOptions={allOptions}
                 customView={CustomView}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

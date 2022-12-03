@@ -1,6 +1,6 @@
 import React from 'react';
 import Field from '../Field/Field';
-import { Container, Flex } from './TaskStats.style';
+import { Wrapper, Flex } from './TaskStats.style';
 import { toDuration } from '@gdi/language';
 
 export type TaskStatsProps = {
@@ -15,15 +15,12 @@ export function TaskStats(props: TaskStatsProps) {
     const timeLeft = toDuration(stats.timeLeft) || '-';
 
     return (
-        <Container
-            className='TaskStats-container'
-            data-testid='TaskStats-container'
-        >
+        <Wrapper className='TaskStats-wrapper' data-testid='TaskStats-wrapper'>
             <Field title='estimation:' value={estimation} />
             <Field title='total time:' value={totalTime} />
             <Flex />
             <Field title='time left:' value={timeLeft} />
-        </Container>
+        </Wrapper>
     );
 }
 

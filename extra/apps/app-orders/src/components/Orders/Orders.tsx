@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Orders.style';
+import { Wrapper } from './Orders.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -21,7 +21,7 @@ export function Orders(props: OrdersProps) {
     const { t } = useLanguage();
 
     return (
-        <Container className='Orders-container' data-testid='Orders-container'>
+        <Wrapper className='Orders-wrapper' data-testid='Orders-wrapper'>
             <Multi
                 id='Orders'
                 itemType='order'
@@ -33,7 +33,7 @@ export function Orders(props: OrdersProps) {
                 allOptions={allOptions}
                 hideParts={['preview']}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ percent: number }>`
+export const Wrapper = styled.div<{ percent: number }>`
     width: 100px;
     height: 20px;
 

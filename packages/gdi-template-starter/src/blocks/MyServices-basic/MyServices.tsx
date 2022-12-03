@@ -1,16 +1,15 @@
+import React from 'react';
 import { Icon } from '@gdi/web-ui';
 import { useDataset } from '@gdi/engine';
-import React, { useContext, useMemo } from 'react';
 import {
+    Column,
     Container,
     Description,
     H2,
-    Service,
+    Row,
     ServiceDescription,
     ServiceIcon,
-    Services,
     ServiceTitle,
-    Slogan,
     Wrapper,
 } from './MyServices.style';
 
@@ -44,14 +43,13 @@ export function MyServices(props: MyServicesProps) {
         const { iconName, title, description } = service;
 
         return (
-            <Service key={service.id} className='service'>
+            <Column key={service.id} className='service'>
                 <ServiceIcon>
                     <Icon iconName={iconName} />
                 </ServiceIcon>
-
                 <ServiceTitle>{title}</ServiceTitle>
                 <ServiceDescription>{description}</ServiceDescription>
-            </Service>
+            </Column>
         );
     }
 
@@ -60,17 +58,17 @@ export function MyServices(props: MyServicesProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='MyServices-container'
             data-testid='MyServices-container'
             colors={colors}
         >
-            <Wrapper>
+            <Container>
                 <H2>{header}</H2>
                 <Description>{description}</Description>
-                <Services>{renderServices()}</Services>
-            </Wrapper>
-        </Container>
+                <Row>{renderServices()}</Row>
+            </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Container } from './SpinButton.style';
+import { Wrapper } from './SpinButton.style';
 import { SpinButton as SpinButtonFluent } from '@fluentui/react';
 
 export type SpinButtonProps = {
@@ -27,9 +27,9 @@ export function SpinButton(props: SpinButtonProps) {
     const parsedValue = value ? [value.toLocaleString(), suffix].join('') : '';
 
     return (
-        <Container
-            className='SpinButton-container'
-            data-testid='SpinButton-container'
+        <Wrapper
+            className='SpinButton-wrapper'
+            data-testid='SpinButton-wrapper'
         >
             <SpinButtonFluent
                 label={label}
@@ -44,7 +44,7 @@ export function SpinButton(props: SpinButtonProps) {
                 incrementButtonAriaLabel={`Increase value by ${step}`}
                 decrementButtonAriaLabel={`Decrease value by ${step}`}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

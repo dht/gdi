@@ -13,7 +13,7 @@ describe('ProjectsTable', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ProjectsTable-container');
+        expect(containerClassName).toBe('ProjectsTable-wrapper');
     });
 });
 

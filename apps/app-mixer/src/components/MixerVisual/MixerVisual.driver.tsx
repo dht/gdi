@@ -4,8 +4,7 @@ import { MixerVisual, MixerVisualProps } from './MixerVisual';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MixerVisualDriver extends BaseComponentDriver {
-    private props: Partial<MixerVisualProps> = {
-    };
+    private props: Partial<MixerVisualProps> = {};
 
     constructor() {
         super('MixerVisual');
@@ -17,11 +16,13 @@ export class MixerVisualDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MixerVisual {...(this.props as MixerVisualProps)} />);
+            return this.snapshot(
+                <MixerVisual {...(this.props as MixerVisualProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class MixerVisualDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

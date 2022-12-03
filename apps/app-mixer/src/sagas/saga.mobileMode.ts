@@ -20,6 +20,5 @@ function* mobileMode(action: ActionMobileMode) {
 }
 
 export function* root() {
-    invokeEvent('force-dimensions-desktop', {});
     yield takeEvery(onMobileModeChange, mobileMode);
 }

@@ -4,8 +4,7 @@ import { SortableList, SortableListProps } from './SortableList';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SortableListDriver extends BaseComponentDriver {
-    private props: Partial<SortableListProps> = {
-    };
+    private props: Partial<SortableListProps> = {};
 
     constructor() {
         super('SortableList');
@@ -17,11 +16,13 @@ export class SortableListDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SortableList {...(this.props as SortableListProps)} />);
+            return this.snapshot(
+                <SortableList {...(this.props as SortableListProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SortableListDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

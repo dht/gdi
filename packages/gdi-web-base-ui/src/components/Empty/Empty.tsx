@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from '@fluentui/react';
-import { Action, Actions, Container, Message } from './Empty.style';
+import { Action, Actions, Wrapper, Message } from './Empty.style';
 import Button from '../Button/Button';
 import classnames from 'classnames';
 
@@ -45,16 +45,16 @@ export function Empty(props: EmptyProps) {
         return actions.map((action: IOption) => renderAction(action));
     }
 
-    const className = classnames('Empty-container', {
+    const className = classnames('Empty-wrapper', {
         noActions: actions.length === 0,
     });
 
     return (
-        <Container className={className} data-testid='Empty-container'>
+        <Wrapper className={className} data-testid='Empty-wrapper'>
             {withIcon && <Icon iconName={iconName} />}
             <Message>{message}</Message>
             <Actions>{renderActions()}</Actions>
-        </Container>
+        </Wrapper>
     );
 }
 

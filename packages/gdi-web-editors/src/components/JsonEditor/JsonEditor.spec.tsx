@@ -22,7 +22,7 @@ describe('JsonEditor', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('JsonEditor-container');
+        expect(containerClassName).toContain('JsonEditor-wrapper');
         expect(innerText).toBe(label);
     });
 

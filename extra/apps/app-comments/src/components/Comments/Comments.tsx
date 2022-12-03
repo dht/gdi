@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Comments.style';
+import { Wrapper } from './Comments.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,10 +19,7 @@ export function Comments(props: CommentsProps) {
     const crudDefinitions = useCrudDefinitions('comment');
 
     return (
-        <Container
-            className='Comments-container'
-            data-testid='Comments-container'
-        >
+        <Wrapper className='Comments-wrapper' data-testid='Comments-wrapper'>
             <Multi
                 id='Comments'
                 itemType='comment'
@@ -32,7 +29,7 @@ export function Comments(props: CommentsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

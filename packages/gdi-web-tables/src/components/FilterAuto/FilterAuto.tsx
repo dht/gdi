@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, Item, Items, A, X } from './FilterAuto.style';
+import { Wrapper, Title, Item, Items, A, X } from './FilterAuto.style';
 import classnames from 'classnames';
 import { Button, Dropdown, Icon } from '@gdi/web-base-ui';
 import { useMemo } from '@gdi/hooks';
@@ -46,10 +46,7 @@ export function FilterAuto(props: FilterAutoProps) {
     }
 
     return (
-        <Container
-            className='FilterAuto-container'
-            data-testid='Filter-container'
-        >
+        <Wrapper className='FilterAuto-wrapper' data-testid='Filter-wrapper'>
             <Title>{title}</Title>
             <Items>{renderOptions()}</Items>
             <Button title='go' onClick={() => props.onClick('Alex Miller')} />
@@ -57,7 +54,7 @@ export function FilterAuto(props: FilterAutoProps) {
                 options={options}
                 onChange={(optionId?: string) => props.onClick(optionId ?? '')}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -22,7 +22,7 @@ describe('SheetCellEditing', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('SheetCellEditing-container');
+        expect(containerClassName).toContain('SheetCellEditing-wrapper');
         expect(innerText).toBe(label);
     });
 

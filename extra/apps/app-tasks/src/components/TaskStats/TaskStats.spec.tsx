@@ -13,7 +13,7 @@ describe('TaskStats', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TaskStats-container');
+        expect(containerClassName).toBe('TaskStats-wrapper');
     });
 });
 

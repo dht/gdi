@@ -4,8 +4,7 @@ import { InputHidden, InputHiddenProps } from './InputHidden';
 import { BaseComponentDriver } from 'testing-base';
 
 export class InputHiddenDriver extends BaseComponentDriver {
-    private props: Partial<InputHiddenProps> = {
-    };
+    private props: Partial<InputHiddenProps> = {};
 
     constructor() {
         super('InputHidden');
@@ -17,11 +16,13 @@ export class InputHiddenDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<InputHidden {...(this.props as InputHiddenProps)} />);
+            return this.snapshot(
+                <InputHidden {...(this.props as InputHiddenProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class InputHiddenDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

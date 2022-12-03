@@ -4,8 +4,7 @@ import { PreviewTemplate, PreviewTemplateProps } from './PreviewTemplate';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewTemplateDriver extends BaseComponentDriver {
-    private props: Partial<PreviewTemplateProps> = {
-    };
+    private props: Partial<PreviewTemplateProps> = {};
 
     constructor() {
         super('PreviewTemplate');
@@ -13,15 +12,19 @@ export class PreviewTemplateDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<PreviewTemplate {...(this.props as PreviewTemplateProps)} />);
+            render(
+                <PreviewTemplate {...(this.props as PreviewTemplateProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewTemplate {...(this.props as PreviewTemplateProps)} />);
+            return this.snapshot(
+                <PreviewTemplate {...(this.props as PreviewTemplateProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class PreviewTemplateDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

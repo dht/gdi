@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMeasure } from 'react-use';
-import { Container, Panel } from './Houston.style';
+import { Wrapper, Panel } from './Houston.style';
 
 export type HoustonProps = {
     children: JSX.Element[];
@@ -24,12 +24,9 @@ export function Houston(props: HoustonProps) {
     }
 
     return (
-        <Container
-            className='Houston-container'
-            data-testid='Houston-container'
-        >
+        <Wrapper className='Houston-wrapper' data-testid='Houston-wrapper'>
             {renderChildren()}
-        </Container>
+        </Wrapper>
     );
 }
 

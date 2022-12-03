@@ -4,8 +4,7 @@ import { Accordion, AccordionProps } from './Accordion';
 import { BaseComponentDriver } from 'testing-base';
 
 export class AccordionDriver extends BaseComponentDriver {
-    private props: Partial<AccordionProps> = {
-    };
+    private props: Partial<AccordionProps> = {};
 
     constructor() {
         super('Accordion');
@@ -17,11 +16,13 @@ export class AccordionDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Accordion {...(this.props as AccordionProps)} />);
+            return this.snapshot(
+                <Accordion {...(this.props as AccordionProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class AccordionDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

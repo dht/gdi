@@ -22,7 +22,7 @@ describe('WindowHeader', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('WindowHeader-container');
+        expect(containerClassName).toContain('WindowHeader-wrapper');
         expect(innerText).toBe(label);
     });
 

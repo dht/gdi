@@ -4,8 +4,7 @@ import { SectionHeader, SectionHeaderProps } from './SectionHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SectionHeaderDriver extends BaseComponentDriver {
-    private props: Partial<SectionHeaderProps> = {
-    };
+    private props: Partial<SectionHeaderProps> = {};
 
     constructor() {
         super('SectionHeader');
@@ -17,11 +16,13 @@ export class SectionHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SectionHeader {...(this.props as SectionHeaderProps)} />);
+            return this.snapshot(
+                <SectionHeader {...(this.props as SectionHeaderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SectionHeaderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

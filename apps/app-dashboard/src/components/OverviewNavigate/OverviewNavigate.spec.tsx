@@ -22,7 +22,7 @@ describe('OverviewNavigate', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('OverviewNavigate-container');
+        expect(containerClassName).toContain('OverviewNavigate-wrapper');
         expect(innerText).toBe(label);
     });
 

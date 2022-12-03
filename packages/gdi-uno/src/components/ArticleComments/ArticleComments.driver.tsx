@@ -4,8 +4,7 @@ import { ArticleComments, ArticleCommentsProps } from './ArticleComments';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticleCommentsDriver extends BaseComponentDriver {
-    private props: Partial<ArticleCommentsProps> = {
-    };
+    private props: Partial<ArticleCommentsProps> = {};
 
     constructor() {
         super('ArticleComments');
@@ -13,15 +12,19 @@ export class ArticleCommentsDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ArticleComments {...(this.props as ArticleCommentsProps)} />);
+            render(
+                <ArticleComments {...(this.props as ArticleCommentsProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ArticleComments {...(this.props as ArticleCommentsProps)} />);
+            return this.snapshot(
+                <ArticleComments {...(this.props as ArticleCommentsProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class ArticleCommentsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

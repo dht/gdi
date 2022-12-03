@@ -4,8 +4,7 @@ import { LibrarySelector, LibrarySelectorProps } from './LibrarySelector';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LibrarySelectorDriver extends BaseComponentDriver {
-    private props: Partial<LibrarySelectorProps> = {
-    };
+    private props: Partial<LibrarySelectorProps> = {};
 
     constructor() {
         super('LibrarySelector');
@@ -13,15 +12,19 @@ export class LibrarySelectorDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<LibrarySelector {...(this.props as LibrarySelectorProps)} />);
+            render(
+                <LibrarySelector {...(this.props as LibrarySelectorProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<LibrarySelector {...(this.props as LibrarySelectorProps)} />);
+            return this.snapshot(
+                <LibrarySelector {...(this.props as LibrarySelectorProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class LibrarySelectorDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

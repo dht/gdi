@@ -2,8 +2,8 @@
 
 exports[`WindowSize snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ hEqbSV WindowSize-container"
-  data-testid="WindowSize-container"
+  className="sc-bczRLJ hEqbSV WindowSize-wrapper"
+  data-testid="WindowSize-wrapper"
 >
   <div
     className="sc-gsnTZi cOFMKY"

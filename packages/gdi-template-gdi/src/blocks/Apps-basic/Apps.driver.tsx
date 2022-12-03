@@ -4,8 +4,7 @@ import { Apps, AppsProps } from './Apps';
 import { BaseComponentDriver } from 'testing-base';
 
 export class AppsDriver extends BaseComponentDriver {
-    private props: Partial<AppsProps> = {
-    };
+    private props: Partial<AppsProps> = {};
 
     constructor() {
         super('Apps');
@@ -17,7 +16,7 @@ export class AppsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class AppsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -22,7 +22,7 @@ describe('SheetCellSelected', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('SheetCellSelected-container');
+        expect(containerClassName).toContain('SheetCellSelected-wrapper');
         expect(innerText).toBe(label);
     });
 

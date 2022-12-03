@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './GalleryWidgets.style';
+import { Wrapper } from './GalleryWidgets.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,9 +19,9 @@ export function GalleryWidgets(props: GalleryWidgetsProps) {
     const crudDefinitions = useCrudDefinitions('widget');
 
     return (
-        <Container
-            className='GalleryWidgets-container'
-            data-testid='GalleryWidgets-container'
+        <Wrapper
+            className='GalleryWidgets-wrapper'
+            data-testid='GalleryWidgets-wrapper'
         >
             <Multi
                 id='WidgetsFull'
@@ -32,7 +32,7 @@ export function GalleryWidgets(props: GalleryWidgetsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

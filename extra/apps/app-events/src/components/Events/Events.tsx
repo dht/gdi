@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Events.style';
+import { Wrapper } from './Events.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,7 +19,7 @@ export function Events(props: EventsProps) {
     const crudDefinitions = useCrudDefinitions('event');
 
     return (
-        <Container className='Events-container' data-testid='Events-container'>
+        <Wrapper className='Events-wrapper' data-testid='Events-wrapper'>
             <Multi
                 id='Events'
                 itemType='event'
@@ -30,7 +30,7 @@ export function Events(props: EventsProps) {
                 allOptions={allOptions}
                 customView={CustomView}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { UnoButton, UnoButtonProps } from './UnoButton';
 import { BaseComponentDriver } from 'testing-base';
 
 export class UnoButtonDriver extends BaseComponentDriver {
-    private props: Partial<UnoButtonProps> = {
-    };
+    private props: Partial<UnoButtonProps> = {};
 
     constructor() {
         super('UnoButton');
@@ -17,11 +16,13 @@ export class UnoButtonDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<UnoButton {...(this.props as UnoButtonProps)} />);
+            return this.snapshot(
+                <UnoButton {...(this.props as UnoButtonProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class UnoButtonDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

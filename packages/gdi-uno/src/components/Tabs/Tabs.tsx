@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Tabs.style';
+import { Wrapper } from './Tabs.style';
 
 export type TabsProps = {};
 
 export function Tabs(_props: TabsProps) {
     return (
-        <Container className="Tabs-container" data-testid="Tabs-container">
+        <Wrapper className='Tabs-wrapper' data-testid='Tabs-wrapper'>
             Tabs
-        </Container>
+        </Wrapper>
     );
 }
 

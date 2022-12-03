@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
-    box-sizing: border-box;
+
     display: inline-block;
     position: relative;
     width: 80px;
@@ -10,7 +10,6 @@ export const Container = styled.div`
 
     div,
     &::after {
-        box-sizing: border-box;
     }
 
     &.dualRing {

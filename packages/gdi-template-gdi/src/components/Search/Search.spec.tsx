@@ -22,7 +22,7 @@ describe('Search', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Search-container');
+        expect(containerClassName).toContain('Search-wrapper');
         expect(innerText).toBe(label);
     });
 

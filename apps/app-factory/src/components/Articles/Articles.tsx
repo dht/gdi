@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container } from './Articles.style';
+import { Wrapper } from './Articles.style';
 import { Multi } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 
@@ -19,10 +19,7 @@ export function Articles(props: ArticlesProps) {
     const crudDefinitions = useCrudDefinitions('article');
 
     return (
-        <Container
-            className='Articles-container'
-            data-testid='Articles-container'
-        >
+        <Wrapper className='Articles-wrapper' data-testid='Articles-wrapper'>
             <Multi
                 id='Articles'
                 itemType='article'
@@ -34,7 +31,7 @@ export function Articles(props: ArticlesProps) {
                 customView={CustomView}
                 tags={tags}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

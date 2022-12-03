@@ -1,27 +1,28 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Wrapper, WrapperProps } from './Wrapper';
+import { Wrapper, ContainerProps } from './Container';
 import { BaseComponentDriver } from 'testing-base';
 
-export class WrapperDriver extends BaseComponentDriver {
-    private props: Partial<WrapperProps> = {
-    };
+export class ContainerDriver extends BaseComponentDriver {
+    private props: Partial<WrapperProps> = {};
 
     constructor() {
-        super('Wrapper');
+        super('Container');
     }
 
     when: any = {
         rendered: () => {
-            render(<Wrapper {...(this.props as WrapperProps)} />);
+            render(<Wrapper {...(this.props as ContainerProps)} />);
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Wrapper {...(this.props as WrapperProps)} />);
+            return this.snapshot(
+                <Wrapper {...(this.props as ContainerProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class WrapperDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

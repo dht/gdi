@@ -4,7 +4,7 @@ import { Button, Checkbox, Icon } from '@gdi/web-base-ui';
 import { useLocalStorage, useToggle } from 'react-use';
 import {
     Actions,
-    Container,
+    Wrapper,
     Content,
     Text,
     IconWrapper,
@@ -43,9 +43,9 @@ export function MessageModal(props: MessageModalProps) {
 
     return (
         <Modal open={true} onClose={props.onClose} title={header}>
-            <Container
-                className='MessageModal-container'
-                data-testid='MessageModal-container'
+            <Wrapper
+                className='MessageModal-wrapper'
+                data-testid='MessageModal-wrapper'
             >
                 <Content>
                     <IconWrapper>
@@ -67,7 +67,7 @@ export function MessageModal(props: MessageModalProps) {
                         title='Ok, I understand'
                     />
                 </Actions>
-            </Container>
+            </Wrapper>
         </Modal>
     );
 }

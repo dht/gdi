@@ -1,14 +1,14 @@
 import React from 'react';
-import { Container } from './Logo.style';
+import { Wrapper } from './Logo.style';
 import logo from './Logo.svg';
 
 export type LogoProps = {};
 
 export function Logo(_props: LogoProps) {
     return (
-        <Container className='Logo-container' data-testid='Logo-container'>
+        <Wrapper className='Logo-wrapper' data-testid='Logo-wrapper'>
             <img src={logo} alt='Logo' />
-        </Container>
+        </Wrapper>
     );
 }
 

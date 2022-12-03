@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Id } from './Layouts.style';
+import { Wrapper, Id } from './Layouts.style';
 import { Multi } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 
@@ -21,13 +21,13 @@ export function LayoutItems(props: LayoutItemsProps) {
     const crudDefinitions = useCrudDefinitions('layoutItem');
 
     return (
-        <Container
-            className='LayoutItems-container'
-            data-testid='LayoutItems-container'
+        <Wrapper
+            className='LayoutItems-wrapper'
+            data-testid='LayoutItems-wrapper'
         >
             <Multi {...props} definitions={crudDefinitions} header={name} />
             <Id>{id}</Id>
-        </Container>
+        </Wrapper>
     );
 }
 

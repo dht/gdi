@@ -22,7 +22,7 @@ describe('SettingsTab', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('SettingsTab-container');
+        expect(containerClassName).toContain('SettingsTab-wrapper');
         expect(innerText).toBe(label);
     });
 

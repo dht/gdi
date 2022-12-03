@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     line-height: 1.5;
     font-size: 17px;
     font-variation-settings: 'wdth' 105, 'wght' 480;

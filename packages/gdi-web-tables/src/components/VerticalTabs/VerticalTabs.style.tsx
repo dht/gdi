@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     border-bottom: 1px solid #556;
     max-width: 300px;

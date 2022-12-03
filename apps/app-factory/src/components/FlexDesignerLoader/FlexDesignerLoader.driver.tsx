@@ -1,11 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { FlexDesignerLoader, FlexDesignerLoaderProps } from './FlexDesignerLoader';
+import {
+    FlexDesignerLoader,
+    FlexDesignerLoaderProps,
+} from './FlexDesignerLoader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FlexDesignerLoaderDriver extends BaseComponentDriver {
-    private props: Partial<FlexDesignerLoaderProps> = {
-    };
+    private props: Partial<FlexDesignerLoaderProps> = {};
 
     constructor() {
         super('FlexDesignerLoader');
@@ -13,15 +15,23 @@ export class FlexDesignerLoaderDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<FlexDesignerLoader {...(this.props as FlexDesignerLoaderProps)} />);
+            render(
+                <FlexDesignerLoader
+                    {...(this.props as FlexDesignerLoaderProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FlexDesignerLoader {...(this.props as FlexDesignerLoaderProps)} />);
+            return this.snapshot(
+                <FlexDesignerLoader
+                    {...(this.props as FlexDesignerLoaderProps)}
+                />
+            );
         },
     };
 
@@ -33,11 +43,11 @@ export class FlexDesignerLoaderDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

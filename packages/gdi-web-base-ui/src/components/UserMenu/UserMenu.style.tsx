@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     .button {
         i {
             display: none;
@@ -58,7 +58,6 @@ export const Content = styled.div`
 export const Top = styled.div`
     height: 140px;
     padding-top: 64px;
-    box-sizing: border-box;
 `;
 
 export const Menu = styled.div``;

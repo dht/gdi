@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Style.style';
+import { Wrapper } from './Style.style';
 
 export type StyleProps = {};
 
 export function Style(_props: StyleProps) {
     return (
-        <Container className="Style-container" data-testid="Style-container">
+        <Wrapper className='Style-wrapper' data-testid='Style-wrapper'>
             Style
-        </Container>
+        </Wrapper>
     );
 }
 

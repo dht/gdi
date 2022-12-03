@@ -2,7 +2,7 @@ import React from 'react';
 import AllProviders from './AllProviders';
 import AnyGallery from './Gallery.any';
 import FilterBar from '../FilterBar/FilterBar';
-import { Container } from './styles';
+import { Wrapper } from './styles';
 import { ICrudDefinitions, IGalleryOptions } from '../../types';
 
 export type WidgetGalleryProps = {
@@ -25,9 +25,9 @@ export function WidgetGallery(props: WidgetGalleryProps) {
     }
 
     return (
-        <Container
-            className='WidgetGallery-container'
-            data-testid='WidgetGallery-container'
+        <Wrapper
+            className='WidgetGallery-wrapper'
+            data-testid='WidgetGallery-wrapper'
         >
             <AllProviders
                 id='widgetGallery'
@@ -41,7 +41,7 @@ export function WidgetGallery(props: WidgetGalleryProps) {
                 />
                 <AnyGallery itemType='widget' {...(props as any)} />
             </AllProviders>
-        </Container>
+        </Wrapper>
     );
 }
 

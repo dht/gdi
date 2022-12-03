@@ -4,8 +4,7 @@ import { PreviewLead, PreviewLeadProps } from './PreviewLead';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewLeadDriver extends BaseComponentDriver {
-    private props: Partial<PreviewLeadProps> = {
-    };
+    private props: Partial<PreviewLeadProps> = {};
 
     constructor() {
         super('PreviewLead');
@@ -17,11 +16,13 @@ export class PreviewLeadDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewLead {...(this.props as PreviewLeadProps)} />);
+            return this.snapshot(
+                <PreviewLead {...(this.props as PreviewLeadProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewLeadDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -22,7 +22,7 @@ describe('VerticalTabs', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('VerticalTabs-container');
+        expect(containerClassName).toContain('VerticalTabs-wrapper');
         expect(innerText).toBe(label);
     });
 

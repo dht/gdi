@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex: 1;
 
-    .Layouts-container {
+    .Layouts-wrapper {
         flex-direction: column;
         width: 95%;
 

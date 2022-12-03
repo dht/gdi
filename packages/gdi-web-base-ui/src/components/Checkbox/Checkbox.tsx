@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content } from './Checkbox.style';
+import { Wrapper, Content } from './Checkbox.style';
 import { Checkbox as CheckboxFluent } from '@fluentui/react';
 
 export type CheckboxProps = {
@@ -17,10 +17,7 @@ export function Checkbox(props: CheckboxProps) {
     const { label, value = false, disabled } = props;
 
     return (
-        <Container
-            className='Checkbox-container'
-            data-testid='Checkbox-container'
-        >
+        <Wrapper className='Checkbox-wrapper' data-testid='Checkbox-wrapper'>
             <CheckboxFluent
                 label={label}
                 checked={value}
@@ -28,7 +25,7 @@ export function Checkbox(props: CheckboxProps) {
                 disabled={disabled}
             />
             {props.children && <Content>{props.children}</Content>}
-        </Container>
+        </Wrapper>
     );
 }
 

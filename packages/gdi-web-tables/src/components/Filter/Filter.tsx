@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Title,
     Item,
     Items,
@@ -53,10 +53,10 @@ export function Filter(props: FilterProps) {
     }
 
     return (
-        <Container className='Filter-container' data-testid='Filter-container'>
+        <Wrapper className='Filter-wrapper' data-testid='Filter-wrapper'>
             <Title>{title}</Title>
             <Items>{renderOptions()}</Items>
-        </Container>
+        </Wrapper>
     );
 }
 
@@ -88,10 +88,7 @@ export function FilterTags(props: FilterProps) {
     }
 
     return (
-        <ContainerTags
-            className='Filter-container'
-            data-testid='Filter-container'
-        >
+        <ContainerTags className='Filter-wrapper' data-testid='Filter-wrapper'>
             <Title>{title}</Title>
             <AutoComplete
                 placeholder=''

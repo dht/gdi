@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Button,
     Buttons,
-    Container,
+    Wrapper,
     Details,
     Header,
     Icon,
@@ -130,14 +130,11 @@ export function Lifecycle(props: LifecycleProps) {
     }
 
     return (
-        <Container
-            className='Lifecycle-container'
-            data-testid='Lifecycle-container'
-        >
+        <Wrapper className='Lifecycle-wrapper' data-testid='Lifecycle-wrapper'>
             {renderHeader()}
             {renderStages()}
             {renderButtons()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { ItemComment, ItemCommentProps } from './ItemComment';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemCommentDriver extends BaseComponentDriver {
-    private props: Partial<ItemCommentProps> = {
-    };
+    private props: Partial<ItemCommentProps> = {};
 
     constructor() {
         super('ItemComment');
@@ -17,11 +16,13 @@ export class ItemCommentDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemComment {...(this.props as ItemCommentProps)} />);
+            return this.snapshot(
+                <ItemComment {...(this.props as ItemCommentProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemCommentDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

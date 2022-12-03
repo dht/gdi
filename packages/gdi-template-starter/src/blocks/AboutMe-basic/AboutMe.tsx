@@ -8,9 +8,11 @@ import {
     P,
     Slogan,
     Wrapper,
-    Content,
+    Row,
+    Column,
 } from './AboutMe.style';
 import { SiteContext } from '@gdi/engine';
+import BkGradient from '../../components/BkGradient/BkGradient';
 
 export const id = 'com.usegdi.templates.starter.aboutMe-basic';
 
@@ -49,26 +51,35 @@ export function AboutMe(props: AboutMeProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='AboutMe-container'
             data-testid='AboutMe-container'
-            imageUrl={imageUrl}
+            bk={<BkGradient imageUrl={imageUrl} />}
         >
-            <Wrapper>
-                <Content>
-                    <Details>
-                        {slogan && <Slogan colors={colors}>{slogan}</Slogan>}
-                        <H2>{header}</H2>
-                        {description && <P>{description}</P>}
-                        <Actions>
-                            <CTA onClick={onClick} colors={colors} href={href}>
-                                {ctaButtonText}
-                            </CTA>
-                        </Actions>
-                    </Details>
-                </Content>
-            </Wrapper>
-        </Container>
+            <Container>
+                <Row>
+                    <Column></Column>
+                    <Column>
+                        <Details>
+                            {slogan && (
+                                <Slogan colors={colors}>{slogan}</Slogan>
+                            )}
+                            <H2>{header}</H2>
+                            {description && <P>{description}</P>}
+                            <Actions>
+                                <CTA
+                                    onClick={onClick}
+                                    colors={colors}
+                                    href={href}
+                                >
+                                    {ctaButtonText}
+                                </CTA>
+                            </Actions>
+                        </Details>
+                    </Column>
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

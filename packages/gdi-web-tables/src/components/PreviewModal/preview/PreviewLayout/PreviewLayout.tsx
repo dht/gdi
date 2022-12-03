@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewLayout.style';
+import { Wrapper } from './PreviewLayout.style';
 
 export type PreviewLayoutProps = {};
 
 export function PreviewLayout(_props: PreviewLayoutProps) {
     return (
-        <Container className="PreviewLayout-container" data-testid="PreviewLayout-container">
+        <Wrapper
+            className='PreviewLayout-wrapper'
+            data-testid='PreviewLayout-wrapper'
+        >
             PreviewLayout
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -13,7 +13,7 @@ describe('SquareSummary', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('SquareSummary-container');
+        expect(containerClassName).toBe('SquareSummary-wrapper');
     });
 });
 

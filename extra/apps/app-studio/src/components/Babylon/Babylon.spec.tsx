@@ -13,7 +13,7 @@ describe('Babylon', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Babylon-container');
+        expect(containerClassName).toBe('Babylon-wrapper');
     });
 });
 

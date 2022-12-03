@@ -6,7 +6,7 @@ import { useEscape, useKeyHold, useClickAway } from '@gdi/hooks';
 import { useToggle } from 'react-use';
 import {
     Circle,
-    Container,
+    Wrapper,
     IconWrapper,
     Point,
     PointInner,
@@ -164,16 +164,16 @@ export function PieMenu(props: PieMenuProps) {
     };
 
     return (
-        <Container
-            className='PieMenu-container'
-            data-testid='PieMenu-container'
+        <Wrapper
+            className='PieMenu-wrapper'
+            data-testid='PieMenu-wrapper'
             style={style}
             ref={ref}
         >
             {renderItems()}
             <Circle radius={95} />
             <Trigger onMouseDown={onCancel} onTouchStart={onCancel} />
-        </Container>
+        </Wrapper>
     );
 }
 

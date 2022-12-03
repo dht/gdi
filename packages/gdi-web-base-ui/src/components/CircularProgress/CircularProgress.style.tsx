@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ color?: string }>`
+export const Wrapper = styled.div<{ color?: string }>`
     width: 100px;
     height: 100px;
     position: relative;

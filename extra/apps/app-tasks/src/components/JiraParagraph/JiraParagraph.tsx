@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Paragraph, Text } from './JiraParagraph.style';
+import { Wrapper, Paragraph, Text } from './JiraParagraph.style';
 
 export interface Description {
     version: number;
@@ -37,12 +37,12 @@ export function JiraParagraph(props: JiraParagraphProps) {
     }
 
     return (
-        <Container
-            className='JiraParagraph-container'
-            data-testid='JiraParagraph-container'
+        <Wrapper
+            className='JiraParagraph-wrapper'
+            data-testid='JiraParagraph-wrapper'
         >
             <Paragraph>{renderContent(content.content)}</Paragraph>
-        </Container>
+        </Wrapper>
     );
 }
 

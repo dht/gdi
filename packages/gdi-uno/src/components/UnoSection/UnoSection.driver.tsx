@@ -4,8 +4,7 @@ import { UnoSection, UnoSectionProps } from './UnoSection';
 import { BaseComponentDriver } from 'testing-base';
 
 export class UnoSectionDriver extends BaseComponentDriver {
-    private props: Partial<UnoSectionProps> = {
-    };
+    private props: Partial<UnoSectionProps> = {};
 
     constructor() {
         super('UnoSection');
@@ -17,11 +16,13 @@ export class UnoSectionDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<UnoSection {...(this.props as UnoSectionProps)} />);
+            return this.snapshot(
+                <UnoSection {...(this.props as UnoSectionProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class UnoSectionDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

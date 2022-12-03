@@ -4,8 +4,7 @@ import { Settings, SettingsProps } from './Settings';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SettingsDriver extends BaseComponentDriver {
-    private props: Partial<SettingsProps> = {
-    };
+    private props: Partial<SettingsProps> = {};
 
     constructor() {
         super('Settings');
@@ -17,11 +16,13 @@ export class SettingsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Settings {...(this.props as SettingsProps)} />);
+            return this.snapshot(
+                <Settings {...(this.props as SettingsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SettingsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

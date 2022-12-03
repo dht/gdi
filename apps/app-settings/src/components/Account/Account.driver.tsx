@@ -4,8 +4,7 @@ import { Account, AccountProps } from './Account';
 import { BaseComponentDriver } from 'testing-base';
 
 export class AccountDriver extends BaseComponentDriver {
-    private props: Partial<AccountProps> = {
-    };
+    private props: Partial<AccountProps> = {};
 
     constructor() {
         super('Account');
@@ -17,7 +16,7 @@ export class AccountDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class AccountDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

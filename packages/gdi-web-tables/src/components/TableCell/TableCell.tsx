@@ -3,7 +3,7 @@ import { CellType, ITableField } from '../../types';
 import { Icon, SocialIcon } from '@gdi/web-base-ui';
 import { dateDb, dateShort, timeAgo } from '@gdi/language';
 import {
-    Container,
+    Wrapper,
     Description,
     IconWrapper,
     Id,
@@ -61,13 +61,13 @@ export function TableCell(props: TableCellProps) {
     };
 
     return (
-        <Container
-            className='TableCell-container'
-            data-testid='TableCell-container'
+        <Wrapper
+            className='TableCell-wrapper'
+            data-testid='TableCell-wrapper'
             style={style}
         >
             <Cmp index={index} id={id} field={field} data={cellData} />
-        </Container>
+        </Wrapper>
     );
 }
 

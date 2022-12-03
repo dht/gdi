@@ -4,8 +4,7 @@ import { PreviewCampaign, PreviewCampaignProps } from './PreviewCampaign';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewCampaignDriver extends BaseComponentDriver {
-    private props: Partial<PreviewCampaignProps> = {
-    };
+    private props: Partial<PreviewCampaignProps> = {};
 
     constructor() {
         super('PreviewCampaign');
@@ -13,15 +12,19 @@ export class PreviewCampaignDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<PreviewCampaign {...(this.props as PreviewCampaignProps)} />);
+            render(
+                <PreviewCampaign {...(this.props as PreviewCampaignProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewCampaign {...(this.props as PreviewCampaignProps)} />);
+            return this.snapshot(
+                <PreviewCampaign {...(this.props as PreviewCampaignProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class PreviewCampaignDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './TableRow.style';
+import { Wrapper } from './TableRow.style';
 import classnames from 'classnames';
 import TableCell from '../TableCell/TableCell';
 import TableRowActions from '../TableRowActions/TableRowActions';
@@ -18,7 +18,7 @@ export type TableRowProps = {
 export function TableRow(props: TableRowProps) {
     const { item, fields = [], rowActions = [], isSelected } = props;
 
-    const className = classnames('TableRow-container', {
+    const className = classnames('TableRow-wrapper', {
         selected: isSelected,
     });
 
@@ -40,8 +40,8 @@ export function TableRow(props: TableRowProps) {
     }
 
     return (
-        <Container
-            data-testid='TableRow-container'
+        <Wrapper
+            data-testid='TableRow-wrapper'
             className={className}
             onClick={props.onClick}
             onDoubleClick={props.onDoubleClick}
@@ -51,7 +51,7 @@ export function TableRow(props: TableRowProps) {
                 actions={rowActions}
                 onRowAction={props.onRowAction}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,7 +1,7 @@
 import React, { Key, useCallback } from 'react';
 import {
     Chevron,
-    Container,
+    Wrapper,
     Content,
     Header,
     Title,
@@ -93,12 +93,9 @@ export function Accordion(props: AccordionProps) {
         return panels.map((panel: JSX.Element) => renderPanel(panel));
     }
     return (
-        <Container
-            className='Accordion-container'
-            data-testid='Accordion-container'
-        >
+        <Wrapper className='Accordion-wrapper' data-testid='Accordion-wrapper'>
             {renderPanels(children)}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Signature.style';
+import { Wrapper } from './Signature.style';
 
 export type SignatureProps = {
     children: string;
@@ -7,12 +7,9 @@ export type SignatureProps = {
 
 export function Signature(props: SignatureProps) {
     return (
-        <Container
-            className='Signature-container'
-            data-testid='Signature-container'
-        >
+        <Wrapper className='Signature-wrapper' data-testid='Signature-wrapper'>
             {props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

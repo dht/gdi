@@ -4,8 +4,7 @@ import { Tag, TagProps } from './Tag';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TagDriver extends BaseComponentDriver {
-    private props: Partial<TagProps> = {
-    };
+    private props: Partial<TagProps> = {};
 
     constructor() {
         super('Tag');
@@ -17,7 +16,7 @@ export class TagDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class TagDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

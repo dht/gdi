@@ -4,8 +4,7 @@ import { Calendar, CalendarProps } from './Calendar';
 import { BaseComponentDriver } from 'testing-base';
 
 export class CalendarDriver extends BaseComponentDriver {
-    private props: Partial<CalendarProps> = {
-    };
+    private props: Partial<CalendarProps> = {};
 
     constructor() {
         super('Calendar');
@@ -17,11 +16,13 @@ export class CalendarDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Calendar {...(this.props as CalendarProps)} />);
+            return this.snapshot(
+                <Calendar {...(this.props as CalendarProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class CalendarDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

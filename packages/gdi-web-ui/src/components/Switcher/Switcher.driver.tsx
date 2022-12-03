@@ -4,8 +4,7 @@ import { Switcher, SwitcherProps } from './Switcher';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SwitcherDriver extends BaseComponentDriver {
-    private props: Partial<SwitcherProps> = {
-    };
+    private props: Partial<SwitcherProps> = {};
 
     constructor() {
         super('Switcher');
@@ -17,11 +16,13 @@ export class SwitcherDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Switcher {...(this.props as SwitcherProps)} />);
+            return this.snapshot(
+                <Switcher {...(this.props as SwitcherProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SwitcherDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

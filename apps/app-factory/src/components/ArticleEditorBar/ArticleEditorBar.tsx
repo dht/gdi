@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import {
     A,
-    Container,
+    Wrapper,
     Field,
     Inner,
     Meta,
@@ -46,13 +46,13 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
     }, [minutesSpentEditing]);
 
     function onClick() {
-        invokeEvent('navigatePop', {});
+        invokeEvent('navigatePop');
     }
 
     return (
-        <Container
-            className='ArticleEditorBar-container'
-            data-testid='ArticleEditorBar-container'
+        <Wrapper
+            className='ArticleEditorBar-wrapper'
+            data-testid='ArticleEditorBar-wrapper'
         >
             <Inner>
                 <A onClick={onClick}>Articles</A>
@@ -76,7 +76,7 @@ export function ArticleEditorBar(props: ArticleEditorBarProps) {
                     </Field>
                 </Meta>
             </Inner>
-        </Container>
+        </Wrapper>
     );
 }
 

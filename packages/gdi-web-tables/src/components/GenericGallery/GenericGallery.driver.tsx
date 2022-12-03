@@ -4,8 +4,7 @@ import { GenericGallery, GenericGalleryProps } from './GenericGallery';
 import { BaseComponentDriver } from 'testing-base';
 
 export class GenericGalleryDriver extends BaseComponentDriver {
-    private props: Partial<GenericGalleryProps> = {
-    };
+    private props: Partial<GenericGalleryProps> = {};
 
     constructor() {
         super('GenericGallery');
@@ -17,11 +16,13 @@ export class GenericGalleryDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<GenericGallery {...(this.props as GenericGalleryProps)} />);
+            return this.snapshot(
+                <GenericGallery {...(this.props as GenericGalleryProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class GenericGalleryDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

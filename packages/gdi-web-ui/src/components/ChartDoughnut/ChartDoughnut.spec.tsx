@@ -13,7 +13,7 @@ describe('ChartDoughnut', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ChartDoughnut-container');
+        expect(containerClassName).toBe('ChartDoughnut-wrapper');
     });
 });
 

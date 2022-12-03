@@ -4,8 +4,7 @@ import { ActiveApps, ActiveAppsProps } from './ActiveApps';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ActiveAppsDriver extends BaseComponentDriver {
-    private props: Partial<ActiveAppsProps> = {
-    };
+    private props: Partial<ActiveAppsProps> = {};
 
     constructor() {
         super('ActiveApps');
@@ -17,11 +16,13 @@ export class ActiveAppsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ActiveApps {...(this.props as ActiveAppsProps)} />);
+            return this.snapshot(
+                <ActiveApps {...(this.props as ActiveAppsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ActiveAppsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

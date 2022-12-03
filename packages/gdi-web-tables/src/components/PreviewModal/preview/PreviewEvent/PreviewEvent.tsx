@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewEvent.style';
+import { Wrapper } from './PreviewEvent.style';
 
 export type PreviewEventProps = {};
 
 export function PreviewEvent(_props: PreviewEventProps) {
     return (
-        <Container className="PreviewEvent-container" data-testid="PreviewEvent-container">
+        <Wrapper
+            className='PreviewEvent-wrapper'
+            data-testid='PreviewEvent-wrapper'
+        >
             PreviewEvent
-        </Container>
+        </Wrapper>
     );
 }
 

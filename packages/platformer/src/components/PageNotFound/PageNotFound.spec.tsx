@@ -22,7 +22,7 @@ describe('PageNotFound', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('PageNotFound-container');
+        expect(containerClassName).toContain('PageNotFound-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Campaigns.style';
+import { Wrapper } from './Campaigns.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,10 +19,7 @@ export function Campaigns(props: CampaignsProps) {
     const crudDefinitions = useCrudDefinitions('campaign');
 
     return (
-        <Container
-            className='Campaigns-container'
-            data-testid='Campaigns-container'
-        >
+        <Wrapper className='Campaigns-wrapper' data-testid='Campaigns-wrapper'>
             <Multi
                 id='Campaigns'
                 itemType='campaign'
@@ -32,7 +29,7 @@ export function Campaigns(props: CampaignsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.a`
+export const Wrapper = styled.a`
     position: relative;
     cursor: pointer;
+    text-decoration: none;
+    color: #eef;
 
     &:hover {
         .content {
@@ -19,6 +21,7 @@ export const Content = styled.div`
     background-color: #000;
     padding: 10px 40px 10px 80px;
     border-radius: 40px;
+    border: 1px solid #556;
 `;
 
 export const Title = styled.div`

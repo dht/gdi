@@ -4,8 +4,7 @@ import { PreviewPost, PreviewPostProps } from './PreviewPost';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewPostDriver extends BaseComponentDriver {
-    private props: Partial<PreviewPostProps> = {
-    };
+    private props: Partial<PreviewPostProps> = {};
 
     constructor() {
         super('PreviewPost');
@@ -17,11 +16,13 @@ export class PreviewPostDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewPost {...(this.props as PreviewPostProps)} />);
+            return this.snapshot(
+                <PreviewPost {...(this.props as PreviewPostProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewPostDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

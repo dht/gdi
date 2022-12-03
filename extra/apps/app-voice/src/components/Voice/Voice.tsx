@@ -1,14 +1,14 @@
 import React from 'react';
-import { Container } from './Voice.style';
+import { Wrapper } from './Voice.style';
 
 export type VoiceProps = {};
 
 export function Voice(_props: VoiceProps) {
     return (
-        <Container
-            className='Voice-container'
-            data-testid='Voice-container'
-        ></Container>
+        <Wrapper
+            className='Voice-wrapper'
+            data-testid='Voice-wrapper'
+        ></Wrapper>
     );
 }
 

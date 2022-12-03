@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     DigitContainer,
     EdgeContainer,
     UnitContainer,
@@ -19,16 +19,13 @@ export function Stopwatch(props: StopwatchProps) {
     const digit2 = minutes % 10;
 
     return (
-        <Container
-            className='Stopwatch-container'
-            data-testid='Stopwatch-container'
-        >
+        <Wrapper className='Stopwatch-wrapper' data-testid='Stopwatch-wrapper'>
             <Digit value={hours} />
             <Unit value='hour' />
             <Digit value={digit1} />
             <Digit value={digit2} />
             <Unit value='minute' />
-        </Container>
+        </Wrapper>
     );
 }
 

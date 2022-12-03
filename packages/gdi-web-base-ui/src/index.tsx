@@ -51,6 +51,7 @@ export { toast } from './components/Toast/Toast.actions';
 export { Toggle } from './components/Toggle/Toggle';
 export { Toolbar } from './components/Toolbar/Toolbar';
 export { Triangles, TrianglesBk } from './components/Triangles/Triangles';
+
 export {
     allColors,
     triangleColors as groupedColors,

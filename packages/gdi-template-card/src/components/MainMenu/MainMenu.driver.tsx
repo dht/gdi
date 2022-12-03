@@ -4,8 +4,7 @@ import { MainMenu, MainMenuProps } from './MainMenu';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MainMenuDriver extends BaseComponentDriver {
-    private props: Partial<MainMenuProps> = {
-    };
+    private props: Partial<MainMenuProps> = {};
 
     constructor() {
         super('MainMenu');
@@ -17,11 +16,13 @@ export class MainMenuDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MainMenu {...(this.props as MainMenuProps)} />);
+            return this.snapshot(
+                <MainMenu {...(this.props as MainMenuProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class MainMenuDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

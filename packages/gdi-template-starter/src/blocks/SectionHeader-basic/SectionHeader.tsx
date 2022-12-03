@@ -29,16 +29,16 @@ export function SectionHeader(props: SectionHeaderProps) {
     const { text } = strings;
 
     return (
-        <Container
+        <Wrapper
             className='SectionHeader-container'
             data-testid='SectionHeader-container'
             colors={colors}
             hidden={isHidden}
         >
-            <Wrapper>
+            <Container>
                 <Text id={id}>{text}</Text>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { FormModal, FormModalProps } from './FormModal';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FormModalDriver extends BaseComponentDriver {
-    private props: Partial<FormModalProps> = {
-    };
+    private props: Partial<FormModalProps> = {};
 
     constructor() {
         super('FormModal');
@@ -17,11 +16,13 @@ export class FormModalDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FormModal {...(this.props as FormModalProps)} />);
+            return this.snapshot(
+                <FormModal {...(this.props as FormModalProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class FormModalDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './SidePanel.style';
+import { Wrapper } from './SidePanel.style';
 
 export type SidePanelProps = {
     title?: string;
@@ -10,13 +10,13 @@ export function SidePanel(props: SidePanelProps) {
     const { title } = props;
 
     return (
-        <Container
-            className="SidePanel-container"
-            data-testid="SidePanel-container"
+        <Wrapper
+            className='SidePanel-wrapper'
+            data-testid='SidePanel-wrapper'
             onClick={props.onClick}
         >
             {title}
-        </Container>
+        </Wrapper>
     );
 }
 

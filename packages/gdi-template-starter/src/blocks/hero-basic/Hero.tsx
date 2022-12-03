@@ -42,20 +42,20 @@ export function Hero(props: HeroProps) {
     };
 
     return (
-        <Container
+        <Wrapper
             className='Hero-container'
             data-testid='Hero-container'
             extra={extra}
         >
-            <Wrapper>
+            <Container>
                 <Greeting colors={colors}>{slogan}</Greeting>
                 <H1>{header}</H1>
                 <Skill>{description}</Skill>
                 <Social>
                     <SocialIcons grayscale urls={urls} onClick={onClick} />
                 </Social>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

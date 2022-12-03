@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ size: number; color: string }>`
+export const Wrapper = styled.div<{ size: number; color: string }>`
     flex: 1;
     background-color: ${(props) => props.color};
     width: ${(props) => props.size + 'px'};

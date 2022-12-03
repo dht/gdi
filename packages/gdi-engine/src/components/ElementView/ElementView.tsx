@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { EngineContext } from '../../context/Engine.context';
-import { Container } from './ElementView.style';
+import { Wrapper } from './ElementView.style';
 
 export type ElementViewProps = {
     sequence?: number;
@@ -37,12 +37,12 @@ export function ElementView(props: ElementViewProps) {
     }
 
     return (
-        <Container
-            className='ElementView-container'
-            data-testid='ElementView-container'
+        <Wrapper
+            className='ElementView-wrapper'
+            data-testid='ElementView-wrapper'
         >
             {renderWidget()}
-        </Container>
+        </Wrapper>
     );
 }
 

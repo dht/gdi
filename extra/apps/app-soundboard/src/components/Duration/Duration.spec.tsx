@@ -13,7 +13,7 @@ describe('Duration', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Duration-container');
+        expect(containerClassName).toBe('Duration-wrapper');
     });
 });
 

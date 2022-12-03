@@ -40,9 +40,9 @@ export function Graph(props: GraphProps) {
     }
 
     return (
-        <Container className='Graph-container' data-testid='Graph-container'>
+        <Wrapper className='Graph-wrapper' data-testid='Graph-wrapper'>
             {renderDataPoints()}
-        </Container>
+        </Wrapper>
     );
 }
 

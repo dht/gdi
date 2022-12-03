@@ -13,7 +13,7 @@ describe('Sims', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Sims-container');
+        expect(containerClassName).toBe('Sims-wrapper');
     });
 });
 

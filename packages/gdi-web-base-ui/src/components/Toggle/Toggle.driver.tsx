@@ -4,8 +4,7 @@ import { Toggle, ToggleProps } from './Toggle';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ToggleDriver extends BaseComponentDriver {
-    private props: Partial<ToggleProps> = {
-    };
+    private props: Partial<ToggleProps> = {};
 
     constructor() {
         super('Toggle');
@@ -17,7 +16,7 @@ export class ToggleDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ToggleDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

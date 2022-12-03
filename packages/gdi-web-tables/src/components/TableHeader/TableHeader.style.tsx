@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     height: 40px;
     display: flex;
     flex-direction: row;
@@ -16,7 +16,6 @@ export const Th = styled.div`
     box-shadow: inset 1px 1px 1px 2px rgba(0, 0, 0, 0.4);
     padding: 5px;
     text-indent: 5px;
-    box-sizing: border-box;
 `;
 
 export const ThActions = styled(Th)`

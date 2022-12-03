@@ -1,7 +1,7 @@
 import React, { RefObject, useEffect, useMemo, useRef, useState } from 'react';
 import { useBoolean, useDebounce } from 'react-use';
 import {
-    Container,
+    Wrapper,
     City,
     Divider,
     Hours,
@@ -58,9 +58,9 @@ export function ScheduleClock(props: ScheduleClockProps) {
     };
 
     return (
-        <Container
-            className='ScheduleClock-container'
-            data-testid='ScheduleClock-container'
+        <Wrapper
+            className='ScheduleClock-wrapper'
+            data-testid='ScheduleClock-wrapper'
             ref={ref}
             style={style}
         >
@@ -85,7 +85,7 @@ export function ScheduleClock(props: ScheduleClockProps) {
             <Clear onClick={() => props.changeDelta(0)} tabIndex='-1'>
                 <i className='material-icons'>autorenew</i>
             </Clear>
-        </Container>
+        </Wrapper>
     );
 }
 

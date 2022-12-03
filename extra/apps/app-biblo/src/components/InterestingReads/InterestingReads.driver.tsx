@@ -4,8 +4,7 @@ import { InterestingReads, InterestingReadsProps } from './InterestingReads';
 import { BaseComponentDriver } from 'testing-base';
 
 export class InterestingReadsDriver extends BaseComponentDriver {
-    private props: Partial<InterestingReadsProps> = {
-    };
+    private props: Partial<InterestingReadsProps> = {};
 
     constructor() {
         super('InterestingReads');
@@ -13,15 +12,19 @@ export class InterestingReadsDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<InterestingReads {...(this.props as InterestingReadsProps)} />);
+            render(
+                <InterestingReads {...(this.props as InterestingReadsProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<InterestingReads {...(this.props as InterestingReadsProps)} />);
+            return this.snapshot(
+                <InterestingReads {...(this.props as InterestingReadsProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class InterestingReadsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

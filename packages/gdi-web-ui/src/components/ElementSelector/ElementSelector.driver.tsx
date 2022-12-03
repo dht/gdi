@@ -4,8 +4,7 @@ import { ElementSelector, ElementSelectorProps } from './ElementSelector';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ElementSelectorDriver extends BaseComponentDriver {
-    private props: Partial<ElementSelectorProps> = {
-    };
+    private props: Partial<ElementSelectorProps> = {};
 
     constructor() {
         super('ElementSelector');
@@ -13,15 +12,19 @@ export class ElementSelectorDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ElementSelector {...(this.props as ElementSelectorProps)} />);
+            render(
+                <ElementSelector {...(this.props as ElementSelectorProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ElementSelector {...(this.props as ElementSelectorProps)} />);
+            return this.snapshot(
+                <ElementSelector {...(this.props as ElementSelectorProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class ElementSelectorDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

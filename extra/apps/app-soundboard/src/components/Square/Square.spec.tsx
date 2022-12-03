@@ -13,7 +13,7 @@ describe('Square', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Square-container');
+        expect(containerClassName).toBe('Square-wrapper');
     });
 });
 

@@ -4,8 +4,7 @@ import { PreviewPage, PreviewPageProps } from './PreviewPage';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewPageDriver extends BaseComponentDriver {
-    private props: Partial<PreviewPageProps> = {
-    };
+    private props: Partial<PreviewPageProps> = {};
 
     constructor() {
         super('PreviewPage');
@@ -17,11 +16,13 @@ export class PreviewPageDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewPage {...(this.props as PreviewPageProps)} />);
+            return this.snapshot(
+                <PreviewPage {...(this.props as PreviewPageProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewPageDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

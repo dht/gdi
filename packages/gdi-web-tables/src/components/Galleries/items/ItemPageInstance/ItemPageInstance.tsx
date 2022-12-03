@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './ItemPageInstance.style';
+import { Wrapper } from './ItemPageInstance.style';
 
 export type ItemPageInstanceProps = {};
 
 export function ItemPageInstance(_props: ItemPageInstanceProps) {
     return (
-        <Container className="ItemPageInstance-container" data-testid="ItemPageInstance-container">
+        <Wrapper
+            className='ItemPageInstance-wrapper'
+            data-testid='ItemPageInstance-wrapper'
+        >
             ItemPageInstance
-        </Container>
+        </Wrapper>
     );
 }
 

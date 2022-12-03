@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewWidget.style';
+import { Wrapper } from './PreviewWidget.style';
 
 export type PreviewWidgetProps = {};
 
 export function PreviewWidget(_props: PreviewWidgetProps) {
     return (
-        <Container className="PreviewWidget-container" data-testid="PreviewWidget-container">
+        <Wrapper
+            className='PreviewWidget-wrapper'
+            data-testid='PreviewWidget-wrapper'
+        >
             PreviewWidget
-        </Container>
+        </Wrapper>
     );
 }
 

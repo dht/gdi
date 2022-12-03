@@ -22,7 +22,7 @@ describe('WrappedFilter', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('WrappedFilter-container');
+        expect(containerClassName).toContain('WrappedFilter-wrapper');
         expect(innerText).toBe(label);
     });
 

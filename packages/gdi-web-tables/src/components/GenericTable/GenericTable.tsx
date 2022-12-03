@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Empty, Item } from './GenericTable.style';
+import { Wrapper, Empty, Item } from './GenericTable.style';
 import { FixedSizeList } from 'react-window';
 import { useBoundingClientRect } from '../../utils/useBoundingClientRect';
 import { useMemo, useRef } from '@gdi/hooks';
@@ -50,9 +50,9 @@ export function GenericTable(props: GenericTableProps) {
 
     if (data.length === 0) {
         return (
-            <Container className='Table-container' ref={ref}>
+            <Wrapper className='Table-wrapper' ref={ref}>
                 <Empty>{emptyMessage}</Empty>
-            </Container>
+            </Wrapper>
         );
     }
 
@@ -89,13 +89,13 @@ export function GenericTable(props: GenericTableProps) {
     }
 
     return (
-        <Container
-            className='GenericTable-container'
-            data-testid='GenericTable-container'
+        <Wrapper
+            className='GenericTable-wrapper'
+            data-testid='GenericTable-wrapper'
             ref={ref}
         >
             {renderTable()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     background-color: #223;
     color: #fff;
@@ -9,21 +9,13 @@ export const Container = styled.div`
     font-size: 18px;
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 1200px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: auto;
-
-    ${mobile(css`
-        width: 99vw;
-        padding: 0 10px;
-    `)}
+export const Container = styled(Grid.Container)`
+    ${mobile(css``)}
 `;
 
-export const Column = styled.div`
+export const Row = styled(Grid.Row)``;
+
+export const Column = styled(Grid.Column)`
     flex: 1;
 `;
 

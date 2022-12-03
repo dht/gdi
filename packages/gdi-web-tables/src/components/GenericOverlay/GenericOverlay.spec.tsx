@@ -22,7 +22,7 @@ describe('GenericOverlay', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('GenericOverlay-container');
+        expect(containerClassName).toContain('GenericOverlay-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -19,10 +19,10 @@ describe('LayoutVisual', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('LayoutVisual-container');
+        expect(wrapperClassName).toContain('LayoutVisual-wrapper');
         expect(innerText).toBe(label);
     });
 

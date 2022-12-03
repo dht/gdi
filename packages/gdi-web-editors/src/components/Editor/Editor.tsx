@@ -1,5 +1,5 @@
 import React, { FormEvent, useRef, useState } from 'react';
-import { Container } from './Editor.style';
+import { Wrapper } from './Editor.style';
 import { Editor as TEditor, EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import TextAlign from '@tiptap/extension-text-align';
@@ -65,14 +65,14 @@ export function Editor(props: EditorProps) {
     }
 
     return (
-        <Container className='Editor-container' data-testid='Editor-container'>
+        <Wrapper className='Editor-wrapper' data-testid='Editor-wrapper'>
             <EditorMenuPanel
                 barActions={barActions}
                 onExternalAction={onExternalAction}
                 editor={editor as any}
             />
             <EditorContent editor={editor} />
-        </Container>
+        </Wrapper>
     );
 }
 

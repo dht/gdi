@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
 import { HeroExtra } from './Hero';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ extra: HeroExtra }>`
+export const Wrapper = styled.div<{ extra: HeroExtra }>`
     flex: 1;
     background-image: url(${(props) => props.extra.imageUrl});
     background-size: cover;
@@ -12,14 +12,11 @@ export const Container = styled.div<{ extra: HeroExtra }>`
     font-family: ${(props) => props.theme.fontFamily};
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
+export const Container = styled(Grid.Container)`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
     flex: 1;
 `;
 

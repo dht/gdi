@@ -35,12 +35,9 @@ export function AutoForm(props: AutoFormProps) {
         );
     }
     return (
-        <Container
-            className='AutoForm-container'
-            data-testid='AutoForm-container'
-        >
+        <Wrapper className='AutoForm-wrapper' data-testid='AutoForm-wrapper'>
             {renderButtons()}
-        </Container>
+        </Wrapper>
     );
 }
 

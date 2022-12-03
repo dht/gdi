@@ -4,8 +4,7 @@ import { Bk, BkProps } from './Bk';
 import { BaseComponentDriver } from 'testing-base';
 
 export class BkDriver extends BaseComponentDriver {
-    private props: Partial<BkProps> = {
-    };
+    private props: Partial<BkProps> = {};
 
     constructor() {
         super('Bk');
@@ -17,7 +16,7 @@ export class BkDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class BkDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

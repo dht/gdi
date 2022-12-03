@@ -4,8 +4,7 @@ import { EngineEdit, EngineEditProps } from './EngineEdit';
 import { BaseComponentDriver } from 'testing-base';
 
 export class EngineEditDriver extends BaseComponentDriver {
-    private props: Partial<EngineEditProps> = {
-    };
+    private props: Partial<EngineEditProps> = {};
 
     constructor() {
         super('EngineEdit');
@@ -17,11 +16,13 @@ export class EngineEditDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<EngineEdit {...(this.props as EngineEditProps)} />);
+            return this.snapshot(
+                <EngineEdit {...(this.props as EngineEditProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class EngineEditDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -22,7 +22,7 @@ describe('Toolbar', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Toolbar-container');
+        expect(containerClassName).toContain('Toolbar-wrapper');
         expect(innerText).toBe(label);
     });
 

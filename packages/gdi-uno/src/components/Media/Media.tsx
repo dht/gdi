@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { IUnoSection } from '../../types';
 import {
     Arrow,
-    Container,
+    Wrapper,
     ContainerArrows,
     ContainerDots,
     ContainerItem,
@@ -35,7 +35,7 @@ export function Media(props: MediaProps) {
         );
     }
     return (
-        <Container className='Media-container' data-testid='Media-container'>
+        <Wrapper className='Media-wrapper' data-testid='Media-wrapper'>
             <Arrows
                 items={items}
                 activeIndex={activeIndex}
@@ -47,7 +47,7 @@ export function Media(props: MediaProps) {
                 activeIndex={activeIndex}
                 onChange={setActiveIndex}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

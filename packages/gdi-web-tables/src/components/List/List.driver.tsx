@@ -4,8 +4,7 @@ import { List, ListProps } from './List';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ListDriver extends BaseComponentDriver {
-    private props: Partial<ListProps> = {
-    };
+    private props: Partial<ListProps> = {};
 
     constructor() {
         super('List');
@@ -17,7 +16,7 @@ export class ListDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ListDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

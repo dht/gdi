@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container } from './SheetCellSelected.style';
+import { Wrapper } from './SheetCellSelected.style';
 import classnames from 'classnames';
 import {
     useDelete,
@@ -26,7 +26,7 @@ export function SheetCellSelected(props: SheetCellSelectedProps) {
     const context = useContext(SheetContext);
 
     const className = classnames(
-        'SheetCellSelected-container',
+        'SheetCellSelected-wrapper',
         'cell',
         props.className,
         {
@@ -83,12 +83,9 @@ export function SheetCellSelected(props: SheetCellSelectedProps) {
     );
 
     return (
-        <Container
-            className={className}
-            data-testid='SheetCellSelected-container'
-        >
+        <Wrapper className={className} data-testid='SheetCellSelected-wrapper'>
             {value}
-        </Container>
+        </Wrapper>
     );
 }
 

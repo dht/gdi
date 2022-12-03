@@ -19,10 +19,10 @@ describe('ArticleEditorBar', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ArticleEditorBar-container');
+        expect(wrapperClassName).toContain('ArticleEditorBar-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import {
-    Container,
+    Wrapper,
     Dot,
     Knob,
     Dial,
@@ -61,7 +61,7 @@ export function Gauge(props: GaugeProps) {
     }
 
     return (
-        <Container className='Gauge-container' data-testid='Gauge-container'>
+        <Wrapper className='Gauge-wrapper' data-testid='Gauge-wrapper'>
             <Knob>
                 {renderDials()}
                 {renderDot()}
@@ -70,7 +70,7 @@ export function Gauge(props: GaugeProps) {
                 <Title>{title}</Title>
                 <Value>{valueText}</Value>
             </Details>
-        </Container>
+        </Wrapper>
     );
 }
 

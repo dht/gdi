@@ -22,7 +22,7 @@ describe('Toggle', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Toggle-container');
+        expect(containerClassName).toContain('Toggle-wrapper');
         expect(innerText).toBe(label);
     });
 

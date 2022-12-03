@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Container, Flavour, FlavourTitle } from './Chair.style';
+import { Wrapper, Flavour, FlavourTitle } from './Chair.style';
 
 export const id = 'com.usegdi.templates.basic.ChairI';
 
@@ -52,9 +52,9 @@ export function Chair(props: ChairProps) {
     }
 
     return (
-        <Container className='Chair-container' data-testid='Chair-container'>
+        <Wrapper className='Chair-wrapper' data-testid='Chair-wrapper'>
             {renderFlavours()}
-        </Container>
+        </Wrapper>
     );
 }
 

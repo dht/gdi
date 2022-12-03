@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useWindowSize } from 'react-use';
 import {
     getCurrentBreakpoint,
@@ -7,8 +7,13 @@ import {
 import { breakpoints } from '../utils/breakpoints.data';
 import { useCustomEvent } from './useCustomEvent';
 
-export function useStyledTheme(languageCode: string, isRtl: boolean) {
+export function useStyledTheme(
+    languageCode: string,
+    isRtl: boolean,
+    bpMax: IResolution = 'HD+'
+) {
     const { width, height } = useWidthHeight();
+    const [maxResolution, setMaxResolution] = useState<IResolution>(bpMax);
 
     const breakpoint = useMemo(() => {
         return getCurrentBreakpoint(breakpoints, width);
@@ -135,6 +140,28 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
                 const parsedWidth = Math.floor((value / 100) * width);
                 return `${parsedWidth}px`;
             },
+            bpText: () => {
+                if (!breakpoint || !breakpoint.breakpoint) {
+                    return;
+                }
+
+                const { breakpoint: bp } = breakpoint;
+
+                return `${bp.id} ${bp.containerWidth}px`;
+            },
+            bpId: () => {
+                if (!breakpoint || !breakpoint.breakpoint) {
+                    return;
+                }
+
+                const { breakpoint: bp } = breakpoint;
+                const { id } = bp;
+
+                return '_' + id.replace('+', 'plus');
+            },
+            bpMaxId: () => {
+                return '_' + maxResolution.replace('+', 'plus') + '-max';
+            },
             device: (
                 resolutionId: IResolution,
                 css: React.CSSProperties,
@@ -167,37 +194,42 @@ export function useStyledTheme(languageCode: string, isRtl: boolean) {
     return theme;
 }
 
+type WidthMode = 'none' | 'mobile' | 'desktop';
+
 export function useWidthHeight() {
-    const { width: windowWidth, height: windowHeight } = useWindowSize();
-    const [width, setWidth] = useState(windowWidth);
-    const [height, setHeight] = useState(windowHeight);
-
-    useEffect(() => {
-        setWidth(windowWidth);
-    }, [windowWidth]);
-
-    useCustomEvent('force-width', (data: Json) => {
-        setWidth(data.width);
-    });
-
-    useCustomEvent('force-height', (data: Json) => {
-        setHeight(data.height);
-    });
+    const { width, height } = useWindowSize();
+    const [mode, setMode] = useState<WidthMode>('none');
 
     useCustomEvent('force-dimensions-mobile', () => {
-        setWidth(380);
-        setHeight(765);
+        setMode('mobile');
     });
 
     useCustomEvent('force-dimensions-desktop', () => {
-        setWidth(1440);
-        setHeight(940);
+        setMode('desktop');
     });
 
     useCustomEvent('force-dimensions-clear', () => {
-        setWidth(windowWidth);
-        setHeight(windowHeight);
+        setMode('none');
     });
 
-    return { width, height };
+    const output = useMemo(() => {
+        if (mode === 'none') {
+            return {
+                width,
+                height,
+            };
+        } else if (mode === 'mobile') {
+            return {
+                width: 380,
+                height: 765,
+            };
+        } else if (mode === 'desktop') {
+            return {
+                width: 1440,
+                height: 940,
+            };
+        }
+    }, [mode, width, height]);
+
+    return output as { width: number; height: number };
 }

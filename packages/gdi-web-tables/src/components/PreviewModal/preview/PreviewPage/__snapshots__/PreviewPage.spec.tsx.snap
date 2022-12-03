@@ -2,8 +2,8 @@
 
 exports[`PreviewPage snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR PreviewPage-container"
-  data-testid="PreviewPage-container"
+  className="sc-bczRLJ WtYQR PreviewPage-wrapper"
+  data-testid="PreviewPage-wrapper"
 >
   PreviewPage
 </div>

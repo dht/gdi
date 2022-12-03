@@ -22,7 +22,7 @@ describe('BigAutoComplete', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('BigAutoComplete-container');
+        expect(containerClassName).toContain('BigAutoComplete-wrapper');
         expect(innerText).toBe(label);
     });
 

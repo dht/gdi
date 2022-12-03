@@ -1,11 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { ArticleEditorBreadcrumbs, ArticleEditorBreadcrumbsProps } from './ArticleEditorBreadcrumbs';
+import {
+    ArticleEditorBreadcrumbs,
+    ArticleEditorBreadcrumbsProps,
+} from './ArticleEditorBreadcrumbs';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticleEditorBreadcrumbsDriver extends BaseComponentDriver {
-    private props: Partial<ArticleEditorBreadcrumbsProps> = {
-    };
+    private props: Partial<ArticleEditorBreadcrumbsProps> = {};
 
     constructor() {
         super('ArticleEditorBreadcrumbs');
@@ -13,15 +15,23 @@ export class ArticleEditorBreadcrumbsDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ArticleEditorBreadcrumbs {...(this.props as ArticleEditorBreadcrumbsProps)} />);
+            render(
+                <ArticleEditorBreadcrumbs
+                    {...(this.props as ArticleEditorBreadcrumbsProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ArticleEditorBreadcrumbs {...(this.props as ArticleEditorBreadcrumbsProps)} />);
+            return this.snapshot(
+                <ArticleEditorBreadcrumbs
+                    {...(this.props as ArticleEditorBreadcrumbsProps)}
+                />
+            );
         },
     };
 
@@ -34,10 +44,10 @@ export class ArticleEditorBreadcrumbsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

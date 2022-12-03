@@ -22,7 +22,7 @@ describe('BkGrid', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('BkGrid-container');
+        expect(containerClassName).toContain('BkGrid-wrapper');
         expect(innerText).toBe(label);
     });
 

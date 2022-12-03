@@ -41,13 +41,13 @@ export function Tester(props: TesterProps) {
     const { backgroundImageUrl, imageUrl, href } = extra;
 
     return (
-        <Container
+        <Wrapper
             className='Tester-container'
             data-testid='Tester-container'
             colors={colors}
             imageUrl={backgroundImageUrl}
         >
-            <Wrapper>
+            <Container>
                 <Details>
                     <H1>{header}</H1>
                     <Actions>
@@ -59,8 +59,8 @@ export function Tester(props: TesterProps) {
                 <ImageWrapper>
                     <Image src={imageUrl} />
                 </ImageWrapper>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

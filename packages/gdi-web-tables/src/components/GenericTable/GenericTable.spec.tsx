@@ -22,7 +22,7 @@ describe('GenericTable', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('GenericTable-container');
+        expect(containerClassName).toContain('GenericTable-wrapper');
         expect(innerText).toBe(label);
     });
 

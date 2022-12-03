@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, TimeBig, Units } from './Duration.style';
+import { Wrapper, TimeBig, Units } from './Duration.style';
 import { intervalToDuration } from '@gdi/language';
 import classnames from 'classnames';
 
@@ -42,15 +42,15 @@ export function Duration(props: DurationProps) {
         );
     }
 
-    const className = classnames('Duration-container', props.className);
+    const className = classnames('Duration-wrapper', props.className);
 
     return (
-        <Container className={className} data-testid='Duration-container'>
+        <Wrapper className={className} data-testid='Duration-wrapper'>
             {renderDays()}
             {renderHours()}
             <TimeBig>{minutes}</TimeBig>
             <Units>m</Units>
-        </Container>
+        </Wrapper>
     );
 }
 

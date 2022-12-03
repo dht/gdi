@@ -4,8 +4,7 @@ import { Tagger, TaggerProps } from './Tagger';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TaggerDriver extends BaseComponentDriver {
-    private props: Partial<TaggerProps> = {
-    };
+    private props: Partial<TaggerProps> = {};
 
     constructor() {
         super('Tagger');
@@ -17,7 +16,7 @@ export class TaggerDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class TaggerDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

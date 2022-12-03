@@ -1,8 +1,16 @@
 import React, { useContext } from 'react';
-import { A, Column, Container, Copy, Li, Ul, Wrapper } from './Footer.style';
-import { SiteContext, useDataset } from '@gdi/engine';
-
-export const id = 'com.usegdi.templates.starter.footer-basic';
+import { useDataset, SiteContext } from '@gdi/engine';
+import {
+    A,
+    Column,
+    Container,
+    Copy,
+    Li,
+    Row,
+    Ul,
+    Wrapper,
+} from './Footer.style';
+export const id = 'com.usegdi.templates.gdi.footer-basic';
 
 export type FooterProps = {
     strings: FooterStrings;
@@ -21,7 +29,7 @@ export type FooterExtra = {
 };
 
 export function Footer(props: FooterProps) {
-    const { strings, colors, extra } = props;
+    const { strings, extra } = props;
     const { text } = strings;
     const { linksDatasetId = '' } = extra;
 
@@ -51,15 +59,20 @@ export function Footer(props: FooterProps) {
     function renderLinks() {
         return links.map((link: Json) => renderLink(link));
     }
+
     return (
-        <Container className='Footer-container' data-testid='Footer-container'>
-            <Wrapper>
-                <Column>&copy; {text}</Column>
-                <Column>
-                    <Ul>{renderLinks()}</Ul>
-                </Column>
-            </Wrapper>
-        </Container>
+        <Wrapper className='Footer-wrapper' data-testid='Footer-wrapper'>
+            <Container>
+                <Row>
+                    <Column>
+                        <Copy>&copy; {text}</Copy>
+                    </Column>
+                    <Column>
+                        <Ul>{renderLinks()}</Ul>
+                    </Column>
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

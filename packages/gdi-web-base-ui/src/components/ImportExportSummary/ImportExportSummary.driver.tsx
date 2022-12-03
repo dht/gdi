@@ -1,11 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { ImportExportSummary, ImportExportSummaryProps } from './ImportExportSummary';
+import {
+    ImportExportSummary,
+    ImportExportSummaryProps,
+} from './ImportExportSummary';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ImportExportSummaryDriver extends BaseComponentDriver {
-    private props: Partial<ImportExportSummaryProps> = {
-    };
+    private props: Partial<ImportExportSummaryProps> = {};
 
     constructor() {
         super('ImportExportSummary');
@@ -13,15 +15,23 @@ export class ImportExportSummaryDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ImportExportSummary {...(this.props as ImportExportSummaryProps)} />);
+            render(
+                <ImportExportSummary
+                    {...(this.props as ImportExportSummaryProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ImportExportSummary {...(this.props as ImportExportSummaryProps)} />);
+            return this.snapshot(
+                <ImportExportSummary
+                    {...(this.props as ImportExportSummaryProps)}
+                />
+            );
         },
     };
 
@@ -34,10 +44,10 @@ export class ImportExportSummaryDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

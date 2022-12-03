@@ -1,11 +1,12 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     padding-top: 70px;
     padding-bottom: 150px;
     background-color: white;
+    color: #333;
 `;
 
 export const H2 = styled.h2`
@@ -19,33 +20,15 @@ export const H2 = styled.h2`
     }
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 1200px;
-    margin: 0 auto;
-    padding: 50px 0;
-    color: #333;
-
-    ${mobile(css`
-        width: 99vw;
-        margin: 0;
-        padding: 0 20px;
-    `)}
+export const Container = styled(Grid.Container)`
+    ${mobile(css``)}
 `;
 
-export const Row = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-
-    ${mobile(css`
-        flex-direction: column;
-    `)}
+export const Row = styled(Grid.Row)`
+    ${mobile(css``)}
 `;
 
-export const Column = styled.div`
-    flex: 1;
-`;
+export const Column = styled(Grid.Column)``;
 
 export const H3 = styled.h3`
     font-size: 28px;

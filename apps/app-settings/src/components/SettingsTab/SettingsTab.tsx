@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { invokeEvent } from 'shared-base';
-import { Container, Tab } from './SettingsTab.style';
+import { Wrapper, Tab } from './SettingsTab.style';
 import classnames from 'classnames';
 
 export type TabData = {
@@ -44,12 +44,12 @@ export function SettingsTab(props: SettingsTabProps) {
     }
 
     return (
-        <Container
-            className='SettingsTab-container'
-            data-testid='SettingsTab-container'
+        <Wrapper
+            className='SettingsTab-wrapper'
+            data-testid='SettingsTab-wrapper'
         >
             {renderTabs()}
-        </Container>
+        </Wrapper>
     );
 }
 

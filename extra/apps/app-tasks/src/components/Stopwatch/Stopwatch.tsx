@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Seconds, TimeBig, Unit } from './Stopwatch.style';
+import { Wrapper, Seconds, TimeBig, Unit } from './Stopwatch.style';
 import { lz } from '../../utils/numbers';
 
 export type StopwatchProps = {
@@ -24,16 +24,13 @@ export function Stopwatch(props: StopwatchProps) {
     }
 
     return (
-        <Container
-            className='Stopwatch-container'
-            data-testid='Stopwatch-container'
-        >
+        <Wrapper className='Stopwatch-wrapper' data-testid='Stopwatch-wrapper'>
             {renderHours()}
             <TimeBig>{minutes}</TimeBig>
             <Unit>m</Unit>
             <Seconds>{lz(seconds)}</Seconds>
             <Unit>s</Unit>
-        </Container>
+        </Wrapper>
     );
 }
 

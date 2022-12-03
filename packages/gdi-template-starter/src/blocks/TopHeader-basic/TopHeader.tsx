@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, Flex, Wrapper } from './TopHeader.style';
+import { Container, Flex, Row, Wrapper } from './TopHeader.style';
 import { SiteContext } from '@gdi/engine';
 import TopMenu from '../../components/TopMenu/TopMenu';
 import Logo from '../../components/Logo/Logo';
@@ -34,16 +34,18 @@ export function TopHeader(props: TopHeaderProps) {
     };
 
     return (
-        <Container
+        <Wrapper
             className='TopHeader-container'
             data-testid='TopHeader-container'
         >
-            <Wrapper>
-                <Logo url={logoUrl} />
-                <Flex />
-                <TopMenu items={menuItems} onClick={onClick('topMenu')} />
-            </Wrapper>
-        </Container>
+            <Container>
+                <Row center>
+                    <Logo url={logoUrl} />
+                    <Flex />
+                    <TopMenu items={menuItems} onClick={onClick('topMenu')} />
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Sales.style';
+import { Wrapper } from './Sales.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -21,7 +21,7 @@ export function Sales(props: SalesProps) {
     const { t } = useLanguage();
 
     return (
-        <Container className='Sales-container' data-testid='Sales-container'>
+        <Wrapper className='Sales-wrapper' data-testid='Sales-wrapper'>
             <Multi
                 id='Sales'
                 itemType='sale'
@@ -33,7 +33,7 @@ export function Sales(props: SalesProps) {
                 allOptions={allOptions}
                 hideParts={['preview']}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

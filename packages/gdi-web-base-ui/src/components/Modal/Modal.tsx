@@ -6,13 +6,7 @@ import {
     ContextualMenu,
     IDragOptions,
 } from '@fluentui/react';
-import {
-    Header,
-    Title,
-    HeaderActions,
-    Content,
-    Container,
-} from './Modal.style';
+import { Header, Title, HeaderActions, Content, Wrapper } from './Modal.style';
 
 export type ModalProps = {
     title?: string;
@@ -70,12 +64,12 @@ export function Modal(props: ModalProps) {
                     border: '3px solid gold',
                 },
             }}
-            containerClassName='Modal-container'
+            wrapperClassName='Modal-wrapper'
             dragOptions={dragOptions}
             isDarkOverlay={true}
             isBlocking={false}
         >
-            <Container ref={ref}>
+            <Wrapper ref={ref}>
                 <Header className='header'>
                     <Title>{title}</Title>
                     <HeaderActions>
@@ -85,7 +79,7 @@ export function Modal(props: ModalProps) {
                     </HeaderActions>
                 </Header>
                 <Content>{props.children}</Content>
-            </Container>
+            </Wrapper>
         </ModalFluent>
     );
 }

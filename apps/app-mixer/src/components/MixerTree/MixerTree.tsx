@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { Icon, IconButton, Toolbar, Panel } from '@gdi/web-ui';
 import {
     Column,
-    Container,
+    Wrapper,
     ContainerInstances,
     Info,
     Instance,
@@ -124,7 +124,7 @@ export function MixerTree(props: MixerTreeProps) {
         );
     }
 
-    const className = classnames('MixerTree-container', {
+    const className = classnames('MixerTree-wrapper', {
         open: isOpen,
     });
 
@@ -135,7 +135,7 @@ export function MixerTree(props: MixerTreeProps) {
             title='Versions'
             onClose={callbacks.onClose}
         >
-            <Container className={className} data-testid='MixerTree-container'>
+            <Wrapper className={className} data-testid='MixerTree-wrapper'>
                 <Content className='content'>
                     <Column className='column'>
                         {renderDescription()}
@@ -152,7 +152,7 @@ export function MixerTree(props: MixerTreeProps) {
                 <Toggle onClick={toggleOpen}>
                     <Icon className='toggle-icon' iconName='chevronLeft' />
                 </Toggle>
-            </Container>
+            </Wrapper>
         </Panel>
     );
 }

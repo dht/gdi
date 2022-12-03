@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { Bk, Container, ContainerBk, Fg } from './Triangles.style';
+import { Bk, Wrapper, ContainerBk, Fg } from './Triangles.style';
 import trianglify from 'trianglify';
 import allPalettes from './Triangles.colors';
 import { useMeasure } from 'react-use';
@@ -16,8 +16,8 @@ export function TrianglesBk(props: TrianglesBkProps) {
 
     return (
         <ContainerBk
-            className='TrianglesBk-container'
-            data-testid='TrianglesBk-container'
+            className='TrianglesBk-wrapper'
+            data-testid='TrianglesBk-wrapper'
             ref={ref}
         >
             <Bk>
@@ -90,11 +90,11 @@ export function Triangles(props: TrianglesProps) {
     }
 
     return (
-        <Container
-            className='Triangles-container'
-            data-testid='Triangles-container'
+        <Wrapper
+            className='Triangles-wrapper'
+            data-testid='Triangles-wrapper'
             dangerouslySetInnerHTML={{ __html: result }}
-        ></Container>
+        ></Wrapper>
     );
 }
 export default Triangles;

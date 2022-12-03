@@ -13,7 +13,7 @@ describe('PhoneInput', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('PhoneInput-container');
+        expect(containerClassName).toBe('PhoneInput-wrapper');
     });
 });
 

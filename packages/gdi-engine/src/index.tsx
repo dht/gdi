@@ -6,4 +6,9 @@ export { LibraryBuilder } from './builders/LibraryBuilder';
 export { SiteContext, SiteContextProvider } from './context/Site.context';
 export { useTemplates } from './hooks/useTemplates';
 export { useDataset } from './hooks/useDataset';
+export { Grid } from './grid';
+export { Column } from './grid/Column/Column';
 export * from './types';
+
+export { mobile } from './grid/helpers';
+export { css } from 'styled-components';

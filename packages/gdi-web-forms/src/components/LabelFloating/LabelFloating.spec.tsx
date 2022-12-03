@@ -13,7 +13,7 @@ describe('LabelFloating', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('LabelFloating-container');
+        expect(containerClassName).toBe('LabelFloating-wrapper');
     });
 });
 

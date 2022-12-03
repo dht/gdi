@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState } from 'react';
 import {
     Actions,
-    Container,
+    Wrapper,
     Content,
     P,
     Warning,
@@ -213,7 +213,7 @@ export function Prompt(props: PromptProps) {
 
     const focusOnClassName = focusOnSubmit ? '.ms-Button--primary' : '';
 
-    const className = classnames('Prompt-container', flavour, {});
+    const className = classnames('Prompt-wrapper', flavour, {});
     const classNameContent = classnames(flavour, {});
 
     if (flavour === 'pie') {
@@ -228,14 +228,14 @@ export function Prompt(props: PromptProps) {
             onClose={onClose}
             focusOnClassName={focusOnClassName}
         >
-            <Container
+            <Wrapper
                 className={className}
-                data-testid='Prompt-container'
+                data-testid='Prompt-wrapper'
                 ref={ref}
             >
                 <Content className={classNameContent}>{renderInner()}</Content>
                 {renderActions()}
-            </Container>
+            </Wrapper>
         </Modal>
     );
 }

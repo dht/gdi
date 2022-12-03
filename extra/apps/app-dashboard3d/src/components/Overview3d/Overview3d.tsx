@@ -6,7 +6,7 @@ import { useMeasure } from 'react-use';
 import {
     Bk,
     Column,
-    Container,
+    Wrapper,
     Content,
     Fg,
     Header,
@@ -36,9 +36,9 @@ export function Overview3d(props: Overview3dProps) {
     }
 
     return (
-        <Container
-            className='Overview3d-container'
-            data-testid='Overview3d-container'
+        <Wrapper
+            className='Overview3d-wrapper'
+            data-testid='Overview3d-wrapper'
             ref={ref}
         >
             <TrianglesBk onLoad={onLoadTriangles}>
@@ -63,7 +63,7 @@ export function Overview3d(props: Overview3dProps) {
                     {width} x {height}px
                 </Resolution>
             </TrianglesBk>
-        </Container>
+        </Wrapper>
     );
 }
 

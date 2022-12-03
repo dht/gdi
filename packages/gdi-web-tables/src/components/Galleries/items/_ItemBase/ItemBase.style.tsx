@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div.attrs<{
+export const Wrapper = styled.div.attrs<{
     style: React.CSSProperties;
     backgroundColor?: string;
 }>((props) => ({

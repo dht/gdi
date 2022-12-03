@@ -4,8 +4,8 @@ import { Icon } from '@gdi/web-ui';
 import {
     Container,
     IconWrapper,
-    Number,
-    Numbers,
+    Column,
+    Row,
     Title,
     Value,
     Wrapper,
@@ -37,13 +37,13 @@ export function MyNumbers(props: MyNumbersProps) {
     function renderNumber(number: Json) {
         const { iconName, value, title } = number;
         return (
-            <Number key={number.id} className='number'>
+            <Column key={number.id} className='number'>
                 <IconWrapper>
                     <Icon iconName={iconName} />
                 </IconWrapper>
                 <Value>{value}</Value>
                 <Title>{title}</Title>
-            </Number>
+            </Column>
         );
     }
 
@@ -52,15 +52,15 @@ export function MyNumbers(props: MyNumbersProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='MyNumbers-container'
             data-testid='MyNumbers-container'
             colors={colors}
         >
-            <Wrapper>
-                <Numbers>{renderNumbers()}</Numbers>
-            </Wrapper>
-        </Container>
+            <Container>
+                <Row>{renderNumbers()}</Row>
+            </Container>
+        </Wrapper>
     );
 }
 

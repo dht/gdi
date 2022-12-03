@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     color: white;

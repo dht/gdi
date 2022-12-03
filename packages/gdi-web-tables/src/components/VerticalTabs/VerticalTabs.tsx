@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Column,
-    Container,
+    Wrapper,
     Tab,
     Color,
     Title,
@@ -42,12 +42,12 @@ export function VerticalTabs(props: VerticalTabsProps) {
     }
 
     return (
-        <Container
-            className='VerticalTabs-container'
-            data-testid='VerticalTabs-container'
+        <Wrapper
+            className='VerticalTabs-wrapper'
+            data-testid='VerticalTabs-wrapper'
         >
             {renderTabs()}
-        </Container>
+        </Wrapper>
     );
 }
 

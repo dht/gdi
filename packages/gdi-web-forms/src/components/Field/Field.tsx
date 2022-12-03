@@ -6,7 +6,7 @@ import {
     IFormField,
     LabelSize,
 } from '../../types';
-import { Container, PaddingTop, Row } from './Field.style';
+import { Wrapper, PaddingTop, Row } from './Field.style';
 import { Label } from '../Label/Label';
 import {
     DateInput as DateUI,
@@ -63,10 +63,10 @@ export function Field(props: FieldProps) {
     }
 
     return (
-        <Container className='Field-container' data-testid='Field-container'>
+        <Wrapper className='Field-wrapper' data-testid='Field-wrapper'>
             {renderLabel()}
             <Cmp {...props} />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './SheetCell.style';
+import { Wrapper } from './SheetCell.style';
 import classnames from 'classnames';
 import { Coords } from '../../types';
 
@@ -15,19 +15,14 @@ export type SheetCellProps = {
 export function SheetCell(props: SheetCellProps) {
     const { value, readOnly } = props;
 
-    const className = classnames(
-        'SheetCell-container',
-        'cell',
-        props.className,
-        {
-            readOnly,
-        }
-    );
+    const className = classnames('SheetCell-wrapper', 'cell', props.className, {
+        readOnly,
+    });
 
     return (
-        <Container className={className} data-testid='SheetCell-container'>
+        <Wrapper className={className} data-testid='SheetCell-wrapper'>
             {value}
-        </Container>
+        </Wrapper>
     );
 }
 

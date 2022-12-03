@@ -4,8 +4,7 @@ import { Spinner, SpinnerProps } from './Spinner';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SpinnerDriver extends BaseComponentDriver {
-    private props: Partial<SpinnerProps> = {
-    };
+    private props: Partial<SpinnerProps> = {};
 
     constructor() {
         super('Spinner');
@@ -17,7 +16,7 @@ export class SpinnerDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class SpinnerDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

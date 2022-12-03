@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Houston.style';
+import { Wrapper } from './Houston.style';
 import ReactFlow, {
     addEdge,
     MiniMap as MiniMapFlow,
@@ -26,9 +26,9 @@ export function Houston(_props: HoustonProps) {
         setEdges((eds: any) => addEdge(params, eds));
 
     return (
-        <Container
-            className='Houston-container'
-            data-testid='Houston-container'
+        <Wrapper
+            className='Houston-wrapper'
+            data-testid='Houston-wrapper'
         >
             <ReactFlow
                 nodes={nodes}
@@ -44,7 +44,7 @@ export function Houston(_props: HoustonProps) {
                 <MiniMap />
                 <Background color='#ccc' gap={16} />
             </ReactFlow>
-        </Container>
+        </Wrapper>
     );
 }
 

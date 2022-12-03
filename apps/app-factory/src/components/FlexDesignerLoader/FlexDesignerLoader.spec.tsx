@@ -19,10 +19,10 @@ describe('FlexDesignerLoader', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('FlexDesignerLoader-container');
+        expect(wrapperClassName).toContain('FlexDesignerLoader-wrapper');
         expect(innerText).toBe(label);
     });
 

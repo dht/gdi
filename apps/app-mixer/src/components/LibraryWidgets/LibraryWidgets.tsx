@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './LibraryWidgets.style';
+import { Wrapper } from './LibraryWidgets.style';
 import { WidgetGallery } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 
@@ -19,9 +19,9 @@ export function LibraryWidgets(props: LibraryWidgetsProps) {
     const crudDefinitions = useCrudDefinitions('widget');
 
     return (
-        <Container
-            className='LibraryWidgets-container'
-            data-testid='LibraryWidgets-container'
+        <Wrapper
+            className='LibraryWidgets-wrapper'
+            data-testid='LibraryWidgets-wrapper'
         >
             <WidgetGallery
                 definitions={crudDefinitions}
@@ -30,7 +30,7 @@ export function LibraryWidgets(props: LibraryWidgetsProps) {
                 callbacks={callbacks}
                 hideParts={hideParts}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

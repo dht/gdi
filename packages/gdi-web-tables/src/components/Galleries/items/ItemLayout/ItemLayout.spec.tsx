@@ -22,7 +22,7 @@ describe('ItemLayout', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ItemLayout-container');
+        expect(containerClassName).toContain('ItemLayout-wrapper');
         expect(innerText).toBe(label);
     });
 

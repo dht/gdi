@@ -1,6 +1,6 @@
 import React from 'react';
 import Breadcrumbs, { IBreadcrumb } from '../Breadcrumbs/Breadcrumbs';
-import { Container, Content, BreadcrumbsWrapper } from './Uno.style';
+import { Wrapper, Content, BreadcrumbsWrapper } from './Uno.style';
 import { IUnoConfig, IUnoSection, Json } from '../../types';
 import { layouts } from '../UnoLayouts/UnoLayouts';
 import { sortBy } from 'shared-base';
@@ -39,15 +39,15 @@ export function Uno(props: UnoProps) {
         );
     }
 
-    const className = classnames('Uno-container', `palette-${paletteIndex}`);
+    const className = classnames('Uno-wrapper', `palette-${paletteIndex}`);
 
     return (
-        <Container className={className} data-testid='Uno-container'>
+        <Wrapper className={className} data-testid='Uno-wrapper'>
             <BreadcrumbsWrapper>
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
             </BreadcrumbsWrapper>
             <Content>{renderLayout()}</Content>
-        </Container>
+        </Wrapper>
     );
 }
 

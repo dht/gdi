@@ -13,7 +13,7 @@ describe('Slider', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Slider-container');
+        expect(containerClassName).toBe('Slider-wrapper');
     });
 });
 

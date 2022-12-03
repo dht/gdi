@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Item, Items, Thumb } from './IsoBrowser.style';
+import { Wrapper, Item, Items, Thumb } from './IsoBrowser.style';
 import { IAssets, IBuilding, IBuildings } from 'isokit';
 
 export type IsoBrowserProps = {
@@ -31,12 +31,12 @@ export function IsoBrowser(props: IsoBrowserProps) {
     }
 
     return (
-        <Container
-            className='IsoBrowser-container'
-            data-testid='IsoBrowser-container'
+        <Wrapper
+            className='IsoBrowser-wrapper'
+            data-testid='IsoBrowser-wrapper'
         >
             <Items>{renderBuildings()}</Items>
-        </Container>
+        </Wrapper>
     );
 }
 

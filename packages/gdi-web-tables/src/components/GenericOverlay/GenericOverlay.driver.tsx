@@ -4,8 +4,7 @@ import { GenericOverlay, GenericOverlayProps } from './GenericOverlay';
 import { BaseComponentDriver } from 'testing-base';
 
 export class GenericOverlayDriver extends BaseComponentDriver {
-    private props: Partial<GenericOverlayProps> = {
-    };
+    private props: Partial<GenericOverlayProps> = {};
 
     constructor() {
         super('GenericOverlay');
@@ -17,11 +16,13 @@ export class GenericOverlayDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<GenericOverlay {...(this.props as GenericOverlayProps)} />);
+            return this.snapshot(
+                <GenericOverlay {...(this.props as GenericOverlayProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class GenericOverlayDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

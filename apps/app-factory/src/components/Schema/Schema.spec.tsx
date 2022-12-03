@@ -19,10 +19,10 @@ describe('Schema', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Schema-container');
+        expect(wrapperClassName).toContain('Schema-wrapper');
         expect(innerText).toBe(label);
     });
 

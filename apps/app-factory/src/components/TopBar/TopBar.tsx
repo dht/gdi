@@ -3,7 +3,7 @@ import { Button, IconButton } from '@gdi/web-ui';
 import Tools from '../Tools/Tools';
 import { options as optionsFlex } from './TopBar.options.flex';
 import { options as optionsReset } from './TopBar.options.reset';
-import { Container, H1, MindTheGap, ToggleView } from './TopBar.style';
+import { Wrapper, H1, MindTheGap, ToggleView } from './TopBar.style';
 
 export type TopBarProps = {
     header: string;
@@ -88,10 +88,10 @@ export function TopBar(props: TopBarProps) {
     }
 
     return (
-        <Container className='TopBar-container' data-testid='TopBar-container'>
+        <Wrapper className='TopBar-wrapper' data-testid='TopBar-wrapper'>
             {props.children}
             {renderTools()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,14 +1,19 @@
-import styled, { css } from 'styled-components';
-import { ButtonBase, mobile } from '../Base.style';
+import styled from 'styled-components';
+import { ButtonBase } from '../../components/Button/Button.style';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     background-color: white;
     position: relative;
 `;
 
-export const Column = styled.div`
-    flex: 1;
+export const Container = styled(Grid.Container)`
+    padding: 100px 0;
+`;
 
+export const Row = styled(Grid.Row)``;
+
+export const Column = styled(Grid.Column)`
     ${mobile(css`
         &:last-child {
             display: none;
@@ -31,7 +36,7 @@ export const Demo = styled.div`
     width: 500px;
     position: absolute;
     bottom: -5px;
-    box-sizing: border-box;
+
     box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.15);
 `;
 
@@ -53,25 +58,4 @@ export const Button = styled(ButtonBase)`
         background-color: #e81b7b;
         color: white;
     }
-`;
-
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 100px 0 100px;
-    width: 1200px;
-    margin: 0 auto;
-    color: #334;
-    position: relative;
-
-    ${mobile(css`
-        width: 99vw;
-        flex-direction: column;
-        margin: 0;
-        text-align: center;
-        padding: 100px 0 120px;
-    `)}
 `;

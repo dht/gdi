@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { $CMPColors } from './$CMP';
 import { darken } from 'polished';
 
-export const Container = styled.div<{ colors: $CMPColors }>`
+export const Wrapper = styled.div<{ colors: $CMPColors }>`
     flex: 1;
     background-color: ${(props) => props.colors.background ?? '#1a7870'};
     height: 60vh;

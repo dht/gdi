@@ -13,7 +13,7 @@ describe('TaskTitle', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TaskTitle-container');
+        expect(containerClassName).toBe('TaskTitle-wrapper');
     });
 });
 

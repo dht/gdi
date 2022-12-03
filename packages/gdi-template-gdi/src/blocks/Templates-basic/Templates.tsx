@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, Wrapper, H2 } from './Templates.style';
+import { Wrapper, Container, H2 } from './Templates.style';
 import { LocalGallery } from '@gdi/web-ui';
 import { SiteContext, useDataset } from '@gdi/engine';
 
@@ -55,11 +55,8 @@ export function Templates(props: TemplatesProps) {
     }
 
     return (
-        <Container
-            className='Templates-container'
-            data-testid='Templates-container'
-        >
-            <Wrapper>
+        <Wrapper className='Templates-wrapper' data-testid='Templates-wrapper'>
+            <Container>
                 <H2 id='templates'>{header}</H2>
                 <LocalGallery
                     items={templates}
@@ -70,8 +67,8 @@ export function Templates(props: TemplatesProps) {
                     onView={onView}
                     onTagChange={onTagChange}
                 />
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

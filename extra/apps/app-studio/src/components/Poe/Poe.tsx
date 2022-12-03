@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Ear,
     ContextLine,
     Domain,
@@ -16,7 +16,7 @@ export function Poe(_props: PoeProps) {
     // const text = 'What is the temperature tomorrow?';
 
     return (
-        <Container className='Poe-container' data-testid='Poe-container'>
+        <Wrapper className='Poe-wrapper' data-testid='Poe-wrapper'>
             <ContextLine>
                 <Domain>office</Domain>
                 <Domain>freelancer</Domain>
@@ -27,7 +27,7 @@ export function Poe(_props: PoeProps) {
                 <Percent>94%</Percent>
                 <Listening />
             </SignalLine>
-        </Container>
+        </Wrapper>
     );
 }
 

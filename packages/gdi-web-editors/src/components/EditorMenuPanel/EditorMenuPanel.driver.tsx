@@ -4,8 +4,7 @@ import { EditorMenuPanel, EditorMenuPanelProps } from './EditorMenuPanel';
 import { BaseComponentDriver } from 'testing-base';
 
 export class EditorMenuPanelDriver extends BaseComponentDriver {
-    private props: Partial<EditorMenuPanelProps> = {
-    };
+    private props: Partial<EditorMenuPanelProps> = {};
 
     constructor() {
         super('EditorMenuPanel');
@@ -13,15 +12,19 @@ export class EditorMenuPanelDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<EditorMenuPanel {...(this.props as EditorMenuPanelProps)} />);
+            render(
+                <EditorMenuPanel {...(this.props as EditorMenuPanelProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<EditorMenuPanel {...(this.props as EditorMenuPanelProps)} />);
+            return this.snapshot(
+                <EditorMenuPanel {...(this.props as EditorMenuPanelProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class EditorMenuPanelDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

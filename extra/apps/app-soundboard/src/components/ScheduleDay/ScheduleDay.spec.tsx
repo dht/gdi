@@ -13,7 +13,7 @@ describe('ScheduleDay', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ScheduleDay-container');
+        expect(containerClassName).toBe('ScheduleDay-wrapper');
     });
 });
 

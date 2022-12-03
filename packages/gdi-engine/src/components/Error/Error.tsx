@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, P } from './Error.style';
+import { Wrapper, Header, P } from './Error.style';
 
 export type ErrorProps = {
     element: IElement;
@@ -10,10 +10,10 @@ export function Error(props: ErrorProps) {
     const { widgetId } = element;
 
     return (
-        <Container className='Error-container' data-testid='Error-container'>
+        <Wrapper className='Error-wrapper' data-testid='Error-wrapper'>
             <Header>Could not find widget {widgetId}</Header>
             <P>Install required dependencies</P>
-        </Container>
+        </Wrapper>
     );
 }
 

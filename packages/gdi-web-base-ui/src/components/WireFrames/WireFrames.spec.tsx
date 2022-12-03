@@ -22,7 +22,7 @@ describe('WireFrames', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('WireFrames-container');
+        expect(containerClassName).toContain('WireFrames-wrapper');
         expect(innerText).toBe(label);
     });
 

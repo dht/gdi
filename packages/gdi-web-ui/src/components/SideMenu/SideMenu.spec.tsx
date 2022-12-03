@@ -22,7 +22,7 @@ describe('SideMenu', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('SideMenu-container');
+        expect(containerClassName).toContain('SideMenu-wrapper');
         expect(innerText).toBe(label);
     });
 

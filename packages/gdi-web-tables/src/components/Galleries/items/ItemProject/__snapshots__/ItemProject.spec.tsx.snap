@@ -2,8 +2,8 @@
 
 exports[`ItemProject snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR ItemProject-container"
-  data-testid="ItemProject-container"
+  className="sc-bczRLJ WtYQR ItemProject-wrapper"
+  data-testid="ItemProject-wrapper"
 >
   ItemProject
 </div>

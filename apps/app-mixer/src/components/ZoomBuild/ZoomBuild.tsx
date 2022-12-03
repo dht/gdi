@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Container, Content } from './ZoomBuild.style';
+import { Wrapper, Content } from './ZoomBuild.style';
 import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
@@ -27,10 +27,7 @@ export function ZoomBuild(props: ZoomBuildProps) {
     }, []);
 
     return (
-        <Container
-            className='ZoomBuild-container'
-            data-testid='ZoomBuild-container'
-        >
+        <Wrapper className='ZoomBuild-wrapper' data-testid='ZoomBuild-wrapper'>
             <ZoomBuildBar
                 widget={widget}
                 onToggleMobile={props.onToggleMobile}
@@ -47,7 +44,7 @@ export function ZoomBuild(props: ZoomBuildProps) {
                     />
                 </Device>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

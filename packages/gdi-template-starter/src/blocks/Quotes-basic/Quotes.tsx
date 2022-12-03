@@ -2,7 +2,7 @@ import { Icon } from '@gdi/web-ui';
 import React, { useState, useContext } from 'react';
 import {
     Arrow,
-    Container,
+    Wrapper,
     ContainerArrows,
     ContainerDots,
     ContainerItem,
@@ -91,7 +91,7 @@ export function Quotes(props: QuotesProps) {
         );
     }
     return (
-        <Container className='Media-container' data-testid='Media-container'>
+        <Wrapper className='Media-container' data-testid='Media-container'>
             <Arrows
                 items={items}
                 activeIndex={activeIndex}
@@ -99,7 +99,7 @@ export function Quotes(props: QuotesProps) {
             />
             <Content>{renderItems()}</Content>
             <Dots items={items} activeIndex={activeIndex} onChange={onChange} />
-        </Container>
+        </Wrapper>
     );
 }
 

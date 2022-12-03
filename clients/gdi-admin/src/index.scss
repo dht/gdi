@@ -17,6 +17,13 @@ html {
     min-height: 100%;
     display: flex;
     scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 body {
@@ -32,11 +39,11 @@ body {
     }
 
     &.hide-menu {
-        .SideMenu-container {
+        .SideMenu-wrapper {
             display: none;
         }
 
-        .AppContainer-container {
+        .AppContainer-wrapper {
             padding-left: 0;
             padding-right: 0;
         }
@@ -84,7 +91,7 @@ body {
     padding: 0;
 }
 
-.instance-container.transparent {
+.instance-wrapper.transparent {
     border-color: transparent;
 }
 

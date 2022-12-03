@@ -4,8 +4,7 @@ import { Knowledge, KnowledgeProps } from './Knowledge';
 import { BaseComponentDriver } from 'testing-base';
 
 export class KnowledgeDriver extends BaseComponentDriver {
-    private props: Partial<KnowledgeProps> = {
-    };
+    private props: Partial<KnowledgeProps> = {};
 
     constructor() {
         super('Knowledge');
@@ -17,11 +16,13 @@ export class KnowledgeDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Knowledge {...(this.props as KnowledgeProps)} />);
+            return this.snapshot(
+                <Knowledge {...(this.props as KnowledgeProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class KnowledgeDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

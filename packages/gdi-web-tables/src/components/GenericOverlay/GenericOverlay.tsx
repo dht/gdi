@@ -1,13 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Icon } from '@gdi/web-base-ui';
 import { IGalleryOptions, IOverlayConfig, IOverlayField } from '../../types';
-import {
-    Container,
-    Group,
-    Groups,
-    Row,
-    Selected,
-} from './GenericOverlay.style';
+import { Wrapper, Group, Groups, Row, Selected } from './GenericOverlay.style';
 import classnames from 'classnames';
 import OverlayField from '../OverlayField/OverlayField';
 import { GalleryContext } from '../../context/Gallery.context';
@@ -26,13 +20,9 @@ export function GenericOverlay(props: GenericOverlayProps) {
 
     const context = useContext(GalleryContext);
 
-    const className = classnames(
-        'GenericOverlay-container',
-        `item-${item.id}`,
-        {
-            selected: isSelected,
-        }
-    );
+    const className = classnames('GenericOverlay-wrapper', `item-${item.id}`, {
+        selected: isSelected,
+    });
 
     const style: React.CSSProperties = {
         margin: margin ?? 0,
@@ -79,10 +69,10 @@ export function GenericOverlay(props: GenericOverlayProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className={className}
             style={style}
-            data-testid='GenericOverlay-container'
+            data-testid='GenericOverlay-wrapper'
         >
             {renderGroups()}
             {isSelected && (
@@ -90,7 +80,7 @@ export function GenericOverlay(props: GenericOverlayProps) {
                     <Icon iconName='StatusCircleCheckmark' />
                 </Selected>
             )}
-        </Container>
+        </Wrapper>
     );
 }
 

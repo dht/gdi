@@ -4,8 +4,7 @@ import { KeyboardShortcuts, KeyboardShortcutsProps } from './KeyboardShortcuts';
 import { BaseComponentDriver } from 'testing-base';
 
 export class KeyboardShortcutsDriver extends BaseComponentDriver {
-    private props: Partial<KeyboardShortcutsProps> = {
-    };
+    private props: Partial<KeyboardShortcutsProps> = {};
 
     constructor() {
         super('KeyboardShortcuts');
@@ -13,15 +12,23 @@ export class KeyboardShortcutsDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<KeyboardShortcuts {...(this.props as KeyboardShortcutsProps)} />);
+            render(
+                <KeyboardShortcuts
+                    {...(this.props as KeyboardShortcutsProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<KeyboardShortcuts {...(this.props as KeyboardShortcutsProps)} />);
+            return this.snapshot(
+                <KeyboardShortcuts
+                    {...(this.props as KeyboardShortcutsProps)}
+                />
+            );
         },
     };
 
@@ -34,10 +41,10 @@ export class KeyboardShortcutsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

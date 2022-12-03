@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Avatar.style';
+import { Wrapper } from './Avatar.style';
 
 export type AvatarProps = {
     name: string;
@@ -29,16 +29,16 @@ export function Avatar(props: AvatarProps) {
     }
 
     return (
-        <Container
-            className='Avatar-container'
-            data-testid='Avatar-container'
+        <Wrapper
+            className='Avatar-wrapper'
+            data-testid='Avatar-wrapper'
             size={size}
             color={color}
             style={style}
             onClick={props.onClick}
         >
             {text}
-        </Container>
+        </Wrapper>
     );
 }
 

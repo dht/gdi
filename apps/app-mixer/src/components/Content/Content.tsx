@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Content.style';
+import { Wrapper } from './Content.style';
 import { Form } from '@gdi/web-ui';
 import { allDetails } from './meta/Content.details';
 
@@ -20,10 +20,7 @@ export function Content(props: ContentProps) {
     }
 
     return (
-        <Container
-            className='Content-container'
-            data-testid='Content-container'
-        >
+        <Wrapper className='Content-wrapper' data-testid='Content-wrapper'>
             <Form
                 config={formConfig}
                 data={formData}
@@ -32,7 +29,7 @@ export function Content(props: ContentProps) {
                 onChange={onChange}
                 allDetails={allDetails}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

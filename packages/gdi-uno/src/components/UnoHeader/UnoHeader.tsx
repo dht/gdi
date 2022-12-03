@@ -8,7 +8,7 @@ import {
     AuthorLine,
     Category,
     Column,
-    Container,
+    Wrapper,
     Divider,
     Downloads,
     H1,
@@ -47,10 +47,7 @@ export function UnoHeader(props: UnoHeaderProps) {
     ];
 
     return (
-        <Container
-            className='UnoHeader-container'
-            data-testid='UnoHeader-container'
-        >
+        <Wrapper className='UnoHeader-wrapper' data-testid='UnoHeader-wrapper'>
             <Column>{/* <Thumb src={thumbUrl} /> */}</Column>
             <Column flex>
                 <H1>{header}</H1>
@@ -70,7 +67,7 @@ export function UnoHeader(props: UnoHeaderProps) {
             <Column>
                 <UnoButton href={ctaUrl}>{ctaText}</UnoButton>
             </Column>
-        </Container>
+        </Wrapper>
     );
 }
 

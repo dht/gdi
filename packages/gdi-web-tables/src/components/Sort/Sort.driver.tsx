@@ -4,8 +4,7 @@ import { Sort, SortProps } from './Sort';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SortDriver extends BaseComponentDriver {
-    private props: Partial<SortProps> = {
-    };
+    private props: Partial<SortProps> = {};
 
     constructor() {
         super('Sort');
@@ -17,7 +16,7 @@ export class SortDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class SortDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

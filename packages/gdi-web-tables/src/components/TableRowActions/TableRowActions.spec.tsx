@@ -22,7 +22,7 @@ describe('TableRowActions', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('TableRowActions-container');
+        expect(containerClassName).toContain('TableRowActions-wrapper');
         expect(innerText).toBe(label);
     });
 

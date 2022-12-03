@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Coupons.style';
+import { Wrapper } from './Coupons.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -21,10 +21,7 @@ export function Coupons(props: CouponsProps) {
     const { t } = useLanguage();
 
     return (
-        <Container
-            className='Coupons-container'
-            data-testid='Coupons-container'
-        >
+        <Wrapper className='Coupons-wrapper' data-testid='Coupons-wrapper'>
             <Multi
                 id='Coupons'
                 itemType='coupon'
@@ -36,7 +33,7 @@ export function Coupons(props: CouponsProps) {
                 allOptions={allOptions}
                 hideParts={['preview']}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

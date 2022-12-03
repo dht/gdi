@@ -4,8 +4,7 @@ import { Card, CardProps } from './Card';
 import { BaseComponentDriver } from 'testing-base';
 
 export class CardDriver extends BaseComponentDriver {
-    private props: Partial<CardProps> = {
-    };
+    private props: Partial<CardProps> = {};
 
     constructor() {
         super('Card');
@@ -17,7 +16,7 @@ export class CardDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class CardDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

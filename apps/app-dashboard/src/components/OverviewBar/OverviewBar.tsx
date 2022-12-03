@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, H1 } from './OverviewBar.style';
+import { Wrapper, H1 } from './OverviewBar.style';
 import { Clock } from '../Clock/Clock';
 import { AccountSelector } from '@gdi/web-ui';
 import { useLanguage } from '@gdi/language';
@@ -14,16 +14,16 @@ export function OverviewBar(props: OverviewBarProps) {
     const { t } = useLanguage();
 
     return (
-        <Container
-            className='OverviewBar-container'
-            data-testid='OverviewBar-container'
+        <Wrapper
+            className='OverviewBar-wrapper'
+            data-testid='OverviewBar-wrapper'
         >
             <H1>{t('Overview')}</H1>
             <AccountSelector onClick={props.onAccountChange}>
                 {accountName}
             </AccountSelector>
             <Clock />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -13,7 +13,7 @@ describe('Layouts', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Layouts-container');
+        expect(containerClassName).toBe('Layouts-wrapper');
     });
 });
 

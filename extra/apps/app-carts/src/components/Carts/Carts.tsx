@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Carts.style';
+import { Wrapper } from './Carts.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,7 +19,7 @@ export function Carts(props: CartsProps) {
     const crudDefinitions = useCrudDefinitions('cart');
 
     return (
-        <Container className='Carts-container' data-testid='Carts-container'>
+        <Wrapper className='Carts-wrapper' data-testid='Carts-wrapper'>
             <Multi
                 id='Carts'
                 itemType='cart'
@@ -29,7 +29,7 @@ export function Carts(props: CartsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

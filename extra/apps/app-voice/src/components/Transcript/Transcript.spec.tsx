@@ -13,7 +13,7 @@ describe('Transcript', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Transcript-container');
+        expect(containerClassName).toBe('Transcript-wrapper');
     });
 });
 

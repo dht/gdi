@@ -4,8 +4,7 @@ import { SettingsTab, SettingsTabProps } from './SettingsTab';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SettingsTabDriver extends BaseComponentDriver {
-    private props: Partial<SettingsTabProps> = {
-    };
+    private props: Partial<SettingsTabProps> = {};
 
     constructor() {
         super('SettingsTab');
@@ -17,11 +16,13 @@ export class SettingsTabDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SettingsTab {...(this.props as SettingsTabProps)} />);
+            return this.snapshot(
+                <SettingsTab {...(this.props as SettingsTabProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SettingsTabDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

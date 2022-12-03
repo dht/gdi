@@ -1,43 +1,26 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { BaseButton } from '../../components/Base.style';
-import { mobile } from '../Base.style';
+import { mobile, Grid, css } from '@gdi/engine';
 
-export const Container = styled.div<{ imageUrl: string }>`
-    flex: 1;
-    background-color: #112;
-    position: relative;
-    padding: ${(props) => props.theme.vh(20)} 40px;
-    box-sizing: border-box;
-    display: flex;
-    --bk-light: #112;
+export const Wrapper = styled(Grid.Wrapper)`
+    height: 60vh;
     font-family: ${(props) => props.theme.fontFamily};
+    --bk-light: #112;
+    color: #ccd;
+    display: flex;
 
-    &::before {
-        background-image: url(${(props) => props.imageUrl});
-        background-size: cover;
-        background-position: bottom center;
-        background-attachment: fixed;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        filter: ;
-        filter: brightness(0.3) opacity(25%) blur(1px) contrast(110%);
+    > .content {
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        display: flex;
     }
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    display: flex;
+export const Container = styled(Grid.Container)`
     justify-content: center;
-    max-width: 1440px;
-    margin: 0 auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    flex: 1;
 
     ${mobile(css`
         margin: 0;

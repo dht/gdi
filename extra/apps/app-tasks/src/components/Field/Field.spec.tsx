@@ -13,7 +13,7 @@ describe('Field', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Field-container');
+        expect(containerClassName).toBe('Field-wrapper');
     });
 });
 

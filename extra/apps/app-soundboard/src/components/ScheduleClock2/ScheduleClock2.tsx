@@ -12,9 +12,9 @@ export function ScheduleClock2(props: ScheduleClock2Props) {
     const { weather, time } = props;
 
     return (
-        <Container
-            className='ScheduleClock2-container'
-            data-testid='ScheduleClock2-container'
+        <Wrapper
+            className='ScheduleClock2-wrapper'
+            data-testid='ScheduleClock2-wrapper'
         >
             {weather && (
                 <Weather
@@ -35,7 +35,7 @@ export function ScheduleClock2(props: ScheduleClock2Props) {
             <Clear onClick={() => props.changeDelta(0)} tabIndex='-1'>
                 <i className='material-icons'>autorenew</i>
             </Clear>
-        </Container>
+        </Wrapper>
     );
 }
 

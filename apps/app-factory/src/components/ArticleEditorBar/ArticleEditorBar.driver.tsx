@@ -4,8 +4,7 @@ import { ArticleEditorBar, ArticleEditorBarProps } from './ArticleEditorBar';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticleEditorBarDriver extends BaseComponentDriver {
-    private props: Partial<ArticleEditorBarProps> = {
-    };
+    private props: Partial<ArticleEditorBarProps> = {};
 
     constructor() {
         super('ArticleEditorBar');
@@ -13,15 +12,19 @@ export class ArticleEditorBarDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ArticleEditorBar {...(this.props as ArticleEditorBarProps)} />);
+            render(
+                <ArticleEditorBar {...(this.props as ArticleEditorBarProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ArticleEditorBar {...(this.props as ArticleEditorBarProps)} />);
+            return this.snapshot(
+                <ArticleEditorBar {...(this.props as ArticleEditorBarProps)} />
+            );
         },
     };
 
@@ -31,13 +34,14 @@ export class ArticleEditorBarDriver extends BaseComponentDriver {
             return this;
         },
     };
+    wrapperClassName;
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

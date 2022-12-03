@@ -19,10 +19,10 @@ describe('FactoryPanel', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('FactoryPanel-container');
+        expect(wrapperClassName).toContain('FactoryPanel-wrapper');
         expect(innerText).toBe(label);
     });
 

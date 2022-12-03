@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Input.style';
+import { Wrapper } from './Input.style';
 import { TextField } from '@fluentui/react';
 
 export type InputProps = {
@@ -54,7 +54,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
     }
 
     return (
-        <Container className='Input-container' data-testid='Input-container'>
+        <Wrapper className='Input-wrapper' data-testid='Input-wrapper'>
             <TextField
                 itemRef={ref}
                 autoComplete='off'
@@ -72,7 +72,7 @@ export const Input = React.forwardRef((props: InputProps, ref: any) => {
                     },
                 }}
             />
-        </Container>
+        </Wrapper>
     );
 });
 

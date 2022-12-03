@@ -8,7 +8,7 @@ import { upperFirst } from 'shared-base';
 import './SideMenu.scss';
 import { sortBy } from 'shared-base';
 import {
-    Container,
+    Wrapper,
     Content,
     Group,
     GroupTitle,
@@ -127,13 +127,13 @@ export function SideMenu(props: SideMenuProps) {
         return groups.map((group, index) => renderGroup(group, index));
     }
 
-    const className = classnames('SideMenu-container', {
+    const className = classnames('SideMenu-wrapper', {
         slim,
         rtl: isRtl,
     });
 
     return (
-        <Container className={className}>
+        <Wrapper className={className}>
             <Header className='header'>
                 <Logo small={slim} onClick={toggleSlim} />
                 <Icon
@@ -148,7 +148,7 @@ export function SideMenu(props: SideMenuProps) {
             )}
             {props.userMenu}
             {slim && props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

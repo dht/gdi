@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './AccountTag.style';
+import { Wrapper } from './AccountTag.style';
 
 export type AccountTagProps = {
     children?: string;
@@ -8,13 +8,13 @@ export type AccountTagProps = {
 
 export function AccountTag(props: AccountTagProps) {
     return (
-        <Container
-            className='AccountTag-container'
-            data-testid='AccountTag-container'
+        <Wrapper
+            className='AccountTag-wrapper'
+            data-testid='AccountTag-wrapper'
             onClick={props.onClick}
         >
             {props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

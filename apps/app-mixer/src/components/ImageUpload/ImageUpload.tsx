@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './ImageUpload.style';
+import { Wrapper } from './ImageUpload.style';
 import { formConfig as config } from './meta/ImageUpload.form';
 import { allDetails } from './meta/ImageUpload.details';
 import { Form } from '@gdi/web-ui';
@@ -30,9 +30,9 @@ export function ImageUpload(props: ImageUploadProps) {
     }
 
     return (
-        <Container
-            className='ImageUpload-container'
-            data-testid='ImageUpload-container'
+        <Wrapper
+            className='ImageUpload-wrapper'
+            data-testid='ImageUpload-wrapper'
         >
             <Form
                 config={config}
@@ -44,7 +44,7 @@ export function ImageUpload(props: ImageUploadProps) {
                 }}
                 allDetails={allDetails}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

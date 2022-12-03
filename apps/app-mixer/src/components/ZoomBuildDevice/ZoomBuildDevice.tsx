@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './ZoomBuildDevice.style';
+import { Wrapper } from './ZoomBuildDevice.style';
 
 export type ZoomBuildDeviceProps = {};
 
 export function ZoomBuildDevice(_props: ZoomBuildDeviceProps) {
     return (
-        <Container className="ZoomBuildDevice-container" data-testid="ZoomBuildDevice-container">
+        <Wrapper
+            className='ZoomBuildDevice-wrapper'
+            data-testid='ZoomBuildDevice-wrapper'
+        >
             ZoomBuildDevice
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { ItemCart, ItemCartProps } from './ItemCart';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemCartDriver extends BaseComponentDriver {
-    private props: Partial<ItemCartProps> = {
-    };
+    private props: Partial<ItemCartProps> = {};
 
     constructor() {
         super('ItemCart');
@@ -17,11 +16,13 @@ export class ItemCartDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemCart {...(this.props as ItemCartProps)} />);
+            return this.snapshot(
+                <ItemCart {...(this.props as ItemCartProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemCartDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

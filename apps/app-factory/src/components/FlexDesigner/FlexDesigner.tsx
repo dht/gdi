@@ -5,13 +5,7 @@ import { findRoot } from '../../utils/flex';
 import { FlexDesignerLoader } from '../FlexDesignerLoader/FlexDesignerLoader';
 import { IFlexEntity } from '@gdi/store-factory';
 import { sortBy } from 'shared-base';
-import {
-    Container,
-    Content,
-    Item,
-    ItemTitle,
-    Wrapper,
-} from './FlexDesigner.style';
+import { Wrapper, Content, Item, ItemTitle } from './FlexDesigner.style';
 import {
     useArrows,
     useDelete,
@@ -122,9 +116,9 @@ export function FlexDesigner(props: FlexDesignerProps) {
         });
 
         return (
-            <Container key={entity.id} className={className} style={style}>
+            <Wrapper key={entity.id} className={className} style={style}>
                 {renderEntities(entity.id)}
-            </Container>
+            </Wrapper>
         );
     }
 
@@ -188,8 +182,8 @@ export function FlexDesigner(props: FlexDesignerProps) {
 
     return (
         <Wrapper
-            className='FlexDesigner-container'
-            data-testid='FlexDesigner-container'
+            className='FlexDesigner-wrapper'
+            data-testid='FlexDesigner-wrapper'
         >
             <Content>{renderContainer(rootItem)}</Content>
         </Wrapper>

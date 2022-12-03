@@ -22,7 +22,7 @@ describe('OverviewBar', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('OverviewBar-container');
+        expect(containerClassName).toContain('OverviewBar-wrapper');
         expect(innerText).toBe(label);
     });
 

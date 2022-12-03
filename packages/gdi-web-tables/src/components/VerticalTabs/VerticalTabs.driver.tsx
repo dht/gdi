@@ -4,8 +4,7 @@ import { VerticalTabs, VerticalTabsProps } from './VerticalTabs';
 import { BaseComponentDriver } from 'testing-base';
 
 export class VerticalTabsDriver extends BaseComponentDriver {
-    private props: Partial<VerticalTabsProps> = {
-    };
+    private props: Partial<VerticalTabsProps> = {};
 
     constructor() {
         super('VerticalTabs');
@@ -17,11 +16,13 @@ export class VerticalTabsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<VerticalTabs {...(this.props as VerticalTabsProps)} />);
+            return this.snapshot(
+                <VerticalTabs {...(this.props as VerticalTabsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class VerticalTabsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

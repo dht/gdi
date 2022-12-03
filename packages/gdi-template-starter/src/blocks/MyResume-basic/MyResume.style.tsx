@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { MyResumeColors } from './MyResume';
-import { darken } from 'polished';
-import { mobile } from '../Base.style';
+import { mobile, Grid, css } from '@gdi/engine';
 
-export const Container = styled.div<{ colors: MyResumeColors }>`
+export const Wrapper = styled.div<{ colors: MyResumeColors }>`
     flex: 1;
     background-color: ${(props) => props.colors.background || '#112'};
     display: flex;
     padding: 100px 0 90px;
     flex-direction: column;
     font-family: ${(props) => props.theme.fontFamily};
+    color: #ccd;
 
     ${mobile(css`
         height: auto;
@@ -18,20 +18,9 @@ export const Container = styled.div<{ colors: MyResumeColors }>`
     `)}
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    display: flex;
+export const Container = styled(Grid.Container)`
     flex-direction: column;
     align-items: center;
-    width: 1440px;
-    margin: 0 auto;
-    justify-content: center;
-    flex: 1;
-
-    ${mobile(css`
-        flex-direction: column;
-        width: auto;
-    `)}
 `;
 
 export const H2 = styled.h2`
@@ -62,8 +51,7 @@ export const Description = styled.p`
         text-align: center;
     `)}
 `;
-
-export const ResumeRow = styled.div`
+export const Row = styled(Grid.Row)`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -76,7 +64,7 @@ export const ResumeRow = styled.div`
     `)}
 `;
 
-export const ResumeColumn = styled.div`
+export const Column = styled(Grid.Column)`
     flex: 1;
     margin: 30px 50px;
     display: flex;
@@ -143,7 +131,7 @@ export const JobTitle = styled.div`
     `)}
 `;
 
-export const Row = styled.div`
+export const LineRow = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;

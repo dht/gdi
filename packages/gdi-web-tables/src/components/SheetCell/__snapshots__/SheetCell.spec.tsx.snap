@@ -2,7 +2,7 @@
 
 exports[`SheetCell snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ dSgvsV SheetCell-container cell"
-  data-testid="SheetCell-container"
+  className="sc-bczRLJ dSgvsV SheetCell-wrapper cell"
+  data-testid="SheetCell-wrapper"
 />
 `;

@@ -4,8 +4,7 @@ import { ItemLayout, ItemLayoutProps } from './ItemLayout';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemLayoutDriver extends BaseComponentDriver {
-    private props: Partial<ItemLayoutProps> = {
-    };
+    private props: Partial<ItemLayoutProps> = {};
 
     constructor() {
         super('ItemLayout');
@@ -17,11 +16,13 @@ export class ItemLayoutDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemLayout {...(this.props as ItemLayoutProps)} />);
+            return this.snapshot(
+                <ItemLayout {...(this.props as ItemLayoutProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemLayoutDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

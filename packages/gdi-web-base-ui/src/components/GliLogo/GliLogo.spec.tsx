@@ -13,7 +13,7 @@ describe('GliLogo', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('GliLogo-container');
+        expect(containerClassName).toBe('GliLogo-wrapper');
     });
 });
 

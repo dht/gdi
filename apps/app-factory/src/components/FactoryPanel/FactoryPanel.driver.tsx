@@ -4,8 +4,7 @@ import { FactoryPanel, FactoryPanelProps } from './FactoryPanel';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FactoryPanelDriver extends BaseComponentDriver {
-    private props: Partial<FactoryPanelProps> = {
-    };
+    private props: Partial<FactoryPanelProps> = {};
 
     constructor() {
         super('FactoryPanel');
@@ -17,11 +16,13 @@ export class FactoryPanelDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FactoryPanel {...(this.props as FactoryPanelProps)} />);
+            return this.snapshot(
+                <FactoryPanel {...(this.props as FactoryPanelProps)} />
+            );
         },
     };
 
@@ -33,11 +34,11 @@ export class FactoryPanelDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container, Row, Title } from './SheetHeaderCell.style';
+import { Wrapper, Row, Title } from './SheetHeaderCell.style';
 import { Icon } from '@gdi/web-base-ui';
 import { SheetContext } from '../../context/Sheet.context';
 
@@ -43,16 +43,16 @@ export function SheetHeaderCell(props: SheetHeaderCellProps) {
     const iconName = orderIcons[context.sortOrder];
 
     return (
-        <Container
-            className='SheetHeaderCell-container'
-            data-testid='SheetHeaderCell-container'
+        <Wrapper
+            className='SheetHeaderCell-wrapper'
+            data-testid='SheetHeaderCell-wrapper'
             onClick={onClick}
         >
             <Row>
                 <Title>{label}</Title>
                 {showOrderIcon && <Icon iconName={iconName} />}
             </Row>
-        </Container>
+        </Wrapper>
     );
 }
 

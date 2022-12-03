@@ -4,8 +4,7 @@ import { Stats, StatsProps } from './Stats';
 import { BaseComponentDriver } from 'testing-base';
 
 export class StatsDriver extends BaseComponentDriver {
-    private props: Partial<StatsProps> = {
-    };
+    private props: Partial<StatsProps> = {};
 
     constructor() {
         super('Stats');
@@ -17,7 +16,7 @@ export class StatsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class StatsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -9,7 +9,7 @@
     },
     "dependencies": {
         "@gdi/engine": "^0.0.41",
-        "@gdi/types": "^0.0.65",
+        "@gdi/types": "^0.0.70",
         "@gdi/web-ui": "^0.0.47",
         "@google-cloud/storage": "^6.5.2",
         "chalk": "^5.1.2",
@@ -17,7 +17,7 @@
         "fs-extra": "^10.1.0",
         "igrid": "^0.0.21",
         "prettier": "^2.7.1",
-        "shared-base": "^0.0.26",
+        "shared-base": "^0.0.29",
         "sharp": "^0.30.7",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",

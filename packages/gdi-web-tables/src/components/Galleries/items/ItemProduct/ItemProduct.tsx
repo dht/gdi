@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './ItemProduct.style';
+import { Wrapper } from './ItemProduct.style';
 
 export type ItemProductProps = {};
 
 export function ItemProduct(_props: ItemProductProps) {
     return (
-        <Container className="ItemProduct-container" data-testid="ItemProduct-container">
+        <Wrapper
+            className='ItemProduct-wrapper'
+            data-testid='ItemProduct-wrapper'
+        >
             ItemProduct
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import {
-    Container,
+    Wrapper,
     Top,
     Menu,
     TopArc,
@@ -71,9 +71,9 @@ export function UserMenu(props: UserMenuProps) {
     };
 
     return (
-        <Container
-            className='UserMenu-container'
-            data-testid='UserMenu-container'
+        <Wrapper
+            className='UserMenu-wrapper'
+            data-testid='UserMenu-wrapper'
             ref={ref}
         >
             <Avatar
@@ -100,7 +100,7 @@ export function UserMenu(props: UserMenuProps) {
                     <Menu>{renderItems()}</Menu>
                 </Content>
             </Overlay>
-        </Container>
+        </Wrapper>
     );
 }
 

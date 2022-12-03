@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown } from '@gdi/web-base-ui';
-import { Container } from './ElementSelector.style';
+import { Wrapper } from './ElementSelector.style';
 
 type Option = {
     id: string;
@@ -17,9 +17,9 @@ export function ElementSelector(props: ElementSelectorProps) {
     const { value, options } = props;
 
     return (
-        <Container
-            className='ElementSelector-container'
-            data-testid='ElementSelector-container'
+        <Wrapper
+            className='ElementSelector-wrapper'
+            data-testid='ElementSelector-wrapper'
         >
             <Dropdown
                 value={value}
@@ -27,7 +27,7 @@ export function ElementSelector(props: ElementSelectorProps) {
                 options={options}
                 placeholder='Image field'
             />
-        </Container>
+        </Wrapper>
     );
 }
 

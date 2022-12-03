@@ -13,7 +13,7 @@ describe('ScheduleClock', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ScheduleClock-container');
+        expect(containerClassName).toBe('ScheduleClock-wrapper');
     });
 });
 

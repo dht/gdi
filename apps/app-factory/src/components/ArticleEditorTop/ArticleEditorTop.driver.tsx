@@ -4,8 +4,7 @@ import { ArticleEditorTop, ArticleEditorTopProps } from './ArticleEditorTop';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticleEditorTopDriver extends BaseComponentDriver {
-    private props: Partial<ArticleEditorTopProps> = {
-    };
+    private props: Partial<ArticleEditorTopProps> = {};
 
     constructor() {
         super('ArticleEditorTop');
@@ -13,15 +12,19 @@ export class ArticleEditorTopDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ArticleEditorTop {...(this.props as ArticleEditorTopProps)} />);
+            render(
+                <ArticleEditorTop {...(this.props as ArticleEditorTopProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ArticleEditorTop {...(this.props as ArticleEditorTopProps)} />);
+            return this.snapshot(
+                <ArticleEditorTop {...(this.props as ArticleEditorTopProps)} />
+            );
         },
     };
 
@@ -31,13 +34,14 @@ export class ArticleEditorTopDriver extends BaseComponentDriver {
             return this;
         },
     };
+    wrapperClassName;
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

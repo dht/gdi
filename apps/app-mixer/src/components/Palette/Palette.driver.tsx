@@ -4,8 +4,7 @@ import { Palette, PaletteProps } from './Palette';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PaletteDriver extends BaseComponentDriver {
-    private props: Partial<PaletteProps> = {
-    };
+    private props: Partial<PaletteProps> = {};
 
     constructor() {
         super('Palette');
@@ -17,7 +16,7 @@ export class PaletteDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class PaletteDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

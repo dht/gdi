@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container } from './Ppl.style';
+import { Wrapper } from './Ppl.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -22,7 +22,7 @@ export function Ppl(props: PplProps) {
     const crudDefinitions = useCrudDefinitions('person');
 
     return (
-        <Container className='Ppl-container' data-testid='Ppl-container'>
+        <Wrapper className='Ppl-wrapper' data-testid='Ppl-wrapper'>
             <Multi
                 id='Ppl'
                 itemType='person'
@@ -35,7 +35,7 @@ export function Ppl(props: PplProps) {
                 customView={CustomView}
                 tags={tags}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

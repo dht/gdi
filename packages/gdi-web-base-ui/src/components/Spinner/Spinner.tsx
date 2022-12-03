@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Container } from './Spinner.style';
+import { Wrapper } from './Spinner.style';
 import classnames from 'classnames';
 import { useDelay } from '../../hooks/useDelay';
 
@@ -40,7 +40,7 @@ export function Spinner(props: SpinnerProps) {
         return [...new Array(count)].map((_i, index) => renderDiv(index));
     }
 
-    const className = classnames('Spinner-container', flavour);
+    const className = classnames('Spinner-wrapper', flavour);
 
     const style = {
         color,
@@ -48,13 +48,13 @@ export function Spinner(props: SpinnerProps) {
     };
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='Spinner-container'
+            data-testid='Spinner-wrapper'
             style={style}
         >
             {renderDivs()}
-        </Container>
+        </Wrapper>
     );
 }
 

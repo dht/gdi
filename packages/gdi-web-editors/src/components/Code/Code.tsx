@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Container } from './Code.style';
+import { Wrapper } from './Code.style';
 import MonacoEditor, { Monaco } from '@monaco-editor/react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { vs_blue } from './Code.theme';
@@ -64,7 +64,7 @@ export function Code(props: CodeProps) {
     };
 
     return (
-        <Container className='Code-container' data-testid='Code-container'>
+        <Wrapper className='Code-wrapper' data-testid='Code-wrapper'>
             <MonacoEditor
                 language={language}
                 onMount={onEditorMount}
@@ -75,7 +75,7 @@ export function Code(props: CodeProps) {
                 options={options}
                 onChange={onChange}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

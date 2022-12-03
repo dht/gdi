@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     padding: 20px 0 30px;
     max-width: 450px;

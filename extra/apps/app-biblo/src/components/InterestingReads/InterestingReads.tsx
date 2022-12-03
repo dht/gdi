@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './InterestingReads.style';
+import { Wrapper } from './InterestingReads.style';
 import { Multi } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 
@@ -18,9 +18,9 @@ export function InterestingReads(props: InterestingReadsProps) {
     const crudDefinitions = useCrudDefinitions('link');
 
     return (
-        <Container
-            className='InterestingReads-container'
-            data-testid='InterestingReads-container'
+        <Wrapper
+            className='InterestingReads-wrapper'
+            data-testid='InterestingReads-wrapper'
         >
             <Multi
                 id='InterestingReads'
@@ -31,7 +31,7 @@ export function InterestingReads(props: InterestingReadsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

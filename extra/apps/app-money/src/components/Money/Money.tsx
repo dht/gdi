@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Money.style';
+import { Wrapper } from './Money.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -21,7 +21,7 @@ export function Money(props: MoneyProps) {
     const { t } = useLanguage();
 
     return (
-        <Container className='Money-container' data-testid='Money-container'>
+        <Wrapper className='Money-wrapper' data-testid='Money-wrapper'>
             <Multi
                 id='Money'
                 header={t('Money')}
@@ -35,7 +35,7 @@ export function Money(props: MoneyProps) {
                 viewModes={['timeline', 'calendar', 'spreadsheet']}
                 hideParts={['preview']}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

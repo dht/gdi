@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ transparent?: boolean }>`
+export const Wrapper = styled.div<{ transparent?: boolean }>`
     background-color: ${(props) =>
         props.transparent ? 'transparent' : '#334'};
     flex: 1;

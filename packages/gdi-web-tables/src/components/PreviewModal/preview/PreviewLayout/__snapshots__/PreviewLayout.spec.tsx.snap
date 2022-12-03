@@ -2,8 +2,8 @@
 
 exports[`PreviewLayout snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR PreviewLayout-container"
-  data-testid="PreviewLayout-container"
+  className="sc-bczRLJ WtYQR PreviewLayout-wrapper"
+  data-testid="PreviewLayout-wrapper"
 >
   PreviewLayout
 </div>

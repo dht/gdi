@@ -13,7 +13,7 @@ describe('Checkbox', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Checkbox-container');
+        expect(containerClassName).toBe('Checkbox-wrapper');
     });
 });
 

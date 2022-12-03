@@ -18,7 +18,7 @@
     },
     "author": "",
     "dependencies": {
-        "@gdi/types": "^0.0.65",
+        "@gdi/types": "^0.0.70",
         "@google-cloud/storage": "^6.7.0",
         "@types/cli-table": "^0.3.0",
         "chalk": "^4.1.2",
@@ -31,7 +31,7 @@
         "json-server": "^0.17.1",
         "lodash": "^4.17.21",
         "prettier": "^2.5.1",
-        "shared-base": "^0.0.27",
+        "shared-base": "^0.0.29",
         "yargs": "^17.2.1",
         "yup": "^0.32.11",
         "tsconfig-paths": "^4.1.1"

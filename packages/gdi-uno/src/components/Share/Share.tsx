@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Share.style';
+import { Wrapper } from './Share.style';
 
 export type ShareProps = {};
 
 export function Share(_props: ShareProps) {
     return (
-        <Container className='Share-container' data-testid='Share-container'>
+        <Wrapper className='Share-wrapper' data-testid='Share-wrapper'>
             Share
-        </Container>
+        </Wrapper>
     );
 }
 

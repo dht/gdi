@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../../blocks/Base.style';
+import styled from 'styled-components';
+import { css, mobile } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     display: flex;
     flex-direction: row;

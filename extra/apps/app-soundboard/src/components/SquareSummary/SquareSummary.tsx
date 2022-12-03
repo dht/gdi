@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container, Title, ChartWrapper } from './SquareSummary.style';
+import { Wrapper, Title, ChartWrapper } from './SquareSummary.style';
 import { ChartDoughnut } from '@gdi/web-ui';
 
 export type SquareSummaryProps = {
@@ -13,9 +13,9 @@ export function SquareSummary(props: SquareSummaryProps) {
     const { weekTotal, projectsColors } = props;
 
     return (
-        <Container
-            className='SquareSummary-container'
-            data-testid='SquareSummary-container'
+        <Wrapper
+            className='SquareSummary-wrapper'
+            data-testid='SquareSummary-wrapper'
             onMouseEnter={() => props.onHover(true)}
             onMouseLeave={() => props.onHover(false)}
             onClick={props.onClick}
@@ -24,7 +24,7 @@ export function SquareSummary(props: SquareSummaryProps) {
             <ChartWrapper>
                 <ChartDoughnut data={weekTotal} colors={projectsColors} />
             </ChartWrapper>
-        </Container>
+        </Wrapper>
     );
 }
 

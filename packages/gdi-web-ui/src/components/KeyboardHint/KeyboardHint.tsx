@@ -1,6 +1,6 @@
 import React from 'react';
 import KeyboardShortcuts from '../KeyboardShortcuts/KeyboardShortcuts';
-import { Container } from './KeyboardHint.style';
+import { Wrapper } from './KeyboardHint.style';
 import { Icon, Modal } from '@gdi/web-base-ui';
 import { useToggle } from 'react-use';
 
@@ -25,13 +25,13 @@ export function KeyboardHint(props: KeyboardHintProps) {
     }
 
     return (
-        <Container
-            className='KeyboardHint-container'
-            data-testid='KeyboardHint-container'
+        <Wrapper
+            className='KeyboardHint-wrapper'
+            data-testid='KeyboardHint-wrapper'
         >
             <Icon onClick={onToggle} iconName='KeyboardClassic' />
             {renderModal()}
-        </Container>
+        </Wrapper>
     );
 }
 

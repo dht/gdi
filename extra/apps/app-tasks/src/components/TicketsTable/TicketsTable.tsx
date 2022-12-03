@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import {
     Actions,
-    Container,
+    Wrapper,
     Details,
     Row,
     Scope,
@@ -75,9 +75,9 @@ export function TicketsTable(props: TicketsTableProps) {
     }
 
     return (
-        <Container
-            className='TicketsTable-container'
-            data-testid='TicketsTable-container'
+        <Wrapper
+            className='TicketsTable-wrapper'
+            data-testid='TicketsTable-wrapper'
         >
             {renderHeader()}
             <GenericTable
@@ -88,7 +88,7 @@ export function TicketsTable(props: TicketsTableProps) {
             >
                 {TableRow}
             </GenericTable>
-        </Container>
+        </Wrapper>
     );
 }
 

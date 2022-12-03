@@ -1,16 +1,16 @@
 import React from 'react';
-import { Container } from './Loader.style';
+import { Wrapper } from './Loader.style';
 
 export type LoaderProps = {};
 
 export function Loader(_props: LoaderProps) {
     return (
-        <Container className='Loader-container' data-testid='Loader-container'>
+        <Wrapper className='Loader-wrapper' data-testid='Loader-wrapper'>
             <div></div>
             <div></div>
             <div></div>
             <div></div>
-        </Container>
+        </Wrapper>
     );
 }
 

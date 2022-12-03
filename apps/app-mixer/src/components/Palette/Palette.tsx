@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title } from './Palette.style';
+import { Wrapper, Title } from './Palette.style';
 import { ColorPalette, List } from '@gdi/web-ui';
 import classnames from 'classnames';
 
@@ -28,17 +28,14 @@ export function Palette(props: PaletteProps) {
     }
 
     return (
-        <Container
-            className='Palette-container'
-            data-testid='Palette-container'
-        >
+        <Wrapper className='Palette-wrapper' data-testid='Palette-wrapper'>
             <List
                 options={options}
                 renderItem={renderItem}
                 onSelect={props.onSelect}
                 selectedOptionId={selectedPaletteId}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

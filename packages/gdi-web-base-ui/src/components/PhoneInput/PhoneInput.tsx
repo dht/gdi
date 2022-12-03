@@ -1,5 +1,5 @@
 import React, { ForwardedRef, LegacyRef } from 'react';
-import { Container } from './PhoneInput.style';
+import { Wrapper } from './PhoneInput.style';
 import PhoneInputBase, { Country } from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
@@ -17,9 +17,9 @@ export const PhoneInput = React.forwardRef(
         const Cmp: any = PhoneInputBase;
 
         return (
-            <Container
-                className='PhoneInput-container'
-                data-testid='PhoneInput-container'
+            <Wrapper
+                className='PhoneInput-wrapper'
+                data-testid='PhoneInput-wrapper'
             >
                 <Cmp
                     placeholder={placeholder}
@@ -28,7 +28,7 @@ export const PhoneInput = React.forwardRef(
                     onChange={props.onChange}
                     ref={ref}
                 />
-            </Container>
+            </Wrapper>
         );
     }
 );

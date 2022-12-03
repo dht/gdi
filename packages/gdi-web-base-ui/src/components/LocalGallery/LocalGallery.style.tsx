@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { mobile } from '../Base.style';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     flex: 1;

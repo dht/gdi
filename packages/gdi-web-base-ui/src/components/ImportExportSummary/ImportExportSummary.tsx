@@ -1,7 +1,7 @@
 import React from 'react';
 import bytes from 'bytes';
 import {
-    Container,
+    Wrapper,
     Pair,
     Label,
     Value,
@@ -19,9 +19,9 @@ export function ImportExportSummary(props: ImportExportSummaryProps) {
     const { totalSize, count, showExportMessage } = props;
 
     return (
-        <Container
-            className='ImportExportSummary-container'
-            data-testid='ImportExportSummary-container'
+        <Wrapper
+            className='ImportExportSummary-wrapper'
+            data-testid='ImportExportSummary-wrapper'
         >
             {showExportMessage && (
                 <P>
@@ -39,7 +39,7 @@ export function ImportExportSummary(props: ImportExportSummaryProps) {
                 <Label>Items</Label>
                 <Value>{count}</Value>
             </Pair>
-        </Container>
+        </Wrapper>
     );
 }
 

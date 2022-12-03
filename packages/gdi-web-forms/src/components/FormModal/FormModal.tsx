@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from '@gdi/web-base-ui';
 import Form from '../Form/Form';
-import { Container } from './FormModal.style';
+import { Wrapper } from './FormModal.style';
 
 export type FormModalProps = IFormProps & {
     title?: string;
@@ -13,12 +13,12 @@ export function FormModal(props: FormModalProps) {
 
     return (
         <Modal title={title} onClose={props.onClose} open={true}>
-            <Container
-                className='FormModal-container'
-                data-testid='FormModal-container'
+            <Wrapper
+                className='FormModal-wrapper'
+                data-testid='FormModal-wrapper'
             >
                 <Form {...props} />
-            </Container>
+            </Wrapper>
         </Modal>
     );
 }

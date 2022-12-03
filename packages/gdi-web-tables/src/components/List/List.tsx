@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, ContainerIcon, Item } from './List.style';
+import { Wrapper, ContainerIcon, Item } from './List.style';
 import classnames from 'classnames';
 import { Icon } from '@gdi/web-base-ui';
 
@@ -48,9 +48,9 @@ export function List(props: ListProps) {
     }
 
     return (
-        <Container className='List-container' data-testid='List-container'>
+        <Wrapper className='List-wrapper' data-testid='List-wrapper'>
             {renderOptions()}
-        </Container>
+        </Wrapper>
     );
 }
 

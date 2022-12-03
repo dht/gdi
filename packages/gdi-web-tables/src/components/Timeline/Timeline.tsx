@@ -2,7 +2,7 @@ import React from 'react';
 import { pointsWithSource, TimelinePoint } from './Timeline.points';
 import { useMeasure } from 'react-use';
 import {
-    Container,
+    Wrapper,
     Line,
     Expander,
     Polygon,
@@ -57,9 +57,9 @@ export function Timeline(_props: TimelineProps) {
     }
 
     return (
-        <Container
-            className='Timeline-container'
-            data-testid='Timeline-container'
+        <Wrapper
+            className='Timeline-wrapper'
+            data-testid='Timeline-wrapper'
             ref={ref}
         >
             <Svg width={Math.max(w, 0)} height={Math.max(h, 0)}>
@@ -88,7 +88,7 @@ export function Timeline(_props: TimelineProps) {
             <Scroll>
                 <Expander />
             </Scroll>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Schema.style';
+import { Wrapper } from './Schema.style';
 
 export type SchemaProps = {};
 
 export function Schema(_props: SchemaProps) {
     return (
-        <Container className="Schema-container" data-testid="Schema-container">
+        <Wrapper className='Schema-wrapper' data-testid='Schema-wrapper'>
             Schema
-        </Container>
+        </Wrapper>
     );
 }
 

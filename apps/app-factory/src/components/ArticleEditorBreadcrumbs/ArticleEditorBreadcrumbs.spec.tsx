@@ -22,7 +22,9 @@ describe('ArticleEditorBreadcrumbs', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ArticleEditorBreadcrumbs-container');
+        expect(containerClassName).toContain(
+            'ArticleEditorBreadcrumbs-wrapper'
+        );
         expect(innerText).toBe(label);
     });
 

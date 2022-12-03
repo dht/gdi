@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './GalleryImages.style';
+import { Wrapper } from './GalleryImages.style';
 import { Multi } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 
@@ -18,9 +18,9 @@ export function GalleryImages(props: GalleryImagesProps) {
     const crudDefinitions = useCrudDefinitions('image');
 
     return (
-        <Container
-            className='GalleryImages-container'
-            data-testid='GalleryImages-container'
+        <Wrapper
+            className='GalleryImages-wrapper'
+            data-testid='GalleryImages-wrapper'
         >
             <Multi
                 id='ImagesFull'
@@ -31,7 +31,7 @@ export function GalleryImages(props: GalleryImagesProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

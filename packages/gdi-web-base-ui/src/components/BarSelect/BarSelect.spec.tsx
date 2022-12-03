@@ -13,7 +13,7 @@ describe('BarSelect', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('BarSelect-container');
+        expect(containerClassName).toBe('BarSelect-wrapper');
     });
 });
 

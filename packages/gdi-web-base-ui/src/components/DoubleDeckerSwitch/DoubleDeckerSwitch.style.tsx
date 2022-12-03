@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     z-index: 999;
     padding: 5px;
     background-color: #112;

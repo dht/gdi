@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import {
     Actions,
-    Container,
+    Wrapper,
     Content,
     ErrorMessage,
     ErrorWrapper,
@@ -93,9 +93,9 @@ export function FlexProperties(props: FlexPropertiesProps) {
     });
 
     return (
-        <Container
-            className='FlexProperties-container'
-            data-testid='FlexProperties-container'
+        <Wrapper
+            className='FlexProperties-wrapper'
+            data-testid='FlexProperties-wrapper'
         >
             <Pivot
                 aria-label='Basic Pivot'
@@ -133,7 +133,7 @@ export function FlexProperties(props: FlexPropertiesProps) {
                 <Button title='Cancel' onClick={callbacks.onClose} />
                 <Button title='Save (⌥⏎)' primary onClick={onSubmit} />
             </Actions>
-        </Container>
+        </Wrapper>
     );
 }
 

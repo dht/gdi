@@ -13,7 +13,7 @@ describe('ReduxConnectedDevtools', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ReduxConnectedDevtools-container');
+        expect(containerClassName).toBe('ReduxConnectedDevtools-wrapper');
     });
 });
 

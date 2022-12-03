@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import Checkboxes from '../Checkboxes/Checkboxes';
-import { Bottom, Container } from './ImportExport.style';
+import { Bottom, Wrapper } from './ImportExport.style';
 import ImportExportSummary from '../ImportExportSummary/ImportExportSummary';
 import bytes from 'bytes';
 import Button from '../Button/Button';
@@ -76,9 +76,9 @@ export function ImportExport(props: ImportExportProps) {
     }, [json, state]);
 
     return (
-        <Container
-            className='ImportExport-container'
-            data-testid='ImportExport-container'
+        <Wrapper
+            className='ImportExport-wrapper'
+            data-testid='ImportExport-wrapper'
         >
             <Checkboxes
                 id={id}
@@ -96,7 +96,7 @@ export function ImportExport(props: ImportExportProps) {
                 <Button title='Cancel' onClick={props.onCancel} />
                 <Button title={ctaButtonText} primary onClick={onSubmit} />
             </Bottom>
-        </Container>
+        </Wrapper>
     );
 }
 

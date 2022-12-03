@@ -4,8 +4,7 @@ import { PreviewEvent, PreviewEventProps } from './PreviewEvent';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewEventDriver extends BaseComponentDriver {
-    private props: Partial<PreviewEventProps> = {
-    };
+    private props: Partial<PreviewEventProps> = {};
 
     constructor() {
         super('PreviewEvent');
@@ -17,11 +16,13 @@ export class PreviewEventDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewEvent {...(this.props as PreviewEventProps)} />);
+            return this.snapshot(
+                <PreviewEvent {...(this.props as PreviewEventProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewEventDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     --size: 0.6px;
     --width: calc(var(--size) * 40);
     --height: calc(var(--size) * 60);

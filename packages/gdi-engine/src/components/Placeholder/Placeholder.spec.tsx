@@ -22,7 +22,7 @@ describe('Placeholder', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Placeholder-container');
+        expect(containerClassName).toContain('Placeholder-wrapper');
         expect(innerText).toBe(label);
     });
 

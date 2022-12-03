@@ -22,7 +22,7 @@ describe('Clock', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Clock-container');
+        expect(containerClassName).toContain('Clock-wrapper');
         expect(innerText).toBe(label);
     });
 

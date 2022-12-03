@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './ConsoleLogs.style';
+import { Wrapper } from './ConsoleLogs.style';
 
 export type ConsoleLogsProps = {};
 
 export function ConsoleLogs(_props: ConsoleLogsProps) {
     return (
-        <Container className="ConsoleLogs-container" data-testid="ConsoleLogs-container">
+        <Wrapper
+            className='ConsoleLogs-wrapper'
+            data-testid='ConsoleLogs-wrapper'
+        >
             ConsoleLogs
-        </Container>
+        </Wrapper>
     );
 }
 

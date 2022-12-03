@@ -2,8 +2,8 @@
 
 exports[`PreviewEvent snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR PreviewEvent-container"
-  data-testid="PreviewEvent-container"
+  className="sc-bczRLJ WtYQR PreviewEvent-wrapper"
+  data-testid="PreviewEvent-wrapper"
 >
   PreviewEvent
 </div>

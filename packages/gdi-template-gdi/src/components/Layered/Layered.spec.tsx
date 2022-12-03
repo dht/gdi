@@ -22,7 +22,7 @@ describe('Layered', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Layered-container');
+        expect(containerClassName).toContain('Layered-wrapper');
         expect(innerText).toBe(label);
     });
 

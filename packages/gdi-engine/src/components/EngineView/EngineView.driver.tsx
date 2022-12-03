@@ -4,8 +4,7 @@ import { EngineView, EngineViewProps } from './EngineView';
 import { BaseComponentDriver } from 'testing-base';
 
 export class EngineViewDriver extends BaseComponentDriver {
-    private props: Partial<EngineViewProps> = {
-    };
+    private props: Partial<EngineViewProps> = {};
 
     constructor() {
         super('EngineView');
@@ -17,11 +16,13 @@ export class EngineViewDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<EngineView {...(this.props as EngineViewProps)} />);
+            return this.snapshot(
+                <EngineView {...(this.props as EngineViewProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class EngineViewDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

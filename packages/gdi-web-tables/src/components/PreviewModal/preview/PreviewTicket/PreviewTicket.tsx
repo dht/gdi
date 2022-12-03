@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Summary, TimeEstimate } from './PreviewTicket.style';
+import { Wrapper, Summary, TimeEstimate } from './PreviewTicket.style';
 
 export type PreviewTicketProps = {
     item: ITicket;
@@ -10,9 +10,9 @@ export function PreviewTicket(props: PreviewTicketProps) {
     const { summary, timeEstimate } = item;
 
     return (
-        <Container
-            className='PreviewTicket-container'
-            data-testid='PreviewTicket-container'
+        <Wrapper
+            className='PreviewTicket-wrapper'
+            data-testid='PreviewTicket-wrapper'
         >
             <Summary>{summary}</Summary>
 
@@ -21,7 +21,7 @@ export function PreviewTicket(props: PreviewTicketProps) {
 
                 <span>minutes</span>
             </TimeEstimate>
-        </Container>
+        </Wrapper>
     );
 }
 

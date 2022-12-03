@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useMeasure } from 'react-use';
-import { Background, Container, Content } from './Layered.style';
+import { Background, Wrapper, Content } from './Layered.style';
 
 export type LayeredProps = {
     degree?: number;
@@ -52,15 +52,15 @@ export function Layered(props: LayeredProps) {
     }
 
     return (
-        <Container
-            className='Layered-container'
-            data-testid='Layered-container'
+        <Wrapper
+            className='Layered-wrapper'
+            data-testid='Layered-wrapper'
             height={height}
             ref={ref}
         >
             {renderBackground()}
             {renderContent()}
-        </Container>
+        </Wrapper>
     );
 }
 

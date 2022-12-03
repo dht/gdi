@@ -4,8 +4,7 @@ import { ProjectSwitch, ProjectSwitchProps } from './ProjectSwitch';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ProjectSwitchDriver extends BaseComponentDriver {
-    private props: Partial<ProjectSwitchProps> = {
-    };
+    private props: Partial<ProjectSwitchProps> = {};
 
     constructor() {
         super('ProjectSwitch');
@@ -17,11 +16,13 @@ export class ProjectSwitchDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ProjectSwitch {...(this.props as ProjectSwitchProps)} />);
+            return this.snapshot(
+                <ProjectSwitch {...(this.props as ProjectSwitchProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ProjectSwitchDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

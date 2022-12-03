@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { mobile, Grid, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     background-color: #223;
     padding: 50px;
@@ -11,6 +11,7 @@ export const Container = styled.div`
     padding: ${(props) => props.theme.vh(20)} 0;
     display: flex;
     font-family: ${(props) => props.theme.fontFamily};
+    color: #ccd;
 `;
 
 export const ContainerItem = styled.div`
@@ -79,11 +80,9 @@ export const Dot = styled.div<{ active?: boolean }>`
     `)}
 `;
 
-export const ContainerArrows = styled.div`
+export const ContainerArrows = styled(Grid.Container)`
     height: 0;
-    width: 100%;
     position: relative;
-    max-width: 1200px;
     z-index: 9;
 `;
 

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Estimation } from '../../containers/EstimateContainer.data';
-import { Container, Option, Options } from './Estimate.style';
+import { Wrapper, Option, Options } from './Estimate.style';
 import { Callout } from '@gdi/web-ui';
 import './Estimate.scss';
 
@@ -35,14 +35,11 @@ export function Estimate(props: EstimateProps) {
     }
 
     return (
-        <Container
-            className='Estimate-container'
-            data-testid='Estimate-container'
-        >
+        <Wrapper className='Estimate-wrapper' data-testid='Estimate-wrapper'>
             <Callout buttonIcon='stopwatch' ref={ref}>
                 <Options>{renderOptions()}</Options>
             </Callout>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -35,7 +35,7 @@
         "@gdi/app-voice": "^0.0.40",
         "@gdi/language": "^0.0.39",
         "@gdi/platformer": "^0.0.35",
-        "@gdi/types": "^0.0.65",
+        "@gdi/types": "^0.0.70",
         "@gdi/web-ui": "^0.0.47",
         "firebaseui": "^6.0.2",
         "igrid": "^0.0.21",
@@ -43,7 +43,7 @@
         "react-dom": "^18.2.0",
         "react-toastify": "^9.0.7",
         "react-use": "^17.4.0",
-        "shared-base": "^0.0.26",
+        "shared-base": "^0.0.29",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.1",
         "types-base": "^0.0.2"

@@ -13,7 +13,7 @@ describe('ImageUpload', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ImageUpload-container');
+        expect(containerClassName).toBe('ImageUpload-wrapper');
     });
 });
 

@@ -3,7 +3,7 @@ import Error from '../Error/Error';
 import Loader from '../Loader/Loader';
 import Placeholder from '../Placeholder/Placeholder';
 import { ActionType } from '../EngineEdit/EngineEdit';
-import { Container, Id, LoaderWrapper, Zoom } from './ElementEdit.style';
+import { Wrapper, Id, LoaderWrapper, Zoom } from './ElementEdit.style';
 import { EngineContext } from '../../context/Engine.context';
 import { invokeEvent } from 'shared-base';
 
@@ -97,9 +97,9 @@ export function ElementEdit(props: ElementEditProps) {
     }
 
     return (
-        <Container
-            className='ElementEdit-container'
-            data-testid='ElementEdit-container'
+        <Wrapper
+            className='ElementEdit-wrapper'
+            data-testid='ElementEdit-wrapper'
             onMouseDown={onClick}
             onTouchStart={onClick}
             onDoubleClick={onDblClick}
@@ -109,7 +109,7 @@ export function ElementEdit(props: ElementEditProps) {
             {renderLoader()}
             {renderZoom()}
             {renderId()}
-        </Container>
+        </Wrapper>
     );
 }
 

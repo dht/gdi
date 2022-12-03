@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewLink.style';
+import { Wrapper } from './PreviewLink.style';
 
 export type PreviewLinkProps = {};
 
 export function PreviewLink(_props: PreviewLinkProps) {
     return (
-        <Container className="PreviewLink-container" data-testid="PreviewLink-container">
+        <Wrapper
+            className='PreviewLink-wrapper'
+            data-testid='PreviewLink-wrapper'
+        >
             PreviewLink
-        </Container>
+        </Wrapper>
     );
 }
 

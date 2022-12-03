@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     display: table-cell;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid #445;

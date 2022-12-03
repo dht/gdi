@@ -4,8 +4,7 @@ import { Layered, LayeredProps } from './Layered';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LayeredDriver extends BaseComponentDriver {
-    private props: Partial<LayeredProps> = {
-    };
+    private props: Partial<LayeredProps> = {};
 
     constructor() {
         super('Layered');
@@ -17,7 +16,7 @@ export class LayeredDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class LayeredDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Text } from './GliLogo.style';
+import { Wrapper, Text } from './GliLogo.style';
 import classnames from 'classnames';
 
 export type GliLogoProps = {
@@ -12,13 +12,13 @@ export function GliLogo(props: GliLogoProps) {
 
     const fontSize = Math.max(30 - text.length / 2, 14);
 
-    const className = classnames('GliLogo-container', { animated });
+    const className = classnames('GliLogo-wrapper', { animated });
 
     return (
-        <Container className={className} data-testid='GliLogo-container'>
+        <Wrapper className={className} data-testid='GliLogo-wrapper'>
             <img src='/logo.png' />
             <Text size={fontSize}>{text}</Text>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, EmptyActions, EmptyText } from './FlexDesignerEmpty.style';
+import { Wrapper, EmptyActions, EmptyText } from './FlexDesignerEmpty.style';
 import { Button } from '@gdi/web-ui';
 
 export type FlexDesignerEmptyProps = {
@@ -8,9 +8,9 @@ export type FlexDesignerEmptyProps = {
 
 export function FlexDesignerEmpty(props: FlexDesignerEmptyProps) {
     return (
-        <Container
-            className='FlexDesignerEmpty-container'
-            data-testid='FlexDesignerEmpty-container'
+        <Wrapper
+            className='FlexDesignerEmpty-wrapper'
+            data-testid='FlexDesignerEmpty-wrapper'
         >
             <EmptyText>Empty</EmptyText>
 
@@ -25,7 +25,7 @@ export function FlexDesignerEmpty(props: FlexDesignerEmptyProps) {
                     onClick={() => props.onSeed('blank')}
                 />
             </EmptyActions>
-        </Container>
+        </Wrapper>
     );
 }
 

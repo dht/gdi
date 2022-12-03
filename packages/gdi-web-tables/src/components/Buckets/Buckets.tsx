@@ -1,6 +1,6 @@
 import React from 'react';
 import BucketTabs from '../BucketTabs/BucketTabs';
-import { Container, Content } from './Buckets.style';
+import { Wrapper, Content } from './Buckets.style';
 import { getNewDataTagsByList, Trello, usePermutations } from '@gdi/dnd';
 import { IBucketsConfig } from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
@@ -132,17 +132,14 @@ export function Buckets(props: BucketsProps) {
     }
 
     return (
-        <Container
-            className='Buckets-container'
-            data-testid='Buckets-container'
-        >
+        <Wrapper className='Buckets-wrapper' data-testid='Buckets-wrapper'>
             <Content>{renderInner()}</Content>
             <BucketTabs
                 tabs={tabs}
                 selectedTabId={permutationId}
                 onSelect={(tabId) => setPermutationId(tabId)}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

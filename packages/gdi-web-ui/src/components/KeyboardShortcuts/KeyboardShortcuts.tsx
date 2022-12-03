@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Key,
     KeyContainer,
     Modifier,
@@ -57,12 +57,12 @@ export function KeyboardShortcuts(props: KeyboardShortcutsProps) {
     }
 
     return (
-        <Container
-            className='KeyboardShortcuts-container'
-            data-testid='KeyboardShortcuts-container'
+        <Wrapper
+            className='KeyboardShortcuts-wrapper'
+            data-testid='KeyboardShortcuts-wrapper'
         >
             {renderKeys()}
-        </Container>
+        </Wrapper>
     );
 }
 

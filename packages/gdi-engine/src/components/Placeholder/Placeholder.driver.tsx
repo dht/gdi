@@ -4,8 +4,7 @@ import { Placeholder, PlaceholderProps } from './Placeholder';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PlaceholderDriver extends BaseComponentDriver {
-    private props: Partial<PlaceholderProps> = {
-    };
+    private props: Partial<PlaceholderProps> = {};
 
     constructor() {
         super('Placeholder');
@@ -17,11 +16,13 @@ export class PlaceholderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Placeholder {...(this.props as PlaceholderProps)} />);
+            return this.snapshot(
+                <Placeholder {...(this.props as PlaceholderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PlaceholderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

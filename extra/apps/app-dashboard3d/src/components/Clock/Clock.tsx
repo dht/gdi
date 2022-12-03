@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Today } from './Clock.style';
+import { Wrapper, Today } from './Clock.style';
 import { Clock as ClockUI } from '@gdi/web-ui';
 import { useLanguage } from '@gdi/language';
 
@@ -11,10 +11,10 @@ export function Clock(_props: ClockProps) {
     const { d } = useLanguage();
 
     return (
-        <Container className='Clock-container' data-testid='Clock-container'>
+        <Wrapper className='Clock-wrapper' data-testid='Clock-wrapper'>
             <Today>{d.dateLong(now)}</Today>
             <ClockUI />
-        </Container>
+        </Wrapper>
     );
 }
 

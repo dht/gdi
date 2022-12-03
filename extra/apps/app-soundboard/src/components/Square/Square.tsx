@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import Bucket from '../Bucket/Bucket';
-import { BucketWrapper, Container, Date, Title } from './Square.style';
+import { BucketWrapper, Wrapper, Date, Title } from './Square.style';
 import classNames from 'classnames';
 
 export type SquareProps = {
@@ -28,9 +28,9 @@ export function Square(props: SquareProps) {
     const titles = Object.keys(otherItemsTitles).join(', ');
 
     return (
-        <Container
-            className='Square-container'
-            data-testid='Square-container'
+        <Wrapper
+            className='Square-wrapper'
+            data-testid='Square-wrapper'
             title={date}
         >
             <Date className={className}>{title}</Date>
@@ -47,7 +47,7 @@ export function Square(props: SquareProps) {
                     updateMinutes={props.updateMinutesForDay}
                 />
             </BucketWrapper>
-        </Container>
+        </Wrapper>
     );
 }
 
