@@ -18,6 +18,10 @@ export const H2 = styled.h2`
         color: goldenrod;
         font-size: 22px;
     }
+
+    ${mobile(css`
+        text-align: center;
+    `)}
 `;
 
 export const Container = styled(Grid.Container)`

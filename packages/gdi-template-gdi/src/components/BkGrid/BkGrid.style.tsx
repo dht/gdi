@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ rotation: number }>`
     flex: 1;
     background-color: #222233f7;
     height: 100%;
@@ -10,8 +10,9 @@ export const Wrapper = styled.div`
         linear-gradient(90deg, var(--grid) 1px, transparent 1px);
 
     display: flex;
-
+    transform: rotate(-3deg);
     flex-direction: column;
+    position: absolute;
 `;
 
 export const Flex = styled.div`

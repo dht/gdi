@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { SiteContext } from '@gdi/engine';
 import BkGrid from '../../components/BkGrid/BkGrid';
-import Layered from '../../components/Layered/Layered';
 import {
     Column,
     Container,
@@ -91,38 +90,35 @@ export function Twins(props: TwinsProps) {
         <Wrapper
             className='Twins-wrapper'
             data-testid='Twins-wrapper'
-            rotation={rotation}
+            bk={<BkGrid rotation={rotation} color1='#f2c973' color2='#000' />}
         >
-            <Layered degree={rotation}>
-                <BkGrid color1='#f2c973' color2='#000' />
-                <Container>
-                    <Row center>
-                        <Column>
-                            {renderH2(header)}
-                            <P>{description}</P>
-                            <Button
-                                href={href}
-                                target={target(href)}
-                                onClick={onClick('href')}
-                            >
-                                {buttonText}
-                            </Button>
-                        </Column>
-                        <Column>
-                            {renderH2(headerSecondary, 'pink')}
-                            <P>{descriptionSecondary}</P>
-                            <Button
-                                href={hrefSecondary}
-                                target={target(hrefSecondary)}
-                                onClick={onClick('hrefSecond')}
-                            >
-                                {buttonTextSecondary}
-                            </Button>
-                        </Column>
-                    </Row>
-                    <Notes>{notes}</Notes>
-                </Container>
-            </Layered>
+            <Container>
+                <Row>
+                    <Column>
+                        {renderH2(header)}
+                        <P>{description}</P>
+                        <Button
+                            href={href}
+                            target={target(href)}
+                            onClick={onClick('href')}
+                        >
+                            {buttonText}
+                        </Button>
+                    </Column>
+                    <Column>
+                        {renderH2(headerSecondary, 'pink')}
+                        <P>{descriptionSecondary}</P>
+                        <Button
+                            href={hrefSecondary}
+                            target={target(hrefSecondary)}
+                            onClick={onClick('hrefSecond')}
+                        >
+                            {buttonTextSecondary}
+                        </Button>
+                    </Column>
+                </Row>
+                <Notes>{notes}</Notes>
+            </Container>
         </Wrapper>
     );
 }

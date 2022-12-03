@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { mobile } from '../helpers';
 
 export const Wrapper = styled.div`
     flex: 1;
@@ -6,7 +7,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
     align-items: flex-start;
 
-    &.center {
-        align-items: center;
-    }
+    ${mobile(css`
+        flex-direction: column;
+    `)}
 `;

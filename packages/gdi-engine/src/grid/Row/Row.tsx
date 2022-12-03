@@ -5,15 +5,10 @@ import classnames from 'classnames';
 export type RowProps = {
     children: JSX.Element | JSX.Element[];
     className?: string;
-    center?: boolean;
 };
 
 export function Row(props: RowProps) {
-    const { center } = props;
-
-    const className = classnames('row', props.className, {
-        center,
-    });
+    const className = classnames('row', props.className, {});
 
     return (
         <Wrapper className={className} data-testid='Row-wrapper'>

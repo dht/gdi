@@ -35,9 +35,7 @@ export function SectionHeader(props: SectionHeaderProps) {
             hidden={isHidden}
         >
             <Container>
-                <Row>
-                    <Text id={id}>{text}</Text>
-                </Row>
+                <Text id={id}>{text}</Text>
             </Container>
         </Wrapper>
     );

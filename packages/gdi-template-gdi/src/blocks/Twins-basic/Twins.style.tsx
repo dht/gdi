@@ -2,16 +2,22 @@ import styled from 'styled-components';
 import { ButtonBase } from '../../components/Button/Button.style';
 import { Grid, mobile, css } from '@gdi/engine';
 
-export const Wrapper = styled.div<{ rotation?: number }>`
+export const Wrapper = styled(Grid.Wrapper)`
     flex: 1;
     height: 750px;
     margin-bottom: 100px;
     background-color: white;
-    --rotation: ${(props) => props.rotation || 0}deg;
+
+    > .content {
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
 
     ${mobile(css`
         --rotation: 0deg;
-        height: 1500px;
+        height: 1600px;
     `)}
 `;
 
@@ -43,6 +49,7 @@ export const Row = styled(Grid.Row)`
 export const Column = styled(Grid.Column)`
     ${mobile(css`
         box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.15);
+        padding: 100px 30px 100px;
     `)}
 `;
 
@@ -78,7 +85,7 @@ export const Notes = styled.div`
 
     ${mobile(css`
         box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.1);
-        padding: 30px;
+        padding: 0 30px;
         font-size: 16px;
         line-height: 1.5;
         text-align: center;
