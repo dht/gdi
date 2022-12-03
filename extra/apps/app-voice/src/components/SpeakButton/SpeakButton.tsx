@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './SpeakButton.style';
+import { Wrapper } from './SpeakButton.style';
 import classnames from 'classnames';
 
 export type SpeakButtonProps = {
@@ -11,21 +11,21 @@ export type SpeakButtonProps = {
 export function SpeakButton(props: SpeakButtonProps) {
     const { isSpeaking } = props;
 
-    const className = classnames('SpeakButton-container', {
+    const className = classnames('SpeakButton-wrapper', {
         on: isSpeaking,
     });
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='SpeakButton-container'
+            data-testid='SpeakButton-wrapper'
             onTouchStart={props.onMouseDown}
             onMouseDown={props.onMouseDown}
             onMouseUp={props.onMouseUp}
             onTouchEnd={props.onMouseUp}
         >
             <i className='material-icons'>micro</i>
-        </Container>
+        </Wrapper>
     );
 }
 

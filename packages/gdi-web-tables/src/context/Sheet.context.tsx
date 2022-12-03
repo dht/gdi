@@ -78,7 +78,7 @@ export const SheetContextProvider = (props: SheetContextProvider) => {
                     return;
                 }
 
-                invokeEvent('STOP_EDITING', {});
+                invokeEvent('STOP_EDITING');
 
                 patchState({ editableCoords: null });
 

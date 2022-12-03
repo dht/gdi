@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Rating.style';
+import { Wrapper } from './Rating.style';
 
 export type RatingProps = {
     value: number;
@@ -34,13 +34,13 @@ export function Rating(props: RatingProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             percent={(value * 100) / 5}
-            className='Rating-container'
-            data-testid='Rating-container'
+            className='Rating-wrapper'
+            data-testid='Rating-wrapper'
         >
             {renderStars()}
-        </Container>
+        </Wrapper>
     );
 }
 

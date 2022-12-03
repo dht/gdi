@@ -4,8 +4,7 @@ import { ZoomBuildBar, ZoomBuildBarProps } from './ZoomBuildBar';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ZoomBuildBarDriver extends BaseComponentDriver {
-    private props: Partial<ZoomBuildBarProps> = {
-    };
+    private props: Partial<ZoomBuildBarProps> = {};
 
     constructor() {
         super('ZoomBuildBar');
@@ -17,11 +16,13 @@ export class ZoomBuildBarDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ZoomBuildBar {...(this.props as ZoomBuildBarProps)} />);
+            return this.snapshot(
+                <ZoomBuildBar {...(this.props as ZoomBuildBarProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ZoomBuildBarDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

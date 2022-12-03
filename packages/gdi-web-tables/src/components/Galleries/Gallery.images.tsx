@@ -2,7 +2,7 @@ import React from 'react';
 import AllProviders from './AllProviders';
 import AnyGallery from './Gallery.any';
 import FilterBar from '../FilterBar/FilterBar';
-import { Container } from './styles';
+import { Wrapper } from './styles';
 import { definitions } from '../../definitions';
 import { IGalleryOptions } from '../../types';
 
@@ -21,9 +21,9 @@ export function ImageGallery(props: ImageGalleryProps) {
     const { items, callbacks, hideParts } = props;
 
     return (
-        <Container
-            className='ImageGallery-container'
-            data-testid='ImageGallery-container'
+        <Wrapper
+            className='ImageGallery-wrapper'
+            data-testid='ImageGallery-wrapper'
         >
             <AllProviders
                 id='imageGallery'
@@ -41,7 +41,7 @@ export function ImageGallery(props: ImageGalleryProps) {
                     {...props}
                 />
             </AllProviders>
-        </Container>
+        </Wrapper>
     );
 }
 

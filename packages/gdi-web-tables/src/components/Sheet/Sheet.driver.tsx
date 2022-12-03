@@ -4,8 +4,7 @@ import { Sheet, SheetProps } from './Sheet';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SheetDriver extends BaseComponentDriver {
-    private props: Partial<SheetProps> = {
-    };
+    private props: Partial<SheetProps> = {};
 
     constructor() {
         super('Sheet');
@@ -17,7 +16,7 @@ export class SheetDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class SheetDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

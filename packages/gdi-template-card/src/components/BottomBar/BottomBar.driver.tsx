@@ -4,8 +4,7 @@ import { BottomBar, BottomBarProps } from './BottomBar';
 import { BaseComponentDriver } from 'testing-base';
 
 export class BottomBarDriver extends BaseComponentDriver {
-    private props: Partial<BottomBarProps> = {
-    };
+    private props: Partial<BottomBarProps> = {};
 
     constructor() {
         super('BottomBar');
@@ -17,11 +16,13 @@ export class BottomBarDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<BottomBar {...(this.props as BottomBarProps)} />);
+            return this.snapshot(
+                <BottomBar {...(this.props as BottomBarProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class BottomBarDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

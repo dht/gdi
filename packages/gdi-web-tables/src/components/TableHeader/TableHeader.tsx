@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { ITableConfig, ITableField } from '../../types';
-import { Container, Th, ThActions } from './TableHeader.style';
+import { Wrapper, Th, ThActions } from './TableHeader.style';
 import { useMount } from 'react-use';
 import { TableContext } from '../../context/Table.context';
 
@@ -49,9 +49,9 @@ export function TableHeader(props: TableHeaderProps) {
     }
 
     return (
-        <Container
-            className='TableHeader-container'
-            data-testid='TableHeader-container'
+        <Wrapper
+            className='TableHeader-wrapper'
+            data-testid='TableHeader-wrapper'
             ref={ref}
         >
             {renderThs()}
@@ -60,7 +60,7 @@ export function TableHeader(props: TableHeaderProps) {
                     Actions
                 </ThActions>
             )}
-        </Container>
+        </Wrapper>
     );
 }
 

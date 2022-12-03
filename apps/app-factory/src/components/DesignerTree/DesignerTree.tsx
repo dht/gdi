@@ -7,7 +7,7 @@ import { ILayout, IResolution } from '@gdi/store-factory';
 import { sortBy } from 'shared-base';
 import {
     Column,
-    Container,
+    Wrapper,
     ContainerResolutions,
     Info,
     Item,
@@ -105,10 +105,10 @@ export function DesignerTree(props: DesignerTreeProps) {
 
     return (
         <Draggable nodeRef={ref}>
-            <Container
+            <Wrapper
                 ref={ref}
-                className='DesignerTree-container'
-                data-testid='DesignerTree-container'
+                className='DesignerTree-wrapper'
+                data-testid='DesignerTree-wrapper'
             >
                 <Column>
                     {renderTree()}
@@ -122,7 +122,7 @@ export function DesignerTree(props: DesignerTreeProps) {
                         callbacks.onResolutionChange(resolution.id)
                     }
                 />
-            </Container>
+            </Wrapper>
         </Draggable>
     );
 }

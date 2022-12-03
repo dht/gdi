@@ -3,7 +3,7 @@ import { LabelSize } from '../../types';
 import LabelFloating from '../LabelFloating/LabelFloating';
 import {
     Asterisk,
-    Container,
+    Wrapper,
     Error,
     LabelParagraph,
     LabelValue,
@@ -57,10 +57,10 @@ export function Label(props: LabelProps) {
     }
 
     return (
-        <Container className='Label-container' data-testid='Label-container'>
+        <Wrapper className='Label-wrapper' data-testid='Label-wrapper'>
             {renderTopRow()}
             {renderDescription()}
-        </Container>
+        </Wrapper>
     );
 }
 

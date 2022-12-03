@@ -13,7 +13,7 @@ describe('ScheduleTop', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ScheduleTop-container');
+        expect(containerClassName).toBe('ScheduleTop-wrapper');
     });
 });
 

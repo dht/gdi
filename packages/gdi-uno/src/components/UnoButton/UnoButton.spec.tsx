@@ -22,7 +22,7 @@ describe('UnoButton', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('UnoButton-container');
+        expect(containerClassName).toContain('UnoButton-wrapper');
         expect(innerText).toBe(label);
     });
 

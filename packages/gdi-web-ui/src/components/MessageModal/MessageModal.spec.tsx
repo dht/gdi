@@ -22,7 +22,7 @@ describe('MessageModal', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('MessageModal-container');
+        expect(containerClassName).toContain('MessageModal-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { IFlexEntity, ILayout } from '@gdi/store-factory';
 import FlexDesigner from '../FlexDesigner/FlexDesigner';
 import TopBar from '../TopBar/TopBar';
-import { Container, CurrentResolution, Id } from './LayoutVisual.style';
+import { Wrapper, CurrentResolution, Id } from './LayoutVisual.style';
 
 export type LayoutVisualProps = {
     items?: IFlexEntity[];
@@ -34,9 +34,9 @@ export function LayoutVisual(props: LayoutVisualProps) {
     const { id = '', name = '' } = layout ?? {};
 
     return (
-        <Container
-            className='LayoutVisual-container'
-            data-testid='LayoutVisual-container'
+        <Wrapper
+            className='LayoutVisual-wrapper'
+            data-testid='LayoutVisual-wrapper'
         >
             <TopBar header={name} callbacks={callbacks} flex={flex} />
             <FlexDesigner
@@ -48,7 +48,7 @@ export function LayoutVisual(props: LayoutVisualProps) {
 
             <Id>#{id}</Id>
             <CurrentResolution>{resolutionId}</CurrentResolution>
-        </Container>
+        </Wrapper>
     );
 }
 

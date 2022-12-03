@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewSale.style';
+import { Wrapper } from './PreviewSale.style';
 
 export type PreviewSaleProps = {};
 
 export function PreviewSale(_props: PreviewSaleProps) {
     return (
-        <Container className="PreviewSale-container" data-testid="PreviewSale-container">
+        <Wrapper
+            className='PreviewSale-wrapper'
+            data-testid='PreviewSale-wrapper'
+        >
             PreviewSale
-        </Container>
+        </Wrapper>
     );
 }
 

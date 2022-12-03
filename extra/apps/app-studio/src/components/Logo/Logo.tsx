@@ -1,14 +1,14 @@
 import React from 'react';
-import { Container } from './Logo.style';
+import { Wrapper } from './Logo.style';
 import { GliLogo } from '@gdi/web-ui';
 
 export type LogoProps = {};
 
 export function Logo(_props: LogoProps) {
     return (
-        <Container className='Logo-container' data-testid='Logo-container'>
+        <Wrapper className='Logo-wrapper' data-testid='Logo-wrapper'>
             <GliLogo text='' animated />
-        </Container>
+        </Wrapper>
     );
 }
 

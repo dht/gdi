@@ -2,7 +2,7 @@ import React from 'react';
 import { Avatar, TrianglesBk } from '@gdi/web-ui';
 import {
     Column,
-    Container,
+    Wrapper,
     Content,
     Details,
     Email,
@@ -48,10 +48,7 @@ export function Account(props: AccountProps) {
     }
 
     return (
-        <Container
-            className='Account-container'
-            data-testid='Account-container'
-        >
+        <Wrapper className='Account-wrapper' data-testid='Account-wrapper'>
             <Top>
                 <TrianglesBk>
                     <Details>
@@ -76,7 +73,7 @@ export function Account(props: AccountProps) {
                     <Users>{renderUsers()}</Users>
                 </Column>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

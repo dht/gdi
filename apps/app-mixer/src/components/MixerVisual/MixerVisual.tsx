@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo } from 'react';
-import { Container, ContainerNewItem, Title } from './MixerVisual.style';
+import { Wrapper, ContainerNewItem, Title } from './MixerVisual.style';
 import { EngineEdit, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
@@ -65,9 +65,9 @@ export function MixerVisual(props: MixerVisualProps) {
     }
 
     return (
-        <Container
-            className='MixerVisual-container'
-            data-testid='MixerVisual-container'
+        <Wrapper
+            className='MixerVisual-wrapper'
+            data-testid='MixerVisual-wrapper'
             style={style}
         >
             <EngineEdit
@@ -79,7 +79,7 @@ export function MixerVisual(props: MixerVisualProps) {
                 datasets={datasets}
             />
             {renderNewItem()}
-        </Container>
+        </Wrapper>
     );
 }
 

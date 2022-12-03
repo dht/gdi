@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from '@gdi/web-base-ui';
-import { Container } from './LibrarySelector.style';
+import { Wrapper } from './LibrarySelector.style';
 
 export type LibrarySelectorProps = {
     value: string;
@@ -11,16 +11,16 @@ export function LibrarySelector(props: LibrarySelectorProps) {
     const { value } = props;
 
     return (
-        <Container
-            className='LibrarySelector-container'
-            data-testid='LibrarySelector-container'
+        <Wrapper
+            className='LibrarySelector-wrapper'
+            data-testid='LibrarySelector-wrapper'
         >
             <Switch
                 value={value}
                 onChange={(options) => props.onChange(options.id)}
                 options={switchItems}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

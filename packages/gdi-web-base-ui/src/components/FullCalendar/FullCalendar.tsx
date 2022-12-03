@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './FullCalendar.style';
+import { Wrapper } from './FullCalendar.style';
 
 import '@fullcalendar/react/dist/vdom';
 import FullCalendarUI, { formatDate } from '@fullcalendar/react';
@@ -37,9 +37,9 @@ export function FullCalendar(_props: FullCalendarProps) {
     function handleEvents(events: any) {}
 
     return (
-        <Container
-            className='FullCalendar-container'
-            data-testid='FullCalendar-container'
+        <Wrapper
+            className='FullCalendar-wrapper'
+            data-testid='FullCalendar-wrapper'
         >
             <FullCalendarUI
                 plugins={[
@@ -68,7 +68,7 @@ export function FullCalendar(_props: FullCalendarProps) {
                 eventChange={function () {}}
                 eventRemove={function () {}}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

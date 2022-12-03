@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Container, Anim } from './Squares.style';
+import { Wrapper, Anim } from './Squares.style';
 import { GenericTable } from '@gdi/web-ui';
 import Week from '../Week/Week';
 
@@ -24,10 +24,7 @@ export function Squares(props: SquaresProps) {
     }
 
     return (
-        <Container
-            className='Squares-container'
-            data-testid='Squares-container'
-        >
+        <Wrapper className='Squares-wrapper' data-testid='Squares-wrapper'>
             <GenericTable
                 data={weeks}
                 autoHeight
@@ -36,7 +33,7 @@ export function Squares(props: SquaresProps) {
             >
                 {row}
             </GenericTable>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { TopMenu, TopMenuProps } from './TopMenu';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TopMenuDriver extends BaseComponentDriver {
-    private props: Partial<TopMenuProps> = {
-    };
+    private props: Partial<TopMenuProps> = {};
 
     constructor() {
         super('TopMenu');
@@ -17,7 +16,7 @@ export class TopMenuDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class TopMenuDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

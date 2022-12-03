@@ -5,7 +5,7 @@ import {
     Author,
     AuthorName,
     Column,
-    Container,
+    Wrapper,
     Separator,
     ImageSource,
     DateText,
@@ -25,9 +25,9 @@ export type ArticleHeaderProps = {
 
 export function ArticleHeader(_props: ArticleHeaderProps) {
     return (
-        <Container
-            className='ArticleHeader-container'
-            data-testid='ArticleHeader-container'
+        <Wrapper
+            className='ArticleHeader-wrapper'
+            data-testid='ArticleHeader-wrapper'
         >
             <Title>Header</Title>
 
@@ -53,7 +53,7 @@ export function ArticleHeader(_props: ArticleHeaderProps) {
                 </Column>
                 <Column></Column>
             </Row>
-        </Container>
+        </Wrapper>
     );
 }
 

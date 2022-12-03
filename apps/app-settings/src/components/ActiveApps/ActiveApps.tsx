@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { Avatar, TrianglesBk, Toggle } from '@gdi/web-ui';
 import {
     Column,
-    Container,
+    Wrapper,
     Content,
     Details,
     TotalSize,
@@ -126,9 +126,9 @@ export function ActiveApps(props: ActiveAppsProps) {
     }
 
     return (
-        <Container
-            className='ActiveApps-container'
-            data-testid='ActiveApps-container'
+        <Wrapper
+            className='ActiveApps-wrapper'
+            data-testid='ActiveApps-wrapper'
         >
             <Top>
                 <TrianglesBk>
@@ -160,7 +160,7 @@ export function ActiveApps(props: ActiveAppsProps) {
                     <Apps>{renderApps()}</Apps>
                 </Column>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

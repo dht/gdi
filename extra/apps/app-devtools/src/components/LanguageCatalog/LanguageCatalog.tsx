@@ -7,7 +7,7 @@ import {
     keysByLanguageApp2,
     v as _v,
 } from './LanguageCatalog.data';
-import { Container, Table } from './LanguageCatalog.style';
+import { Wrapper, Table } from './LanguageCatalog.style';
 import { LanguageContextProvider } from '../../context/Language.context';
 import { useLanguage } from '../../hooks/useLanguage';
 import { I18nBuilder } from '../../builders/I18nBuilder';
@@ -133,10 +133,7 @@ export function LanguageCatalog(_props: CatalogProps) {
     }
 
     return (
-        <Container
-            className='Catalog-container'
-            data-testid='Catalog-container'
-        >
+        <Wrapper className='Catalog-wrapper' data-testid='Catalog-wrapper'>
             <LanguageContextProvider
                 config={{}}
                 options={{}}
@@ -149,7 +146,7 @@ export function LanguageCatalog(_props: CatalogProps) {
                     {renderTables()}
                 </AppContextProvider>
             </LanguageContextProvider>
-        </Container>
+        </Wrapper>
     );
 }
 

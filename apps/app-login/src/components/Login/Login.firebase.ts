@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Login.style';
+import { Wrapper } from './Login.style';
 import { useMount } from 'react-use';
 import { firebase } from '@gdi/platformer';
 import * as firebaseui from 'firebaseui';

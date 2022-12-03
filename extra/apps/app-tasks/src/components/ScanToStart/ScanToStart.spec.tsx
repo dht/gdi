@@ -13,7 +13,7 @@ describe('ScanToStart', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ScanToStart-container');
+        expect(containerClassName).toBe('ScanToStart-wrapper');
     });
 });
 

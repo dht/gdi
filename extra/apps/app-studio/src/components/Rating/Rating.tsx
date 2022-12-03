@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container, Parameter } from './Rating.style';
+import { Wrapper, Parameter } from './Rating.style';
 import { ProgressBarVertical as ProgressBar } from '@gdi/web-ui';
 
 export type RatingProps = {};
 
 export function Rating(_props: RatingProps) {
     return (
-        <Container className='Rating-container' data-testid='Rating-container'>
+        <Wrapper className='Rating-wrapper' data-testid='Rating-wrapper'>
             <Parameter>
                 <ProgressBar value={50} color='orange' />
             </Parameter>
@@ -16,7 +16,7 @@ export function Rating(_props: RatingProps) {
             <Parameter>
                 <ProgressBar value={10} color='greenyellow' />
             </Parameter>
-        </Container>
+        </Wrapper>
     );
 }
 

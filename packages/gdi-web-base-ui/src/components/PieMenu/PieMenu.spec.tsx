@@ -22,7 +22,7 @@ describe('PieMenu', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('PieMenu-container');
+        expect(containerClassName).toContain('PieMenu-wrapper');
         expect(innerText).toBe(label);
     });
 

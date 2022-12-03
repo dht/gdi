@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Empty } from './Playback.style';
+import { Wrapper, Empty } from './Playback.style';
 import { IconButton } from '@gdi/web-ui';
 
 export type PlaybackProps = {
@@ -18,17 +18,14 @@ export function Playback(props: PlaybackProps) {
 
     if (!activeTask.isLoaded) {
         return (
-            <Container className='Playback-container'>
+            <Wrapper className='Playback-wrapper'>
                 <Empty>No active session</Empty>
-            </Container>
+            </Wrapper>
         );
     }
 
     return (
-        <Container
-            className='Playback-container'
-            data-testid='Playback-container'
-        >
+        <Wrapper className='Playback-wrapper' data-testid='Playback-wrapper'>
             <IconButton
                 iconProps={{ iconName: 'Cancel' }}
                 title='Cancel session'
@@ -68,7 +65,7 @@ export function Playback(props: PlaybackProps) {
                 className='icon'
                 onClick={callbacks.onDone}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

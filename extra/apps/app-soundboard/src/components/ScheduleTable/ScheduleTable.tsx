@@ -2,7 +2,7 @@ import React from 'react';
 import { allColors } from './ScheduleTable.colors';
 import { ScheduleDay } from '../ScheduleDay/ScheduleDay';
 import {
-    Container,
+    Wrapper,
     Table,
     HeaderContainer,
     Hour,
@@ -90,9 +90,9 @@ export function ScheduleTable(props: ScheduleTableProps) {
     }
 
     return (
-        <Container
-            className='ScheduleTable-container'
-            data-testid='ScheduleTable-container'
+        <Wrapper
+            className='ScheduleTable-wrapper'
+            data-testid='ScheduleTable-wrapper'
             isDayTime={isDayTime}
         >
             <Table ref={ref}>
@@ -108,7 +108,7 @@ export function ScheduleTable(props: ScheduleTableProps) {
                 </Column>
                 {isDayTime && <Placeholder />}
             </Table>
-        </Container>
+        </Wrapper>
     );
 }
 

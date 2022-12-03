@@ -4,8 +4,7 @@ import { FlexProperties, FlexPropertiesProps } from './FlexProperties';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FlexPropertiesDriver extends BaseComponentDriver {
-    private props: Partial<FlexPropertiesProps> = {
-    };
+    private props: Partial<FlexPropertiesProps> = {};
 
     constructor() {
         super('FlexProperties');
@@ -17,11 +16,13 @@ export class FlexPropertiesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FlexProperties {...(this.props as FlexPropertiesProps)} />);
+            return this.snapshot(
+                <FlexProperties {...(this.props as FlexPropertiesProps)} />
+            );
         },
     };
 
@@ -33,11 +34,11 @@ export class FlexPropertiesDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

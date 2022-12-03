@@ -4,8 +4,7 @@ import { WindowHeader, WindowHeaderProps } from './WindowHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class WindowHeaderDriver extends BaseComponentDriver {
-    private props: Partial<WindowHeaderProps> = {
-    };
+    private props: Partial<WindowHeaderProps> = {};
 
     constructor() {
         super('WindowHeader');
@@ -17,11 +16,13 @@ export class WindowHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<WindowHeader {...(this.props as WindowHeaderProps)} />);
+            return this.snapshot(
+                <WindowHeader {...(this.props as WindowHeaderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class WindowHeaderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

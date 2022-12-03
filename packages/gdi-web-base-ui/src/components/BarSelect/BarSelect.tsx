@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Option, Options } from './BarSelect.style';
+import { Wrapper, Option, Options } from './BarSelect.style';
 
 export type BarSelectProps = {
     options: IOption[];
@@ -59,12 +59,9 @@ export function BarSelect(props: BarSelectProps) {
         return options.map((option: IOption) => renderOption(option));
     }
     return (
-        <Container
-            className='BarSelect-container'
-            data-testid='BarSelect-container'
-        >
+        <Wrapper className='BarSelect-wrapper' data-testid='BarSelect-wrapper'>
             <Options>{renderOptions()}</Options>
-        </Container>
+        </Wrapper>
     );
 }
 

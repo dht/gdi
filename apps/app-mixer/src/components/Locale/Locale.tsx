@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title } from './Locale.style';
+import { Wrapper, Title } from './Locale.style';
 import { List } from '@gdi/web-ui';
 import classnames from 'classnames';
 
@@ -23,14 +23,14 @@ export function Locale(props: LocaleProps) {
     }
 
     return (
-        <Container className='Locale-container' data-testid='Locale-container'>
+        <Wrapper className='Locale-wrapper' data-testid='Locale-wrapper'>
             <List
                 options={options}
                 renderItem={renderItem}
                 onSelect={props.onSelect}
                 selectedOptionId={selectedLocaleId}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

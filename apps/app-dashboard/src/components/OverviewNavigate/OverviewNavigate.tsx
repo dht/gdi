@@ -1,6 +1,6 @@
 import React from 'react';
 import { invokeEvent } from 'shared-base';
-import { Container } from './OverviewNavigate.style';
+import { Wrapper } from './OverviewNavigate.style';
 
 export type OverviewNavigateProps = {
     inboxMessage?: IInboxMessage;
@@ -9,15 +9,15 @@ export type OverviewNavigateProps = {
 export function OverviewNavigate(props: OverviewNavigateProps) {
     const { inboxMessage } = props;
 
-    invokeEvent('navigatePop', {});
+    invokeEvent('navigatePop');
 
     return (
-        <Container
-            className='OverviewNavigate-container'
-            data-testid='OverviewNavigate-container'
+        <Wrapper
+            className='OverviewNavigate-wrapper'
+            data-testid='OverviewNavigate-wrapper'
         >
             OverviewNavigate {inboxMessage?.id}
-        </Container>
+        </Wrapper>
     );
 }
 

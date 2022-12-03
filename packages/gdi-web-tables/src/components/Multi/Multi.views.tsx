@@ -1,9 +1,10 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import { ContainerViews } from './Multi.style';
 import { Switch } from '@gdi/web-base-ui';
 import { useFunctionKeys } from '@gdi/hooks';
 import { useMemo, useRef } from '@gdi/hooks';
+import styled from 'styled-components';
+import { WrapperViews } from './Multi.style';
 
 export type MultiViewsProps = {
     value: string;
@@ -55,9 +56,9 @@ export function MultiViews(props: MultiViewsProps) {
 
     return (
         <Cmp nodeRef={ref}>
-            <ContainerViews
-                className='MultiViews-container'
-                data-testid='Multi-container'
+            <WrapperViews
+                className='MultiViews-wrapper'
+                data-testid='Multi-wrapper'
                 ref={ref}
             >
                 <Switch
@@ -66,7 +67,7 @@ export function MultiViews(props: MultiViewsProps) {
                     onChange={props.onChange}
                     vertical={true}
                 />
-            </ContainerViews>
+            </WrapperViews>
         </Cmp>
     );
 }

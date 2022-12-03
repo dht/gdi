@@ -4,8 +4,7 @@ import { UnoHeader, UnoHeaderProps } from './UnoHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class UnoHeaderDriver extends BaseComponentDriver {
-    private props: Partial<UnoHeaderProps> = {
-    };
+    private props: Partial<UnoHeaderProps> = {};
 
     constructor() {
         super('UnoHeader');
@@ -17,11 +16,13 @@ export class UnoHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<UnoHeader {...(this.props as UnoHeaderProps)} />);
+            return this.snapshot(
+                <UnoHeader {...(this.props as UnoHeaderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class UnoHeaderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

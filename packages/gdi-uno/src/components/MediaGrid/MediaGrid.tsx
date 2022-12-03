@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './MediaGrid.style';
+import { Wrapper } from './MediaGrid.style';
 import { LocalGallery } from '@gdi/web-base-ui';
 import { IUnoSection } from '../../types';
 
@@ -13,12 +13,9 @@ export function MediaGrid(props: MediaGridProps) {
     const { media: items } = data;
 
     return (
-        <Container
-            className='MediaGrid-container'
-            data-testid='MediaGrid-container'
-        >
+        <Wrapper className='MediaGrid-wrapper' data-testid='MediaGrid-wrapper'>
             <LocalGallery items={items} />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { SheetHeader, SheetHeaderProps } from './SheetHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SheetHeaderDriver extends BaseComponentDriver {
-    private props: Partial<SheetHeaderProps> = {
-    };
+    private props: Partial<SheetHeaderProps> = {};
 
     constructor() {
         super('SheetHeader');
@@ -17,11 +16,13 @@ export class SheetHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SheetHeader {...(this.props as SheetHeaderProps)} />);
+            return this.snapshot(
+                <SheetHeader {...(this.props as SheetHeaderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SheetHeaderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

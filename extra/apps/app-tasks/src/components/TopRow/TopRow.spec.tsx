@@ -13,7 +13,7 @@ describe('TopRow', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TopRow-container');
+        expect(containerClassName).toBe('TopRow-wrapper');
     });
 });
 

@@ -13,7 +13,7 @@ describe('LiveTask', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('LiveTask-container');
+        expect(containerClassName).toBe('LiveTask-wrapper');
     });
 });
 

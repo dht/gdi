@@ -4,8 +4,7 @@ import { Checkboxes, CheckboxesProps } from './Checkboxes';
 import { BaseComponentDriver } from 'testing-base';
 
 export class CheckboxesDriver extends BaseComponentDriver {
-    private props: Partial<CheckboxesProps> = {
-    };
+    private props: Partial<CheckboxesProps> = {};
 
     constructor() {
         super('Checkboxes');
@@ -17,11 +16,13 @@ export class CheckboxesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Checkboxes {...(this.props as CheckboxesProps)} />);
+            return this.snapshot(
+                <Checkboxes {...(this.props as CheckboxesProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class CheckboxesDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

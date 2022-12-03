@@ -19,7 +19,7 @@ export class ReduxConnectedDevtoolsDriver extends BaseComponentDriver {
             return this;
         },
         click: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
     };
@@ -33,7 +33,7 @@ export class ReduxConnectedDevtoolsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
     };
 }

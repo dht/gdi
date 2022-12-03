@@ -4,8 +4,7 @@ import { OverlayField, OverlayFieldProps } from './OverlayField';
 import { BaseComponentDriver } from 'testing-base';
 
 export class OverlayFieldDriver extends BaseComponentDriver {
-    private props: Partial<OverlayFieldProps> = {
-    };
+    private props: Partial<OverlayFieldProps> = {};
 
     constructor() {
         super('OverlayField');
@@ -17,11 +16,13 @@ export class OverlayFieldDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<OverlayField {...(this.props as OverlayFieldProps)} />);
+            return this.snapshot(
+                <OverlayField {...(this.props as OverlayFieldProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class OverlayFieldDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

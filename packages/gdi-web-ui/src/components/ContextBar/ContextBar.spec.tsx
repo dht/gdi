@@ -22,7 +22,7 @@ describe('ContextBar', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ContextBar-container');
+        expect(containerClassName).toContain('ContextBar-wrapper');
         expect(innerText).toBe(label);
     });
 

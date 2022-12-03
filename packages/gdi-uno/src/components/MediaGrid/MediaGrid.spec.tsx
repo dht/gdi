@@ -22,7 +22,7 @@ describe('MediaGrid', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('MediaGrid-container');
+        expect(containerClassName).toContain('MediaGrid-wrapper');
         expect(innerText).toBe(label);
     });
 

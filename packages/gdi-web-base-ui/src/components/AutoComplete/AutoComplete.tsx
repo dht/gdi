@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { Container } from './AutoComplete.style';
+import { Wrapper } from './AutoComplete.style';
 import Creatable from 'react-select/creatable';
 import { Options } from 'react-select';
 
@@ -32,9 +32,9 @@ export const AutoComplete = React.forwardRef(
         }, []);
 
         return (
-            <Container
-                className='AutoComplete-container'
-                data-testid='AutoComplete-container'
+            <Wrapper
+                className='AutoComplete-wrapper'
+                data-testid='AutoComplete-wrapper'
             >
                 <Creatable
                     ref={ref}
@@ -68,7 +68,7 @@ export const AutoComplete = React.forwardRef(
                         },
                     })}
                 />
-            </Container>
+            </Wrapper>
         );
     }
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './KnowledgeSheets.style';
+import { Wrapper } from './KnowledgeSheets.style';
 import { Sheets } from '@gdi/web-ui';
 
 export type KnowledgeSheetsProps = {
@@ -14,12 +14,12 @@ export type KnowledgeSheetsProps = {
 
 export function KnowledgeSheets(props: KnowledgeSheetsProps) {
     return (
-        <Container
-            className='KnowledgeSheets-container'
-            data-testid='KnowledgeSheets-container'
+        <Wrapper
+            className='KnowledgeSheets-wrapper'
+            data-testid='KnowledgeSheets-wrapper'
         >
             <Sheets {...props} />
-        </Container>
+        </Wrapper>
     );
 }
 

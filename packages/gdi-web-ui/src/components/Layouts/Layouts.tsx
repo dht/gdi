@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Layouts.style';
+import { Wrapper } from './Layouts.style';
 
 export type LayoutsProps = {};
 
 export function Layouts(_props: LayoutsProps) {
     return (
-        <Container className="Layouts-container" data-testid="Layouts-container">
+        <Wrapper className='Layouts-wrapper' data-testid='Layouts-wrapper'>
             Layouts
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -22,7 +22,7 @@ describe('Editor', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Editor-container');
+        expect(containerClassName).toContain('Editor-wrapper');
         expect(innerText).toBe(label);
     });
 

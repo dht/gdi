@@ -1,6 +1,6 @@
 import { useMeasure } from 'react-use';
 import React, { useState } from 'react';
-import { Bk, Container, Option } from './Switch.style';
+import { Bk, Wrapper, Option } from './Switch.style';
 import classnames from 'classnames';
 
 export type SwitchProps = {
@@ -86,20 +86,16 @@ export function Switch(props: SwitchProps) {
         return <Bk className='bk' style={style} />;
     }
 
-    const className = classnames('Switch-container', {
+    const className = classnames('Switch-wrapper', {
         vertical,
         lightMode,
     });
 
     return (
-        <Container
-            className={className}
-            data-testid='Switch-container'
-            ref={ref}
-        >
+        <Wrapper className={className} data-testid='Switch-wrapper' ref={ref}>
             {renderOptions()}
             {renderBk()}
-        </Container>
+        </Wrapper>
     );
 }
 

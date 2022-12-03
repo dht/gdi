@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, P } from './Placeholder.style';
+import { Wrapper, Header, P } from './Placeholder.style';
 
 export type PlaceholderProps = {
     element: IElement;
@@ -11,13 +11,13 @@ export function Placeholder(props: PlaceholderProps) {
     const { widgetType = '' } = widget ?? {};
 
     return (
-        <Container
-            className='Placeholder-container'
-            data-testid='Placeholder-container'
+        <Wrapper
+            className='Placeholder-wrapper'
+            data-testid='Placeholder-wrapper'
         >
             <Header>Placeholder for {widgetType}</Header>
             <P>Populate with a widget from the library</P>
-        </Container>
+        </Wrapper>
     );
 }
 

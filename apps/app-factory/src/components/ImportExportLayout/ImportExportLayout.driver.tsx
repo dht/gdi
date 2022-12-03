@@ -1,11 +1,13 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { ImportExportLayout, ImportExportLayoutProps } from './ImportExportLayout';
+import {
+    ImportExportLayout,
+    ImportExportLayoutProps,
+} from './ImportExportLayout';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ImportExportLayoutDriver extends BaseComponentDriver {
-    private props: Partial<ImportExportLayoutProps> = {
-    };
+    private props: Partial<ImportExportLayoutProps> = {};
 
     constructor() {
         super('ImportExportLayout');
@@ -13,15 +15,23 @@ export class ImportExportLayoutDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ImportExportLayout {...(this.props as ImportExportLayoutProps)} />);
+            render(
+                <ImportExportLayout
+                    {...(this.props as ImportExportLayoutProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ImportExportLayout {...(this.props as ImportExportLayoutProps)} />);
+            return this.snapshot(
+                <ImportExportLayout
+                    {...(this.props as ImportExportLayoutProps)}
+                />
+            );
         },
     };
 
@@ -33,11 +43,11 @@ export class ImportExportLayoutDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

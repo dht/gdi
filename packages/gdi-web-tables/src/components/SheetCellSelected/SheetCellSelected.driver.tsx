@@ -4,8 +4,7 @@ import { SheetCellSelected, SheetCellSelectedProps } from './SheetCellSelected';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SheetCellSelectedDriver extends BaseComponentDriver {
-    private props: Partial<SheetCellSelectedProps> = {
-    };
+    private props: Partial<SheetCellSelectedProps> = {};
 
     constructor() {
         super('SheetCellSelected');
@@ -13,15 +12,23 @@ export class SheetCellSelectedDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<SheetCellSelected {...(this.props as SheetCellSelectedProps)} />);
+            render(
+                <SheetCellSelected
+                    {...(this.props as SheetCellSelectedProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SheetCellSelected {...(this.props as SheetCellSelectedProps)} />);
+            return this.snapshot(
+                <SheetCellSelected
+                    {...(this.props as SheetCellSelectedProps)}
+                />
+            );
         },
     };
 
@@ -34,10 +41,10 @@ export class SheetCellSelectedDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

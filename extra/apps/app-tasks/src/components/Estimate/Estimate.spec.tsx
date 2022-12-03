@@ -13,7 +13,7 @@ describe('Estimate', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Estimate-container');
+        expect(containerClassName).toBe('Estimate-wrapper');
     });
 });
 

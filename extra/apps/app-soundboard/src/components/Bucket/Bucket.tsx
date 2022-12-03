@@ -3,7 +3,7 @@ import { useNumpadTiming } from '../../hooks/useNumpadTiming';
 import Duration from '../Duration/Duration';
 import Percent from '../Percent/Percent';
 import {
-    Container,
+    Wrapper,
     Inner,
     First,
     Second,
@@ -72,10 +72,10 @@ export function Bucket(props: BucketProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             ref={ref}
-            className='Bucket-container'
-            data-testid='Bucket-container'
+            className='Bucket-wrapper'
+            data-testid='Bucket-wrapper'
             // onMouseEnter={() => props.onHover(true)}
             onMouseLeave={() => props.onHover(false)}
             onClick={() => props.onClick()}
@@ -89,7 +89,7 @@ export function Bucket(props: BucketProps) {
                 <Percent value={multiplier} />
             </PercentWrapper>
             <DurationWrapper>{renderDuration()}</DurationWrapper>
-        </Container>
+        </Wrapper>
     );
 }
 

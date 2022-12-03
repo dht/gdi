@@ -1,6 +1,6 @@
 import classnames from 'classnames';
 import React from 'react';
-import { Container, Key, Percent, Row, Title } from './ProjectsTable.style';
+import { Wrapper, Key, Percent, Row, Title } from './ProjectsTable.style';
 import { GenericTable, ColorPicker } from '@gdi/web-ui';
 import Duration from '../Duration/Duration';
 
@@ -32,7 +32,7 @@ export function ProjectsTable(props: ProjectsTableProps) {
                 className={className}
                 key={key}
                 onMouseDown={(ev: React.MouseEvent<HTMLDivElement>) => {
-                    if (!hasParent(ev.target, 'ColorPicker-container')) {
+                    if (!hasParent(ev.target, 'ColorPicker-wrapper')) {
                         props.onProjectClick(item);
                     }
                 }}
@@ -59,14 +59,14 @@ export function ProjectsTable(props: ProjectsTableProps) {
     }
 
     return (
-        <Container
-            className='ProjectsTable-container'
-            data-testid='ProjectsTable-container'
+        <Wrapper
+            className='ProjectsTable-wrapper'
+            data-testid='ProjectsTable-wrapper'
         >
             <GenericTable data={projects} autoHeight>
                 {row}
             </GenericTable>
-        </Container>
+        </Wrapper>
     );
 }
 

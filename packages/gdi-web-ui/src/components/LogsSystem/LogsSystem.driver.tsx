@@ -4,8 +4,7 @@ import { LogsSystem, LogsSystemProps } from './LogsSystem';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LogsSystemDriver extends BaseComponentDriver {
-    private props: Partial<LogsSystemProps> = {
-    };
+    private props: Partial<LogsSystemProps> = {};
 
     constructor() {
         super('LogsSystem');
@@ -17,11 +16,13 @@ export class LogsSystemDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<LogsSystem {...(this.props as LogsSystemProps)} />);
+            return this.snapshot(
+                <LogsSystem {...(this.props as LogsSystemProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class LogsSystemDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

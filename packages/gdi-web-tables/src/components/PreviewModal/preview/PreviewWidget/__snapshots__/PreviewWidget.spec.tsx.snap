@@ -2,8 +2,8 @@
 
 exports[`PreviewWidget snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR PreviewWidget-container"
-  data-testid="PreviewWidget-container"
+  className="sc-bczRLJ WtYQR PreviewWidget-wrapper"
+  data-testid="PreviewWidget-wrapper"
 >
   PreviewWidget
 </div>

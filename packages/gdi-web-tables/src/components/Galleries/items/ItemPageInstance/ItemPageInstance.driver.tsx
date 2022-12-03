@@ -4,8 +4,7 @@ import { ItemPageInstance, ItemPageInstanceProps } from './ItemPageInstance';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemPageInstanceDriver extends BaseComponentDriver {
-    private props: Partial<ItemPageInstanceProps> = {
-    };
+    private props: Partial<ItemPageInstanceProps> = {};
 
     constructor() {
         super('ItemPageInstance');
@@ -13,15 +12,19 @@ export class ItemPageInstanceDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ItemPageInstance {...(this.props as ItemPageInstanceProps)} />);
+            render(
+                <ItemPageInstance {...(this.props as ItemPageInstanceProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemPageInstance {...(this.props as ItemPageInstanceProps)} />);
+            return this.snapshot(
+                <ItemPageInstance {...(this.props as ItemPageInstanceProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class ItemPageInstanceDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

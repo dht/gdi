@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
     Actions,
-    Container,
+    Wrapper,
     Editors,
     Error,
     H1,
@@ -60,9 +60,9 @@ export function SiteProperties(props: SitePropertiesProps) {
     }, [value]);
 
     return (
-        <Container
-            className='SiteProperties-container'
-            data-testid='SiteProperties-container'
+        <Wrapper
+            className='SiteProperties-wrapper'
+            data-testid='SiteProperties-wrapper'
             ref={ref}
         >
             <Header>
@@ -88,7 +88,7 @@ export function SiteProperties(props: SitePropertiesProps) {
                     readOnly
                 />
             </Editors>
-        </Container>
+        </Wrapper>
     );
 }
 

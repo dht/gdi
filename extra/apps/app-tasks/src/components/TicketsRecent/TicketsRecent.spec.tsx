@@ -13,7 +13,7 @@ describe('TicketsRecent', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TicketsRecent-container');
+        expect(containerClassName).toBe('TicketsRecent-wrapper');
     });
 });
 

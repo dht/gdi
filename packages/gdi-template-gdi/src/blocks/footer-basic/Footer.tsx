@@ -1,6 +1,15 @@
 import React, { useContext } from 'react';
 import { useDataset, SiteContext } from '@gdi/engine';
-import { A, Column, Container, Copy, Li, Ul, Wrapper } from './Footer.style';
+import {
+    A,
+    Column,
+    Container,
+    Copy,
+    Li,
+    Row,
+    Ul,
+    Wrapper,
+} from './Footer.style';
 export const id = 'com.usegdi.templates.gdi.footer-basic';
 
 export type FooterProps = {
@@ -52,16 +61,18 @@ export function Footer(props: FooterProps) {
     }
 
     return (
-        <Container className='Footer-container' data-testid='Footer-container'>
-            <Wrapper>
-                <Column>
-                    <Copy>&copy; {text}</Copy>
-                </Column>
-                <Column>
-                    <Ul>{renderLinks()}</Ul>
-                </Column>
-            </Wrapper>
-        </Container>
+        <Wrapper className='Footer-wrapper' data-testid='Footer-wrapper'>
+            <Container>
+                <Row>
+                    <Column>
+                        <Copy>&copy; {text}</Copy>
+                    </Column>
+                    <Column>
+                        <Ul>{renderLinks()}</Ul>
+                    </Column>
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

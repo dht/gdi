@@ -9,6 +9,7 @@ export const sampleData: ISampleDataPerFlavour = {
         },
         colors: {},
         extra: {
+            imageUrl: 'https://static-b9ebe.web.app/ny2.webp',
             href: '#',
         },
     },

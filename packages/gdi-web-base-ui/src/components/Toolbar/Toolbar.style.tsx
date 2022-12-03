@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ horizontal?: boolean }>`
+export const Wrapper = styled.div<{ horizontal?: boolean }>`
     display: flex;
     flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
     align-items: stretch;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, Line, Rectangle, Title } from './Legend.style';
+import { Wrapper, Line, Rectangle, Title } from './Legend.style';
 
 export type LegendProps = {};
 
 export function Legend(_props: LegendProps) {
     return (
-        <Container className='Legend-container' data-testid='Legend-container'>
+        <Wrapper className='Legend-wrapper' data-testid='Legend-wrapper'>
             <Line>
                 <Rectangle color='orange'></Rectangle>
                 <Title>Tooling</Title>
@@ -18,7 +18,7 @@ export function Legend(_props: LegendProps) {
                 <Rectangle color='yellowgreen'></Rectangle>
                 <Title>Knowledge</Title>
             </Line>
-        </Container>
+        </Wrapper>
     );
 }
 

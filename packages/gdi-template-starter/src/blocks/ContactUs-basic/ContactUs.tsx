@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Whatsapp from '../../components/Whatsapp/Whatsapp';
 import { Container, H3, Wrapper } from './ContactUs.style';
 import { SiteContext } from '@gdi/engine';
+import BkBlur from '../../components/BkBlur/BkBlur';
 
 export const id = 'com.usegdi.templates.starter.contactUs-basic';
 
@@ -36,16 +37,16 @@ export function ContactUs(props: ContactUsProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='ContactUs-container'
             data-testid='ContactUs-container'
-            imageUrl={imageUrl}
+            bk={<BkBlur imageUrl={imageUrl} />}
         >
-            <Wrapper>
+            <Container>
                 <H3>{header}</H3>
                 <Whatsapp phoneNumber={phoneNumber} onClick={onClick} />
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

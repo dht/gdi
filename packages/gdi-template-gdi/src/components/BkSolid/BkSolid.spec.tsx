@@ -22,7 +22,7 @@ describe('BkSolid', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('BkSolid-container');
+        expect(containerClassName).toContain('BkSolid-wrapper');
         expect(innerText).toBe(label);
     });
 

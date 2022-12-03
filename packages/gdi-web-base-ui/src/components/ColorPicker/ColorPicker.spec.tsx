@@ -13,7 +13,7 @@ describe('ColorPicker', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ColorPicker-container');
+        expect(containerClassName).toBe('ColorPicker-wrapper');
     });
 });
 

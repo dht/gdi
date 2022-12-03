@@ -4,8 +4,7 @@ import { TypeView, TypeViewProps } from './TypeView';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TypeViewDriver extends BaseComponentDriver {
-    private props: Partial<TypeViewProps> = {
-    };
+    private props: Partial<TypeViewProps> = {};
 
     constructor() {
         super('TypeView');
@@ -17,11 +16,13 @@ export class TypeViewDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<TypeView {...(this.props as TypeViewProps)} />);
+            return this.snapshot(
+                <TypeView {...(this.props as TypeViewProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class TypeViewDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

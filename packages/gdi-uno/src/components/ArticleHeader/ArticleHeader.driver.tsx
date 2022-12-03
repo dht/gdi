@@ -4,8 +4,7 @@ import { ArticleHeader, ArticleHeaderProps } from './ArticleHeader';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticleHeaderDriver extends BaseComponentDriver {
-    private props: Partial<ArticleHeaderProps> = {
-    };
+    private props: Partial<ArticleHeaderProps> = {};
 
     constructor() {
         super('ArticleHeader');
@@ -17,11 +16,13 @@ export class ArticleHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ArticleHeader {...(this.props as ArticleHeaderProps)} />);
+            return this.snapshot(
+                <ArticleHeader {...(this.props as ArticleHeaderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ArticleHeaderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

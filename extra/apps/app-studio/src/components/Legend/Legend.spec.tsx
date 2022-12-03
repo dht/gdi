@@ -13,7 +13,7 @@ describe('Legend', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Legend-container');
+        expect(containerClassName).toBe('Legend-wrapper');
     });
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Svg, Tab, Title } from './BucketTabs.style';
+import { Wrapper, Svg, Tab, Title } from './BucketTabs.style';
 import classnames from 'classnames';
 
 export type BucketTabsProps = {
@@ -39,12 +39,12 @@ export function BucketTabs(props: BucketTabsProps) {
     }
 
     return (
-        <Container
-            className='BucketTabs-container'
-            data-testid='BucketTabs-container'
+        <Wrapper
+            className='BucketTabs-wrapper'
+            data-testid='BucketTabs-wrapper'
         >
             {renderTabs()}
-        </Container>
+        </Wrapper>
     );
 }
 

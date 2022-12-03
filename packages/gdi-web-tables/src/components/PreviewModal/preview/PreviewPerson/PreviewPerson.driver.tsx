@@ -4,8 +4,7 @@ import { PreviewPerson, PreviewPersonProps } from './PreviewPerson';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewPersonDriver extends BaseComponentDriver {
-    private props: Partial<PreviewPersonProps> = {
-    };
+    private props: Partial<PreviewPersonProps> = {};
 
     constructor() {
         super('PreviewPerson');
@@ -17,11 +16,13 @@ export class PreviewPersonDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewPerson {...(this.props as PreviewPersonProps)} />);
+            return this.snapshot(
+                <PreviewPerson {...(this.props as PreviewPersonProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewPersonDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

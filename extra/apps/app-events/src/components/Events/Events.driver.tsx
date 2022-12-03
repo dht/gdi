@@ -4,8 +4,7 @@ import { Events, EventsProps } from './Events';
 import { BaseComponentDriver } from 'testing-base';
 
 export class EventsDriver extends BaseComponentDriver {
-    private props: Partial<EventsProps> = {
-    };
+    private props: Partial<EventsProps> = {};
 
     constructor() {
         super('Events');
@@ -17,7 +16,7 @@ export class EventsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class EventsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

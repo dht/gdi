@@ -1,6 +1,6 @@
 import { DatePicker, defaultDatePickerStrings } from '@fluentui/react';
 import * as React from 'react';
-import { Container } from './DateInput.style';
+import { Wrapper } from './DateInput.style';
 import { dateShort } from '@gdi/language';
 
 export type DateProps = {
@@ -33,7 +33,7 @@ export const DateInput = React.forwardRef((props: DateProps, ref: any) => {
     }
 
     return (
-        <Container className='DateInput-container' data-testid='Date-container'>
+        <Wrapper className='DateInput-wrapper' data-testid='Date-wrapper'>
             <DatePicker
                 firstDayOfWeek={firstDayOfWeek}
                 showWeekNumbers={true}
@@ -47,7 +47,7 @@ export const DateInput = React.forwardRef((props: DateProps, ref: any) => {
                 onSelectDate={props.onChange}
                 value={value}
             />
-        </Container>
+        </Wrapper>
     );
 });
 

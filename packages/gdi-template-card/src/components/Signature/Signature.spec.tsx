@@ -22,7 +22,7 @@ describe('Signature', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Signature-container');
+        expect(containerClassName).toContain('Signature-wrapper');
         expect(innerText).toBe(label);
     });
 

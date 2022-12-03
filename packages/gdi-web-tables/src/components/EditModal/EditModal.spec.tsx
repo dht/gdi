@@ -22,7 +22,7 @@ describe('EditModal', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('EditModal-container');
+        expect(containerClassName).toContain('EditModal-wrapper');
         expect(innerText).toBe(label);
     });
 

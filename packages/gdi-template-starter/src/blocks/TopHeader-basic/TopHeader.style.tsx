@@ -1,9 +1,7 @@
-import styled, { css } from 'styled-components';
-import { TopHeaderColors } from './TopHeader';
-import { darken } from 'polished';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     position: absolute;
     z-index: 9;
     left: 0;
@@ -17,20 +15,16 @@ export const Container = styled.div`
     }
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 50px;
-    padding: 10px 0;
-    flex: 1;
+export const Container = styled(Grid.Container)`
+    height: 100px;
 
     ${mobile(css`
+        height: auto;
         margin: 0 10px;
     `)}
 `;
+
+export const Row = styled(Grid.Row)``;
 
 export const Flex = styled.div`
     flex: 1;

@@ -16,7 +16,7 @@ export class LayoutVisualDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,11 +34,11 @@ export class LayoutVisualDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

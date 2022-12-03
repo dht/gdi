@@ -4,7 +4,7 @@ import { useMeasure } from 'react-use';
 import {
     Actions,
     Column,
-    Container,
+    Wrapper,
     Content,
     Editors,
     Error,
@@ -86,9 +86,9 @@ export function Datasets(props: DatasetsProps) {
     );
 
     return (
-        <Container
-            className='Datasets-container'
-            data-testid='Datasets-container'
+        <Wrapper
+            className='Datasets-wrapper'
+            data-testid='Datasets-wrapper'
             ref={ref}
         >
             <Header>
@@ -122,7 +122,7 @@ export function Datasets(props: DatasetsProps) {
                     />
                 </Editors>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectsTiles from '../ProjectsTiles/ProjectsTiles';
 import TicketsTable from '../TicketsTable/TicketsTable';
-import { Container, Header, Link } from './TicketsByProject.style';
+import { Wrapper, Header, Link } from './TicketsByProject.style';
 
 export type TicketsByProjectProps = {
     projects: IProjects;
@@ -28,9 +28,9 @@ export function TicketsByProject(props: TicketsByProjectProps) {
     }
 
     return (
-        <Container
-            className='TicketsByProject-container'
-            data-testid='TicketsByProject-container'
+        <Wrapper
+            className='TicketsByProject-wrapper'
+            data-testid='TicketsByProject-wrapper'
         >
             {projectKey ? (
                 <TicketsTable
@@ -46,7 +46,7 @@ export function TicketsByProject(props: TicketsByProjectProps) {
                     onTileClick={callbacks.onTileClick}
                 />
             )}
-        </Container>
+        </Wrapper>
     );
 }
 

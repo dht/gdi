@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.a`
+export const Wrapper = styled.a`
     color: var(--main-color);
     font-weight: 500;
     text-decoration: none;

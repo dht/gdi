@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Item, Time, Title } from './DomainHistory.style';
+import { Wrapper, Item, Time, Title } from './DomainHistory.style';
 
 export type DomainHistoryProps = {};
 
 export function DomainHistory(_props: DomainHistoryProps) {
     return (
-        <Container
-            className='DomainHistory-container'
-            data-testid='DomainHistory-container'
+        <Wrapper
+            className='DomainHistory-wrapper'
+            data-testid='DomainHistory-wrapper'
         >
             <Item highlighted={false}>
                 <Time>05/12</Time>
@@ -29,7 +29,7 @@ export function DomainHistory(_props: DomainHistoryProps) {
                 <Time>05/17</Time>
                 <Title>New internet supplier</Title>
             </Item>
-        </Container>
+        </Wrapper>
     );
 }
 

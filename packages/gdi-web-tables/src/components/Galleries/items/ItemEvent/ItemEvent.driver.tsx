@@ -4,8 +4,7 @@ import { ItemEvent, ItemEventProps } from './ItemEvent';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemEventDriver extends BaseComponentDriver {
-    private props: Partial<ItemEventProps> = {
-    };
+    private props: Partial<ItemEventProps> = {};
 
     constructor() {
         super('ItemEvent');
@@ -17,11 +16,13 @@ export class ItemEventDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemEvent {...(this.props as ItemEventProps)} />);
+            return this.snapshot(
+                <ItemEvent {...(this.props as ItemEventProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemEventDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

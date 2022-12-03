@@ -10,7 +10,7 @@ import { SelectionContext } from '../../context/Selection.context';
 import {
     Actions,
     Clear,
-    Container,
+    Wrapper,
     ContainerBar,
     ContainerFilter,
     Count,
@@ -228,7 +228,7 @@ export function FilterBar(props: FilterBarProps) {
     }
 
     return (
-        <Container className='TopBar-container' data-testid='TopBar-container'>
+        <Wrapper className='TopBar-wrapper' data-testid='TopBar-wrapper'>
             <ContainerBar>
                 {renderHeader()}
                 {renderToolbar()}
@@ -241,7 +241,7 @@ export function FilterBar(props: FilterBarProps) {
                 {renderActions()}
             </ContainerBar>
             {renderFilters()}
-        </Container>
+        </Wrapper>
     );
 }
 

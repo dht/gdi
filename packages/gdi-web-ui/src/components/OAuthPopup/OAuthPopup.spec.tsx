@@ -13,7 +13,7 @@ describe('OAuthPopup', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('OAuthPopup-container');
+        expect(containerClassName).toBe('OAuthPopup-wrapper');
     });
 });
 

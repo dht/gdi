@@ -1,56 +1,30 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { CtaActionColors } from './CtaAction';
-import { darken } from 'polished';
 import { BaseButton } from '../../components/Base.style';
-import { mobile } from '../Base.style';
+import { mobile, Grid, css } from '@gdi/engine';
 
-export const Container = styled.div<{ colors: CtaActionColors }>`
-    flex: 1;
-    background-color: ${(props) => props.colors.background || '#112'};
-    position: relative;
-    height: 600px;
-    padding: 100px 0 100px;
-    box-sizing: border-box;
-    display: flex;
-    --bk-light: gold;
+export const Wrapper = styled(Grid.Wrapper)`
+    height: 60vh;
     font-family: ${(props) => props.theme.fontFamily};
+    color: #ccd;
+    --bk-light: gold;
 
-    ${mobile(css`
-        padding: 100px 50px;
-    `)}
-
-    &::before {
-        background-image: url(https://static-b9ebe.web.app/ny2.webp);
-        background-size: cover;
-        background-position: top center;
-        background-attachment: fixed;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        filter: brightness(0.3) opacity(30%) blur(1px) contrast(110%);
+    > .content {
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        display: flex;
     }
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
+export const Container = styled(Grid.Container)``;
+
+export const Row = styled(Grid.Row)`
     align-items: center;
     justify-content: center;
-    max-width: 1440px;
-    margin: 0 auto;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    ${mobile(css`
-        flex-direction: column;
-    `)}
 `;
+
+export const Column = styled(Grid.Column)``;
 
 export const H3 = styled.h3`
     font-size: 50px;

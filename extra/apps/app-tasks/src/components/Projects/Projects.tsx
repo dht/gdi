@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Projects.style';
+import { Wrapper } from './Projects.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,10 +19,7 @@ export function Projects(props: ProjectsProps) {
     const crudDefinitions = useCrudDefinitions('project');
 
     return (
-        <Container
-            className='Projects-container'
-            data-testid='Projects-container'
-        >
+        <Wrapper className='Projects-wrapper' data-testid='Projects-wrapper'>
             <Multi
                 id='Projects'
                 itemType='project'
@@ -32,7 +29,7 @@ export function Projects(props: ProjectsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

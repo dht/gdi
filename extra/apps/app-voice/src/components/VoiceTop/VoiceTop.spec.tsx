@@ -13,7 +13,7 @@ describe('VoiceTop', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('VoiceTop-container');
+        expect(containerClassName).toBe('VoiceTop-wrapper');
     });
 });
 

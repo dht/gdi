@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './Site.style';
+import { Wrapper } from './Site.style';
 import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
@@ -22,14 +22,14 @@ export function Site(props: SiteProps) {
     }, []);
 
     return (
-        <Container className='Site-container' data-testid='Site-container'>
+        <Wrapper className='Site-wrapper' data-testid='Site-wrapper'>
             <EngineView
                 elements={elements}
                 libraryBuilder={libraryBuilder}
                 datasets={datasets}
                 backgroundColor='#fff'
             />
-        </Container>
+        </Wrapper>
     );
 }
 

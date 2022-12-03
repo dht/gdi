@@ -4,8 +4,7 @@ import { $CMP, $CMPProps } from './$CMP';
 import { BaseComponentDriver } from 'testing-base';
 
 export class $CMPDriver extends BaseComponentDriver {
-    private props: Partial<$CMPProps> = {
-    };
+    private props: Partial<$CMPProps> = {};
 
     constructor() {
         super('$CMP');
@@ -17,7 +16,7 @@ export class $CMPDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class $CMPDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

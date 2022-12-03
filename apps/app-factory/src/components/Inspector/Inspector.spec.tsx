@@ -19,10 +19,10 @@ describe('Inspector', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Inspector-container');
+        expect(wrapperClassName).toContain('Inspector-wrapper');
         expect(innerText).toBe(label);
     });
 

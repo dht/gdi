@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Scope, Summary } from './TaskTitle.style';
+import { Wrapper, Header, Scope, Summary } from './TaskTitle.style';
 
 export type TaskTitleProps = {
     header?: string;
@@ -32,12 +32,9 @@ export function TaskTitle(props: TaskTitleProps) {
     }
 
     return (
-        <Container
-            className='TaskTitle-container'
-            data-testid='TaskTitle-container'
-        >
+        <Wrapper className='TaskTitle-wrapper' data-testid='TaskTitle-wrapper'>
             {renderContent()}
-        </Container>
+        </Wrapper>
     );
 }
 

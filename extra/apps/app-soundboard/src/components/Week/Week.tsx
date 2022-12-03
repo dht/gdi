@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useRef, useState } from 'react';
-import { Container, RowHeaderContainer } from './Week.style';
+import { Wrapper, RowHeaderContainer } from './Week.style';
 import Square from '../Square/Square';
 import { soundboardContext } from '../../context/SoundboardContext';
 import SquareSummary from '../SquareSummary/SquareSummary';
@@ -127,11 +127,11 @@ export function Week(props: WeekProps) {
     }
 
     return (
-        <Container className='Week-container' data-testid='Week-container'>
+        <Wrapper className='Week-wrapper' data-testid='Week-wrapper'>
             {renderRowHeader()}
             {renderColumns()}
             {renderRowSummary()}
-        </Container>
+        </Wrapper>
     );
 }
 

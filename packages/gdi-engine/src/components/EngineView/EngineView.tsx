@@ -4,7 +4,7 @@ import {
     EngineContext,
     EngineContextProvider,
 } from '../../context/Engine.context';
-import { Container, Loading } from './EngineView.style';
+import { Wrapper, Loading } from './EngineView.style';
 import { SiteContextProvider } from '../../context/Site.context';
 
 export type EngineViewProps = {
@@ -39,13 +39,13 @@ export function EngineInner(props: EngineViewProps) {
     }
 
     return (
-        <Container
-            className='EngineView-container'
-            data-testid='EngineView-container'
+        <Wrapper
+            className='EngineView-wrapper'
+            data-testid='EngineView-wrapper'
             backgroundColor={backgroundColor}
         >
             {renderInner()}
-        </Container>
+        </Wrapper>
     );
 }
 

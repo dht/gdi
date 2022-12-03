@@ -4,8 +4,7 @@ import { Datasets, DatasetsProps } from './Datasets';
 import { BaseComponentDriver } from 'testing-base';
 
 export class DatasetsDriver extends BaseComponentDriver {
-    private props: Partial<DatasetsProps> = {
-    };
+    private props: Partial<DatasetsProps> = {};
 
     constructor() {
         super('Datasets');
@@ -17,11 +16,13 @@ export class DatasetsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Datasets {...(this.props as DatasetsProps)} />);
+            return this.snapshot(
+                <Datasets {...(this.props as DatasetsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class DatasetsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './AccountSelector.style';
+import { Wrapper } from './AccountSelector.style';
 
 export type AccountSelectorProps = {
     children?: string;
@@ -8,13 +8,13 @@ export type AccountSelectorProps = {
 
 export function AccountSelector(props: AccountSelectorProps) {
     return (
-        <Container
-            className='AccountSelector-container'
-            data-testid='AccountSelector-container'
+        <Wrapper
+            className='AccountSelector-wrapper'
+            data-testid='AccountSelector-wrapper'
             onClick={props.onClick}
         >
             {props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

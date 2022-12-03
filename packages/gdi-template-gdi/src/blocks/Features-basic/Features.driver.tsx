@@ -4,8 +4,7 @@ import { Features, FeaturesProps } from './Features';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FeaturesDriver extends BaseComponentDriver {
-    private props: Partial<FeaturesProps> = {
-    };
+    private props: Partial<FeaturesProps> = {};
 
     constructor() {
         super('Features');
@@ -17,11 +16,13 @@ export class FeaturesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Features {...(this.props as FeaturesProps)} />);
+            return this.snapshot(
+                <Features {...(this.props as FeaturesProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class FeaturesDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

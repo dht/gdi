@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './PreviewImage.style';
+import { Wrapper } from './PreviewImage.style';
 
 export type PreviewImageProps = {
     item: any;
@@ -7,12 +7,12 @@ export type PreviewImageProps = {
 
 export function PreviewImage(_props: PreviewImageProps) {
     return (
-        <Container
-            className='PreviewImage-container'
-            data-testid='PreviewImage-container'
+        <Wrapper
+            className='PreviewImage-wrapper'
+            data-testid='PreviewImage-wrapper'
         >
             PreviewImage
-        </Container>
+        </Wrapper>
     );
 }
 

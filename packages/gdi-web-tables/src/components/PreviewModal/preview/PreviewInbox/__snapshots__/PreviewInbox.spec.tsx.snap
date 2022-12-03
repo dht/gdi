@@ -2,8 +2,8 @@
 
 exports[`PreviewInbox snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR PreviewInbox-container"
-  data-testid="PreviewInbox-container"
+  className="sc-bczRLJ WtYQR PreviewInbox-wrapper"
+  data-testid="PreviewInbox-wrapper"
 >
   PreviewInbox
 </div>

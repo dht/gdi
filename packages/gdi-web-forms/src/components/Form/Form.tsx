@@ -6,7 +6,7 @@ import React, {
     useState,
 } from 'react';
 import Field from '../Field/Field';
-import { Container, FormContainer, Group } from './Form.style';
+import { Wrapper, FormContainer, Group } from './Form.style';
 import { IFormField, IFormLayoutGroup, IFormProps } from '../../types';
 import { layouts } from '../Layouts/Layouts';
 import { FormProvider, useForm, UseFormWatch } from 'react-hook-form';
@@ -85,7 +85,7 @@ export function Form(props: IFormProps) {
     useMount(() => {
         setTimeout(() => {
             if (autoFocus && ref.current) {
-                const el = ref.current.querySelector('.Field-container');
+                const el = ref.current.querySelector('.Field-wrapper');
                 if (el) {
                     const inputEl =
                         el.querySelector('input') ||
@@ -229,7 +229,7 @@ export function Form(props: IFormProps) {
     }
 
     return (
-        <Container className='Form-container' data-testid='Form-container'>
+        <Wrapper className='Form-wrapper' data-testid='Form-wrapper'>
             <FormProvider {...methods}>
                 <FormContainer
                     ref={ref}
@@ -241,7 +241,7 @@ export function Form(props: IFormProps) {
                     {!submitGroupId && renderActions()}
                 </FormContainer>
             </FormProvider>
-        </Container>
+        </Wrapper>
     );
 }
 

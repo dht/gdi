@@ -13,7 +13,7 @@ describe('ProgressBar', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ProgressBar-container');
+        expect(containerClassName).toBe('ProgressBar-wrapper');
     });
 });
 

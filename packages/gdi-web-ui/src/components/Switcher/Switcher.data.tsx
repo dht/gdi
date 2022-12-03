@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Switcher.style';
+import { Wrapper } from './Switcher.style';
 
 export type SwitcherProps = {};
 
 export function Switcher(_props: SwitcherProps) {
     return (
-        <Container className="Switcher-container" data-testid="Switcher-container">
+        <Wrapper className='Switcher-wrapper' data-testid='Switcher-wrapper'>
             Switcher
-        </Container>
+        </Wrapper>
     );
 }
 

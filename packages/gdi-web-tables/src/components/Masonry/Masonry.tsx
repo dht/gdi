@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import MasonryItem from '../Galleries/items/ItemImage/ItemImage';
-import { Backdrop, Container, Content, Expander } from './Masonry.style';
+import { Backdrop, Wrapper, Content, Expander } from './Masonry.style';
 import { IImage } from '../../types';
 import { throttle } from 'shared-base';
 import { useWindowSize } from 'react-use';
@@ -211,16 +211,13 @@ export function Masonry(props: MasonryProps) {
     });
 
     return (
-        <Container
-            className='Masonry-container'
-            data-testid='Masonry-container'
-        >
+        <Wrapper className='Masonry-wrapper' data-testid='Masonry-wrapper'>
             <Content ref={ref}>
                 {renderExpander()}
                 {renderItems()}
             </Content>
             <Backdrop className={className} />
-        </Container>
+        </Wrapper>
     );
 }
 

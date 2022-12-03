@@ -4,8 +4,7 @@ import { Overview, OverviewProps } from './Overview';
 import { BaseComponentDriver } from 'testing-base';
 
 export class OverviewDriver extends BaseComponentDriver {
-    private props: Partial<OverviewProps> = {
-    };
+    private props: Partial<OverviewProps> = {};
 
     constructor() {
         super('Overview');
@@ -17,11 +16,13 @@ export class OverviewDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Overview {...(this.props as OverviewProps)} />);
+            return this.snapshot(
+                <Overview {...(this.props as OverviewProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class OverviewDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

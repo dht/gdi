@@ -4,8 +4,7 @@ import { Media, MediaProps } from './Media';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MediaDriver extends BaseComponentDriver {
-    private props: Partial<MediaProps> = {
-    };
+    private props: Partial<MediaProps> = {};
 
     constructor() {
         super('Media');
@@ -17,7 +16,7 @@ export class MediaDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class MediaDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

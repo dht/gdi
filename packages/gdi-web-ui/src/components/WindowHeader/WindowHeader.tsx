@@ -1,7 +1,7 @@
 import { Icon } from '@gdi/web-base-ui';
 import React from 'react';
 import { useLocalStorage } from 'react-use';
-import { Actions, Container, Title } from './WindowHeader.style';
+import { Actions, Wrapper, Title } from './WindowHeader.style';
 
 export type WindowHeaderProps = {
     id: string;
@@ -24,16 +24,16 @@ export function WindowHeader(props: WindowHeaderProps) {
     }
 
     return (
-        <Container
-            className='WindowHeader-container'
-            data-testid='WindowHeader-container'
+        <Wrapper
+            className='WindowHeader-wrapper'
+            data-testid='WindowHeader-wrapper'
         >
             <Title>{title}</Title>
             <Actions>
                 <Icon className='icon' iconName='info' onClick={alert} />
                 <Icon className='icon' iconName='cancel' onClick={onClose} />
             </Actions>
-        </Container>
+        </Wrapper>
     );
 }
 

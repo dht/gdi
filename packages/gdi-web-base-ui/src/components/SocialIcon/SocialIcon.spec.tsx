@@ -13,7 +13,7 @@ describe('SocialIcon', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('SocialIcon-container');
+        expect(containerClassName).toBe('SocialIcon-wrapper');
     });
 });
 

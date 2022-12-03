@@ -2,7 +2,7 @@ import React from 'react';
 import { LabelSize } from '../../types';
 import {
     Asterisk,
-    Container,
+    Wrapper,
     Error,
     LabelParagraph,
     LabelValue,
@@ -52,13 +52,13 @@ export function LabelFloating(props: LabelFloatingProps) {
     }
 
     return (
-        <Container
-            className='LabelFloating-container'
-            data-testid='LabelFloating-container'
+        <Wrapper
+            className='LabelFloating-wrapper'
+            data-testid='LabelFloating-wrapper'
         >
             {renderTopRow()}
             {renderDescription()}
-        </Container>
+        </Wrapper>
     );
 }
 

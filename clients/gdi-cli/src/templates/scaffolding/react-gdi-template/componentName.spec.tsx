@@ -22,7 +22,7 @@ describe('$CMP', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('$CMP-container');
+        expect(containerClassName).toContain('$CMP-wrapper');
         expect(innerText).toBe(label);
     });
 

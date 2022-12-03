@@ -22,7 +22,7 @@ describe('CircularProgress', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('CircularProgress-container');
+        expect(containerClassName).toContain('CircularProgress-wrapper');
         expect(innerText).toBe(label);
     });
 

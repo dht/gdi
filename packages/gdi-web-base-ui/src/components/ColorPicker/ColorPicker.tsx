@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Container, Rect, PickerWrapper } from './ColorPicker.style';
+import { Wrapper, Rect, PickerWrapper } from './ColorPicker.style';
 import { ColorPicker as ColorPickerFluent } from '@fluentui/react';
 import { useClickAway, useToggle } from 'react-use';
 
@@ -65,13 +65,13 @@ export function ColorPicker(props: ColorPickerProps) {
     };
 
     return (
-        <Container
-            className='ColorPicker-container'
-            data-testid='ColorPicker-container'
+        <Wrapper
+            className='ColorPicker-wrapper'
+            data-testid='ColorPicker-wrapper'
             style={containerStyle}
         >
             <Rect size={size} style={style} onClick={onRectClick} />
             {renderPicker()}
-        </Container>
+        </Wrapper>
     );
 }

@@ -22,7 +22,7 @@ describe('UnoHeader', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('UnoHeader-container');
+        expect(containerClassName).toContain('UnoHeader-wrapper');
         expect(innerText).toBe(label);
     });
 

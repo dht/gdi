@@ -4,7 +4,7 @@ import {
     Dropdown as DropdownFluent,
 } from '@fluentui/react';
 import * as React from 'react';
-import { Container } from './Dropdown.style';
+import { Wrapper } from './Dropdown.style';
 
 export type DropdownProps = {
     options: IOption[];
@@ -42,10 +42,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
     }, [options]);
 
     return (
-        <Container
-            className='Dropdown-container'
-            data-testid='Dropdown-container'
-        >
+        <Wrapper className='Dropdown-wrapper' data-testid='Dropdown-wrapper'>
             <DropdownFluent
                 placeholder={placeholder}
                 label={label}
@@ -54,7 +51,7 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
                 onChange={onChange}
                 onKeyDown={props.onKeyDown}
             />
-        </Container>
+        </Wrapper>
     );
 });
 

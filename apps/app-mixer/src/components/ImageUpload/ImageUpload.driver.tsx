@@ -4,8 +4,7 @@ import { ImageUpload, ImageUploadProps } from './ImageUpload';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ImageUploadDriver extends BaseComponentDriver {
-    private props: Partial<ImageUploadProps> = {
-    };
+    private props: Partial<ImageUploadProps> = {};
 
     constructor() {
         super('ImageUpload');
@@ -17,11 +16,13 @@ export class ImageUploadDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ImageUpload {...(this.props as ImageUploadProps)} />);
+            return this.snapshot(
+                <ImageUpload {...(this.props as ImageUploadProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ImageUploadDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

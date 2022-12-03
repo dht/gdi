@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import {
     Column,
-    Container,
+    Wrapper,
     ContainerStat,
     GraphWrapper,
     Title,
@@ -36,9 +36,9 @@ export function Stats(props: StatsProps) {
         return Object.values(stats).map((stat: IStat) => renderStat(stat));
     }
     return (
-        <Container className='Stats-container' data-testid='Stats-container'>
+        <Wrapper className='Stats-wrapper' data-testid='Stats-wrapper'>
             {renderStats()}
-        </Container>
+        </Wrapper>
     );
 }
 
@@ -80,8 +80,8 @@ export function Stat(props: StatProps) {
 
     return (
         <ContainerStat
-            className='Stat-container'
-            data-testid='Stat-container'
+            className='Stat-wrapper'
+            data-testid='Stat-wrapper'
             onClick={() => props.onNavigate(stat)}
             title={tip}
         >

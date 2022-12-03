@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Container } from './Tickets.style';
+import { Wrapper } from './Tickets.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -23,10 +23,7 @@ export function Tickets(props: TicketsProps) {
     const crudDefinitions = useCrudDefinitions('ticket');
 
     return (
-        <Container
-            className='Tickets-container'
-            data-testid='Tickets-container'
-        >
+        <Wrapper className='Tickets-wrapper' data-testid='Tickets-wrapper'>
             <Multi
                 id='Tickets'
                 itemType='ticket'
@@ -38,7 +35,7 @@ export function Tickets(props: TicketsProps) {
                 customView={customView}
                 newDataExtra={newDataExtra}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

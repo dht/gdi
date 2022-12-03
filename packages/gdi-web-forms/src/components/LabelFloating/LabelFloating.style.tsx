@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { LabelSize } from '../../types';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     position: relative;
 `;

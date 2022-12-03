@@ -4,8 +4,7 @@ import { SocialMenu, SocialMenuProps } from './SocialMenu';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SocialMenuDriver extends BaseComponentDriver {
-    private props: Partial<SocialMenuProps> = {
-    };
+    private props: Partial<SocialMenuProps> = {};
 
     constructor() {
         super('SocialMenu');
@@ -17,11 +16,13 @@ export class SocialMenuDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SocialMenu {...(this.props as SocialMenuProps)} />);
+            return this.snapshot(
+                <SocialMenu {...(this.props as SocialMenuProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SocialMenuDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

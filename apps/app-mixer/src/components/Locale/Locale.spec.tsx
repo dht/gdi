@@ -22,7 +22,7 @@ describe('Locale', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Locale-container');
+        expect(containerClassName).toContain('Locale-wrapper');
         expect(innerText).toBe(label);
     });
 

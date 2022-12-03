@@ -2,7 +2,7 @@
 
 exports[`Logo snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ gwCnEU Logo-container"
+  className="sc-bczRLJ gwCnEU Logo-wrapper"
 >
   <img
     alt="logo"

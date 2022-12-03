@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Key, Pair, Pre, Value } from './KeyValue.style';
+import { Wrapper, Key, Pair, Pre, Value } from './KeyValue.style';
 
 export type KeyValueProps = {
     data: Json;
@@ -45,12 +45,9 @@ export function KeyValue(props: KeyValueProps) {
     }
 
     return (
-        <Container
-            className='KeyValue-container'
-            data-testid='KeyValue-container'
-        >
+        <Wrapper className='KeyValue-wrapper' data-testid='KeyValue-wrapper'>
             {renderFields()}
-        </Container>
+        </Wrapper>
     );
 }
 

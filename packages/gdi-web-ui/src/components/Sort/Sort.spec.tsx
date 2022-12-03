@@ -13,7 +13,7 @@ describe('Sort', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Sort-container');
+        expect(containerClassName).toBe('Sort-wrapper');
     });
 });
 

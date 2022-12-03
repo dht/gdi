@@ -2,8 +2,8 @@
 
 exports[`Calendar snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR Calendar-container"
-  data-testid="Calendar-container"
+  className="sc-bczRLJ WtYQR Calendar-wrapper"
+  data-testid="Calendar-wrapper"
 >
   Calendar
 </div>

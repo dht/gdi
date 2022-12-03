@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './LogsConsole.style';
+import { Wrapper } from './LogsConsole.style';
 import { sortBy } from 'shared-base';
 import Logs from '../Logs/Logs';
 
@@ -15,12 +15,12 @@ export function LogsConsole(props: LogsConsoleProps) {
     }, [items]);
 
     return (
-        <Container
-            className='LogsConsole-container'
-            data-testid='LogsConsole-container'
+        <Wrapper
+            className='LogsConsole-wrapper'
+            data-testid='LogsConsole-wrapper'
         >
             <Logs flavour='large' items={itemsSorted} showStatus={true} />
-        </Container>
+        </Wrapper>
     );
 }
 

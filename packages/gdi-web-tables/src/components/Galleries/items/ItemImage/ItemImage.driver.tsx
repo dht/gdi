@@ -4,8 +4,7 @@ import { ItemImage, ItemImageProps } from './ItemImage';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemImageDriver extends BaseComponentDriver {
-    private props: Partial<ItemImageProps> = {
-    };
+    private props: Partial<ItemImageProps> = {};
 
     constructor() {
         super('ItemImage');
@@ -17,11 +16,13 @@ export class ItemImageDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemImage {...(this.props as ItemImageProps)} />);
+            return this.snapshot(
+                <ItemImage {...(this.props as ItemImageProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemImageDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

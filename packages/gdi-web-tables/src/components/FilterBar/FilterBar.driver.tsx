@@ -4,8 +4,7 @@ import { FilterBar, FilterBarProps } from './FilterBar';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FilterBarDriver extends BaseComponentDriver {
-    private props: Partial<FilterBarProps> = {
-    };
+    private props: Partial<FilterBarProps> = {};
 
     constructor() {
         super('FilterBar');
@@ -17,11 +16,13 @@ export class FilterBarDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FilterBar {...(this.props as FilterBarProps)} />);
+            return this.snapshot(
+                <FilterBar {...(this.props as FilterBarProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class FilterBarDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

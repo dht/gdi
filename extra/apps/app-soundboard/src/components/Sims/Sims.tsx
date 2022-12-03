@@ -1,12 +1,12 @@
 import { ProgressBar } from '@gdi/web-ui';
 import React from 'react';
-import { Container, Parameter, ParameterName, Icon } from './Sims.style';
+import { Wrapper, Parameter, ParameterName, Icon } from './Sims.style';
 
 export type SimsProps = {};
 
 export function Sims(_props: SimsProps) {
     return (
-        <Container className='Sims-container' data-testid='Sims-container'>
+        <Wrapper className='Sims-wrapper' data-testid='Sims-wrapper'>
             <Parameter>
                 <ParameterName>
                     Food
@@ -35,7 +35,7 @@ export function Sims(_props: SimsProps) {
                 </ParameterName>
                 <ProgressBar value={10} color='greenyellow' />
             </Parameter>
-        </Container>
+        </Wrapper>
     );
 }
 

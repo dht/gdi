@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container, Content } from './ZoomPreview.style';
+import { Wrapper, Content } from './ZoomPreview.style';
 import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
@@ -27,9 +27,9 @@ export function ZoomPreview(props: ZoomPreviewProps) {
     }, []);
 
     return (
-        <Container
-            className='ZoomPreview-container'
-            data-testid='ZoomPreview-container'
+        <Wrapper
+            className='ZoomPreview-wrapper'
+            data-testid='ZoomPreview-wrapper'
         >
             <ZoomBuildBar
                 widget={widget}
@@ -47,7 +47,7 @@ export function ZoomPreview(props: ZoomPreviewProps) {
                     />
                 </Device>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

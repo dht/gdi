@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Container } from './Logo.style';
+import { Wrapper } from './Logo.style';
 
 export type LogoProps = {
     className?: string;
@@ -12,13 +12,13 @@ export type LogoProps = {
 export function Logo(props: LogoProps) {
     const { small, caps = '' } = props;
 
-    const className = classnames('Logo-container', props.className, {
+    const className = classnames('Logo-wrapper', props.className, {
         small,
         clickable: props.onClick,
     });
 
     return (
-        <Container className={className} onMouseDown={props.onClick}>
+        <Wrapper className={className} onMouseDown={props.onClick}>
             <img
                 draggable={false}
                 className='logo'
@@ -26,7 +26,7 @@ export function Logo(props: LogoProps) {
                 alt='logo'
             />
             <span className='os'>{caps.toUpperCase()}</span>
-        </Container>
+        </Wrapper>
     );
 }
 

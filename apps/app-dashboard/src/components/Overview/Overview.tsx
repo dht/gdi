@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Bk,
     Column,
-    Container,
+    Wrapper,
     Content,
     Fg,
     Header,
@@ -38,9 +38,9 @@ export function Overview(props: OverviewProps) {
     }
 
     return (
-        <Container
-            className='Overview-container'
-            data-testid='Overview-container'
+        <Wrapper
+            className='Overview-wrapper'
+            data-testid='Overview-wrapper'
             ref={ref}
         >
             <TrianglesBk>
@@ -60,7 +60,7 @@ export function Overview(props: OverviewProps) {
                     {width} x {height}px
                 </Resolution>
             </TrianglesBk>
-        </Container>
+        </Wrapper>
     );
 }
 

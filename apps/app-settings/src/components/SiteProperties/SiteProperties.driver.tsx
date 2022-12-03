@@ -4,8 +4,7 @@ import { SiteProperties, SitePropertiesProps } from './SiteProperties';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SitePropertiesDriver extends BaseComponentDriver {
-    private props: Partial<SitePropertiesProps> = {
-    };
+    private props: Partial<SitePropertiesProps> = {};
 
     constructor() {
         super('SiteProperties');
@@ -17,11 +16,13 @@ export class SitePropertiesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SiteProperties {...(this.props as SitePropertiesProps)} />);
+            return this.snapshot(
+                <SiteProperties {...(this.props as SitePropertiesProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SitePropertiesDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

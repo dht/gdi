@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
@@ -11,7 +11,7 @@ export const Container = styled.div`
     box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
 `;
 
-export const ContainerButton = styled.div`
+export const WrappedButton = styled.div`
     color: white;
     width: 80px;
     display: flex;

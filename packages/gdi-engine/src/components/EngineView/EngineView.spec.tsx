@@ -22,7 +22,7 @@ describe('EngineView', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('EngineView-container');
+        expect(containerClassName).toContain('EngineView-wrapper');
         expect(innerText).toBe(label);
     });
 

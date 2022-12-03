@@ -13,7 +13,7 @@ describe('Percent', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Percent-container');
+        expect(containerClassName).toBe('Percent-wrapper');
     });
 });
 

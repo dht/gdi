@@ -2,7 +2,7 @@ import React, { FC, useCallback } from 'react';
 import { Tags } from '@gdi/web-base-ui';
 import { IOverlayField, ItemActionType } from '../../types';
 import {
-    Container,
+    Wrapper,
     DateContainer,
     DateDate,
     DateDelta,
@@ -26,12 +26,12 @@ export function OverlayField(props: OverlayFieldProps) {
     const Cmp = map[fieldType];
 
     return (
-        <Container
-            className='OverlayField-container'
-            data-testid='OverlayField-container'
+        <Wrapper
+            className='OverlayField-wrapper'
+            data-testid='OverlayField-wrapper'
         >
             <Cmp {...props} />
-        </Container>
+        </Wrapper>
     );
 }
 export function FieldTags(props: OverlayFieldProps) {

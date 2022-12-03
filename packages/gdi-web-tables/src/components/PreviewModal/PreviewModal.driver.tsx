@@ -4,8 +4,7 @@ import { PreviewModal, PreviewModalProps } from './PreviewModal';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewModalDriver extends BaseComponentDriver {
-    private props: Partial<PreviewModalProps> = {
-    };
+    private props: Partial<PreviewModalProps> = {};
 
     constructor() {
         super('PreviewModal');
@@ -17,11 +16,13 @@ export class PreviewModalDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewModal {...(this.props as PreviewModalProps)} />);
+            return this.snapshot(
+                <PreviewModal {...(this.props as PreviewModalProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewModalDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

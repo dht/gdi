@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './KeyboardShortcuts.style';
+import { Wrapper } from './KeyboardShortcuts.style';
 import {
     Modal,
     Icon,
@@ -31,13 +31,13 @@ export function KeyboardShortcuts(props: KeyboardShortcutsProps) {
     }
 
     return (
-        <Container
-            className='KeyboardShortcuts-container'
-            data-testid='KeyboardShortcuts-container'
+        <Wrapper
+            className='KeyboardShortcuts-wrapper'
+            data-testid='KeyboardShortcuts-wrapper'
         >
             <Icon onClick={toggle} iconName='KeyboardClassic' />
             {renderModal()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -22,7 +22,7 @@ describe('MixerTree', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('MixerTree-container');
+        expect(containerClassName).toContain('MixerTree-wrapper');
         expect(innerText).toBe(label);
     });
 

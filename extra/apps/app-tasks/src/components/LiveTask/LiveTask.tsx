@@ -6,7 +6,7 @@ import TaskTitle from '../TaskTitle/TaskTitle';
 import Time from '../Time/Time';
 import TopRow from '../TopRow/TopRow';
 import {
-    Container,
+    Wrapper,
     Content,
     Inner,
     Sync,
@@ -28,10 +28,7 @@ export function LiveTask(props: LiveTaskProps) {
     const { stats } = activeTask;
 
     return (
-        <Container
-            className='LiveTask-container'
-            data-testid='LiveTask-container'
-        >
+        <Wrapper className='LiveTask-wrapper' data-testid='LiveTask-wrapper'>
             <TopRow activeTask={activeTask} />
             <Sync onClick={props.callbacks.onSync}>
                 <i className='material-icons'>autorenew</i>
@@ -52,7 +49,7 @@ export function LiveTask(props: LiveTaskProps) {
                 </Inner>
             </Content>
             <BottomRow activeTask={activeTask} stats={stats} />
-        </Container>
+        </Wrapper>
     );
 }
 

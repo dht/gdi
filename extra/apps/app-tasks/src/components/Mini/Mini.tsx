@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     DetailsLine,
     Estimation,
     TaskTitle,
@@ -18,9 +18,9 @@ export function Mini(props: MiniProps) {
 
     if (!activeTask || !activeTask.isLoaded) {
         return (
-            <Container className='Mini-container' data-testid='Mini-container'>
+            <Wrapper className='Mini-wrapper' data-testid='Mini-wrapper'>
                 <Empty>no task</Empty>
-            </Container>
+            </Wrapper>
         );
     }
 
@@ -30,7 +30,7 @@ export function Mini(props: MiniProps) {
     const estimation = toDuration(stats.estimation) || '-';
 
     return (
-        <Container className='Mini-container' data-testid='Mini-container'>
+        <Wrapper className='Mini-wrapper' data-testid='Mini-wrapper'>
             <Stopwatch
                 hours={stats.duration.hours}
                 minutes={stats.duration.minutes}
@@ -39,7 +39,7 @@ export function Mini(props: MiniProps) {
             <DetailsLine>
                 <Estimation>Est. {estimation}</Estimation>
             </DetailsLine>
-        </Container>
+        </Wrapper>
     );
 }
 

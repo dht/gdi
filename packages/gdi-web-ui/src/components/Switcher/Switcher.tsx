@@ -6,7 +6,7 @@ import { useArrows, useEnter, useEscape, useShortKey } from '@gdi/hooks';
 import { useFuzzySearchQ } from '../../hooks/useFuzzySearch';
 import { useLocalStorage, useMeasure, useMount, useToggle } from 'react-use';
 import {
-    Container,
+    Wrapper,
     Top,
     Screens,
     Screen,
@@ -211,13 +211,13 @@ export function SwitcherInner(props: SwitcherInnerProps) {
         );
     }
 
-    const className = classnames('Switcher-container', animation);
+    const className = classnames('Switcher-wrapper', animation);
 
     return (
-        <Container
+        <Wrapper
             ref={rootRef}
             className={className}
-            data-testid='Switcher-container'
+            data-testid='Switcher-wrapper'
         >
             <Top>
                 <Input value={searchTerm} onChange={onChange} />
@@ -227,7 +227,7 @@ export function SwitcherInner(props: SwitcherInnerProps) {
             <X onClick={onClose}>
                 <Icon iconName='cancel'></Icon>
             </X>
-        </Container>
+        </Wrapper>
     );
 }
 

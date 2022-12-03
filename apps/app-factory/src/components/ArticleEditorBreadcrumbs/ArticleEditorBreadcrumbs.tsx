@@ -1,13 +1,18 @@
 import React from 'react';
-import { Container } from './ArticleEditorBreadcrumbs.style';
+import { Wrapper } from './ArticleEditorBreadcrumbs.style';
 
 export type ArticleEditorBreadcrumbsProps = {};
 
-export function ArticleEditorBreadcrumbs(_props: ArticleEditorBreadcrumbsProps) {
+export function ArticleEditorBreadcrumbs(
+    _props: ArticleEditorBreadcrumbsProps
+) {
     return (
-        <Container className="ArticleEditorBreadcrumbs-container" data-testid="ArticleEditorBreadcrumbs-container">
+        <Wrapper
+            className='ArticleEditorBreadcrumbs-wrapper'
+            data-testid='ArticleEditorBreadcrumbs-wrapper'
+        >
             ArticleEditorBreadcrumbs
-        </Container>
+        </Wrapper>
     );
 }
 

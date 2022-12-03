@@ -6,14 +6,14 @@ import Sheet from '../Sheet/Sheet';
 import Table from '../Table/Table';
 import Timeline from '../Timeline/Timeline';
 import { AnyGallery } from '../Galleries';
-import { Container } from './Multi.style';
 import { CrudContext, CrudContextProvider } from '../../context/Crud.context';
 import { DispatchContextProvider } from '../../context/Dispatch.context';
 import { FullCalendar } from '@gdi/web-base-ui';
-import { ItemType, ToolbarMode } from '../../types';
+import { ItemType } from '../../types';
 import { MultiViews } from './Multi.views';
 import { SelectionContextProvider } from '../../context/Selection.context';
 import { useContext, useMemo } from '@gdi/hooks';
+import { Wrapper } from './Multi.style';
 import {
     FilterContext,
     FilterContextProvider,
@@ -148,7 +148,7 @@ export function MultiInner(props: MultiProps) {
     }
 
     return (
-        <Container className='Multi-container' data-testid='Multi-container'>
+        <Wrapper className='Multi-wrapper' data-testid='Multi-wrapper'>
             <FilterBar onAction={callbacks.onAction} />
             {renderInner()}
             {renderPreview()}
@@ -159,7 +159,7 @@ export function MultiInner(props: MultiProps) {
                 customView2Exists={customView2Exists}
                 onChange={(option: IOption) => onChangeViewMode(option.id)}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

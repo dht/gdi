@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     display: flex;
     color: white;
@@ -10,7 +10,7 @@ export const Container = styled.div`
         max-height: 1000px;
     }
 
-    .TopBar-container {
+    .TopBar-wrapper {
         color: #334;
 
         span {

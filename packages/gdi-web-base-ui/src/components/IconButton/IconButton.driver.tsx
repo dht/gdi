@@ -4,8 +4,7 @@ import { IconButton, IconButtonProps } from './IconButton';
 import { BaseComponentDriver } from 'testing-base';
 
 export class IconButtonDriver extends BaseComponentDriver {
-    private props: Partial<IconButtonProps> = {
-    };
+    private props: Partial<IconButtonProps> = {};
 
     constructor() {
         super('IconButton');
@@ -17,11 +16,13 @@ export class IconButtonDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<IconButton {...(this.props as IconButtonProps)} />);
+            return this.snapshot(
+                <IconButton {...(this.props as IconButtonProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class IconButtonDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

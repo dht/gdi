@@ -1,5 +1,5 @@
 import React from 'react';
-import { Arg, Container, Index, Log, TimeStamp, Value } from './Console.style';
+import { Arg, Wrapper, Index, Log, TimeStamp, Value } from './Console.style';
 import { durationMillisElapsed } from '@gdi/language';
 import { ILogEvent } from '../../types';
 
@@ -52,12 +52,9 @@ export function Console(props: ConsoleProps) {
     }
 
     return (
-        <Container
-            className='Console-container'
-            data-testid='Console-container'
-        >
+        <Wrapper className='Console-wrapper' data-testid='Console-wrapper'>
             {renderLogs()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,14 +1,14 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { MyNumbersColors } from './MyNumbers';
-import { darken } from 'polished';
-import { mobile } from '../Base.style';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ colors: MyNumbersColors }>`
+export const Wrapper = styled.div<{ colors: MyNumbersColors }>`
     flex: 1;
     background-color: ${(props) => props.colors.background || '#223'};
     display: flex;
     padding: 100px 0;
     font-family: ${(props) => props.theme.fontFamily};
+    color: #ccd;
 
     ${mobile(css`
         height: auto;
@@ -17,8 +17,7 @@ export const Container = styled.div<{ colors: MyNumbersColors }>`
     `)}
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
+export const Container = styled(Grid.Container)`
     display: flex;
     flex-direction: column;
     max-width: 1440px;
@@ -26,9 +25,7 @@ export const Wrapper = styled.div`
     flex: 1;
 `;
 
-export const Numbers = styled.div`
-    display: flex;
-    flex-direction: row;
+export const Row = styled(Grid.Row)`
     align-items: center;
 
     ${mobile(css`
@@ -36,7 +33,7 @@ export const Numbers = styled.div`
     `)}
 `;
 
-export const Number = styled.div`
+export const Column = styled(Grid.Column)`
     width: 300px;
     background-color: rgba(0, 0, 0, 0.5);
     margin: 8px;

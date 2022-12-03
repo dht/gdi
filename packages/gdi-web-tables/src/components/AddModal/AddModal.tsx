@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './AddModal.style';
+import { Wrapper } from './AddModal.style';
 
 export type AddModalProps = {};
 
 export function AddModal(_props: AddModalProps) {
     return (
-        <Container className="AddModal-container" data-testid="AddModal-container">
+        <Wrapper className='AddModal-wrapper' data-testid='AddModal-wrapper'>
             AddModal
-        </Container>
+        </Wrapper>
     );
 }
 

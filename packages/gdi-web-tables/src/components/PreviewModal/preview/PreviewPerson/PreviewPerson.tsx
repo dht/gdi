@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Name } from './PreviewPerson.style';
+import { Wrapper, Name } from './PreviewPerson.style';
 
 export type PreviewPersonProps = {
     item: IPerson;
@@ -10,14 +10,14 @@ export function PreviewPerson(props: PreviewPersonProps) {
     const { firstName, lastName } = item;
 
     return (
-        <Container
-            className='PreviewPerson-container'
-            data-testid='PreviewPerson-container'
+        <Wrapper
+            className='PreviewPerson-wrapper'
+            data-testid='PreviewPerson-wrapper'
         >
             <Name>
                 {firstName} {lastName}
             </Name>
-        </Container>
+        </Wrapper>
     );
 }
 

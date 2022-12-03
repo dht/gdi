@@ -4,8 +4,7 @@ import { Panel, PanelProps } from './Panel';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PanelDriver extends BaseComponentDriver {
-    private props: Partial<PanelProps> = {
-    };
+    private props: Partial<PanelProps> = {};
 
     constructor() {
         super('Panel');
@@ -17,7 +16,7 @@ export class PanelDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class PanelDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

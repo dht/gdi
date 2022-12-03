@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Refresh.style';
+import { Wrapper } from './Refresh.style';
 
 export type RefreshProps = {};
 
 export function Refresh(_props: RefreshProps) {
     return (
-        <Container className="Refresh-container" data-testid="Refresh-container">
+        <Wrapper className='Refresh-wrapper' data-testid='Refresh-wrapper'>
             Refresh
-        </Container>
+        </Wrapper>
     );
 }
 

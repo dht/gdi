@@ -4,8 +4,7 @@ import { Multi, MultiProps } from './Multi';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MultiDriver extends BaseComponentDriver {
-    private props: Partial<MultiProps> = {
-    };
+    private props: Partial<MultiProps> = {};
 
     constructor() {
         super('Multi');
@@ -17,7 +16,7 @@ export class MultiDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class MultiDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -13,7 +13,7 @@ describe('Houston', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Houston-container');
+        expect(containerClassName).toBe('Houston-wrapper');
     });
 });
 

@@ -4,8 +4,7 @@ import { Choice, ChoiceProps } from './Choice';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ChoiceDriver extends BaseComponentDriver {
-    private props: Partial<ChoiceProps> = {
-    };
+    private props: Partial<ChoiceProps> = {};
 
     constructor() {
         super('Choice');
@@ -17,7 +16,7 @@ export class ChoiceDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ChoiceDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

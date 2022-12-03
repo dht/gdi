@@ -4,7 +4,7 @@ import {
     EngineContext,
     EngineContextProvider,
 } from '../../context/Engine.context';
-import { Container, Loading } from './EngineEdit.style';
+import { Wrapper, Loading } from './EngineEdit.style';
 import { SiteContextProvider } from '../../context/Site.context';
 
 export type ActionType = 'drillDown' | 'delete' | 'new';
@@ -52,13 +52,13 @@ export function EngineInner(props: EngineEditProps) {
     }
 
     return (
-        <Container
-            className='EngineEdit-container'
-            data-testid='EngineEdit-container'
+        <Wrapper
+            className='EngineEdit-wrapper'
+            data-testid='EngineEdit-wrapper'
             backgroundColor={backgroundColor}
         >
             {renderInner()}
-        </Container>
+        </Wrapper>
     );
 }
 

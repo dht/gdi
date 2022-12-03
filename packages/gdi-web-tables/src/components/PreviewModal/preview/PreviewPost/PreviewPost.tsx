@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewPost.style';
+import { Wrapper } from './PreviewPost.style';
 
 export type PreviewPostProps = {};
 
 export function PreviewPost(_props: PreviewPostProps) {
     return (
-        <Container className="PreviewPost-container" data-testid="PreviewPost-container">
+        <Wrapper
+            className='PreviewPost-wrapper'
+            data-testid='PreviewPost-wrapper'
+        >
             PreviewPost
-        </Container>
+        </Wrapper>
     );
 }
 

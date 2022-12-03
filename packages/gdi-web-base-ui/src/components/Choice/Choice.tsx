@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Item } from './Choice.style';
+import { Button, Wrapper, Item } from './Choice.style';
 import classnames from 'classnames';
 import { useKey } from 'react-use';
 import { useEnter } from '@gdi/hooks';
@@ -40,9 +40,9 @@ export function Choice(props: ChoiceProps) {
     }
 
     return (
-        <Container className='Choice-container' data-testid='Choice-container'>
+        <Wrapper className='Choice-wrapper' data-testid='Choice-wrapper'>
             {renderOptions()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -63,12 +63,12 @@ export function MyPortfolio(props: MyPortfolioProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='MyPortfolio-container'
             data-testid='MyPortfolio-container'
             colors={colors}
         >
-            <Wrapper>
+            <Container>
                 <H2>{header}</H2>
                 <Description>{description}</Description>
                 <Portfolio>
@@ -79,8 +79,8 @@ export function MyPortfolio(props: MyPortfolioProps) {
                         onTagChange={onTagChange}
                     />
                 </Portfolio>
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

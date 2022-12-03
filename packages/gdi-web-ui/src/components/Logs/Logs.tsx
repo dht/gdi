@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { FixedSizeList as List } from 'react-window';
 import { useMount } from 'react-use';
 import {
-    Container,
+    Wrapper,
     Column,
     Data,
     Title,
@@ -123,12 +123,12 @@ export function Logs(props: LogsProps) {
         );
     };
 
-    const className = classnames('Logs-container', flavour);
+    const className = classnames('Logs-wrapper', flavour);
 
     const Cmp: any = List;
 
     return (
-        <Container className={className} data-testid='Logs-container' ref={ref}>
+        <Wrapper className={className} data-testid='Logs-wrapper' ref={ref}>
             <Cmp
                 height={height}
                 itemCount={items.length}
@@ -138,7 +138,7 @@ export function Logs(props: LogsProps) {
             >
                 {SingleRow}
             </Cmp>
-        </Container>
+        </Wrapper>
     );
 }
 

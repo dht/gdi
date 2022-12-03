@@ -4,8 +4,7 @@ import { AccountSelector, AccountSelectorProps } from './AccountSelector';
 import { BaseComponentDriver } from 'testing-base';
 
 export class AccountSelectorDriver extends BaseComponentDriver {
-    private props: Partial<AccountSelectorProps> = {
-    };
+    private props: Partial<AccountSelectorProps> = {};
 
     constructor() {
         super('AccountSelector');
@@ -13,15 +12,19 @@ export class AccountSelectorDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<AccountSelector {...(this.props as AccountSelectorProps)} />);
+            render(
+                <AccountSelector {...(this.props as AccountSelectorProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<AccountSelector {...(this.props as AccountSelectorProps)} />);
+            return this.snapshot(
+                <AccountSelector {...(this.props as AccountSelectorProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class AccountSelectorDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

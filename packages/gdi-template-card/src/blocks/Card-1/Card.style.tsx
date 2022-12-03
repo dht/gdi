@@ -3,7 +3,7 @@ import { CardColors } from './Card';
 import { darken } from 'polished';
 import { mobile } from '../Base.style';
 
-export const Container = styled.div<{ colors: CardColors }>`
+export const Wrapper = styled.div<{ colors: CardColors }>`
     flex: 1;
     background-color: ${(props) => props.colors.background || '#223'};
     height: 700px;
@@ -22,7 +22,7 @@ export const Container = styled.div<{ colors: CardColors }>`
     `)}
 `;
 
-export const Wrapper = styled.div`
+export const Container = styled.div`
     display: flex;
     max-width: 1440px;
     margin: 0 auto;

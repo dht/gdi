@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     position: fixed;
     top: 0;
@@ -26,7 +26,7 @@ export const Container = styled.div`
         transform: scale(0);
     }
 
-    .Input-container {
+    .Input-wrapper {
         padding: 10px;
 
         .ms-TextField-wrapper div {
@@ -84,7 +84,7 @@ export const Screen = styled.div`
     background-color: rgba(255, 255, 255, 0.1);
     margin: 10px;
     border-radius: 4px;
-    box-sizing: border-box;
+
     padding: 10px;
     position: relative;
     cursor: pointer;

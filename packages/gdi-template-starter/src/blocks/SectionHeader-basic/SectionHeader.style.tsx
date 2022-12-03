@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { mobile, css } from '@gdi/engine';
 import { SectionHeaderColors } from './SectionHeader';
 
-export const Container = styled.div<{
+export const Wrapper = styled.div<{
     hidden?: boolean;
     colors: SectionHeaderColors;
 }>`
@@ -14,8 +14,7 @@ export const Container = styled.div<{
     font-family: ${(props) => props.theme.fontFamily};
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
+export const Container = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;

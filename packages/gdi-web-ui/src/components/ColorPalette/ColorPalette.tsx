@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, ContainerColor } from './ColorPalette.style';
+import { Wrapper, ContainerColor } from './ColorPalette.style';
 
 export type ColorPaletteProps = {
     palette: IPalette;
@@ -10,16 +10,16 @@ export function ColorPalette(props: ColorPaletteProps) {
     const { color1, color2, color3, color4, color5 } = palette;
 
     return (
-        <Container
-            className='ColorPalette-container'
-            data-testid='ColorPalette-container'
+        <Wrapper
+            className='ColorPalette-wrapper'
+            data-testid='ColorPalette-wrapper'
         >
             <Color color={color1} />
             <Color color={color2} />
             <Color color={color3} />
             <Color color={color4} />
             <Color color={color5} />
-        </Container>
+        </Wrapper>
     );
 }
 
@@ -34,7 +34,7 @@ export function Color(props: ColorProps) {
         backgroundColor: color,
     };
 
-    return <ContainerColor style={style} />;
+    return <WrapperColor style={style} />;
 }
 
 export default ColorPalette;

@@ -4,8 +4,7 @@ import { FlexDesignerEmpty, FlexDesignerEmptyProps } from './FlexDesignerEmpty';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FlexDesignerEmptyDriver extends BaseComponentDriver {
-    private props: Partial<FlexDesignerEmptyProps> = {
-    };
+    private props: Partial<FlexDesignerEmptyProps> = {};
 
     constructor() {
         super('FlexDesignerEmpty');
@@ -13,20 +12,28 @@ export class FlexDesignerEmptyDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<FlexDesignerEmpty {...(this.props as FlexDesignerEmptyProps)} />);
+            render(
+                <FlexDesignerEmpty
+                    {...(this.props as FlexDesignerEmptyProps)}
+                />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FlexDesignerEmpty {...(this.props as FlexDesignerEmptyProps)} />);
+            return this.snapshot(
+                <FlexDesignerEmpty
+                    {...(this.props as FlexDesignerEmptyProps)}
+                />
+            );
         },
     };
 
     given: any = {
-        props: (props: Partial<FlexDesignerEmptyProps>) => {
+        wrapperClassNametial<FlexDesignerEmptyProps>) => {
             this.props = props;
             return this;
         },
@@ -34,10 +41,10 @@ export class FlexDesignerEmptyDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

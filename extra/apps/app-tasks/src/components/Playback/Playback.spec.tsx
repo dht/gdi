@@ -13,7 +13,7 @@ describe('Playback', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Playback-container');
+        expect(containerClassName).toBe('Playback-wrapper');
     });
 });
 

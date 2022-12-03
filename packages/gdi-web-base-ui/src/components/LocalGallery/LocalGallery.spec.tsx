@@ -22,7 +22,7 @@ describe('LocalGallery', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('LocalGallery-container');
+        expect(containerClassName).toContain('LocalGallery-wrapper');
         expect(innerText).toBe(label);
     });
 

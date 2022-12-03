@@ -13,7 +13,7 @@ describe('IsoBrowser', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('IsoBrowser-container');
+        expect(containerClassName).toBe('IsoBrowser-wrapper');
     });
 });
 

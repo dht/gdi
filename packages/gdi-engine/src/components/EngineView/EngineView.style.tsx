@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ backgroundColor: string }>`
+export const Wrapper = styled.div<{ backgroundColor: string }>`
     flex: 1;
     background-color: ${(props) => props.backgroundColor};
 
-    .SectionHeader-container {
+    .SectionHeader-wrapper {
         max-height: 0;
         overflow: hidden;
     }

@@ -13,7 +13,7 @@ describe('Week', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Week-container');
+        expect(containerClassName).toBe('Week-wrapper');
     });
 });
 

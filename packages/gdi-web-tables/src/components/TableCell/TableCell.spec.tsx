@@ -13,7 +13,7 @@ describe('TableCell', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TableCell-container');
+        expect(containerClassName).toBe('TableCell-wrapper');
     });
 });
 

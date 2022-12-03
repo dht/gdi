@@ -19,10 +19,10 @@ describe('ImportExportLayout', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ImportExportLayout-container');
+        expect(wrapperClassName).toContain('ImportExportLayout-wrapper');
         expect(innerText).toBe(label);
     });
 

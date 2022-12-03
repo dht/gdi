@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, Subtitle, Title, Icon } from './Whatsapp.style';
+import { Wrapper, Content, Subtitle, Title, Icon } from './Whatsapp.style';
 import w from './WhatsApp.svg';
 
 export const id = 'com.usegdi.templates.starter.whatsapp-basic';
@@ -21,7 +21,7 @@ export function Whatsapp(props: WhatsappProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='Whatsapp-container'
             data-testid='Whatsapp-container'
             onClick={onClick}
@@ -35,7 +35,7 @@ export function Whatsapp(props: WhatsappProps) {
                 <Title>Whatsapp</Title>
                 <Subtitle>click to chat</Subtitle>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

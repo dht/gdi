@@ -22,7 +22,7 @@ describe('Checkboxes', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Checkboxes-container');
+        expect(containerClassName).toContain('Checkboxes-wrapper');
         expect(innerText).toBe(label);
     });
 

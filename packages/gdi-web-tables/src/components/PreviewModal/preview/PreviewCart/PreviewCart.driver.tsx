@@ -4,8 +4,7 @@ import { PreviewCart, PreviewCartProps } from './PreviewCart';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewCartDriver extends BaseComponentDriver {
-    private props: Partial<PreviewCartProps> = {
-    };
+    private props: Partial<PreviewCartProps> = {};
 
     constructor() {
         super('PreviewCart');
@@ -17,11 +16,13 @@ export class PreviewCartDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewCart {...(this.props as PreviewCartProps)} />);
+            return this.snapshot(
+                <PreviewCart {...(this.props as PreviewCartProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewCartDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

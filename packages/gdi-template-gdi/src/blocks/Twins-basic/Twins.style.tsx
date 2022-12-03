@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components';
-import { ButtonBase, mobile } from '../Base.style';
+import styled from 'styled-components';
+import { ButtonBase } from '../../components/Button/Button.style';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ rotation?: number }>`
+export const Wrapper = styled.div<{ rotation?: number }>`
     flex: 1;
     height: 750px;
     margin-bottom: 100px;
@@ -14,17 +15,10 @@ export const Container = styled.div<{ rotation?: number }>`
     `)}
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 1200px;
-    margin: 0 auto;
+export const Container = styled(Grid.Container)`
     padding: 50px 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     color: #fff;
-    display: flex;
 
     ${mobile(css`
         width: 99vw;
@@ -33,11 +27,8 @@ export const Wrapper = styled.div`
     `)}
 `;
 
-export const Row = styled.div`
-    display: flex;
-    flex-direction: row;
+export const Row = styled(Grid.Row)`
     align-items: center;
-    flex: 1;
 
     &:first-child {
         margin-bottom: 100px;
@@ -49,10 +40,7 @@ export const Row = styled.div`
     `)}
 `;
 
-export const Column = styled.div`
-    flex: 1;
-    padding: 50px;
-
+export const Column = styled(Grid.Column)`
     ${mobile(css`
         box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.15);
     `)}

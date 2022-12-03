@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Knowledge.style';
+import { Wrapper } from './Knowledge.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,10 +19,7 @@ export function Knowledge(props: KnowledgeProps) {
     const crudDefinitions = useCrudDefinitions('link');
 
     return (
-        <Container
-            className='Knowledge-container'
-            data-testid='Knowledge-container'
-        >
+        <Wrapper className='Knowledge-wrapper' data-testid='Knowledge-wrapper'>
             <Multi
                 id='Knowledge'
                 itemType='link'
@@ -33,7 +30,7 @@ export function Knowledge(props: KnowledgeProps) {
                 allOptions={allOptions}
                 customView={CustomView}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -22,7 +22,7 @@ describe('ItemCoupon', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ItemCoupon-container');
+        expect(containerClassName).toContain('ItemCoupon-wrapper');
         expect(innerText).toBe(label);
     });
 

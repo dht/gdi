@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './Mixer.style';
+import { Wrapper } from './Mixer.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -24,7 +24,7 @@ export function Mixer(props: MixerProps) {
     const crudDefinitions = useCrudDefinitions('pageInstance');
 
     return (
-        <Container className='Mixer-container' data-testid='Mixer-container'>
+        <Wrapper className='Mixer-wrapper' data-testid='Mixer-wrapper'>
             <Multi
                 id='PageInstances'
                 itemType='pageInstance'
@@ -36,7 +36,7 @@ export function Mixer(props: MixerProps) {
                 customView={customView}
                 customView2={customView2}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

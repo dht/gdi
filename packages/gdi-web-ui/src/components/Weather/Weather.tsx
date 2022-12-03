@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     City,
     Time,
     CurrentDate,
@@ -26,10 +26,7 @@ export function Weather(props: WeatherProps) {
     const iconSource = `https://appofthebox.web.app/weather/${lz(icon)}-s.png`;
 
     return (
-        <Container
-            className='Weather-container'
-            data-testid='Weather-container'
-        >
+        <Wrapper className='Weather-wrapper' data-testid='Weather-wrapper'>
             <City>{locationName}</City>
             <Time>
                 <Clock timeDeltaInMinutes={timeDeltaInMinutes} />
@@ -43,7 +40,7 @@ export function Weather(props: WeatherProps) {
                 </TemperatureLine>
                 <Report>{iconPhrase}</Report>
             </Temperature>
-        </Container>
+        </Wrapper>
     );
 }
 

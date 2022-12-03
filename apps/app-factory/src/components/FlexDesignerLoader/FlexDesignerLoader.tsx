@@ -1,16 +1,16 @@
 import React from 'react';
-import { Container } from './FlexDesignerLoader.style';
+import { Wrapper } from './FlexDesignerLoader.style';
 
 export type FlexDesignerLoaderProps = {};
 
 export function FlexDesignerLoader(_props: FlexDesignerLoaderProps) {
     return (
-        <Container
-            className='FlexDesignerLoader-container'
-            data-testid='FlexDesignerLoader-container'
+        <Wrapper
+            className='FlexDesignerLoader-wrapper'
+            data-testid='FlexDesignerLoader-wrapper'
         >
             Loading...
-        </Container>
+        </Wrapper>
     );
 }
 

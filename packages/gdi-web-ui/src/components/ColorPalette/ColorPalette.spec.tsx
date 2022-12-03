@@ -22,7 +22,7 @@ describe('ColorPalette', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ColorPalette-container');
+        expect(containerClassName).toContain('ColorPalette-wrapper');
         expect(innerText).toBe(label);
     });
 

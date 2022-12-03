@@ -13,7 +13,7 @@ describe('Refresh', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Refresh-container');
+        expect(containerClassName).toBe('Refresh-wrapper');
     });
 });
 

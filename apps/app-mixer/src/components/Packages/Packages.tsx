@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Packages.style';
+import { Wrapper } from './Packages.style';
 import { KeyValue } from '@gdi/web-ui';
 
 export type PackagesProps = {
@@ -15,12 +15,9 @@ export function Packages(props: PackagesProps) {
     const { items } = props;
 
     return (
-        <Container
-            className='Packages-container'
-            data-testid='Packages-container'
-        >
+        <Wrapper className='Packages-wrapper' data-testid='Packages-wrapper'>
             <KeyValue data={items} flex={[4, 1]} />
-        </Container>
+        </Wrapper>
     );
 }
 

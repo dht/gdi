@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './SocialIcon.style';
+import { Wrapper } from './SocialIcon.style';
 import { SocialIcon as SocialIconBase } from 'react-social-icons';
 
 export type SocialIconProps = {
@@ -17,9 +17,9 @@ export function SocialIcon(props: SocialIconProps) {
     }
 
     return (
-        <Container
-            className='SocialIcon-container'
-            data-testid='SocialIcon-container'
+        <Wrapper
+            className='SocialIcon-wrapper'
+            data-testid='SocialIcon-wrapper'
         >
             <SocialIconBase
                 url={url}
@@ -27,7 +27,7 @@ export function SocialIcon(props: SocialIconProps) {
                 fgColor='white'
                 onClick={onClick}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

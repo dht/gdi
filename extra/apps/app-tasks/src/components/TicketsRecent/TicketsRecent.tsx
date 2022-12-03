@@ -1,6 +1,6 @@
 import React from 'react';
 import TicketsTable from '../TicketsTable/TicketsTable';
-import { Container, Header, Link } from './TicketsRecent.style';
+import { Wrapper, Header, Link } from './TicketsRecent.style';
 
 export type TicketsRecentProps = {
     selector: any;
@@ -27,9 +27,9 @@ export function TicketsRecent(props: TicketsRecentProps) {
     }
 
     return (
-        <Container
-            className='TicketsRecent-container'
-            data-testid='TicketsRecent-container'
+        <Wrapper
+            className='TicketsRecent-wrapper'
+            data-testid='TicketsRecent-wrapper'
         >
             <TicketsTable
                 selector={selector}
@@ -38,7 +38,7 @@ export function TicketsRecent(props: TicketsRecentProps) {
                 emptyMessage='No recent sessions'
                 renderHeader={renderHeader}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { SheetHeaderCell, SheetHeaderCellProps } from './SheetHeaderCell';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SheetHeaderCellDriver extends BaseComponentDriver {
-    private props: Partial<SheetHeaderCellProps> = {
-    };
+    private props: Partial<SheetHeaderCellProps> = {};
 
     constructor() {
         super('SheetHeaderCell');
@@ -13,15 +12,19 @@ export class SheetHeaderCellDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<SheetHeaderCell {...(this.props as SheetHeaderCellProps)} />);
+            render(
+                <SheetHeaderCell {...(this.props as SheetHeaderCellProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SheetHeaderCell {...(this.props as SheetHeaderCellProps)} />);
+            return this.snapshot(
+                <SheetHeaderCell {...(this.props as SheetHeaderCellProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class SheetHeaderCellDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

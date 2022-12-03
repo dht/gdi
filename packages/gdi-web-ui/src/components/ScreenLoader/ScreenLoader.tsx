@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { CircularProgress } from '@gdi/web-base-ui';
-import { Container } from './ScreenLoader.style';
+import { Wrapper } from './ScreenLoader.style';
 import './ScreenLoader.scss';
 
 export type ScreenLoaderProps = {
@@ -13,18 +13,18 @@ export type ScreenLoaderProps = {
 export function ScreenLoader(props: ScreenLoaderProps) {
     const { darkMode, transparent, spinnerColor } = props;
 
-    const className = classnames('ScreenLoader-container', {
+    const className = classnames('ScreenLoader-wrapper', {
         dark: darkMode,
     });
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='ScreenLoader-container'
+            data-testid='ScreenLoader-wrapper'
             transparent={transparent}
         >
             <CircularProgress color={spinnerColor} />
-        </Container>
+        </Wrapper>
     );
 }
 

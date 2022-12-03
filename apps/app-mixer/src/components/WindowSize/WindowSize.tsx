@@ -1,13 +1,6 @@
 import React from 'react';
 import { useWindowSize } from 'react-use';
-import {
-    Container,
-    Height,
-    Row,
-    Times,
-    Units,
-    Width,
-} from './WindowSize.style';
+import { Wrapper, Height, Row, Times, Units, Width } from './WindowSize.style';
 
 export type WindowSizeProps = {};
 
@@ -15,9 +8,9 @@ export function WindowSize(_props: WindowSizeProps) {
     const { width, height } = useWindowSize();
 
     return (
-        <Container
-            className='WindowSize-container'
-            data-testid='WindowSize-container'
+        <Wrapper
+            className='WindowSize-wrapper'
+            data-testid='WindowSize-wrapper'
         >
             <Row>
                 <Width>{width.toLocaleString()}</Width>
@@ -25,7 +18,7 @@ export function WindowSize(_props: WindowSizeProps) {
                 <Height>{height.toLocaleString()}</Height>
                 <Units>px</Units>
             </Row>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { Content, ContentProps } from './Content';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ContentDriver extends BaseComponentDriver {
-    private props: Partial<ContentProps> = {
-    };
+    private props: Partial<ContentProps> = {};
 
     constructor() {
         super('Content');
@@ -17,7 +16,7 @@ export class ContentDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -33,11 +32,11 @@ export class ContentDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

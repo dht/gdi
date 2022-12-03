@@ -9,7 +9,7 @@ import {
     BarItemActions,
     BarItemTitle,
     BarItemWrapper,
-    Container,
+    Wrapper,
     PopoiActions,
     PopoiContent,
     PopoiHeader,
@@ -86,14 +86,14 @@ export function ContextBar(props: ContextBarProps) {
         );
     }
 
-    const className = classnames('ContextBar-container', {
+    const className = classnames('ContextBar-wrapper', {
         darkMode: isDarkMode,
     });
 
     return (
-        <Container className={className} data-testid='ContextBar-container'>
+        <Wrapper className={className} data-testid='ContextBar-wrapper'>
             {renderItems()}
-        </Container>
+        </Wrapper>
     );
 }
 

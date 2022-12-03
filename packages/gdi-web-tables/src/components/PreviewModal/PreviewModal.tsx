@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Container } from './PreviewModal.style';
+import { Wrapper } from './PreviewModal.style';
 import { Empty, Panel } from '@gdi/web-base-ui';
 import { previews } from './preview';
 import { SelectionContext } from '../../context/Selection.context';
@@ -35,12 +35,12 @@ export function PreviewModal(props: PreviewModalProps) {
 
     return (
         <Panel title='preview' id={id} onClose={props.onClose}>
-            <Container
-                className='PreviewModal-container'
-                data-testid='PreviewModal-container'
+            <Wrapper
+                className='PreviewModal-wrapper'
+                data-testid='PreviewModal-wrapper'
             >
                 {renderInner()}
-            </Container>
+            </Wrapper>
         </Panel>
     );
 }

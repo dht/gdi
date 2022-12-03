@@ -4,8 +4,7 @@ import { LogsConsole, LogsConsoleProps } from './LogsConsole';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LogsConsoleDriver extends BaseComponentDriver {
-    private props: Partial<LogsConsoleProps> = {
-    };
+    private props: Partial<LogsConsoleProps> = {};
 
     constructor() {
         super('LogsConsole');
@@ -17,11 +16,13 @@ export class LogsConsoleDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<LogsConsole {...(this.props as LogsConsoleProps)} />);
+            return this.snapshot(
+                <LogsConsole {...(this.props as LogsConsoleProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class LogsConsoleDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

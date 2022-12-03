@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Content.style';
+import { Wrapper } from './Content.style';
 
 export type ContentProps = {};
 
 export function Content(_props: ContentProps) {
     return (
-        <Container className="Content-container" data-testid="Content-container">
+        <Wrapper className='Content-wrapper' data-testid='Content-wrapper'>
             Content
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -22,7 +22,7 @@ describe('TableRow', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('TableRow-container');
+        expect(containerClassName).toContain('TableRow-wrapper');
         expect(innerText).toBe(label);
     });
 

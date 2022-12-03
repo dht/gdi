@@ -4,8 +4,7 @@ import { Inbox, InboxProps } from './Inbox';
 import { BaseComponentDriver } from 'testing-base';
 
 export class InboxDriver extends BaseComponentDriver {
-    private props: Partial<InboxProps> = {
-    };
+    private props: Partial<InboxProps> = {};
 
     constructor() {
         super('Inbox');
@@ -17,7 +16,7 @@ export class InboxDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class InboxDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

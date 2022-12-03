@@ -4,8 +4,7 @@ import { ZoomBuildDevice, ZoomBuildDeviceProps } from './ZoomBuildDevice';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ZoomBuildDeviceDriver extends BaseComponentDriver {
-    private props: Partial<ZoomBuildDeviceProps> = {
-    };
+    private props: Partial<ZoomBuildDeviceProps> = {};
 
     constructor() {
         super('ZoomBuildDevice');
@@ -13,15 +12,19 @@ export class ZoomBuildDeviceDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<ZoomBuildDevice {...(this.props as ZoomBuildDeviceProps)} />);
+            render(
+                <ZoomBuildDevice {...(this.props as ZoomBuildDeviceProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ZoomBuildDevice {...(this.props as ZoomBuildDeviceProps)} />);
+            return this.snapshot(
+                <ZoomBuildDevice {...(this.props as ZoomBuildDeviceProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class ZoomBuildDeviceDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

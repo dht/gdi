@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, Title, Icon } from './MenuButton.style';
+import { Wrapper, Title, Icon } from './MenuButton.style';
 import { icons, IconName } from './MenuButton.icons';
 import classnames from 'classnames';
 
@@ -12,13 +12,13 @@ export function MenuButton(props: MenuButtonProps) {
     const { title, iconName } = props;
 
     return (
-        <Container
-            className='MenuButton-container'
-            data-testid='MenuButton-container'
+        <Wrapper
+            className='MenuButton-wrapper'
+            data-testid='MenuButton-wrapper'
         >
             <MenuButtonIcon iconName={iconName} />
             <Title>{title}</Title>
-        </Container>
+        </Wrapper>
     );
 }
 

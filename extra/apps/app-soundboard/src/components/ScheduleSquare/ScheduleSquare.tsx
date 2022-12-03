@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Text, ProjectKey, TicketKey } from './ScheduleSquare.style';
+import { Wrapper, Text, ProjectKey, TicketKey } from './ScheduleSquare.style';
 import classnames from 'classnames';
 
 export type ScheduleSquareProps = {
@@ -24,7 +24,7 @@ export function ScheduleSquare(props: ScheduleSquareProps) {
         text = project.name;
     }
 
-    const className = classnames('ScheduleSquare-container', {
+    const className = classnames('ScheduleSquare-wrapper', {
         current: isCurrent,
     });
 
@@ -34,16 +34,16 @@ export function ScheduleSquare(props: ScheduleSquareProps) {
     };
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='ScheduleSquare-container'
+            data-testid='ScheduleSquare-wrapper'
             onTouchStart={props.onClick}
             onMouseDown={props.onClick}
         >
             <Text style={style}>{text}</Text>
             {project && <ProjectKey className='key'>{project?.key}</ProjectKey>}
             {ticket && <TicketKey className='key'>{ticket?.key}</TicketKey>}
-        </Container>
+        </Wrapper>
     );
 }
 

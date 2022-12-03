@@ -13,7 +13,7 @@ describe('ScheduleSquare', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ScheduleSquare-container');
+        expect(containerClassName).toBe('ScheduleSquare-wrapper');
     });
 });
 

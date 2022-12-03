@@ -13,7 +13,7 @@ describe('StoreSize', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('StoreSize-container');
+        expect(containerClassName).toBe('StoreSize-wrapper');
     });
 });
 

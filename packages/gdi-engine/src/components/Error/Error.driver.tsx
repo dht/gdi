@@ -4,8 +4,7 @@ import { Error, ErrorProps } from './Error';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ErrorDriver extends BaseComponentDriver {
-    private props: Partial<ErrorProps> = {
-    };
+    private props: Partial<ErrorProps> = {};
 
     constructor() {
         super('Error');
@@ -17,7 +16,7 @@ export class ErrorDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ErrorDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

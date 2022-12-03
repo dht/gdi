@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     margin: 10px 15px;
 
-    .Dropdown-container {
+    .Dropdown-wrapper {
         > div {
             > div {
                 background-color: #445 !important;

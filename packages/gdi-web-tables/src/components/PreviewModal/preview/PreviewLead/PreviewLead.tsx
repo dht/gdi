@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewLead.style';
+import { Wrapper } from './PreviewLead.style';
 
 export type PreviewLeadProps = {};
 
 export function PreviewLead(_props: PreviewLeadProps) {
     return (
-        <Container className="PreviewLead-container" data-testid="PreviewLead-container">
+        <Wrapper
+            className='PreviewLead-wrapper'
+            data-testid='PreviewLead-wrapper'
+        >
             PreviewLead
-        </Container>
+        </Wrapper>
     );
 }
 

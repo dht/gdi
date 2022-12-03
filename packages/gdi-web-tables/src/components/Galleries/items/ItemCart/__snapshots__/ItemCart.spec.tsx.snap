@@ -2,8 +2,8 @@
 
 exports[`ItemCart snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR ItemCart-container"
-  data-testid="ItemCart-container"
+  className="sc-bczRLJ WtYQR ItemCart-wrapper"
+  data-testid="ItemCart-wrapper"
 >
   ItemCart
 </div>

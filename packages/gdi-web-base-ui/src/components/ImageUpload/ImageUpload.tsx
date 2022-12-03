@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useSetState } from 'react-use';
 import CircularProgress from '../CircularProgress/CircularProgress';
 import {
-    Container,
+    Wrapper,
     ImageWrapper,
     File,
     Empty,
@@ -120,9 +120,9 @@ export function ImageUpload(props: ImageUploadProps) {
     }
 
     return (
-        <Container
-            className='ImageUpload-container'
-            data-testid='ImageUpload-container'
+        <Wrapper
+            className='ImageUpload-wrapper'
+            data-testid='ImageUpload-wrapper'
         >
             <Label htmlFor='avatar'>{renderInner()}</Label>
 
@@ -138,7 +138,7 @@ export function ImageUpload(props: ImageUploadProps) {
                 {imageData.height ? imageData.height + 'px  |  ' : ''}
                 {imageData.size && bytes(imageData.size)}
             </ImageData>
-        </Container>
+        </Wrapper>
     );
 }
 

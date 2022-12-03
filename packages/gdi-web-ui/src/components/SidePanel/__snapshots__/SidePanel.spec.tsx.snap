@@ -2,7 +2,7 @@
 
 exports[`SidePanel snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR SidePanel-container"
-  data-testid="SidePanel-container"
+  className="sc-bczRLJ WtYQR SidePanel-wrapper"
+  data-testid="SidePanel-wrapper"
 />
 `;

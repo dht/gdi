@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './PlayMode.style';
+import { Wrapper } from './PlayMode.style';
 import { MessageModal } from '@gdi/web-ui';
 
 export type PlayModeProps = {
@@ -11,10 +11,7 @@ export function PlayMode(props: PlayModeProps) {
     const { showModal } = props;
 
     return (
-        <Container
-            className='PlayMode-container'
-            data-testid='PlayMode-container'
-        >
+        <Wrapper className='PlayMode-wrapper' data-testid='PlayMode-wrapper'>
             <MessageModal
                 id='playMode'
                 modalHeader='System Notice'
@@ -26,7 +23,7 @@ export function PlayMode(props: PlayModeProps) {
                 Any changes you make will not be saved. Image upload is
                 disabled.
             </MessageModal>
-        </Container>
+        </Wrapper>
     );
 }
 

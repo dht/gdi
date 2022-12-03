@@ -22,7 +22,7 @@ describe('CornerTriangle', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('CornerTriangle-container');
+        expect(containerClassName).toContain('CornerTriangle-wrapper');
         expect(innerText).toBe(label);
     });
 

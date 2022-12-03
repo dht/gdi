@@ -22,7 +22,7 @@ describe('Multi', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Multi-container');
+        expect(containerClassName).toContain('Multi-wrapper');
         expect(innerText).toBe(label);
     });
 

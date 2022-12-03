@@ -81,8 +81,8 @@ export function Apps(props: AppsProps) {
     }
 
     return (
-        <Container className='Apps-container' data-testid='Apps-container'>
-            <Wrapper>
+        <Wrapper className='Apps-wrapper' data-testid='Apps-wrapper'>
+            <Container>
                 <H2 id='templates'>{header}</H2>
                 <LocalGallery
                     items={apps}
@@ -92,8 +92,8 @@ export function Apps(props: AppsProps) {
                     onView={onView}
                     onTagChange={onTagChange}
                 />
-            </Wrapper>
-        </Container>
+            </Container>
+        </Wrapper>
     );
 }
 

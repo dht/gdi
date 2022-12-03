@@ -22,7 +22,7 @@ describe('ItemPost', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ItemPost-container');
+        expect(containerClassName).toContain('ItemPost-wrapper');
         expect(innerText).toBe(label);
     });
 

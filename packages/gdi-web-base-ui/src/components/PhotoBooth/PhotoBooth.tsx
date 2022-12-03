@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { WidgetTitle, Container, TextArea } from './PhotoBooth.style';
+import { WidgetTitle, Wrapper, TextArea } from './PhotoBooth.style';
 import { Chair } from '../Chair/Chair';
 import { ThemeProvider } from 'styled-components';
 import { useStyledTheme } from '@gdi/hooks';
@@ -30,13 +30,13 @@ export function PhotoBoothInner(props: PhotoBoothProps) {
     }
 
     return (
-        <Container
-            className='PhotoBooth-container'
-            data-testid='PhotoBooth-container'
+        <Wrapper
+            className='PhotoBooth-wrapper'
+            data-testid='PhotoBooth-wrapper'
         >
             <TextArea value={JSON.stringify(widgets, null, 4)} readOnly />
             {renderWidgets()}
-        </Container>
+        </Wrapper>
     );
 }
 

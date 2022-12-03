@@ -22,7 +22,7 @@ describe('LogsSystem', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('LogsSystem-container');
+        expect(containerClassName).toContain('LogsSystem-wrapper');
         expect(innerText).toBe(label);
     });
 

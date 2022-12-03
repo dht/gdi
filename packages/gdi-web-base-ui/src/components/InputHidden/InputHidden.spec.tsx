@@ -22,7 +22,7 @@ describe('InputHidden', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('InputHidden-container');
+        expect(containerClassName).toContain('InputHidden-wrapper');
         expect(innerText).toBe(label);
     });
 

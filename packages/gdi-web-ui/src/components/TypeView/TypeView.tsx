@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container, Line, Part } from './TypeView.style';
+import { Wrapper, Line, Part } from './TypeView.style';
 import classnames from 'classnames';
 
 export type TypeViewProps = {
@@ -69,12 +69,9 @@ export function TypeView(props: TypeViewProps) {
     }
 
     return (
-        <Container
-            className='TypeView-container'
-            data-testid='TypeView-container'
-        >
+        <Wrapper className='TypeView-wrapper' data-testid='TypeView-wrapper'>
             {renderLines()}
-        </Container>
+        </Wrapper>
     );
 }
 

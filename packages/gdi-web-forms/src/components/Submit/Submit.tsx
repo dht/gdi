@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Actions,
     Agreement,
-    Container,
+    Wrapper,
     Agreements,
     Span,
     Link,
@@ -60,7 +60,7 @@ export function Submit(props: SubmitProps) {
     }
 
     return (
-        <Container className='Submit-container' data-testid='Submit-container'>
+        <Wrapper className='Submit-wrapper' data-testid='Submit-wrapper'>
             {renderAgreements()}
             <Actions>
                 {props.onClose && (
@@ -74,7 +74,7 @@ export function Submit(props: SubmitProps) {
                     title={title}
                 />
             </Actions>
-        </Container>
+        </Wrapper>
     );
 }
 

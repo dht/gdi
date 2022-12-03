@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, DayHeaderContainer, Squares } from './ScheduleDay.style';
+import { Wrapper, DayHeaderContainer, Squares } from './ScheduleDay.style';
 import { XDate } from '@gdi/language';
 import ScheduleSquare from '../ScheduleSquare/ScheduleSquare';
 
@@ -69,13 +69,13 @@ export function ScheduleDay(props: ScheduleDayProps) {
     }
 
     return (
-        <Container
-            className='ScheduleDay-container'
-            data-testid='ScheduleDay-container'
+        <Wrapper
+            className='ScheduleDay-wrapper'
+            data-testid='ScheduleDay-wrapper'
         >
             <DayHeader color={titleColor || color} day={day} />
             <Squares color={color}>{renderSquares()}</Squares>
-        </Container>
+        </Wrapper>
     );
 }
 

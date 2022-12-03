@@ -1,11 +1,5 @@
 import * as React from 'react';
-import {
-    Header,
-    Title,
-    HeaderActions,
-    Content,
-    Container,
-} from './Drawer.style';
+import { Header, Title, HeaderActions, Content, Wrapper } from './Drawer.style';
 import { Panel, PanelType } from '@fluentui/react';
 import './Drawer.scss';
 
@@ -31,13 +25,13 @@ export function Drawer(props: DrawerProps) {
             isBlocking={true}
             type={PanelType.largeFixed}
         >
-            <Container>
+            <Wrapper>
                 <Header>
                     <Title>{title}</Title>
                     <HeaderActions></HeaderActions>
                 </Header>
                 <Content>{props.children}</Content>
-            </Container>
+            </Wrapper>
         </Panel>
     );
 }

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import GenericTable from '../GenericTable/GenericTable';
 import TableHeader from '../TableHeader/TableHeader';
 import TableRow from '../TableRow/TableRow';
-import { Container, Content } from './Table.style';
+import { Wrapper, Content } from './Table.style';
 import { ITableConfig } from '../../types';
 import { useDelete } from '@gdi/hooks';
 import { TableContextProvider } from '../../context/Table.context';
@@ -55,7 +55,7 @@ export function TableInner(props: TableProps) {
     }
 
     return (
-        <Container className='Table-container' data-testid='Table-container'>
+        <Wrapper className='Table-wrapper' data-testid='Table-wrapper'>
             <TableHeader config={config} />
             <Content>
                 <GenericTable
@@ -68,7 +68,7 @@ export function TableInner(props: TableProps) {
                     {renderRow}
                 </GenericTable>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 

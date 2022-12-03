@@ -4,8 +4,7 @@ import { Layouts, LayoutsProps } from './Layouts';
 import { BaseComponentDriver } from 'testing-base';
 
 export class LayoutsDriver extends BaseComponentDriver {
-    private props: Partial<LayoutsProps> = {
-    };
+    private props: Partial<LayoutsProps> = {};
 
     constructor() {
         super('Layouts');
@@ -17,7 +16,7 @@ export class LayoutsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class LayoutsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            wrapperClassNameapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './JsonEditor.style';
+import { Wrapper } from './JsonEditor.style';
 
 export type JsonEditorProps = {
     config: IFormConfig;
@@ -11,12 +11,12 @@ export type JsonEditorProps = {
 
 export function JsonEditor(_props: JsonEditorProps) {
     return (
-        <Container
-            className='JsonEditor-container'
-            data-testid='JsonEditor-container'
+        <Wrapper
+            className='JsonEditor-wrapper'
+            data-testid='JsonEditor-wrapper'
         >
             JsonEditor
-        </Container>
+        </Wrapper>
     );
 }
 

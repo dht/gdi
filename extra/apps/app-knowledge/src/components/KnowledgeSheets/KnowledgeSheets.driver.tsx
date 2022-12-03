@@ -4,8 +4,7 @@ import { KnowledgeSheets, KnowledgeSheetsProps } from './KnowledgeSheets';
 import { BaseComponentDriver } from 'testing-base';
 
 export class KnowledgeSheetsDriver extends BaseComponentDriver {
-    private props: Partial<KnowledgeSheetsProps> = {
-    };
+    private props: Partial<KnowledgeSheetsProps> = {};
 
     constructor() {
         super('KnowledgeSheets');
@@ -13,15 +12,19 @@ export class KnowledgeSheetsDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<KnowledgeSheets {...(this.props as KnowledgeSheetsProps)} />);
+            render(
+                <KnowledgeSheets {...(this.props as KnowledgeSheetsProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<KnowledgeSheets {...(this.props as KnowledgeSheetsProps)} />);
+            return this.snapshot(
+                <KnowledgeSheets {...(this.props as KnowledgeSheetsProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class KnowledgeSheetsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

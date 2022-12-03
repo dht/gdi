@@ -13,7 +13,7 @@ describe('SoundboardTop', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('SoundboardTop-container');
+        expect(containerClassName).toBe('SoundboardTop-wrapper');
     });
 });
 

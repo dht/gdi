@@ -4,8 +4,7 @@ import { FilterAuto, FilterAutoProps } from './FilterAuto';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FilterAutoDriver extends BaseComponentDriver {
-    private props: Partial<FilterAutoProps> = {
-    };
+    private props: Partial<FilterAutoProps> = {};
 
     constructor() {
         super('FilterAuto');
@@ -17,11 +16,13 @@ export class FilterAutoDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<FilterAuto {...(this.props as FilterAutoProps)} />);
+            return this.snapshot(
+                <FilterAuto {...(this.props as FilterAutoProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class FilterAutoDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

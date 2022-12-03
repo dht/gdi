@@ -4,8 +4,7 @@ import { AddModal, AddModalProps } from './AddModal';
 import { BaseComponentDriver } from 'testing-base';
 
 export class AddModalDriver extends BaseComponentDriver {
-    private props: Partial<AddModalProps> = {
-    };
+    private props: Partial<AddModalProps> = {};
 
     constructor() {
         super('AddModal');
@@ -17,11 +16,13 @@ export class AddModalDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<AddModal {...(this.props as AddModalProps)} />);
+            return this.snapshot(
+                <AddModal {...(this.props as AddModalProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class AddModalDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

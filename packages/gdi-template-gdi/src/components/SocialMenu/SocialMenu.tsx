@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Icon } from './SocialMenu.style';
+import { Button, Wrapper, Icon } from './SocialMenu.style';
 
 export type SocialMenuProps = {
     items: Json[];
@@ -28,12 +28,12 @@ export function SocialMenu(props: SocialMenuProps) {
         return items.map((item: Json) => renderItem(item));
     }
     return (
-        <Container
-            className='SocialMenu-container'
-            data-testid='SocialMenu-container'
+        <Wrapper
+            className='SocialMenu-wrapper'
+            data-testid='SocialMenu-wrapper'
         >
             {renderItems()}
-        </Container>
+        </Wrapper>
     );
 }
 

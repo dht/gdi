@@ -14,6 +14,7 @@ export const BaseButton = styled.a<{ white?: boolean }>`
     box-shadow: inset 2px -2px 1px 2px rgba(0, 0, 0, 0.05);
     font-weight: 500;
     white-space: nowrap;
+    text-decoration: none;
 
     &:hover {
         opacity: 0.8;

@@ -4,8 +4,7 @@ import { Console, ConsoleProps } from './Console';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ConsoleDriver extends BaseComponentDriver {
-    private props: Partial<ConsoleProps> = {
-    };
+    private props: Partial<ConsoleProps> = {};
 
     constructor() {
         super('Console');
@@ -17,7 +16,7 @@ export class ConsoleDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ConsoleDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

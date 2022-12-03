@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     padding-bottom: 150px;
     background-color: white;
@@ -21,14 +21,6 @@ export const H2 = styled.h2`
     `)}
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 1200px;
-    margin: 0 auto;
+export const Container = styled(Grid.Container)`
     padding: 50px 0;
-
-    ${mobile(css`
-        width: 99vw;
-        margin: 0;
-    `)}
 `;

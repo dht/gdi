@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './UnoButton.style';
+import { Wrapper } from './UnoButton.style';
 
 export type UnoButtonProps = {
     children: string;
@@ -10,14 +10,14 @@ export function UnoButton(props: UnoButtonProps) {
     const { href } = props;
 
     return (
-        <Container
-            className='UnoButton-container'
-            data-testid='UnoButton-container'
+        <Wrapper
+            className='UnoButton-wrapper'
+            data-testid='UnoButton-wrapper'
             href={href}
             target='_blank'
         >
             {props.children}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Things.style';
+import { Wrapper } from './Things.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,7 +19,7 @@ export function Things(props: ThingsProps) {
     const crudDefinitions = useCrudDefinitions('image');
 
     return (
-        <Container className='Things-container' data-testid='Things-container'>
+        <Wrapper className='Things-wrapper' data-testid='Things-wrapper'>
             <Multi
                 id='Things'
                 itemType='image'
@@ -30,7 +30,7 @@ export function Things(props: ThingsProps) {
                 allOptions={allOptions}
                 customView={CustomView}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

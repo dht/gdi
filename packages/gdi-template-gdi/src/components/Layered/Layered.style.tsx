@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../../blocks/Base.style';
+import styled from 'styled-components';
+import { mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ height: number }>`
+export const Wrapper = styled.div<{ height: number }>`
     flex: 1;
     position: relative;
 `;

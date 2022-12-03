@@ -4,8 +4,7 @@ import { PreviewOrder, PreviewOrderProps } from './PreviewOrder';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewOrderDriver extends BaseComponentDriver {
-    private props: Partial<PreviewOrderProps> = {
-    };
+    private props: Partial<PreviewOrderProps> = {};
 
     constructor() {
         super('PreviewOrder');
@@ -17,11 +16,13 @@ export class PreviewOrderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewOrder {...(this.props as PreviewOrderProps)} />);
+            return this.snapshot(
+                <PreviewOrder {...(this.props as PreviewOrderProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewOrderDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

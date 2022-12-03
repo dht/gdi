@@ -13,7 +13,7 @@ describe('AutoForm', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('AutoForm-container');
+        expect(containerClassName).toBe('AutoForm-wrapper');
     });
 });
 

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Icon } from './Search.style';
+import { Wrapper, Icon } from './Search.style';
 
 export type SearchProps = {};
 
 export function Search(_props: SearchProps) {
     return (
-        <Container className='Search-container' data-testid='Search-container'>
+        <Wrapper className='Search-wrapper' data-testid='Search-wrapper'>
             <Icon className='material-icons'>search</Icon>
-        </Container>
+        </Wrapper>
     );
 }
 

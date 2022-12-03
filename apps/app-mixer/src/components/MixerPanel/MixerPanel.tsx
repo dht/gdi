@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container as Root } from './MixerPanel.style';
+import { Wrapper as Root } from './MixerPanel.style';
 import { Accordion } from '@gdi/web-ui';
 import { PanelContentContainer } from '../../containers/panels/PanelContentContainer';
 import { PanelInspectorContainer } from '../../containers/panels/PanelInspectorContainer';
@@ -39,10 +39,7 @@ export function MixerPanel(props: MixerPanelProps) {
     }
 
     return (
-        <Root
-            className='MixerPanel-container'
-            data-testid='MixerPanel-container'
-        >
+        <Root className='MixerPanel-wrapper' data-testid='MixerPanel-wrapper'>
             <Accordion
                 initialPanel='Library'
                 renderActions={renderActions}

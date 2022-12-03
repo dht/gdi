@@ -22,7 +22,7 @@ describe('ScreenLoader', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ScreenLoader-container');
+        expect(containerClassName).toContain('ScreenLoader-wrapper');
         expect(innerText).toBe(label);
     });
 

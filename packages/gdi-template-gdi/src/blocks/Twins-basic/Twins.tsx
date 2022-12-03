@@ -88,15 +88,15 @@ export function Twins(props: TwinsProps) {
     };
 
     return (
-        <Container
-            className='Twins-container'
-            data-testid='Twins-container'
+        <Wrapper
+            className='Twins-wrapper'
+            data-testid='Twins-wrapper'
             rotation={rotation}
         >
             <Layered degree={rotation}>
                 <BkGrid color1='#f2c973' color2='#000' />
-                <Wrapper>
-                    <Row>
+                <Container>
+                    <Row center>
                         <Column>
                             {renderH2(header)}
                             <P>{description}</P>
@@ -121,9 +121,9 @@ export function Twins(props: TwinsProps) {
                         </Column>
                     </Row>
                     <Notes>{notes}</Notes>
-                </Wrapper>
+                </Container>
             </Layered>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -13,7 +13,7 @@ describe('Voice', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Voice-container');
+        expect(containerClassName).toBe('Voice-wrapper');
     });
 });
 

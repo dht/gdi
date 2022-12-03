@@ -29,12 +29,12 @@ export function Breadcrumbs(props: BreadcrumbsProps) {
     }
 
     return (
-        <Container
-            className='Breadcrumbs-container'
-            data-testid='Breadcrumbs-container'
+        <Wrapper
+            className='Breadcrumbs-wrapper'
+            data-testid='Breadcrumbs-wrapper'
         >
             {renderBreadcrumbs()}
-        </Container>
+        </Wrapper>
     );
 }
 

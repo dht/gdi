@@ -13,7 +13,7 @@ describe('Lifecycle', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Lifecycle-container');
+        expect(containerClassName).toBe('Lifecycle-wrapper');
     });
 });
 

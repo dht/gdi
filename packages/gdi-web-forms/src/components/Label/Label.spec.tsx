@@ -13,7 +13,7 @@ describe('Label', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Label-container');
+        expect(containerClassName).toBe('Label-wrapper');
     });
 });
 

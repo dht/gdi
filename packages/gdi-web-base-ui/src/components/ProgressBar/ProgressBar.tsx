@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Inner } from './ProgressBar.style';
+import { Wrapper, Inner } from './ProgressBar.style';
 import classnames from 'classnames';
 
 export type ProgressBarProps = {
@@ -40,13 +40,13 @@ export function ProgressBar(props: ProgressBarProps) {
     });
 
     return (
-        <Container
-            className='ProgressBar-container'
-            data-testid='ProgressBar-container'
+        <Wrapper
+            className='ProgressBar-wrapper'
+            data-testid='ProgressBar-wrapper'
             style={styleContainer}
         >
             <Inner className={className} style={styleInner} />
-        </Container>
+        </Wrapper>
     );
 }
 

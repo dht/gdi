@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './NfcPing.style';
+import { Wrapper } from './NfcPing.style';
 import { useSelector } from 'react-redux';
 import { selectors } from '../../store';
 
@@ -16,13 +16,13 @@ export function NfcPing(props: NfcPingProps) {
     }, [lastNfcTimestamp]);
 
     return (
-        <Container
-            className='NfcPing-container'
-            data-testid='NfcPing-container'
+        <Wrapper
+            className='NfcPing-wrapper'
+            data-testid='NfcPing-wrapper'
             title={lastNfcDate}
         >
             {lastNfcValue}
-        </Container>
+        </Wrapper>
     );
 }
 

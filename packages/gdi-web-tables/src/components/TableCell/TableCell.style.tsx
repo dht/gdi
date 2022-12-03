@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     padding: 5px 10px;
-    box-sizing: border-box;
 `;
 
 export const Image = styled.div`

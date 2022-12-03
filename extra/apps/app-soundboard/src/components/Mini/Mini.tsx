@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './mini.style';
+import { Wrapper } from './mini.style';
 import { Gauge } from '@gdi/web-ui';
 
 type IProjectPlus = IProject & { transientMinutes: number };
@@ -33,9 +33,9 @@ export function Mini(props: MiniProps) {
     }
 
     return (
-        <Container className='Mini-container' data-testid='Mini-container'>
+        <Wrapper className='Mini-wrapper' data-testid='Mini-wrapper'>
             {renderProjects()}
-        </Container>
+        </Wrapper>
     );
 }
 

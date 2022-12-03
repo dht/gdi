@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './EditModal.style';
+import { Wrapper } from './EditModal.style';
 
 export type EditModalProps = {};
 
 export function EditModal(_props: EditModalProps) {
     return (
-        <Container className="EditModal-container" data-testid="EditModal-container">
+        <Wrapper className='EditModal-wrapper' data-testid='EditModal-wrapper'>
             EditModal
-        </Container>
+        </Wrapper>
     );
 }
 

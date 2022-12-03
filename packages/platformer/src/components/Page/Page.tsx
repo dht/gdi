@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import { Container } from './Page.style';
+import { Wrapper } from './Page.style';
 import { Grid, IWidgetInstances, IWidgets } from 'igrid';
 import { pickBy } from 'shared-base';
 import { PlatformContext } from '../../core/Platform.context';
@@ -16,7 +16,7 @@ export default function Page(props: PageProps) {
     const { instancesIngrid, widgetLibrary, flavour } = props;
 
     return (
-        <Container className='Page-container'>
+        <Wrapper className='Page-wrapper'>
             <Grid
                 id='Page'
                 darkMode={true}
@@ -25,7 +25,7 @@ export default function Page(props: PageProps) {
                 flavour={flavour}
                 ignoreWindowWidth={false}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

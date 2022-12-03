@@ -13,7 +13,7 @@ describe('Poe', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Poe-container');
+        expect(containerClassName).toBe('Poe-wrapper');
     });
 });
 

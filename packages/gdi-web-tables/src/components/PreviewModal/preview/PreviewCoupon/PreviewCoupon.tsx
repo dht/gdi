@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewCoupon.style';
+import { Wrapper } from './PreviewCoupon.style';
 
 export type PreviewCouponProps = {};
 
 export function PreviewCoupon(_props: PreviewCouponProps) {
     return (
-        <Container className="PreviewCoupon-container" data-testid="PreviewCoupon-container">
+        <Wrapper
+            className='PreviewCoupon-wrapper'
+            data-testid='PreviewCoupon-wrapper'
+        >
             PreviewCoupon
-        </Container>
+        </Wrapper>
     );
 }
 

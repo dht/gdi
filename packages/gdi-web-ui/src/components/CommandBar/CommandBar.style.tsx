@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     background-color: rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;

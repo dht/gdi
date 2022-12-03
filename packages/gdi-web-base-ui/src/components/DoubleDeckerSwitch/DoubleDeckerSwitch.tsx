@@ -1,7 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { useShortKeys } from '@gdi/hooks';
 import {
-    Container,
+    Wrapper,
     Count,
     Item,
     Letter,
@@ -79,14 +79,14 @@ export function DoubleDeckerSwitch(props: DoubleDeckerSwitchProps) {
 
     return (
         <Cmp nodeRef={ref}>
-            <Container
+            <Wrapper
                 ref={ref}
-                className='DoubleDeckerSwitcher-container'
-                data-testid='DoubleDeckerSwitcher-container'
+                className='DoubleDeckerSwitcher-wrapper'
+                data-testid='DoubleDeckerSwitcher-wrapper'
                 style={style}
             >
                 {renderItems()}
-            </Container>
+            </Wrapper>
         </Cmp>
     );
 }

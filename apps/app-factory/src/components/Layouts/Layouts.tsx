@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Layouts.style';
+import { Wrapper } from './Layouts.style';
 import { Multi } from '@gdi/web-ui';
 import { useCrudDefinitions } from '@gdi/platformer';
 
@@ -18,10 +18,7 @@ export function Layouts(props: LayoutsProps) {
     const crudDefinitions = useCrudDefinitions('layout');
 
     return (
-        <Container
-            className='Layouts-container'
-            data-testid='Layouts-container'
-        >
+        <Wrapper className='Layouts-wrapper' data-testid='Layouts-wrapper'>
             <Multi
                 id='Layouts'
                 itemType='layout'
@@ -32,7 +29,7 @@ export function Layouts(props: LayoutsProps) {
                 allOptions={allOptions}
                 customView={CustomView}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

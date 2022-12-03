@@ -1,6 +1,6 @@
 import React from 'react';
 import { IUnoSection } from '../../types';
-import { Container } from './ArticleComments.style';
+import { Wrapper } from './ArticleComments.style';
 
 export type ArticleCommentsProps = {
     data: Json;
@@ -9,12 +9,12 @@ export type ArticleCommentsProps = {
 
 export function ArticleComments(_props: ArticleCommentsProps) {
     return (
-        <Container
-            className='ArticleComments-container'
-            data-testid='ArticleComments-container'
+        <Wrapper
+            className='ArticleComments-wrapper'
+            data-testid='ArticleComments-wrapper'
         >
             ArticleComments
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Project,
     ProjectKey,
     ProjectTitle,
@@ -44,9 +44,9 @@ export function ProjectSwitch(props: ProjectSwitchProps) {
     }
 
     return (
-        <Container
-            className='ProjectSwitch-container'
-            data-testid='ProjectSwitch-container'
+        <Wrapper
+            className='ProjectSwitch-wrapper'
+            data-testid='ProjectSwitch-wrapper'
         >
             {renderProject({
                 id: 'all',
@@ -54,7 +54,7 @@ export function ProjectSwitch(props: ProjectSwitchProps) {
                 name: 'All projects',
             })}
             {renderProjects()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ selected: boolean }>`
+export const Wrapper = styled.div<{ selected: boolean }>`
     flex: 1;
     margin-bottom: 10px;
     position: relative;

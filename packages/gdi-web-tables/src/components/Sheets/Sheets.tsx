@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content } from './Sheets.style';
+import { Wrapper, Content } from './Sheets.style';
 import { Sheet } from '../Sheet/Sheet';
 import { VerticalTabs } from '../VerticalTabs/VerticalTabs';
 
@@ -37,14 +37,14 @@ export function Sheets(props: SheetsProps) {
     }
 
     return (
-        <Container className='Sheets-container' data-testid='Sheets-container'>
+        <Wrapper className='Sheets-wrapper' data-testid='Sheets-wrapper'>
             <VerticalTabs
                 selectedNodeId={selectedNodeId}
                 onSelectNode={callbacks.onSelectNode}
                 nodes={nodes}
             />
             <Content>{renderSheet()}</Content>
-        </Container>
+        </Wrapper>
     );
 }
 

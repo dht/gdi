@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Status, Breaks } from './BottomRow.style';
+import { Wrapper, Status, Breaks } from './BottomRow.style';
 import { toDuration, time } from '@gdi/language';
 
 export type BottomRowProps = {
@@ -36,15 +36,12 @@ export function BottomRow(props: BottomRowProps) {
     }
 
     return (
-        <Container
-            className='BottomRow-container'
-            data-testid='BottomRow-container'
-        >
+        <Wrapper className='BottomRow-wrapper' data-testid='BottomRow-wrapper'>
             <Status>
                 {activeTask?.ticket?.status} | {activeTask?.ticket?.priority}
             </Status>
             <Breaks>{renderBreaks()}</Breaks>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Editor, prompt } from '@gdi/web-ui';
-import { Container } from './ArticleEditor.style';
+import { Wrapper } from './ArticleEditor.style';
 import { ArticleEditorTop } from '../ArticleEditorTop/ArticleEditorTop';
 import { ArticleContext } from './ArticleEditor.context';
 
@@ -9,9 +9,9 @@ export type ArticleEditorProps = {};
 export function ArticleEditor(_props: ArticleEditorProps) {
     const context = useContext(ArticleContext);
     return (
-        <Container
-            className='ArticleEditor-container'
-            data-testid='ArticleEditor-container'
+        <Wrapper
+            className='ArticleEditor-wrapper'
+            data-testid='ArticleEditor-wrapper'
         >
             <ArticleEditorTop>
                 <Editor
@@ -20,7 +20,7 @@ export function ArticleEditor(_props: ArticleEditorProps) {
                     inputPrompt={prompt.input}
                 />
             </ArticleEditorTop>
-        </Container>
+        </Wrapper>
     );
 }
 

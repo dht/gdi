@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './LibraryImages.style';
+import { Wrapper } from './LibraryImages.style';
 import { ImageGallery } from '@gdi/web-ui';
 
 export type LibraryImagesProps = {
@@ -17,9 +17,9 @@ export function LibraryImages(props: LibraryImagesProps) {
     const { items, galleryOptions, callbacks, hideParts } = props;
 
     return (
-        <Container
-            className='LibraryImages-container'
-            data-testid='LibraryImages-container'
+        <Wrapper
+            className='LibraryImages-wrapper'
+            data-testid='LibraryImages-wrapper'
         >
             <ImageGallery
                 header='Images'
@@ -28,7 +28,7 @@ export function LibraryImages(props: LibraryImagesProps) {
                 callbacks={callbacks}
                 hideParts={hideParts}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './IconButton.style';
+import { Wrapper } from './IconButton.style';
 import { IconButton as IconButtonUI } from '@fluentui/react';
 
 export type IconButtonProps = {
@@ -11,14 +11,14 @@ export function IconButton(props: IconButtonProps) {
     const { iconName } = props;
 
     return (
-        <Container>
+        <Wrapper>
             <IconButtonUI
-                className='IconButton-container'
-                data-testid='IconButton-container'
+                className='IconButton-wrapper'
+                data-testid='IconButton-wrapper'
                 iconProps={{ iconName }}
                 onClick={props.onClick}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

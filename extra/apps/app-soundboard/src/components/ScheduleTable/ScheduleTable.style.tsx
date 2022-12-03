@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ isDayTime: boolean }>`
+export const Wrapper = styled.div<{ isDayTime: boolean }>`
     flex: 1;
     /* background-image: ${(props) =>
         `url(https://appofthebox.web.app/${

@@ -1,6 +1,6 @@
 import { SearchBox } from '@fluentui/react';
 import React from 'react';
-import { Container } from './Search.style';
+import { Wrapper } from './Search.style';
 
 export type SearchProps = {
     placeholder?: string;
@@ -26,9 +26,9 @@ export function Search(props: SearchProps) {
     }
 
     return (
-        <Container
-            className='Search-container'
-            data-testid='Search-container'
+        <Wrapper
+            className='Search-wrapper'
+            data-testid='Search-wrapper'
             style={style}
         >
             <SearchBox
@@ -38,7 +38,7 @@ export function Search(props: SearchProps) {
                 disableAnimation={true}
                 underlined={true}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

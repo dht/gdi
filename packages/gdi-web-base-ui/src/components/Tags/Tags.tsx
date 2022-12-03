@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from '../Tag/Tag';
-import { Container } from './Tags.style';
+import { Wrapper } from './Tags.style';
 
 export type TagsProps = {
     tags?: string[];
@@ -29,9 +29,9 @@ export function Tags(props: TagsProps) {
     }
 
     return (
-        <Container className='Tags-container' data-testid='Tags-container'>
+        <Wrapper className='Tags-wrapper' data-testid='Tags-wrapper'>
             {renderTags()}
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -4,8 +4,7 @@ import { Reminders, RemindersProps } from './Reminders';
 import { BaseComponentDriver } from 'testing-base';
 
 export class RemindersDriver extends BaseComponentDriver {
-    private props: Partial<RemindersProps> = {
-    };
+    private props: Partial<RemindersProps> = {};
 
     constructor() {
         super('Reminders');
@@ -17,11 +16,13 @@ export class RemindersDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Reminders {...(this.props as RemindersProps)} />);
+            return this.snapshot(
+                <Reminders {...(this.props as RemindersProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class RemindersDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

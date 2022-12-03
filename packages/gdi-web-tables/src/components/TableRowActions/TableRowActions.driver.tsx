@@ -4,8 +4,7 @@ import { TableRowActions, TableRowActionsProps } from './TableRowActions';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TableRowActionsDriver extends BaseComponentDriver {
-    private props: Partial<TableRowActionsProps> = {
-    };
+    private props: Partial<TableRowActionsProps> = {};
 
     constructor() {
         super('TableRowActions');
@@ -13,15 +12,19 @@ export class TableRowActionsDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<TableRowActions {...(this.props as TableRowActionsProps)} />);
+            render(
+                <TableRowActions {...(this.props as TableRowActionsProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<TableRowActions {...(this.props as TableRowActionsProps)} />);
+            return this.snapshot(
+                <TableRowActions {...(this.props as TableRowActionsProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class TableRowActionsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

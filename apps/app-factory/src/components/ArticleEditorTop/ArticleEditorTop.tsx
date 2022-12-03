@@ -3,7 +3,7 @@ import {
     Author,
     AuthorName,
     Column,
-    Container,
+    Wrapper,
     Separator,
     ImageSource,
     Content,
@@ -58,9 +58,9 @@ export function ArticleEditorTop(props: ArticleEditorTopProps) {
     }
 
     return (
-        <Container
-            className='ArticleEditorTop-container'
-            data-testid='ArticleEditorTop-container'
+        <Wrapper
+            className='ArticleEditorTop-wrapper'
+            data-testid='ArticleEditorTop-wrapper'
         >
             <Content>
                 <Breadcrumbs
@@ -109,7 +109,7 @@ export function ArticleEditorTop(props: ArticleEditorTopProps) {
                     <Column></Column>
                 </Row>
             </Content>
-        </Container>
+        </Wrapper>
     );
 }
 
@@ -138,8 +138,8 @@ export function Breadcrumbs(props: BreadcrumbsProps) {
 
     return (
         <ContainerBreadcrumbs
-            className='Breadcrumbs-container'
-            data-testid='Breadcrumbs-container'
+            className='Breadcrumbs-wrapper'
+            data-testid='Breadcrumbs-wrapper'
             onClick={props.onClick}
         >
             {renderParts()}
@@ -149,10 +149,7 @@ export function Breadcrumbs(props: BreadcrumbsProps) {
 
 export function Share(_props: any) {
     return (
-        <ContainerShare
-            className='Share-container'
-            data-testid='Share-container'
-        >
+        <ContainerShare className='Share-wrapper' data-testid='Share-wrapper'>
             <SocialIcon url='https://www.facebook.com/sharer/sharer.php?u=https://www.google.com' />
             <SocialIcon url='http://twitter.com/share?text=article text&url=https://www.google.com' />
             <SocialIcon url='https://api.whatsapp.com/send?text=https://www.google.com' />

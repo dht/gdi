@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Actions,
     CTA,
     Details,
@@ -36,9 +36,9 @@ export function $CMP(props: $CMPProps) {
     const { href = '#' } = extra;
 
     return (
-        <Container
-            className="$CMP-container"
-            data-testid="$CMP-container"
+        <Wrapper
+            className="$CMP-wrapper"
+            data-testid="$CMP-wrapper"
             colors={colors}
         >
             <Wrapper>
@@ -46,7 +46,7 @@ export function $CMP(props: $CMPProps) {
                     {ctaButtonText}
                 </CTA>
             </Wrapper>
-        </Container>
+        </Wrapper>
     );
 }
 

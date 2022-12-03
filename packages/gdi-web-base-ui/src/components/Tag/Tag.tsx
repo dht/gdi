@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Delete, Title } from './Tag.style';
+import { Wrapper, Delete, Title } from './Tag.style';
 import classnames from 'classnames';
 
 export type TagProps = {
@@ -16,7 +16,7 @@ export function Tag(props: TagProps) {
     const tagType = tag.split('-').shift();
 
     const className = classnames(
-        'Tag-container',
+        'Tag-wrapper',
         `tag-${tag}`,
         tagType,
         color,
@@ -44,12 +44,12 @@ export function Tag(props: TagProps) {
     }
 
     return (
-        <Container className={className} data-testid='Tag-container'>
+        <Wrapper className={className} data-testid='Tag-wrapper'>
             <Title className='title' onClick={props.onClick}>
                 {tag}
             </Title>
             {renderDelete()}
-        </Container>
+        </Wrapper>
     );
 }
 

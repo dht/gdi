@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Icon } from '@fluentui/react';
-import { Actions, Container, Content, Header, Title } from './Panel.style';
+import { Actions, Wrapper, Content, Header, Title } from './Panel.style';
 import Draggable, { DraggableData, DraggableEvent } from 'react-draggable';
 import { useLocalStorage } from 'react-use';
 import classnames from 'classnames';
@@ -35,7 +35,7 @@ export function Panel(props: PanelProps) {
 
     const Cmp: any = Draggable;
 
-    const className = classnames('Panel-container', {
+    const className = classnames('Panel-wrapper', {
         transparent,
     });
 
@@ -50,9 +50,9 @@ export function Panel(props: PanelProps) {
             defaultPosition={delta}
             handle='.header'
         >
-            <Container
+            <Wrapper
                 className={className}
-                data-testid='Panel-container'
+                data-testid='Panel-wrapper'
                 ref={draggableRef}
             >
                 <Header className='header'>
@@ -66,7 +66,7 @@ export function Panel(props: PanelProps) {
                     </Actions>
                 </Header>
                 <Content className={classNameContent}>{props.children}</Content>
-            </Container>
+            </Wrapper>
         </Cmp>
     );
 }

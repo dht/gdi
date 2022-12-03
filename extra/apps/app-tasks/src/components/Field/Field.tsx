@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Key, Value } from './Field.style';
+import { Wrapper, Key, Value } from './Field.style';
 
 export type FieldProps = {
     title: string;
@@ -8,10 +8,10 @@ export type FieldProps = {
 
 export function Field(props: FieldProps) {
     return (
-        <Container className='Field-container' data-testid='Field-container'>
+        <Wrapper className='Field-wrapper' data-testid='Field-wrapper'>
             <Key>{props.title}</Key>
             <Value>{props.value}</Value>
-        </Container>
+        </Wrapper>
     );
 }
 

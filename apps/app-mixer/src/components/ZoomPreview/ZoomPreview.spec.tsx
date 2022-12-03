@@ -22,7 +22,7 @@ describe('ZoomPreview', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ZoomPreview-container');
+        expect(containerClassName).toContain('ZoomPreview-wrapper');
         expect(innerText).toBe(label);
     });
 

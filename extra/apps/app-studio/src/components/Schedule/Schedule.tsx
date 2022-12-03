@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Item, Time, Title } from './Schedule.style';
+import { Wrapper, Item, Time, Title } from './Schedule.style';
 import { isBefore, isAfter } from '@gdi/language';
 
 export type ScheduleProps = {
@@ -34,12 +34,9 @@ export function Schedule(props: ScheduleProps) {
         return items.map((item: IScheduleSession) => renderItem(item));
     }
     return (
-        <Container
-            className='Schedule-container'
-            data-testid='Schedule-container'
-        >
+        <Wrapper className='Schedule-wrapper' data-testid='Schedule-wrapper'>
             {renderItems()}
-        </Container>
+        </Wrapper>
     );
 }
 

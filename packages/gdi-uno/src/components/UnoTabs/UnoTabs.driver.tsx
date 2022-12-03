@@ -4,8 +4,7 @@ import { UnoTabs, UnoTabsProps } from './UnoTabs';
 import { BaseComponentDriver } from 'testing-base';
 
 export class UnoTabsDriver extends BaseComponentDriver {
-    private props: Partial<UnoTabsProps> = {
-    };
+    private props: Partial<UnoTabsProps> = {};
 
     constructor() {
         super('UnoTabs');
@@ -17,7 +16,7 @@ export class UnoTabsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class UnoTabsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

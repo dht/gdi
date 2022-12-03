@@ -1,13 +1,13 @@
-import { WrapperDriver } from './Wrapper.driver';
+import { ContainerDriver } from './Container.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Wrapper', () => {
-    let driver: WrapperDriver;
+describe('Container', () => {
+    let driver: ContainerDriver;
 
     beforeAll(() => {
-        driver = new WrapperDriver();
+        driver = new ContainerDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Wrapper', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Wrapper-container');
+        expect(containerClassName).toContain('Container-wrapper');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('Wrapper', () => {
     });
 });
 
-describe('Wrapper snapshots', () => {
-    let driver: WrapperDriver;
+describe('Container snapshots', () => {
+    let driver: ContainerDriver;
 
     beforeAll(() => {
-        driver = new WrapperDriver();
+        driver = new ContainerDriver();
     });
 
     it('should match snapshot', () => {

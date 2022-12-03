@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { useCallback, useEffect } from 'react';
 import { useKey } from 'react-use';
-import { Container, Bar } from './CommandBar.style';
+import { Wrapper, Bar } from './CommandBar.style';
 import { useToggle } from 'react-use';
 import BigAutoComplete from '../BigAutoComplete/BigAutoComplete';
 
@@ -38,12 +38,12 @@ export function CommandBar(props: CommandBarProps) {
         return null;
     }
 
-    const className = classnames('CommandBar-container', {
+    const className = classnames('CommandBar-wrapper', {
         darkMode: isDarkMode,
     });
 
     return (
-        <Container className={className} data-testid='CommandBar-container'>
+        <Wrapper className={className} data-testid='CommandBar-wrapper'>
             <Bar>
                 <BigAutoComplete
                     isDarkMode={isDarkMode}
@@ -51,7 +51,7 @@ export function CommandBar(props: CommandBarProps) {
                     onRun={onRun}
                 />
             </Bar>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -13,7 +13,7 @@ describe('SpinButton', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('SpinButton-container');
+        expect(containerClassName).toBe('SpinButton-wrapper');
     });
 });
 

@@ -1,7 +1,7 @@
 import React, { FC, RefObject, useRef } from 'react';
 import { useMount } from 'react-use';
 import { IFormLayoutGroup, LayoutFlavour } from '../../types';
-import { Column, Container } from './Layouts.style';
+import { Column, Wrapper } from './Layouts.style';
 
 export type LayoutProps = {
     groups: IFormLayoutGroup[];
@@ -30,13 +30,13 @@ export function LayoutSingleColumn(props: LayoutProps) {
     }
 
     return (
-        <Container
-            className='Layouts-container'
-            data-testid='Layouts-container'
+        <Wrapper
+            className='Layouts-wrapper'
+            data-testid='Layouts-wrapper'
             width={width}
         >
             {renderColumn(0)}
-        </Container>
+        </Wrapper>
     );
 }
 
@@ -59,14 +59,14 @@ export function LayoutTwoColumns(props: LayoutProps) {
     }
 
     return (
-        <Container
-            className='Layouts-container'
-            data-testid='Layouts-container'
+        <Wrapper
+            className='Layouts-wrapper'
+            data-testid='Layouts-wrapper'
             width={width}
         >
             {renderColumn(0)}
             {renderColumn(1)}
-        </Container>
+        </Wrapper>
     );
 }
 
@@ -89,15 +89,15 @@ export function LayoutThreeColumns(props: LayoutProps) {
     }
 
     return (
-        <Container
-            className='Layouts-container'
-            data-testid='Layouts-container'
+        <Wrapper
+            className='Layouts-wrapper'
+            data-testid='Layouts-wrapper'
             width={width}
         >
             {renderColumn(0)}
             {renderColumn(1)}
             {renderColumn(2)}
-        </Container>
+        </Wrapper>
     );
 }
 

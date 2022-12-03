@@ -14,7 +14,7 @@ import { useFuzzySearch } from '../../hooks/useFuzzySearch';
 import { useSilentKey } from '../../hooks/useSilentKey';
 
 import {
-    Container,
+    Wrapper,
     Bar,
     Input,
     Options,
@@ -112,14 +112,14 @@ export function BigAutoComplete(props: BigAutoCompleteProps) {
         setTerm(ev.target.value);
     }
 
-    const className = classnames('BigAutoComplete-container', {
+    const className = classnames('BigAutoComplete-wrapper', {
         darkMode: isDarkMode,
     });
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='BigAutoComplete-container'
+            data-testid='BigAutoComplete-wrapper'
             ref={ref}
         >
             <Bar>
@@ -133,7 +133,7 @@ export function BigAutoComplete(props: BigAutoCompleteProps) {
                 />
                 <Options>{renderOptions()}</Options>
             </Bar>
-        </Container>
+        </Wrapper>
     );
 }
 

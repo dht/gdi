@@ -13,7 +13,7 @@ describe('Logo', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Logo-container');
+        expect(containerClassName).toBe('Logo-wrapper');
     });
 });
 

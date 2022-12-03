@@ -1,7 +1,7 @@
 import React, { FC, useContext, useRef } from 'react';
 import GenericOverlay from '../GenericOverlay/GenericOverlay';
 import Masonry, { MasonryItemProps } from '../Masonry/Masonry';
-import { Container, Content } from './GenericGallery.style';
+import { Wrapper, Content } from './GenericGallery.style';
 import { Empty } from '@gdi/web-base-ui';
 import { FilterContext } from '../../context/Filter.context';
 import {
@@ -85,13 +85,13 @@ export function GenericGalleryInner(props: GenericGalleryInnerProps) {
     }
 
     return (
-        <Container
-            className='GenericGallery-container'
-            data-testid='GenericGallery-container'
+        <Wrapper
+            className='GenericGallery-wrapper'
+            data-testid='GenericGallery-wrapper'
             ref={ref}
         >
             <Content>{renderContent()}</Content>
-        </Container>
+        </Wrapper>
     );
 }
 

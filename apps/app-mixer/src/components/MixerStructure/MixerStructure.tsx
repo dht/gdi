@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-    Container,
+    Wrapper,
     ContainerItem,
     ContainerNewItem,
     Title,
@@ -52,9 +52,9 @@ export function MixerStructure(props: MixerStructureProps) {
     }
 
     return (
-        <Container
-            className='MixerStructure-container'
-            data-testid='MixerStructure-container'
+        <Wrapper
+            className='MixerStructure-wrapper'
+            data-testid='MixerStructure-wrapper'
         >
             <SortableList
                 items={pageStructure}
@@ -66,7 +66,7 @@ export function MixerStructure(props: MixerStructureProps) {
                 onAction={callbacks.onAction}
                 isFocused={true}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

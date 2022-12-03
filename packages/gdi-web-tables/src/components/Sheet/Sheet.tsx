@@ -5,7 +5,7 @@ import {
 } from '../../context/Sheet.context';
 import SheetHeader from '../SheetHeader/SheetHeader';
 import SheetRow from '../SheetRow/SheetRow';
-import { Body, Container } from './Sheet.style';
+import { Body, Wrapper } from './Sheet.style';
 import { useContext, useEffect, useMemo } from '@gdi/hooks';
 
 export type SheetProps = {
@@ -52,7 +52,7 @@ export function SheetInner(props: SheetProps) {
     }
 
     return (
-        <Container className='Sheet-container' data-testid='Sheet-container'>
+        <Wrapper className='Sheet-wrapper' data-testid='Sheet-wrapper'>
             <SheetHeader cells={fields} />
             <Body
                 onMouseDown={context.onMouseDown}
@@ -67,7 +67,7 @@ export function SheetInner(props: SheetProps) {
                     rowIndex={data.length}
                 />
             </Body>
-        </Container>
+        </Wrapper>
     );
 }
 

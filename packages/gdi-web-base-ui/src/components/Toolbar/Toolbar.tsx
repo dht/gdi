@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Container, Gap, Item } from './Toolbar.style';
+import { Wrapper, Gap, Item } from './Toolbar.style';
 import { IconButton, IContextualMenuProps } from '@fluentui/react';
 import { IOption } from '../../types';
 
@@ -113,18 +113,18 @@ export function Toolbar(props: ToolbarProps) {
         });
     }
 
-    const className = classnames('Toolbar-container', { horizontal });
+    const className = classnames('Toolbar-wrapper', { horizontal });
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='Toolbar-container'
+            data-testid='Toolbar-wrapper'
             horizontal={horizontal}
             style={style}
         >
             {renderItems()}
             {renderExtraItems()}
-        </Container>
+        </Wrapper>
     );
 }
 

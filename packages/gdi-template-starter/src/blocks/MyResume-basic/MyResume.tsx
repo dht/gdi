@@ -6,8 +6,8 @@ import {
     Wrapper,
     H2,
     Description,
-    ResumeRow,
-    ResumeColumn,
+    Row,
+    Column,
     ResumeTitle,
     ResumeTitleText,
     Items,
@@ -17,7 +17,7 @@ import {
     Period,
     Year,
     Dash,
-    Row,
+    LineRow,
     IconWrapper,
     JobDescription,
 } from './MyResume.style';
@@ -47,7 +47,7 @@ export function MyResume(props: MyResumeProps) {
     const { header, description } = strings;
     const { resumeDatasetId } = extra;
 
-    const items = useDataset(resumeDatasetId);
+    const items = useDataset(resumeDatasetId ?? '');
 
     const educationItems = items.filter((i: Json) => i.type === 'education');
     const experienceItems = items.filter((i: Json) => i.type === 'experience');
@@ -57,14 +57,14 @@ export function MyResume(props: MyResumeProps) {
 
         return (
             <Item key={item.id} className='item'>
-                <Row>
+                <LineRow>
                     <JobCompany>{company}</JobCompany>
                     <Period>
                         <Year>{yearStart}</Year>
                         <Dash>-</Dash>
                         <Year>{yearEnd}</Year>
                     </Period>
-                </Row>
+                </LineRow>
                 <JobTitle>{jobTitle}</JobTitle>
                 <JobDescription>{description}</JobDescription>
             </Item>
@@ -76,16 +76,16 @@ export function MyResume(props: MyResumeProps) {
     }
 
     return (
-        <Container
+        <Wrapper
             className='MyResume-container'
             data-testid='MyResume-container'
             colors={colors}
         >
-            <Wrapper>
+            <Container>
                 <H2>{header}</H2>
                 <Description>{description}</Description>
-                <ResumeRow>
-                    <ResumeColumn>
+                <Row>
+                    <Column>
                         <ResumeTitle>
                             <ResumeTitleText>Resume</ResumeTitleText>
                             <IconWrapper>
@@ -93,8 +93,8 @@ export function MyResume(props: MyResumeProps) {
                             </IconWrapper>
                         </ResumeTitle>
                         <Items>{renderItems(educationItems)}</Items>
-                    </ResumeColumn>
-                    <ResumeColumn>
+                    </Column>
+                    <Column>
                         <ResumeTitle>
                             <ResumeTitleText>Job Experience</ResumeTitleText>
                             <IconWrapper>
@@ -102,10 +102,10 @@ export function MyResume(props: MyResumeProps) {
                             </IconWrapper>
                         </ResumeTitle>
                         <Items>{renderItems(experienceItems)}</Items>
-                    </ResumeColumn>
-                </ResumeRow>
-            </Wrapper>
-        </Container>
+                    </Column>
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

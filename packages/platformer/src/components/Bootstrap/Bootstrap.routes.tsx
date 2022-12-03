@@ -85,7 +85,7 @@ export const App = () => {
     }
 
     return (
-        <AppContent className='AppContainer-container'>
+        <AppContent className='AppContainer-wrapper'>
             <MainRoutes />
             <AppContextProvider appId='platform'>
                 <OverlayRoutes />

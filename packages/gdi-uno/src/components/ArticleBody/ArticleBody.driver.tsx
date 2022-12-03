@@ -4,8 +4,7 @@ import { ArticleBody, ArticleBodyProps } from './ArticleBody';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticleBodyDriver extends BaseComponentDriver {
-    private props: Partial<ArticleBodyProps> = {
-    };
+    private props: Partial<ArticleBodyProps> = {};
 
     constructor() {
         super('ArticleBody');
@@ -17,11 +16,13 @@ export class ArticleBodyDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ArticleBody {...(this.props as ArticleBodyProps)} />);
+            return this.snapshot(
+                <ArticleBody {...(this.props as ArticleBodyProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ArticleBodyDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

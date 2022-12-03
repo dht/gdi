@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
 `;
 
-export const ContainerViews = styled.div`
+export const WrapperViews = styled.div`
     position: absolute;
     display: flex;
     flex-direction: column;

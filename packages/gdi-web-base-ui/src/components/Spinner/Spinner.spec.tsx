@@ -22,7 +22,7 @@ describe('Spinner', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Spinner-container');
+        expect(containerClassName).toContain('Spinner-wrapper');
         expect(innerText).toBe(label);
     });
 

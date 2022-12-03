@@ -4,7 +4,7 @@ import {
     Action,
     Actions,
     Column,
-    Container,
+    Wrapper,
     Divider,
     H2,
     Header,
@@ -120,12 +120,12 @@ export function Checkboxes(props: CheckboxesProps) {
     }
 
     return (
-        <Container
-            className='Checkboxes-container'
-            data-testid='Checkboxes-container'
+        <Wrapper
+            className='Checkboxes-wrapper'
+            data-testid='Checkboxes-wrapper'
         >
             {renderGroups()}
-        </Container>
+        </Wrapper>
     );
 }
 

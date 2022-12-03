@@ -4,8 +4,7 @@ import { Chair, ChairProps } from './Chair';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ChairDriver extends BaseComponentDriver {
-    private props: Partial<ChairProps> = {
-    };
+    private props: Partial<ChairProps> = {};
 
     constructor() {
         super('Chair');
@@ -17,7 +16,7 @@ export class ChairDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ChairDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -4,8 +4,7 @@ import { Signature, SignatureProps } from './Signature';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SignatureDriver extends BaseComponentDriver {
-    private props: Partial<SignatureProps> = {
-    };
+    private props: Partial<SignatureProps> = {};
 
     constructor() {
         super('Signature');
@@ -17,11 +16,13 @@ export class SignatureDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Signature {...(this.props as SignatureProps)} />);
+            return this.snapshot(
+                <Signature {...(this.props as SignatureProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SignatureDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

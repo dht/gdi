@@ -4,8 +4,7 @@ import { Breadcrumbs, BreadcrumbsProps } from './Breadcrumbs';
 import { BaseComponentDriver } from 'testing-base';
 
 export class BreadcrumbsDriver extends BaseComponentDriver {
-    private props: Partial<BreadcrumbsProps> = {
-    };
+    private props: Partial<BreadcrumbsProps> = {};
 
     constructor() {
         super('Breadcrumbs');
@@ -17,11 +16,13 @@ export class BreadcrumbsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Breadcrumbs {...(this.props as BreadcrumbsProps)} />);
+            return this.snapshot(
+                <Breadcrumbs {...(this.props as BreadcrumbsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class BreadcrumbsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

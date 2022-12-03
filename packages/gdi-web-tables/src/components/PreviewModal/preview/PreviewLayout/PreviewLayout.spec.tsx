@@ -22,7 +22,7 @@ describe('PreviewLayout', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('PreviewLayout-container');
+        expect(containerClassName).toContain('PreviewLayout-wrapper');
         expect(innerText).toBe(label);
     });
 

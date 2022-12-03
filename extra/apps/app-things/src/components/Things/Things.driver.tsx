@@ -4,8 +4,7 @@ import { Things, ThingsProps } from './Things';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ThingsDriver extends BaseComponentDriver {
-    private props: Partial<ThingsProps> = {
-    };
+    private props: Partial<ThingsProps> = {};
 
     constructor() {
         super('Things');
@@ -17,7 +16,7 @@ export class ThingsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ThingsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

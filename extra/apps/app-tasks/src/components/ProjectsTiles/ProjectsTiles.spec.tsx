@@ -13,7 +13,7 @@ describe('ProjectsTiles', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ProjectsTiles-container');
+        expect(containerClassName).toBe('ProjectsTiles-wrapper');
     });
 });
 

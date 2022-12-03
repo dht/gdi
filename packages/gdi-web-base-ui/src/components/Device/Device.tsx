@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-    ContainerDesktop,
-    ContainerMobile,
+    WrapperDesktop,
+    WrapperMobile,
     DesktopContent,
     DesktopHeader,
     DesktopKeyboard,
@@ -28,19 +28,19 @@ export function Device(props: DeviceProps) {
 
 export function DeviceMobile(props: DeviceProps) {
     return (
-        <ContainerMobile>
+        <WrapperMobile>
             <MobileHeader>
                 <MobileSpeaker />
                 <MobilePower />
             </MobileHeader>
             <MobileContent>{props.children}</MobileContent>
-        </ContainerMobile>
+        </WrapperMobile>
     );
 }
 
 export function DeviceDesktop(props: DeviceProps) {
     return (
-        <ContainerDesktop>
+        <WrapperDesktop>
             <DesktopHeader>
                 <DesktopSpeaker />
             </DesktopHeader>
@@ -48,7 +48,7 @@ export function DeviceDesktop(props: DeviceProps) {
             <DesktopKeyboard>
                 <DesktopKeyboardLid />
             </DesktopKeyboard>
-        </ContainerDesktop>
+        </WrapperDesktop>
     );
 }
 

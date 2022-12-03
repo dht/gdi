@@ -22,7 +22,7 @@ describe('ImportExportSummary', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ImportExportSummary-container');
+        expect(containerClassName).toContain('ImportExportSummary-wrapper');
         expect(innerText).toBe(label);
     });
 

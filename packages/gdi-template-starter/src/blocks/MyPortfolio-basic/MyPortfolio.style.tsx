@@ -1,15 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { MyPortfolioColors } from './MyPortfolio';
-import { darken } from 'polished';
-import { mobile } from '../Base.style';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div<{ colors: MyPortfolioColors }>`
+export const Wrapper = styled.div<{ colors: MyPortfolioColors }>`
     flex: 1;
     background-color: #112;
     display: flex;
     flex-direction: column;
     font-family: ${(props) => props.theme.fontFamily};
     padding: 100px 0 90px;
+    color: #ccd;
 
     ${mobile(css`
         height: auto;
@@ -18,13 +18,9 @@ export const Container = styled.div<{ colors: MyPortfolioColors }>`
     `)}
 `;
 
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    display: flex;
+export const Container = styled(Grid.Container)`
     flex-direction: column;
     align-items: center;
-    max-width: 1440px;
-    margin: 0 auto;
     justify-content: center;
     flex: 1;
 `;

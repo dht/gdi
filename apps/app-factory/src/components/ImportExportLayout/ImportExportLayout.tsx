@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './ImportExportLayout.style';
+import { Wrapper } from './ImportExportLayout.style';
 import { Button } from '@gdi/web-ui';
 
 export type ImportExportLayoutProps = {
@@ -12,9 +12,9 @@ export function ImportExportLayout(props: ImportExportLayoutProps) {
     const { callbacks } = props;
 
     return (
-        <Container
-            className='ImportExportLayout-container'
-            data-testid='ImportExportLayout-container'
+        <Wrapper
+            className='ImportExportLayout-wrapper'
+            data-testid='ImportExportLayout-wrapper'
         >
             <Button
                 primary
@@ -22,7 +22,7 @@ export function ImportExportLayout(props: ImportExportLayoutProps) {
                 tooltip='Download Layout'
                 onClick={callbacks.downloadLayout}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

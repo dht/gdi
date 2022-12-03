@@ -1,5 +1,5 @@
 import React, { RefObject, useRef } from 'react';
-import { Container } from './Babylon.style';
+import { Wrapper } from './Babylon.style';
 import { onSceneReady } from './Babylon.extra';
 import { BabylonScene } from './Scene';
 
@@ -9,12 +9,9 @@ export type BabylonProps = {
 
 export function Babylon(props: BabylonProps) {
     return (
-        <Container
-            className='Babylon-container'
-            data-testid='Babylon-container'
-        >
+        <Wrapper className='Babylon-wrapper' data-testid='Babylon-wrapper'>
             <BabylonScene onSceneReady={onSceneReady} />
-        </Container>
+        </Wrapper>
     );
 }
 

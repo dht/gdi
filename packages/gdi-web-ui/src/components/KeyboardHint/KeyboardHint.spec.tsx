@@ -22,7 +22,7 @@ describe('KeyboardHint', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('KeyboardHint-container');
+        expect(containerClassName).toContain('KeyboardHint-wrapper');
         expect(innerText).toBe(label);
     });
 

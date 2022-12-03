@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../../blocks/Base.style';
+import styled from 'styled-components';
+import { mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     border: 3px solid rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.1);
@@ -12,7 +12,7 @@ export const Container = styled.div`
     color: #333;
     margin: 0 0 30px;
     padding: 6px 8px;
-    height: 31px;
+    height: 48px;
     outline: none;
 
     ${mobile(css`

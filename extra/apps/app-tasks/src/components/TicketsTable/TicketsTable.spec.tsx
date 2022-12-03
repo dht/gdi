@@ -13,7 +13,7 @@ describe('TicketsTable', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TicketsTable-container');
+        expect(containerClassName).toBe('TicketsTable-wrapper');
     });
 });
 

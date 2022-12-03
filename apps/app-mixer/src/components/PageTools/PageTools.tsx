@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './PageTools.style';
+import { Wrapper } from './PageTools.style';
 import { Button } from '@gdi/web-ui';
 
 export type PageToolsProps = {
@@ -13,10 +13,7 @@ export function PageTools(props: PageToolsProps) {
     const { callbacks } = props;
 
     return (
-        <Container
-            className='PageTools-container'
-            data-testid='PageTools-container'
-        >
+        <Wrapper className='PageTools-wrapper' data-testid='PageTools-wrapper'>
             <Button
                 iconName='Edit'
                 tooltip='Edit page'
@@ -28,7 +25,7 @@ export function PageTools(props: PageToolsProps) {
                 tooltip='Versions'
                 onClick={callbacks.toggleMixerTree}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

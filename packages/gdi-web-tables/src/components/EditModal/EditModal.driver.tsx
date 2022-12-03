@@ -4,8 +4,7 @@ import { EditModal, EditModalProps } from './EditModal';
 import { BaseComponentDriver } from 'testing-base';
 
 export class EditModalDriver extends BaseComponentDriver {
-    private props: Partial<EditModalProps> = {
-    };
+    private props: Partial<EditModalProps> = {};
 
     constructor() {
         super('EditModal');
@@ -17,11 +16,13 @@ export class EditModalDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<EditModal {...(this.props as EditModalProps)} />);
+            return this.snapshot(
+                <EditModal {...(this.props as EditModalProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class EditModalDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -4,8 +4,7 @@ import { Coupons, CouponsProps } from './Coupons';
 import { BaseComponentDriver } from 'testing-base';
 
 export class CouponsDriver extends BaseComponentDriver {
-    private props: Partial<CouponsProps> = {
-    };
+    private props: Partial<CouponsProps> = {};
 
     constructor() {
         super('Coupons');
@@ -17,7 +16,7 @@ export class CouponsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class CouponsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

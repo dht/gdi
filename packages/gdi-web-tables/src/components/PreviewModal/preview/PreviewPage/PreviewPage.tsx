@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewPage.style';
+import { Wrapper } from './PreviewPage.style';
 
 export type PreviewPageProps = {};
 
 export function PreviewPage(_props: PreviewPageProps) {
     return (
-        <Container className="PreviewPage-container" data-testid="PreviewPage-container">
+        <Wrapper
+            className='PreviewPage-wrapper'
+            data-testid='PreviewPage-wrapper'
+        >
             PreviewPage
-        </Container>
+        </Wrapper>
     );
 }
 

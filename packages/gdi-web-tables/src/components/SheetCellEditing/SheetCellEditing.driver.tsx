@@ -4,8 +4,7 @@ import { SheetCellEditing, SheetCellEditingProps } from './SheetCellEditing';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SheetCellEditingDriver extends BaseComponentDriver {
-    private props: Partial<SheetCellEditingProps> = {
-    };
+    private props: Partial<SheetCellEditingProps> = {};
 
     constructor() {
         super('SheetCellEditing');
@@ -13,15 +12,19 @@ export class SheetCellEditingDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<SheetCellEditing {...(this.props as SheetCellEditingProps)} />);
+            render(
+                <SheetCellEditing {...(this.props as SheetCellEditingProps)} />
+            );
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SheetCellEditing {...(this.props as SheetCellEditingProps)} />);
+            return this.snapshot(
+                <SheetCellEditing {...(this.props as SheetCellEditingProps)} />
+            );
         },
     };
 
@@ -34,10 +37,10 @@ export class SheetCellEditingDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

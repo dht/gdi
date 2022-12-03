@@ -4,8 +4,7 @@ import { WindowSize, WindowSizeProps } from './WindowSize';
 import { BaseComponentDriver } from 'testing-base';
 
 export class WindowSizeDriver extends BaseComponentDriver {
-    private props: Partial<WindowSizeProps> = {
-    };
+    private props: Partial<WindowSizeProps> = {};
 
     constructor() {
         super('WindowSize');
@@ -17,11 +16,13 @@ export class WindowSizeDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<WindowSize {...(this.props as WindowSizeProps)} />);
+            return this.snapshot(
+                <WindowSize {...(this.props as WindowSizeProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class WindowSizeDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

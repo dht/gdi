@@ -13,7 +13,7 @@ describe('JiraParagraph', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('JiraParagraph-container');
+        expect(containerClassName).toBe('JiraParagraph-wrapper');
     });
 });
 

@@ -13,7 +13,7 @@ describe('ProTip', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('ProTip-container');
+        expect(containerClassName).toBe('ProTip-wrapper');
     });
 });
 

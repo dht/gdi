@@ -13,7 +13,7 @@ describe('NfcPing', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('NfcPing-container');
+        expect(containerClassName).toBe('NfcPing-wrapper');
     });
 });
 

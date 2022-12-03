@@ -22,7 +22,7 @@ describe('Share', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('Share-container');
+        expect(containerClassName).toContain('Share-wrapper');
         expect(innerText).toBe(label);
     });
 

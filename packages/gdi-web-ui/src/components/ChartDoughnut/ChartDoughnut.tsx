@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useMemo } from 'react';
-import { Container } from './ChartDoughnut.style';
+import { Wrapper } from './ChartDoughnut.style';
 
 export type ChartDoughnutProps = {
     data: Record<string, number>;
@@ -51,9 +51,9 @@ export function ChartDoughnut(props: ChartDoughnutProps) {
     }
 
     return (
-        <Container
-            className='ChartDoughnut-container'
-            data-testid='ChartDoughnut-container'
+        <Wrapper
+            className='ChartDoughnut-wrapper'
+            data-testid='ChartDoughnut-wrapper'
         >
             <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -70,7 +70,7 @@ export function ChartDoughnut(props: ChartDoughnutProps) {
                 />
                 {renderPaths()}
             </svg>
-        </Container>
+        </Wrapper>
     );
 }
 

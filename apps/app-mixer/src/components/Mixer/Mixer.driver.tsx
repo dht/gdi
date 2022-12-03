@@ -4,8 +4,7 @@ import { Mixer, MixerProps } from './Mixer';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MixerDriver extends BaseComponentDriver {
-    private props: Partial<MixerProps> = {
-    };
+    private props: Partial<MixerProps> = {};
 
     constructor() {
         super('Mixer');
@@ -17,7 +16,7 @@ export class MixerDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class MixerDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

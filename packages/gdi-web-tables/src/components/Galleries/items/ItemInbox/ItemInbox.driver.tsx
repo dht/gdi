@@ -4,8 +4,7 @@ import { ItemInbox, ItemInboxProps } from './ItemInbox';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ItemInboxDriver extends BaseComponentDriver {
-    private props: Partial<ItemInboxProps> = {
-    };
+    private props: Partial<ItemInboxProps> = {};
 
     constructor() {
         super('ItemInbox');
@@ -17,11 +16,13 @@ export class ItemInboxDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ItemInbox {...(this.props as ItemInboxProps)} />);
+            return this.snapshot(
+                <ItemInbox {...(this.props as ItemInboxProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ItemInboxDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

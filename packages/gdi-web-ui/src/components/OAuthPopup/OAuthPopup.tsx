@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from '@gdi/web-base-ui';
 import {
-    Container,
+    Wrapper,
     OkIcon,
     ErrorIcon,
     Paragraph,
@@ -19,9 +19,9 @@ export function OAuthPopup(props: OAuthPopupProps) {
 
     function renderSuccess() {
         return (
-            <Container
-                className='OAuthPopup-container'
-                data-testid='OAuthPopup-container'
+            <Wrapper
+                className='OAuthPopup-wrapper'
+                data-testid='OAuthPopup-wrapper'
             >
                 <OkIcon>
                     <Icon iconName='BoxCheckmarkSolid' />
@@ -32,15 +32,15 @@ export function OAuthPopup(props: OAuthPopupProps) {
                     </Paragraph>
                     <Suggestion>You can now close this browser tab</Suggestion>
                 </Details>
-            </Container>
+            </Wrapper>
         );
     }
 
     function renderError() {
         return (
-            <Container
-                className='OAuthPopup-container'
-                data-testid='OAuthPopup-container'
+            <Wrapper
+                className='OAuthPopup-wrapper'
+                data-testid='OAuthPopup-wrapper'
             >
                 <ErrorIcon>
                     <Icon iconName='Cancel' />
@@ -51,7 +51,7 @@ export function OAuthPopup(props: OAuthPopupProps) {
                     </Paragraph>
                     <Suggestion>Perhaps try again later</Suggestion>
                 </Details>
-            </Container>
+            </Wrapper>
         );
     }
 

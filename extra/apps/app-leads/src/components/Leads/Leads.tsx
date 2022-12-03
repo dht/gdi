@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Leads.style';
+import { Wrapper } from './Leads.style';
 import { Multi } from '@gdi/web-ui';
 
 import { useCrudDefinitions } from '@gdi/platformer';
@@ -19,7 +19,7 @@ export function Leads(props: LeadsProps) {
     const crudDefinitions = useCrudDefinitions('lead');
 
     return (
-        <Container className='Leads-container' data-testid='Leads-container'>
+        <Wrapper className='Leads-wrapper' data-testid='Leads-wrapper'>
             <Multi
                 id='Leads'
                 itemType='lead'
@@ -29,7 +29,7 @@ export function Leads(props: LeadsProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

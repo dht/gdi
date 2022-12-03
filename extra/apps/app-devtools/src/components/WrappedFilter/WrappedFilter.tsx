@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Container } from './WrappedFilter.style';
+import { Wrapper } from './WrappedFilter.style';
 import { FilterBar, FilterContextProvider } from '@gdi/web-tables';
 
 export type WrappedFilterProps = {
@@ -21,9 +21,9 @@ export function WrappedFilter(props: WrappedFilterProps) {
     );
 
     return (
-        <Container
-            className='WrappedFilter-container'
-            data-testid='WrappedFilter-container'
+        <Wrapper
+            className='WrappedFilter-wrapper'
+            data-testid='WrappedFilter-wrapper'
         >
             <FilterContextProvider
                 config={definitions.filters}
@@ -39,7 +39,7 @@ export function WrappedFilter(props: WrappedFilterProps) {
                     hideParts={[]}
                 />
             </FilterContextProvider>
-        </Container>
+        </Wrapper>
     );
 }
 

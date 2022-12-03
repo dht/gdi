@@ -9,9 +9,9 @@ export type ArticleBodyProps = {
 
 export function ArticleBody(_props: ArticleBodyProps) {
     return (
-        <Container
-            className='ArticleBody-container'
-            data-testid='ArticleBody-container'
+        <Wrapper
+            className='ArticleBody-wrapper'
+            data-testid='ArticleBody-wrapper'
         >
             <Row>
                 <Column>
@@ -24,7 +24,7 @@ export function ArticleBody(_props: ArticleBodyProps) {
                 </Column>
                 <Column></Column>
             </Row>
-        </Container>
+        </Wrapper>
     );
 }
 

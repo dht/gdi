@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Flex } from './BkSolid.style';
+import { Wrapper, Flex } from './BkSolid.style';
 import Divider from '../Divider/Divider';
 
 export type BkSolidProps = {
@@ -18,15 +18,15 @@ export function BkSolid(props: BkSolidProps) {
     };
 
     return (
-        <Container
-            className='BkSolid-container'
-            data-testid='BkSolid-container'
+        <Wrapper
+            className='BkSolid-wrapper'
+            data-testid='BkSolid-wrapper'
             style={style}
         >
             <Divider color1={color1} color2={color2} />
             <Flex />
             <Divider color1={color3 || color1} color2={color4 || color2} />
-        </Container>
+        </Wrapper>
     );
 }
 

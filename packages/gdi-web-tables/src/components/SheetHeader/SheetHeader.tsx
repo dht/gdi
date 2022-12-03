@@ -1,6 +1,6 @@
 import React from 'react';
 import SheetHeaderCell from '../SheetHeaderCell/SheetHeaderCell';
-import { Container } from './SheetHeader.style';
+import { Wrapper } from './SheetHeader.style';
 
 export type SheetHeaderProps = {
     cells: IFormField[];
@@ -18,13 +18,13 @@ export function SheetHeader(props: SheetHeaderProps) {
     }
 
     return (
-        <Container
-            className='SheetHeader-container'
-            data-testid='SheetHeader-container'
+        <Wrapper
+            className='SheetHeader-wrapper'
+            data-testid='SheetHeader-wrapper'
         >
             <SheetHeaderCell key='id' field={idField} />
             {renderCells()}
-        </Container>
+        </Wrapper>
     );
 }
 

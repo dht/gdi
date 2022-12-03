@@ -13,7 +13,7 @@ describe('Bucket', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Bucket-container');
+        expect(containerClassName).toBe('Bucket-wrapper');
     });
 });
 

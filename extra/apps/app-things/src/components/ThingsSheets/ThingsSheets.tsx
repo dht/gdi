@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './ThingsSheets.style';
+import { Wrapper } from './ThingsSheets.style';
 import { Sheets } from '@gdi/web-ui';
 
 export type ThingsSheetsProps = {
@@ -14,12 +14,12 @@ export type ThingsSheetsProps = {
 
 export function ThingsSheets(props: ThingsSheetsProps) {
     return (
-        <Container
-            className='ThingsSheets-container'
-            data-testid='ThingsSheets-container'
+        <Wrapper
+            className='ThingsSheets-wrapper'
+            data-testid='ThingsSheets-wrapper'
         >
             <Sheets {...props} />
-        </Container>
+        </Wrapper>
     );
 }
 

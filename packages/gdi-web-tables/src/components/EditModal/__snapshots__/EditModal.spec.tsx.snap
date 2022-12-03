@@ -2,8 +2,8 @@
 
 exports[`EditModal snapshots should match snapshot 1`] = `
 <div
-  className="sc-bczRLJ WtYQR EditModal-container"
-  data-testid="EditModal-container"
+  className="sc-bczRLJ WtYQR EditModal-wrapper"
+  data-testid="EditModal-wrapper"
 >
   EditModal
 </div>

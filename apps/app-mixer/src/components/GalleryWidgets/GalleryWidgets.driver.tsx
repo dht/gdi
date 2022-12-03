@@ -4,8 +4,7 @@ import { GalleryWidgets, GalleryWidgetsProps } from './GalleryWidgets';
 import { BaseComponentDriver } from 'testing-base';
 
 export class GalleryWidgetsDriver extends BaseComponentDriver {
-    private props: Partial<GalleryWidgetsProps> = {
-    };
+    private props: Partial<GalleryWidgetsProps> = {};
 
     constructor() {
         super('GalleryWidgets');
@@ -17,11 +16,13 @@ export class GalleryWidgetsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<GalleryWidgets {...(this.props as GalleryWidgetsProps)} />);
+            return this.snapshot(
+                <GalleryWidgets {...(this.props as GalleryWidgetsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class GalleryWidgetsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

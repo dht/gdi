@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Bar, BarInner, Container } from './Graph.style';
+import { Bar, BarInner, Wrapper } from './Graph.style';
 import { sortBy } from 'shared-base';
 
 export type GraphProps = {
@@ -40,9 +40,9 @@ export function Graph(props: GraphProps) {
     }
 
     return (
-        <Container className='Graph-container' data-testid='Graph-container'>
+        <Wrapper className='Graph-wrapper' data-testid='Graph-wrapper'>
             {renderDataPoints()}
-        </Container>
+        </Wrapper>
     );
 }
 

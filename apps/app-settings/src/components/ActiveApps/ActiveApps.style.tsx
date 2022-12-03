@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
 `;
 
@@ -145,6 +145,6 @@ export const ToggleAll = styled.div`
     align-items: center;
     justify-content: flex-end;
     max-width: 800px;
-    box-sizing: border-box;
+
     padding: 0 25px 10px;
 `;

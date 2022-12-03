@@ -4,8 +4,7 @@ import { Articles, ArticlesProps } from './Articles';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ArticlesDriver extends BaseComponentDriver {
-    private props: Partial<ArticlesProps> = {
-    };
+    private props: Partial<ArticlesProps> = {};
 
     constructor() {
         super('Articles');
@@ -17,11 +16,13 @@ export class ArticlesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Articles {...(this.props as ArticlesProps)} />);
+            return this.snapshot(
+                <Articles {...(this.props as ArticlesProps)} />
+            );
         },
     };
 
@@ -33,11 +34,11 @@ export class ArticlesDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

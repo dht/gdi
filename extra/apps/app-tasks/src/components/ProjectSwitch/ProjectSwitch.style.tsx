@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     background-color: #223;
     border: 1px solid #445;
@@ -17,7 +17,6 @@ export const Project = styled.div`
     ${(props) => props.theme.borderRight('1px solid rgba(255, 255, 255, 0.1)')}
     ${(props) => props.theme.floatLeft()}
     width: 80px;
-    box-sizing: border-box;
 
     &:hover,
     &.selected {

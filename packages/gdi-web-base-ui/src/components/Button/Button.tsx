@@ -106,8 +106,8 @@ export function Button(props: ButtonProps) {
 
     return (
         <Cmp
-            className='Button-container'
-            data-testid='Button-container'
+            className='Button-wrapper'
+            data-testid='Button-wrapper'
             iconProps={iconProps}
             menuProps={menuProps}
             onClick={props.onClick}

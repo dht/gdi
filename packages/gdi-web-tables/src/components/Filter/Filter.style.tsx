@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     margin: 10px 15px;
 `;
@@ -59,7 +59,7 @@ export const ContainerTags = styled.div`
     flex: 1;
     margin: 10px 15px;
 
-    .AutoComplete-container {
+    .AutoComplete-wrapper {
         .rs__control {
             background-color: transparent;
             border: none;

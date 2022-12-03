@@ -4,8 +4,7 @@ import { Sales, SalesProps } from './Sales';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SalesDriver extends BaseComponentDriver {
-    private props: Partial<SalesProps> = {
-    };
+    private props: Partial<SalesProps> = {};
 
     constructor() {
         super('Sales');
@@ -17,7 +16,7 @@ export class SalesDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class SalesDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

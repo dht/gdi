@@ -1,13 +1,16 @@
 import React from 'react';
-import { Container } from './PreviewInbox.style';
+import { Wrapper } from './PreviewInbox.style';
 
 export type PreviewInboxProps = {};
 
 export function PreviewInbox(_props: PreviewInboxProps) {
     return (
-        <Container className="PreviewInbox-container" data-testid="PreviewInbox-container">
+        <Wrapper
+            className='PreviewInbox-wrapper'
+            data-testid='PreviewInbox-wrapper'
+        >
             PreviewInbox
-        </Container>
+        </Wrapper>
     );
 }
 

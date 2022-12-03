@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, Item, Items, A, X } from './Sort.style';
+import { Wrapper, Title, Item, Items, A, X } from './Sort.style';
 import classnames from 'classnames';
 import { Icon } from '@gdi/web-base-ui';
 
@@ -49,10 +49,10 @@ export function Sort(props: SortProps) {
     }
 
     return (
-        <Container className='Sort-container' data-testid='Sort-container'>
+        <Wrapper className='Sort-wrapper' data-testid='Sort-wrapper'>
             <Title>Sort by</Title>
             <Items>{renderOptions()}</Items>
-        </Container>
+        </Wrapper>
     );
 }
 

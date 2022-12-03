@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './Calendar.style';
+import { Wrapper } from './Calendar.style';
 
 export type CalendarProps = {};
 
 export function Calendar(_props: CalendarProps) {
     return (
-        <Container className="Calendar-container" data-testid="Calendar-container">
+        <Wrapper className='Calendar-wrapper' data-testid='Calendar-wrapper'>
             Calendar
-        </Container>
+        </Wrapper>
     );
 }
 

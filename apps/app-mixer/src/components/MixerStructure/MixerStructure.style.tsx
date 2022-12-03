@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     margin: 50px auto;
     width: 800px;
 `;
@@ -12,7 +12,7 @@ export const ContainerItem = styled.div`
     border: 1px solid #556;
     line-height: 50px;
     ${(props) => props.theme.padding('10px 15px 10px 20px')}
-    box-sizing: border-box;
+
     display: flex;
     flex-direction: row;
     align-items: center;

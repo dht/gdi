@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     background-color: #223;
     box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.15);

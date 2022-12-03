@@ -4,8 +4,7 @@ import { Style, StyleProps } from './Style';
 import { BaseComponentDriver } from 'testing-base';
 
 export class StyleDriver extends BaseComponentDriver {
-    private props: Partial<StyleProps> = {
-    };
+    private props: Partial<StyleProps> = {};
 
     constructor() {
         super('Style');
@@ -17,7 +16,7 @@ export class StyleDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -33,11 +32,11 @@ export class StyleDriver extends BaseComponentDriver {
     };
 
     get = {
-        containerClassName: () => {
-            return this.container.className;
+        wrapperClassName: () => {
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

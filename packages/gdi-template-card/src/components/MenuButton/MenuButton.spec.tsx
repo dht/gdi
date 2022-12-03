@@ -22,7 +22,7 @@ describe('MenuButton', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('MenuButton-container');
+        expect(containerClassName).toContain('MenuButton-wrapper');
         expect(innerText).toBe(label);
     });
 

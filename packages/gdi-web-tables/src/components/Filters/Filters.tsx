@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Filters.style';
+import { Wrapper } from './Filters.style';
 import { Filter } from '../Filter/Filter';
 import { FilterAuto } from '../FilterAuto/FilterAuto';
 import { Sort } from '../Sort/Sort';
@@ -51,13 +51,10 @@ export function Filters(props: FiltersProps) {
     }
 
     return (
-        <Container
-            className='Filters-container'
-            data-testid='Filters-container'
-        >
+        <Wrapper className='Filters-wrapper' data-testid='Filters-wrapper'>
             {renderFilters()}
             {renderSort()}
-        </Container>
+        </Wrapper>
     );
 }
 

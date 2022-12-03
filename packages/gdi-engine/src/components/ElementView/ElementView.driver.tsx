@@ -4,8 +4,7 @@ import { ElementView, ElementViewProps } from './ElementView';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ElementViewDriver extends BaseComponentDriver {
-    private props: Partial<ElementViewProps> = {
-    };
+    private props: Partial<ElementViewProps> = {};
 
     constructor() {
         super('ElementView');
@@ -17,11 +16,13 @@ export class ElementViewDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ElementView {...(this.props as ElementViewProps)} />);
+            return this.snapshot(
+                <ElementView {...(this.props as ElementViewProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ElementViewDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Container } from './App.style';
+import { Wrapper } from './App.style';
 import { Provider } from 'react-redux';
 import { SiteContainer } from '../../containers/SiteContainer';
 import { Theme } from '@gdi/web-ui';
@@ -22,7 +22,7 @@ export function App(_props: AppProps) {
     const Cmp: any = ThemeProvider;
 
     return (
-        <Container className='App-container' data-testid='App-container'>
+        <Wrapper className='App-wrapper' data-testid='App-wrapper'>
             <Cmp theme={theme}>
                 <Theme>
                     <Provider store={store}>
@@ -32,7 +32,7 @@ export function App(_props: AppProps) {
                     </Provider>
                 </Theme>
             </Cmp>
-        </Container>
+        </Wrapper>
     );
 }
 

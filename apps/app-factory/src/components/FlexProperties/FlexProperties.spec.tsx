@@ -19,10 +19,10 @@ describe('FlexProperties', () => {
             })
             .when.rendered();
 
-        const containerClassName = element.get.containerClassName();
+        const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('FlexProperties-container');
+        expect(wrapperClassName).toContain('FlexProperties-wrapper');
         expect(innerText).toBe(label);
     });
 

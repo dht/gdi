@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMeasure } from 'react-use';
 import {
-    Container,
+    Wrapper,
     Item,
     Items,
     SwitchWrapper,
@@ -109,14 +109,14 @@ export function LocalGallery(props: LocalGalleryProps) {
         height: `${Math.ceil(visibleItems / 4) * 290}px`,
     };
 
-    const className = classnames('LocalGallery-container', {
+    const className = classnames('LocalGallery-wrapper', {
         animated,
     });
 
     return (
-        <Container
+        <Wrapper
             className={className}
-            data-testid='LocalGallery-container'
+            data-testid='LocalGallery-wrapper'
             ref={ref}
         >
             <SwitchWrapper>
@@ -131,7 +131,7 @@ export function LocalGallery(props: LocalGalleryProps) {
                 {renderItems()}
             </Items>
             {renderLightBox()}
-        </Container>
+        </Wrapper>
     );
 }
 

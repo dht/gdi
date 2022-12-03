@@ -4,8 +4,7 @@ import { Projects, ProjectsProps } from './Projects';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ProjectsDriver extends BaseComponentDriver {
-    private props: Partial<ProjectsProps> = {
-    };
+    private props: Partial<ProjectsProps> = {};
 
     constructor() {
         super('Projects');
@@ -17,11 +16,13 @@ export class ProjectsDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Projects {...(this.props as ProjectsProps)} />);
+            return this.snapshot(
+                <Projects {...(this.props as ProjectsProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class ProjectsDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

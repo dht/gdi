@@ -13,7 +13,7 @@ describe('Stopwatch', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Stopwatch-container');
+        expect(containerClassName).toBe('Stopwatch-wrapper');
     });
 });
 

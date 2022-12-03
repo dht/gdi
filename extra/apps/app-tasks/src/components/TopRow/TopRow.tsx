@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Key, Text } from './TopRow.style';
+import { Wrapper, Key, Text } from './TopRow.style';
 import { dateLong, time } from '@gdi/language';
 
 export type TopRowProps = {
@@ -18,7 +18,7 @@ export function TopRow(props: TopRowProps) {
     const date = dateLong(dateRaw);
 
     return (
-        <Container className='TopRow-container' data-testid='TopRow-container'>
+        <Wrapper className='TopRow-wrapper' data-testid='TopRow-wrapper'>
             <Text>
                 <Key>{activeTask?.ticket?.key}</Key> | Session #
                 {activeTask?.stats?.currentSessionSequence}
@@ -26,7 +26,7 @@ export function TopRow(props: TopRowProps) {
             <Text>
                 Started {timeText} | {date}
             </Text>
-        </Container>
+        </Wrapper>
     );
 }
 

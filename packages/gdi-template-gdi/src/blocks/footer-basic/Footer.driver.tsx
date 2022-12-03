@@ -4,8 +4,7 @@ import { Footer, FooterProps } from './Footer';
 import { BaseComponentDriver } from 'testing-base';
 
 export class FooterDriver extends BaseComponentDriver {
-    private props: Partial<FooterProps> = {
-    };
+    private props: Partial<FooterProps> = {};
 
     constructor() {
         super('Footer');
@@ -17,7 +16,7 @@ export class FooterDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class FooterDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Status } from './Time.style';
+import { Wrapper, Status } from './Time.style';
 import Stopwatch from '../Stopwatch/Stopwatch';
 
 export type TimeProps = {
@@ -27,10 +27,10 @@ export function Time(props: TimeProps) {
     }
 
     return (
-        <Container className='Time-container' data-testid='Time-container'>
+        <Wrapper className='Time-wrapper' data-testid='Time-wrapper'>
             {renderStatus()}
             {renderTime()}
-        </Container>
+        </Wrapper>
     );
 }
 

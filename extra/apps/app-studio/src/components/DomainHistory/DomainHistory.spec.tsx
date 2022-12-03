@@ -13,7 +13,7 @@ describe('DomainHistory', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('DomainHistory-container');
+        expect(containerClassName).toBe('DomainHistory-wrapper');
     });
 });
 

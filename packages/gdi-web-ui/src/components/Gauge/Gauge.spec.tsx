@@ -13,7 +13,7 @@ describe('Gauge', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Gauge-container');
+        expect(containerClassName).toBe('Gauge-wrapper');
     });
 });
 

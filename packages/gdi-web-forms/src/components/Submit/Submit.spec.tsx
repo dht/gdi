@@ -13,7 +13,7 @@ describe('Submit', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Submit-container');
+        expect(containerClassName).toBe('Submit-wrapper');
     });
 });
 

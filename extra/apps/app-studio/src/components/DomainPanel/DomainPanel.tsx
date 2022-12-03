@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Container,
+    Wrapper,
     Ear,
     ContextLine,
     Domain,
@@ -12,9 +12,9 @@ export type DomainPanelProps = {};
 
 export function DomainPanel(_props: DomainPanelProps) {
     return (
-        <Container
-            className='DomainPanel-container'
-            data-testid='DomainPanel-container'
+        <Wrapper
+            className='DomainPanel-wrapper'
+            data-testid='DomainPanel-wrapper'
         >
             <ContextLine>
                 <Domain>office</Domain>
@@ -28,7 +28,7 @@ export function DomainPanel(_props: DomainPanelProps) {
                 <Percent>94%</Percent>
                 <Listening />
             </SignalLine>
-        </Container>
+        </Wrapper>
     );
 }
 

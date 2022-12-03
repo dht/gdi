@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     margin: 50px auto;
 `;
 
@@ -11,7 +11,7 @@ export const ContainerNewItem = styled.div<{ selected?: boolean }>`
     border: 1px solid #556;
     line-height: 50px;
     ${(props) => props.theme.padding('10px 15px 10px 20px')}
-    box-sizing: border-box;
+
     user-select: none;
     display: flex;
     flex-direction: row;

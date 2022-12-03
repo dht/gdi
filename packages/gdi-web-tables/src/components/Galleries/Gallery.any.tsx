@@ -1,6 +1,6 @@
 import React from 'react';
 import GenericGallery from '../GenericGallery/GenericGallery';
-import { Container } from './styles';
+import { Wrapper } from './styles';
 import { items } from './items';
 import { ItemType, IGalleryOptions } from '../../types';
 import { useMemo } from '@gdi/hooks';
@@ -28,9 +28,9 @@ export function AnyGallery(props: AnyGalleryProps) {
     }
 
     return (
-        <Container
-            className='WidgetGallery-container'
-            data-testid='WidgetGallery-container'
+        <Wrapper
+            className='WidgetGallery-wrapper'
+            data-testid='WidgetGallery-wrapper'
         >
             <GenericGallery
                 config={definitions.gallery!}
@@ -38,7 +38,7 @@ export function AnyGallery(props: AnyGalleryProps) {
                 configOverlay={definitions.overlay!}
                 {...props}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

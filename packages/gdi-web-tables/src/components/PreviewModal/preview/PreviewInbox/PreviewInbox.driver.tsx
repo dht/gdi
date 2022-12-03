@@ -4,8 +4,7 @@ import { PreviewInbox, PreviewInboxProps } from './PreviewInbox';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PreviewInboxDriver extends BaseComponentDriver {
-    private props: Partial<PreviewInboxProps> = {
-    };
+    private props: Partial<PreviewInboxProps> = {};
 
     constructor() {
         super('PreviewInbox');
@@ -17,11 +16,13 @@ export class PreviewInboxDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PreviewInbox {...(this.props as PreviewInboxProps)} />);
+            return this.snapshot(
+                <PreviewInbox {...(this.props as PreviewInboxProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PreviewInboxDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

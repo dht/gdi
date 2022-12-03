@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { SiteContext } from '@gdi/engine';
 import {
     Actions,
-    Column,
     Container,
+    Row,
+    Column,
     Demo,
     H1,
     Button,
@@ -52,36 +53,38 @@ export function Hero(props: HeroProps) {
     };
 
     return (
-        <Container className='Hero-container' data-testid='Hero-container'>
-            <Wrapper>
-                <Column>
-                    <Slogan>{slogan}</Slogan>
-                    <H1>{header}</H1>
-                    <Install installation={installation} />
-                    <Actions>
-                        <Button
-                            href={href}
-                            target='_blank'
-                            onClick={onClick('href')}
-                        >
-                            {ctaButtonText}
-                        </Button>
-                        <Button
-                            href={hrefSecondary}
-                            target='_blank'
-                            onClick={onClick('hrefSecond')}
-                        >
-                            {secondaryButtonText}
-                        </Button>
-                    </Actions>
-                </Column>
-                <Column>
-                    <Demo className='animate__animated animate__fadeInRight'>
-                        <Image src={imageUrl} />
-                    </Demo>
-                </Column>
-            </Wrapper>
-        </Container>
+        <Wrapper className='Hero-wrapper' data-testid='Hero-wrapper'>
+            <Container>
+                <Row>
+                    <Column>
+                        <Slogan>{slogan}</Slogan>
+                        <H1>{header}</H1>
+                        <Install installation={installation} />
+                        <Actions>
+                            <Button
+                                href={href}
+                                target='_blank'
+                                onClick={onClick('href')}
+                            >
+                                {ctaButtonText}
+                            </Button>
+                            <Button
+                                href={hrefSecondary}
+                                target='_blank'
+                                onClick={onClick('hrefSecond')}
+                            >
+                                {secondaryButtonText}
+                            </Button>
+                        </Actions>
+                    </Column>
+                    <Column>
+                        <Demo className='animate__animated animate__fadeInRight'>
+                            <Image src={imageUrl} />
+                        </Demo>
+                    </Column>
+                </Row>
+            </Container>
+        </Wrapper>
     );
 }
 

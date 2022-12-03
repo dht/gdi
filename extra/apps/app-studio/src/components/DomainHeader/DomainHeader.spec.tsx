@@ -13,7 +13,7 @@ describe('DomainHeader', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('DomainHeader-container');
+        expect(containerClassName).toBe('DomainHeader-wrapper');
     });
 });
 

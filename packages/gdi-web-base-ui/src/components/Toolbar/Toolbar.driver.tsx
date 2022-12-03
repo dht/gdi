@@ -4,8 +4,7 @@ import { Toolbar, ToolbarProps } from './Toolbar';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ToolbarDriver extends BaseComponentDriver {
-    private props: Partial<ToolbarProps> = {
-    };
+    private props: Partial<ToolbarProps> = {};
 
     constructor() {
         super('Toolbar');
@@ -17,7 +16,7 @@ export class ToolbarDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
@@ -34,10 +33,10 @@ export class ToolbarDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

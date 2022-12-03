@@ -22,7 +22,7 @@ describe('KeyboardShortcuts', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('KeyboardShortcuts-container');
+        expect(containerClassName).toContain('KeyboardShortcuts-wrapper');
         expect(innerText).toBe(label);
     });
 

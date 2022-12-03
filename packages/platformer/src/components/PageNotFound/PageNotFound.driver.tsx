@@ -4,8 +4,7 @@ import { PageNotFound, PageNotFoundProps } from './PageNotFound';
 import { BaseComponentDriver } from 'testing-base';
 
 export class PageNotFoundDriver extends BaseComponentDriver {
-    private props: Partial<PageNotFoundProps> = {
-    };
+    private props: Partial<PageNotFoundProps> = {};
 
     constructor() {
         super('PageNotFound');
@@ -17,11 +16,13 @@ export class PageNotFoundDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<PageNotFound {...(this.props as PageNotFoundProps)} />);
+            return this.snapshot(
+                <PageNotFound {...(this.props as PageNotFoundProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class PageNotFoundDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, LogoWrapper, Panel } from './Login.style';
+import { Wrapper, LogoWrapper, Panel } from './Login.style';
 import { useMount } from 'react-use';
 import { firebase } from '@gdi/platformer';
 import { Logo } from '@gdi/web-ui';
@@ -8,16 +8,16 @@ export type LoginProps = {};
 
 export function Login(props: LoginProps) {
     useMount(() => {
-        firebase.initUI('#firebaseui-auth-container');
+        firebase.initUI('#firebaseui-auth-wrapper');
     });
 
     return (
-        <Container className='Login-container' data-testid='Login-container'>
+        <Wrapper className='Login-wrapper' data-testid='Login-wrapper'>
             <LogoWrapper>
                 <Logo />
             </LogoWrapper>
-            <Panel id='firebaseui-auth-container' />
-        </Container>
+            <Panel id='firebaseui-auth-wrapper' />
+        </Wrapper>
     );
 }
 

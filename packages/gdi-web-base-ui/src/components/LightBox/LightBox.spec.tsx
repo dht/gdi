@@ -22,7 +22,7 @@ describe('LightBox', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('LightBox-container');
+        expect(containerClassName).toContain('LightBox-wrapper');
         expect(innerText).toBe(label);
     });
 

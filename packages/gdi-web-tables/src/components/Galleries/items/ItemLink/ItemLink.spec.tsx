@@ -22,7 +22,7 @@ describe('ItemLink', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('ItemLink-container');
+        expect(containerClassName).toContain('ItemLink-wrapper');
         expect(innerText).toBe(label);
     });
 

@@ -3,7 +3,7 @@ import { useSetState } from 'react-use';
 import { useImage } from '../../hooks/useImage';
 import Loader from '../Loader/Loader';
 import Modal from '../Modal/Modal';
-import { Center, Container, ImageWrapper } from './LightBox.style';
+import { Center, Wrapper, ImageWrapper } from './LightBox.style';
 
 export type LightBoxProps = {
     item: Json;
@@ -41,14 +41,11 @@ export function LightBox(props: LightBoxProps) {
     }
 
     return (
-        <Container
-            className='LightBox-container'
-            data-testid='LightBox-container'
-        >
+        <Wrapper className='LightBox-wrapper' data-testid='LightBox-wrapper'>
             <Modal title='Image' open={true} onClose={props.onClose}>
                 {renderInner()}
             </Modal>
-        </Container>
+        </Wrapper>
     );
 }
 

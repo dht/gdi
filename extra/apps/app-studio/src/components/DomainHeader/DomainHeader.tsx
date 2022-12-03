@@ -1,18 +1,18 @@
 import React from 'react';
-import { Announcement, Container, Level, Title } from './DomainHeader.style';
+import { Announcement, Wrapper, Level, Title } from './DomainHeader.style';
 
 export type DomainHeaderProps = {};
 
 export function DomainHeader(_props: DomainHeaderProps) {
     return (
-        <Container
-            className='DomainHeader-container'
-            data-testid='DomainHeader-container'
+        <Wrapper
+            className='DomainHeader-wrapper'
+            data-testid='DomainHeader-wrapper'
         >
             <Announcement>domain</Announcement>
             <Title>Office Management</Title>
             <Level>Level 2 - 85%</Level>
-        </Container>
+        </Wrapper>
     );
 }
 

@@ -13,7 +13,7 @@ describe('TagsInput', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('TagsInput-container');
+        expect(containerClassName).toBe('TagsInput-wrapper');
     });
 });
 

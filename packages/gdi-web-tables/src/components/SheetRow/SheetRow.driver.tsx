@@ -4,8 +4,7 @@ import { SheetRow, SheetRowProps } from './SheetRow';
 import { BaseComponentDriver } from 'testing-base';
 
 export class SheetRowDriver extends BaseComponentDriver {
-    private props: Partial<SheetRowProps> = {
-    };
+    private props: Partial<SheetRowProps> = {};
 
     constructor() {
         super('SheetRow');
@@ -17,11 +16,13 @@ export class SheetRowDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SheetRow {...(this.props as SheetRowProps)} />);
+            return this.snapshot(
+                <SheetRow {...(this.props as SheetRowProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class SheetRowDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

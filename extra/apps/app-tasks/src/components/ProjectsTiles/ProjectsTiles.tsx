@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Tile } from './ProjectsTiles.style';
+import { Wrapper, Tile } from './ProjectsTiles.style';
 
 export type ProjectsTilesProps = {
     projects: IProjects;
@@ -10,7 +10,7 @@ export function ProjectsTiles(props: ProjectsTilesProps) {
     const { projects } = props;
 
     return (
-        <Container className='ProjectsTiles-container'>
+        <Wrapper className='ProjectsTiles-wrapper'>
             {Object.values(projects).map((project) => (
                 <ProjectTile
                     key={project.id}
@@ -18,7 +18,7 @@ export function ProjectsTiles(props: ProjectsTilesProps) {
                     onClick={props.onTileClick}
                 />
             ))}
-        </Container>
+        </Wrapper>
     );
 }
 

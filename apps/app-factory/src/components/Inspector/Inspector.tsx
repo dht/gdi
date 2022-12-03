@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Inspector.style';
+import { Wrapper } from './Inspector.style';
 import { KeyValue, Tags } from '@gdi/web-ui';
 
 export type InspectorProps = {
@@ -19,16 +19,13 @@ export function Inspector(props: InspectorProps) {
     }
 
     return (
-        <Container
-            className='Inspector-container'
-            data-testid='Inspector-container'
-        >
+        <Wrapper className='Inspector-wrapper' data-testid='Inspector-wrapper'>
             <KeyValue
                 data={data}
                 customFields={['tags']}
                 renderCustomField={renderCustomField}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

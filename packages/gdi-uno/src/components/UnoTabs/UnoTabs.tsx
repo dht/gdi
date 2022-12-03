@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from './UnoTabs.style';
+import { Wrapper } from './UnoTabs.style';
 
 export type UnoTabsProps = {};
 
 export function UnoTabs(_props: UnoTabsProps) {
     return (
-        <Container className="UnoTabs-container" data-testid="UnoTabs-container">
+        <Wrapper className='UnoTabs-wrapper' data-testid='UnoTabs-wrapper'>
             UnoTabs
-        </Container>
+        </Wrapper>
     );
 }
 

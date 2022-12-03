@@ -1,20 +1,13 @@
-import styled, { css } from 'styled-components';
-import { mobile } from '../Base.style';
+import styled from 'styled-components';
+import { Grid, mobile, css } from '@gdi/engine';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
     flex: 1;
     background-size: cover;
     background-color: black;
     position: relative;
 `;
-
-export const Wrapper = styled.div`
-    box-sizing: border-box;
-    width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+export const Container = styled(Grid.Container)`
     justify-content: center;
 
     ${mobile(css`
@@ -23,6 +16,12 @@ export const Wrapper = styled.div`
         padding-left: 150px;
     `)}
 `;
+
+export const Row = styled(Grid.Row)`
+    align-items: center;
+`;
+
+export const Column = styled(Grid.Column)``;
 
 export const Logo = styled.img`
     max-width: 130px;

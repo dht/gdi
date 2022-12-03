@@ -13,7 +13,7 @@ describe('SpeakButton', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('SpeakButton-container');
+        expect(containerClassName).toBe('SpeakButton-wrapper');
     });
 });
 

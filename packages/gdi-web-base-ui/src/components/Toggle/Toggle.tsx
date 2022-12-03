@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Toggle.style';
+import { Wrapper } from './Toggle.style';
 import { Toggle as ToggleUI } from '@fluentui/react';
 
 export type ToggleProps = {
@@ -14,14 +14,14 @@ export function Toggle(props: ToggleProps) {
     const { value, label, readOnly } = props;
 
     return (
-        <Container className='Toggle-container' data-testid='Toggle-container'>
+        <Wrapper className='Toggle-wrapper' data-testid='Toggle-wrapper'>
             <ToggleUI
                 label={label}
                 checked={value}
                 onChange={props.onChange}
                 disabled={readOnly}
             />
-        </Container>
+        </Wrapper>
     );
 }
 

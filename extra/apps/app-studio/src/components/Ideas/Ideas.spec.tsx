@@ -13,7 +13,7 @@ describe('Ideas', () => {
             .when.rendered()
             .get.containerClassName();
 
-        expect(containerClassName).toBe('Ideas-container');
+        expect(containerClassName).toBe('Ideas-wrapper');
     });
 });
 

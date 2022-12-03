@@ -1,12 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import {
-    Actions,
-    Container,
-    Editors,
-    Error,
-    H1,
-    Header,
-} from './Settings.style';
+import { Actions, Wrapper, Editors, Error, H1, Header } from './Settings.style';
 import { reference } from './Settings.reference';
 import { Button, Code, toast } from '@gdi/web-ui';
 import { useMeasure } from 'react-use';
@@ -60,9 +53,9 @@ export function Settings(props: SettingsProps) {
     }, [value]);
 
     return (
-        <Container
-            className='Settings-container'
-            data-testid='Settings-container'
+        <Wrapper
+            className='Settings-wrapper'
+            data-testid='Settings-wrapper'
             ref={ref}
         >
             <Header>
@@ -88,7 +81,7 @@ export function Settings(props: SettingsProps) {
                     readOnly
                 />
             </Editors>
-        </Container>
+        </Wrapper>
     );
 }
 

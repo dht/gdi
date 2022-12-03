@@ -22,7 +22,7 @@ describe('FlexDesigner', () => {
         const containerClassName = element.get.containerClassName();
         const innerText = element.get.label();
 
-        expect(containerClassName).toContain('FlexDesigner-container');
+        expect(containerClassName).toContain('FlexDesigner-wrapper');
         expect(innerText).toBe(label);
     });
 

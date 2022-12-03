@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    Container,
-    ContainerItem,
-    ContainerNewItem,
-} from './SortableList.style';
+import { Wrapper, ContainerItem, ContainerNewItem } from './SortableList.style';
 import {
     DndContext,
     closestCenter,
@@ -148,7 +144,7 @@ export function SortableList(props: SortableListProps) {
 
     function renderItem(item: IDataItem) {
         return (
-            <SortableItem
+            <ContainerItem
                 key={item.id}
                 id={item.id}
                 selected={selectedId === item.id}
@@ -156,7 +152,7 @@ export function SortableList(props: SortableListProps) {
                 onDrillDown={onDrillDown}
             >
                 {props.renderItem(item)}
-            </SortableItem>
+            </ContainerItem>
         );
     }
 
@@ -181,9 +177,9 @@ export function SortableList(props: SortableListProps) {
     }
 
     return (
-        <Container
-            className='SortableList-container'
-            data-testid='SortableList-container'
+        <Wrapper
+            className='SortableList-wrapper'
+            data-testid='SortableList-wrapper'
         >
             <DndContext
                 sensors={disableDragging ? undefined : sensors}
@@ -198,7 +194,7 @@ export function SortableList(props: SortableListProps) {
                 </SortableContext>
             </DndContext>
             {renderNewItem()}
-        </Container>
+        </Wrapper>
     );
 }
 

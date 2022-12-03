@@ -4,8 +4,7 @@ import { MixerPanel, MixerPanelProps } from './MixerPanel';
 import { BaseComponentDriver } from 'testing-base';
 
 export class MixerPanelDriver extends BaseComponentDriver {
-    private props: Partial<MixerPanelProps> = {
-    };
+    private props: Partial<MixerPanelProps> = {};
 
     constructor() {
         super('MixerPanel');
@@ -17,11 +16,13 @@ export class MixerPanelDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.container);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MixerPanel {...(this.props as MixerPanelProps)} />);
+            return this.snapshot(
+                <MixerPanel {...(this.props as MixerPanelProps)} />
+            );
         },
     };
 
@@ -34,10 +35,10 @@ export class MixerPanelDriver extends BaseComponentDriver {
 
     get = {
         containerClassName: () => {
-            return this.container.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.container.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }
