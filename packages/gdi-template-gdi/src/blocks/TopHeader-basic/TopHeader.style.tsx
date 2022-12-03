@@ -19,6 +19,10 @@ export const Container = styled(Grid.Container)`
 
 export const Row = styled(Grid.Row)`
     align-items: center;
+
+    ${mobile(css`
+        flex-direction: row;
+    `)}
 `;
 
 export const Column = styled(Grid.Column)``;
@@ -91,6 +95,6 @@ export const Github = styled.a`
     }
 
     ${mobile(css`
-        display: none;
+        margin-right: 20px;
     `)}
 `;

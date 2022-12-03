@@ -19,11 +19,6 @@ export const Container = styled(Grid.Container)`
     justify-content: center;
 `;
 
-export const Row = styled(Grid.Row)`
-    align-items: center;
-    justify-content: center;
-`;
-
 export const Text = styled.h1`
     color: #889;
     font-size: 42px;
