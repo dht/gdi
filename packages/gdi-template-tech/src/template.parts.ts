@@ -1,11 +1,16 @@
+import p from '../package.json';
+
 export const meta: IMetaSite = {
     identifier: 'com.usegdi.templates.tech',
-    version: '',
+    description: p.description,
+    packageType: p.gdi.packageType as any,
+    isBeta: p.gdi.isBeta,
+    isDraft: p.gdi.isDraft,
+    version: p.version,
     author: {
         name: '',
     },
 };
-
 export const pages: IPages = {
     home: {
         id: 'home',
@@ -17,6 +22,7 @@ export const pages: IPages = {
         path: '/',
         status: 'draft',
         tags: [],
+        dataTags: [],
     },
 };
 

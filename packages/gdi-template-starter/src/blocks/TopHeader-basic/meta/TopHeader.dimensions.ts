@@ -1,5 +1,3 @@
-import { IDimensionsPerFlavour } from '@gdi/web-ui';
-
 export const dimensions: IDimensionsPerFlavour = {
     normal: {
         desktop: {

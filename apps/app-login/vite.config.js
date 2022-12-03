@@ -5,6 +5,8 @@ import analyze from 'rollup-plugin-analyzer';
 import p from './package.json';
 import { externals } from 'shared-base';
 
+const ANALYZE_BUNDLE = false;
+
 export default defineConfig({
     plugins: [
         dts({
@@ -20,7 +22,7 @@ export default defineConfig({
             fileName: (format) => `app-login.${format}.js`,
         },
         rollupOptions: {
-            plugins: [analyze()],
+            plugins: [ANALYZE_BUNDLE ? analyze() : null],
             ...externals({
                 react: '',
                 'react/jsx-runtime': '',

@@ -51,7 +51,7 @@ export function ArticleHeader(_props: ArticleHeaderProps) {
                     </ImageDescription>
                     <Gap />
                 </Column>
-                <Column></Column>
+                <Column />
             </Row>
         </Wrapper>
     );

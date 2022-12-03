@@ -1,0 +1,24 @@
+name: gdi-store-biblo publish
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - extra/stores/gdi-store-biblo/**
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: npm ci
+            - run: npm run build
+              working-directory: extra/stores/gdi-store-biblo/
+            - run: npm publish
+              working-directory: extra/stores/gdi-store-biblo/
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

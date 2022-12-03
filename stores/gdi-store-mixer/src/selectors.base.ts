@@ -118,6 +118,10 @@ export const $currentPageInstances = createSelector(
     $pageInstanceId,
     raw.$rawLibraryPageInstances,
     (pageInstanceId, pageInstances) => {
+        if (!pageInstanceId) {
+            return;
+        }
+
         return pageInstances[pageInstanceId];
     }
 );

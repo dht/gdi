@@ -1,0 +1,24 @@
+name: gdi-template-tech publish
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - packages/gdi-template-tech/**
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: npm ci
+            - run: npm run build
+              working-directory: packages/gdi-template-tech/
+            - run: npm publish
+              working-directory: packages/gdi-template-tech/
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

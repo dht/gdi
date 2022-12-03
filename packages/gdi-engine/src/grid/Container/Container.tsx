@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { useTheme } from 'styled-components';
 
 export type ContainerProps = {
-    children: JSX.Element | JSX.Element[];
+    children: JSX.Element | JSX.Element[] | null;
     className?: string;
 };
 
@@ -21,7 +21,7 @@ export function Container(props: ContainerProps) {
     return (
         <Wrapper className={className} data-testid='Container-wrapper'>
             {props.children}
-            <ContainerInfo />
+            {/* <ContainerInfo /> */}
         </Wrapper>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container } from './AutoForm.style';
+import { Button, Wrapper } from './AutoForm.style';
 
 type IAutoFormData = {
     id: string;

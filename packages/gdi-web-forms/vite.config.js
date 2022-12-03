@@ -6,8 +6,10 @@ import analyze from 'rollup-plugin-analyzer';
 import p from './package.json';
 import { externals } from 'shared-base';
 
+const ANALYZE_BUNDLE = false;
+
 export default defineConfig({
-    plugins: [react(), dts({})],
+    plugins: [dts({}), react()],
     build: {
         sourcemap: true,
         lib: {
@@ -17,7 +19,7 @@ export default defineConfig({
             fileName: (format) => `web-forms.${format}.js`,
         },
         rollupOptions: {
-            plugins: [analyze()],
+            plugins: [ANALYZE_BUNDLE ? analyze() : null],
             ...externals({
                 react: '',
                 'react/jsx-runtime': '',

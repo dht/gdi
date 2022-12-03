@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Wrapper, ContainerProps } from './Container';
+import { Container, ContainerProps } from './Container';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ContainerDriver extends BaseComponentDriver {
@@ -12,7 +12,7 @@ export class ContainerDriver extends BaseComponentDriver {
 
     when: any = {
         rendered: () => {
-            render(<Wrapper {...(this.props as ContainerProps)} />);
+            render(<Container {...(this.props as ContainerProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,13 +21,13 @@ export class ContainerDriver extends BaseComponentDriver {
         },
         snapshot: () => {
             return this.snapshot(
-                <Wrapper {...(this.props as ContainerProps)} />
+                <Container {...(this.props as ContainerProps)} />
             );
         },
     };
 
     given: any = {
-        props: (props: Partial<WrapperProps>) => {
+        props: (props: Partial<ContainerProps>) => {
             this.props = props;
             return this;
         },

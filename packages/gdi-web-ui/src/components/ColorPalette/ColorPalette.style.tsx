@@ -9,6 +9,6 @@ export const Wrapper = styled.div`
     border: 1px solid white;
 `;
 
-export const ContainerColor = styled.div`
+export const WrapperColor = styled.div`
     flex: 1;
 `;

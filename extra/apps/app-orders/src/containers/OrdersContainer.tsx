@@ -17,6 +17,7 @@ export const OrdersContainer = () => {
             onSelectionChange: (ids: string[]) => {
                 console.log('ids ->', ids);
             },
+            onCustomAction: (actionId: string, data?: Json) => {},
         }),
         []
     );

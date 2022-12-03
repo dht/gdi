@@ -1,4 +1,4 @@
-name: Platformer publish
+name: platformer publish
 
 on:
     push:

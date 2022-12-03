@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Container } from './Breadcrumbs.style';
+import { Breadcrumb, Wrapper } from './Breadcrumbs.style';
 
 export type IBreadcrumb = {
     id: string;

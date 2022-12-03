@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.a`
+export const Wrapper = styled.a`
     flex: 1;
     background-color: var(--main-color);
     color: white;

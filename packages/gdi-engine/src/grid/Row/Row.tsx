@@ -3,7 +3,7 @@ import { Wrapper } from './Row.style';
 import classnames from 'classnames';
 
 export type RowProps = {
-    children: JSX.Element | JSX.Element[];
+    children: JSX.Element | JSX.Element[] | null;
     className?: string;
 };
 

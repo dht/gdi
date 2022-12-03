@@ -64,7 +64,7 @@ export function Modal(props: ModalProps) {
                     border: '3px solid gold',
                 },
             }}
-            wrapperClassName='Modal-wrapper'
+            containerClassName='Modal-wrapper'
             dragOptions={dragOptions}
             isDarkOverlay={true}
             isBlocking={false}

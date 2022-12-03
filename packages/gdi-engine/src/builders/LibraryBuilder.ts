@@ -8,7 +8,9 @@ export class LibraryBuilder implements ILibraryBuilder {
         instances: {},
         instancesProps: {},
         widgets: {},
-        datasets: {},
+        datasets: {
+            dataset: {},
+        },
     };
 
     constructor() {}

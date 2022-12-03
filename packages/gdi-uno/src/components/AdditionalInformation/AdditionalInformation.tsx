@@ -10,6 +10,7 @@ import {
 } from './AdditionalInformation.style';
 import bytes from 'bytes';
 import { useLanguage } from '@gdi/language';
+import { IUnoSection } from '../../types';
 
 export type AdditionalInformationProps = {
     data: Json;

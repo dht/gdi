@@ -14,18 +14,18 @@ import multiBar from './json/d.multiBar.person.json';
 import { itemStructure } from './d.itemStructure.person';
 
 export const definitions: ICrudDefinitions = {
-    nodeName: 'persons',
-    filters,
-    formEdit,
+    nodeName: 'persons', // @ts-expect-error
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
     calendar, // @ts-expect-error
     gallery, // @ts-expect-error
-    overlay,
+    overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
-    bucket,
+    formNewDefault, // @ts-expect-error
+    bucket, // @ts-expect-error
     multiBar,
     itemStructure,
 };

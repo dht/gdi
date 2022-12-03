@@ -7,6 +7,7 @@ import * as path from 'path';
 const cwd = path.resolve(process.cwd(), '../../');
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
     base: '/',
     build: {

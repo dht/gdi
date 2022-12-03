@@ -7,7 +7,8 @@ import {
     Column,
     Wrapper,
     Top,
-    Wrapper,
+    Container,
+    Row,
 } from './UnoLayouts.style';
 
 export type UnoLayoutProps = {
@@ -22,9 +23,9 @@ export function LayoutBasic(props: UnoLayoutProps) {
         <Wrapper className='Layouts-wrapper' data-testid='Layouts-wrapper'>
             <Top>
                 <TrianglesBk paletteIndex={paletteIndex}>
-                    <Wrapper align='center' flex={1}>
+                    <Container align='center' flex={1}>
                         {props.renderSections('top')}
-                    </Wrapper>
+                    </Container>
                 </TrianglesBk>
             </Top>
             <Center color='#223'>{props.renderSections('center')}</Center>
@@ -45,24 +46,28 @@ export function LayoutBlog(props: UnoLayoutProps) {
                 <Wrapper>{props.renderSections('top')}</Wrapper>
             </Top>
             <Center>
-                <Wrapper>
-                    <Column flex={5}>
-                        {props.renderSections('centerLeft')}
-                    </Column>
-                    <Column flex={2}>
-                        {props.renderSections('centerRight')}
-                    </Column>
-                </Wrapper>
+                <Container>
+                    <Row>
+                        <Column flex={5}>
+                            {props.renderSections('centerLeft')}
+                        </Column>
+                        <Column flex={2}>
+                            {props.renderSections('centerRight')}
+                        </Column>
+                    </Row>
+                </Container>
             </Center>
             <Bottom>
-                <Wrapper>
-                    <Column flex={5}>
-                        {props.renderSections('bottomLeft')}
-                    </Column>
-                    <Column flex={2}>
-                        {props.renderSections('bottomRight')}
-                    </Column>
-                </Wrapper>
+                <Container>
+                    <Row>
+                        <Column flex={5}>
+                            {props.renderSections('bottomLeft')}
+                        </Column>
+                        <Column flex={2}>
+                            {props.renderSections('bottomRight')}
+                        </Column>
+                    </Row>
+                </Container>
             </Bottom>
         </Wrapper>
     );

@@ -11,6 +11,7 @@ export type CouponsProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     dispatch: any;
 };

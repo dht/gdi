@@ -4,19 +4,20 @@ import { icons, IconName } from './MenuButton.icons';
 import classnames from 'classnames';
 
 export type MenuButtonProps = {
-    iconName?: IconName;
     title: string;
+    color?: string;
+    iconName?: IconName;
 };
 
 export function MenuButton(props: MenuButtonProps) {
-    const { title, iconName } = props;
+    const { title, iconName, color } = props;
 
     return (
         <Wrapper
             className='MenuButton-wrapper'
             data-testid='MenuButton-wrapper'
         >
-            <MenuButtonIcon iconName={iconName} />
+            {iconName && <MenuButtonIcon iconName={iconName} color={color} />}
             <Title>{title}</Title>
         </Wrapper>
     );
@@ -24,7 +25,7 @@ export function MenuButton(props: MenuButtonProps) {
 
 type MenuButtonIconProps = {
     iconName: IconName;
-    color: string;
+    color?: string;
 };
 
 export function MenuButtonIcon(props: MenuButtonIconProps) {

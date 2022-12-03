@@ -1,24 +1,24 @@
 {
     "name": "@gdi/app-mixer",
     "description": "Mix widgets to form new pages & sites",
-    "version": "0.0.58",
+    "version": "0.0.66",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.41",
-        "@gdi/hooks": "^0.0.33",
-        "@gdi/language": "^0.0.39",
-        "@gdi/platformer": "^0.0.35",
-        "@gdi/store-mixer": "^0.0.31",
-        "@gdi/store-site": "^0.0.35",
-        "@gdi/template-card": "^0.0.32",
-        "@gdi/template-starter": "^0.0.31",
-        "@gdi/template-gdi": "^0.0.43",
-        "@gdi/types": "^0.0.70",
-        "@gdi/web-ui": "^0.0.47",
+        "@gdi/engine": "^0.0.58",
+        "@gdi/hooks": "^0.0.34",
+        "@gdi/language": "^0.0.51",
+        "@gdi/platformer": "^0.0.43",
+        "@gdi/store-mixer": "^0.0.39",
+        "@gdi/store-site": "^0.0.43",
+        "@gdi/template-card": "^0.0.40",
+        "@gdi/template-starter": "^0.0.39",
+        "@gdi/template-gdi": "^0.0.50",
+        "@gdi/types": "^0.0.82",
+        "@gdi/web-ui": "^0.0.57",
         "@testing-library/react": "^13.3.0",
         "axios": "^1.2.0",
         "bytes": "^3.1.2",
@@ -48,7 +48,7 @@
         "types-base": "^0.0.2",
         "typescript": "^4.7.4",
         "vite": "^3.0.3",
-        "vite-plugin-dts": "^1.4.0"
+        "vite-plugin-dts": "^1.7.1"
     },
     "files": [
         "dist"

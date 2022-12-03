@@ -6,6 +6,8 @@ import * as path from 'path';
 const cwd = path.resolve(process.cwd(), '../../');
 
 // https://vitejs.dev/config/
+const ANALYZE_BUNDLE = false;
+
 export default defineConfig({
     build: {
         sourcemap: true,

@@ -6,6 +6,9 @@ import p from './package.json';
 import { externals } from 'shared-base';
 import react from '@vitejs/plugin-react';
 
+const ANALYZE_BUNDLE = false;
+
+
 export default defineConfig({
     plugins: [
         react(),
@@ -22,7 +25,7 @@ export default defineConfig({
             fileName: (format) => `app-mixer.${format}.js`,
         },
         rollupOptions: {
-            plugins: [analyze()],
+            plugins: [ANALYZE_BUNDLE ? analyze() : null],
             ...externals({
                 react: '',
                 'react/jsx-runtime': '',

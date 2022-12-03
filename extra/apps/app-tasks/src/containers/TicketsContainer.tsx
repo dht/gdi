@@ -27,6 +27,7 @@ export const TicketsContainer = () => {
                 invokeEvent('navigatePush', { path: `/${itemId}` });
             },
             onSelectionChange: (ids: string[]) => {},
+            onCustomAction: (actionId: string, data?: Json) => {},
         }),
         []
     );

@@ -7,7 +7,7 @@ import Media from '../Media/Media';
 import MediaGrid from '../MediaGrid/MediaGrid';
 import Overview from '../Overview/Overview';
 import UnoHeader from '../UnoHeader/UnoHeader';
-import { Wrapper, Wrapper } from './UnoSection.style';
+import { Wrapper, Container } from './UnoSection.style';
 import { IUnoSection, Json, SectionType } from '../../types';
 
 export type UnoSectionProps = {
@@ -26,7 +26,6 @@ export function UnoSection(props: UnoSectionProps) {
 
 export function SectionHeader(props: UnoSectionProps) {
     const { section, data } = props;
-    const { id } = section;
 
     return (
         <Wrapper
@@ -58,9 +57,9 @@ export function SectionMediaGrid(props: UnoSectionProps) {
             className='UnoSection-wrapper'
             data-testid='UnoSection-wrapper'
         >
-            <Wrapper>
+            <Container>
                 <MediaGrid section={section} data={data} />
-            </Wrapper>
+            </Container>
         </Wrapper>
     );
 }

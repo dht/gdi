@@ -45,6 +45,21 @@ export function TopHeader(props: TopHeaderProps) {
         });
     };
 
+    function renderGithub() {
+        if (!githubUrl) return <></>;
+
+        return (
+            <Github href={githubUrl} target='_blank'>
+                <img
+                    width='28px'
+                    height='28px'
+                    alt='github'
+                    src='https://static-b9ebe.web.app/github.svg'
+                />
+            </Github>
+        );
+    }
+
     return (
         <Wrapper className='TopHeader-wrapper' data-testid='TopHeader-wrapper'>
             <Logo src={logoUrl} alt='logo' />
@@ -56,16 +71,7 @@ export function TopHeader(props: TopHeaderProps) {
                         onClick={onClick('SocialMenu')}
                         items={socialLinks}
                     />
-                    {githubUrl && (
-                        <Github href={githubUrl} target='_blank'>
-                            <img
-                                width='28px'
-                                height='28px'
-                                alt='github'
-                                src='https://static-b9ebe.web.app/github.svg'
-                            />
-                        </Github>
-                    )}
+                    {renderGithub()}
                 </Row>
             </Container>
             <Svg

@@ -9,6 +9,7 @@ export type InterestingReadsProps = {
     callbacks: {
         onDrillDown: (itemId: string) => void;
         onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     dispatch: any;
 };
@@ -26,8 +27,8 @@ export function InterestingReads(props: InterestingReadsProps) {
                 id='InterestingReads'
                 itemType='link'
                 data={data}
-                callbacks={callbacks as any}
-                definitions={crudDefinitions as any}
+                callbacks={callbacks}
+                definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
             />

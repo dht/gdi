@@ -6,8 +6,10 @@ import analyze from 'rollup-plugin-analyzer';
 import { externals } from 'shared-base';
 import p from './package.json';
 
+const ANALYZE_BUNDLE = false;
+
 export default defineConfig({
-    plugins: [react(), dts({})],
+    plugins: [dts({}), react()],
     build: {
         sourcemap: true,
         lib: {
@@ -17,7 +19,7 @@ export default defineConfig({
             fileName: (format) => `platformer.${format}.js`,
         },
         rollupOptions: {
-            plugins: [analyze()],
+            plugins: [ANALYZE_BUNDLE ? analyze() : null],
             ...externals({
                 react: '',
                 ...p.dependencies,

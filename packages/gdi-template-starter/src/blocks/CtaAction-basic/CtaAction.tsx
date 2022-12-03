@@ -41,7 +41,6 @@ export function CtaAction(props: CtaActionProps) {
         <Wrapper
             className='CtaAction-container'
             data-testid='CtaAction-container'
-            colors={colors}
             bk={<BkBlur imageUrl={imageUrl} />}
         >
             <Container>

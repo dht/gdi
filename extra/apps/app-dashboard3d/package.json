@@ -9,13 +9,13 @@
     },
     "dependencies": {
         "@babylonjs/core": "^5.34.0",
-        "@gdi/hooks": "^0.0.33",
-        "@gdi/language": "^0.0.39",
-        "@gdi/platformer": "^0.0.35",
-        "@gdi/store-dashboard": "^0.0.41",
-        "@gdi/types": "^0.0.70",
-        "@gdi/web-tables": "^0.0.43",
-        "@gdi/web-ui": "^0.0.47",
+        "@gdi/hooks": "^0.0.34",
+        "@gdi/language": "^0.0.51",
+        "@gdi/platformer": "^0.0.43",
+        "@gdi/store-dashboard": "^0.0.50",
+        "@gdi/types": "^0.0.82",
+        "@gdi/web-tables": "^0.0.53",
+        "@gdi/web-ui": "^0.0.57",
         "@testing-library/react": "^13.3.0",
         "babylonjs": "^5.34.0",
         "babylonjs-loaders": "^5.34.0",
@@ -27,7 +27,7 @@
         "react-use": "^17.4.0",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.0.1",
+        "testing-base": "^0.0.4",
         "trianglify": "^4.1.1"
     },
     "peerDependencies": {
@@ -47,7 +47,7 @@
         "types-base": "^0.0.2",
         "typescript": "^4.7.4",
         "vite": "^3.0.3",
-        "vite-plugin-dts": "^1.4.0"
+        "vite-plugin-dts": "^1.7.1"
     },
     "files": [
         "dist"
