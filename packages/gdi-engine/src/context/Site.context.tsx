@@ -62,17 +62,20 @@ export const SiteContextProvider = (props: SiteProps) => {
         [state]
     );
 
+    const cValue = useMemo(
+        () => ({
+            state,
+            menuItems,
+            datasets,
+            ga: callbacks.ga,
+            gan: callbacks.gan,
+            patchState,
+        }),
+        [state, menuItems, datasets, callbacks, patchState]
+    );
+
     return (
-        <SiteContext.Provider
-            value={{
-                state,
-                menuItems,
-                datasets,
-                ga: callbacks.ga,
-                gan: callbacks.gan,
-                patchState,
-            }}
-        >
+        <SiteContext.Provider value={cValue}>
             {props.children}
         </SiteContext.Provider>
     );

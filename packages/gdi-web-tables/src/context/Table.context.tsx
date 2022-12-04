@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 
@@ -23,13 +23,16 @@ type TableProps = {
 export const TableContextProvider = (props: TableProps) => {
     const [state, patchState] = useSetState<ITableContext>(initialState);
 
+    const cValue = useMemo(
+        () => ({
+            ...state,
+            patchState,
+        }),
+        [state]
+    );
+
     return (
-        <TableContext.Provider
-            value={{
-                ...state,
-                patchState,
-            }}
-        >
+        <TableContext.Provider value={cValue}>
             {props.children}
         </TableContext.Provider>
     );

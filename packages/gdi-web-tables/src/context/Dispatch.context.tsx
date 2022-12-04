@@ -35,12 +35,15 @@ export const DispatchContextProvider = (
         [dispatch]
     );
 
+    const cValue = useMemo(
+        () => ({
+            callbacks: callbacksDispatch,
+        }),
+        [callbacksDispatch]
+    );
+
     return (
-        <DispatchContext.Provider
-            value={{
-                callbacks: callbacksDispatch,
-            }}
-        >
+        <DispatchContext.Provider value={cValue}>
             {props.children}
         </DispatchContext.Provider>
     );

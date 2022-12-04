@@ -34,14 +34,17 @@ export const TimelineContextProvider = (
 
     const callbacksTimeline = useMemo(() => ({}), [state]);
 
+    const cValue = useMemo(
+        () => ({
+            ...state,
+            patchState,
+            callbacks: callbacksTimeline,
+        }),
+        [state, patchState, callbacksTimeline]
+    );
+
     return (
-        <TimelineContext.Provider
-            value={{
-                ...state,
-                callbacks: callbacksTimeline,
-                patchState,
-            }}
-        >
+        <TimelineContext.Provider value={cValue}>
             {props.children}
         </TimelineContext.Provider>
     );

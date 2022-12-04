@@ -43,14 +43,17 @@ export const AppContextProvider = (props: WithChildren<AppContextProps>) => {
         [state]
     );
 
+    const cValue = useMemo(
+        () => ({
+            state,
+            patchState,
+            setAppId: callbacks.setAppId,
+        }),
+        [state, patchState, callbacks]
+    );
+
     return (
-        <AppContext.Provider
-            value={{
-                state,
-                patchState: patchState as any,
-                setAppId: callbacks.setAppId,
-            }}
-        >
+        <AppContext.Provider value={cValue}>
             {props.children}
         </AppContext.Provider>
     );

@@ -90,7 +90,7 @@ export const SelectionContextProvider = (
         [selectedIds, focusedId, mode]
     );
 
-    const value = useMemo(
+    const cValue = useMemo(
         () => ({
             state: selectedIds,
             focusedId,
@@ -101,7 +101,7 @@ export const SelectionContextProvider = (
     );
 
     return (
-        <SelectionContext.Provider value={value}>
+        <SelectionContext.Provider value={cValue}>
             {props.children}
         </SelectionContext.Provider>
     );

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import { useTemplates } from '../hooks/useTemplates';
@@ -25,15 +25,18 @@ export const EngineContextProvider = (props: EngineProps) => {
 
     const { isReady, widgets } = useTemplates(libraryBuilder);
 
+    const cValue = useMemo(
+        () => ({
+            ...state,
+            isReady,
+            widgets,
+            patchContext: patchState,
+        }),
+        [state, isReady, widgets, patchState]
+    );
+
     return (
-        <EngineContext.Provider
-            value={{
-                ...state,
-                isReady,
-                widgets,
-                patchContext: patchState,
-            }}
-        >
+        <EngineContext.Provider value={cValue}>
             {props.children}
         </EngineContext.Provider>
     );
