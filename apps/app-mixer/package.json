@@ -8,17 +8,17 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.58",
+        "@gdi/engine": "^0.0.59",
         "@gdi/hooks": "^0.0.34",
-        "@gdi/language": "^0.0.51",
-        "@gdi/platformer": "^0.0.43",
-        "@gdi/store-mixer": "^0.0.39",
-        "@gdi/store-site": "^0.0.43",
+        "@gdi/language": "^0.0.52",
+        "@gdi/platformer": "^0.0.44",
+        "@gdi/store-mixer": "^0.0.40",
+        "@gdi/store-site": "^0.0.44",
         "@gdi/template-card": "^0.0.40",
         "@gdi/template-starter": "^0.0.39",
         "@gdi/template-gdi": "^0.0.50",
-        "@gdi/types": "^0.0.82",
-        "@gdi/web-ui": "^0.0.57",
+        "@gdi/types": "^0.0.83",
+        "@gdi/web-ui": "^0.0.58",
         "@testing-library/react": "^13.3.0",
         "axios": "^1.2.0",
         "bytes": "^3.1.2",
@@ -30,7 +30,7 @@
         "redux-saga": "^1.2.1",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.0.1"
+        "testing-base": "^0.0.4"
     },
     "peerDependencies": {
         "react": "^18.2.0"

@@ -11,8 +11,8 @@
         "@babylonjs/gui": "^5.22.1",
         "@babylonjs/materials": "^5.22.1",
         "@gdi/store-studio": "^0.0.35",
-        "@gdi/types": "^0.0.82",
-        "@gdi/web-ui": "^0.0.57",
+        "@gdi/types": "^0.0.83",
+        "@gdi/web-ui": "^0.0.58",
         "@testing-library/react": "^13.3.0",
         "babylonjs": "^5.22.1",
         "babylonjs-loaders": "^5.30.0",
@@ -23,7 +23,7 @@
         "redux-saga": "^1.2.1",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.0.1"
+        "testing-base": "^0.0.4"
     },
     "peerDependencies": {
         "react": "^18.2.0"

@@ -1,6 +1,6 @@
 {
     "name": "@gdi/engine",
-    "version": "0.0.58",
+    "version": "0.0.59",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -8,7 +8,7 @@
         "watch": "nodemon -x \"npm run build\""
     },
     "dependencies": {
-        "@gdi/types": "^0.0.82",
+        "@gdi/types": "^0.0.83",
         "react-use": "^17.4.0",
         "styled-components": "^5.3.6"
     },

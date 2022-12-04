@@ -9,8 +9,8 @@
     },
     "dependencies": {
         "@gdi/store-tasks": "^0.0.39",
-        "@gdi/types": "^0.0.82",
-        "@gdi/language": "^0.0.51",
+        "@gdi/types": "^0.0.83",
+        "@gdi/language": "^0.0.52",
         "chroma-js": "^2.4.2",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"

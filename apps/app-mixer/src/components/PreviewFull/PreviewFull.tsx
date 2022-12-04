@@ -6,6 +6,7 @@ import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
 import { initTemplate as initTemplateCard } from '@gdi/template-card';
 import { invokeEvent } from 'shared-base';
 import { useMount, useWindowSize } from 'react-use';
+import { BuiltWithGdi } from '@gdi/web-ui';
 
 export type PreviewFullProps = {
     elements: IElement[];
@@ -65,6 +66,12 @@ export function PreviewFull(props: PreviewFullProps) {
             <WindowSize>
                 {width} x {height}
             </WindowSize>
+            <BuiltWithGdi
+                data={{
+                    elements,
+                    libraryBuilder,
+                }}
+            />
         </Wrapper>
     );
 }

@@ -4,6 +4,7 @@ import { EngineView, LibraryBuilder } from '@gdi/engine';
 import { initTemplate as initTemplateStarter } from '@gdi/template-starter';
 import { initTemplate as initTemplateGdi } from '@gdi/template-gdi';
 import { initTemplate as initTemplateCard } from '@gdi/template-card';
+import { BuiltWithGdi } from '@gdi/web-ui';
 
 export type SiteProps = {
     elements: IElement[];
@@ -28,6 +29,12 @@ export function Site(props: SiteProps) {
                 libraryBuilder={libraryBuilder}
                 datasets={datasets}
                 backgroundColor='#fff'
+            />
+            <BuiltWithGdi
+                data={{
+                    elements,
+                    datasets,
+                }}
             />
         </Wrapper>
     );

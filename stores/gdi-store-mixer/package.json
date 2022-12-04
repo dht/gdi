@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-mixer",
-    "version": "0.0.39",
+    "version": "0.0.40",
     "description": "",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,9 +8,9 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/language": "^0.0.51",
-        "@gdi/store-site": "^0.0.43",
-        "@gdi/types": "^0.0.82",
+        "@gdi/language": "^0.0.52",
+        "@gdi/store-site": "^0.0.44",
+        "@gdi/types": "^0.0.83",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },
