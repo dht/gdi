@@ -3,6 +3,7 @@ export { AutoComplete } from './components/AutoComplete/AutoComplete';
 export { Avatar } from './components/Avatar/Avatar';
 export { BarSelect } from './components/BarSelect/BarSelect';
 export { Button } from './components/Button/Button';
+export { BuiltWithGdi } from './components/BuiltWithGdi/BuiltWithGdi';
 export { Chair } from './components/Chair/Chair';
 export { Checkbox } from './components/Checkbox/Checkbox';
 export { Checkboxes } from './components/Checkboxes/Checkboxes';

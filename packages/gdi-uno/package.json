@@ -1,6 +1,6 @@
 {
     "name": "@gdi/uno",
-    "version": "0.0.20",
+    "version": "0.0.21",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",
@@ -15,11 +15,11 @@
         "@fullcalendar/interaction": "^5.11.3",
         "@fullcalendar/react": "^5.11.2",
         "@fullcalendar/timegrid": "^5.11.3",
-        "@gdi/engine": "^0.0.58",
+        "@gdi/engine": "^0.0.59",
         "@gdi/hooks": "^0.0.34",
-        "@gdi/language": "^0.0.51",
-        "@gdi/web-base-ui": "^0.0.62",
-        "@gdi/web-ui": "^0.0.57",
+        "@gdi/language": "^0.0.52",
+        "@gdi/web-base-ui": "^0.0.64",
+        "@gdi/web-ui": "^0.0.58",
         "bytes": "^3.1.2",
         "classnames": "^2.3.1",
         "react-draggable": "^4.4.5",

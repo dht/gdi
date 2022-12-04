@@ -8,8 +8,8 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/language": "^0.0.51",
-        "@gdi/types": "^0.0.82",
+        "@gdi/language": "^0.0.52",
+        "@gdi/types": "^0.0.83",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

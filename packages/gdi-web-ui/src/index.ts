@@ -35,6 +35,7 @@ export {
     Avatar,
     BarSelect,
     Button,
+    BuiltWithGdi,
     Chair,
     Checkbox,
     CircularProgress,

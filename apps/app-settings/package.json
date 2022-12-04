@@ -9,12 +9,12 @@
     },
     "dependencies": {
         "@gdi/hooks": "^0.0.34",
-        "@gdi/platformer": "^0.0.43",
-        "@gdi/store-auth": "^0.0.39",
-        "@gdi/store-settings": "^0.0.49",
-        "@gdi/store-site": "^0.0.43",
-        "@gdi/types": "^0.0.82",
-        "@gdi/web-ui": "^0.0.57",
+        "@gdi/platformer": "^0.0.44",
+        "@gdi/store-auth": "^0.0.40",
+        "@gdi/store-settings": "^0.0.50",
+        "@gdi/store-site": "^0.0.44",
+        "@gdi/types": "^0.0.83",
+        "@gdi/web-ui": "^0.0.58",
         "@testing-library/react": "^13.3.0",
         "bytes": "^3.1.2",
         "chance": "^1.1.8",
@@ -23,7 +23,7 @@
         "react-use": "^17.4.0",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.0.1"
+        "testing-base": "^0.0.4"
     },
     "peerDependencies": {
         "react": "^18.2.0"
