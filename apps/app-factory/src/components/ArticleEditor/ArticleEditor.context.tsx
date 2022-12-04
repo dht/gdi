@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { createContext } from 'react';
 import { useSetState } from 'react-use';
 import { ArticleEditorProps } from './ArticleEditor';
@@ -116,14 +116,17 @@ export const ArticleContextProvider = (props: ArticleContextProvider) => {
         });
     });
 
+    const cValue = useMemo(
+        () => ({
+            ...state,
+            ...callbacks,
+            patchState,
+        }),
+        [state, patchState, callbacks]
+    );
+
     return (
-        <ArticleContext.Provider
-            value={{
-                ...state,
-                ...callbacks,
-                patchState,
-            }}
-        >
+        <ArticleContext.Provider value={cValue}>
             {props.children}
         </ArticleContext.Provider>
     );

@@ -146,14 +146,16 @@ export const SheetContextProvider = (props: SheetContextProvider) => {
         props.onDelete(item.id);
     }, [state]);
 
+    const cValue = useMemo(() => {
+        return {
+            ...state,
+            ...callbacks,
+            patchState,
+        };
+    }, [state, callbacks, patchState]);
+
     return (
-        <SheetContext.Provider
-            value={{
-                ...state,
-                ...callbacks,
-                patchState,
-            }}
-        >
+        <SheetContext.Provider value={cValue}>
             <Child {...props} data={sortedData} />
         </SheetContext.Provider>
     );

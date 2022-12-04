@@ -80,22 +80,39 @@ export const LanguageContextProvider = (
         [state]
     );
 
+    const languageId = getLanguageCode();
+
+    const cValue = useMemo(
+        () => ({
+            ...configValue,
+            state: state!,
+            patchState: patchState as any,
+            callbacks: callbacksLanguage,
+            keys,
+            languageId,
+            m,
+            n,
+            d,
+            h,
+            t,
+        }),
+        [
+            configValue,
+            state,
+            patchState,
+            callbacksLanguage,
+            keys,
+            m,
+            n,
+            d,
+            h,
+            t,
+            languageId,
+        ]
+    );
+
     return (
-        <LanguageContext.Provider
-            value={{
-                ...configValue,
-                state: state!,
-                patchState: patchState as any,
-                callbacks: callbacksLanguage,
-                keys,
-                languageId: getLanguageCode(),
-                m,
-                n,
-                d,
-                h,
-                t,
-            }}
-        >
+        <LanguageContext.Provider value={cValue}>
             {props.children}
         </LanguageContext.Provider>
     );

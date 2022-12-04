@@ -168,7 +168,7 @@ export const FilterContextProvider = (
         [state, filterCallbacks]
     );
 
-    const value = useMemo(
+    const cValue = useMemo(
         () => ({
             ...configAndOptions,
             state: {
@@ -184,7 +184,7 @@ export const FilterContextProvider = (
     );
 
     return (
-        <FilterContext.Provider value={value}>
+        <FilterContext.Provider value={cValue}>
             {props.children}
         </FilterContext.Provider>
     );

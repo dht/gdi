@@ -179,15 +179,18 @@ export const CrudContextProvider = (props: WithChildren<CrudContextProps>) => {
         [state, selectedIds, options, crudCallbacks]
     );
 
+    const cValue = useMemo(
+        () => ({
+            ...configValue,
+            state,
+            patchState,
+            callbacks: callbacksCrud,
+        }),
+        [configValue, state, patchState, crudCallbacks]
+    ) as ICrudContext;
+
     return (
-        <CrudContext.Provider
-            value={{
-                ...configValue,
-                state: state!,
-                patchState: patchState as any,
-                callbacks: callbacksCrud,
-            }}
-        >
+        <CrudContext.Provider value={cValue}>
             {props.children}
         </CrudContext.Provider>
     );

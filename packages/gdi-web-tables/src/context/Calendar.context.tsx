@@ -38,7 +38,7 @@ export const CalendarContext = createContext<ICalendarContext>(initialValue);
 export const CrudContextProvider = (
     props: WithChildren<CalendarContextProps>
 ) => {
-    const { config, options, callbacks } = props;
+    const { config, options } = props;
 
     const configValue = useMemo(
         () => ({
@@ -55,15 +55,18 @@ export const CrudContextProvider = (
 
     const callbacksCalendar = useMemo(() => ({}), [state]);
 
+    const cValue = useMemo(
+        () => ({
+            ...configValue,
+            state,
+            callbacks: callbacksCalendar,
+            patchState,
+        }),
+        [configValue, state, callbacksCalendar, patchState]
+    );
+
     return (
-        <CalendarContext.Provider
-            value={{
-                ...configValue,
-                ...state,
-                patchState,
-                callbacks: callbacksCalendar,
-            }}
-        >
+        <CalendarContext.Provider value={cValue}>
             {props.children}
         </CalendarContext.Provider>
     );

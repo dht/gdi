@@ -144,15 +144,18 @@ export const GalleryContextProvider = (
         [state, selectedIds, tag, filterState.toolId]
     );
 
+    const cValue = useMemo(
+        () => ({
+            ...configValue,
+            state,
+            patchState,
+            callbacks: callbacksGallery,
+        }),
+        [configValue, state, patchState, callbacksGallery]
+    );
+
     return (
-        <GalleryContext.Provider
-            value={{
-                ...configValue,
-                ...state,
-                patchState,
-                callbacks: callbacksGallery,
-            }}
-        >
+        <GalleryContext.Provider value={cValue}>
             {props.children}
         </GalleryContext.Provider>
     );
