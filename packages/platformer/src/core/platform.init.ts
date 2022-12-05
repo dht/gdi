@@ -11,13 +11,14 @@ import { RouterBuilder } from '../builders/RouterBuilder';
 import { SelectorsBuilder } from '../builders/SelectorsBuilder';
 import { WidgetLibraryBuilder } from 'igrid';
 import {
-    ConnectionType,
     EndpointConfig,
     initReduxConnected,
     RestAdapter,
     FirestoreAdapter,
+    LocalStorageAdapter,
     RetryStrategy,
     StoreBuilder,
+    ConnectionType,
 } from 'redux-connected';
 import type { IReduxConnectedConfig } from 'redux-connected';
 import type { StoreStructure } from 'redux-store-generator';
@@ -69,7 +70,7 @@ export async function initPlatform<T extends StoreStructure>(
         logger = defaultLogger,
         noServerMode,
         languageCode = 'en',
-        connectionType = 'NONE',
+        connectionType = ConnectionType.NONE,
     } = params;
 
     logger('platform: init');
@@ -149,6 +150,7 @@ export async function initPlatform<T extends StoreStructure>(
     });
 
     const firestoreAdapter = new FirestoreAdapter(firebase.value.app);
+    const localStorageAdapter = new LocalStorageAdapter({});
 
     logger('platform: configuring API', {
         default: DEFAULT_ENDPOINT_CONFIG,
@@ -161,6 +163,7 @@ export async function initPlatform<T extends StoreStructure>(
         adapters: {
             rest: restAdapter,
             firestore: firestoreAdapter,
+            localStorage: localStorageAdapter,
         },
         enableReduxDevtools: true,
         logger,

@@ -4,6 +4,7 @@ import { IPlatformConfig } from '@gdi/platformer';
 import { getLanguageCode } from '@gdi/language';
 import { initializers } from './main.apps';
 import { uniq, getJson } from 'shared-base';
+import { ConnectionType } from 'redux-connected';
 
 const baseURL = import.meta.env.VITE_API_SERVER_DOMAIN + '/v1';
 const menuSections = import.meta.env.VITE_MENU.split(',');
@@ -30,5 +31,5 @@ export const config: IPlatformConfig = {
     noServerMode: false,
     languageCode: 'en',
     isRtl: false,
-    connectionType: 'FIRESTORE',
+    connectionType: ConnectionType.FIRESTORE,
 };

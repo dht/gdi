@@ -1,8 +1,3 @@
-enum ConnectionType {
-    NONE = 'NONE',
-    FIRESTORE = 'FIRESTORE',
-}
-
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateTasks: {
         id: 'appStateTasks',
@@ -10,28 +5,28 @@ export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     },
     projects: {
         id: 'projects',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
     tickets: {
         id: 'tickets',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
         optimisticPosts: true,
     },
     worklogs: {
         id: 'activeTaskWorklogs',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
     sessions: {
         id: 'recentSessions',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
     recentSessions: {
         id: 'recentSessions',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
 });
