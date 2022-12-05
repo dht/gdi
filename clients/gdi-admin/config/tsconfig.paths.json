@@ -54,6 +54,7 @@
             "@gdi/app-tasks": ["extra/apps/app-tasks"],
             "@gdi/app-things": ["extra/apps/app-things"],
             "@gdi/app-voice": ["extra/apps/app-voice"],
+            "@gdi/app-dashboard3d": ["extra/apps/app-dashboard3d"],
 
             "@gdi/store-biblo": ["extra/stores/gdi-store-biblo"],
             "@gdi/store-carts": ["extra/stores/gdi-store-carts"],

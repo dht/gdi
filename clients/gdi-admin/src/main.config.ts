@@ -1,6 +1,7 @@
 import { firebaseConfigs } from './main.firebase';
 import p from '../package.json';
 import { IPlatformConfig } from '@gdi/platformer';
+import { ConnectionType } from 'redux-connected';
 import { getLanguageCode } from '@gdi/language';
 import { initializers } from './main.apps';
 import { uniq, getJson } from 'shared-base';
@@ -30,5 +31,5 @@ export const config: IPlatformConfig = {
     noServerMode: false,
     languageCode: 'en',
     isRtl: false,
-    connectionType: 'FIRESTORE',
+    connectionType: ConnectionType.FIRESTORE,
 };

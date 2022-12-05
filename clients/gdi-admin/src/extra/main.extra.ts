@@ -2,6 +2,7 @@ import { initApp as initBiblo } from '@gdi/app-biblo';
 import { initApp as initCarts } from '@gdi/app-carts';
 import { initApp as initComments } from '@gdi/app-comments';
 import { initApp as initCampaigns } from '@gdi/app-campaigns';
+import { initApp as initDashboard3d } from '@gdi/app-dashboard3d';
 import { initApp as initDevtools } from '@gdi/app-devtools';
 import { initApp as initEvents } from '@gdi/app-events';
 import { initApp as initKnowledge } from '@gdi/app-knowledge';
@@ -21,6 +22,7 @@ export const initializersExtra = {
     carts: initCarts,
     comments: initComments,
     campaigns: initCampaigns,
+    dashboard3d: initDashboard3d,
     devtools: initDevtools,
     events: initEvents,
     knowledge: initKnowledge,

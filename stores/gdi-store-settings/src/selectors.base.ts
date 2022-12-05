@@ -78,6 +78,10 @@ const apps: Record<string, App> = {
         id: 'dashboard',
         nodes: ['dashboard'],
     },
+    dashboard3d: {
+        id: 'dashboard3d',
+        nodes: ['dashboard3d'],
+    },
     factory: {
         id: 'factory',
         nodes: ['factory'],
