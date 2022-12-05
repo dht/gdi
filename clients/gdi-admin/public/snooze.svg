@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="469px" height="469px" viewBox="0 0 469 469" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Concept" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <rect id="Rectangle" x="0" y="0" width="469" height="469"></rect>
+            <circle id="Oval" stroke="#979797" stroke-width="12" cx="234" cy="249" r="160"></circle>
+            <line x1="230.5" y1="249.5" x2="156.5" y2="137.5" id="Line-6" stroke="#979797" stroke-width="14" stroke-linecap="square"></line>
+            <line x1="230.5" y1="249.5" x2="298.5" y2="249.5" id="Line-6" stroke="#979797" stroke-width="14" stroke-linecap="square"></line>
+            <polygon id="z" fill="#979797" fill-rule="nonzero" points="388.313671 109 390.123862 98.687396 364.013226 98.687396 393.799098 58.3146482 350.08024 58.3146482 348.763737 68.572398 372.02195 68.572398 342.236078 109"></polygon>
+            <polygon id="z" fill="#979797" fill-rule="nonzero" points="439.812008 70 441.122687 62.5330991 422.21713 62.5330991 443.783764 33.3009763 412.12887 33.3009763 411.175649 40.7281597 428.015893 40.7281597 406.449259 70"></polygon>
+        </g>
+    </g>
+</svg>

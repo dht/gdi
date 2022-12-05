@@ -5,12 +5,13 @@ import classnames from 'classnames';
 export type ProgressBarProps = {
     value: number;
     color?: string;
+    barColor?: string;
     width?: number;
     animated?: boolean;
 };
 
 export function ProgressBar(props: ProgressBarProps) {
-    let { value = 0, color, animated = true } = props;
+    let { value = 0, color, animated = true, barColor } = props;
     const width = 100 * value + '%';
 
     let backgroundColor = color;
@@ -44,6 +45,7 @@ export function ProgressBar(props: ProgressBarProps) {
             className='ProgressBar-wrapper'
             data-testid='ProgressBar-wrapper'
             style={styleContainer}
+            barColor={barColor}
         >
             <Inner className={className} style={styleInner} />
         </Wrapper>

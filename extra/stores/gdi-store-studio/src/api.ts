@@ -3,36 +3,48 @@ import { EndpointsConfigOverrides, ConnectionType } from 'redux-connected';
 export const endpointsConfigOverrides = (
     connectionType: ConnectionType
 ): EndpointsConfigOverrides => ({
-    assets: {
-        id: 'assets',
+    studioBoards: {
+        id: 'studioBoards',
         connectionType,
     },
-    buildings: {
-        id: 'buildings',
+    studioCameras: {
+        id: 'studioCameras',
         connectionType,
     },
-    boards: {
-        id: 'boards',
+    studioGrounds: {
+        id: 'studioGrounds',
         connectionType,
     },
-    cameras: {
-        id: 'cameras',
+    studioExternals: {
+        id: 'studioExternals',
         connectionType,
     },
-    grounds: {
-        id: 'grounds',
+    studioLights: {
+        id: 'studioLights',
         connectionType,
     },
-    items: {
-        id: 'items',
+    studioMicroAnimations: {
+        id: 'studioMicroAnimations',
         connectionType,
     },
-    lights: {
-        id: 'lights',
+    studioPacks: {
+        id: 'studioPacks',
         connectionType,
     },
-    particles: {
-        id: 'particles',
+    studioParticles: {
+        id: 'studioParticles',
+        connectionType,
+    },
+    studioSounds: {
+        id: 'studioSounds',
+        connectionType,
+    },
+    studioSprites: {
+        id: 'studioSprites',
+        connectionType,
+    },
+    studioVideos: {
+        id: 'studioVideos',
         connectionType,
     },
 });

@@ -87,6 +87,18 @@ export const dateDbLong = (value: DateTime) => {
     return format(date, 'yyyy-MM-dd HH:mm:ss');
 };
 
+export const dateDbLongInMinutes = (minutes: number) => {
+    const date = now();
+
+    const futureDate = add(date, minutes, 'minute');
+
+    if (!futureDate) {
+        return '';
+    }
+
+    return dateDbLong(futureDate);
+};
+
 export const isToday = (value: DateTime) => {
     const now = new Date();
     const date = normalize(value);

@@ -2,12 +2,5 @@
     "id": "ImageGallery",
     "header": "Images",
     "columns": 5,
-    "itemType": "image",
-    "actions": [
-        {
-            "id": "new",
-            "iconName": "add",
-            "title": "Upload Image"
-        }
-    ]
+    "itemType": "image"
 }

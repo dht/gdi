@@ -3,18 +3,30 @@ import type { StoreStructure } from 'redux-store-generator';
 export type IStudioStore = StoreStructure & {
     meta: IGdiMeta;
     appStateStudio: IStudioState;
-    boards: IBoards;
-    buildings: IBuildings;
-    assets: IAssets;
-    cameras: ICameras;
-    lights: ILights;
-    grounds: IGrounds;
-    studioItems: IStudioItems;
-    particles: IParticles;
+    currentIdsStudio: IStudioCurrentIds;
+    studioBoards: IStudioBoards;
+    studioCameras: IStudioCameras;
+    studioGrounds: IStudioGrounds;
+    studioExternals: IStudioExternals;
+    studioLights: IStudioLights;
+    studioMicroAnimations: IStudioMicroAnimations;
+    studioPacks: IStudioPacks;
+    studioParticles: IStudioParticles;
+    studioSounds: IStudioSounds;
+    studioSprites: IStudioSprites;
+    studioVideos: IStudioVideos;
+};
+
+export type IStudioState = {
+    isReady: boolean;
+};
+
+export type IStudioCurrentIds = {
+    boardId: string;
 };
 
 export type IPosition = { x: number; y: number; z: number };
-export type IColor = { r: number; g: number; b: number; a?: number };
+export type IColor = number[];
 export type ICameraType =
     | 'iso'
     | 'universal'
@@ -23,21 +35,20 @@ export type ICameraType =
     | 'joystick'
     | 'vr';
 
-export type ICamera = {
+export type IBoard = {
     id: string;
     identifier: string;
-    type: ICameraType;
-    position: IPosition;
-    target?: IPosition;
-    isFreeHand?: boolean;
-    test?: boolean;
-    values?: Json;
-    boardId: string;
+    name: string;
+    description?: string;
+    useRightHandedSystem?: boolean;
+    backgroundType: 'transparent' | 'color' | 'texture' | 'triangles';
+    backgroundValues?: Json;
+    flyIn?: Json;
 };
 
-export type ICameras = Record<string, ICamera>;
+export type IStudioBoards = Record<string, IBoard>;
 
-export type IItemBase = {
+export type IStudioBase = {
     id: string;
     identifier: string;
     position?: IPosition;
@@ -46,245 +57,96 @@ export type IItemBase = {
     boardId: string;
 };
 
-export type IGround = IItemBase & {
-    type: 'ground';
+export type IStudioCamera = IStudioBase & {
+    type: ICameraType;
+    values?: Json;
+};
+
+export type IStudioCameras = Record<string, IStudioCamera>;
+
+export type IStudioGround = IStudioBase & {
     width: number;
     height: number;
+    type: 'color' | 'texture' | 'grid';
     subdivisions?: number;
-    updatable?: boolean;
-    topographyImage?: string;
-    topographyMaxHeight?: number;
-    texture?: string;
-    boardId: string;
+    receiveShadows?: boolean;
+    values?: Json;
 };
 
-export type IGrid = IItemBase & {
-    type: 'grid';
-    size: number;
-    squares: number;
-    showSquares?: boolean;
+export type IStudioGrounds = Record<string, IStudioGround>;
+
+export type IStudioExternal = IStudioBase & {
+    url: string;
 };
 
-export type IGrounds = Record<string, IGround | IGrid>;
-
-export type IBox = IItemBase & {
-    type: 'box' | 'cube';
-    size: number;
-};
-
-export type ICylinder = IItemBase & {
-    type: 'cylinder';
-    diameter: number;
-    height: number;
-};
-
-export type ISphere = IItemBase & {
-    type: 'sphere';
-    diameter: number;
-};
-
-export type IPlane = IItemBase & {
-    type: 'plane';
-    size: number;
-};
-
-export type ICircle = IItemBase & {
-    type: 'circle';
-    size: number;
-};
-
-export type IIcoSphere = IItemBase & {
-    type: 'icoSphere';
-    diameter: number;
-    subdivisions: number;
-};
-
-export type ICone = IItemBase & {
-    type: 'cone';
-    diameter: number;
-    height: number;
-};
-
-export type ITorus = IItemBase & {
-    type: 'torus';
-    diameter: number;
-    thickness: number;
-};
-
-export type IPrism = IItemBase & {
-    type: 'prism';
-    diameter: number;
-    height: number;
-    tessellation: number;
-};
-
-export type IPyramid = IItemBase & {
-    type: 'pyramid';
-    diameter: number;
-    height: number;
-    tessellation: number;
-};
-
-export type IIso = IItemBase & {
-    type: 'iso';
-    assetId: string;
-    width: number;
-    height: number;
-};
-
-export type IVideo = IItemBase & {
-    type: 'video';
-    assetId: string;
-    width: number;
-    height: number;
-    test?: boolean;
-};
-
-export type IPrimitives =
-    | IGround
-    | IBox
-    | ICylinder
-    | ISphere
-    | IPlane
-    | ICircle
-    | IGrid
-    | IIcoSphere
-    | ICone
-    | ITorus
-    | IPrism
-    | IPyramid;
-
-export type IStudioItem = IPrimitives | IIso | IVideo;
-export type IStudioItems = Record<string, IStudioItem>;
-
-export type IData = {
-    ground: IStudioItem;
-    cameras: ICamera[];
-    particles: IParticle[];
-    lights: ILight[];
-    items: IStudioItem[];
-};
-
-export type IParticle = {
-    id: string;
-    identifier: string;
-    count: number;
-    texture: string;
-    minVector: IPosition;
-    maxVector: IPosition;
-    color1?: IColor;
-    color2?: IColor;
-    colorDead?: IColor;
-    minSize?: number;
-    maxSize?: number;
-    minLifeTime?: number;
-    maxLifeTime?: number;
-    emitRate?: number;
-    blendMode?: number;
-    gravity?: IPosition;
-    direction1?: IPosition;
-    direction2?: IPosition;
-    minAngularSpeed?: number;
-    maxAngularSpeed?: number;
-    minEmitPower?: number;
-    maxEmitPower?: number;
-    updateSpeed?: number;
-    addNoise?: boolean;
-    noiseTextureSize?: number;
-    noiseSpeedFactor?: number;
-    noisePersistence?: number;
-    noiseBrightness?: number;
-    noiseOctaves?: number;
-    noiseStrength?: IPosition;
-};
-
-export type IParticles = Record<string, IParticle>;
-
-export enum AssetType {
-    RAW = 'RAW',
-    COMPOSITE = 'COMPOSITE',
-}
-
-export type IAsset = {
-    id: string;
-    identifier: string;
-    categoryId?: string;
-    description?: string;
-    type?: AssetType;
-    url?: string;
-    width?: number;
-    height?: number;
-    thumbWidth?: number;
-    thumbHeight?: number;
-    thumbUrl?: string;
-    isPlaceholder?: boolean;
-};
-
-export type IAssetCategory = {
-    id: string;
-    title: string;
-};
-
-export type IAssetCategories = Record<string, IAssetCategory>;
-
-export type IAssets = Record<string, IAsset>;
+export type IStudioExternals = Record<string, IStudioExternal>;
 
 export type LightType = 'hemispheric' | 'point';
 
-export type ILight = {
-    id: string;
-    identifier: string;
+export type IStudioLight = IStudioBase & {
     type: LightType;
-    position?: IPosition;
     diffuse?: IColor;
     specular?: IColor;
     groundColor?: IColor;
-    boardId: string;
+    intensity?: number;
 };
 
-export type ILights = Record<string, ILight>;
+export type IStudioLights = Record<string, IStudioLight>;
 
-export type BuildMethod = (itemData: IStudioItem) => any;
-
-export type BuildMap = Record<string, BuildMethod>;
-
-export type IBoard = {
-    id: string;
-    identifier: string;
-    name: string;
-    description?: string;
+export type IStudioMicroAnimation = IStudioBase & {
+    url: string;
+    capacity?: number;
+    cellSize: number;
+    size: number;
+    fromFrame?: number;
+    toFrame: number;
+    loop?: boolean;
+    delay?: number;
 };
 
-export type IBoards = Record<string, IBoard>;
+export type IStudioMicroAnimations = Record<string, IStudioMicroAnimation>;
 
-export type IBuilding = {
-    id: string;
-    identifier: string;
-    width: number;
-    height: number;
-    assetId: string;
+export type IStudioPack = IStudioBase & {
+    capacity: number;
+    url: string;
 };
 
-export type IBuildings = Record<string, IBuilding>;
+export type IStudioPacks = Record<string, IStudioPack>;
 
-export type IBabylonData = {
-    assets: IAssets;
-    cameras: ICameras;
-    lights: ILights;
-    grounds: IGrounds;
-    items: IStudioItems;
-    particles: IParticles;
-    boards: IBoards;
+export type IStudioParticle = IStudioBase & {
+    url: string;
+    size: number;
+    speed?: number;
+    maxLife: number;
+    emitRate: number;
 };
 
-export type IStudioState = {
-    stateKey: string;
-    isReady: boolean;
-    mode: string;
-    selectedItemId?: string;
-    currentBoardId?: string;
-    flavour?: string;
+export type IStudioParticles = Record<string, IStudioParticle>;
+
+export type IStudioSprite = IStudioBase & {
+    packId: string;
+    source: { width: number; height: number };
+    size: { width: number; height: number };
+    isOnGround?: boolean;
+    isHidden?: boolean;
 };
+
+export type IStudioSprites = Record<string, IStudioSprite>;
+
+export type IStudioSound = IStudioBase & {
+    url: string;
+};
+
+export type IStudioSounds = Record<string, IStudioSound>;
+
+export type IStudioVideo = IStudioBase & {
+    url: string;
+    objectType: 'sphere' | 'plane';
+    values: Json;
+    specularColor?: IColor;
+};
+
+export type IStudioVideos = Record<string, IStudioVideo>;
 
 export type IsoEvent =
     | 'BABYLON_ISO_HOVER'
@@ -294,3 +156,16 @@ export type IsoEvent =
     | 'BABYLON_ISO_MOVE_END'
     | 'BABYLON_KEY_DOWN'
     | 'BABYLON_KEY_UP';
+
+export type IBoardConfig = IBoard & {
+    cameras: IStudioCameras;
+    grounds: IStudioGrounds;
+    externals: IStudioExternals;
+    lights: IStudioLights;
+    microAnimations: IStudioMicroAnimations;
+    packs: IStudioPacks;
+    particles: IStudioParticles;
+    sounds: IStudioSounds;
+    sprites: IStudioSprites;
+    videos: IStudioVideos;
+};

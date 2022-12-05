@@ -22,6 +22,7 @@ export {
     now,
     dateShort,
     dateLong,
+    dateDbLongInMinutes,
     dateDb,
     dateDbLong,
     dateInfo,
@@ -49,6 +50,7 @@ export {
     minutesToDuration,
     addMinutes,
     calculateUTC,
+    durationToMinutes,
 } from './utils/language.time';
 
 export {

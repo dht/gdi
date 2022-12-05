@@ -1,68 +1,181 @@
 import * as raw from './selectors.raw';
 import { createSelector } from 'reselect';
-import { pickBy, mapValues } from 'shared-base';
+import { pickBy } from 'shared-base';
+import { IBoardConfig } from './types';
 
-export const $mode = createSelector(raw.$rawStudioState, (studioState) => {
-    return studioState.mode;
-});
+export const $board = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawBoards,
+    (currentIds, boards) => {
+        const { boardId } = currentIds;
 
-export const $currentItems = createSelector(
-    raw.$rawStudioState,
-    raw.$rawStudioItems,
-    (studioState, items) => {
-        return pickBy(items, (item) => {
-            return item.boardId === studioState.currentBoardId;
-        });
+        return boards[boardId];
     }
 );
 
 export const $cameras = createSelector(
-    raw.$rawStudioState,
+    raw.$rawStudioIds,
     raw.$rawCameras,
-    (studioState, cameras) => {
+    (currentIds, cameras) => {
+        const { boardId } = currentIds;
+
         return pickBy(cameras, (camera) => {
-            return camera.boardId === studioState.currentBoardId;
+            return camera.boardId === boardId;
         });
     }
 );
 
 export const $grounds = createSelector(
-    raw.$rawStudioState,
+    raw.$rawStudioIds,
     raw.$rawGrounds,
-    (studioState, grounds) => {
+    (currentIds, grounds) => {
+        const { boardId } = currentIds;
+
         return pickBy(grounds, (ground) => {
-            return ground.boardId === studioState.currentBoardId;
+            return ground.boardId === boardId;
+        });
+    }
+);
+
+export const $externals = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawExternals,
+    (currentIds, externals) => {
+        const { boardId } = currentIds;
+
+        return pickBy(externals, (external) => {
+            return external.boardId === boardId;
         });
     }
 );
 
 export const $lights = createSelector(
-    raw.$rawStudioState,
+    raw.$rawStudioIds,
     raw.$rawLights,
-    (studioState, lights) => {
+    (currentIds, lights) => {
+        const { boardId } = currentIds;
+
         return pickBy(lights, (light) => {
-            return light.boardId === studioState.currentBoardId;
+            return light.boardId === boardId;
         });
     }
 );
 
-export const $relevantBoards = createSelector(raw.$rawBoards, (boards) => {
-    return pickBy(boards, (board) => {
-        return ['work', 'life', 'balance'].includes(board.identifier);
-    });
-});
+export const $packs = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawPacks,
+    (currentIds, packs) => {
+        const { boardId } = currentIds;
 
-export const $buildings = createSelector(
-    raw.$rawBuildings,
-    raw.$rawAssets,
-    (buildings, assets) => {
-        return mapValues(buildings, (building) => {
-            const asset = assets[building.assetId];
-
-            return {
-                ...building,
-                asset,
-            };
+        return pickBy(packs, (pack) => {
+            return pack.boardId === boardId;
         });
+    }
+);
+
+export const $particles = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawParticles,
+    (currentIds, particles) => {
+        const { boardId } = currentIds;
+
+        return pickBy(particles, (particle) => {
+            return particle.boardId === boardId;
+        });
+    }
+);
+
+export const $sounds = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawSounds,
+    (currentIds, sounds) => {
+        const { boardId } = currentIds;
+
+        return pickBy(sounds, (sound) => {
+            return sound.boardId === boardId;
+        });
+    }
+);
+
+export const $sprites = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawSprites,
+    (currentIds, sprites) => {
+        const { boardId } = currentIds;
+
+        return pickBy(sprites, (sprite) => {
+            return sprite.boardId === boardId;
+        });
+    }
+);
+
+export const $microAnimations = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawMicroAnimations,
+    (currentIds, microAnimations) => {
+        const { boardId } = currentIds;
+
+        return pickBy(microAnimations, (microAnimation) => {
+            return microAnimation.boardId === boardId;
+        });
+    }
+);
+
+export const $videos = createSelector(
+    raw.$rawStudioIds,
+    raw.$rawVideos,
+    (currentIds, videos) => {
+        const { boardId } = currentIds;
+
+        return pickBy(videos, (video) => {
+            return video.boardId === boardId;
+        });
+    }
+);
+
+export const $boardConfig = createSelector(
+    $board,
+    $cameras,
+    $grounds,
+    $externals,
+    $lights,
+    $packs,
+    $particles,
+    $sounds,
+    $sprites,
+    $microAnimations,
+    $videos,
+    (
+        board,
+        cameras,
+        grounds,
+        externals,
+        lights,
+        packs,
+        particles,
+        sounds,
+        sprites,
+        microAnimations,
+        videos
+    ): IBoardConfig | null => {
+        if (!board) {
+            return null;
+        }
+
+        const config: IBoardConfig = {
+            ...board,
+            cameras,
+            grounds,
+            externals,
+            lights,
+            packs,
+            particles,
+            sounds,
+            sprites,
+            microAnimations,
+            videos,
+        };
+
+        return config;
     }
 );

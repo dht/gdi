@@ -236,10 +236,6 @@ cd extra/apps/app-soundboard
 depcheck > .depcheck
 cd ../../..
 
-cd extra/apps/app-studio
-depcheck > .depcheck
-cd ../../..
-
 cd extra/apps/app-tasks
 depcheck > .depcheck
 cd ../../..
@@ -248,8 +244,13 @@ cd extra/apps/app-things
 depcheck > .depcheck
 cd ../../..
 
+cd extra/apps/app-studio
+depcheck > .depcheck
+cd ../../..
+
 cd extra/apps/app-voice
 depcheck > .depcheck
 cd ../../..
+
 
 

@@ -4,6 +4,7 @@ import { Grid, IWidgetInstances, IWidgets } from 'igrid';
 import { pickBy } from 'shared-base';
 import { PlatformContext } from '../../core/Platform.context';
 import './Page.scss';
+import { useMount } from 'react-use';
 
 type PageProps = {
     instancesIngrid: IWidgetInstances;

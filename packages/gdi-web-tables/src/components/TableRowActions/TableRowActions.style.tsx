@@ -8,16 +8,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Action = styled.div`
+    font-size: 22px;
+    width: 34px;
     margin: 0 2px;
-    font-size: 25px;
-    width: 44px;
     border-radius: 4px;
-    height: 44px;
+    height: 34px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     cursor: default;
+    color: #aab;
 
     &:hover {
         color: gold;

@@ -55,7 +55,7 @@ export function Triangles(props: TrianglesProps) {
         return {
             [key]: (allPalettes as any)[key],
         };
-    }, []);
+    }, [paletteIndex]);
 
     useEffect(() => {
         if (!props.onLoad || !palette) {
@@ -83,7 +83,7 @@ export function Triangles(props: TrianglesProps) {
             strokeWidth: 0,
             // @ts-ignore
         } as any).toSVG().innerHTML;
-    }, [width]);
+    }, [width, palette]);
 
     if (!width || !height) {
         return null;

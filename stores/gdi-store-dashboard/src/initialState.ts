@@ -13,16 +13,25 @@ export const initialState: IDashboardStore = {
     },
     appStateDashboard: {
         stateKey: 'appStateDashboard',
+        showNotifications: false,
+        showReader: false,
+        readerUrl: '',
+        showQuickTip: false,
+        quickTipUrl: '',
+        showMainDisplay: false,
+        mainDisplayData: {},
+        showMiniApp: true,
+        miniAppData: {},
     },
     currentIdsDashboard: {
         inboxMessageId: '',
     },
     stats: {
-        allLeads: {
-            id: 'allLeads',
+        githubStars: {
+            id: 'githubStars',
             order: 0,
-            title: 'All Leads',
-            value: 4,
+            title: 'Github stars',
+            value: 5,
             mode: 'manual',
             clickEffect: 'nudge',
             unit: 'number',
@@ -40,12 +49,16 @@ export const initialState: IDashboardStore = {
     inboxMessages: {
         inboxMessage_1: {
             id: 'inboxMessage_1',
-            date: '2020-01-01',
-            title: 'New Lead',
-            description: 'New lead has been added',
-            iconName: 'user',
-            color: 'blue',
-            messageType: 'info',
+            title: 'Your new company logo is ready',
+            description: 'Jay25 has just completed it',
+            iconName: 'Edit',
+            iconLogoUrl: 'https://static-b9ebe.web.app/logo-fiverr.png',
+            tags: ['branding'],
+            date: '2022-10-10 23:40:00',
+            domain: 'office',
+            domainSemantic: 'outsourcing',
+            serviceName: 'fiverr',
+            messageType: 'interrupt',
         },
     },
 };

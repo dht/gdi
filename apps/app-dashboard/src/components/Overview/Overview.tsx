@@ -15,28 +15,15 @@ import { useMeasure } from 'react-use';
 
 export type OverviewProps = {
     accountName: string;
-    stats: IStats;
     callbacks: {
-        onClick: (stat: IStat, withShift?: boolean) => void;
-        onNavigate: (stat: IStat) => void;
         onAccountChange: () => void;
     };
-    isLoading: boolean;
-    children: JSX.Element;
-    dispatch: any;
+    children: JSX.Element[];
 };
 
 export function Overview(props: OverviewProps) {
-    const { stats = {}, callbacks, isLoading, accountName } = props;
+    const { callbacks, accountName } = props;
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
-
-    function renderStats() {
-        if (isLoading) {
-            return <ScreenLoader spinnerColor='#22223367' transparent />;
-        }
-
-        return <Stats stats={stats} callbacks={callbacks} />;
-    }
 
     return (
         <Wrapper
@@ -53,8 +40,8 @@ export function Overview(props: OverviewProps) {
                 </Header>
 
                 <Content>
-                    <Column>{props.children}</Column>
-                    <Column>{renderStats()}</Column>
+                    <Column>{props.children[0]}</Column>
+                    <Column>{props.children[1]}</Column>
                 </Content>
 
                 <Resolution>

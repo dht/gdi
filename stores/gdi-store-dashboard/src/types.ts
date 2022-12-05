@@ -13,6 +13,15 @@ export type IDashboardStructure = {
 
 export type IAppStateDashboard = {
     stateKey: string;
+    showNotifications: false;
+    showReader: false;
+    readerUrl: string;
+    showQuickTip: boolean;
+    quickTipUrl: string;
+    showMainDisplay: boolean;
+    mainDisplayData: Json;
+    showMiniApp: boolean;
+    miniAppData: Json;
 };
 
 export type ICurrentIdsDashboard = {
@@ -29,7 +38,10 @@ export type IStat = {
     mode: 'manual' | 'auto';
     clickEffect?: 'nudge' | 'value';
     unit: 'currency' | 'number' | 'time';
+    goal?: number;
     journey?: IStatJourney[];
+    color?: string;
+    iconName?: string;
 };
 
 export type IStatJourney = {
@@ -40,7 +52,7 @@ export type IStatJourney = {
     percent?: number;
 };
 
-type InboxMessageType = 'info';
+type InboxMessageType = 'info' | 'quickTip' | 'reader' | 'interrupt';
 
 export type IInboxMessage = {
     id: string;
@@ -48,13 +60,22 @@ export type IInboxMessage = {
     title: string;
     description: string;
     iconName?: string;
+    iconLogoUrl?: string;
+    iconLogoIsDark?: boolean;
     color?: string;
     messageType: InboxMessageType;
     itemType?: ItemType;
     itemId?: string;
-    href?: string;
     isArchived?: boolean;
     snoozeUntil?: string;
+    tags?: string[];
+    domain?: string;
+    domainSemantic?: string;
+    serviceName?: string;
+    ctaUrl?: string;
+    contentUrl?: string;
+    wasSeen?: boolean;
+    wasAcknowledged?: boolean;
 };
 
 export type IInboxMessages = Record<string, IInboxMessage>;

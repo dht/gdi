@@ -1,22 +1,37 @@
 import styled from 'styled-components';
+import { device, css } from '@gdi/engine';
 
 export const Wrapper = styled.div`
     flex: 1;
     display: flex;
+
+    ${device(
+        '1080p',
+        css`
+            zoom: 0.75;
+        `
+    )}
 `;
 
 export const Box = styled.div`
-    background-color: #2b2a4b;
+    background-color: #223;
     border-radius: 35px;
-    box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.5),
-        inset 0 2px 4px 1px rgba(0, 0, 0, 0.09);
     padding: 26px;
-    margin: 15px;
 `;
 
-export const Slogan = styled.div`
-    color: yellow;
-    font-family: cursive;
+export const Top = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`;
+
+export const Time = styled.div`
+    color: gold;
+`;
+
+export const Category = styled.div`
+    color: pink;
 `;
 
 export const Title = styled.div`
@@ -26,26 +41,58 @@ export const Title = styled.div`
 `;
 
 export const Paragraph = styled.div`
-    opacity: 0.55;
-    color: white;
-    line-height: 22px;
-    font-size: 17px;
-`;
-
-export const Button = styled.button`
-    background-color: #d8d8d8;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 15px;
-    text-transform: uppercase;
-    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.02);
-    margin: 10px 5px;
-    width: 90%;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 15px;
 `;
 
 export const OtherOptions = styled.div`
     opacity: 0.4;
     text-decoration: underline;
     ${(props) => props.theme.marginLeft('40px')}
+`;
+
+export const Video = styled.div`
+    width: 260px;
+    height: 150px;
+`;
+
+export const A = styled.button`
+    color: cyan;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 5px;
+`;
+
+export const Close = styled.div`
+    width: 40px;
+    height: 40px;
+    background-color: #223;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #889;
+
+    &:hover {
+        background-color: #556;
+    }
+`;
+
+export const Youtube = styled.iframe`
+    border: none;
+`;
+
+export const Reason = styled.div`
+    font-size: 20px;
+    line-height: 1.4;
 `;

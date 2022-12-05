@@ -54,6 +54,7 @@ function* importSite(action: ActionImportSite) {
             ctaButtonText: 'Import',
         },
     });
+
     if (didCancel2 || isEmpty(value2)) {
         return;
     }

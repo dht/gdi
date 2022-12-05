@@ -56,9 +56,11 @@ export function TableHeader(props: TableHeaderProps) {
         >
             {renderThs()}
             {rowActions && (
-                <ThActions key={'Actions'} className='th' style={{ flex: 1 }}>
-                    Actions
-                </ThActions>
+                <ThActions
+                    key={'Actions'}
+                    className='th'
+                    style={{ flex: 1 }}
+                ></ThActions>
             )}
         </Wrapper>
     );

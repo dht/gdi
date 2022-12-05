@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Wrapper, IWidget } from '@gdi/platformer';
 import { actions } from '../store';
 import { APP_ID } from './ids';
@@ -7,6 +8,7 @@ const OverviewContainer = React.lazy(() => import('../containers/OverviewContain
 const OverviewNavigateContainer = React.lazy(() => import('../containers/OverviewNavigateContainer')); // prettier-ignore
 
 export enum DashboardWidgets {
+    Houston = 'dashboard.Houston',
     Overview = 'dashboard.Overview',
     OverviewNavigate = 'dashboard.OverviewNavigate',
 }

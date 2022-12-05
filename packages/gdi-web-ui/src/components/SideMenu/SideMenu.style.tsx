@@ -56,7 +56,9 @@ export const Wrapper = styled.div`
 
         .header {
             .cancel {
-                display: none;
+                transform: rotate(180deg);
+                border-left: 1px solid rgba(255, 255, 255, 0.1);
+                border-right: none;
             }
         }
 

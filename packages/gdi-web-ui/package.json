@@ -8,7 +8,6 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.0.32",
         "@dnd-kit/core": "^6.0.5",
         "@dnd-kit/sortable": "^7.0.1",
         "@dnd-kit/utilities": "^3.2.0",
@@ -22,10 +21,13 @@
         "classnames": "^2.3.1",
         "fuse.js": "^6.6.2",
         "react-draggable": "^4.4.5",
+        "react-markdown": "^8.0.4",
         "react-router-dom": "^6.3.0",
         "react-use": "^17.4.0",
         "react-window": "^1.8.7",
         "redux-store-generator": "^0.9.89",
+        "remark-gfm": "^3.0.1",
+        "shared-base": "^0.0.32",
         "styled-components": "^5.3.5"
     },
     "peerDependencies": {

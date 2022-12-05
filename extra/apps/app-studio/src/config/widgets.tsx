@@ -1,41 +1,57 @@
 import React from 'react';
-import { IWidget, Wrapper } from '@gdi/platformer';
+
+import { Wrapper, IWidget } from '@gdi/platformer';
+import { actions } from '../store';
 import { APP_ID } from './ids';
 
-const BabylonContainer = React.lazy(() => import('../containers/BabylonContainer')); // prettier-ignore
-const LogoContainer = React.lazy(() => import('../containers/LogoContainer')); // prettier-ignore
-const ScheduleContainer = React.lazy(() => import('../containers/ScheduleContainer')); // prettier-ignore
-const PoeContainer = React.lazy(() => import('../containers/PoeContainer')); // prettier-ignore
-const SwitcherContainer = React.lazy(() => import('../containers/SwitcherContainer')); // prettier-ignore
-const IdeasContainer = React.lazy(() => import('../containers/IdeasContainer')); // prettier-ignore
-const IsoBrowserContainer = React.lazy(() => import('../containers/IsoBrowserContainer')); // prettier-ignore
-const DomainHeaderContainer = React.lazy(() => import('../containers/DomainHeaderContainer')); // prettier-ignore
-const DomainPanelContainer = React.lazy(() => import('../containers/DomainPanelContainer')); // prettier-ignore
-const DomainHistoryContainer = React.lazy(() => import('../containers/DomainHistoryContainer')); // prettier-ignore
+const Overview3dContainer = React.lazy(() => import('../containers/Overview3dContainer')); // prettier-ignore
+const OverviewBarContainer = React.lazy(() => import('../containers/OverviewBarContainer')); // prettier-ignore
+const OverviewNavigateContainer = React.lazy(() => import('../containers/OverviewNavigateContainer')); // prettier-ignore
+const ReaderContainer = React.lazy(() => import('../containers/ReaderContainer')); // prettier-ignore
+const MainDisplayContainer = React.lazy(() => import('../containers/MainDisplayContainer')); // prettier-ignore
 const ProTipContainer = React.lazy(() => import('../containers/ProTipContainer')); // prettier-ignore
-const RatingContainer = React.lazy(() => import('../containers/RatingContainer')); // prettier-ignore
-const LegendContainer = React.lazy(() => import('../containers/LegendContainer')); // prettier-ignore
+const ScheduleContainer = React.lazy(() => import('../containers/ScheduleContainer')); // prettier-ignore
+const SimsContainer = React.lazy(() => import('../containers/SimsContainer')); // prettier-ignore
+const NotificationsContainer = React.lazy(() => import('../containers/NotificationsContainer')); // prettier-ignore
 
-export enum StudioWidgets {
-    Babylon = 'studio.Babylon',
-    Schedule = 'studio.Schedule',
-    Poe = 'studio.Poe',
-    Ideas = 'studio.Ideas',
-    IsoBrowser = 'studio.IsoBrowser',
-    Switcher = 'studio.Switcher',
-    DomainHeader = 'studio.DomainHeader',
-    DomainPanel = 'studio.DomainPanel',
-    DomainHistory = 'studio.DomainHistory',
-    ProTip = 'studio.ProTip',
-    Rating = 'studio.Rating',
-    Legend = 'studio.Legend',
-    Logo = 'studio.Logo',
+export enum VilleWidgets {
+    MainDisplay = 'ville.MainDisplay',
+    Reader = 'ville.Reader',
+    Overview = 'ville.Overview',
+    OverviewBar = 'ville.OverviewBar',
+    OverviewNavigate = 'ville.OverviewNavigate',
+    Schedule = 'ville.Schedule',
+    Sims = 'ville.Sims',
+    DomainPanel = 'ville.DomainPanel',
+    ProTip = 'ville.ProTip',
+    Notifications = 'ville.Notifications',
 }
+
 export const widgets: IWidget[] = [
     {
-        id: StudioWidgets.Babylon,
-        name: 'Babylon',
-        description: 'Babylon',
+        id: VilleWidgets.MainDisplay,
+        name: 'MainDisplay',
+        description: 'MainDisplay',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <MainDisplayContainer {...props} />,
+    },
+    {
+        id: VilleWidgets.Reader,
+        name: 'Reader',
+        description: 'Reader',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <ReaderContainer {...props} />,
+    },
+    {
+        id: VilleWidgets.Overview,
+        name: 'Overview',
+        description: 'Overview',
         defaultDimension: {
             y: 16,
             x: 12,
@@ -43,27 +59,73 @@ export const widgets: IWidget[] = [
         component: (props: any) => (
             <Wrapper
                 appId={APP_ID}
-                component={BabylonContainer}
+                identifier='VilleWidgets.Overview'
+                component={Overview3dContainer}
                 props={props}
             />
         ),
     },
     {
-        id: StudioWidgets.Logo,
-        name: 'Logo',
-        description: 'Logo',
+        id: VilleWidgets.OverviewBar,
+        name: 'OverviewBar',
+        description: 'OverviewBar',
         defaultDimension: {
             y: 16,
             x: 12,
         },
         component: (props: any) => (
-            <Wrapper appId={APP_ID} component={LogoContainer} props={props} />
+            <Wrapper
+                appId={APP_ID}
+                component={OverviewBarContainer}
+                props={props}
+            />
+        ),
+    },
+    {
+        id: VilleWidgets.OverviewNavigate,
+        name: 'OverviewNavigate',
+        description: 'OverviewNavigate',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={OverviewNavigateContainer}
+                props={props}
+                currentIdsActionCreator={actions.currentIdsDashboard.patch}
+            />
+        ),
+    },
+    {
+        id: VilleWidgets.Sims,
+        name: 'Sims',
+        description: 'Sims',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={SimsContainer} props={props} />
         ),
     },
 
     {
-        id: StudioWidgets.Schedule,
-        name: 'Schedule',
+        id: VilleWidgets.ProTip,
+        name: 'ProTip',
+        description: 'ProTip',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper appId={APP_ID} component={ProTipContainer} props={props} />
+        ),
+    },
+    {
+        id: VilleWidgets.Schedule,
+        name: 'ProTip',
         description: 'Schedule',
         defaultDimension: {
             y: 16,
@@ -78,21 +140,21 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: StudioWidgets.Poe,
-        name: 'Poe',
-        description: 'Poe',
+        id: VilleWidgets.Sims,
+        name: 'Sims',
+        description: 'Sims',
         defaultDimension: {
             y: 16,
             x: 12,
         },
         component: (props: any) => (
-            <Wrapper appId={APP_ID} component={PoeContainer} props={props} />
+            <Wrapper appId={APP_ID} component={SimsContainer} props={props} />
         ),
     },
     {
-        id: StudioWidgets.Switcher,
-        name: 'Switcher',
-        description: 'Switcher',
+        id: VilleWidgets.Notifications,
+        name: 'Notifications',
+        description: 'Notifications',
         defaultDimension: {
             y: 16,
             x: 12,
@@ -100,121 +162,9 @@ export const widgets: IWidget[] = [
         component: (props: any) => (
             <Wrapper
                 appId={APP_ID}
-                component={SwitcherContainer}
+                component={NotificationsContainer}
                 props={props}
             />
-        ),
-    },
-    {
-        id: StudioWidgets.Ideas,
-        name: 'Ideas',
-        description: 'Ideas',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper appId={APP_ID} component={IdeasContainer} props={props} />
-        ),
-    },
-    {
-        id: StudioWidgets.IsoBrowser,
-        name: 'IsoBrowser',
-        description: 'IsoBrowser',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper
-                appId={APP_ID}
-                component={IsoBrowserContainer}
-                props={props}
-            />
-        ),
-    },
-    {
-        id: StudioWidgets.DomainHeader,
-        name: 'DomainHeader',
-        description: 'DomainHeader',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper
-                appId={APP_ID}
-                component={DomainHeaderContainer}
-                props={props}
-            />
-        ),
-    },
-    {
-        id: StudioWidgets.DomainPanel,
-        name: 'DomainPanel',
-        description: 'DomainPanel',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper
-                appId={APP_ID}
-                component={DomainPanelContainer}
-                props={props}
-            />
-        ),
-    },
-    {
-        id: StudioWidgets.DomainHistory,
-        name: 'DomainHistory',
-        description: 'DomainHistory',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper
-                appId={APP_ID}
-                component={DomainHistoryContainer}
-                props={props}
-            />
-        ),
-    },
-    {
-        id: StudioWidgets.ProTip,
-        name: 'ProTip',
-        description: 'ProTip',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper appId={APP_ID} component={ProTipContainer} props={props} />
-        ),
-    },
-    {
-        id: StudioWidgets.Rating,
-        name: 'Rating',
-        description: 'Rating',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper appId={APP_ID} component={RatingContainer} props={props} />
-        ),
-    },
-    {
-        id: StudioWidgets.Legend,
-        name: 'Legend',
-        description: 'Legend',
-        defaultDimension: {
-            y: 16,
-            x: 12,
-        },
-        component: (props: any) => (
-            <Wrapper appId={APP_ID} component={LegendContainer} props={props} />
         ),
     },
 ];

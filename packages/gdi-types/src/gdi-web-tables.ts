@@ -1,6 +1,6 @@
 // AUTO-GENERATED
 
-export const A21 = {};
+export const A22 = {};
 
 declare global {
     // =============== Tables ===============
@@ -12,9 +12,11 @@ declare global {
         | 'icon'
         | 'tags'
         | 'date'
+        | 'time'
         | 'timeAgo'
         | 'id'
-        | 'social';
+        | 'social'
+        | 'notification';
 
     export type ITableField = {
         id: string;

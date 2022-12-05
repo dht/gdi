@@ -89,6 +89,11 @@
         "path": "extra/stores/gdi-store-voice",
         "types": "src/types.ts"
     },
+    "gdi-store-studio": {
+        "id": "gdi-store-studio",
+        "path": "extra/stores/gdi-store-studio",
+        "types": "src/types.ts"
+    },
     "gdi-store-site": {
         "id": "gdi-store-site",
         "path": "stores/gdi-store-site",

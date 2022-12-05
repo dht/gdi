@@ -1,7 +1,7 @@
 import React, { FC, useContext, useMemo } from 'react';
 import { CellType, ITableField } from '../../types';
-import { Icon, SocialIcon } from '@gdi/web-base-ui';
-import { dateDb, dateShort, timeAgo } from '@gdi/language';
+import { HashTags, Icon, SocialIcon } from '@gdi/web-base-ui';
+import { dateDb, dateShort, timeAgo, time } from '@gdi/language';
 import {
     Wrapper,
     Description,
@@ -15,6 +15,12 @@ import {
     Tag,
     Tags,
     Text,
+    Time,
+    NotificationTitle,
+    NotificationDetails,
+    Notification,
+    NotificationDescription,
+    Brand,
 } from './TableCell.style';
 import { TableContext } from '../../context/Table.context';
 
@@ -214,12 +220,46 @@ export function TableCellSocial(props: TableCellProps) {
 
 export function TableCellIcon(props: TableCellProps) {
     const { data } = props;
-    const { value, color } = data;
+    const { value, imageUrl, isImageDark } = data;
 
     return (
-        <IconWrapper color={color}>
-            <Icon iconName={value} />
+        <IconWrapper>
+            {imageUrl ? (
+                <Brand src={imageUrl} invertColors={isImageDark} />
+            ) : (
+                <Icon iconName={value} />
+            )}
         </IconWrapper>
+    );
+}
+
+export function TableCellNotification(props: TableCellProps) {
+    const { data } = props;
+    const { value, description, tags = [] } = data;
+
+    return (
+        <Notification>
+            <NotificationTitle className='title'>{value}</NotificationTitle>
+            <NotificationDetails>
+                <NotificationDescription>{description}</NotificationDescription>
+                <HashTags tags={tags} color='gray' />
+            </NotificationDetails>
+        </Notification>
+    );
+}
+
+export function TableCellTime(props: TableCellProps) {
+    const { data } = props;
+    const { value, color } = data;
+
+    const timeText = time(value);
+    const parts = timeText.split(' ');
+
+    return (
+        <Time className='time'>
+            {parts[0]}
+            <span>{parts[1]}</span>
+        </Time>
     );
 }
 
@@ -232,6 +272,8 @@ const map: Record<CellType, FC<TableCellProps>> = {
     tags: TableCellTags,
     date: TableCellDate,
     social: TableCellSocial,
+    notification: TableCellNotification,
+    time: TableCellTime,
     timeAgo: TableCellTimeAgo,
     id: TableCellId,
 };

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { $s } from 'shared-base';
 import { Bootstrap } from '@gdi/platformer';
 import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
-import { LogsSystem } from '@gdi/web-ui';
+import { LogsSystem, ScreenLoader } from '@gdi/web-ui';
 import './index.scss';
 import 'igrid/dist/index.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,9 +19,9 @@ if (container) {
     const root = createRoot(container);
 
     root.render(
-        <React.StrictMode>
+        <Suspense fallback={<ScreenLoader />}>
             <Bootstrap config={config} />
             {DEBUG && <LogsSystem />}
-        </React.StrictMode>
+        </Suspense>
     );
 }
