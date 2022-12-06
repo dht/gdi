@@ -140,6 +140,7 @@ export type IPlatformState = {
     crudDefinitions: Partial<ICrudDefinitionsPerItemType>;
     templatesMeta: ITemplateMeta;
     analyticsOn: boolean;
+    demoMode: boolean;
 };
 
 export type ITemplateMeta = {};

@@ -1,6 +1,6 @@
 import { firebaseConfigs } from './main.firebase';
 import p from '../package.json';
-import { IPlatformConfig } from '@gdi/platformer';
+import { IPlatformConfig, initDemo, getDemoConfig } from '@gdi/platformer';
 import { getLanguageCode } from '@gdi/language';
 import { initializers } from './main.apps';
 import { uniq, getJson } from 'shared-base';
@@ -20,6 +20,13 @@ const requiredApps = ['login', 'mixer', 'settings'];
 
 const activeApps = uniq([...activeAppsFromStorage, ...requiredApps]).sort();
 
+initDemo();
+const demoConfig = getDemoConfig();
+
+const connectionType = demoConfig.on
+    ? ConnectionType.LOCAL_STORAGE
+    : ConnectionType.FIRESTORE;
+
 export const config: IPlatformConfig = {
     version: p.version,
     baseURL,
@@ -31,5 +38,5 @@ export const config: IPlatformConfig = {
     noServerMode: false,
     languageCode: 'en',
     isRtl: false,
-    connectionType: ConnectionType.FIRESTORE,
+    connectionType,
 };

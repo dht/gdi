@@ -1,10 +1,14 @@
 import { actions } from '../store';
 import { call, takeEvery } from 'saga-ts';
-import { authChangeChannel } from './channels/channel.authChange';
+import {
+    authChangeChannel,
+    authChangeChannelDemo,
+} from './channels/channel.authChange';
 import { fork, put } from 'redux-saga/effects';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { $s, invokeEvent, setBoolean } from 'shared-base';
 import { toast } from '@gdi/web-ui';
+import { getDemoConfig } from '@gdi/platformer';
 
 const REQUESTED_PATH_KEY = 'REQUESTED_PATH';
 
@@ -86,7 +90,8 @@ function* navigate(to: string) {
 }
 
 export function* root() {
+    const { on } = getDemoConfig();
     yield call(saveCurrentPath);
-    const channel = authChangeChannel();
+    const channel = on ? authChangeChannelDemo() : authChangeChannel();
     yield takeEvery(channel, authChange);
 }

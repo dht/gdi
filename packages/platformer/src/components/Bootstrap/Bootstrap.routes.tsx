@@ -67,11 +67,14 @@ export const MainRoutes = () => {
 
 export const App = () => {
     const dispatch = useDispatch();
-    const { contextBarItems, widgetLibrary, commandBarItems } =
+    const { contextBarItems, widgetLibrary, commandBarItems, demoMode } =
         useContext(PlatformContext).state;
 
     useMount(() => {
-        dispatch({ type: PlatformLifeCycleEvents.AUTHENTICATION_START });
+        dispatch({
+            type: PlatformLifeCycleEvents.AUTHENTICATION_START,
+            demoMode,
+        });
     });
 
     function onCommandBar(command: ICommandBarItem) {

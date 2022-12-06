@@ -144,6 +144,7 @@ declare global {
         crudDefinitions: Partial<ICrudDefinitionsPerItemType>;
         templatesMeta: ITemplateMeta;
         analyticsOn: boolean;
+        demoMode: boolean;
     };
 
     export type ITemplateMeta = {};

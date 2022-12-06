@@ -61,23 +61,7 @@ yarn
 
 ## Connect Firebase
 
-Create a [Firebase project](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project), enable [Google Authentication](https://usegdi.com/docs/docs/how-tos/create-a-firebase-project#enable-sign-in-with-Google), Firestore and Hosting.
-
-In the project's `root` create a new `/firebase.json` file with your `firebase` configuration:
-
-```json title="firebase.json"
-{
-    "apiKey": "******",
-    "authDomain": "******",
-    "projectId": "******",
-    "storageBucket": "******",
-    "messagingSenderId": "******",
-    "appId": "******",
-    "measurementId": "******" // <== optional
-}
-```
-
-and bootstrap the project:
+Bootstrap the project:
 
 ```sh
 gdi bootstrap

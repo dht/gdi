@@ -26,6 +26,8 @@ import { DefinitionsBuilder } from '../builders/DefinitionsBuilder';
 import { PieMenuBuilder } from '../builders/PieMenuBuilder';
 import platformI18n from '../i18n';
 import { MetaBuilder } from '../builders/MetaBuilder';
+import { getJson } from 'shared-base';
+import { getDemoConfig } from '../utils/demo';
 
 const DEBUG = false;
 
@@ -149,8 +151,11 @@ export async function initPlatform<T extends StoreStructure>(
         axios,
     });
 
+    const demoConfig = getDemoConfig();
+
     const firestoreAdapter = new FirestoreAdapter(firebase.value.app);
-    const localStorageAdapter = new LocalStorageAdapter({});
+    const localStorageAdapter = new LocalStorageAdapter(demoConfig);
+    await localStorageAdapter.init();
 
     logger('platform: configuring API', {
         default: DEFAULT_ENDPOINT_CONFIG,
@@ -187,6 +192,8 @@ export async function initPlatform<T extends StoreStructure>(
     const crudDefinitionsPerApp = definitionsBuilder.build();
     const crudDefinitions = to.definitions(crudDefinitionsPerApp, i18nParams);
 
+    const { on } = getDemoConfig();
+
     setTimeout(() => {
         patchContext({
             accountName,
@@ -211,7 +218,9 @@ export async function initPlatform<T extends StoreStructure>(
             i18nKeys: resources,
             isReady: true,
             store,
+            demoMode: on,
         });
+
         notifyPubSub(PlatformLifeCycleEvents.PLATFORM_IS_READY);
     });
 }

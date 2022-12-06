@@ -55,6 +55,7 @@ const initialValue: IPlatformContext = {
         crudDefinitions: {},
         pieMenuConfig: {},
         templatesMeta: {},
+        demoMode: false,
     },
     ga: (_eventId: GaId, _data: IGaData) => {},
     gan: (_eventId: GaId, _data: IGaData) => {}, // non-interactive
