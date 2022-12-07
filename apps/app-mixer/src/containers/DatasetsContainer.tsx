@@ -140,7 +140,7 @@ export const DatasetsContainer = () => {
 
     return (
         <Datasets
-            nodes={nodes}
+            nodes={nodes as any}
             nodeContent={nodeContent}
             callbacks={callbacks}
             selectedNodeId={selectedNodeId}

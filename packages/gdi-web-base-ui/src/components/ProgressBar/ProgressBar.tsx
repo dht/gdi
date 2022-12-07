@@ -6,11 +6,11 @@ export type ProgressBarProps = {
     value: number;
     color?: string;
     width?: number;
-    animated: boolean;
+    animated?: boolean;
 };
 
 export function ProgressBar(props: ProgressBarProps) {
-    let { value = 0, color, animated } = props;
+    let { value = 0, color, animated = true } = props;
     const width = 100 * value + '%';
 
     let backgroundColor = color;

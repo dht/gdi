@@ -185,7 +185,7 @@ function* selectPageInstanceOnNavigation() {
 
     let pageInstance: IPageInstance | undefined;
 
-    pageInstance = pageInstances[pageInstanceId];
+    pageInstance = pageInstances[pageInstanceId ?? ''];
 
     if (pageInstance && pageInstance.pageId === pageId) {
         return;

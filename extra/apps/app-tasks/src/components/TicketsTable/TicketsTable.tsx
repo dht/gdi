@@ -13,7 +13,7 @@ import { Icon, GenericTable } from '@gdi/web-ui';
 import { useDispatch, useSelector } from 'react-redux';
 
 export type TicketsTableProps = TicketsTableContainerProps & {
-    tickets: any[];
+    tickets: ITicket[];
     callbacks: {
         connect: (issueId: string) => void;
         start: (issueId: string) => void;

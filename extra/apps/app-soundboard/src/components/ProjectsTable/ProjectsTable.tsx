@@ -48,8 +48,7 @@ export function ProjectsTable(props: ProjectsTableProps) {
                     )}
                 </Percent>
                 <ColorPicker
-                    id={key}
-                    color={color}
+                    color={color ?? ''}
                     onChange={(value: string) =>
                         props.onColorChange(item, value)
                     }

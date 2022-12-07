@@ -100,42 +100,17 @@ export const selectors = {
         ...voice.selectors.base,
     },
     forms: {
-        ...auth.selectors.forms,
         ...mixer.selectors.forms,
-        ...site.selectors.forms,
-        ...factory.selectors.forms,
-        ...dashboard.selectors.forms,
-        ...settings.selectors.forms,
-        ...biblo.selectors.forms,
-        ...carts.selectors.forms,
-        ...comments.selectors.forms,
-        ...campaigns.selectors.forms,
-        ...devtools.selectors.forms,
-        ...events.selectors.forms,
-        ...knowledge.selectors.forms,
-        ...leads.selectors.forms,
-        ...money.selectors.forms,
-        ...orders.selectors.forms,
-        ...ppl.selectors.forms,
-        ...products.selectors.forms,
-        ...sales.selectors.forms,
-        ...soundboard.selectors.forms,
-        ...tasks.selectors.forms,
-        ...things.selectors.forms,
-        ...voice.selectors.forms,
     },
     tables: {
-        ...auth.selectors.tables,
         ...mixer.selectors.tables,
         ...site.selectors.tables,
         ...factory.selectors.tables,
         ...dashboard.selectors.tables,
-        ...settings.selectors.tables,
         ...biblo.selectors.tables,
         ...carts.selectors.tables,
         ...comments.selectors.tables,
         ...campaigns.selectors.tables,
-        ...devtools.selectors.tables,
         ...events.selectors.tables,
         ...knowledge.selectors.tables,
         ...leads.selectors.tables,
@@ -144,10 +119,8 @@ export const selectors = {
         ...ppl.selectors.tables,
         ...products.selectors.tables,
         ...sales.selectors.tables,
-        ...soundboard.selectors.tables,
         ...tasks.selectors.tables,
         ...things.selectors.tables,
-        ...voice.selectors.tables,
     },
     options: {
         auth: auth.selectors.options,
@@ -180,7 +153,8 @@ export const reducers = devtools.reducers;
 
 export const initialState = devtools.initialState;
 
-export const endpointsConfig = devtools.endpointsConfig;
+export const endpointsConfig = (connectionType: ConnectionType) =>
+    devtools.endpointsConfigOverrides(connectionType);
 
 export const clearState = (store: any) => {
     devtools.clearState(store);

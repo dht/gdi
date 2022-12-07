@@ -173,7 +173,11 @@ export const timeAgo = (value: DateTime) => {
     }
 };
 
-export const deltaInSeconds = (date: Date) => {
+export const deltaInSeconds = (date: Date | number) => {
+    if (typeof date === 'number') {
+        date = new Date(date);
+    }
+
     if (!date || date.toString() === 'Invalid Date') {
         return 0;
     }
@@ -184,7 +188,11 @@ export const deltaInSeconds = (date: Date) => {
     return Math.floor(delta / 1000);
 };
 
-export const deltaInMinutes = (date: Date = new Date()) => {
+export const deltaInMinutes = (date: Date | number = new Date()) => {
+    if (typeof date === 'number') {
+        date = new Date(date);
+    }
+
     if (!date) {
         return 0;
     }
@@ -192,7 +200,11 @@ export const deltaInMinutes = (date: Date = new Date()) => {
     return deltaInSeconds(date) / 60;
 };
 
-export const deltaInYears = (date: Date = new Date()) => {
+export const deltaInYears = (date: Date | number = new Date()) => {
+    if (typeof date === 'number') {
+        date = new Date(date);
+    }
+
     if (!date) {
         return 0;
     }

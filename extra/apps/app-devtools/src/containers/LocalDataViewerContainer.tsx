@@ -26,3 +26,5 @@ export const LocalDataViewerContainer = () => {
 
     return <LocalDataViewer json={json} />;
 };
+
+export default LocalDataViewerContainer;

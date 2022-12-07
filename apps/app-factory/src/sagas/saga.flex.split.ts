@@ -1,6 +1,5 @@
 import { actions, selectors } from '../store';
-import { call, fork, put, select, takeEvery, delay, take } from 'saga-ts';
-import { IShortKey, prompt } from '@gdi/platformer';
+import { call, put, select, takeEvery, delay } from 'saga-ts';
 import { guid4 } from 'shared-base';
 import {
     findDescendantsIds,

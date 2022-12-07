@@ -34,6 +34,10 @@ export const $now = createSelector($rawSchedulerState, (appState) => {
     }
     const info = now.toInfo();
 
+    if (!info) {
+        return null;
+    }
+
     return {
         week: info.week,
         day: info.dayOfWeek,

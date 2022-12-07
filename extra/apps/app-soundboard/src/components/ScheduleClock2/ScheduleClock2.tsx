@@ -1,9 +1,9 @@
 import React from 'react';
-import { Clear, Container, Radio } from './ScheduleClock2.style';
+import { Clear, Wrapper, Radio } from './ScheduleClock2.style';
 import { Weather } from '@gdi/web-ui';
 
 export type ScheduleClock2Props = {
-    weather?: IWeatherDailyItem;
+    weather?: any;
     time: NowInfo;
     changeDelta: (deltaInMinutes: number) => void;
 };
@@ -28,11 +28,11 @@ export function ScheduleClock2(props: ScheduleClock2Props) {
             <Radio
                 target='_blank'
                 href={time.alternativeRadioUrl}
-                tabIndex='-1'
+                tabIndex={-1}
             >
                 <i className='material-icons'>radio</i>
             </Radio>
-            <Clear onClick={() => props.changeDelta(0)} tabIndex='-1'>
+            <Clear onClick={() => props.changeDelta(0)} tabIndex={-1}>
                 <i className='material-icons'>autorenew</i>
             </Clear>
         </Wrapper>

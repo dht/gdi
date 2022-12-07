@@ -16,11 +16,13 @@ export class ColorfulHeaderDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.Wrapper);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<ColorfulHeader {...(this.props as ColorfulHeaderProps)} />);
+            return this.snapshot(
+                <ColorfulHeader {...(this.props as ColorfulHeaderProps)} />
+            );
         },
     };
 
@@ -33,10 +35,10 @@ export class ColorfulHeaderDriver extends BaseComponentDriver {
 
     get = {
         WrapperClassName: () => {
-            return this.Wrapper.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.Wrapper.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

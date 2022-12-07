@@ -56,7 +56,7 @@ export const initApp = (
         .withKeysByLanguage(APP_ID, i18n);
 
     selectorsBuilder //
-        .withSelectors(APP_ID, selectors);
+        .withSelectors(APP_ID, selectors as any);
 
     apiConfigBuilder //
         .withEndpointsConfigOverrides(endpointsConfig(connectionType));

@@ -1,7 +1,6 @@
 import { collection_all, generateCollection } from 'redux-store-generator';
-import { IStages, IStage, ILifecycleActions } from '@gdi/web-ui';
 
-export const steps: IStages = {
+export const steps: any = {
     requestedRoute: {
         id: 'requestedRoute',
         title: 'Saving requested route',
@@ -54,7 +53,7 @@ export const steps: IStages = {
     },
 };
 
-export const lifecycleActions: ILifecycleActions = {
+export const lifecycleActions: any = {
     invalidateAccessToken: {
         id: 'invalidateAccessToken',
         title: 'invalidate accessToken',
@@ -74,4 +73,4 @@ export const lifecycleActions: ILifecycleActions = {
 };
 
 export const reducer = generateCollection('stages');
-export const actions = collection_all<IStages>('stages');
+export const actions = collection_all<any>('stages');

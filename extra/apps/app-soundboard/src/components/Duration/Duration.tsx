@@ -14,29 +14,29 @@ export function Duration(props: DurationProps) {
         end: props.minutes * 60 * 1000,
     });
 
-    const { days = 0, hours = 0, minutes = 0 } = d;
+    const { day = 0, hour = 0, minute = 0 } = d ?? {};
 
     function renderDays() {
-        if (!days) {
+        if (!day) {
             return null;
         }
 
         return (
             <>
-                <TimeBig>{days}</TimeBig>
+                <TimeBig>{day}</TimeBig>
                 <Units>d</Units>
             </>
         );
     }
 
     function renderHours() {
-        if (!hours) {
+        if (!hour) {
             return null;
         }
 
         return (
             <>
-                <TimeBig>{hours}</TimeBig>
+                <TimeBig>{hour}</TimeBig>
                 <Units>h</Units>
             </>
         );
@@ -48,7 +48,7 @@ export function Duration(props: DurationProps) {
         <Wrapper className={className} data-testid='Duration-wrapper'>
             {renderDays()}
             {renderHours()}
-            <TimeBig>{minutes}</TimeBig>
+            <TimeBig>{minute}</TimeBig>
             <Units>m</Units>
         </Wrapper>
     );

@@ -16,11 +16,13 @@ export class JsonViewerDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.Wrapper);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<JsonViewer {...(this.props as JsonViewerProps)} />);
+            return this.snapshot(
+                <JsonViewer {...(this.props as JsonViewerProps)} />
+            );
         },
     };
 
@@ -33,10 +35,10 @@ export class JsonViewerDriver extends BaseComponentDriver {
 
     get = {
         WrapperClassName: () => {
-            return this.Wrapper.className;
+            return this.wrapper.className;
         },
         label: () => {
-            return this.Wrapper.innerHTML;
+            return this.wrapper.innerHTML;
         },
     };
 }

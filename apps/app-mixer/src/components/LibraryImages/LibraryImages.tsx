@@ -22,7 +22,6 @@ export function LibraryImages(props: LibraryImagesProps) {
             data-testid='LibraryImages-wrapper'
         >
             <ImageGallery
-                header='Images'
                 items={items}
                 options={galleryOptions}
                 callbacks={callbacks}

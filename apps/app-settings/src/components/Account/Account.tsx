@@ -19,17 +19,16 @@ import { tabs } from '../SettingsTab/SettingsTab.data';
 
 export type AccountProps = {
     me: IUser;
-    users: IUser[];
-    onChange: () => void;
+    users: IUsers;
 };
 
 export function Account(props: AccountProps) {
     const { me, users } = props;
 
-    const { displayName, email, photoURL } = me;
+    const { displayName = '', email, photoURL } = me;
 
     function renderUser(user: IUser) {
-        const { displayName, email, photoURL, role } = user;
+        const { displayName = '', email, photoURL, role } = user;
 
         return (
             <UserRow key={user.id} className='user'>

@@ -1,7 +1,7 @@
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateOrders: {
         id: 'appStateOrders',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     orders: {
         id: 'orders',

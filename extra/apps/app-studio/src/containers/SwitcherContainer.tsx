@@ -7,7 +7,7 @@ import { actions } from '../store';
 export const SwitcherContainer = () => {
     const dispatch = useDispatch();
     const studioState = useSelector(selectors.raw.$rawStudioState);
-    const boards = useSelector(selectors.base.$relevantBoards);
+    const boards = useSelector(selectors.base.$relevantBoards) as any[];
 
     const options = useMemo(() => {
         return Object.values(boards).map((board) => ({

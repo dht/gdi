@@ -9,7 +9,7 @@ import { Device } from '@gdi/web-ui';
 
 export type ZoomPreviewProps = {
     elements: IElement[];
-    widget: IWidget;
+    widget?: IWidget;
     datasets: Json;
     mobileMode: boolean;
     onToggleMobile: (value: boolean) => void;

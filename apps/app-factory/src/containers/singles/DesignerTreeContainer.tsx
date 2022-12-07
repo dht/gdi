@@ -47,7 +47,7 @@ export const DesignerTreeContainer = () => {
             layout={layout}
             flexEntityId={currentIds.flexEntityId}
             resolutionId={currentIds.resolutionId}
-            resolutions={resolutions}
+            resolutions={resolutions as any}
             callbacks={callbacks}
         />
     );

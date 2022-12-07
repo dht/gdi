@@ -7,17 +7,17 @@ export type LayoutItemsProps = ICrudDefinitions & {
     data: Json[];
     layout: ILayout;
     callbacks: {
-        onAction: (actionId: string) => void;
-        onSave: (id: string, data: Json) => void;
-        onNew: (data: Json) => void;
-        onDelete: (id: string) => void;
+        onDrillDown: (itemId: string, point?: Json) => void;
+        onSelectionChange: (ids: string[]) => void;
+        onCustomAction: (actionId: string, data?: Json) => void;
     };
     allOptions?: Json;
+    dispatch: any;
 };
 
 export function LayoutItems(props: LayoutItemsProps) {
-    const { layout } = props;
-    const { id = '', name = '' } = layout ?? {};
+    const { data, layout, callbacks, allOptions, dispatch } = props;
+    const { id = '' } = layout ?? {};
     const crudDefinitions = useCrudDefinitions('layoutItem');
 
     return (
@@ -25,7 +25,15 @@ export function LayoutItems(props: LayoutItemsProps) {
             className='LayoutItems-wrapper'
             data-testid='LayoutItems-wrapper'
         >
-            <Multi {...props} definitions={crudDefinitions} header={name} />
+            <Multi
+                id='Layouts'
+                itemType='layout'
+                data={data}
+                callbacks={callbacks}
+                definitions={crudDefinitions}
+                dispatch={dispatch}
+                allOptions={allOptions}
+            />
             <Id>{id}</Id>
         </Wrapper>
     );

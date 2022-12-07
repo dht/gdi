@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { actions, selectors } from '../store';
 import { guid4, invokeEvent } from 'shared-base';
 import { firebase } from '@gdi/platformer';
-import { prompt } from '@gdi/web-base-ui';
 import { useLanguage } from '@gdi/language';
 
 export const PplContainer = () => {

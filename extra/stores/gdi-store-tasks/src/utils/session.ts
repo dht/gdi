@@ -50,16 +50,17 @@ export const calculateSession = ({
     let durationObject: any;
 
     if (sessionElapsedTime) {
-        const d = intervalToDuration({
-            start: 0,
-            end: sessionElapsedTime * 1000,
-        });
+        const d =
+            intervalToDuration({
+                start: 0,
+                end: sessionElapsedTime * 1000,
+            }) || {};
 
         durationObject = {
             totalSeconds: sessionElapsedTime,
-            hours: d.hours,
-            minutes: d.minutes,
-            seconds: d.seconds,
+            hours: d.hour,
+            minutes: d.minute,
+            seconds: d.second,
             totalText: duration(sessionElapsedTime),
         };
     }

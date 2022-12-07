@@ -6,6 +6,7 @@
   An open-source & extendable content management system (CMS) written in ReactJS, hosted on <a href="https://firebase.google.com" target="_blank">Firebase</a>
 </p>
 <p align="center">
+  <a href="https://usegdi.com/admin/pages/home?demo=on" target="_blank">Demo</a>&nbsp;//&nbsp;
   <a href="https://usegdi.com/docs/" target="_blank">Documentation</a>&nbsp;//&nbsp;
   <a href="https://usegdi.com" target="_blank">Homepage</a>
 </p>

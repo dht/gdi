@@ -59,7 +59,7 @@ export const initApp = (
         .withSelectors(APP_ID, selectors);
 
     apiConfigBuilder //
-        .withEndpointsConfigOverrides(endpointsConfig(connectionType));
+        .withEndpointsConfigOverrides(endpointsConfig(connectionType as any));
 
     definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
 

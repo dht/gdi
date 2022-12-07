@@ -10,7 +10,7 @@ export const ModalAdhocLogsContainer = () => {
 
     function onClose() {
         dispatch(
-            actions.currentIds.patch({
+            actions.appStateMixer.patch({
                 showConsoleLogs: false,
             })
         );

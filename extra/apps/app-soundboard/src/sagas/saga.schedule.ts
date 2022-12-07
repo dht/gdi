@@ -68,6 +68,10 @@ export function* attachTicketToBlock(action: AttachTicketToBlockAction) {
         .setTime(time)
         .toInfo();
 
+    if (!dateInfo) {
+        return;
+    }
+
     let ticketKey = '',
         projectKey = '';
 
@@ -113,7 +117,7 @@ export function* attachTicketToBlock(action: AttachTicketToBlockAction) {
         return;
     }
 
-    yield call(focusOnNextBlock, time, 'down');
+    focusOnNextBlock(time, 'down');
 }
 
 export function* detachTicketFromBlock(action: DetachTicketToBlockAction) {
@@ -126,6 +130,10 @@ export function* detachTicketFromBlock(action: DetachTicketToBlockAction) {
     }
 
     const dateInfo = new XDate().setDayOfWeek(day).toInfo();
+
+    if (!dateInfo) {
+        return;
+    }
 
     const existingScheduleSession = Object.values(scheduleSessions).find(
         (item: IScheduleSession) => {
@@ -152,7 +160,7 @@ export function* detachTicketFromBlock(action: DetachTicketToBlockAction) {
         return;
     }
 
-    yield call(focusOnNextBlock, time, 'down');
+    focusOnNextBlock(time, 'down');
 }
 
 type MovePositionAction = {
@@ -164,7 +172,7 @@ export function* movePosition(action: MovePositionAction) {
     const appState = yield* select(selectors.raw.$rawSchedulerState);
     const { time } = appState;
 
-    yield call(focusOnNextBlock, time, action.key);
+    focusOnNextBlock(time, action.key);
 }
 
 export function* setCurrentTime() {
@@ -186,7 +194,7 @@ export function* setCurrentTime() {
         return;
     }
 
-    yield* fork(focusOnNextBlock, timeText.startTime, 'up');
+    focusOnNextBlock(timeText.startTime, 'up');
 }
 
 export function* loadShiftedTime() {}

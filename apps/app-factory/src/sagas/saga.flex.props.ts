@@ -28,14 +28,14 @@ function* chooseNameFlex() {
         return;
     }
 
-    const { value, didCancel } = yield* call(prompt.select, {
+    const { value, didCancel } = yield* call((prompt as any).select, {
         title: 'Placeholder',
         description: 'Choose Id: ',
         placeholder: 'For instance "topLeft" or "main"',
         defaultValue: flexEntity.locationId,
         options,
         submitButtonText: 'Set (⌥⏎)',
-    });
+    }) as any;
 
     if (didCancel) {
         return;

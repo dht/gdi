@@ -24,7 +24,7 @@ export type DatasetsProps = {
         onSelectNode: (nodeId: string) => void;
     };
     selectedNodeId: string;
-    autoSaveDate: number;
+    autoSaveDate?: number;
 };
 
 export function Datasets(props: DatasetsProps) {
@@ -118,7 +118,7 @@ export function Datasets(props: DatasetsProps) {
                         value={editorValue}
                         height={height}
                         language='json'
-                        onChange={setEditorValue}
+                        onChange={(value) => setEditorValue(value ?? '')}
                     />
                 </Editors>
             </Content>

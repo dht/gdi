@@ -10,11 +10,12 @@ import EditorMenuPanel from '../EditorMenuPanel/EditorMenuPanel';
 import { IEditorAction } from '../../types';
 import { downloadHtml } from 'shared-base';
 import { useMount } from 'react-use';
+import { InputPrompt } from '@gdi/web-base-ui';
 
 export type EditorProps = {
     value: string;
     onChange: (html: string) => void;
-    inputPrompt?: Prompt;
+    inputPrompt?: InputPrompt;
 };
 
 export function Editor(props: EditorProps) {
@@ -56,7 +57,7 @@ export function Editor(props: EditorProps) {
                 }
 
                 editor.commands.setYoutubeVideo({
-                    src: promptResponse.value,
+                    src: promptResponse.value as string,
                     width: 640,
                     height: 480,
                 });

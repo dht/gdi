@@ -6,12 +6,12 @@ import { vs_blue } from './Code.theme';
 
 export type CodeProps = {
     value?: string;
-    onChange: (value?: string) => void;
     height: string | number;
     schema?: Schema | Schema[];
     language: 'json' | 'typescript' | 'markdown';
-    hideLineNumbers: boolean;
+    hideLineNumbers?: boolean;
     readOnly?: boolean;
+    onChange?: (value: string) => void;
 };
 
 export type Schema = {
@@ -54,7 +54,9 @@ export function Code(props: CodeProps) {
         value: string | undefined,
         _ev: monaco.editor.IModelContentChangedEvent
     ) {
-        props.onChange(value);
+        if (props.onChange) {
+            props.onChange(value ?? '');
+        }
     }
 
     const options: monaco.editor.IStandaloneEditorConstructionOptions = {

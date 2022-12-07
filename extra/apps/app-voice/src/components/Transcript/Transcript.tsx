@@ -13,7 +13,7 @@ export function Transcript(props: TranscriptProps) {
             className='Transcript-wrapper'
             data-testid='Transcript-wrapper'
         >
-            <Button text='viz' onClick={props.showStateDrawer} />
+            <Button title='viz' onClick={props.showStateDrawer} />
             <SpeakButtonContainer />
         </Wrapper>
     );

@@ -13,7 +13,9 @@ export function Squares(props: SquaresProps) {
 
     function row(data: any) {
         const weekPointer: WeekPointer = data.item;
-        const weekData = expectedManasByProject.byWeek[weekPointer.weekAndYear];
+        const weekData =
+            expectedManasByProject.byWeek[weekPointer.weekAndYear ?? ''];
+
         return (
             <Week
                 key={weekPointer.weekAndYear}
@@ -25,12 +27,7 @@ export function Squares(props: SquaresProps) {
 
     return (
         <Wrapper className='Squares-wrapper' data-testid='Squares-wrapper'>
-            <GenericTable
-                data={weeks}
-                autoHeight
-                itemHeight={131}
-                virtual={true}
-            >
+            <GenericTable data={weeks} autoHeight itemHeight={131}>
                 {row}
             </GenericTable>
         </Wrapper>

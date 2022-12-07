@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
-import { Estimation } from '../../containers/EstimateContainer.data';
 import { Wrapper, Option, Options } from './Estimate.style';
 import { Callout } from '@gdi/web-ui';
 import './Estimate.scss';
+import { Estimation } from './Estimate.data';
 
 export type EstimateProps = {
     estimations: Estimation[];
@@ -11,11 +11,14 @@ export type EstimateProps = {
 
 export function Estimate(props: EstimateProps) {
     const { estimations } = props;
-    const ref = useRef(null);
+    const ref = useRef<any>(null);
 
     function onClick(option: Estimation) {
         props.onClick(option);
-        ref.current.hideCallout();
+
+        if (typeof ref.current.hideCallout === 'function') {
+            ref.current.hideCallout();
+        }
     }
 
     function renderOption(option: Estimation) {
@@ -36,7 +39,7 @@ export function Estimate(props: EstimateProps) {
 
     return (
         <Wrapper className='Estimate-wrapper' data-testid='Estimate-wrapper'>
-            <Callout buttonIcon='stopwatch' ref={ref}>
+            <Callout ref={ref}>
                 <Options>{renderOptions()}</Options>
             </Callout>
         </Wrapper>

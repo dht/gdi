@@ -25,19 +25,23 @@ function* loadBoard() {
     babylon.assets = assets;
 
     const cameras = yield* select(selectors.base.$cameras);
-    Object.values(cameras).forEach((camera) => babylon.buildCamera(camera));
+    Object.values(cameras).forEach((camera: any) =>
+        babylon.buildCamera(camera)
+    );
 
     const grounds = yield* select(selectors.base.$grounds);
-    Object.values(grounds).forEach((ground) => babylon.buildItem(ground));
+    Object.values(grounds).forEach((ground: any) => babylon.buildItem(ground));
 
     const lights = yield* select(selectors.base.$lights);
-    Object.values(lights).forEach((light) => babylon.buildLight(light));
+    Object.values(lights).forEach((light: any) => babylon.buildLight(light));
 
     const particles = yield* select(selectors.raw.$rawParticles);
-    Object.values(particles).forEach((particle) => babylon.buildParticleSystem(particle)); // prettier-ignore
+    Object.values(particles).forEach((particle: any) => babylon.buildParticleSystem(particle)); // prettier-ignore
 
     const items = yield* select(selectors.base.$currentItems);
-    Object.values(items).forEach((item) => globals.babylon.buildItem(item));
+    Object.values(items).forEach((item: any) =>
+        globals.babylon.buildItem(item)
+    );
 }
 
 function* initBabylon(action: TriggerAction) {

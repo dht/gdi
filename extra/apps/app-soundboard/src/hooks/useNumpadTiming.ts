@@ -5,7 +5,7 @@ import { debounce } from 'shared-base';
 type OnChangeCallback = (newValue: number) => void;
 
 export const useNumpadTiming = (
-    ref: RefObject<HTMLDivElement>,
+    ref: RefObject<HTMLDivElement | undefined>,
     minutes: number,
     callback: OnChangeCallback,
     depArray: any[] = []
@@ -33,11 +33,11 @@ export const useNumpadTiming = (
     useNumpad(hover, onNumpad);
 };
 
-const useMouseHover = (ref: RefObject<HTMLDivElement>) => {
+const useMouseHover = (ref: RefObject<HTMLDivElement | undefined>) => {
     const [hover, setHover] = useBoolean(false);
 
     useEffect(() => {
-        const that = ref.current;
+        const that: any = ref.current;
 
         function onMouseOver() {
             setHover(true);

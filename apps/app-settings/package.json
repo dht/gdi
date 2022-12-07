@@ -1,7 +1,7 @@
 {
     "name": "@gdi/app-settings",
     "description": "Site and account settings",
-    "version": "0.0.47",
+    "version": "0.0.50",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
@@ -9,12 +9,12 @@
     },
     "dependencies": {
         "@gdi/hooks": "^0.0.34",
-        "@gdi/platformer": "^0.0.44",
-        "@gdi/store-auth": "^0.0.40",
-        "@gdi/store-settings": "^0.0.50",
-        "@gdi/store-site": "^0.0.44",
-        "@gdi/types": "^0.0.83",
-        "@gdi/web-ui": "^0.0.58",
+        "@gdi/platformer": "^0.0.47",
+        "@gdi/store-auth": "^0.0.43",
+        "@gdi/store-settings": "^0.0.53",
+        "@gdi/store-site": "^0.0.47",
+        "@gdi/types": "^0.0.87",
+        "@gdi/web-ui": "^0.0.61",
         "@testing-library/react": "^13.3.0",
         "bytes": "^3.1.2",
         "chance": "^1.1.8",

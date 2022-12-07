@@ -20,4 +20,7 @@ export const emptyArticle: IArticle = {
     tags: [],
     minutesSpentEditing: 0,
     wordCount: 100,
+    dataTags: [],
+    imageThumbUrl: '',
+    ratio: 1,
 };

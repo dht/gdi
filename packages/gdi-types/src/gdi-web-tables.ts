@@ -122,6 +122,7 @@ declare global {
         | 'pageInstance'
         | 'image'
         | 'layout'
+        | 'layoutItem'
         | 'template'
         | 'article'
         | 'comment'

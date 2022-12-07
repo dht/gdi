@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export const ScheduleClock2Container = () => {
     const dispatch = useDispatch();
     const time = useSelector(selectors.raw.$now);
-    const weather = useSelector(selectors.base.$weather);
+    const weather = {} as any;
 
     const changeDelta = useCallback((timeDeltaInMinutes: number) => {
         dispatch(
@@ -20,7 +20,7 @@ export const ScheduleClock2Container = () => {
     return (
         <ScheduleClock2
             weather={weather}
-            time={time}
+            time={time as any}
             changeDelta={changeDelta}
         />
     );

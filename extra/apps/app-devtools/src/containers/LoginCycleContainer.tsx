@@ -45,7 +45,7 @@ export const LoginCycleContainer = (props: LoginCycleContainerProps) => {
     return (
         <Lifecycle
             title='Global Login'
-            stages={data}
+            stages={data as any}
             devMode={true}
             onAction={onAction}
             actions={lifecycleActions}

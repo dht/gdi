@@ -1,7 +1,7 @@
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateEvents: {
         id: 'appStateEvents',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     events: {
         id: 'events',

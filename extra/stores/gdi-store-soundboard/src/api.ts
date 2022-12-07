@@ -1,7 +1,7 @@
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateSoundboard: {
         id: 'appStateSoundboard',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     appStateScheduler: {
         id: 'appStateScheduler',

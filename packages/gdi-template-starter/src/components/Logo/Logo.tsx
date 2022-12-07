@@ -3,6 +3,7 @@ import { Wrapper } from './Logo.style';
 
 export type LogoProps = {
     url: string;
+    onClick?: () => void;
 };
 
 export function Logo(props: LogoProps) {

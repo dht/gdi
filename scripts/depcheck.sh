@@ -1,3 +1,89 @@
+cd packages/gdi-types
+depcheck >.depcheck
+cd ../..
+
+cd packages/gdi-engine
+depcheck >.depcheck
+cd ../..
+
+cd packages/gdi-language
+depcheck >.depcheck
+cd ../..
+
+cd packages/gdi-web-base-ui
+depcheck >.depcheck
+cd ../..
+
+cd packages/gdi-web-editors
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-web-forms
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-web-tables
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-web-ui
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-photo-booth
+depcheck > .depcheck
+cd ../..
+
+
+cd packages/gdi-uno
+depcheck > .depcheck
+cd ../..
+
+
+cd stores/gdi-store-auth
+depcheck > .depcheck
+cd ../..
+
+cd stores/gdi-store-dashboard
+depcheck > .depcheck
+cd ../..
+
+cd stores/gdi-store-factory
+depcheck > .depcheck
+cd ../..
+
+cd stores/gdi-store-mixer
+depcheck > .depcheck
+cd ../..
+
+cd stores/gdi-store-settings
+depcheck > .depcheck
+cd ../..
+
+cd stores/gdi-store-site
+depcheck > .depcheck
+cd ../..
+
+cd packages/platformer
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-template-card
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-template-gdi
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-template-starter
+depcheck > .depcheck
+cd ../..
+
+cd packages/gdi-template-tech
+depcheck > .depcheck
+cd ../..
+
 cd apps/app-dashboard
 depcheck > .depcheck
 cd ../..
@@ -17,95 +103,6 @@ cd ../..
 cd apps/app-settings
 depcheck > .depcheck
 cd ../..
-
-cd clients/gdi-admin
-depcheck > .depcheck
-cd ../..
-
-cd clients/gdi-cli
-depcheck > .depcheck
-cd ../..
-
-cd clients/gdi-site
-depcheck > .depcheck
-cd ../..
-
-cd extra/apps/app-biblo
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-campaigns
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-carts
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-comments
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-dashboard3d
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-devtools
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-events
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-knowledge
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-leads
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-money
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-orders
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-ppl
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-products
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-sales
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-soundboard
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-studio
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-tasks
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-things
-depcheck > .depcheck
-cd ../../..
-
-cd extra/apps/app-voice
-depcheck > .depcheck
-cd ../../..
-
 
 cd extra/stores/gdi-store-biblo
 depcheck > .depcheck
@@ -179,138 +176,80 @@ cd extra/stores/gdi-store-voice
 depcheck > .depcheck
 cd ../../..
 
-cd packages/gdi-engine
+cd extra/stores/gdi-store-weather
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-hooks
+cd extra/apps/app-biblo
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-language
+cd extra/apps/app-campaigns
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-photo-booth
+cd extra/apps/app-carts
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-template-card
+cd extra/apps/app-comments
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-template-gdi
+cd extra/apps/app-devtools
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-template-starter
+cd extra/apps/app-events
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-template-tech
+cd extra/apps/app-knowledge
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-types
+cd extra/apps/app-leads
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-uno
+cd extra/apps/app-money
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-web-base-ui
+cd extra/apps/app-orders
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-web-editors
+cd extra/apps/app-ppl
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-web-forms
+cd extra/apps/app-products
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-web-tables
+cd extra/apps/app-sales
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/gdi-web-ui
+cd extra/apps/app-soundboard
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd packages/platformer
+cd extra/apps/app-studio
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd submodules/axios-oauth
+cd extra/apps/app-tasks
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd submodules/firestore-local
+cd extra/apps/app-things
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd submodules/gdi-datasets
+cd extra/apps/app-voice
 depcheck > .depcheck
-cd ../..
+cd ../../..
 
-cd submodules/gdi-dnd
-depcheck > .depcheck
-cd ../..
 
-cd submodules/gdi-language-de
-depcheck > .depcheck
-cd ../..
-
-cd submodules/gdi-language-es
-depcheck > .depcheck
-cd ../..
-
-cd submodules/gdi-language-fr
-depcheck > .depcheck
-cd ../..
-
-cd submodules/gdi-language-he
-depcheck > .depcheck
-cd ../..
-
-cd submodules/gdi-language-it
-depcheck > .depcheck
-cd ../..
-
-cd submodules/gdi-language-nl
-depcheck > .depcheck
-cd ../..
-
-cd submodules/igrid
-depcheck > .depcheck
-cd ../..
-
-cd submodules/redux-connected
-depcheck > .depcheck
-cd ../..
-
-cd submodules/redux-connected-devtools
-depcheck > .depcheck
-cd ../..
-
-cd submodules/redux-store-generator
-depcheck > .depcheck
-cd ../..
-
-cd submodules/shared-base
-depcheck > .depcheck
-cd ../..
-
-cd submodules/store-seeder
-depcheck > .depcheck
-cd ../..
-
-cd submodules/testing-base
-depcheck > .depcheck
-cd ../..
-
-cd submodules/types-base
-depcheck > .depcheck
-cd ../..

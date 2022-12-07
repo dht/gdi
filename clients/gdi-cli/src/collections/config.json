@@ -1,9 +1,0 @@
-{
-    "enabled": {
-        "firebase": true,
-        "photobooth": true,
-        "global": true,
-        "scaffolding": true,
-        "seeding": true
-    }
-}

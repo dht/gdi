@@ -73,5 +73,6 @@ export type {
     IRawStyle,
 } from '@fluentui/react';
 export { prompt } from './components/Prompt/Prompt.actions';
+export type { InputPrompt } from './components/Prompt/Prompt.actions';
 
 export * from './types';

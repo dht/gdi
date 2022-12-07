@@ -71,7 +71,7 @@ export function Settings(props: SettingsProps) {
                     value={value}
                     height={height}
                     language='json'
-                    onChange={setValue}
+                    onChange={(value) => setValue(value ?? '')}
                     schema={settingsSchema}
                 />
                 <Code

@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-starter",
-    "version": "0.0.39",
+    "version": "0.0.42",
     "description": "A starter template for GDI projects",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -12,9 +12,9 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.59",
-        "@gdi/types": "^0.0.83",
-        "@gdi/web-ui": "^0.0.58",
+        "@gdi/engine": "^0.0.63",
+        "@gdi/types": "^0.0.87",
+        "@gdi/web-ui": "^0.0.61",
         "classnames": "^2.3.1",
         "polished": "^4.2.2",
         "react-draggable": "^4.4.5",
@@ -58,15 +58,11 @@
     ],
     "main": "./dist/template-starter.umd.js",
     "module": "./dist/template-starter.es.js",
-    "types": "./dist/dts/index.d.ts",
+    "types": "./dist/dts/src/index.d.ts",
     "exports": {
         ".": {
             "import": "./dist/template-starter.es.js",
             "require": "./dist/template-starter.umd.js"
-        },
-        "./dist/public/": {
-            "import": "./dist/public/",
-            "require": "./dist/public/"
         }
     },
     "gdi": {

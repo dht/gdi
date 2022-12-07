@@ -9,16 +9,34 @@ on:
 
 jobs:
     publish:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
+        # runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
-            - run: npm ci
-            - run: npm run build
-              working-directory: extra/apps/app-biblo/
-            - run: npm publish
-              working-directory: extra/apps/app-biblo/
+            - name: Cache node modules
+              id: cache-npm
+              uses: actions/cache@v3
+              env:
+                  cache-name: cache-node-modules
+              with:
+                  path: ~/.npm
+                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-build-${{ env.cache-name }}-
+                      ${{ runner.os }}-build-
+                      ${{ runner.os }}-
+            - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+              name: List the state of node modules
+              continue-on-error: true
+              run: npm list
+            - name: Install dependencies
+              run: npm install
+            - name: Build
+              run: npm run build -w @gdi/app-biblo
+            - name: Publish
+              run: npm publish -w @gdi/app-biblo
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

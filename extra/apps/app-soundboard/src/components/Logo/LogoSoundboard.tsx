@@ -7,7 +7,7 @@ export type LogoProps = {};
 export function Logo(_props: LogoProps) {
     return (
         <Wrapper className='Logo-wrapper' data-testid='Logo-wrapper'>
-            <img src={logo} alt='Logo' />
+            <img src={logo as any} alt='Logo' />
         </Wrapper>
     );
 }

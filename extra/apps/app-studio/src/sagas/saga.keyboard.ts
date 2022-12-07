@@ -1,6 +1,5 @@
 import { isoEventChannel } from './channels/channel.isoEvent';
 import { put, takeEvery } from 'saga-ts';
-import type { PickingInfo } from 'babylonjs';
 import { globals } from '../utils/globals';
 import { actions } from '../store';
 
@@ -18,7 +17,7 @@ function* keyDown(data: Json) {
             break;
         case 'Delete':
             if (data.hoveredId) {
-                yield put(actions.items.delete(data.hoveredId));
+                yield put(actions.studioItems.delete(data.hoveredId));
                 globals.babylon.clearHovered();
             }
             break;

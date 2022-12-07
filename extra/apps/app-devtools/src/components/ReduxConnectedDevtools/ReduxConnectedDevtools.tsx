@@ -14,7 +14,7 @@ export function ReduxConnectedDevtools(props: ReduxConnectedDevtoolsProps) {
             className='ReduxConnectedDevtools-wrapper'
             data-testid='ReduxConnectedDevtools-wrapper'
         >
-            <DevtoolsApp idDarkMode={true} connectedStore={connectedStore} />
+            <DevtoolsApp isDarkMode={true} connectedStore={connectedStore} />
         </Wrapper>
     );
 }

@@ -1,4 +1,3 @@
-import { ICrudDefinitions } from '@gdi/web-tables';
 import bucket from './json/d.bucket.person.json';
 import calendar from './json/d.calendar.person.json';
 import filters from './json/d.filter.person.json';

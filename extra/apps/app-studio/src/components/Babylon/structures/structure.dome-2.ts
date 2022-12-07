@@ -64,11 +64,11 @@ export const addStructure = (scene: BABYLON.Scene) => {
         scene
     );
 
-    var defaultGridMaterial = new GridMaterial('default', scene);
+    var defaultGridMaterial = new GridMaterial('default', scene as any);
     defaultGridMaterial.majorUnitFrequency = 5;
     defaultGridMaterial.gridRatio = 0.5;
 
-    var fruitMaterial = new GridMaterial('default', scene);
+    var fruitMaterial = new GridMaterial('default', scene as any);
     fruitMaterial.majorUnitFrequency = 1;
     fruitMaterial.gridRatio = 0.2;
     fruitMaterial.mainColor = new BABYLON.Color3(1, 1, 0);
@@ -77,7 +77,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     let box = [];
 
     for (let i = 0; i < 5; i++) {
-        var furMaterial_D = new FurMaterial('furD' + i, scene);
+        var furMaterial_D = new FurMaterial('furD' + i, scene as any);
         furMaterial_D.highLevelFur = false;
         furMaterial_D.furLength = 1; // Represents the maximum length of the fur, which is then adjusted randomly. Default value is 1.
         furMaterial_D.furAngle = furAngle[i]; // Represents the angle the fur lies on the mesh from 0 to Math.PI/2. The default angle of 0 gives fur sticking straight up and PI/2 lies along the mesh.
@@ -93,7 +93,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
 
         box[i].position = positions[i];
         box[i].rotation = rotations[i];
-        box[i].material = furMaterial_D;
+        (box[i] as any).material = furMaterial_D;
 
         const tree = generateTreeSimple(scene, colors[i]);
 
@@ -115,7 +115,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
 
         plane.rotation.y = (-Math.PI / 8) * 4 + y;
 
-        var advanced = GUI.AdvancedDynamicTexture.CreateForMesh(plane);
+        var advanced = GUI.AdvancedDynamicTexture.CreateForMesh(plane as any);
 
         var button1 = GUI.Button.CreateSimpleButton('but1', 'Web Presence');
         button1.fontFamily = 'monospace';
@@ -148,9 +148,9 @@ export const addStructure = (scene: BABYLON.Scene) => {
     sphere.position.y = 6;
     sphere.position.x = 12.12;
     sphere.position.z = -19;
-    sphere.material = fruitMaterial;
+    (sphere as any).material = fruitMaterial;
 
-    var groundMaterial = new GridMaterial('groundMaterial', scene);
+    var groundMaterial = new GridMaterial('groundMaterial', scene as any);
     groundMaterial.majorUnitFrequency = 5;
     groundMaterial.minorUnitVisibility = 0.25;
     groundMaterial.gridRatio = 2;
@@ -164,7 +164,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
         : new BABYLON.Color3(0.7, 0.7, 0.7);
 
     groundMaterial.opacity = 0.98;
-    ground.material = groundMaterial;
+    (ground as any).material = groundMaterial;
 
     camera.attachControl(true);
     // This creates a basic Babylon Scene object (non-mesh)
@@ -177,7 +177,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     //     scene
     // );
 
-    var skyMaterial = new GridMaterial('skyMaterial', scene);
+    var skyMaterial = new GridMaterial('skyMaterial', scene as any);
     skyMaterial.majorUnitFrequency = 6; // 6;
     skyMaterial.minorUnitVisibility = 0.4; //0.43;
     skyMaterial.gridRatio = 0.5; // 0.5;
@@ -191,7 +191,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
 
     skyMaterial.backFaceCulling = false;
     var skySphere = BABYLON.Mesh.CreateSphere('skySphere', 30, 110, scene);
-    skySphere.material = skyMaterial;
+    (skySphere as any).material = skyMaterial;
 
     // GUI
     var plane = BABYLON.MeshBuilder.CreatePlane(
@@ -206,9 +206,9 @@ export const addStructure = (scene: BABYLON.Scene) => {
     plane.position.x = -2;
     plane.rotation.y = (Math.PI / 8) * -4;
 
-    var textblock = new GUI.TextBlock('text', 'good');
-
-    var advancedTexture = GUI.AdvancedDynamicTexture.CreateForMesh(plane);
+    var advancedTexture = GUI.AdvancedDynamicTexture.CreateForMesh(
+        plane as any
+    );
 
     var button1 = GUI.Button.CreateSimpleButton('but1', 'Click Me');
     button1.width = 10;
@@ -227,7 +227,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     };
 };
 
-const generateTree = (scene: any, color) => {
+const generateTree = (scene: any, color: BABYLON.Color3) => {
     //leaf material
     var green = new BABYLON.StandardMaterial('green', scene);
     green.diffuseColor = new BABYLON.Color3(0, 1, 0);
@@ -274,7 +274,7 @@ const generateTree = (scene: any, color) => {
     return tree;
 };
 
-const generateTreeSimple = (scene: any, color) => {
+const generateTreeSimple = (scene: any, color: BABYLON.Color3) => {
     //trunk and branch material
     var bark = new BABYLON.StandardMaterial('bark', scene);
     bark.emissiveColor = color;

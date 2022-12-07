@@ -1,19 +1,12 @@
 import React from 'react';
-
-import { WrappedFilterContainer } from '../containers/WrappedFilterContainer';
-
-import { LocalDataViewerContainer } from '../containers/LocalDataViewerContainer';
-
-import { LanguageCatalogContainer } from '../containers/LanguageCatalogContainer';
-
-import { HoustonContainer } from '../containers/HoustonContainer';
-import { IWidget, Wrapper } from '@gdi/platformer';
 import { APP_ID } from './ids';
+import { IWidget, Wrapper } from '@gdi/platformer';
 
 const ConsoleContainer = React.lazy(() => import('../containers/ConsoleContainer')); // prettier-ignore
 const StoreSizeContainer = React.lazy(() => import('../containers/StoreSizeContainer')); // prettier-ignore
 const ReduxConnectedDevtoolsContainer = React.lazy(() => import('../containers/ReduxConnectedDevtoolsContainer')); // prettier-ignore
 const LoginCycleContainer = React.lazy(() => import('../containers/LoginCycleContainer')); // prettier-ignore
+const LocalDataViewerContainer = React.lazy(() => import('../containers/LocalDataViewerContainer')); // prettier-ignore
 
 export enum DevtoolsWidgets {
     LocalDataViewer = 'devtools.LocalDataViewer',

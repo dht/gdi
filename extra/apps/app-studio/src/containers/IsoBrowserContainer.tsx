@@ -8,7 +8,7 @@ export const IsoBrowserContainer = () => {
     const buildings = useSelector(selectors.raw.$rawBuildings);
     const assets = useSelector(selectors.raw.$rawAssets);
 
-    function onSelect(building: IBuilding) {
+    function onSelect(building: any) {
         dispatch({ type: 'NEW_BUILDING', building });
     }
 

@@ -19,5 +19,5 @@
             "@gdi/store-voice": ["stores/gdi-store-voice"]
         }
     },
-    "include": ["src/*.ts", "test/*.ts"]
+    "include": ["src/*.ts", "test/*.ts", "src/extra.d.ts"]
 }
