@@ -63,7 +63,6 @@ export async function initPlatform<T extends StoreStructure>(
     const {
         accountName,
         availableAccounts = [],
-        activeApps = [],
         initAppMethods = {},
         activeSaps = [],
         initSapMethods = {},
@@ -74,6 +73,8 @@ export async function initPlatform<T extends StoreStructure>(
         languageCode = 'en',
         connectionType = ConnectionType.NONE,
     } = params;
+
+    let activeApps = params.activeApps ?? [];
 
     logger('platform: init');
 

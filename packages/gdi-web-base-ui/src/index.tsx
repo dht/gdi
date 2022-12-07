@@ -12,6 +12,7 @@ export { Choice } from './components/Choice/Choice';
 export { ColorPicker } from './components/ColorPicker/ColorPicker';
 export { CornerTriangle } from './components/CornerTriangle/CornerTriangle';
 export { DateInput } from './components/DateInput/DateInput';
+export { DemoMode } from './components/DemoMode/DemoMode';
 export { Device } from './components/Device/Device';
 export { Drawer } from './components/Drawer/Drawer';
 export { Dropdown } from './components/Dropdown/Dropdown';

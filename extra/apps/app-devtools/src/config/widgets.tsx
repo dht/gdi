@@ -1,4 +1,12 @@
 import React from 'react';
+
+import { WrappedFilterContainer } from '../containers/WrappedFilterContainer';
+
+import { LocalDataViewerContainer } from '../containers/LocalDataViewerContainer';
+
+import { LanguageCatalogContainer } from '../containers/LanguageCatalogContainer';
+
+import { HoustonContainer } from '../containers/HoustonContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
 import { APP_ID } from './ids';
 
@@ -8,6 +16,7 @@ const ReduxConnectedDevtoolsContainer = React.lazy(() => import('../containers/R
 const LoginCycleContainer = React.lazy(() => import('../containers/LoginCycleContainer')); // prettier-ignore
 
 export enum DevtoolsWidgets {
+    LocalDataViewer = 'devtools.LocalDataViewer',
     Console = 'devtools.Console',
     ReduxConnectedDevtools = 'devtools.ReduxConnectedDevtools',
     StoreSize = 'devtools.StoreSize',
@@ -18,6 +27,17 @@ export enum DevtoolsWidgets {
 }
 
 export const widgets: IWidget[] = [
+    {
+        id: DevtoolsWidgets.LocalDataViewer,
+        name: 'LocalDataViewer',
+        description: 'LocalDataViewer',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => <LocalDataViewerContainer {...props} />,
+    },
+
     {
         id: DevtoolsWidgets.Console,
         name: 'Console',

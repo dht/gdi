@@ -1,27 +1,28 @@
-import { useCallback, useContext, useEffect, useMemo } from 'react';
-import ContextBarContainer from '../../containers/ContextBarContainer';
-import PageNotFound from '../PageNotFound/PageNotFound';
-import useMount from 'react-use/lib/useMount';
+import { useContext, useEffect, useMemo } from 'react';
 import { $s, invokeEvent } from 'shared-base';
 import { AccountTagContainer } from '../../containers/AccountTagContainer';
 import { AppContent } from './Bootstrap.style';
+import { AppContextProvider } from '@gdi/language';
 import { CommandBar } from '@gdi/web-ui';
+import { ContextBarContainer } from '../../containers/ContextBarContainer';
 import { createPage } from '../Page/Page';
+import { DemoModeContainer } from '../../containers/DemoModeContainer';
+import { firebase } from '../../utils/firebase';
 import { ICommandBarItem } from '../../types';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { OverlayContainer } from '../../containers/OverlayContainer';
+import { PageNotFound } from '../PageNotFound/PageNotFound';
 import { PlatformContext } from '../../core/Platform.context';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { SideMenuContainer } from '../../containers/SideMenuContainer';
 import { SwitcherContainer } from '../../containers/SwitcherContainer';
 import { useDispatch } from 'react-redux';
+import { useMount } from 'react-use';
 import {
     IWidgetInstance,
     IWidgetInstancesByPageDictionary,
     IWidgetInstancesList,
 } from 'igrid';
-import { AppContextProvider } from '@gdi/language';
-import { firebase } from '../../utils/firebase';
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
@@ -94,6 +95,7 @@ export const App = () => {
                 <OverlayRoutes />
                 <SideMenuContainer />
                 <SwitcherContainer />
+                <DemoModeContainer />
                 <ContextBarContainer
                     contextBarItems={contextBarItems}
                     widgetLibrary={widgetLibrary}

@@ -1,3 +1,5 @@
+import { ConnectionType } from 'redux-connected';
+
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateTasks: {
         id: 'appStateTasks',

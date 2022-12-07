@@ -23,6 +23,11 @@ export const getDemoFlag = (): boolean | undefined => {
 
     let on: boolean | undefined;
 
+    // cannot start DEMO mode if no DEMO_DATA_URL is provided
+    if (getDemoDataUrl() === undefined) {
+        return;
+    }
+
     if (demoParam === 'on') {
         on = true;
     } else if (demoParam === 'off') {

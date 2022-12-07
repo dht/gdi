@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { BuiltWithGdi, BuiltWithGdiProps } from './BuiltWithGdi';
+import { DemoMode, DemoModeProps } from './DemoMode';
 import { BaseComponentDriver } from 'testing-base';
 
-export class BuiltWithGdiDriver extends BaseComponentDriver {
-    private props: Partial<BuiltWithGdiProps> = {};
+export class DemoModeDriver extends BaseComponentDriver {
+    private props: Partial<DemoModeProps> = {};
 
     constructor() {
-        super('BuiltWithGdi');
+        super('DemoMode');
     }
 
     when: any = {
         rendered: () => {
-            render(<BuiltWithGdi {...(this.props as BuiltWithGdiProps)} />);
+            render(<DemoMode {...(this.props as DemoModeProps)} />);
             return this;
         },
         clicked: () => {
@@ -21,13 +21,13 @@ export class BuiltWithGdiDriver extends BaseComponentDriver {
         },
         snapshot: () => {
             return this.snapshot(
-                <BuiltWithGdi {...(this.props as BuiltWithGdiProps)} />
+                <DemoMode {...(this.props as DemoModeProps)} />
             );
         },
     };
 
     given: any = {
-        props: (props: Partial<BuiltWithGdiProps>) => {
+        props: (props: Partial<DemoModeProps>) => {
             this.props = props;
             return this;
         },

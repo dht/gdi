@@ -14,7 +14,5 @@ export function Toast(_props: ToastBarContainerProps) {
 }
 
 const StyledToastContainer = styled(ToastContainer)`
-    &&&.Toastify__toast-wrapper {
-        ${(props) => props.theme.left('70px')}
-    }
+    ${(props) => props.theme.left('80px')}
 `;

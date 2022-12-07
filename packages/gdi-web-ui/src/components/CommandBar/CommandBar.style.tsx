@@ -19,7 +19,7 @@ export const Bar = styled.div`
     box-shadow: 0 0 3px 7px rgba(0, 0, 0, 0.15);
     color: #eee;
     margin-top: 100px;
-    height: 61px;
+    height: 80px;
     width: 1000px;
     padding: 10px;
     display: flex;

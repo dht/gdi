@@ -9,6 +9,10 @@ import { ConnectionType } from 'redux-connected';
 const baseURL = import.meta.env.VITE_API_SERVER_DOMAIN + '/v1';
 const menuSections = import.meta.env.VITE_MENU.split(',');
 const initialRoute = import.meta.env.VITE_INITIAL_ROUTE; // prettier-ignore
+const demoActiveApps = import.meta.env.VITE_DEMO_ACTIVE_APPS.split(','); // prettier-ignore
+
+initDemo();
+const demoConfig = getDemoConfig();
 
 const ACTIVE_APPS_LOCAL_STORAGE_KEY = 'active-apps';
 
@@ -18,10 +22,11 @@ const activeAppsFromStorage = Object.keys(activeAppsJson).filter(
 );
 const requiredApps = ['login', 'mixer', 'settings'];
 
-const activeApps = uniq([...activeAppsFromStorage, ...requiredApps]).sort();
+let activeApps = uniq([...activeAppsFromStorage, ...requiredApps]).sort();
 
-initDemo();
-const demoConfig = getDemoConfig();
+if (demoConfig.on) {
+    activeApps = demoActiveApps;
+}
 
 const connectionType = demoConfig.on
     ? ConnectionType.LOCAL_STORAGE

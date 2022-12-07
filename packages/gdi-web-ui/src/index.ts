@@ -8,6 +8,7 @@ export { Clock } from './components/Clock/Clock';
 export { ColorPalette } from './components/ColorPalette/ColorPalette';
 export { ElementSelector } from './components/ElementSelector/ElementSelector';
 export { Gauge } from './components/Gauge/Gauge';
+export { JsonViewer } from './components/JsonViewer/JsonViewer';
 export { KeyboardShortcuts } from './components/KeyboardShortcuts/KeyboardShortcuts';
 export { KeyboardHint } from './components/KeyboardHint/KeyboardHint';
 export { Layouts } from './components/Layouts/Layouts';
@@ -43,6 +44,7 @@ export {
     Checkboxes,
     CornerTriangle,
     DateInput,
+    DemoMode,
     Drawer,
     DoubleDeckerSwitch,
     Dropdown,

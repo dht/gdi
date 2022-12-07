@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
     position: fixed;
     ${(props) => props.theme.right('14px')}
     ${(props) => props.theme.left('auto')}
-    bottom: 280px;
+    bottom: 390px;
     text-align: center;
     background-color: #d799df;
     padding: 3px;
@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
 
     &:active {
         ${(props) => props.theme.right('15px')}
-        bottom: 281px;
+        bottom: 391px;
     }
 `;
 
