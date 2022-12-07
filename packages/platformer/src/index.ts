@@ -30,3 +30,4 @@ export { firebase } from './utils/firebase';
 export { Sleeve as Wrapper } from './components/Sleeve/Sleeve';
 
 export { useCrudDefinitions } from './hooks/useCrudDefinitions';
+export { initDemo, getDemoConfig } from './utils/demo';

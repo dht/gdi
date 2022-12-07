@@ -38,7 +38,7 @@ export const TicketsContainer = () => {
             callbacks={callbacks}
             allOptions={allOptions}
             dispatch={dispatch}
-            customView={HoustonContainer}
+            // customView={HoustonContainer}
             newDataExtra={newDataExtra}
         />
     );

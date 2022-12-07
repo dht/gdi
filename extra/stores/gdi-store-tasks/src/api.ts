@@ -1,7 +1,4 @@
-enum ConnectionType {
-    NONE = 'NONE',
-    FIRESTORE = 'FIRESTORE',
-}
+import { ConnectionType } from 'redux-connected';
 
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateTasks: {
@@ -10,28 +7,28 @@ export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     },
     projects: {
         id: 'projects',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
     tickets: {
         id: 'tickets',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
         optimisticPosts: true,
     },
     worklogs: {
         id: 'activeTaskWorklogs',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
     sessions: {
         id: 'recentSessions',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
     recentSessions: {
         id: 'recentSessions',
-        connectionType: ConnectionType.FIRESTORE,
+        connectionType,
         optimistic: true,
     },
 });

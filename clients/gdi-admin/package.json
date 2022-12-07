@@ -43,7 +43,7 @@
         "react-dom": "^18.2.0",
         "react-toastify": "^9.0.7",
         "react-use": "^17.4.0",
-        "shared-base": "^0.0.29",
+        "shared-base": "^0.0.32",
         "styled-components": "^5.3.5",
         "testing-base": "^0.0.4",
         "types-base": "^0.0.2"

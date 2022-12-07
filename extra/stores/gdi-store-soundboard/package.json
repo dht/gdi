@@ -20,7 +20,7 @@
         "jest": "^28.1.3",
         "jest-cli": "^28.1.3",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.29",
+        "shared-base": "^0.0.32",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
         "vite": "^3.0.3",

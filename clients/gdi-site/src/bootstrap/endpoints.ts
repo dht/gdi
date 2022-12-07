@@ -1,50 +1,54 @@
 import type { EndpointsConfigOverrides } from 'redux-connected';
 import { ConnectionType } from 'redux-connected';
 
-export const endpointsConfigOverrides: EndpointsConfigOverrides = {
-    palette: {
-        id: 'palette',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    fonts: {
-        id: 'fonts',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    instances: {
-        id: 'instances',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    widgets: {
-        id: 'widgets',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    images: {
-        id: 'images',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    instancesProps: {
-        id: 'instancesProps',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    datasets: {
-        id: 'datasets',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    pages: {
-        id: 'pages',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
-    pageInstances: {
-        id: 'pageInstances',
-        connectionType: ConnectionType.FIRESTORE,
-        optimistic: true,
-    },
+export const endpointsConfigOverrides: EndpointsConfigOverrides = (
+    connectionType: ConnectionType
+) => {
+    return {
+        palette: {
+            id: 'palette',
+            connectionType,
+            optimistic: true,
+        },
+        fonts: {
+            id: 'fonts',
+            connectionType,
+            optimistic: true,
+        },
+        instances: {
+            id: 'instances',
+            connectionType,
+            optimistic: true,
+        },
+        widgets: {
+            id: 'widgets',
+            connectionType,
+            optimistic: true,
+        },
+        images: {
+            id: 'images',
+            connectionType,
+            optimistic: true,
+        },
+        instancesProps: {
+            id: 'instancesProps',
+            connectionType,
+            optimistic: true,
+        },
+        datasets: {
+            id: 'datasets',
+            connectionType,
+            optimistic: true,
+        },
+        pages: {
+            id: 'pages',
+            connectionType,
+            optimistic: true,
+        },
+        pageInstances: {
+            id: 'pageInstances',
+            connectionType,
+            optimistic: true,
+        },
+    };
 };

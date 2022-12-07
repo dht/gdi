@@ -34,6 +34,12 @@ export const contextBarItems: IContextBarItem[] = [
         widgetId: DevtoolsWidgets.Console,
         responsive: true,
     },
+    {
+        id: 'localDataViewer',
+        label: 'LocalData Viewer',
+        widgetId: DevtoolsWidgets.LocalDataViewer,
+        responsive: true,
+    },
 ];
 
 export const commandBarItems: ICommandBarItem[] = [
@@ -90,6 +96,16 @@ export const commandBarItems: ICommandBarItem[] = [
             type: 'ADD_ITEM_TO_CONTEXT_BAR',
             payload: {
                 contextBarItemId: 'devtools_storeSize',
+            },
+        },
+    },
+    {
+        id: 'localDataViewer',
+        label: 'Show Local Data Viewer',
+        event: {
+            type: 'ADD_ITEM_TO_CONTEXT_BAR',
+            payload: {
+                contextBarItemId: 'devtools_localDataViewer',
             },
         },
     },

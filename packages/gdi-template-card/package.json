@@ -43,7 +43,7 @@
         "rollup-plugin-analyzer": "^4.0.0",
         "rollup-plugin-copy": "^3.4.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.29",
+        "shared-base": "^0.0.32",
         "testing-base": "^0.0.4",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
