@@ -21,12 +21,6 @@
             "@gdi/template-card": ["packages/gdi-template-card"],
 
             "@gdi/language": ["packages/gdi-language"],
-            "@gdi/language-de": ["submodules/gdi-language-de"],
-            "@gdi/language-es": ["submodules/gdi-language-es"],
-            "@gdi/language-fr": ["submodules/gdi-language-fr"],
-            "@gdi/language-he": ["submodules/gdi-language-he"],
-            "@gdi/language-it": ["submodules/gdi-language-it"],
-            "@gdi/language-nl": ["submodules/gdi-language-nl"],
 
             "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
             "@gdi/web-ui": ["packages/gdi-web-ui"],
@@ -72,15 +66,9 @@
             "@gdi/store-things": ["extra/stores/gdi-store-things"],
             "@gdi/store-voice": ["extra/stores/gdi-store-voice"],
 
-            "redux-store-generator": ["submodules/redux-store-generator"],
             "@gdi/uno": ["packages/gdi-uno"],
-            "@gdi/dnd": ["submodules/gdi-dnd"],
             "redux-connected": ["submodules/redux-connected"],
-            "redux-connected-devtools": ["submodules/redux-connected-devtools"],
-            "shared-base": ["submodules/shared-base"],
-            "igrid": ["submodules/igrid"],
-            "isokit": ["submodules/isokit"],
-            "firestore": ["submodules/firestore-local"]
+            "shared-base": ["submodules/shared-base"]
         }
     }
 }

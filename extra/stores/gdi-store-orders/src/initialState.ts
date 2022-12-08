@@ -29,7 +29,7 @@ export const initialState: IOrdersStore = {
             items: [
                 {
                     id: '1',
-                    productId: 5,
+                    productId: '5',
                     price: 125,
                     quantity: 2,
                     notes: 'Voluptatem id repellat et quibusdam.',
@@ -37,7 +37,7 @@ export const initialState: IOrdersStore = {
                 },
                 {
                     id: '2',
-                    productId: 10,
+                    productId: '10',
                     price: 745,
                     quantity: 8,
                     notes: 'Et sit et.',
@@ -96,6 +96,8 @@ export const initialState: IOrdersStore = {
                 value: 1,
             },
             productId: '',
+            cap: 0,
+            notes: '',
         },
     },
 };

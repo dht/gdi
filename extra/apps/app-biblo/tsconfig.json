@@ -18,8 +18,7 @@
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
             "@gdi/store-biblo": ["stores/gdi-store-biblo"],
-            "redux-connected": ["submodules/redux-connected"],
-            "redux-store-generator": ["submodules/redux-store-generator"]
+            "redux-connected": ["submodules/redux-connected"]
         }
     },
     "include": ["src/*.ts", "test/*.ts"]

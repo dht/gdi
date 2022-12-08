@@ -1,5 +1,7 @@
+declare module '@env';
+
 declare module '*.svg' {
-    import Vue, { VueConstructor } from 'vue';
-    const content: VueConstructor<Vue>;
+    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
     export default content;
 }
+declare module '*.json' {}

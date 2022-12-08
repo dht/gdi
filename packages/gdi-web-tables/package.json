@@ -1,6 +1,6 @@
 {
     "name": "@gdi/web-tables",
-    "version": "0.0.57",
+    "version": "0.0.63",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",
@@ -8,14 +8,15 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
+        "shared-base": "^0.0.32",
         "@dnd-kit/core": "^6.0.5",
         "@dnd-kit/sortable": "^7.0.1",
         "@dnd-kit/utilities": "^3.2.0",
         "@gdi/dnd": "^0.0.27",
         "@gdi/hooks": "^0.0.34",
-        "@gdi/language": "^0.0.56",
-        "@gdi/types": "^0.0.87",
-        "@gdi/web-base-ui": "^0.0.68",
+        "@gdi/language": "^0.0.63",
+        "@gdi/types": "^0.0.96",
+        "@gdi/web-base-ui": "^0.0.75",
         "classnames": "^2.3.1",
         "react-draggable": "^4.4.5",
         "react-use": "^17.4.0",
@@ -42,7 +43,6 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "rollup-plugin-analyzer": "^4.0.0",
-        "shared-base": "^0.0.32",
         "testing-base": "^0.0.4",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

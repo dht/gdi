@@ -9,13 +9,16 @@ on:
 
 jobs:
     publish:
-        runs-on: self-hosted
-        # runs-on: ubuntu-latest
+        runs-on: ubuntu-22.04
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
-                  node-version: 16
+                  node-version: '16.x'
+                  registry-url: 'https://registry.npmjs.org/'
+                  scope: '@gdi'
+            - name: Remove root package.json
+              run: rm package.json
             - name: Cache node modules
               id: cache-npm
               uses: actions/cache@v3
@@ -32,11 +35,15 @@ jobs:
               name: List the state of node modules
               continue-on-error: true
               run: npm list
+              working-directory: ./extra/apps/app-biblo
             - name: Install dependencies
               run: npm install
+              working-directory: ./extra/apps/app-biblo
             - name: Build
-              run: npm run build -w @gdi/app-biblo
-            - name: Publish
-              run: npm publish -w @gdi/app-biblo
-              env:
-                  NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+              run: npm run build
+              working-directory: ./extra/apps/app-biblo
+            - uses: JS-DevTools/npm-publish@v1
+              with:
+                  package: ./extra/apps/app-biblo/package.json
+                  token: ${{ secrets.NPM_TOKEN }}
+                  access: public

@@ -1,7 +1,7 @@
 {
     "name": "gdi-root",
     "private": true,
-    "version": "0.0.4",
+    "version": "0.0.5",
     "scripts": {
         "depcheck": "./scripts/depcheck.sh",
         "screenshots:server": "npm run dev --workspace=@gdi/photo-booth",
@@ -20,11 +20,10 @@
         "servers/*",
         "stores/*",
         "templates/*",
-        "submodules/*",
-        "submodules/extra/stores/*",
-        "submodules/extra/apps/*"
+        "submodules/*"
     ],
     "license": "MIT",
+    "dependencies": {},
     "devDependencies": {
         "@types/jest": "^27.5.1",
         "base-types": "^0.0.4",

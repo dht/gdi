@@ -1,9 +1,3 @@
-[submodule "submodules/axios-oauth"]
-	path = submodules/axios-oauth
-	url = git@github.com:dht/axios-oauth.git
-[submodule "submodules/igrid"]
-	path = submodules/igrid
-	url = git@github.com:dht/igrid.git
 [submodule "submodules/redux-connected"]
 	path = submodules/redux-connected
 	url = git@github.com:dht/redux-connected
@@ -13,51 +7,9 @@
 [submodule "submodules/testing-base"]
 	path = submodules/testing-base
 	url = git@github.com:dht/testing-base
-[submodule "submodules/types-base"]
-	path = submodules/types-base
-	url = git@github.com:dht/types-base
-[submodule "submodules/redux-connected-devtools"]
-	path = submodules/redux-connected-devtools
-	url = git@github.com:dht/redux-connected-devtools.git
-[submodule "submodules/isokit"]
-	path = submodules/isokit
-	url = git@github.com:dht/isokit.git
-[submodule "submodules/redux-store-generator"]
-	path = submodules/redux-store-generator
-	url = git@github.com:dht/redux-store-generator.git
-[submodule "submodules/firestore-local"]
-	path = submodules/firestore-local
-	url = git@github.com:dht/firestore-local.git
-[submodule "submodules/store-seeder"]
-	path = submodules/store-seeder
-	url = git@github.com:dht/store-seeder.git
-[submodule "submodules/react-gantt-elastic"]
-	path = submodules/react-gantt-elastic
-	url = git@github.com:dht/react-gantt-elastic.git
 [submodule "submodules/gdi-datasets"]
 	path = submodules/gdi-datasets
 	url = git@github.com:dht/gdi-datasets.git
-[submodule "submodules/gdi-dnd"]
-	path = submodules/gdi-dnd
-	url = git@github.com:dht/gdi-dnd.git
-[submodule "submodules/gdi-language-de"]
-	path = submodules/gdi-language-de
-	url = git@github.com:dht/gdi-language-de.git
-[submodule "submodules/gdi-language-es"]
-	path = submodules/gdi-language-es
-	url = git@github.com:dht/gdi-language-es.git
-[submodule "submodules/gdi-language-fr"]
-	path = submodules/gdi-language-fr
-	url = git@github.com:dht/gdi-language-fr.git
-[submodule "submodules/gdi-language-he"]
-	path = submodules/gdi-language-he
-	url = git@github.com:dht/gdi-language-he.git
-[submodule "submodules/gdi-language-it"]
-	path = submodules/gdi-language-it
-	url = git@github.com:dht/gdi-language-it.git
-[submodule "submodules/gdi-language-nl"]
-	path = submodules/gdi-language-nl
-	url = git@github.com:dht/gdi-language-nl.git
-[submodule "submodules/gdi-docs"]
-	path = submodules/gdi-docs
-	url = git@github.com:dht/gdi-docs
+[submodule "submodules/igrid"]
+	path = submodules/igrid
+	url = git@github.com:dht/igrid

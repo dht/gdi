@@ -138,10 +138,5 @@
         "id": "igrid",
         "path": "submodules/igrid",
         "types": "src/types.ts"
-    },
-    "store-seeder": {
-        "id": "store-seeder",
-        "path": "submodules/store-seeder",
-        "types": "src/types.ts"
     }
 }

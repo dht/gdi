@@ -31,7 +31,6 @@ export default defineConfig({
             '@gdi/web-forms': `${cwd}/packages/gdi-web-forms/src`,
             '@gdi/engine': `${cwd}/packages/gdi-engine/src`,
             'redux-connected': `${cwd}/submodules/redux-connected/src`,
-            igrid: `${cwd}/submodules/igrid/src`,
         },
     },
     define: {},

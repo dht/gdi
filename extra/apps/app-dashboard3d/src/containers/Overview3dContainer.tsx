@@ -49,10 +49,7 @@ export const Overview3dContainer = () => {
             stats={stats}
             callbacks={callbacks}
             isLoading={isLoading}
-            dispatch={dispatch}
-        >
-            <InboxContainer />
-        </Overview3d>
+        ></Overview3d>
     );
 };
 

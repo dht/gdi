@@ -144,7 +144,7 @@ export function SortableList(props: SortableListProps) {
 
     function renderItem(item: IDataItem) {
         return (
-            <ContainerItem
+            <SortableItem
                 key={item.id}
                 id={item.id}
                 selected={selectedId === item.id}
@@ -152,7 +152,7 @@ export function SortableList(props: SortableListProps) {
                 onDrillDown={onDrillDown}
             >
                 {props.renderItem(item)}
-            </ContainerItem>
+            </SortableItem>
         );
     }
 

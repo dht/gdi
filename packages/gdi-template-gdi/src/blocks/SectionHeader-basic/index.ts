@@ -4,7 +4,7 @@ import { dimensions } from './meta/SectionHeader.dimensions';
 import { screenshots } from './meta/SectionHeader.screenshots';
 
 export const widgetInfo: IWidget = {
-    id: 'com.usegdi.templates.starter.sectionHeader-basic',
+    id: 'com.usegdi.templates.gdi.sectionHeader-basic',
     name: 'sectionHeader-basic',
     description: '',
     params,

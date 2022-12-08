@@ -13,8 +13,8 @@ import { useLanguage } from '@gdi/language';
 export type StatsProps = {
     stats: IStats;
     callbacks: {
-        onClick: (stat: Stat, withShift?: boolean) => void;
-        onNavigate: (stat: Stat) => void;
+        onClick: (stat: IStat, withShift?: boolean) => void;
+        onNavigate: (stat: IStat) => void;
     };
 };
 
@@ -43,9 +43,9 @@ export function Stats(props: StatsProps) {
 }
 
 type StatProps = {
-    stat: Stat;
-    onNavigate: (stat: Stat) => void;
-    onClick: (stat: Stat, withShift?: boolean) => void;
+    stat: IStat;
+    onNavigate: (stat: IStat) => void;
+    onClick: (stat: IStat, withShift?: boolean) => void;
 };
 
 export function Stat(props: StatProps) {
@@ -54,7 +54,7 @@ export function Stat(props: StatProps) {
     const { t, m, tn, n } = useLanguage();
 
     const parsedValue = useMemo(() => {
-        let output = value;
+        let output: number | string = value;
 
         if (unit === 'currency') {
             output = m.rounded(value);
@@ -91,7 +91,7 @@ export function Stat(props: StatProps) {
             </Column>
             <Column>
                 <GraphWrapper>
-                    <Graph journey={stat.journey} />
+                    <Graph journey={stat.journey as any} />
                 </GraphWrapper>
             </Column>
         </ContainerStat>

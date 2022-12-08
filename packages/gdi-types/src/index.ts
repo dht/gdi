@@ -26,7 +26,6 @@ export * from './gdi-web-ui';
 export * from './gdi-language';
 export * from './platformer';
 export * from './igrid';
-export * from './store-seeder';
 
 export enum PlatformLifeCycleEvents {
     PLATFORM_IS_READY = 'PLATFORM_IS_READY',

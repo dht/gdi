@@ -23,8 +23,7 @@
             "@gdi/web-ui": ["packages/gdi-web-ui"],
             "@gdi/web-forms": ["packages/gdi-web-forms"],
             "@gdi/platformer": ["packages/platformer"],
-            "redux-connected": ["submodules/redux-connected"],
-            "igrid": ["submodules/igrid"]
+            "redux-connected": ["submodules/redux-connected"]
         }
     },
     "include": ["src/*.ts", "src/*.tsx", "test/*.ts"]

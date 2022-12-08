@@ -26,8 +26,7 @@
             "@gdi/web-forms": ["packages/gdi-web-forms"],
             "@gdi/platformer": ["packages/platformer"],
             "@gdi/engine": ["packages/gdi-engine"],
-            "redux-connected": ["submodules/redux-connected"],
-            "igrid": ["submodules/igrid"]
+            "redux-connected": ["submodules/redux-connected"]
         }
     },
     "include": ["src-admin/*.ts", "test/*.ts"]

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Bar, BarInner, Container } from './Graph.style';
+import { Bar, BarInner, Wrapper } from './Graph.style';
 import { sortBy } from 'shared-base';
 
 export type GraphProps = {

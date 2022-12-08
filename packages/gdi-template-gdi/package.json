@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-gdi",
-    "version": "0.0.53",
+    "version": "0.0.58",
     "description": "A template for GDI homepage",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -12,10 +12,11 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.63",
-        "@gdi/types": "^0.0.87",
-        "@gdi/uno": "^0.0.24",
-        "@gdi/web-ui": "^0.0.61",
+        "shared-base": "^0.0.32",
+        "@gdi/engine": "^0.0.71",
+        "@gdi/types": "^0.0.96",
+        "@gdi/uno": "^0.0.30",
+        "@gdi/web-ui": "^0.0.67",
         "classnames": "^2.3.1",
         "igrid": "^0.0.18",
         "polished": "^4.2.2",
@@ -44,7 +45,6 @@
         "rollup-plugin-analyzer": "^4.0.0",
         "rollup-plugin-copy": "^3.4.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.32",
         "testing-base": "^0.0.4",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

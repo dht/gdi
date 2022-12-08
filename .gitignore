@@ -7,9 +7,6 @@ coverage
 firebaseConfig.ts
 firebaseServiceAccount.json
 clients/gdi-admin/.firebaserc
-scripts/publishAll.sh
-scripts/pushO.sh
-scripts/updateDependencies.js
 firebase-debug.log
 clients/gdi-admin/config/tsconfig.paths.extra.json
 clients/gdi-admin/config/vite.extra.ts
@@ -22,3 +19,7 @@ clients/gdi-admin/config/vite.extra.ts
 clients/gdi-admin/stats.html
 clients/site
 scripts/errors.txt
+scripts/publishAll.sh
+scripts/patchAll.sh
+scripts/pushSubmodules.sh
+scripts/updateDependencies.js

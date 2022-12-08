@@ -24,6 +24,7 @@ export const initialState: IEventsStore = {
             description: '',
             link: '',
             googleEventId: '',
+            tags: [],
         },
     },
     reminders: {

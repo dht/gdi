@@ -1,6 +1,6 @@
 {
     "name": "@gdi/uno",
-    "version": "0.0.24",
+    "version": "0.0.30",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",
@@ -8,6 +8,7 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
+        "shared-base": "^0.0.32",
         "@fluentui/react": "^8.86.4",
         "@fullcalendar/core": "^5.11.3",
         "@fullcalendar/daygrid": "^5.11.3",
@@ -15,11 +16,11 @@
         "@fullcalendar/interaction": "^5.11.3",
         "@fullcalendar/react": "^5.11.2",
         "@fullcalendar/timegrid": "^5.11.3",
-        "@gdi/engine": "^0.0.63",
+        "@gdi/engine": "^0.0.71",
         "@gdi/hooks": "^0.0.34",
-        "@gdi/language": "^0.0.56",
-        "@gdi/web-base-ui": "^0.0.68",
-        "@gdi/web-ui": "^0.0.61",
+        "@gdi/language": "^0.0.63",
+        "@gdi/web-base-ui": "^0.0.75",
+        "@gdi/web-ui": "^0.0.67",
         "bytes": "^3.1.2",
         "classnames": "^2.3.1",
         "react-draggable": "^4.4.5",
@@ -52,7 +53,6 @@
         "react-dom": "^18.2.0",
         "rollup-plugin-analyzer": "^4.0.0",
         "sass": "^1.54.0",
-        "shared-base": "^0.0.32",
         "testing-base": "^0.0.4",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",

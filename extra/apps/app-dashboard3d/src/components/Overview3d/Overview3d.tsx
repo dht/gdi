@@ -19,8 +19,8 @@ export type Overview3dProps = {
     accountName: string;
     stats: IStats;
     callbacks: {
-        onClick: (stat: Stat, withShift?: boolean) => void;
-        onNavigate: (stat: Stat) => void;
+        onClick: (stat: IStat, withShift?: boolean) => void;
+        onNavigate: (stat: IStat) => void;
         onAccountChange: () => void;
     };
     isLoading: boolean;
