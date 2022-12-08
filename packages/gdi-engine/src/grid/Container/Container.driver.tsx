@@ -4,7 +4,7 @@ import { Container, ContainerProps } from './Container';
 import { BaseComponentDriver } from 'testing-base';
 
 export class ContainerDriver extends BaseComponentDriver {
-    private props: Partial<WrapperProps> = {};
+    private props: Partial<ContainerProps> = {};
 
     constructor() {
         super('Container');

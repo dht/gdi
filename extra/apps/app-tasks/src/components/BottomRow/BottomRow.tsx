@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper, Status, Breaks } from './BottomRow.style';
-import { toDuration, time } from '@gdi/language';
+import { duration as toDurationText, time } from '@gdi/language';
 
 export type BottomRowProps = {
     activeTask: IActiveTask;
@@ -15,7 +15,7 @@ export function BottomRow(props: BottomRowProps) {
         const output: string[] = [];
 
         if (activeTask.stats.isInBreak) {
-            const duration = toDuration(breakTimeCurrent) || '<1m';
+            const duration = toDurationText(breakTimeCurrent) || '<1m';
             const timeText = time(
                 new Date(activeTask.session.breakStartTimestamp)
             );
@@ -28,7 +28,7 @@ export function BottomRow(props: BottomRowProps) {
             breakTimeTotal !== breakTimeCurrent
         ) {
             const title = activeTask.stats.isInBreak ? 'All' : 'Breaks taken';
-            const duration = toDuration(breakTimeTotal) || '-';
+            const duration = toDurationText(breakTimeTotal) || '-';
             output.push(`${title}: ${duration}`);
         }
 

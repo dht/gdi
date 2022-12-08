@@ -1,7 +1,7 @@
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateKnowledge: {
         id: 'appStateKnowledge',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     linkCategories: {
         id: 'appStateKnowledge',

@@ -1,7 +1,7 @@
 import React from 'react';
 import Field from '../Field/Field';
 import { Wrapper, Flex } from './TaskStats.style';
-import { toDuration } from '@gdi/language';
+import { duration as toDurationText } from '@gdi/language';
 
 export type TaskStatsProps = {
     stats: ISessionStats;
@@ -10,9 +10,9 @@ export type TaskStatsProps = {
 export function TaskStats(props: TaskStatsProps) {
     const { stats } = props;
 
-    const estimation = toDuration(stats.estimation) || '-';
-    const totalTime = toDuration(stats.progressWithSession) || '-';
-    const timeLeft = toDuration(stats.timeLeft) || '-';
+    const estimation = toDurationText(stats.estimation) || '-';
+    const totalTime = toDurationText(stats.progressWithSession) || '-';
+    const timeLeft = toDurationText(stats.timeLeft) || '-';
 
     return (
         <Wrapper className='TaskStats-wrapper' data-testid='TaskStats-wrapper'>

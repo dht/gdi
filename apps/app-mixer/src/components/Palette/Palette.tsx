@@ -30,7 +30,7 @@ export function Palette(props: PaletteProps) {
     return (
         <Wrapper className='Palette-wrapper' data-testid='Palette-wrapper'>
             <List
-                options={options}
+                options={options as any[]}
                 renderItem={renderItem}
                 onSelect={props.onSelect}
                 selectedOptionId={selectedPaletteId}

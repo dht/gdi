@@ -27,7 +27,7 @@ export function Playback(props: PlaybackProps) {
     return (
         <Wrapper className='Playback-wrapper' data-testid='Playback-wrapper'>
             <IconButton
-                iconProps={{ iconName: 'Cancel' }}
+                iconName='Cancel'
                 title='Cancel session'
                 ariaLabel='Cancel session'
                 className='icon'
@@ -36,7 +36,7 @@ export function Playback(props: PlaybackProps) {
 
             {activeTask.stats.isInBreak ? (
                 <IconButton
-                    iconProps={{ iconName: 'Play' }}
+                    iconName='Play'
                     title='Resume session'
                     ariaLabel='Resume session'
                     className='icon'
@@ -44,7 +44,7 @@ export function Playback(props: PlaybackProps) {
                 />
             ) : (
                 <IconButton
-                    iconProps={{ iconName: 'Pause' }}
+                    iconName='Pause'
                     title='Pause session'
                     ariaLabel='Pause session'
                     className='icon'
@@ -52,14 +52,14 @@ export function Playback(props: PlaybackProps) {
                 />
             )}
             <IconButton
-                iconProps={{ iconName: 'Stop' }}
+                iconName='Stop'
                 title='End session'
                 ariaLabel='End session'
                 className='icon'
                 onClick={callbacks.onStop}
             />
             <IconButton
-                iconProps={{ iconName: 'SkypeCircleCheck' }}
+                iconName='SkypeCircleCheck'
                 title='Complete task'
                 ariaLabel='Complete task'
                 className='icon'

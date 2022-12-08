@@ -112,7 +112,7 @@ export const LayoutVisualContainer = () => {
             callbacks={callbacks}
             isLoading={isLoadingLayoutItems}
             flex={flex}
-            resolutionId={resolutionId}
+            resolutionId={resolutionId as IResolution}
         />
     );
 };

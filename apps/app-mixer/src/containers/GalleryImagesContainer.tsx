@@ -16,40 +16,24 @@ export const GalleryImagesContainer = (_props: GalleyImagesContainerProps) => {
 
     const callbacks = useMemo(
         () => ({
-            onItemAction: (id: string, action: string, data?: Json) => {
-                dispatch({
-                    type: 'IMAGE_ACTION',
-                    actionType: action,
-                    id,
-                    data,
-                });
-            },
-            onAction: (actionId: string) => {
-                switch (actionId) {
-                    case 'selection':
-                        dispatch(
-                            actions.appStateMixer.patch({
-                                showImageUploadModal: true,
-                            })
-                        );
-                        break;
-                }
-            },
+            onDrillDown: (itemId: string) => {},
             onSelectionChange: (ids: string[]) => {
                 dispatch({
                     type: 'SWITCH_IMAGE_ACTION',
                     imageId: ids[0],
                 });
             },
+            onCustomAction: (actionId: string, data?: Json) => {},
         }),
         []
     );
 
     return (
         <GalleryImages
-            galleryOptions={galleryOptions}
+            // galleryOptions={galleryOptions}
             data={data}
             callbacks={callbacks}
+            dispatch={dispatch}
         />
     );
 };

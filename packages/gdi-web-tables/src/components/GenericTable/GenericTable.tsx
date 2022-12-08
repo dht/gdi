@@ -8,7 +8,7 @@ export type GenericTableProps = {
     data: Json[];
     children: (props: any) => JSX.Element;
     height?: number;
-    mode: 'grid' | 'rows';
+    mode?: 'grid' | 'rows';
     itemWidth?: number;
     itemHeight?: number;
     emptyMessage?: string;
@@ -17,7 +17,7 @@ export type GenericTableProps = {
 
 export function GenericTable(props: GenericTableProps) {
     const {
-        mode,
+        mode = 'rows',
         data = [],
         itemWidth = 35,
         itemHeight = 35,

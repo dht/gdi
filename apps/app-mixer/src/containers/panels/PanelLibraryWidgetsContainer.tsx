@@ -10,7 +10,7 @@ export const PanelLibraryWidgetsContainer = (_props: any) => {
     const galleryOptions = useMemo(
         () => ({
             columns: 3,
-            selectionMode: 'choose',
+            selectionMode: 'choose' as any,
             hideOverlay: true,
         }),
         []
@@ -49,7 +49,7 @@ export const PanelLibraryWidgetsContainer = (_props: any) => {
 
     return (
         <LibraryWidgets
-            items={items}
+            items={items as any}
             callbacks={callbacks}
             galleryOptions={galleryOptions}
             hideParts={[

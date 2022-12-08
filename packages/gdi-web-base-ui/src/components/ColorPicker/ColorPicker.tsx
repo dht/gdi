@@ -6,7 +6,7 @@ import { useClickAway, useToggle } from 'react-use';
 export type ColorPickerProps = {
     color: string;
     size?: number;
-    style: React.CSSProperties;
+    style?: React.CSSProperties;
     onChange: (newValue: string) => void;
 };
 

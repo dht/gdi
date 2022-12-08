@@ -22,16 +22,6 @@ export const Empty = styled.div`
     opacity: 0.15;
 `;
 
-export const TaskTitle = styled.div`
-    font-size: 18px;
-    font-weight: 100;
-    text-align: center;
-    line-height: 24px;
-    flex: 1;
-    opacity: 0.8;
-    color: #ceceff;
-`;
-
 export const DetailsLine = styled.div`
     height: 50px;
     display: flex;

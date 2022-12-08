@@ -23,6 +23,7 @@ export type OverviewProps = {
     };
     isLoading: boolean;
     children: JSX.Element;
+    dispatch: any;
 };
 
 export function Overview(props: OverviewProps) {

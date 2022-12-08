@@ -1,7 +1,7 @@
 import { BabylonApi } from 'isokit';
 
 const values: any = {
-    babylon: null,
+    babylon: {} as BabylonApi,
 } as {
     babylon: BabylonApi;
 };

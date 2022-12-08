@@ -33,7 +33,7 @@ export function Bucket(props: BucketProps) {
         percentLine = 0,
         otherTitles,
     } = props;
-    const ref = useRef<HTMLDivElement>();
+    const ref = useRef<HTMLDivElement>(null);
 
     useNumpadTiming(
         ref,

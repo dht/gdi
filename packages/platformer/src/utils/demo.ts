@@ -6,13 +6,13 @@ const DEMO_CONFIG_KEY = 'DEMO_CONFIG';
 export const getCurrentAccount = () => {
     const currentAccount =
         getString(CURRENT_ACCOUNT_KEY) ||
-        import.meta.env.VITE_FIREBASE_PROJECT_ID_1;
+        (import.meta as any).env.VITE_FIREBASE_PROJECT_ID_1;
 
     return currentAccount;
 };
 
 export const getDemoDataUrl = () => {
-    const demoDataUrl = import.meta.env.VITE_DEMO_DATA_URL; // prettier-ignore
+    const demoDataUrl = (import.meta as any).env.VITE_DEMO_DATA_URL; // prettier-ignore
     return demoDataUrl;
 };
 

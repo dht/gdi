@@ -28,7 +28,8 @@ export const reducersAuth = auth.reducers;
 export const initialState = settings.initialState;
 export const initialStateSite = site.initialState;
 
-export const endpointsConfig = settings.endpointsConfig;
+export const endpointsConfig = (connectionType: ConnectionType) =>
+    settings.endpointsConfigOverrides(connectionType);
 
 export const clearState = (store: any) => {
     settings.clearState(store);

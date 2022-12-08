@@ -1,5 +1,5 @@
 //creates an x, y, z coordinate system using the parameter vec3 for the y axis
-var coordSystem = function (vec3) {
+var coordSystem = function (vec3: any) {
     //vec3 non-zero Vector3
     var _y = vec3.normalize();
     if (Math.abs(vec3.x) == 0 && Math.abs(vec3.y) == 0) {
@@ -12,7 +12,7 @@ var coordSystem = function (vec3) {
 };
 
 //randomize a value v +/- p*100% of v
-var randPct = function (v, p) {
+var randPct = function (v: any, p: any) {
     if (p == 0) {
         return v;
     }
@@ -27,21 +27,21 @@ var randPct = function (v, p) {
  **The number of bows (bends) in the branch is given by bowFreq and the height of the bow by bowHeight
  */
 var createBranch = function (
-    branchAt,
-    branchSys,
-    branchLength,
-    branchTaper,
-    branchSlices,
-    bowFreq,
-    bowHeight,
-    branchRadius,
-    scene
+    branchAt: any,
+    branchSys: any,
+    branchLength: any,
+    branchTaper: any,
+    branchSlices: any,
+    bowFreq: any,
+    bowHeight: any,
+    branchRadius: any,
+    scene: any
 ) {
-    var _cross_section_paths = []; //array of paths, each path running along an outer length of the branch
-    var _core_point;
+    var _cross_section_paths: any[] = []; //array of paths, each path running along an outer length of the branch
+    var _core_point: any;
     var _core_path = []; //array of Vector3 points that give the path of the central core of the branch
-    var _path;
-    var _xsr;
+    var _path: any;
+    var _xsr: any;
     var _radii = []; // array of radii for each core point
     var _theta;
     var _a_sides = 12; //number of sides for each cross sectional polygon slice
@@ -109,16 +109,16 @@ var createBranch = function (
  **The angle of a new branch to the one it is growing from is given by forkAngle.
  */
 var createTreeBase = function (
-    trunkHeight,
-    trunkTaper,
-    trunkSlices,
-    boughs,
-    forks,
-    forkAngle,
-    forkRatio,
-    bowFreq,
-    bowHeight,
-    scene
+    trunkHeight: any,
+    trunkTaper: any,
+    trunkSlices: any,
+    boughs: any,
+    forks: any,
+    forkAngle: any,
+    forkRatio: any,
+    bowFreq: any,
+    bowHeight: any,
+    scene: any
 ) {
     var _PHI = 2 / (1 + Math.sqrt(5)); //golden ratio for scale
 
@@ -267,28 +267,28 @@ var createTreeBase = function (
  ** @Param scene - BABYLON scene.
  */
 export var createTree = function (
-    trunkHeight,
-    trunkTaper,
-    trunkSlices,
-    trunkMaterial,
-    boughs,
-    forks,
-    forkAngle,
-    forkRatio,
-    branches,
-    branchAngle,
-    bowFreq,
-    bowHeight,
-    leavesOnBranch,
-    leafWHRatio,
-    leafMaterial,
-    scene
+    trunkHeight: any,
+    trunkTaper: any,
+    trunkSlices: any,
+    trunkMaterial: any,
+    boughs: any,
+    forks: any,
+    forkAngle: any,
+    forkRatio: any,
+    branches: any,
+    branchAngle: any,
+    bowFreq: any,
+    bowHeight: any,
+    leavesOnBranch: any,
+    leafWHRatio: any,
+    leafMaterial: any,
+    scene: any
 ) {
     if (!(boughs == 1 || boughs == 2)) {
         boughs = 1;
     }
     //create base tree
-    var _base = createTreeBase(
+    var _base: any = createTreeBase(
         trunkHeight,
         trunkTaper,
         trunkSlices,
@@ -300,7 +300,7 @@ export var createTree = function (
         bowHeight,
         scene
     );
-    _base.tree.material = trunkMaterial;
+    (_base as any).tree.material = trunkMaterial;
 
     //create one leaf
     var _branch_length = trunkHeight * Math.pow(forkRatio, boughs);
@@ -322,7 +322,7 @@ export var createTree = function (
     });
 
     //function to position leaves on base tree
-    var _set_leaves = function (particle, i, s) {
+    var _set_leaves = function (particle: any, i: any, s: any) {
         var _a = Math.floor(s / (2 * leavesOnBranch));
         if (boughs == 1) {
             _a++;
@@ -372,7 +372,7 @@ export var createTree = function (
         positionFunction: _set_leaves,
     });
     var _leaves = _leaves_SPS.buildMesh(); // mesh of leaves
-    _leaves.billboard = true;
+    (_leaves as any).billboard = true;
     _leaf.dispose();
 
     //create SPS to use with base tree mesh base.tree
@@ -390,7 +390,7 @@ export var createTree = function (
     //The mini base trees and leaves added to both the SPS systems have to be positioned at the same places and angles.
     //An array of random angles are formed to be used by both the mini base trees and the leaves
     //when they are added as forks at the end of the final branches.
-    var _turns = [];
+    var _turns: any[] = [];
     var _fork_turn = (2 * Math.PI) / forks;
     for (var f = 0; f < Math.pow(forks, boughs + 1); f++) {
         _turns.push(
@@ -399,7 +399,7 @@ export var createTree = function (
     }
 
     //the _set_mini_trees function positions mini base trees and leaves at the end of base tree branches, one for each of the forks
-    var _set_mini_trees = function (particle, i, s) {
+    var _set_mini_trees = function (particle: any, i: any, s: any) {
         var _a = s % Math.pow(forks, boughs);
         if (boughs == 1) {
             _a++;
@@ -443,8 +443,8 @@ export var createTree = function (
     //An array of random positions and angles are formed to be used by both the mini base trees and the leaves
     //when they are added as random mini leafed trees to the forked tree.
     //The random positions are chosen by selecting one of the random paths for a branch and a random point along the branch.
-    var _bturns = [];
-    var _places = [];
+    var _bturns: any[] = [];
+    var _places: any[] = [];
     var _bplen = _base.paths.length;
     var _bp0len = _base.paths[0].length;
     for (var b = 0; b < branches; b++) {
@@ -456,7 +456,7 @@ export var createTree = function (
     }
 
     //the _set_branches function positions mini base trees and leaves at random positions along random branches
-    var _set_branches = function (particle, i, s) {
+    var _set_branches = function (particle: any, i: any, s: any) {
         var _a = _places[s][0];
         var _b = _places[s][1];
         var _mini_sys = _base.directions[_a];

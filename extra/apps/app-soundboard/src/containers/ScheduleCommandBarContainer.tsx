@@ -17,7 +17,7 @@ export const ScheduleCommandBarContainer = () => {
         });
     }
 
-    return <BigAutoComplete items={options} onRun={onRun} />;
+    return <BigAutoComplete items={options as any[]} onRun={onRun} />;
 };
 
 export default ScheduleCommandBarContainer;

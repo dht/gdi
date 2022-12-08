@@ -14,7 +14,7 @@ type IArticleContext = {
     isDirty: boolean;
     article: IArticle;
     wordCount: number;
-    patchState: (change: Partial<ArticleContext>) => void;
+    patchState: (change: Partial<IArticleContext>) => void;
 } & Callbacks;
 
 const initialState: IArticleContext = {

@@ -28,6 +28,9 @@ export default defineConfig({
             ...externals({
                 react: '',
                 'react/jsx-runtime': '',
+                '@babylonjs/materials/Grid': '',
+                '@babylonjs/materials/Fur': '',
+                '@babylonjs/gui': '',
                 ...p.dependencies,
             }),
         },

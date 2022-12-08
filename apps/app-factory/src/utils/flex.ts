@@ -34,7 +34,7 @@ export const getItemInfo = (items: IFlexEntity[], id: string) => {
             .filter((i) => i.parentId === output.parentId)
             .sort(sortBy('order'));
 
-        output.siblingsSelfIndex = output.siblings.indexOf(item);
+        output.siblingsSelfIndex = output.siblings.indexOf(item ?? ({} as any));
     }
 
     return output;

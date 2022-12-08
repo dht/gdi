@@ -78,7 +78,7 @@ export function SiteProperties(props: SitePropertiesProps) {
                     value={value}
                     height={height}
                     language='json'
-                    onChange={setValue}
+                    onChange={(value) => setValue(value ?? '')}
                     schema={sitePropertiesSchema}
                 />
                 <Code

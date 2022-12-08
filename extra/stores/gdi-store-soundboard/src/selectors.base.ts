@@ -31,17 +31,21 @@ export const $weeks = createSelector(raw.$rawSoundboardState, (appState) => {
     let cursorDate = XDate.fromWeek(startWeek, startYear);
 
     for (let delta = 0; delta < RANGE_SIZE; delta++) {
-        const cursorWeek = cursorDate.toInfo().week;
-        const cursorYear = cursorDate.toInfo().year;
+        const info = cursorDate.toInfo();
 
-        const isCurrentWeek = cursorWeek === week && cursorYear === year;
+        if (info) {
+            const cursorWeek = info.week;
+            const cursorYear = info.year;
 
-        output.push({
-            weekAndYear: cursorDate.toInfo().weekAndYear,
-            week: cursorDate.toInfo().week,
-            year: cursorDate.toInfo().year,
-            isCurrentWeek,
-        });
+            const isCurrentWeek = cursorWeek === week && cursorYear === year;
+
+            output.push({
+                weekAndYear: info.weekAndYear,
+                week: info.week ?? 0,
+                year: info.year,
+                isCurrentWeek,
+            });
+        }
 
         cursorDate = cursorDate.add(1, 'week');
     }
@@ -71,7 +75,7 @@ export const $expectedManasByProject = createSelector(
 
             const dateInfo = new XDate(new Date(date)).toInfo();
 
-            if (projectKey) {
+            if (projectKey && dateInfo) {
                 xpath(output, ['byWeek', dateInfo.weekAndYear, `d${dateInfo.dayOfWeek}`, lastKey], (value: number = 0) => value + minutes); // prettier-ignore
                 xpath(output, ['byWeek', dateInfo.weekAndYear, 'total', projectKey], (value: number = 0) => value + minutes); // prettier-ignore
                 xpath(output, ['byWeek', dateInfo.weekAndYear, `d${dateInfo.dayOfWeek}`, lastKeyTitles], (titles) => ({...titles, [projectKey]: true})); // prettier-ignore
@@ -153,7 +157,13 @@ export const $projectsSoundboard = createSelector(
             .map((project) => {
                 let transientMinutes: number | null = null;
 
-                const hoverDate = new XDate().toInfo().dateString;
+                let hoverDate = '';
+
+                const info = new XDate().toInfo();
+
+                if (info) {
+                    hoverDate = info.dateString;
+                }
 
                 transientMinutes = get(
                     expectedManas,
@@ -264,9 +274,9 @@ export const $agenda = createSelector(
         return Object.values(scheduleSessions)
             .filter((item: IScheduleSession) => {
                 return (
-                    item.day === now.day &&
-                    item.week === now.week &&
-                    item.year === now.year
+                    item.day === (now ?? {}).day &&
+                    item.week === (now ?? {}).week &&
+                    item.year === (now ?? {}).year
                 );
             })
             .map((item: IScheduleSession) => {

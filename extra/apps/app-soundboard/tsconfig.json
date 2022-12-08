@@ -19,5 +19,5 @@
             "@gdi/store-soundboard": ["stores/gdi-store-soundboard"]
         }
     },
-    "include": ["src/*.ts", "test/*.ts"]
+    "include": ["src/*.ts", "test/*.ts", "src/extra.d.ts"]
 }

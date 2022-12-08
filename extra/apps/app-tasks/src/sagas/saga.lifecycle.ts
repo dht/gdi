@@ -47,7 +47,7 @@ export function* newSession(action: LifecycleAction) {
     }
 
     response = yield* api(
-        actions.appStateTasks.patch({
+        actions.currentIdsTasks.patch({
             sessionId: response.data.id,
         })
     );
@@ -136,7 +136,7 @@ export function* cancelSession(action: LifecycleAction) {
     }
 
     response = yield* api(
-        actions.appStateTasks.patch({
+        actions.currentIdsTasks.patch({
             sessionId: '',
         })
     );
@@ -242,7 +242,7 @@ export function* completeSession(action: LifecycleAction) {
     }
 
     response = yield* api(
-        actions.appStateTasks.patch({
+        actions.currentIdsTasks.patch({
             sessionId: '',
         })
     );

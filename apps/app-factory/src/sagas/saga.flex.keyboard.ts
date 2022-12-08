@@ -1,12 +1,9 @@
 import { actions, selectors } from '../store';
 import { call, fork, put, select, takeEvery, delay, take } from 'saga-ts';
-import { IShortKey, prompt } from '@gdi/platformer';
-import { guid4 } from 'shared-base';
+import { IShortKey } from '@gdi/platformer';
 import {
-    firstChild,
     getItemInfo,
     IItemInfo,
-    nextOrder,
     nextSibling,
     previousSibling,
 } from '../utils/flex';

@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { useMemo } from 'react';
 import { Wrapper } from './ChartDoughnut.style';
 
 export type ChartDoughnutProps = {
     data: Record<string, number>;
-    colors: Record<string, string>;
+    colors: Record<string, string | undefined>;
 };
 
 export function ChartDoughnut(props: ChartDoughnutProps) {

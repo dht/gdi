@@ -24,7 +24,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
         scene
     );
 
-    var defaultGridMaterial = new GridMaterial('default', scene);
+    var defaultGridMaterial = new GridMaterial('default', scene as any);
     defaultGridMaterial.majorUnitFrequency = 5;
     defaultGridMaterial.gridRatio = 0.5;
 
@@ -39,7 +39,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     );
 
     box1.position = new BABYLON.Vector3(-12, 5 + 5, -6);
-    box1.material = defaultGridMaterial;
+    (box1 as any).material = defaultGridMaterial;
 
     const torus = BABYLON.MeshBuilder.CreateTorus(
         'torus',
@@ -85,7 +85,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
         false
     );
 
-    var groundMaterial = new GridMaterial('groundMaterial', scene);
+    var groundMaterial = new GridMaterial('groundMaterial', scene as any);
     groundMaterial.majorUnitFrequency = 5;
     groundMaterial.minorUnitVisibility = 0.45;
     groundMaterial.gridRatio = 2;
@@ -93,7 +93,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     groundMaterial.mainColor = new BABYLON.Color3(1, 1, 1);
     groundMaterial.lineColor = new BABYLON.Color3(1.0, 1.0, 1.0);
     groundMaterial.opacity = 0.98;
-    ground.material = groundMaterial;
+    (ground as any).material = groundMaterial;
 
     camera.attachControl(true);
     // This creates a basic Babylon Scene object (non-mesh)
@@ -106,7 +106,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     //     scene
     // );
 
-    var skyMaterial = new GridMaterial('skyMaterial', scene);
+    var skyMaterial = new GridMaterial('skyMaterial', scene as any);
     skyMaterial.majorUnitFrequency = 6; // 6;
     skyMaterial.minorUnitVisibility = 0.4; //0.43;
     skyMaterial.gridRatio = 0.5; // 0.5;
@@ -114,7 +114,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     skyMaterial.lineColor = new BABYLON.Color3(0, 0.2, 0.2);
     skyMaterial.backFaceCulling = false;
     var skySphere = BABYLON.Mesh.CreateSphere('skySphere', 30, 110, scene);
-    skySphere.material = skyMaterial;
+    (skySphere as any).material = skyMaterial;
 
     // GUI
     var plane = BABYLON.MeshBuilder.CreatePlane(
@@ -129,7 +129,9 @@ export const addStructure = (scene: BABYLON.Scene) => {
     plane.position.y = 2;
     plane.position.x = -2;
 
-    var advancedTexture = GUI.AdvancedDynamicTexture.CreateForMesh(plane);
+    var advancedTexture = GUI.AdvancedDynamicTexture.CreateForMesh(
+        plane as any
+    );
 
     var button1 = GUI.Button.CreateSimpleButton('but1', 'Click Me');
     button1.width = 10;
@@ -151,8 +153,8 @@ export const addStructure = (scene: BABYLON.Scene) => {
     sphere.position.y = 22;
     sphere.position.x = -16;
     sphere.position.z = 40;
-    sphere.material = defaultGridMaterial;
-    var knotMaterial = new GridMaterial('knotMaterial', scene);
+    (sphere as any).material = defaultGridMaterial;
+    var knotMaterial = new GridMaterial('knotMaterial', scene as any);
     knotMaterial.majorUnitFrequency = 8;
     knotMaterial.minorUnitVisibility = 0.45;
     knotMaterial.gridRatio = 0.3;
@@ -173,7 +175,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     knot.position.y = 17.0;
     knot.position.x = 0;
     knot.position.z = 40;
-    knot.material = knotMaterial;
+    (knot as any).material = knotMaterial;
 
     return {
         camera,

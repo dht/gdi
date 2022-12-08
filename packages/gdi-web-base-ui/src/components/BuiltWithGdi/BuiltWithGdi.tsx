@@ -3,7 +3,6 @@ import { prompt } from '../Prompt/Prompt.actions';
 import { TextArea, Wrapper } from './BuiltWithGdi.style';
 
 export type BuiltWithGdiProps = {
-    onClick: () => void;
     data: Json;
 };
 

@@ -23,8 +23,8 @@ export const definitions: ICrudDefinitions = {
     overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
-    bucket,
+    formNewDefault, // @ts-expect-error
+    bucket, // @ts-expect-error
     multiBar,
     itemStructure,
 };

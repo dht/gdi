@@ -152,7 +152,7 @@ function ScheduleTableHours({
 export default ScheduleTable;
 
 function useArrowsWithAlt(callback: (key: string) => void) {
-    const { isRtl } = useTheme();
+    const { isRtl } = useTheme() as any;
 
     useKey('ArrowUp', (ev) => {
         if (!ev.altKey) {

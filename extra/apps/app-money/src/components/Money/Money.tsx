@@ -1,9 +1,8 @@
 import React from 'react';
-import { Wrapper } from './Money.style';
 import { Multi } from '@gdi/web-ui';
-
 import { useCrudDefinitions } from '@gdi/platformer';
 import { useLanguage } from '@gdi/language';
+import { Wrapper } from './Money.style';
 
 export type MoneyProps = {
     data: Json[];
@@ -33,8 +32,6 @@ export function Money(props: MoneyProps) {
                 dispatch={dispatch}
                 allOptions={allOptions}
                 customView={CustomView}
-                viewModes={['timeline', 'calendar', 'spreadsheet']}
-                hideParts={['preview']}
             />
         </Wrapper>
     );

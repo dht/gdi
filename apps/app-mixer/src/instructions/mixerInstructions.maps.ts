@@ -26,19 +26,19 @@ export const nodeNames: Record<
 
 export const selectors = {
     site: {
-        image: (state) => state.images,
-        instance: (state) => state.instances,
-        instancesProps: (state) => state.instancesProps,
-        page: (state) => state.pages,
-        pageInstance: (state) => state.pageInstances,
-        widget: (state) => state.widgets,
+        image: (state: ISiteStore) => state.images,
+        instance: (state: ISiteStore) => state.instances,
+        instancesProps: (state: ISiteStore) => state.instancesProps,
+        page: (state: ISiteStore) => state.pages,
+        pageInstance: (state: ISiteStore) => state.pageInstances,
+        widget: (state: ISiteStore) => state.widgets,
     },
     library: {
-        image: (state) => state.libraryImages,
-        instance: (state) => state.libraryInstances,
-        instancesProps: (state) => state.libraryInstancesProps,
-        page: (state) => state.libraryPages,
-        pageInstance: (state) => state.libraryPageInstances,
-        widget: (state) => state.libraryWidgets,
+        image: (state: IMixerStore) => state.libraryImages,
+        instance: (state: IMixerStore) => state.libraryInstances,
+        instancesProps: (state: IMixerStore) => state.libraryInstancesProps,
+        page: (state: IMixerStore) => state.libraryPages,
+        pageInstance: (state: IMixerStore) => state.libraryPageInstances,
+        widget: (state: IMixerStore) => state.libraryWidgets,
     },
 };

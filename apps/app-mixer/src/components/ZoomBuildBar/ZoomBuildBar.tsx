@@ -11,7 +11,7 @@ import { Switch, Toolbar } from '@gdi/web-ui';
 import { invokeEvent } from 'shared-base';
 
 export type ZoomBuildBarProps = {
-    widget: IWidget;
+    widget?: IWidget;
     mobileMode: boolean;
     onToggleMobile: (value: boolean) => void;
 };
@@ -67,10 +67,12 @@ const switchItems = [
     {
         id: 'web',
         iconName: 'computer',
+        text: '',
     },
     {
         id: 'mobile',
         iconName: 'smartphone',
+        text: '',
     },
 ];
 
@@ -78,10 +80,12 @@ const toolbarItems = [
     {
         id: 'back',
         iconName: 'Back',
+        text: '',
     },
     {
         id: 'fullscreen',
         iconName: 'FullWidth',
+        text: '',
     },
 ];
 

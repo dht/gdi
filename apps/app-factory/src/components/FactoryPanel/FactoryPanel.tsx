@@ -7,7 +7,7 @@ import { useTheme } from 'styled-components';
 export type FactoryPanelProps = {};
 
 export function FactoryPanel(_props: FactoryPanelProps) {
-    const { isRtl } = useTheme();
+    const { isRtl } = useTheme() as any;
 
     return (
         <Wrapper

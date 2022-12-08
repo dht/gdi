@@ -114,7 +114,7 @@ export const $projects = createSelector(raw.$rawProjects, (projects) => {
             projectType: project.projectTypeKey,
         };
         return output;
-    }, {} as IProjects);
+    }, {} as any) as IProjects;
 });
 
 export const $tickets = createSelector(raw.$rawTickets, (tickets) => {
@@ -145,7 +145,7 @@ export const $projectsColors = createSelector(raw.$rawProjects, (projects) => {
 });
 
 export const $openTickets = createSelector(raw.$rawTickets, (tickets) => {
-    return pickBy(tickets, (ticket) => {
+    return pickBy<ITicket>(tickets, (ticket) => {
         return (
             ticket.isContinuous ||
             (ticket.status !== 'Done' && ticket.issueType !== 'Epic')

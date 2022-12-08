@@ -34,7 +34,7 @@ export function MixerPanel(props: MixerPanelProps) {
                     />
                 );
             default:
-                return [];
+                return null;
         }
     }
 

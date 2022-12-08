@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-    Wrapper,
-    DetailsLine,
-    Estimation,
-    TaskTitle,
-    Empty,
-} from './Mini.style';
+import { Wrapper, DetailsLine, Estimation, Empty } from './Mini.style';
 import { Stopwatch } from '@gdi/web-ui';
-import { toDuration } from '@gdi/language';
+import { duration as toDurationText } from '@gdi/language';
+import TaskTitle from '../TaskTitle/TaskTitle';
 
 export type MiniProps = {
     activeTask: IActiveTask;
@@ -27,15 +22,15 @@ export function Mini(props: MiniProps) {
     const { stats, ticket } = activeTask;
 
     const { summary } = ticket ?? {};
-    const estimation = toDuration(stats.estimation) || '-';
+    const estimation = toDurationText(stats.estimation) || '-';
 
     return (
         <Wrapper className='Mini-wrapper' data-testid='Mini-wrapper'>
             <Stopwatch
-                hours={stats.duration.hours}
-                minutes={stats.duration.minutes}
+                hours={stats.duration.hours ?? 0}
+                minutes={stats.duration.minutes ?? 0}
             />
-            <TaskTitle header='current task:'>{summary}</TaskTitle>
+            <TaskTitle header='current task:' summary={summary} />
             <DetailsLine>
                 <Estimation>Est. {estimation}</Estimation>
             </DetailsLine>

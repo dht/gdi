@@ -29,7 +29,9 @@ export const SwitcherContainer = () => {
         );
     }, []);
 
-    return <Switcher value={value} options={options} onChange={onChange} />;
+    return (
+        <Switcher value={value} options={options as any} onChange={onChange} />
+    );
 };
 
 export default SwitcherContainer;

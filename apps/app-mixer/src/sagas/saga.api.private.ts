@@ -31,7 +31,7 @@ function* apiPrivate() {
         yield* put(actions.libraryPageInstances.get({})),
         yield* put(actions.libraryPalettes.get()),
         yield* put(actions.libraryTypography.get({})),
-        yield* put(actions.libraryDatasets.get({})),
+        yield* put(actions.libraryDatasets.get()),
         yield* put(actions.locales.get({})),
         yield* put(actions.packages.get({})),
         yield* put(actions.siteProperties.get()),

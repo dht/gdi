@@ -12,6 +12,7 @@ export type EngineViewProps = {
     libraryBuilder: ILibraryBuilder;
     datasets: Json;
     backgroundColor?: string;
+    isMobile?: boolean;
 };
 
 export function EngineInner(props: EngineViewProps) {

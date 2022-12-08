@@ -71,7 +71,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
     sphere.position.y = pos.y;
     sphere.position.z = pos.z;
 
-    var defaultGridMaterial = new GridMaterial('default', scene);
+    var defaultGridMaterial = new GridMaterial('default', scene as any);
     defaultGridMaterial.majorUnitFrequency = 5;
     defaultGridMaterial.gridRatio = 0.5;
 
@@ -87,7 +87,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
         false
     );
 
-    var groundMaterial = new GridMaterial('groundMaterial', scene);
+    var groundMaterial = new GridMaterial('groundMaterial', scene as any);
     groundMaterial.majorUnitFrequency = 5;
     groundMaterial.minorUnitVisibility = 0.25;
     groundMaterial.gridRatio = 2;
@@ -101,7 +101,7 @@ export const addStructure = (scene: BABYLON.Scene) => {
         : new BABYLON.Color3(0.7, 0.7, 0.7);
 
     groundMaterial.opacity = 0.98;
-    ground.material = groundMaterial;
+    (ground as any).material = groundMaterial;
 
     BABYLON.SceneLoader.Append('/', 'all.obj', scene, function (scene) {
         // console.log(scene.meshes);

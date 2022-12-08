@@ -114,6 +114,7 @@ export type ItemType =
     | 'pageInstance'
     | 'image'
     | 'layout'
+    | 'layoutItem'
     | 'template'
     | 'article'
     | 'comment'

@@ -13,7 +13,7 @@ import { isEqual } from 'shared-base';
 import { useToggle } from 'react-use';
 
 export type FlexPropertiesProps = {
-    flexEntity: IFlexEntity;
+    flexEntity?: IFlexEntity;
     callbacks: {
         onClose: () => void;
         onStyleSave: (data: Json) => void;
@@ -23,7 +23,7 @@ export type FlexPropertiesProps = {
 
 export function FlexProperties(props: FlexPropertiesProps) {
     const { flexEntity, callbacks } = props;
-    const { style: flexStyle = {}, props: flexProps = {} } = flexEntity;
+    const { style: flexStyle = {}, props: flexProps = {} } = flexEntity ?? {};
 
     const [styleText, setStyleText] = useState(JSON.stringify(flexStyle, null, 4)); // prettier-ignore
     const [propsText, setPropsText] = useState(JSON.stringify(flexProps, null, 4)); // prettier-ignore

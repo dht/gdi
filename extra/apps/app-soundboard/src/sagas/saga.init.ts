@@ -4,12 +4,23 @@ import { XDate } from '@gdi/language';
 
 export function* init() {
     const now = new XDate();
-    const year = now.toInfo().year;
-    const week = now.toInfo().week;
+    const nowInfo = now.toInfo();
+
+    if (!nowInfo) {
+        return;
+    }
+    const year = nowInfo.year;
+    const week = nowInfo.week;
 
     const start = now.add(-2, 'week');
-    const startYear = start.toInfo().year;
-    const startWeek = start.toInfo().week;
+    const startInfo = start.toInfo();
+
+    if (!startInfo) {
+        return;
+    }
+
+    const startYear = startInfo.year;
+    const startWeek = startInfo.week;
 
     yield put(
         actions.appStateSoundboard.patch({

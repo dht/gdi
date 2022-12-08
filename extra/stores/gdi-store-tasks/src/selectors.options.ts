@@ -1,10 +1,8 @@
 import * as base from './selectors.base';
 import * as raw from './selectors.raw';
-
+import { arrayToOptions, itemsTagsToOptions } from 'shared-base';
 import { createSelector } from 'reselect';
 import { sortBy } from 'shared-base';
-import { Action } from 'redux-store-generator';
-import { itemsTagsToOptions, arrayToOptions } from 'shared-base';
 
 const $i = () => {};
 
@@ -24,8 +22,8 @@ export const $ticketsAndProjectsOptions = createSelector(
             });
 
         Object.values(tickets)
-            .sort(sortBy('summary'))
-            .forEach((ticket) => {
+            .sort(sortBy('summary') as any)
+            .forEach((ticket: any) => {
                 output.push({
                     id: ticket.key,
                     text: `${ticket.key}: ${ticket.summary}`,
@@ -46,7 +44,7 @@ export const $projectTags = createSelector(
 export const $ticketsTags = createSelector(
     raw.$rawTickets,
     (tickets): IOption[] => {
-        return itemsTagsToOptions(tickets);
+        return itemsTagsToOptions(tickets as any);
     }
 );
 

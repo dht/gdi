@@ -5,7 +5,8 @@ import { selectorsSoundboard } from '../selectors';
 
 export const ScheduleContainer = () => {
     const scheduleSessions = useSelector(selectorsSoundboard.base.$agenda);
-    return <Schedule items={scheduleSessions} />;
+
+    return <Schedule items={scheduleSessions as any} />;
 };
 
 export default ScheduleContainer;

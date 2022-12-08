@@ -16,7 +16,6 @@
         "baseUrl": "../../",
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
-            "@gdi/template-starter": ["packages/gdi-template-starter"],
             "@gdi/store-mixer": ["stores/gdi-store-mixer"]
         }
     },

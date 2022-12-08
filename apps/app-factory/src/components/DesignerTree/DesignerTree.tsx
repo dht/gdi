@@ -1,9 +1,9 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import classnames from 'classnames';
 import Draggable from 'react-draggable';
-import { Button, Icon } from '@gdi/web-ui';
+import { Icon } from '@gdi/web-ui';
 import { FlexDesignerEmpty } from '../FlexDesignerEmpty/FlexDesignerEmpty';
-import { ILayout, IResolution } from '@gdi/store-factory';
+import { ILayout } from '@gdi/store-factory';
 import { sortBy } from 'shared-base';
 import {
     Column,
@@ -19,6 +19,7 @@ import {
     Title,
     Tree,
 } from './DesignerTree.style';
+import { FlexAction } from '../FlexDesigner/FlexDesigner';
 
 export type DesignerTreeProps = {
     layout: ILayout;
@@ -36,7 +37,8 @@ export type DesignerTreeProps = {
 export function DesignerTree(props: DesignerTreeProps) {
     const { layout, flexEntityId, resolutionId, callbacks, resolutions } =
         props;
-    const [hoveredResolution, setHoveredResolution] = useState<IBreakpoint>();
+    const [hoveredResolution, setHoveredResolution] =
+        useState<IBreakpoint | null>();
     const { items = [] } = layout ?? {};
     const ref = useRef(null);
 
@@ -76,7 +78,7 @@ export function DesignerTree(props: DesignerTreeProps) {
 
     function renderResolutionInfo() {
         const selectedResolution = Object.values(resolutions).find(
-            (res: IBreakPoint) => res.id === resolutionId
+            (res: IBreakpoint) => res.id === resolutionId
         );
 
         const resolution = hoveredResolution ?? selectedResolution;
@@ -130,7 +132,7 @@ export function DesignerTree(props: DesignerTreeProps) {
 type ResolutionsProps = {
     resolutions: IBreakpoints;
     currentResolutionId?: string;
-    onHover: (resolution: IBreakpoint) => void;
+    onHover: (resolution: IBreakpoint | null) => void;
     onClick: (resolution: IBreakpoint) => void;
 };
 

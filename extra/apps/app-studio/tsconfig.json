@@ -19,5 +19,5 @@
             "@gdi/store-studio": ["stores/gdi-store-studio"]
         }
     },
-    "include": ["src/*.ts", "test/*.ts"]
+    "include": ["src/*.ts", "test/*.ts", "src/extra.d.ts", "src/extra.d.ts"]
 }

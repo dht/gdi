@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-gdi",
-    "version": "0.0.50",
+    "version": "0.0.53",
     "description": "A template for GDI homepage",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -12,10 +12,10 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.59",
-        "@gdi/types": "^0.0.83",
-        "@gdi/uno": "^0.0.21",
-        "@gdi/web-ui": "^0.0.58",
+        "@gdi/engine": "^0.0.63",
+        "@gdi/types": "^0.0.87",
+        "@gdi/uno": "^0.0.24",
+        "@gdi/web-ui": "^0.0.61",
         "classnames": "^2.3.1",
         "igrid": "^0.0.18",
         "polished": "^4.2.2",
@@ -57,7 +57,7 @@
     ],
     "main": "./dist/template-gdi.umd.js",
     "module": "./dist/template-gdi.es.js",
-    "types": "./dist/dts/index.d.ts",
+    "types": "./dist/dts/src/index.d.ts",
     "exports": {
         ".": {
             "import": "./dist/template-gdi.es.js",

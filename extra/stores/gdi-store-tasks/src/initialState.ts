@@ -56,6 +56,7 @@ export const initialState: ITasksStore = {
                 thumb24: '',
                 thumb16: '',
             },
+            tags: [],
         },
         '2': {
             id: '2',
@@ -68,6 +69,7 @@ export const initialState: ITasksStore = {
                 thumb24: '',
                 thumb16: '',
             },
+            tags: [],
         },
     },
     tickets: {

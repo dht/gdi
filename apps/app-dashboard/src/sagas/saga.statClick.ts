@@ -1,6 +1,6 @@
 import { delay, takeEvery, put, call } from 'saga-ts';
 import { actions } from '../store';
-import { prompt, toast } from '@gdi/web-ui';
+import { prompt } from '@gdi/web-ui';
 import { dateDb } from '@gdi/language';
 
 type StatClickAction = {
@@ -9,7 +9,7 @@ type StatClickAction = {
     withShift?: boolean;
 };
 
-export function* updateJourney(stat: IStat, newValue: value) {
+export function* updateJourney(stat: IStat, newValue: number) {
     const { id } = stat;
 
     const now = new Date();

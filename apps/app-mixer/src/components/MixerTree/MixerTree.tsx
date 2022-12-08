@@ -21,8 +21,9 @@ import { useLocalStorage } from 'react-use';
 const localeStorageKey = 'MIXER_TREE_OPEN';
 
 export type MixerTreeProps = {
-    pageInstances: IPageInstances;
+    pageInstances: IPageInstance[];
     pageInstanceId?: string;
+    selectedInstanceId?: string;
     instances: IWidgetInstance[];
     callbacks: {
         onClose: () => void;
@@ -160,7 +161,7 @@ export function MixerTree(props: MixerTreeProps) {
 type PageInstancesProps = {
     pageInstances: IPageInstance[];
     currentPageInstanceId?: string;
-    onHover: (pageInstance: IPageInstance) => void;
+    onHover?: (pageInstance: IPageInstance) => void;
     onClick: (pageInstance: IPageInstance) => void;
 };
 
@@ -214,6 +215,7 @@ const tools: IOption[] = [
     },
     {
         id: 'gap',
+        text: '',
         isGap: true,
     },
     {

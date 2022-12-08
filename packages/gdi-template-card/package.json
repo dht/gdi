@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-card",
-    "version": "0.0.40",
+    "version": "0.0.43",
     "description": "A template for creating a card component",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -12,9 +12,9 @@
         "name": "dht"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.59",
-        "@gdi/types": "^0.0.83",
-        "@gdi/web-ui": "^0.0.58",
+        "@gdi/engine": "^0.0.63",
+        "@gdi/types": "^0.0.87",
+        "@gdi/web-ui": "^0.0.61",
         "classnames": "^2.3.1",
         "igrid": "^0.0.18",
         "polished": "^4.2.2",
@@ -56,7 +56,7 @@
     ],
     "main": "./dist/template-card.umd.js",
     "module": "./dist/template-card.es.js",
-    "types": "./dist/dts/index.d.ts",
+    "types": "./dist/dts/src/index.d.ts",
     "exports": {
         ".": {
             "import": "./dist/template-card.es.js",

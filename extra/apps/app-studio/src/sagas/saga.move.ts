@@ -1,6 +1,7 @@
 import { isoEventChannel } from './channels/channel.isoEvent';
 import { put, takeEvery } from 'saga-ts';
 import { actions } from '../store';
+import type { IPosition } from 'isokit';
 
 type MoveDoneData = {
     id: string;
@@ -9,7 +10,7 @@ type MoveDoneData = {
 
 function* moveDone(data: MoveDoneData) {
     const { id, position } = data;
-    yield put(actions.items.patch(id, { position }));
+    yield put(actions.studioItems.patch(id, { position }));
 }
 
 export function* root() {

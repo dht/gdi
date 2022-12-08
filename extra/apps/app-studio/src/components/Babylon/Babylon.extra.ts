@@ -7,5 +7,5 @@ import 'babylonjs-loaders';
 
 export const onSceneReady = (scene: BABYLON.Scene) => {
     // addDome1(scene);
-    addDome3(scene);
+    addDome3(scene as any);
 };

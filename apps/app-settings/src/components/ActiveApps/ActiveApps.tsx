@@ -30,9 +30,9 @@ const ACTIVE_APPS_LOCAL_STORAGE_KEY = 'active-apps';
 
 export type ActiveAppsProps = {
     me: IUser;
-    users: IUser[];
+    users: IUsers;
     activeApps: IActiveApp[];
-    stats: IActiveAppStats;
+    stats: IActiveAppsStats;
     templatesMeta: ITemplateMetas;
 };
 
@@ -41,7 +41,7 @@ export function ActiveApps(props: ActiveAppsProps) {
     const { count, totalSize: allAppsSize } = stats;
     const [toggleAll, setToggleAll] = useToggle(false);
 
-    const { displayName, photoURL } = me;
+    const { displayName = '', photoURL } = me;
 
     const [activeState, patchActiveState] = useLocalStorage<
         Record<string, boolean>
@@ -52,7 +52,7 @@ export function ActiveApps(props: ActiveAppsProps) {
     });
 
     const onToggleAll = useCallback(
-        (ev: any, checked: boolean) => {
+        (checked: boolean) => {
             setToggleAll(checked);
 
             const all = Object.values(activeApps).reduce((acc, app) => {
@@ -155,7 +155,12 @@ export function ActiveApps(props: ActiveAppsProps) {
                 <Column></Column>
                 <Column>
                     <ToggleAll>
-                        <Toggle value={toggleAll} onChange={onToggleAll} />
+                        <Toggle
+                            value={toggleAll}
+                            onChange={(_ev: any, checked?: boolean) =>
+                                onToggleAll(checked === true)
+                            }
+                        />
                     </ToggleAll>
                     <Apps>{renderApps()}</Apps>
                 </Column>

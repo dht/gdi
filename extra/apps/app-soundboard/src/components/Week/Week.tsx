@@ -28,8 +28,8 @@ export function Week(props: WeekProps) {
     function hoverDay(date: string, hover: boolean) {
         context.patchState(
             {
-                hoverDate: hover ? date : null,
-                hoverWeek: null,
+                hoverDate: hover ? date : undefined,
+                hoverWeek: undefined,
             },
             100
         );
@@ -38,8 +38,8 @@ export function Week(props: WeekProps) {
     function hoverWeek(hover: boolean) {
         context.patchState(
             {
-                hoverWeek: hover ? weekPointer.weekAndYear : null,
-                hoverDate: null,
+                hoverWeek: hover ? weekPointer.weekAndYear : undefined,
+                hoverDate: undefined,
             },
             100
         );
@@ -55,14 +55,14 @@ export function Week(props: WeekProps) {
         [weekPointer]
     );
 
-    function renderColumn(day: any) {
+    function renderColumn(day: number) {
         const dateInfo = XDate.fromWeek(
             weekPointer.week,
             weekPointer.year,
             day
         ).toInfo();
 
-        const dayData = weekData[`d${day}`] || defaultWeekData;
+        const dayData = (weekData as any)[`d${day}`] || defaultWeekData;
 
         const updateMinutesForDay = useCallback(
             (newValue: number) => {
@@ -75,16 +75,20 @@ export function Week(props: WeekProps) {
             [weekPointer]
         );
 
+        if (!dateInfo) {
+            return null;
+        }
+
         return (
             <Square
                 key={day}
                 date={dateInfo.dateString}
-                dayOfYear={dateInfo.dayOfYear}
+                dayOfYear={dateInfo.dayOfYear ?? 0}
                 hoursPerDay={perDay}
                 updateMinutesForDay={updateMinutesForDay}
                 title={dateInfo.dayOfWeekShortName}
                 dayData={dayData}
-                isCurrent={dateInfo.isToday}
+                isCurrent={dateInfo.isToday ?? false}
                 onBucketHover={(hover: boolean) =>
                     hoverDay(dateInfo.dateString, hover)
                 }
@@ -103,11 +107,11 @@ export function Week(props: WeekProps) {
     }
 
     function renderRowHeader() {
-        const firstDayData = weekData['d0'] || defaultWeekData;
+        const firstDayData = (weekData as any)['d0'] || defaultWeekData;
 
         return (
             <RowHeader
-                isCurrentWeek={isCurrentWeek}
+                isCurrentWeek={isCurrentWeek ?? false}
                 week={week}
                 minutes={firstDayData.currentItem}
                 updateMinutes={bulkUpdateWeekMinutes}
@@ -118,7 +122,7 @@ export function Week(props: WeekProps) {
     function renderRowSummary() {
         return (
             <SquareSummary
-                weekTotal={weekData?.total ?? {}}
+                weekTotal={(weekData as any).total ?? {}}
                 projectsColors={context.projectsColors}
                 onHover={hoverWeek}
                 onClick={() => hoverWeek(true)}
@@ -144,7 +148,7 @@ type RowHeaderProps = {
 
 function RowHeader(props: RowHeaderProps) {
     const { isCurrentWeek, week, minutes } = props;
-    const ref = useRef<HTMLDivElement>();
+    const ref = useRef<HTMLDivElement>(null);
 
     useNumpadTiming(
         ref,

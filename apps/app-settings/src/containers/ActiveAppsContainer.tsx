@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import ActiveApps from '../components/ActiveApps/ActiveApps';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectors } from '../selectors';
 import { PlatformContext } from '@gdi/platformer';
 

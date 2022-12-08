@@ -19,8 +19,8 @@ export type ScheduleClockProps = {
 };
 
 export function ScheduleClock(props: ScheduleClockProps) {
-    const ref = useRef<HTMLDivElement>();
-    const interval = useRef<number>(null);
+    const ref = useRef<HTMLDivElement>(null);
+    const interval = useRef<number>();
     const [timestamp, setTimestamp] = useState(ts());
 
     const delta = useMouseWheelValue(ref, props.delta);
@@ -54,7 +54,7 @@ export function ScheduleClock(props: ScheduleClockProps) {
     const minutes = new Date(timestamp).getMinutes();
 
     const style = {
-        backgroundImage: `url(${utcData.alternativeCityImageUrl})`,
+        backgroundImage: `url(${utcData.alternativeCity})`,
     };
 
     return (
@@ -75,14 +75,10 @@ export function ScheduleClock(props: ScheduleClockProps) {
                     {utcData.alternativeCity} {utcData.alternativeUtc}
                 </City>
             </Inner>
-            <Radio
-                target='_blank'
-                href={utcData.alternativeRadioUrl}
-                tabIndex='-1'
-            >
+            <Radio target='_blank' href={utcData.alternativeCity} tabIndex={-1}>
                 <i className='material-icons'>radio</i>
             </Radio>
-            <Clear onClick={() => props.changeDelta(0)} tabIndex='-1'>
+            <Clear onClick={() => props.changeDelta(0)} tabIndex={-1}>
                 <i className='material-icons'>autorenew</i>
             </Clear>
         </Wrapper>
@@ -96,7 +92,10 @@ const ts = () => new Date().getTime();
 const lz = (str: string | number) =>
     String(str).length === 1 ? '0' + str : str;
 
-function useMouseWheelValue(ref: RefObject<HTMLElement>, initialValue: number) {
+function useMouseWheelValue(
+    ref: RefObject<HTMLElement | undefined>,
+    initialValue: number
+) {
     const [currentValue, setCurrentValue] = useState(initialValue);
     const over = onMouseOver(ref);
 
@@ -126,7 +125,7 @@ function useMouseWheelValue(ref: RefObject<HTMLElement>, initialValue: number) {
     return currentValue;
 }
 
-function onMouseOver(ref: RefObject<HTMLElement>) {
+function onMouseOver(ref: RefObject<HTMLElement | undefined>) {
     const [over, setOver] = useBoolean(false);
 
     useEffect(() => {

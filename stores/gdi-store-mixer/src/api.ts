@@ -1,15 +1,15 @@
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     meta: {
         id: 'meta',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     appStateMixer: {
         id: 'appStateMixer',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     currentIds: {
         id: 'currentIds',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     libraryImages: {
         id: 'libraryImages',

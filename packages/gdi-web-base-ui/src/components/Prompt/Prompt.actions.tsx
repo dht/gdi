@@ -194,6 +194,10 @@ const custom = (promptRequest: PromptRequest): Promise<PromptResponse> => {
     });
 };
 
+export type InputPrompt = (
+    promptRequest: PromptRequest | string
+) => Promise<PromptResponse>;
+
 export const prompt = {
     confirm,
     input,

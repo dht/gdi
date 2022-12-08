@@ -1,11 +1,11 @@
 export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
     appStateFactory: {
         id: 'appStateFactory',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     currentIdsFactory: {
         id: 'currentIds',
-        connectionType: 'NONE',
+        connectionType: ConnectionType.NONE,
     },
     layouts: {
         id: 'layouts',
