@@ -1,4 +1,8 @@
-export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
+import { EndpointsConfigOverrides, ConnectionType } from 'redux-connected';
+
+export const endpointsConfigOverrides = (
+    connectionType: ConnectionType
+): EndpointsConfigOverrides => ({
     assets: {
         id: 'assets',
         connectionType,

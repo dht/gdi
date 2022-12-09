@@ -9,7 +9,7 @@ type StatClickAction = {
     withShift?: boolean;
 };
 
-export function* updateJourney(stat: IStat, newValue: value) {
+export function* updateJourney(stat: IStat, newValue: number) {
     const { id } = stat;
 
     const now = new Date();

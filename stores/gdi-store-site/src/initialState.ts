@@ -156,7 +156,7 @@ export const initialState: ISiteStore = {
     images: {
         '1': {
             id: '1',
-            title: 'Debitis modi explicabo.',
+            title: 'Deb modi exp.',
             imageUrl: 'https://picsum.photos/seed/1/1593/948',
             imageThumbUrl:
                 'https://picsum.photos/seed/1/200/119.02071563088512',
@@ -200,7 +200,11 @@ export const clearState = (store: any) => {
         store.dispatch(actions.widgets.setAll({}));
         store.dispatch(actions.instancesProps.setAll({}));
         store.dispatch(actions.images.setAll({}));
-        store.dispatch(actions.datasets.setAll({}));
+        store.dispatch(
+            actions.datasets.setAll({
+                dataset: {},
+            })
+        );
     });
     return store;
 };

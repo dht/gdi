@@ -3,16 +3,20 @@ import { getJson, getString, patchJson } from 'shared-base';
 const CURRENT_ACCOUNT_KEY = 'CURRENT_ACCOUNT';
 const DEMO_CONFIG_KEY = 'DEMO_CONFIG';
 
+const globalVariables = {
+    projectId: '',
+    demoDataUrl: '',
+};
+
 export const getCurrentAccount = () => {
     const currentAccount =
-        getString(CURRENT_ACCOUNT_KEY) ||
-        (import.meta as any).env.VITE_FIREBASE_PROJECT_ID_1;
+        getString(CURRENT_ACCOUNT_KEY) || globalVariables.projectId;
 
     return currentAccount;
 };
 
 export const getDemoDataUrl = () => {
-    const demoDataUrl = (import.meta as any).env.VITE_DEMO_DATA_URL; // prettier-ignore
+    const demoDataUrl = globalVariables.demoDataUrl;
     return demoDataUrl;
 };
 
@@ -43,7 +47,10 @@ export const getDemoConfig = () => {
     return allConfigs[currentAccount] ?? {};
 };
 
-export const initDemo = () => {
+export const initDemo = (projectId: string, demoDataUrl: string) => {
+    globalVariables.projectId = projectId;
+    globalVariables.demoDataUrl = demoDataUrl;
+
     const demoFlag = getDemoFlag();
 
     if (typeof demoFlag !== 'boolean') {

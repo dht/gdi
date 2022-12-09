@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-leads",
-    "version": "0.0.49",
+    "version": "0.0.56",
     "description": "Leads",
     "scripts": {
         "build": "tsc & vite build",
@@ -9,8 +9,9 @@
     },
     "dependencies": {
         "shared-base": "^0.0.32",
-        "@gdi/types": "^0.0.96",
-        "@gdi/language": "^0.0.63",
+        "@gdi/types": "^0.0.105",
+        "redux-connected": "^0.0.107",
+        "@gdi/language": "^0.0.74",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

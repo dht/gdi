@@ -23,6 +23,8 @@ export const initialState: IMoneyStore = {
             topic: 'credit',
             sum: 100000000,
             behavior: 'up',
+            tags: [],
+            dataTags: [],
         },
     },
     moneyBehaviors: {

@@ -24,6 +24,7 @@ export const initialState: IThingsStore = {
             imageThumbUrl: `https://picsum.photos/seed/${1}/${200}/${300}`,
             ratio: 0.75,
             tags: [],
+            dataTags: [],
         },
     },
 };

@@ -16,6 +16,5 @@
         "types": ["types-base", "@gdi/types", "@types/jest", "vite/client"],
         "jsx": "react-jsx",
         "baseUrl": "../../"
-    },
-    "include": ["src-admin/*.ts", "test/*.ts"]
+    }
 }

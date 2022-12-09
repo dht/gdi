@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-card",
-    "version": "0.0.48",
+    "version": "0.0.55",
     "description": "A template for creating a card component",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -13,9 +13,9 @@
     },
     "dependencies": {
         "shared-base": "^0.0.32",
-        "@gdi/engine": "^0.0.71",
-        "@gdi/types": "^0.0.96",
-        "@gdi/web-ui": "^0.0.67",
+        "@gdi/engine": "^0.0.86",
+        "@gdi/types": "^0.0.105",
+        "@gdi/web-ui": "^0.0.75",
         "classnames": "^2.3.1",
         "igrid": "^0.0.18",
         "polished": "^4.2.2",

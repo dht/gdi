@@ -24,6 +24,8 @@ export default defineConfig({
                 react: '',
                 'monaco-editor/esm/vs/editor/editor.api': '',
                 'monaco-editor/esm/vs/platform/theme/common/colorRegistry': '',
+                'prosemirror-keymap': '',
+                'prosemirror-gapcursor': '',
                 'react/jsx-runtime': '',
                 ...p.dependencies,
             }),

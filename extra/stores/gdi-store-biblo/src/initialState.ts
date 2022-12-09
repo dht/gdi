@@ -23,6 +23,8 @@ export const initialState: IBibloStore = {
             description: '',
             revisitDate: '2022-10-10',
             revisitMood: '',
+            tags: [],
+            dataTags: [],
         },
     },
     readCategories: {

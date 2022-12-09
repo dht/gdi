@@ -1,6 +1,6 @@
 {
     "name": "@gdi/photo-booth",
-    "version": "0.0.20",
+    "version": "0.0.28",
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
@@ -8,9 +8,9 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "@gdi/engine": "^0.0.71",
-        "@gdi/types": "^0.0.96",
-        "@gdi/web-ui": "^0.0.67",
+        "@gdi/engine": "^0.0.86",
+        "@gdi/types": "^0.0.105",
+        "@gdi/web-ui": "^0.0.75",
         "@google-cloud/storage": "^6.5.2",
         "chalk": "^5.1.2",
         "chance": "^1.1.8",

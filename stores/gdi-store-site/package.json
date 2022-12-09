@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-site",
-    "version": "0.0.53",
+    "version": "0.0.59",
     "description": "",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,11 +8,12 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.0.32",
-        "@gdi/language": "^0.0.63",
-        "@gdi/types": "^0.0.96",
+        "@gdi/language": "^0.0.74",
+        "@gdi/types": "^0.0.105",
+        "redux-connected": "^0.0.107",
         "redux-store-generator": "^0.9.89",
-        "reselect": "^4.1.6"
+        "reselect": "^4.1.6",
+        "shared-base": "^0.0.32"
     },
     "devDependencies": {
         "@types/jest": "^28.1.6",

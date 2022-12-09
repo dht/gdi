@@ -1,4 +1,8 @@
-export const endpointsConfigOverrides = (connectionType: ConnectionType) => ({
+import { EndpointsConfigOverrides, ConnectionType } from 'redux-connected';
+
+export const endpointsConfigOverrides = (
+    connectionType: ConnectionType
+): EndpointsConfigOverrides => ({
     appStateCarts: {
         id: 'appStateCarts',
         connectionType: ConnectionType.NONE,

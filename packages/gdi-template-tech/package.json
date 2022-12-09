@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-tech",
-    "version": "0.0.44",
+    "version": "0.0.51",
     "description": "Template for a tech blog",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -13,11 +13,11 @@
     },
     "dependencies": {
         "shared-base": "^0.0.32",
-        "@gdi/engine": "^0.0.71",
-        "@gdi/language": "^0.0.63",
-        "@gdi/types": "^0.0.96",
-        "@gdi/uno": "^0.0.30",
-        "@gdi/web-ui": "^0.0.67",
+        "@gdi/engine": "^0.0.86",
+        "@gdi/language": "^0.0.74",
+        "@gdi/types": "^0.0.105",
+        "@gdi/uno": "^0.0.38",
+        "@gdi/web-ui": "^0.0.75",
         "classnames": "^2.3.1",
         "polished": "^4.2.2",
         "react-draggable": "^4.4.5",

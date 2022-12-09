@@ -54,6 +54,7 @@ export const initialState: ISalesStore = {
                 },
             ],
             tags: [],
+            dataTags: [],
         },
     },
 };

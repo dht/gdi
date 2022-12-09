@@ -25,6 +25,7 @@ export const initialState: IEventsStore = {
             link: '',
             googleEventId: '',
             tags: [],
+            dataTags: [],
         },
     },
     reminders: {
@@ -38,6 +39,8 @@ export const initialState: IEventsStore = {
             itemId: '980',
             isCompleted: false,
             snoozeUntil: '2023-05-04 23:37:04',
+            tags: [],
+            dataTags: [],
         },
     },
 };

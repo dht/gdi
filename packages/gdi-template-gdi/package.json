@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-gdi",
-    "version": "0.0.58",
+    "version": "0.0.65",
     "description": "A template for GDI homepage",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",
@@ -13,10 +13,10 @@
     },
     "dependencies": {
         "shared-base": "^0.0.32",
-        "@gdi/engine": "^0.0.71",
-        "@gdi/types": "^0.0.96",
-        "@gdi/uno": "^0.0.30",
-        "@gdi/web-ui": "^0.0.67",
+        "@gdi/engine": "^0.0.86",
+        "@gdi/types": "^0.0.105",
+        "@gdi/uno": "^0.0.38",
+        "@gdi/web-ui": "^0.0.75",
         "classnames": "^2.3.1",
         "igrid": "^0.0.18",
         "polished": "^4.2.2",

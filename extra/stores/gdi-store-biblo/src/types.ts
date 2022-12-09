@@ -28,6 +28,8 @@ export type IRead = {
     readTotalSize?: number;
     readCurrentLocation?: number;
     readSizeUnits?: 'pages' | 'minutes' | 'hours';
+    tags: string[];
+    dataTags: [];
 };
 
 export type IMetaphor = {

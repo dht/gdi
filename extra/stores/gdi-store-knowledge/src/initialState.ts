@@ -27,6 +27,8 @@ export const initialState: IKnowledgeStore = {
             category: '',
             description: '',
             revisitDate: '2022-10-10',
+            tags: [''],
+            dataTags: [''],
         },
     },
 };

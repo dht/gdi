@@ -24,6 +24,7 @@ export type IEvent = {
     imageUrl?: string;
     imageThumbUrl?: string;
     tags: string[];
+    dataTags: string[];
 };
 
 export type IReminder = {
@@ -35,6 +36,8 @@ export type IReminder = {
     itemId: string;
     isCompleted?: boolean;
     snoozeUntil?: string;
+    tags: string[];
+    dataTags: string[];
 };
 
 export type IEvents = Record<string, IEvent>;

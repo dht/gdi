@@ -4,13 +4,13 @@ export const sampleData: ISampleDataPerFlavour = {
         strings: {
             slogan: "There's a new CMS in town",
             header: 'gDI',
-            ctaButtonText: 'Get started',
+            ctaButtonText: 'See Demo',
             secondaryButtonText: 'Visit Github',
         },
         colors: {},
         extra: {
             installation: 'npm install -g @gdi/cli',
-            href: 'https://usegdi.com/docs/docs/getting-started/installation',
+            href: 'https://gdi-demo.web.app/admin/pages?demo=on',
             hrefSecondary: 'https://github.com/dht/gdi',
             imageUrl: 'https://static-b9ebe.web.app/gdi-hero.jpg',
         },

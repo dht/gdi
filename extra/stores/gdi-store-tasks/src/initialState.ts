@@ -33,6 +33,8 @@ export const initialState: ITasksStore = {
             timeSpentSeconds: 0,
             comment: {},
             author: '',
+            tags: [],
+            dataTags: [],
         },
     },
     recentSessions: {
@@ -57,6 +59,7 @@ export const initialState: ITasksStore = {
                 thumb16: '',
             },
             tags: [],
+            dataTags: [],
         },
         '2': {
             id: '2',
@@ -88,6 +91,8 @@ export const initialState: ITasksStore = {
             description: {},
             projectId: '1',
             projectKey: 'MUSE',
+            tags: [],
+            dataTags: [],
         },
     },
     sessions: {
@@ -101,6 +106,8 @@ export const initialState: ITasksStore = {
             breakTimeTotal: 0,
             lastVerb: 'start',
             lastVerbTimestamp: 0,
+            tags: [],
+            dataTags: [],
         },
     },
 };

@@ -36,6 +36,7 @@ export type IProject = {
     color?: string;
     order?: number;
     tags: string[];
+    dataTags: string[];
 };
 
 export type ITicket = {
@@ -56,6 +57,8 @@ export type ITicket = {
     projectId: string;
     projectKey: string;
     order?: number;
+    tags: string[];
+    dataTags: string[];
 };
 
 export type ISession = {
@@ -68,6 +71,8 @@ export type ISession = {
     breakTimeTotal: number;
     lastVerb?: ITaskVerb;
     lastVerbTimestamp: number;
+    tags: string[];
+    dataTags: string[];
 };
 
 export type IWorklog = {
@@ -80,6 +85,8 @@ export type IWorklog = {
     comment: any;
     author: string;
     order?: number;
+    tags: string[];
+    dataTags: string[];
 };
 
 export type IRecentSession = {
