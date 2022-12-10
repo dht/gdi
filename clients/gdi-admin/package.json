@@ -38,7 +38,7 @@
         "@gdi/types": "^0.0.105",
         "@gdi/web-ui": "^0.0.75",
         "firebaseui": "^6.0.2",
-        "igrid": "^0.0.21",
+        "igrid": "^0.0.22",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-toastify": "^9.0.7",

@@ -38,6 +38,12 @@ export const PagesContainer = () => {
                             pageId: data?.item?.id,
                         });
                         break;
+                    case 'pageInstanceVersion':
+                        dispatch({
+                            type: 'CHANGE_PAGE_VERSION',
+                            pageId: data?.item?.id,
+                        });
+                        break;
                 }
             },
         }),

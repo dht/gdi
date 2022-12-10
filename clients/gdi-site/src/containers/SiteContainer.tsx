@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectors } from '../store';
 
 export const SiteContainer = () => {
-    const elements = useSelector(selectors.base.$instances);
-    const datasets = useSelector(selectors.raw.$rawDatasets);
+    const pages = useSelector(selectors.raw.$rawPages);
 
-    return <Site elements={elements} datasets={datasets} />;
+    return <Site pages={pages} />;
 };

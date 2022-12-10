@@ -12,6 +12,8 @@ import { root as innerNav } from './saga.innerNav';
 import { root as exportPage } from './saga.export.page';
 import { root as exportSite } from './saga.export';
 import { root as pages } from './saga.pages';
+import { root as pagesPromote } from './saga.pages.promote';
+import { root as pagesBalance } from './saga.pages.balance';
 import { root as mixer } from './saga.mixer';
 import { root as mobileMode } from './saga.mobileMode';
 import { root as toLive } from './live/saga.toLive';
@@ -34,6 +36,8 @@ function* root() {
     yield* fork(mixer);
     yield* fork(mobileMode);
     yield* fork(pages);
+    yield* fork(pagesPromote);
+    yield* fork(pagesBalance);
     yield* fork(toLive);
     yield* fork(toDraft);
     yield* fork(ping);

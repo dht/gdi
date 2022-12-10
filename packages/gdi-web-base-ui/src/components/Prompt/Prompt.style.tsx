@@ -21,7 +21,8 @@ export const P = styled.p`
 export const Content = styled.div`
     padding-bottom: 30px;
 
-    &.form {
+    &.form,
+    &.custom {
         padding-bottom: 0;
     }
 `;

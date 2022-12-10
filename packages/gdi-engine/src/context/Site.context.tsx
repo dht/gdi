@@ -9,6 +9,7 @@ type SiteProps = {
     children: JSX.Element | JSX.Element[];
     elements: IElement[];
     datasets: Json;
+    analyticsProps: Json;
 };
 
 export type ISiteContext = {

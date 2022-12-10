@@ -38,9 +38,7 @@ export const Bottom = styled.div`
     align-items: flex-start;
 `;
 
-export const Row = styled(Grid.Row)`
-    border-color: 1px solid green;
-`;
+export const Row = styled(Grid.Row)``;
 
 export const Column = styled(Grid.Column)<{ flex?: number }>`
     margin-top: 45px;

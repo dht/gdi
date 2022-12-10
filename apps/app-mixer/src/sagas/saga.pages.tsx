@@ -1,6 +1,6 @@
 import { actions, selectors } from '../store';
 import { call, put, select, takeEvery } from 'saga-ts';
-import { prompt } from '@gdi/web-ui';
+import { prompt, Versioning } from '@gdi/web-ui';
 import { guid4 } from 'shared-base';
 import {
     parseMixerRequestToActions,
@@ -81,39 +81,6 @@ function* duplicatePageInstance() {
     }
 
     yield put(actions.currentIds.patch({ pageInstanceId: id }));
-}
-
-function* promotePageInstance() {
-    const pageInstance = yield* select(selectors.base.$pageInstance);
-
-    if (!pageInstance) {
-        return;
-    }
-
-    const { id } = pageInstance;
-
-    const state = yield* call(getState);
-
-    const mixerRequest: IMixerRequest = {
-        source: 'library',
-        destination: 'site',
-        itemId: id,
-        entityType: 'pageInstances',
-    };
-
-    const actionsArr = parseMixerRequestToActions(mixerRequest, state);
-
-    const newId = actionsArr[0].payload.id;
-
-    for (const action of actionsArr) {
-        yield* put(action);
-    }
-
-    yield put(
-        actions.pages.patch(pageInstance.pageId, {
-            pageInstanceId: newId,
-        })
-    );
 }
 
 function* resetPageInstance() {
@@ -270,7 +237,6 @@ export function* root() {
     yield takeEvery('EDIT_PAGE', editPage);
     yield takeEvery('DUPLICATE_PAGE', duplicatePage);
     yield takeEvery('DUPLICATE_PAGE_INSTANCE', duplicatePageInstance);
-    yield takeEvery('PROMOTE_PAGE_INSTANCE', promotePageInstance);
     yield takeEvery('RESET_PAGE_INSTANCE', resetPageInstance);
     yield takeEvery('DELETE_PAGE_INSTANCE', deletePageInstance);
     yield takeEvery('SELECT_PAGE_INSTANCE_ON_NAVIGATION', selectPageInstanceOnNavigation); // prettier-ignore

@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
 
     ${mobile(css`
         padding: 100px 0;
-        border: 1px solid green;
     `)}
 `;
 
@@ -86,12 +85,9 @@ export const ServiceDescription = styled.p`
     min-height: 100px;
 `;
 
-export const Row = styled(Grid.Row)`
-    border-color: 1px solid green;
-`;
+export const Row = styled(Grid.Row)``;
 
 export const Column = styled(Grid.Column)`
-    border-color: 1px solid green;
     width: 300px;
     background-color: rgba(0, 0, 0, 0.5);
     margin: 8px;

@@ -18,6 +18,8 @@ declare global {
         sum: number;
         date?: string;
         behavior?: string;
+        tags: string[];
+        dataTags: string[];
     };
 
     export type IMoneyBehavior = {

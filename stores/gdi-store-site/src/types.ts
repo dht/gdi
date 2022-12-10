@@ -67,6 +67,7 @@ export type IPage = {
     order?: number;
     lastPublishDate?: string;
     pageInstanceId?: string;
+    pageInstanceBalance?: Json;
     path: string;
     isProtected?: boolean;
     tags: string[];

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ZoomBuildDevice snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe giHcUI ZoomBuildDevice-wrapper"
+  data-testid="ZoomBuildDevice-wrapper"
+>
+  ZoomBuildDevice
+</div>
+`;

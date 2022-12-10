@@ -533,6 +533,51 @@ export const $pageData = createSelector(
     }
 );
 
+export const $pageBalance = createSelector(
+    $page,
+    raw.$rawLibraryPageInstances,
+    (page, libraryPageInstances) => {
+        if (!page) {
+            return {};
+        }
+
+        const { id: pageId, pageInstanceBalance = {} } = page;
+
+        return Object.values(libraryPageInstances)
+            .filter(
+                (pageInstance) =>
+                    (pageInstance as IPageInstance).pageId === pageId
+            )
+            .reduce((acc: Json, pageInstance: any) => {
+                const savedValue = pageInstanceBalance[pageInstance.id];
+                acc[pageInstance.id] = savedValue ? savedValue : 0;
+                return acc;
+            }, {} as Json);
+    }
+);
+
+export const $pageBalanceTitles = createSelector(
+    $page,
+    raw.$rawLibraryPageInstances,
+    (page, libraryPageInstances) => {
+        if (!page) {
+            return {};
+        }
+
+        const { id: pageId } = page;
+
+        return Object.values(libraryPageInstances)
+            .filter(
+                (pageInstance) =>
+                    (pageInstance as IPageInstance).pageId === pageId
+            )
+            .reduce((acc: Json, pageInstance: any) => {
+                acc[pageInstance.id] = pageInstance.version;
+                return acc;
+            }, {} as Json);
+    }
+);
+
 export const $libraryData = createSelector(
     raw.$rawLibraryImages,
     raw.$rawLibraryWidgets,

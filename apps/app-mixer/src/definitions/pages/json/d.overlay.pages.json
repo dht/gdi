@@ -41,16 +41,6 @@
                 "floatRight": true
             },
             "order": 1
-        },
-        {
-            "id": "status",
-            "fieldId": "status",
-            "fieldType": "select",
-            "locationKey": "bottomRight",
-            "order": 1,
-            "params": {
-                "center": true
-            }
         }
     ]
 }

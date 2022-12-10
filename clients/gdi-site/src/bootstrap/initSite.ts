@@ -38,7 +38,9 @@ export const initSite = () => {
 
     const config: IReduxConnectedConfig = {
         defaultEndpointsConfig: DEFAULT_ENDPOINT_CONFIG,
-        endpointsConfigOverrides,
+        endpointsConfigOverrides: endpointsConfigOverrides(
+            ConnectionType.FIRESTORE
+        ),
         adapters: {
             firestore: firestoreAdapter,
         },
