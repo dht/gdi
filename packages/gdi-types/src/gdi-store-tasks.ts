@@ -41,6 +41,7 @@ declare global {
         color?: string;
         order?: number;
         tags: string[];
+        dataTags: string[];
     };
 
     export type ITicket = {
@@ -61,6 +62,8 @@ declare global {
         projectId: string;
         projectKey: string;
         order?: number;
+        tags: string[];
+        dataTags: string[];
     };
 
     export type ISession = {
@@ -73,6 +76,8 @@ declare global {
         breakTimeTotal: number;
         lastVerb?: ITaskVerb;
         lastVerbTimestamp: number;
+        tags: string[];
+        dataTags: string[];
     };
 
     export type IWorklog = {
@@ -85,6 +90,8 @@ declare global {
         comment: any;
         author: string;
         order?: number;
+        tags: string[];
+        dataTags: string[];
     };
 
     export type IRecentSession = {

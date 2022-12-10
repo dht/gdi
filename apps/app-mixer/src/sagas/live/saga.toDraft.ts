@@ -9,6 +9,8 @@ type ToDraftAction = {
 };
 
 function* toDraft(action: ToDraftAction) {
+    console.log('toDraft ->', true);
+
     console.log('action ->', action);
 }
 

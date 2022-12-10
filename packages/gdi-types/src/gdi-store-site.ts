@@ -77,6 +77,7 @@ declare global {
         order?: number;
         lastPublishDate?: string;
         pageInstanceId?: string;
+        pageInstanceBalance?: Json;
         path: string;
         isProtected?: boolean;
         tags: string[];

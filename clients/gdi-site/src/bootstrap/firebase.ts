@@ -5,6 +5,7 @@ import {
     setUserId,
     setUserProperties,
     initializeAnalytics,
+    setDefaultEventParameters,
 } from 'firebase/analytics';
 import {
     FirebaseStorage,
@@ -83,6 +84,10 @@ export class Firebase {
 
     log(eventName: GaId, data?: Json) {
         logEvent(this.analytics, eventName as string, data);
+    }
+
+    setDefaultEventParameters(data: Json) {
+        setDefaultEventParameters(data);
     }
 
     setUserId(userId: string) {

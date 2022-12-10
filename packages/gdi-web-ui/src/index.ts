@@ -25,6 +25,7 @@ export { LogsConsole } from './components/LogsConsole/LogsConsole';
 export { LogsSystem } from './components/LogsSystem/LogsSystem';
 export { Switcher } from './components/Switcher/Switcher';
 export { TypeView } from './components/TypeView/TypeView';
+export { Versioning } from './components/Versioning/Versioning';
 export { Weather } from './components/Weather/Weather';
 export { WindowHeader } from './components/WindowHeader/WindowHeader';
 export { siteDefaults } from './definitions/site.defaults';

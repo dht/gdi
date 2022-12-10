@@ -81,16 +81,7 @@ describe('extractTree', () => {
                     widgetId: 'w1',
                 },
             },
-            instancesProps: {
-                i1: {
-                    id: 'i1',
-                },
-            },
-            widgets: {
-                w1: {
-                    id: 'w1',
-                },
-            },
+            instancesProps: { i1: { id: 'i1' } },
         });
     });
 
@@ -130,14 +121,6 @@ describe('extractTree', () => {
                 },
                 i2: {
                     id: 'i2',
-                },
-            },
-            widgets: {
-                w1: {
-                    id: 'w1',
-                },
-                w2: {
-                    id: 'w2',
                 },
             },
         });
@@ -205,20 +188,6 @@ describe('extractTree', () => {
                 },
                 i4: {
                     id: 'i4',
-                },
-            },
-            widgets: {
-                w1: {
-                    id: 'w1',
-                },
-                w2: {
-                    id: 'w2',
-                },
-                w3: {
-                    id: 'w3',
-                },
-                w4: {
-                    id: 'w4',
                 },
             },
         });

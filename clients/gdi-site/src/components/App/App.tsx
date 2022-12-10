@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Wrapper } from './App.style';
 import { Provider } from 'react-redux';
-import { SiteContainer } from '../../containers/SiteContainer';
 import { Theme } from '@gdi/web-ui';
 import { ThemeProvider } from 'styled-components';
 import { useStore } from '../../hooks/useStore';
 import { useStyledTheme } from '@gdi/hooks';
+import { SiteContainer } from '../../containers/SiteContainer';
 
 export type AppProps = {};
 

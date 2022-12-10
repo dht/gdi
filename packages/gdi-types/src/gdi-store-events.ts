@@ -29,6 +29,7 @@ declare global {
         imageUrl?: string;
         imageThumbUrl?: string;
         tags: string[];
+        dataTags: string[];
     };
 
     export type IReminder = {
@@ -40,6 +41,8 @@ declare global {
         itemId: string;
         isCompleted?: boolean;
         snoozeUntil?: string;
+        tags: string[];
+        dataTags: string[];
     };
 
     export type IEvents = Record<string, IEvent>;

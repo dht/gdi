@@ -1,14 +1,11 @@
 import { IMixerRequest } from '../types';
 import { nodeNames } from './mixerInstructions.maps';
-import { merge, get, cloneDeep } from 'shared-base';
+import { mergeDeep, get, cloneDeep } from 'shared-base';
+// import { merge as mergeDeep } from 'lodash';
 
 export function extractTree(request: IMixerRequest, state: Json) {
     const { source, entityType, itemId } = request;
     let output: Json = {};
-
-    if (Object.keys(state).length === 2) {
-        debugger;
-    }
 
     if (!entityType || !itemId) {
         return output;
@@ -78,7 +75,7 @@ export function extractTree(request: IMixerRequest, state: Json) {
 
         instances.forEach((instance: any) => {
             const { id } = instance;
-            output = merge(
+            output = mergeDeep(
                 output,
                 extractTree(
                     { ...request, entityType: 'instances', itemId: id },
@@ -104,7 +101,7 @@ export function extractTree(request: IMixerRequest, state: Json) {
 
         pageInstances.forEach((pageInstance: any) => {
             const { id } = pageInstance;
-            output = merge(
+            output = mergeDeep(
                 output,
                 extractTree(
                     { ...request, entityType: 'pageInstances', itemId: id },

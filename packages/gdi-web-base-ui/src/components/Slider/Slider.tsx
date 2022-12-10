@@ -21,11 +21,21 @@ export type SliderProps = {
             | React.KeyboardEvent
     ) => void;
     onBlur: () => void;
+    valueFormat?: (value: number) => string;
 };
 
 export const Slider = React.forwardRef(
     (props: SliderProps, ref: ForwardedRef<HTMLDivElement>) => {
-        const { min, max, step, value, label, showValue, isDisabled } = props;
+        const {
+            min,
+            max,
+            step,
+            value,
+            label,
+            showValue,
+            isDisabled,
+            valueFormat,
+        } = props;
 
         return (
             <Wrapper className='Slider-wrapper' data-testid='Slider-wrapper'>
@@ -36,10 +46,11 @@ export const Slider = React.forwardRef(
                     max={max}
                     step={step}
                     onBlur={props.onBlur}
-                    defaultValue={value}
+                    value={value}
                     showValue={showValue}
                     disabled={isDisabled}
                     onChange={props.onChange}
+                    valueFormat={valueFormat}
                 />
             </Wrapper>
         );

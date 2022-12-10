@@ -45,6 +45,8 @@ function* copyImages(pageInstanceId: string) {
 }
 
 function* toLive(action: ToLiveAction) {
+    console.log('toLive ->', true);
+
     const { id } = action;
 
     const libraryPages = yield* select(selectors.raw.$rawLibraryPages);
