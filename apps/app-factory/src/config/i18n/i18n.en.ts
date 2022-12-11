@@ -42,4 +42,13 @@ export default {
     'Navigate: Layouts': 'Navigate: Layouts',
     'Navigate: Articles': 'Navigate: Articles',
     'Navigate: Widgets': 'Navigate: Widgets',
+    back: 'back',
+    Tags: 'Tags',
+    preview: 'preview',
+    gallery: 'gallery',
+    table: 'table',
+    spreadsheet: 'spreadsheet',
+    front: 'front',
+    New: 'New',
+    search: 'search',
 };

@@ -1,7 +1,7 @@
 {
     "name": "@gdi/app-settings",
     "description": "Site and account settings",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

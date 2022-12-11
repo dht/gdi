@@ -41,7 +41,6 @@ type Params = {
     initSapMethods: Record<string, InitSapMethod>;
     sagas: any[];
     logger: LogMethod;
-    noServerMode?: boolean;
     languageCode?: LanguageIso;
     connectionType?: ConnectionType;
 };
@@ -69,7 +68,6 @@ export async function initPlatform<T extends StoreStructure>(
         menuSections = [],
         sagas = [],
         logger = defaultLogger,
-        noServerMode,
         languageCode = 'en',
         connectionType = ConnectionType.NONE,
     } = params;
@@ -144,9 +142,7 @@ export async function initPlatform<T extends StoreStructure>(
         );
     }
 
-    const endpointsConfigOverrides = apiConfigBuilder
-        .withNoServer(noServerMode) //
-        .build();
+    const endpointsConfigOverrides = apiConfigBuilder.build();
 
     const restAdapter = new RestAdapter({
         axios,

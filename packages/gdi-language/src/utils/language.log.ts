@@ -9,7 +9,7 @@ export const log = (language: LanguageIso, appId: string, key: string) => {
         return;
     }
 
-    fetch('http://localhost:3005', {
+    fetch('http://localhost:3005/i18n', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

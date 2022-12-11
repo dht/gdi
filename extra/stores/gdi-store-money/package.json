@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-money",
-    "version": "0.0.55",
+    "version": "0.0.56",
     "description": "Financial",
     "scripts": {
         "build": "tsc & vite build",

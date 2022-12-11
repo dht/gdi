@@ -25,5 +25,13 @@
     "Layouts Timeline",
     "Date",
     "Front",
-    "Navigate: Carts"
+    "Navigate: Carts",
+    "back",
+    "front",
+    "Status",
+    "buckets",
+    "preview",
+    "table",
+    "New",
+    "search"
 ]

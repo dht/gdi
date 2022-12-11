@@ -55,7 +55,7 @@ export default {
   "New Inbox": "Nieuwe inbox",
   Date: "Datum",
   "Revisit Date": "Datum opnieuw bezoeken",
-  Id: "ID kaart",
+  Id: "Id",
   "Save & close": "Opslaan & sluiten",
   "Change mode": "Modus wijzigen",
   "Inbox Timeline": "Tijdlijn Postvak IN",

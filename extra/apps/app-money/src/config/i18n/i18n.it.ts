@@ -25,4 +25,11 @@ export default {
   items: "Oggetti",
   Date: "Data",
   "Navigate: Money": "Naviga: Soldi",
+  Orientation: "Orientamento",
+  back: "Indietro",
+  gallery: "galleria",
+  front: "davanti",
+  preview: "anteprima",
+  New: "Nuovo",
+  search: "ricerca",
 };

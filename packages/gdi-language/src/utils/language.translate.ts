@@ -1,8 +1,7 @@
 import { IAppKeys, LanguageIso } from '../types';
-// import { getVariableType } from 'shared-base';
 import { log } from './language.log';
+import { getVariableType } from 'shared-base';
 
-const getVariableType: any = () => {};
 export const translate = (
     keys: IAppKeys,
     language: LanguageIso,
@@ -115,9 +114,7 @@ export const translateArray = (
     const firstObject = object[0];
 
     if (typeof firstObject === 'string') {
-        return (object as string[]).map((item: string) =>
-            translate(keys, language, appId, item)
-        );
+        return object;
     }
 
     return (object as Json[]).map((item: Json) =>

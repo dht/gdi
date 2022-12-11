@@ -26,4 +26,12 @@ export default {
   Front: "Davanti",
   "Interesting reads": "Letture interessanti",
   "Navigate: Interesting reads": "Naviga: Letture interessanti",
+  Tags: "Tag",
+  front: "davanti",
+  back: "Indietro",
+  table: "tavolo",
+  spreadsheet: "foglio di calcolo",
+  filter: "filtro",
+  New: "Nuovo",
+  search: "ricerca",
 };

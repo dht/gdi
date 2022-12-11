@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-money",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "description": "Money",
     "scripts": {
         "build": "tsc & vite build",

@@ -81,7 +81,7 @@ export const BootstrapContainer = (props: BootstrapProps) => {
         [props.config]
     );
 
-    const { version, initialRoute, noServerMode, languageCode, isRtl } = config;
+    const { version, initialRoute, languageCode, isRtl } = config;
     const theme = useStyledTheme(languageCode, getIsRtl());
 
     const Cmp: any = ThemeProvider;
@@ -90,7 +90,6 @@ export const BootstrapContainer = (props: BootstrapProps) => {
         <Cmp theme={theme}>
             <PlatformContextProvider
                 initialRoute={initialRoute}
-                noServerMode={noServerMode}
                 languageCode={languageCode}
                 isRtl={isRtl}
             >

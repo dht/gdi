@@ -27,4 +27,13 @@ export default {
     Front: 'Front',
     selected: 'selected',
     'Navigate: Leads': 'Navigate: Leads',
+    table: 'table',
+    Source: 'Source',
+    Status: 'Status',
+    front: 'front',
+    buckets: 'buckets',
+    preview: 'preview',
+    back: 'back',
+    New: 'New',
+    search: 'search',
 };

@@ -6,3 +6,4 @@ coverage
 *.png
 screenshots
 debug.*.json
+server/yarn.lock

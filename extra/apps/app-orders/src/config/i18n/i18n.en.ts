@@ -30,4 +30,12 @@ export default {
     'New Order': 'New Order',
     'Navigate: Orders': 'Navigate: Orders',
     'Navigate: Coupons': 'Navigate: Coupons',
+    front: 'front',
+    back: 'back',
+    Status: 'Status',
+    Worth: 'Worth',
+    table: 'table',
+    preview: 'preview',
+    New: 'New',
+    search: 'search',
 };

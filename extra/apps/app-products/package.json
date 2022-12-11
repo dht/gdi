@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-products",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "description": "Products",
     "scripts": {
         "build": "tsc & vite build",

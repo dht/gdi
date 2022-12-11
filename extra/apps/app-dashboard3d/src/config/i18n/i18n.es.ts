@@ -55,7 +55,7 @@ export default {
   "New Inbox": "Nuevo en caja",
   Date: "Fecha",
   "Revisit Date": "Fecha de revisión",
-  Id: "Identificación",
+  Id: "Id",
   "Save & close": "Guardar cerrar",
   "Change mode": "Modo de cambio",
   "Inbox Timeline": "Cronología de la bandeja de entrada",

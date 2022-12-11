@@ -10,4 +10,8 @@ export default {
   "Show Store Size": "הצג גודל חנות",
   "Show Login cycle": "הצג מחזור התחברות",
   "Navigate: Catalog": "ניווט: קטלוג",
+  Console: "לְנַחֵם",
+  "LocalData Viewer": "LocalData Viewer",
+  "Show Console": "הצג קונסולה",
+  "Show Local Data Viewer": "הצג את מציג הנתונים המקומי",
 };

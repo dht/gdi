@@ -25,5 +25,13 @@
     "Back stage",
     "Front",
     "Date",
-    "Navigate: Comments"
+    "Navigate: Comments",
+    "Status",
+    "back",
+    "front",
+    "table",
+    "buckets",
+    "preview",
+    "New",
+    "search"
 ]

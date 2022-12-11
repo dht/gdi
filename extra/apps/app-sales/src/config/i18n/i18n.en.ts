@@ -28,4 +28,12 @@ export default {
     'Navigate: Sales': 'Navigate: Sales',
     'add sale Action': 'add sale Action',
     'new Sale': 'new Sale',
+    back: 'back',
+    Status: 'Status',
+    Worth: 'Worth',
+    table: 'table',
+    front: 'front',
+    preview: 'preview',
+    New: 'New',
+    search: 'search',
 };

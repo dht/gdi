@@ -8,7 +8,6 @@ import { invokeEvent } from 'shared-base';
 type PlatformContextProps = {
     languageCode: LanguageIso;
     initialRoute: string;
-    noServerMode?: boolean;
     isRtl: boolean;
 };
 
@@ -29,7 +28,6 @@ const initialValue: IPlatformContext = {
         accountName: '',
         availableAccounts: [],
         isReady: false,
-        noServerMode: false,
         languageCode: 'en',
         isRtl: false,
         initialRoute: '',
@@ -66,12 +64,11 @@ export const PlatformContext = createContext<IPlatformContext>(initialValue);
 export const PlatformContextProvider = (
     props: WithChildren<PlatformContextProps>
 ) => {
-    const { initialRoute, noServerMode, languageCode, isRtl } = props;
+    const { initialRoute, languageCode, isRtl } = props;
 
     const [state, patchContext] = useSetState<IPlatformState>({
         ...initialValue.state,
         initialRoute,
-        noServerMode,
         languageCode,
         isRtl,
     });

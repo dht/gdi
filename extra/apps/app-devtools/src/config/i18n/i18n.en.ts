@@ -9,4 +9,8 @@ export default {
     'Show Store Size': 'Show Store Size',
     'Show Login cycle': 'Show Login cycle',
     'Navigate: Catalog': 'Navigate: Catalog',
+    Console: 'Console',
+    'LocalData Viewer': 'LocalData Viewer',
+    'Show Console': 'Show Console',
+    'Show Local Data Viewer': 'Show Local Data Viewer',
 };

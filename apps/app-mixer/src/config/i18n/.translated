@@ -92,5 +92,21 @@
     "Version",
     "New PageInstance",
     "Promote",
-    "New Template"
+    "New Template",
+    "Orientation",
+    "back",
+    "front",
+    "Page",
+    "gallery",
+    "preview",
+    "custom",
+    "custom2",
+    "Navigate: Datasets",
+    "Datasets",
+    "search",
+    "tagging",
+    "filter",
+    "table",
+    "spreadsheet",
+    "New"
 ]

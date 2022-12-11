@@ -10,4 +10,8 @@ export default {
   "Show Store Size": "Mostrar tamaño de la tienda",
   "Show Login cycle": "Mostrar ciclo de inicio de sesión",
   "Navigate: Catalog": "Navegar: Catálogo",
+  Console: "Consola",
+  "LocalData Viewer": "Visor de datos locales",
+  "Show Console": "Muestra la consola",
+  "Show Local Data Viewer": "Mostrar visor de datos locales",
 };

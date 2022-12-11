@@ -25,4 +25,11 @@ export default {
   Front: "Davanti",
   items: "Oggetti",
   "Navigate: Things": "Naviga: Cose",
+  Orientation: "Orientamento",
+  back: "Indietro",
+  front: "davanti",
+  gallery: "galleria",
+  preview: "anteprima",
+  New: "Nuovo",
+  search: "ricerca",
 };

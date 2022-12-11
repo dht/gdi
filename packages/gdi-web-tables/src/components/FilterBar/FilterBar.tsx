@@ -3,8 +3,7 @@ import Filters from '../Filters/Filters';
 import Tagger from '../Tagger/Tagger';
 import { Button, Search, Toolbar } from '@gdi/web-base-ui';
 import { FilterContext } from '../../context/Filter.context';
-import { flatten } from 'shared-base';
-import { isEmpty } from 'shared-base';
+import { flatten, isEmpty } from 'shared-base';
 import { FilterPart, IBarAction } from '../../types';
 import { SelectionContext } from '../../context/Selection.context';
 import {
@@ -30,7 +29,7 @@ export type FilterBarProps = {
 export function FilterBar(props: FilterBarProps) {
     const context = useContext(FilterContext);
     const contextSelection = useContext(SelectionContext);
-    const { t } = useLanguage();
+    const { t, tj } = useLanguage();
 
     const { state, callbacks, config, data = [], multiBar } = context;
     const { selectionMode } = contextSelection;
@@ -42,6 +41,9 @@ export function FilterBar(props: FilterBarProps) {
 
     const { state: selectedIds, callbacks: callbacksSelection } =
         contextSelection;
+
+    const actionsTranslated = useMemo(() => tj(actions), []);
+    const placeholderSearch = useMemo(() => t('search'), []);
 
     function onToolBarClick(item: any, isExtra?: boolean) {
         const { id } = item;
@@ -123,7 +125,9 @@ export function FilterBar(props: FilterBarProps) {
 
         return (
             <Actions>
-                {actions.map((action: IBarAction) => renderAction(action))}
+                {Object.values(actionsTranslated).map((action: IBarAction) =>
+                    renderAction(action)
+                )}
             </Actions>
         );
     }
@@ -192,7 +196,12 @@ export function FilterBar(props: FilterBarProps) {
         }
 
         return (
-            <Search width={160} value={search} onChange={callbacks.onSearch} />
+            <Search
+                placeholder={placeholderSearch}
+                width={160}
+                value={search}
+                onChange={callbacks.onSearch}
+            />
         );
     }
 
@@ -282,10 +291,10 @@ export const defaultTools: IOption[] = [
     },
 ];
 
-const actions: any[] = [
-    {
+const actions: Json = {
+    new: {
         id: 'new',
         title: 'New',
         iconName: 'Add',
     },
-];
+};

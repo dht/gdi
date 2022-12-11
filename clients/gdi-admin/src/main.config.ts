@@ -1,10 +1,10 @@
-import { firebaseConfigs } from './main.firebase';
 import p from '../package.json';
-import { IPlatformConfig, initDemo, getDemoConfig } from '@gdi/platformer';
-import { getLanguageCode } from '@gdi/language';
-import { initializers } from './main.apps';
-import { uniq, getJson } from 'shared-base';
 import { ConnectionType } from 'redux-connected';
+import { firebaseConfigs } from './main.firebase';
+import { getDemoConfig, initDemo, IPlatformConfig } from '@gdi/platformer';
+import { getJson, uniq } from 'shared-base';
+import { initializers } from './main.apps';
+import { initLanguage } from '@gdi/language';
 
 const baseURL = import.meta.env.VITE_API_SERVER_DOMAIN + '/v1';
 const menuSections = import.meta.env.VITE_MENU.split(',');
@@ -30,6 +30,8 @@ if (demoConfig.on) {
     activeApps = demoActiveApps;
 }
 
+const languageCode: LanguageIso = initLanguage();
+
 const connectionType = demoConfig.on
     ? ConnectionType.LOCAL_STORAGE
     : ConnectionType.FIRESTORE;
@@ -42,8 +44,7 @@ export const config: IPlatformConfig = {
     initializers,
     activeApps,
     menuSections,
-    noServerMode: false,
-    languageCode: 'en',
-    isRtl: false,
+    languageCode,
+    isRtl: languageCode === 'he',
     connectionType,
 };

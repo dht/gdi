@@ -26,4 +26,12 @@ export default {
     Front: 'Front',
     'Interesting reads': 'Interesting reads',
     'Navigate: Interesting reads': 'Navigate: Interesting reads',
+    Tags: 'Tags',
+    front: 'front',
+    back: 'back',
+    table: 'table',
+    spreadsheet: 'spreadsheet',
+    filter: 'filter',
+    New: 'New',
+    search: 'search',
 };

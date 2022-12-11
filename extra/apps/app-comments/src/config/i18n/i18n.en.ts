@@ -26,4 +26,12 @@ export default {
     Front: 'Front',
     Date: 'Date',
     'Navigate: Comments': 'Navigate: Comments',
+    Status: 'Status',
+    back: 'back',
+    front: 'front',
+    table: 'table',
+    buckets: 'buckets',
+    preview: 'preview',
+    New: 'New',
+    search: 'search',
 };

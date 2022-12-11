@@ -1,7 +1,7 @@
 {
     "name": "@gdi/app-mixer",
     "description": "Mix widgets to form new pages & sites",
-    "version": "0.0.80",
+    "version": "0.0.81",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

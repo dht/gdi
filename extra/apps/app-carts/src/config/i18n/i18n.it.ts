@@ -26,4 +26,12 @@ export default {
   Date: "Data",
   Front: "Davanti",
   "Navigate: Carts": "Naviga: Carrelli",
+  back: "Indietro",
+  front: "davanti",
+  Status: "Stato",
+  buckets: "secchi",
+  preview: "anteprima",
+  table: "tavolo",
+  New: "Nuovo",
+  search: "ricerca",
 };

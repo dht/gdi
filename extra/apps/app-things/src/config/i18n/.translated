@@ -24,5 +24,12 @@
     "Back stage",
     "Front",
     "items",
-    "Navigate: Things"
+    "Navigate: Things",
+    "Orientation",
+    "back",
+    "front",
+    "gallery",
+    "preview",
+    "New",
+    "search"
 ]

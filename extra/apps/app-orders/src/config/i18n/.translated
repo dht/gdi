@@ -29,5 +29,13 @@
     "Edit Order",
     "New Order",
     "Navigate: Orders",
-    "Navigate: Coupons"
+    "Navigate: Coupons",
+    "front",
+    "back",
+    "Status",
+    "Worth",
+    "table",
+    "preview",
+    "New",
+    "search"
 ]

@@ -26,20 +26,8 @@ import {
 
 export const MainRoutes = () => {
     const dispatch = useDispatch();
-    const {
-        routes,
-        initialRoute = '/home',
-        noServerMode,
-    } = useContext(PlatformContext).state;
-
-    useMount(() => {
-        $s('main routes');
-        if (noServerMode) {
-            setTimeout(() => {
-                dispatch({ type: 'DEMO' });
-            }, 500);
-        }
-    });
+    const { routes, initialRoute = '/home' } =
+        useContext(PlatformContext).state;
 
     return (
         <Routes>

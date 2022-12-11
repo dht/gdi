@@ -26,4 +26,12 @@ export default {
     Date: 'Date',
     Front: 'Front',
     'Navigate: Carts': 'Navigate: Carts',
+    back: 'back',
+    front: 'front',
+    Status: 'Status',
+    buckets: 'buckets',
+    preview: 'preview',
+    table: 'table',
+    New: 'New',
+    search: 'search',
 };

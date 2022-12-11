@@ -125,7 +125,6 @@ declare global {
         isReady: boolean;
         languageCode: LanguageIso;
         isRtl: boolean;
-        noServerMode?: boolean;
         routes: IRoutes;
         initialRoute: string;
         accountName: string;
@@ -176,7 +175,6 @@ declare global {
         initializers: Record<string, InitAppMethod>;
         activeApps: string[];
         menuSections: string[];
-        noServerMode?: boolean;
         languageCode: LanguageIso;
         isRtl: boolean;
         connectionType?: ConnectionType;

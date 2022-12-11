@@ -19,8 +19,12 @@ app.get('/', (req, res) => {
 
 const queue = [];
 
-app.post('/', (req, res) => {
+app.post('/i18n', (req, res) => {
     const { appId, key } = req.body;
+
+    if (!key || key.includes('$')) {
+        return;
+    }
 
     queue.push({
         language: 'en',
