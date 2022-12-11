@@ -16,11 +16,13 @@ export class VersioningDriver extends BaseComponentDriver {
             return this;
         },
         clicked: () => {
-            fireEvent.click(this.Wrapper);
+            fireEvent.click(this.wrapper);
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Versioning {...(this.props as VersioningProps)} />);
+            return this.snapshot(
+                <Versioning {...(this.props as VersioningProps)} />
+            );
         },
     };
 

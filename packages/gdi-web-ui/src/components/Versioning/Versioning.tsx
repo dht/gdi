@@ -8,7 +8,7 @@ import {
     Versions,
     Wrapper,
 } from './Versioning.style';
-import { Button, Slider } from '@gdi/web-ui';
+import { Button, Slider } from '@gdi/web-base-ui';
 
 export type VersioningProps = {
     values: Json;

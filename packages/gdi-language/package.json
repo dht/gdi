@@ -1,6 +1,6 @@
 {
     "name": "@gdi/language",
-    "version": "0.0.75",
+    "version": "0.0.76",
     "scripts": {
         "dev": "vite",
         "build": "tsc & vite build",
@@ -29,7 +29,6 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "rollup-plugin-analyzer": "^4.0.0",
-        "sass": "^1.54.0",
         "testing-base": "^0.0.4",
         "ts-jest": "^28.0.7",
         "typescript": "^4.7.4",
