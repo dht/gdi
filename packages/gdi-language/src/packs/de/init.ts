@@ -1,4 +1,4 @@
-import { initFormat } from '@gdi/language';
+import { initFormat } from '../../utils/formatObjects';
 import { definitions } from './definitions';
 
 export const initLanguagePack = () => {
