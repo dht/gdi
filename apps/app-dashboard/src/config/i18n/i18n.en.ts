@@ -61,4 +61,12 @@ export default {
     Archive: 'Archive',
     'Navigate: Overview': 'Navigate: Overview',
     Schedule: 'Schedule',
+    table: 'table',
+    filter: 'filter',
+    tagging: 'tagging',
+    search: 'search',
+    tools: 'tools',
+    buttons: 'buttons',
+    preview: 'preview',
+    New: 'New',
 };

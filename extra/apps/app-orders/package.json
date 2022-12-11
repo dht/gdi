@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-orders",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "description": "Orders",
     "scripts": {
         "build": "tsc & vite build",

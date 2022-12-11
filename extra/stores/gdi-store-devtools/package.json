@@ -1,7 +1,7 @@
 {
     "name": "@gdi/store-devtools",
     "description": "Devtools",
-    "version": "0.0.55",
+    "version": "0.0.56",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

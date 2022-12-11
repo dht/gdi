@@ -30,4 +30,12 @@ export default {
   "New Order": "Nuovo ordine",
   "Navigate: Orders": "Naviga: Ordini",
   "Navigate: Coupons": "Naviga: Buoni",
+  front: "davanti",
+  back: "Indietro",
+  Status: "Stato",
+  Worth: "Di valore",
+  table: "tavolo",
+  preview: "anteprima",
+  New: "Nuovo",
+  search: "ricerca",
 };

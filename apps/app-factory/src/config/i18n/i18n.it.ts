@@ -43,4 +43,13 @@ export default {
   "Navigate: Layouts": "Naviga: Layout",
   "Navigate: Articles": "Naviga: Articoli",
   "Navigate: Widgets": "Naviga: Widget",
+  back: "Indietro",
+  Tags: "Tag",
+  preview: "anteprima",
+  gallery: "galleria",
+  table: "tavolo",
+  spreadsheet: "foglio di calcolo",
+  front: "davanti",
+  New: "Nuovo",
+  search: "ricerca",
 };

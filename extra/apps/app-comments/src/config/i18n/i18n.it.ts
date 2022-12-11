@@ -26,4 +26,12 @@ export default {
   Front: "Davanti",
   Date: "Data",
   "Navigate: Comments": "Naviga: Commenti",
+  Status: "Stato",
+  back: "Indietro",
+  front: "davanti",
+  table: "tavolo",
+  buckets: "secchi",
+  preview: "anteprima",
+  New: "Nuovo",
+  search: "ricerca",
 };

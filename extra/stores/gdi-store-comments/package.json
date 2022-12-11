@@ -1,7 +1,7 @@
 {
     "name": "@gdi/store-comments",
     "description": "Comments for articles",
-    "version": "0.0.57",
+    "version": "0.0.58",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",

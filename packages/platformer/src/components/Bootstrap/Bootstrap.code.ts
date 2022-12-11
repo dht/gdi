@@ -36,7 +36,6 @@ export const bootstrapApp = async (
         initializers,
         menuSections,
         firebaseConfigs,
-        noServerMode,
         languageCode,
         connectionType,
     } = config;
@@ -64,7 +63,6 @@ export const bootstrapApp = async (
             sagas,
             menuSections,
             logger: (message, data) => $s(message, data),
-            noServerMode,
             languageCode,
             connectionType: connectionType as any,
         },

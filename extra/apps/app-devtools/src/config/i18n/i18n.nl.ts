@@ -10,4 +10,8 @@ export default {
   "Show Store Size": "Toon winkelgrootte",
   "Show Login cycle": "Inlogcyclus weergeven",
   "Navigate: Catalog": "Navigeren: Catalogus",
+  Console: "Troosten",
+  "LocalData Viewer": "LocalData-viewer",
+  "Show Console": "Toon console",
+  "Show Local Data Viewer": "Lokale gegevensviewer weergeven",
 };

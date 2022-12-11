@@ -62,4 +62,12 @@ export default {
   "New Message": "Nuovo messaggio",
   Archive: "Archivio",
   "Navigate: Overview": "Naviga: Panoramica",
+  table: "tavolo",
+  filter: "filtro",
+  tagging: "etichettatura",
+  search: "ricerca",
+  tools: "Strumenti",
+  buttons: "bottoni",
+  preview: "anteprima",
+  New: "Nuovo",
 };

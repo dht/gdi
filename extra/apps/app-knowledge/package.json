@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-knowledge",
-    "version": "0.0.62",
+    "version": "0.0.63",
     "description": "Links",
     "scripts": {
         "build": "tsc & vite build",

@@ -27,4 +27,13 @@ export default {
   Front: "Davanti",
   selected: "selezionato",
   "Navigate: Leads": "Naviga: Lead",
+  table: "tavolo",
+  Source: "Fonte",
+  Status: "Stato",
+  front: "davanti",
+  buckets: "secchi",
+  preview: "anteprima",
+  back: "Indietro",
+  New: "Nuovo",
+  search: "ricerca",
 };

@@ -61,4 +61,4 @@ export {
     objectTranslate,
 } from './utils/language.translate';
 
-export { initLanguagePack } from './init';
+export { initLanguage, changeLanguage, setLanguage } from './init';

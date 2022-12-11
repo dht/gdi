@@ -25,4 +25,11 @@ export default {
     Front: 'Front',
     items: 'items',
     'Navigate: Things': 'Navigate: Things',
+    Orientation: 'Orientation',
+    back: 'back',
+    front: 'front',
+    gallery: 'gallery',
+    preview: 'preview',
+    New: 'New',
+    search: 'search',
 };

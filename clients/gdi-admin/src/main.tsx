@@ -5,7 +5,6 @@ import { config } from './main.config';
 import { createRoot } from 'react-dom/client';
 import { LogsSystem } from '@gdi/web-ui';
 import './index.scss';
-import './main.language';
 import 'igrid/dist/index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '@gdi/web-ui/dist/index.css';

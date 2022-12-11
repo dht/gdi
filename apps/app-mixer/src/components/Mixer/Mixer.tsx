@@ -21,6 +21,7 @@ export type MixerProps = {
 export function Mixer(props: MixerProps) {
     const { data, callbacks, allOptions, dispatch, customView, customView2 } =
         props;
+
     const crudDefinitions = useCrudDefinitions('pageInstance');
 
     return (

@@ -25,4 +25,12 @@ export default {
   Front: "Davanti",
   "Layouts Timeline": "Cronologia dei layout",
   "Navigate: Knowledge": "Naviga: Conoscenza",
+  table: "tavolo",
+  spreadsheet: "foglio di calcolo",
+  back: "Indietro",
+  front: "davanti",
+  filter: "filtro",
+  Tags: "Tag",
+  New: "Nuovo",
+  search: "ricerca",
 };

@@ -25,3 +25,4 @@ scripts/patchAll.sh
 scripts/pushSubmodules.sh
 scripts/updateDependencies.js
 scripts/copy-to.js
+scripts/translate.sh

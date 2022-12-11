@@ -28,4 +28,12 @@ export default {
   "Navigate: Sales": "Naviga: Vendite",
   "add sale Action": "aggiungi azione di vendita",
   "new Sale": "nuova vendita",
+  back: "Indietro",
+  Status: "Stato",
+  Worth: "Di valore",
+  table: "tavolo",
+  front: "davanti",
+  preview: "anteprima",
+  New: "Nuovo",
+  search: "ricerca",
 };

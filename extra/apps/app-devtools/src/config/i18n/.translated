@@ -8,5 +8,9 @@
     "Show Houston",
     "Show Store Size",
     "Show Login cycle",
-    "Navigate: Catalog"
+    "Navigate: Catalog",
+    "Console",
+    "LocalData Viewer",
+    "Show Console",
+    "Show Local Data Viewer"
 ]

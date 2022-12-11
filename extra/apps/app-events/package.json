@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-events",
-    "version": "0.0.63",
+    "version": "0.0.64",
     "description": "Events",
     "scripts": {
         "build": "tsc & vite build",

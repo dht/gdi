@@ -1,6 +1,6 @@
 {
     "name": "@gdi/web-tables",
-    "version": "0.0.71",
+    "version": "0.0.72",
     "scripts": {
         "build": "tsc & vite build && npm run scss",
         "test": "jest",

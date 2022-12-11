@@ -26,4 +26,11 @@ export default {
     'New item': 'New item',
     items: 'items',
     'Navigate: Campaigns': 'Navigate: Campaigns',
+    Status: 'Status',
+    Budget: 'Budget',
+    Source: 'Source',
+    front: 'front',
+    back: 'back',
+    New: 'New',
+    search: 'search',
 };

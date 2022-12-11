@@ -1,15 +1,16 @@
 import React, { useContext, useMemo } from 'react';
-import { Icon, KeyboardHint, SideMenu, UserMenu } from '@gdi/web-ui';
+import screenfull from 'screenfull';
 import styled from 'styled-components';
+import { auth } from '@gdi/store-auth';
+import { changeLanguage } from '@gdi/language';
+import { Icon, KeyboardHint, prompt, SideMenu, UserMenu } from '@gdi/web-ui';
+import { IMenuItem } from '../types';
+import { invokeEvent, sortBy } from 'shared-base';
+import { PlatformContext } from '../core/Platform.context';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { PlatformContext } from '../core/Platform.context';
-import { IMenuItem } from '../types';
-import { auth } from '@gdi/store-auth';
 import { useKey } from '@gdi/hooks';
-import { invokeEvent, sortBy } from 'shared-base';
 import { useLanguage } from '@gdi/language';
-import screenfull from 'screenfull';
 
 type SideMenuContainerProps = {};
 
@@ -65,6 +66,21 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
         }
     }, []);
 
+    const pickLanguage = useCallback(async () => {
+        const { value, didCancel } = await prompt.choice({
+            title: 'Language',
+            options: languages,
+            submitButtonText: 'Set language',
+            defaultValue: 'en',
+        });
+
+        if (didCancel || !value) {
+            return;
+        }
+
+        changeLanguage(value);
+    }, []);
+
     const menuItemsSorted = useMemo(() => {
         let output: IMenuItem[] = [];
         menuGroups.forEach((group) => {
@@ -108,6 +124,17 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
         );
     }
 
+    function renderLanguagePicker() {
+        return (
+            <ActionWrapper
+                onClick={pickLanguage}
+                style={{ marginBottom: '15px' }}
+            >
+                <Icon iconName='LocaleLanguage' />
+            </ActionWrapper>
+        );
+    }
+
     return (
         <SideMenu
             data={menuItemsSorted}
@@ -116,6 +143,7 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
             userMenu={renderUserMenu()}
         >
             <ActionsWrapper>
+                {renderLanguagePicker()}
                 {renderKeyboardShortcuts()}
                 {renderToggleFullscreen()}
             </ActionsWrapper>
@@ -142,6 +170,15 @@ const ActionWrapper = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 18px;
+
+    i {
+        cursor: pointer;
+        font-size: 22px;
+
+        &:hover {
+            color: gold;
+        }
+    }
 `;
 
 const UserMenuWrapper = styled.div`
@@ -217,6 +254,37 @@ const shortKeys: IShortKey[] = [
     {
         key: '`',
         description: 'Redux connected network',
+    },
+];
+
+const languages = [
+    {
+        id: 'en',
+        text: 'English',
+    },
+    {
+        id: 'de',
+        text: 'Deutsch',
+    },
+    {
+        id: 'es',
+        text: 'Español',
+    },
+    {
+        id: 'fr',
+        text: 'Français',
+    },
+    {
+        id: 'it',
+        text: 'Italiano',
+    },
+    {
+        id: 'nl',
+        text: 'Nederlands',
+    },
+    {
+        id: 'he',
+        text: 'עברית',
     },
 ];
 

@@ -14,7 +14,6 @@ export const config = {
     },
     activeApps: ['mixer'],
     menuSections: ['site'],
-    noServerMode: false,
     languageCode: 'en',
     isRtl: false,
     connectionType: 'FIRESTORE',

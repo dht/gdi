@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-carts",
-    "version": "0.0.62",
+    "version": "0.0.63",
     "description": "Carts",
     "scripts": {
         "build": "tsc & vite build",

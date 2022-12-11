@@ -25,4 +25,12 @@ export default {
     Front: 'Front',
     'Layouts Timeline': 'Layouts Timeline',
     'Navigate: Knowledge': 'Navigate: Knowledge',
+    table: 'table',
+    spreadsheet: 'spreadsheet',
+    back: 'back',
+    front: 'front',
+    filter: 'filter',
+    Tags: 'Tags',
+    New: 'New',
+    search: 'search',
 };

@@ -55,7 +55,7 @@ export default {
   "New Inbox": "Nouvelle boîte de réception",
   Date: "Date",
   "Revisit Date": "Date de révision",
-  Id: "Identifiant",
+  Id: "Id",
   "Save & close": "Sauvegarder et fermer",
   "Change mode": "Changer de mode",
   "Inbox Timeline": "Chronologie de la boîte de réception",

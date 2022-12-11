@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-dashboard",
-    "version": "0.0.67",
+    "version": "0.0.68",
     "description": "Dashboard for GDI",
     "scripts": {
         "build": "tsc & vite build",

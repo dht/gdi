@@ -41,5 +41,14 @@
     "Widgets",
     "Navigate: Layouts",
     "Navigate: Articles",
-    "Navigate: Widgets"
+    "Navigate: Widgets",
+    "back",
+    "Tags",
+    "preview",
+    "gallery",
+    "table",
+    "spreadsheet",
+    "front",
+    "New",
+    "search"
 ]

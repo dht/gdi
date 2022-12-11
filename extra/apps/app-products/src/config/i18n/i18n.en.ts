@@ -27,4 +27,12 @@ export default {
     Front: 'Front',
     Date: 'Date',
     'Navigate: Products': 'Navigate: Products',
+    Status: 'Status',
+    Price: 'Price',
+    table: 'table',
+    back: 'back',
+    front: 'front',
+    preview: 'preview',
+    New: 'New',
+    search: 'search',
 };

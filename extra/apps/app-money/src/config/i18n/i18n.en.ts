@@ -25,4 +25,11 @@ export default {
     items: 'items',
     Date: 'Date',
     'Navigate: Money': 'Navigate: Money',
+    Orientation: 'Orientation',
+    back: 'back',
+    gallery: 'gallery',
+    front: 'front',
+    preview: 'preview',
+    New: 'New',
+    search: 'search',
 };

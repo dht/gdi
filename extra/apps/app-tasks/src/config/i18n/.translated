@@ -47,5 +47,20 @@
     "selected",
     "Navigate: Projects",
     "Navigate: Tasks",
-    "add Ticket"
+    "add Ticket",
+    "Tags",
+    "backlog",
+    "doing",
+    "done",
+    "importantAndUrgent",
+    "table",
+    "Status",
+    "none",
+    "spreadsheet",
+    "preview",
+    "later",
+    "buckets",
+    "custom",
+    "New",
+    "search"
 ]

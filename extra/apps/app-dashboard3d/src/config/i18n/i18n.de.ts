@@ -55,7 +55,7 @@ export default {
   "New Inbox": "Neuer Posteingang",
   Date: "Datum",
   "Revisit Date": "Wiederholungsdatum",
-  Id: "Ausweis",
+  Id: "Id",
   "Save & close": "Speichern & schließen",
   "Change mode": "Modus ändern",
   "Inbox Timeline": "Posteingangszeitachse",

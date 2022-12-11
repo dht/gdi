@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-studio",
-    "version": "0.0.36",
+    "version": "0.0.37",
     "description": "3d studio",
     "scripts": {
         "build": "tsc & vite build",

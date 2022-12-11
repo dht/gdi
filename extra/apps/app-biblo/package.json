@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-biblo",
-    "version": "0.0.65",
+    "version": "0.0.66",
     "description": "Interesting reads",
     "scripts": {
         "build": "tsc & vite build",

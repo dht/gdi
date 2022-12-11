@@ -27,4 +27,12 @@ export default {
   Front: "Davanti",
   Date: "Data",
   "Navigate: Products": "Naviga: Prodotti",
+  Status: "Stato",
+  Price: "Prezzo",
+  table: "tavolo",
+  back: "Indietro",
+  front: "davanti",
+  preview: "anteprima",
+  New: "Nuovo",
+  search: "ricerca",
 };

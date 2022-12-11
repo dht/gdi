@@ -1,6 +1,6 @@
 {
     "name": "@gdi/platformer",
-    "version": "0.0.61",
+    "version": "0.0.62",
     "scripts": {
         "build": "tsc & vite build",
         "clean": "rm -rf dist",

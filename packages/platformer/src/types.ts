@@ -121,7 +121,6 @@ export type IPlatformState = {
     isReady: boolean;
     languageCode: LanguageIso;
     isRtl: boolean;
-    noServerMode?: boolean;
     routes: IRoutes;
     initialRoute: string;
     accountName: string;
@@ -172,7 +171,6 @@ export type IPlatformConfig = {
     initializers: Record<string, InitAppMethod>;
     activeApps: string[];
     menuSections: string[];
-    noServerMode?: boolean;
     languageCode: LanguageIso;
     isRtl: boolean;
     connectionType?: ConnectionType;

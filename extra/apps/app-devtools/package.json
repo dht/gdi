@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-devtools",
-    "version": "0.0.67",
+    "version": "0.0.68",
     "description": "Devtools",
     "scripts": {
         "build": "tsc & vite build",

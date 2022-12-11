@@ -24,5 +24,12 @@
     "Front",
     "items",
     "Date",
-    "Navigate: Money"
+    "Navigate: Money",
+    "Orientation",
+    "back",
+    "gallery",
+    "front",
+    "preview",
+    "New",
+    "search"
 ]

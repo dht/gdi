@@ -26,4 +26,11 @@ export default {
   "New item": "Nuovo oggetto",
   items: "Oggetti",
   "Navigate: Campaigns": "Naviga: Campagne",
+  Status: "Stato",
+  Budget: "Bilancio",
+  Source: "Fonte",
+  front: "davanti",
+  back: "Indietro",
+  New: "Nuovo",
+  search: "ricerca",
 };

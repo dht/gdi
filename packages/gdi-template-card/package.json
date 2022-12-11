@@ -1,6 +1,6 @@
 {
     "name": "@gdi/template-card",
-    "version": "0.0.55",
+    "version": "0.0.56",
     "description": "A template for creating a card component",
     "scripts": {
         "dev": "vite --config vite.config.serve.js",

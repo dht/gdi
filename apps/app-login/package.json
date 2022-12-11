@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-login",
-    "version": "0.0.60",
+    "version": "0.0.61",
     "description": "Handles login and logout",
     "scripts": {
         "build": "tsc & vite build",
