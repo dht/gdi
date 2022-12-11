@@ -20,7 +20,10 @@
         "servers/*",
         "stores/*",
         "templates/*",
-        "submodules/*"
+        "submodules/gdi-datasets",
+        "submodules/igrid",
+        "submodules/redux-connected",
+        "submodules/testing-base"
     ],
     "license": "MIT",
     "dependencies": {},
