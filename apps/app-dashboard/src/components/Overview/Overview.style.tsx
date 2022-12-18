@@ -21,26 +21,6 @@ export const Header = styled.div`
     align-items: center;
 `;
 
-export const Bk = styled.div`
-    position: absolute;
-    top: 0;
-    ${(props) => props.theme.left(0)}
-    ${(props) => props.theme.right(0)}
-    bottom: 0;
-    display: flex;
-`;
-
-export const Fg = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    position: absolute;
-    top: 0;
-    ${(props) => props.theme.left(0)}
-    ${(props) => props.theme.right(0)}
-    bottom: 0;
-`;
-
 export const Content = styled.div`
     flex: 1;
     display: flex;

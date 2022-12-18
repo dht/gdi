@@ -32,14 +32,7 @@ export const SimsContainer = () => {
         []
     );
 
-    return (
-        <Sims
-            stats={stats}
-            callbacks={callbacks}
-            isLoading={isLoading}
-            dispatch={dispatch}
-        />
-    );
+    return <Sims stats={stats} callbacks={callbacks} isLoading={isLoading} />;
 };
 
 export default SimsContainer;

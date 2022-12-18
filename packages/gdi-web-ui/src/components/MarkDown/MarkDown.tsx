@@ -17,11 +17,7 @@ export function MarkDown(props: MarkDownProps) {
     const classNameMarkdown = classnames('mark-down', mode);
 
     return (
-        <Wrapper
-            className={className}
-            data-testid='MarkDown-wrapper'
-            height={height}
-        >
+        <Wrapper className={className} data-testid='MarkDown-wrapper'>
             <ReactMarkdown
                 className={classNameMarkdown}
                 children={markdown}

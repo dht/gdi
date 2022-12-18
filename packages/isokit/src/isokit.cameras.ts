@@ -16,7 +16,7 @@ export const initCameraArc = (camera: IStudioCamera) => {
         upperRadiusLimit,
         lowerBetaLimit,
         upperBetaLimit,
-    } = values;
+    } = values ?? {};
 
     const item = new BABYLON.ArcRotateCamera(
         'camera',

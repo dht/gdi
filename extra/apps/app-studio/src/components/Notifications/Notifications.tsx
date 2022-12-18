@@ -17,7 +17,6 @@ import {
     BottomBar,
     A,
     TimeAndActions,
-    Inner,
     Rows,
 } from './Notifications.style';
 

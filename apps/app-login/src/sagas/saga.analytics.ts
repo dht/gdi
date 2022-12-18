@@ -1,5 +1,4 @@
 import { takeEvery } from 'saga-ts';
-import { customEventChannel } from './channels/channel.customEvent';
 import { PlatformLifeCycleEvents } from '@gdi/types';
 import { firebase } from '@gdi/platformer';
 

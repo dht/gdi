@@ -1,5 +1,4 @@
 import * as BABYLON from 'babylonjs';
-import { GridMaterial } from '@babylonjs/materials/Grid';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { color3, vector3 } from './isokit.helpers';
 
@@ -10,7 +9,7 @@ export const initLightHemispheric = (light: IStudioLight) => {
 
     const item = new BABYLON.HemisphericLight(
         identifier,
-        vector3(position),
+        vector3(position ?? [0, 1, 0]),
         scene
     );
 

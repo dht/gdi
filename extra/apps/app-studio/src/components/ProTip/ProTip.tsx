@@ -31,7 +31,7 @@ export function ProTip(props: ProTipProps) {
         callbacks.onClose
     );
     const { category, description, reasoning, slogan, title, youtubeUrl } =
-        content ?? {};
+        (content as Json) ?? {};
 
     const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 

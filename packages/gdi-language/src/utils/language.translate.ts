@@ -8,7 +8,14 @@ export const translate = (
     appId: string,
     key: string
 ): string => {
-    const value = keys[language][`${appId}_${key}`];
+    const keysForLanguage = keys[language];
+
+    if (!keysForLanguage) {
+        console.log(`No keys for selected language | ${language}`);
+        return key;
+    }
+
+    const value = keysForLanguage[`${appId}_${key}`];
 
     if (!value) {
         // log(language, appId, key);
@@ -23,7 +30,14 @@ export const translationExists = (
     appId: string,
     key: string
 ) => {
-    return typeof keys[language][`${appId}_${key}`] === 'string';
+    const keysForLanguage = keys[language];
+
+    if (!keysForLanguage) {
+        console.log(`No keys for selected language | ${language}`);
+        return key;
+    }
+
+    return typeof keysForLanguage[`${appId}_${key}`] === 'string';
 };
 
 export const translateWithOrder = (

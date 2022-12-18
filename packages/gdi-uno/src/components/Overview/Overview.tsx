@@ -15,7 +15,6 @@ export function Overview(props: OverviewProps) {
     return (
         <Wrapper className='Overview-wrapper' data-testid='Overview-wrapper'>
             <H2>Overview</H2>
-
             <ReactMarkdown>{overview}</ReactMarkdown>
         </Wrapper>
     );

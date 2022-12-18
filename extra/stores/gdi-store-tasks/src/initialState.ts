@@ -73,6 +73,7 @@ export const initialState: ITasksStore = {
                 thumb16: '',
             },
             tags: [],
+            dataTags: [],
         },
     },
     tickets: {

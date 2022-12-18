@@ -78,7 +78,7 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
             return;
         }
 
-        changeLanguage(value);
+        changeLanguage(value as LanguageIso);
     }, []);
 
     const menuItemsSorted = useMemo(() => {

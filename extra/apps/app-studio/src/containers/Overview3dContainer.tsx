@@ -37,7 +37,12 @@ export const Overview3dContainer = () => {
         return null;
     }
 
-    return <Overview3d board={board} onNudgeBoard={callbacks.onNudgeBoard} />;
+    return (
+        <Overview3d
+            board={board as IBoardConfig}
+            onNudgeBoard={callbacks.onNudgeBoard}
+        />
+    );
 };
 
 export default Overview3dContainer;

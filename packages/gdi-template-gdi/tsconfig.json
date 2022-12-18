@@ -24,5 +24,6 @@
             "shared-base": ["submodules/shared-base"]
         }
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.png", "src/**/*.webp"]
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.png", "src/**/*.webp"],
+    "exclude": ["node_modules", "dist", "src/main.tsx"]
 }

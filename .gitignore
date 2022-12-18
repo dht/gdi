@@ -26,3 +26,6 @@ scripts/pushSubmodules.sh
 scripts/updateDependencies.js
 scripts/copy-to.js
 scripts/translate.sh
+.dependency-tree.md
+.dependency.versions.json
+scripts/deptree.js

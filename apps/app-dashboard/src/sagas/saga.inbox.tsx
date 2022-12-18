@@ -31,11 +31,11 @@ export function* snoozeItem(action: ActionSnooze) {
     const shortTitle = title.substring(0, 20) + '...';
 
     const minutesToSnooze = durationToMinutes(value);
-    const snoozedUntil = dateDbLongInMinutes(minutesToSnooze);
+    const snoozeUntil = dateDbLongInMinutes(minutesToSnooze);
 
     yield put(
         actions.inboxMessages.patch(id, {
-            snoozedUntil,
+            snoozeUntil,
         })
     );
 
@@ -77,6 +77,9 @@ export function* openItem(action: ActionOpen) {
             );
 
         case 'info':
+            if (!ctaUrl) {
+                return;
+            }
             navigate(ctaUrl);
             break;
     }

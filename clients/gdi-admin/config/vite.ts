@@ -21,6 +21,7 @@ export const alias = {
     '@gdi/template-gdi': `${cwd}/packages/gdi-template-gdi/src`,
     '@gdi/template-card': `${cwd}/packages/gdi-template-card/src`,
 
+    isokit: `${cwd}/packages/isokit/src`,
     '@gdi/platformer': `${cwd}/packages/platformer/src`,
     '@gdi/web-base-ui': `${cwd}/packages/gdi-web-base-ui/src`,
     '@gdi/web-ui': `${cwd}/packages/gdi-web-ui/src`,

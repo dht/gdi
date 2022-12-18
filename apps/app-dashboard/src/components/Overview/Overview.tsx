@@ -1,16 +1,7 @@
 import React from 'react';
-import {
-    Bk,
-    Column,
-    Wrapper,
-    Content,
-    Fg,
-    Header,
-    Resolution,
-} from './Overview.style';
+import { Column, Wrapper, Content, Header, Resolution } from './Overview.style';
 import { OverviewBar } from '../OverviewBar/OverviewBar';
-import { ScreenLoader, TrianglesBk } from '@gdi/web-ui';
-import { Stats } from '../Stats/Stats';
+import { TrianglesBk } from '@gdi/web-ui';
 import { useMeasure } from 'react-use';
 
 export type OverviewProps = {
@@ -38,12 +29,10 @@ export function Overview(props: OverviewProps) {
                         onAccountChange={callbacks.onAccountChange}
                     />
                 </Header>
-
                 <Content>
                     <Column>{props.children[0]}</Column>
                     <Column>{props.children[1]}</Column>
                 </Content>
-
                 <Resolution>
                     {width} x {height}px
                 </Resolution>

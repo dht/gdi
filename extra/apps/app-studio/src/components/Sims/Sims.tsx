@@ -31,7 +31,7 @@ export function Sims(props: SimsProps) {
     const { stats, callbacks } = props;
 
     function renderStat(stat: IStat, bottomLine: boolean) {
-        const { iconName, color, title, value, goal } = stat;
+        const { iconName, color, title, value, goal = 1 } = stat;
 
         return (
             <Parameter key={stat.id}>

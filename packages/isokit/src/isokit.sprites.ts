@@ -1,5 +1,6 @@
 import * as BABYLON from 'babylonjs';
 import { packs, logTime, logTimeEnd } from './isokit.globals';
+import { vector3 } from './isokit.helpers';
 
 export const initSprite = (sprite: IStudioSprite) => {
     const { identifier, packId, position, size, isOnGround, isHidden } = sprite;
@@ -18,11 +19,11 @@ export const initSprite = (sprite: IStudioSprite) => {
         item.width = width;
         item.height = height;
 
-        if (isOnGround) {
-            position.y = height / 2;
-        }
+        item.position = vector3(position ?? [0, 0, 0]);
 
-        item.position = position;
+        if (isOnGround) {
+            item.position.y = height / 2;
+        }
 
         item.invertU = true;
     } catch (error) {

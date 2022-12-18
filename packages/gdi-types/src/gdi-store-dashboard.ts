@@ -18,8 +18,8 @@ declare global {
 
     export type IAppStateDashboard = {
         stateKey: string;
-        showNotifications: false;
-        showReader: false;
+        showNotifications: boolean;
+        showReader: boolean;
         readerUrl: string;
         showQuickTip: boolean;
         quickTipUrl: string;

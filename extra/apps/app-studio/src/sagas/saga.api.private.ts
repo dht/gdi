@@ -8,8 +8,8 @@ function* apiPrivate() {
     });
 
     const promises = [
-        yield* put(actions.stats.get()),
-        yield* put(actions.statsJourneys.get()),
+        yield* put(actions.stats.get({})),
+        yield* put(actions.statsJourneys.get({})),
         yield* put(actions.inboxMessages.get({})),
         yield* put(actions.studioBoards.get({})),
         yield* put(actions.studioCameras.get({})),

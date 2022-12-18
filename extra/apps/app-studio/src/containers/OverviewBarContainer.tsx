@@ -17,7 +17,7 @@ export const Overview3dContainer = (props: OverviewBarProps) => {
     const appState = useSelector(selectors.raw.$rawAppStateDashboard);
     const { showNotifications } = appState;
 
-    const notificationsBadge = 6;
+    const notificationsBadge = '6';
 
     const { accountName, availableAccounts } =
         useContext(PlatformContext).state;

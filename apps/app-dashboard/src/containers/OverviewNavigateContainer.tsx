@@ -6,6 +6,10 @@ import { selectors } from '../store';
 export const OverviewNavigateContainer = () => {
     const inboxMessage = useSelector(selectors.base.$inboxMessage);
 
+    if (!inboxMessage) {
+        return null;
+    }
+
     return <OverviewNavigate inboxMessage={inboxMessage} />;
 };
 

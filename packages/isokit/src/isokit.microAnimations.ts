@@ -7,13 +7,13 @@ export const initMicroAnimation = (item: IStudioMicroAnimation) => {
         identifier,
         position,
         url,
-        capacity,
+        capacity = 1,
         cellSize,
         size,
-        fromFrame,
+        fromFrame = 0,
         toFrame,
-        loop,
-        delay,
+        loop = false,
+        delay = 0,
     } = item;
 
     logTime(`initMicroAnimation ${identifier}`);
@@ -30,7 +30,7 @@ export const initMicroAnimation = (item: IStudioMicroAnimation) => {
     const mySprite = new BABYLON.Sprite(spriteId, spriteManager);
     mySprite.size = size;
 
-    mySprite.position = vector3(position);
+    mySprite.position = vector3(position ?? [0, 0, 0]);
 
     mySprite.playAnimation(fromFrame, toFrame, loop, delay);
 

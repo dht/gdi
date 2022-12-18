@@ -17,17 +17,17 @@ export const definitionType: ItemType = 'inbox';
 
 export const definitions: ICrudDefinitions = {
     nodeName: 'inboxMessages', // @ts-expect-error
-    filters,
-    formEdit,
+    filters, // @ts-expect-error
+    formEdit, // @ts-expect-error
     formNew,
     table,
     calendar, // @ts-expect-error
     gallery, // @ts-expect-error
-    overlay,
+    overlay, // @ts-expect-error
     sheet,
     timeline,
-    formNewDefault,
+    formNewDefault, // @ts-expect-error
     bucket,
-    itemStructure,
+    itemStructure, // @ts-expect-error
     multiBar,
 };

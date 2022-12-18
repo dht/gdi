@@ -23,7 +23,7 @@ export function Reader(props: ReaderProps) {
     return (
         <Wrapper className={className} data-testid='Reader-wrapper'>
             <MarkDown
-                markdown={removeHtmlFromMarkdown(content ?? '')}
+                markdown={removeHtmlFromMarkdown((content as string) ?? '')}
                 mode={mode}
             />
             <Close onClick={onClose}>

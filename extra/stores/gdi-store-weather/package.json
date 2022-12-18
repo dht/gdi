@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-weather",
-    "version": "0.0.59",
+    "version": "0.0.67",
     "description": "Weather",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,11 +8,11 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.0.32",
-        "@gdi/store-tasks": "^0.0.56",
-        "@gdi/types": "^0.0.105",
+        "shared-base": "^0.0.34",
+        "@gdi/store-tasks": "^0.0.65",
+        "@gdi/types": "^0.0.112",
         "redux-connected": "^0.0.107",
-        "@gdi/language": "^0.0.74",
+        "@gdi/language": "^0.0.89",
         "chroma-js": "^2.4.2",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"

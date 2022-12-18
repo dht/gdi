@@ -39,7 +39,12 @@ export const MainDisplayContainer = () => {
         return null;
     }
 
-    return <MainDisplay data={mainDisplayData} callbacks={callbacks} />;
+    return (
+        <MainDisplay
+            data={mainDisplayData as IInboxMessage}
+            callbacks={callbacks}
+        />
+    );
 };
 
 export default MainDisplayContainer;
