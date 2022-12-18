@@ -1,11 +1,5 @@
 import * as BABYLON from 'babylonjs';
-import {
-    cameraFlyIn,
-    initCameras,
-    snoozeFlyIn,
-    snoozeFlyInCheck,
-} from './isokit.cameras';
-import { delay, setJson, ts } from 'shared-base';
+import { delay } from 'shared-base';
 import { initBackground } from './isokit.background';
 import { initGlow } from './isokit.glow';
 import { initGrounds } from './isokit.grounds';
@@ -17,21 +11,13 @@ import { initSounds } from './isokit.sounds';
 import { initSprites } from './isokit.sprites';
 import { initVideos } from './isokit.videos';
 import { loadExternals } from './isokit.externals';
-import { logTime, logTimeEnd, scene, setScene } from './isokit.globals';
-
-export let wasLoaded = false;
-
-export const setWasLoaded = (value: boolean) => {
-    wasLoaded = value;
-};
-
-export const loadScene = async (
-    scene: BABYLON.Scene,
-    boardConfig: IBoardConfig
-) => {
-    setScene(scene);
-    await loadBoard(boardConfig);
-};
+import { engine, scene, setScene, logTime, logTimeEnd } from './isokit.globals';
+import {
+    cameraFlyIn,
+    initCameras,
+    snoozeFlyIn,
+    snoozeFlyInCheck,
+} from './isokit.cameras';
 
 export const loadBoard = async (boardConfig: IBoardConfig) => {
     const {
@@ -50,16 +36,10 @@ export const loadBoard = async (boardConfig: IBoardConfig) => {
         videos,
     } = boardConfig;
 
-    if (wasLoaded) {
-        return;
-    }
-
-    wasLoaded = true;
-
     logTime(`loadScene ${identifier}`, 1);
 
     initBackground(boardConfig);
-    scene.useRightHandedSystem = useRightHandedSystem;
+    scene.useRightHandedSystem = useRightHandedSystem ?? true;
 
     initLights(lights);
     initCameras(cameras);
@@ -85,4 +65,10 @@ export const loadBoard = async (boardConfig: IBoardConfig) => {
     }
 
     logTimeEnd(`loadScene ${identifier}`, 1);
+};
+
+export const startRender = () => {
+    engine.runRenderLoop(() => {
+        scene.render();
+    });
 };

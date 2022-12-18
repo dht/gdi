@@ -152,6 +152,8 @@ export const filterMethods: Record<CellType, FilterMethod> = {
     person: filterText,
     icon: filterText,
     number: filterNumber,
+    notification: filterText,
+    time: filterText,
     text: filterText,
     tags: filterTags,
     date: filterDate,

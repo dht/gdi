@@ -1,6 +1,6 @@
 import * as BABYLON from 'babylonjs';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
-import { color3, vectorRadians } from './isokit.helpers';
+import { color3, vector3, vectorRadians } from './isokit.helpers';
 
 type InitMethod = (light: IStudioVideo) => void;
 
@@ -18,11 +18,11 @@ export const initVideoSphere = (item: IStudioVideo) => {
         scene
     );
 
-    const vidPos = new BABYLON.Vector3(position.x, position.y, position.z);
+    const vidPos = vector3(position ?? [0, 0, 0]);
 
     sphere.position = vidPos;
     const vidMaterial = new BABYLON.StandardMaterial('m', scene);
-    vidMaterial.specularColor = color3(specularColor);
+    vidMaterial.specularColor = color3(specularColor ?? [0, 0, 0]);
 
     const textureId = `texture-${identifier}`;
 
@@ -40,7 +40,7 @@ export const map: Record<string, InitMethod> = {
     sphere: initVideoSphere,
 };
 
-export const initVideo = (item: IStudioVideos) => {
+export const initVideo = (item: IStudioVideo) => {
     const { identifier, objectType } = item;
 
     const initMethod = map[objectType];

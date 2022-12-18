@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BabylonScene } from '../../isokit/isokit.scene';
+import { BabylonScene, startRender, loadBoard } from 'isokit';
 import {
     Content,
     Patch,
@@ -7,12 +7,9 @@ import {
     Wrapper,
     WrapperBackground,
 } from './Overview3d.style';
-import { engine, scene } from '../../isokit/isokit.globals';
 import { invokeEvent } from 'shared-base';
-import { loadBoard, setWasLoaded, wasLoaded } from '../../isokit/isokit';
 import { StudioLogo } from '../StudioLogo/StudioLogo';
 import { useMeasure, useWindowSize } from 'react-use';
-import 'babylonjs-loaders';
 import { Triangles } from '@gdi/web-ui';
 
 export type Overview3dProps = {
@@ -27,10 +24,7 @@ export function Overview3d(props: Overview3dProps) {
     useEffect(() => {
         invokeEvent('load_babylonjs_scene', () => {
             loadBoard(board);
-            setWasLoaded(false);
-            engine.runRenderLoop(() => {
-                scene.render();
-            });
+            startRender();
         });
     }, [board]);
 

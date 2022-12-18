@@ -45,8 +45,10 @@ declare global {
         identifier: string;
         name: string;
         description?: string;
-        clearColor: IColor;
         useRightHandedSystem?: boolean;
+        backgroundType: 'transparent' | 'color' | 'texture' | 'triangles';
+        backgroundValues?: Json;
+        flyIn?: Json;
     };
 
     export type IStudioBoards = Record<string, IBoard>;
@@ -129,6 +131,8 @@ declare global {
     export type IStudioSprite = IStudioBase & {
         packId: string;
         source: { width: number; height: number };
+        size: { width: number; height: number };
+        isOnGround?: boolean;
         isHidden?: boolean;
     };
 

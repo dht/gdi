@@ -1,5 +1,6 @@
 import * as BABYLON from 'babylonjs';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
+import 'babylonjs-loaders';
 
 export const loadExternal = (external: IStudioExternal) => {
     return new Promise((resolve, reject) => {
