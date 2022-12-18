@@ -7,9 +7,11 @@ export type CellType =
     | 'icon'
     | 'tags'
     | 'date'
+    | 'time'
     | 'timeAgo'
     | 'id'
-    | 'social';
+    | 'social'
+    | 'notification';
 
 export type ITableField = {
     id: string;

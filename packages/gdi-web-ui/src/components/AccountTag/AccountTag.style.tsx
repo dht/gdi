@@ -28,7 +28,6 @@ export const Wrapper = styled.div`
 
     &:hover {
         background-color: #109610;
-        font-weight: 600;
     }
 
     &:active {

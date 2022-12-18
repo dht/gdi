@@ -47,6 +47,7 @@ export const alias = {
     '@gdi/app-tasks': `${cwd}/extra/apps/app-tasks/src`,
     '@gdi/app-things': `${cwd}/extra/apps/app-things/src`,
     '@gdi/app-voice': `${cwd}/extra/apps/app-voice/src`,
+    '@gdi/app-studio': `${cwd}/extra/apps/app-studio/src`,
 
     '@gdi/store-biblo': `${cwd}/extra/stores/gdi-store-biblo/src`,
     '@gdi/store-carts': `${cwd}/extra/stores/gdi-store-carts/src`,

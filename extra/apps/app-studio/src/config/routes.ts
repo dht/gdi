@@ -1,21 +1,18 @@
-import {
-    ICommandBarItem,
-    IContextBarItem,
-    IMenuItem,
-    IRoutes,
-} from '@gdi/platformer';
+import { ROOT } from './ids';
 
 export const routes: IRoutes = {
-    babylon: '/admin/babylon',
+    ville: `${ROOT}/ville`,
+    overviewNavigate: `${ROOT}/overview/:inboxMessageId`,
 };
 
 export const menuItems: IMenuItem[] = [
     {
-        path: routes.babylon,
-        icon: 'Globe',
-        label: '3D',
-        groupId: 'extra',
-        order: 5,
+        path: routes.ville,
+        icon: 'SearchNearby',
+        label: 'Overview',
+        groupId: 'doing',
+        showOnSlim: true,
+        order: 0.5,
     },
 ];
 

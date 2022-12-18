@@ -13,6 +13,7 @@ type SleeveProps = {
     component: React.FC<any>;
     title?: string;
     props?: any;
+    identifier?: string;
     currentIdsActionCreator?: (change: Json) => Action;
 };
 

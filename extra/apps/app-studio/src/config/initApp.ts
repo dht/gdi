@@ -1,15 +1,28 @@
 import { APP_ID } from './ids';
 import { appSagas } from '../sagas';
-import { clearState, endpointsConfig, initialState, reducers } from '../store';
-import { selectors } from '../selectors';
+import {
+    commandBarItems,
+    contextBarItems,
+    menuItems,
+    pieMenuItems,
+    routes,
+} from './routes';
 import { instances } from './instances';
-import { routes, menuItems, commandBarItems, contextBarItems } from './routes';
 import { widgets } from './widgets';
-import type { AppBuilders } from '@gdi/platformer';
+import {
+    clearState,
+    endpointsConfig,
+    initialStateDashboard,
+    initialStateStudio,
+    reducersDashboard,
+    reducersStudio,
+    selectors,
+} from '../store';
 import i18n from './i18n';
+import { allDefinitions } from '../definitions';
 import p from '../../package.json';
 
-export const initAppStudio = (
+export const initApp = (
     builders: AppBuilders,
     connectionType: ConnectionType
 ) => {
@@ -20,6 +33,8 @@ export const initAppStudio = (
         widgetBuilder,
         apiConfigBuilder,
         i18nBuilder,
+        definitionsBuilder,
+        pieMenuBuilder,
         metaBuilder,
     } = builders;
 
@@ -33,11 +48,17 @@ export const initAppStudio = (
     widgetBuilder //
         .withWidgets(widgets);
 
+    storeBuilder.withSagas(...appSagas).withPostBuildHook(clearState);
+
+    // dashboard
     storeBuilder
-        .withReducers(APP_ID, reducers)
-        .withInitialState(APP_ID, initialState)
-        .withSagas(...appSagas)
-        .withPostBuildHook(clearState);
+        .withReducers('dashboard', reducersDashboard)
+        .withInitialState('dashboard', initialStateDashboard);
+
+    // studio
+    storeBuilder
+        .withReducers('studio', reducersStudio)
+        .withInitialState('studio', initialStateStudio);
 
     i18nBuilder //
         .withKeysByLanguage(APP_ID, i18n);
@@ -47,6 +68,10 @@ export const initAppStudio = (
 
     apiConfigBuilder //
         .withEndpointsConfigOverrides(endpointsConfig(connectionType));
+
+    definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
+
+    pieMenuBuilder.withPieMenuConfigs(APP_ID, pieMenuItems);
 
     metaBuilder.withMeta(APP_ID, {
         version: p.version,

@@ -8,11 +8,11 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.overview,
-        icon: 'SearchNearby',
-        label: 'Overview',
+        icon: 'InboxCheck',
+        label: 'Inbox',
         groupId: 'doing',
         showOnSlim: true,
-        order: 0,
+        order: 0.5,
     },
 ];
 

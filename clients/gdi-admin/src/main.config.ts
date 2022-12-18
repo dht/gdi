@@ -1,3 +1,4 @@
+import React from 'react';
 import p from '../package.json';
 import { ConnectionType } from 'redux-connected';
 import { firebaseConfigs } from './main.firebase';

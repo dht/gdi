@@ -5,3 +5,9 @@ dist
 coverage
 .env
 public/*.png
+public/*.json
+public/*.jpg
+public/*.mp3
+public/*.mp4
+public/*.glb
+public/raw

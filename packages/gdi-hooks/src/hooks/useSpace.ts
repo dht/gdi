@@ -4,7 +4,7 @@ export function useSpace(callback: Callback, depArray: any[] = []) {
     return useKey(
         callback,
         {
-            filterKeys: ['Space'],
+            filterKeys: ['Space', ' '],
         },
         depArray
     );

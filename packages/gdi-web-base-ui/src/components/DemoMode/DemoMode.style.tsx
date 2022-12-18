@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
     
     bottom: 230px;
     text-align: center;
-    background-color: #d799df;
+    background-color: #ffd700;
     padding: 3px;
     font-size: 15px;
     font-weight: 500;
@@ -19,10 +19,10 @@ export const Wrapper = styled.div`
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
     background-image: linear-gradient(
         180deg,
-        #c8a05766 0%,
-        #c8a057ff 20%,
-        #c8a057ff 90%,
-        #c8a05767 100%
+        #ffd70066 0%,
+        #ffd700ff 20%,
+        #ffd700ff 90%,
+        #ffd70067 100%
     );
     color: #334;
     cursor: pointer;

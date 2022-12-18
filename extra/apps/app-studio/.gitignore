@@ -3,3 +3,4 @@
 node_modules
 dist
 coverage
+src/components/Overview3d/isokit2.ts

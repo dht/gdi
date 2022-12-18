@@ -1,7 +1,20 @@
 import { studio } from '@gdi/store-studio';
-import { soundboard } from '@gdi/store-soundboard';
-import { auth } from '@gdi/store-auth';
+import { dashboard } from '@gdi/store-dashboard';
 
-export const selectorsSoundboard = soundboard.selectors;
-export const selectors = studio.selectors;
-export const selectorsAuth = auth.selectors;
+export const selectors = {
+    raw: {
+        ...dashboard.selectors.raw,
+        ...studio.selectors.raw,
+    },
+    base: {
+        ...dashboard.selectors.base,
+        ...studio.selectors.base,
+    },
+    tables: {
+        ...dashboard.selectors.tables,
+    },
+    options: {
+        ...dashboard.selectors.options,
+        ...studio.selectors.options,
+    },
+};

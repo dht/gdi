@@ -56,6 +56,43 @@ export const calculateUTC = (deltaInMinutes: number) => {
     };
 };
 
+export const durationToMinutes = (duration: string) => {
+    let total = 0;
+    const minutes = duration.match(/(\d+)m/);
+    const hours = duration.match(/(\d+)h/);
+    const days = duration.match(/(\d+)d/);
+    const weeks = duration.match(/(\d+)w/);
+    const months = duration.match(/(\d+)M/);
+
+    const years = duration.match(/(\d+)y/);
+
+    if (minutes) {
+        total += parseInt(minutes[1], 10);
+    }
+
+    if (hours) {
+        total += parseInt(hours[1], 10) * 60;
+    }
+
+    if (days) {
+        total += parseInt(days[1], 10) * 24 * 60;
+    }
+
+    if (weeks) {
+        total += parseInt(weeks[1], 10) * 7 * 24 * 60;
+    }
+
+    if (months) {
+        total += parseInt(months[1], 10) * 30 * 24 * 60;
+    }
+
+    if (years) {
+        total += parseInt(years[1], 10) * 365 * 24 * 60;
+    }
+
+    return total;
+};
+
 export const timezones = {
     '-12': ['Christchurch'],
     '-11': ['Pago Pago'],

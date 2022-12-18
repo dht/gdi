@@ -25,25 +25,23 @@ import {
 } from 'igrid';
 
 export const MainRoutes = () => {
-    const dispatch = useDispatch();
-    const { routes, initialRoute = '/home' } =
-        useContext(PlatformContext).state;
+    const { routes, initialRoute = '/home' } = useContext(PlatformContext).state; // prettier-ignore
+
+    const routesComponents = useMemo(() => {
+        return Object.keys(routes)
+            .filter((key) => isMainRoute(key))
+            .map((pageId) => {
+                const path = routes[pageId];
+                const Cmp = createPage(pageId);
+                return (
+                    <Route key={path} path={`${path}/*`} element={<Cmp />} />
+                );
+            });
+    }, []);
 
     return (
         <Routes>
-            {Object.keys(routes)
-                .filter((key) => isMainRoute(key))
-                .map((pageId) => {
-                    const path = routes[pageId];
-                    const Cmp = createPage(pageId);
-                    return (
-                        <Route
-                            key={path}
-                            path={`${path}/*`}
-                            element={<Cmp />}
-                        />
-                    );
-                })}
+            {routesComponents}
             <Route
                 key='redirect'
                 path='/'

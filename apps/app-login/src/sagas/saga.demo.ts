@@ -15,7 +15,7 @@ export function* demo() {
         photoURL: '',
     });
 
-    invokeEvent('SHOW_PLAYGROUND_MODAL');
+    // invokeEvent('SHOW_PLAYGROUND_MODAL');
 
     // set LocalStorage data from demoDataUrl
     const { localStorage } = yield fetch(url).then((res) => res.json());

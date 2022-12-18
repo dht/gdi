@@ -68,7 +68,51 @@ export const Id = styled.div`
     overflow: hidden;
 `;
 
-export const IconWrapper = styled.div<{ color?: string }>`
+export const IconWrapper = styled.div`
     font-size: 24px;
-    color: ${(props) => props.color ?? '#fff'};
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Time = styled.div`
+    font-size: 20px;
+    font-variation-settings: 'wdth' 100, 'wght' 200;
+    color: pink;
+
+    span {
+        font-size: 12px;
+    }
+`;
+
+export const Notification = styled.div`
+    flex: 1;
+`;
+
+export const NotificationTitle = styled.div`
+    font-size: 20px;
+    font-variation-settings: 'wdth' 100, 'wght' 400;
+    width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 4px;
+`;
+
+export const NotificationDetails = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+export const NotificationDescription = styled.div`
+    color: #889;
+    margin-right: 5px;
+`;
+
+export const Brand = styled.img<{ invertColors?: boolean }>`
+    height: 22px;
+    filter: ${(props) => (props.invertColors ? 'invert(1)' : 'none')};
 `;

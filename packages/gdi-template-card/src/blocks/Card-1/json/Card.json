@@ -1,0 +1,13 @@
+{
+    "id": "Card-x1",
+    "layout": "personCircle",
+    "mainMenu": {
+        "iconSet": "phone"
+    },
+    "bottomBar": {
+        "flavour": "floating",
+        "showText": true,
+        "backgroundColor": "rgba(0, 0, 0, 0.9)",
+        "color": null
+    }
+}

@@ -16,8 +16,9 @@
         "baseUrl": "../../",
         "types": ["types-base", "@gdi/types", "@types/jest"],
         "paths": {
-            "@gdi/store-studio": ["stores/gdi-store-studio"]
+            "@gdi/template-starter": ["packages/gdi-template-starter"],
+            "@gdi/store-dashboard": ["stores/gdi-store-dashboard"]
         }
     },
-    "include": ["src/*.ts", "test/*.ts", "src/extra.d.ts", "src/extra.d.ts"]
+    "include": ["src/*.ts", "test/*.ts"]
 }

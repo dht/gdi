@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useKey } from './useKey';
 
 type CallbackWithId = (id: string) => void;
@@ -33,6 +33,35 @@ export function useShortKey(
     }, depArray);
 
     useKey(onKey, {}, depArray);
+}
+
+export function useShortKeyDownUp(
+    shortKey: IShortKey,
+    callbackDown: CallbackWithId,
+    callbackUp: CallbackWithId,
+    depArray: any[] = []
+) {
+    useEffect(() => {
+        const onKeyDown = (ev: KeyboardEvent) => {
+            if (isMatching(ev, shortKey)) {
+                callbackDown(shortKey.id ?? '');
+            }
+        };
+
+        const onKeyUp = (ev: KeyboardEvent) => {
+            if (isMatching(ev, shortKey)) {
+                callbackUp(shortKey.id ?? '');
+            }
+        };
+
+        document.addEventListener('keydown', onKeyDown);
+        document.addEventListener('keyup', onKeyUp);
+
+        return () => {
+            document.removeEventListener('keydown', onKeyDown);
+            document.removeEventListener('keyup', onKeyUp);
+        };
+    }, depArray);
 }
 
 const isMatching = (event: IShortKey, shortKey: IShortKey) => {

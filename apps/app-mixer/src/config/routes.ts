@@ -26,7 +26,6 @@ export const menuItems: IMenuItem[] = [
         icon: 'ImageSearch',
         label: 'Image gallery',
         groupId: 'site',
-        showOnSlim: true,
         order: 1,
     },
     {
@@ -34,7 +33,6 @@ export const menuItems: IMenuItem[] = [
         icon: 'AddIn',
         label: 'Widget gallery',
         groupId: 'site',
-        showOnSlim: true,
         order: 2,
     },
     {
@@ -42,7 +40,6 @@ export const menuItems: IMenuItem[] = [
         icon: 'DataManagementSettings',
         label: 'Datasets',
         groupId: 'site',
-        showOnSlim: true,
         order: 3,
     },
 ];

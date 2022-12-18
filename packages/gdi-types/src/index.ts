@@ -16,6 +16,7 @@ export * from './gdi-store-products';
 export * from './gdi-store-soundboard';
 export * from './gdi-store-tasks';
 export * from './gdi-store-voice';
+export * from './gdi-store-studio';
 export * from './gdi-store-site';
 export * from './gdi-store-factory';
 export * from './gdi-web-forms';

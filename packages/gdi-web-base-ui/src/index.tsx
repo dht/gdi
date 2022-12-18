@@ -20,6 +20,7 @@ export { DoubleDeckerSwitch } from './components/DoubleDeckerSwitch/DoubleDecker
 export { Empty } from './components/Empty/Empty';
 export { FullCalendar } from './components/FullCalendar/FullCalendar';
 export { GliLogo } from './components/GliLogo/GliLogo';
+export { HashTags } from './components/HashTags/HashTags';
 export { IconButton } from './components/IconButton/IconButton';
 export { ImageUpload } from './components/ImageUpload/ImageUpload';
 export { ImportExport } from './components/ImportExport/ImportExport';
@@ -30,6 +31,7 @@ export { KeyValue } from './components/KeyValue/KeyValue';
 export { Logo } from './components/Logo/Logo';
 export { LocalGallery } from './components/LocalGallery/LocalGallery';
 export { Modal } from './components/Modal/Modal';
+export { NotificationsButton } from './components/NotificationsButton/NotificationsButton';
 export { Panel } from './components/Panel/Panel';
 export { PhotoBooth } from './components/PhotoBooth/PhotoBooth';
 export { PhoneInput } from './components/PhoneInput/PhoneInput';

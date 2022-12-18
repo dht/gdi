@@ -33,8 +33,12 @@ export function Schedule(props: ScheduleProps) {
     function renderItems() {
         return items.map((item: IScheduleSession) => renderItem(item));
     }
+
     return (
-        <Wrapper className='Schedule-wrapper' data-testid='Schedule-wrapper'>
+        <Wrapper
+            className='Schedule-wrapper  animate__animated animate__fadeInLeft'
+            data-testid='Schedule-wrapper'
+        >
             {renderItems()}
         </Wrapper>
     );
