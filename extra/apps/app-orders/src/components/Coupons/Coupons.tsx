@@ -18,21 +18,20 @@ export type CouponsProps = {
 
 export function Coupons(props: CouponsProps) {
     const { data, callbacks, allOptions, dispatch } = props;
-    const crudDefinitions = useCrudDefinitions('coupon');
+    const crudDefinitions = useCrudDefinitions('article');
     const { t } = useLanguage();
 
     return (
         <Wrapper className='Coupons-wrapper' data-testid='Coupons-wrapper'>
             <Multi
                 id='Coupons'
-                itemType='coupon'
+                itemType='article'
                 header={t('Coupons')}
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                hideParts={['preview']}
             />
         </Wrapper>
     );

@@ -33,7 +33,7 @@ export const TicketsByProjectContainer = () => {
     return (
         <TicketsByProject
             projects={projects}
-            projectKey={projectKey}
+            projectKey={projectKey ?? ''}
             selector={selector}
             emptyMessage={emptyMessage}
             callbacks={callbacks}

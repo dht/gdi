@@ -1,6 +1,6 @@
 {
     "name": "@gdi/store-money",
-    "version": "0.0.63",
+    "version": "0.4.0",
     "description": "Financial",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,10 +8,10 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.0.34",
-        "@gdi/types": "^0.0.112",
-        "redux-connected": "^0.0.107",
-        "@gdi/language": "^0.0.89",
+        "shared-base": "^0.4.0",
+        "@gdi/types": "^0.4.0",
+        "redux-connected": "^0.4.0",
+        "@gdi/language": "^0.4.0",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

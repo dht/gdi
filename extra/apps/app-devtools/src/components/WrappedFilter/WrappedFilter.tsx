@@ -11,7 +11,7 @@ export type WrappedFilterProps = {
 };
 
 export function WrappedFilter(props: WrappedFilterProps) {
-    const { header, definitions, group, allOptions, tags } = props;
+    const { definitions, group, allOptions, tags } = props;
 
     const optionsFilter = useMemo(
         () => ({
@@ -30,14 +30,10 @@ export function WrappedFilter(props: WrappedFilterProps) {
                 data={group.data}
                 options={optionsFilter}
                 allOptions={allOptions}
+                multiBar={{} as any}
                 tags={tags}
             >
-                <FilterBar
-                    header={header}
-                    tools={[]}
-                    onAction={() => {}}
-                    hideParts={[]}
-                />
+                <FilterBar onAction={() => {}} hideParts={[]} />
             </FilterContextProvider>
         </Wrapper>
     );

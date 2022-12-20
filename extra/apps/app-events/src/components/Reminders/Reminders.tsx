@@ -17,13 +17,13 @@ export type RemindersProps = {
 
 export function Reminders(props: RemindersProps) {
     const { data, callbacks, allOptions, dispatch } = props;
-    const crudDefinitions = useCrudDefinitions('reminder');
+    const crudDefinitions = useCrudDefinitions('article');
 
     return (
         <Wrapper className='Reminders-wrapper' data-testid='Reminders-wrapper'>
             <Multi
                 id='Reminders'
-                itemType='reminder'
+                itemType='article'
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}

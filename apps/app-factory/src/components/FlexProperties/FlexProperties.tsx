@@ -107,6 +107,7 @@ export function FlexProperties(props: FlexPropertiesProps) {
                         <Code
                             height={540}
                             value={styleText}
+                            language='json'
                             onChange={setStyleText}
                         />
                     </Content>
@@ -116,6 +117,7 @@ export function FlexProperties(props: FlexPropertiesProps) {
                         <Code
                             height={540}
                             value={propsText}
+                            language='json'
                             onChange={setPropsText}
                         />
                     </Content>

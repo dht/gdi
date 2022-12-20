@@ -1,20 +1,20 @@
 {
     "name": "@gdi/app-factory",
     "description": "Write articles and create new custom widgets",
-    "version": "0.0.71",
+    "version": "0.4.0",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.0.34",
-        "@gdi/hooks": "^0.0.47",
-        "@gdi/language": "^0.0.89",
-        "@gdi/platformer": "^0.0.74",
-        "@gdi/store-factory": "^0.0.65",
-        "@gdi/types": "^0.0.112",
-        "@gdi/web-ui": "^0.0.85",
+        "shared-base": "^0.4.0",
+        "@gdi/hooks": "^0.4.0",
+        "@gdi/language": "^0.4.0",
+        "@gdi/platformer": "^0.4.0",
+        "@gdi/store-factory": "^0.4.0",
+        "@gdi/types": "^0.4.0",
+        "@gdi/web-ui": "^0.4.0",
         "@testing-library/react": "^13.3.0",
         "chance": "^1.1.8",
         "classnames": "^2.3.1",
@@ -25,7 +25,7 @@
         "redux": "^4.2.0",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.0.6"
+        "testing-base": "^0.4.0"
     },
     "peerDependencies": {
         "react": "^18.2.0"

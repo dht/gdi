@@ -80,7 +80,7 @@ export const $resolutions = createSelector(
         const { items = [] } = layout ?? {};
         return Object.values(breakpoints)
             .sort(sortBy('order') as any)
-            .map((breakpoint: IBreakpoint) => {
+            .map((breakpoint: any) => {
                 const itemsForBreakpoint = items.filter(
                     (i) =>
                         i.entityType === 'item' &&

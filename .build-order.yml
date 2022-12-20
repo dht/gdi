@@ -1,0 +1,100 @@
+- id: tier-submodules
+  packages:
+      - shared-base
+      - testing-base
+- id: tier-submodules-2
+  packages:
+      - redux-connected
+      - igrid
+      - datasets
+- id: tier-types
+  packages:
+      - types
+- id: tier-1
+  packages:
+      - engine
+      - language
+- id: tier-2
+  packages:
+      - hooks
+- id: tier-3
+  packages:
+      - web-base-ui
+      - isokit
+- id: tier-4
+  packages:
+      - web-editors
+      - web-forms
+      - web-tables
+- id: tier-5
+  packages:
+      - web-ui
+- id: tier-6
+  packages:
+      - photo-booth
+      - uno
+- id: tier-stores
+  packages:
+      - store-auth
+      - store-dashboard
+      - store-mixer
+      - store-settings
+      - store-site
+- id: tier-stores-extra
+  packages:
+      - store-factory
+      - store-biblo
+      - store-campaigns
+      - store-carts
+      - store-comments
+      - store-devtools
+      - store-events
+      - store-knowledge
+      - store-leads
+      - store-money
+      - store-orders
+      - store-ppl
+      - store-products
+      - store-sales
+      - store-soundboard
+      - store-studio
+      - store-tasks
+      - store-things
+      - store-voice
+      - store-weather
+- id: tier-8
+  packages:
+      - platformer
+- id: tier-9
+  packages:
+      - template-starter
+      - template-gdi
+      - template-tech
+      - template-card
+- id: tier-apps
+  packages:
+      - app-dashboard
+      - app-factory
+      - app-login
+      - app-mixer
+      - app-settings
+- id: tier-apps-extra
+  packages:
+      - app-biblo
+      - app-campaigns
+      - app-carts
+      - app-comments
+      - app-devtools
+      - app-events
+      - app-knowledge
+      - app-leads
+      - app-money
+      - app-orders
+      - app-ppl
+      - app-products
+      - app-sales
+      - app-soundboard
+      - app-studio
+      - app-tasks
+      - app-things
+      - app-voice
