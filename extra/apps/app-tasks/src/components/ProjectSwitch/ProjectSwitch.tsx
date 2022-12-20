@@ -53,6 +53,7 @@ export function ProjectSwitch(props: ProjectSwitchProps) {
                 key: 'ALL',
                 name: 'All projects',
                 tags: [],
+                dataTags: [],
             })}
             {renderProjects()}
         </Wrapper>

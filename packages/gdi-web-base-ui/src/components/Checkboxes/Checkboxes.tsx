@@ -24,7 +24,7 @@ export type CheckboxesProps = {
 };
 
 export function Checkboxes(props: CheckboxesProps) {
-    const { id, groups, options, values } = props;
+    const { groups, options, values } = props;
 
     const onCheck = useCallback(
         (id: string, check?: boolean) => {
