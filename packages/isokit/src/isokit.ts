@@ -1,4 +1,3 @@
-import * as BABYLON from 'babylonjs';
 import { delay } from 'shared-base';
 import { initBackground } from './isokit.background';
 import { initGlow } from './isokit.glow';

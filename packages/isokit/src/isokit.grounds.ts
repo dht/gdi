@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { MeshBuilder, StandardMaterial, Texture } from '@babylonjs/core';
 import { GridMaterial } from '@babylonjs/materials';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { color3, vector3 } from './isokit.helpers';
@@ -11,7 +11,7 @@ export const initGroundWithColor = (ground: IStudioGround) => {
 
     const { diffuseColor, specularColor } = values ?? {};
 
-    const item = BABYLON.MeshBuilder.CreateGround(
+    const item = MeshBuilder.CreateGround(
         identifier,
         {
             width,
@@ -24,7 +24,7 @@ export const initGroundWithColor = (ground: IStudioGround) => {
     item.setEnabled(false);
 
     const materialId = `material-ground-${identifier}`;
-    const groundMaterial = new BABYLON.StandardMaterial(materialId, scene);
+    const groundMaterial = new StandardMaterial(materialId, scene);
     groundMaterial.specularColor = color3(specularColor);
     groundMaterial.diffuseColor = color3(diffuseColor);
 
@@ -45,7 +45,7 @@ export const initGroundWithTexture = (ground: IStudioGround) => {
         ground;
     const { diffuseColor, textureUrl, uScale, vScale } = values ?? {};
 
-    const item = BABYLON.MeshBuilder.CreateGround(
+    const item = MeshBuilder.CreateGround(
         identifier,
         {
             width,
@@ -58,13 +58,13 @@ export const initGroundWithTexture = (ground: IStudioGround) => {
     item.setEnabled(false);
 
     const materialId = `material-ground-${identifier}`;
-    const grassMaterial = new BABYLON.StandardMaterial(materialId, scene);
+    const grassMaterial = new StandardMaterial(materialId, scene);
 
     grassMaterial.diffuseColor = color3(diffuseColor);
     item.material = grassMaterial;
     item.position = vector3(position ?? [0, 0, 0]);
 
-    const diffuseTexture = new BABYLON.Texture(textureUrl, scene);
+    const diffuseTexture = new Texture(textureUrl, scene);
     diffuseTexture.uScale = uScale;
     diffuseTexture.vScale = vScale;
 
@@ -87,7 +87,7 @@ export const initGroundWithGrid = (ground: IStudioGround) => {
         ground;
     const { majorUnitFrequency, gridRatio, lineColor, opacity } = values ?? {};
 
-    const item = BABYLON.MeshBuilder.CreateGround(
+    const item = MeshBuilder.CreateGround(
         identifier,
         {
             width,

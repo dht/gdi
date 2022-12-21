@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Engine, Scene } from 'babylonjs';
+import { Engine, Scene } from '@babylonjs/core';
 import { setScene, setEngine } from './isokit.globals';
 import { useCustomEvent } from '@gdi/hooks';
 import { useUnmount } from 'react-use';

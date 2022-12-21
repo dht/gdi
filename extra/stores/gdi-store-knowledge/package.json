@@ -1,17 +1,17 @@
 {
     "name": "@gdi/store-knowledge",
     "description": "Links",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.4.0",
-        "@gdi/types": "^0.4.0",
-        "redux-connected": "^0.4.0",
-        "@gdi/language": "^0.4.0",
+        "shared-base": "^0.4.2",
+        "@gdi/types": "^0.4.2",
+        "redux-connected": "^0.4.2",
+        "@gdi/language": "^0.4.2",
         "redux-store-generator": "^0.9.89",
         "reselect": "^4.1.6"
     },

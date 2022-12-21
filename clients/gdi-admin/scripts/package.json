@@ -14,14 +14,14 @@
     },
     "devDependencies": {
         "@types/dotenv-flow": "^3.2.0",
-        "@types/node": "^18.7.13",
+        "@types/node": "^18.11.17",
         "dotenv-flow": "^3.2.0",
         "firebase": "^9.9.3"
     },
     "dependencies": {
-        "@gdi/language": "^0.4.0",
-        "@gdi/platformer": "^0.4.0",
-        "@gdi/web-ui": "^0.4.0",
+        "@gdi/language": "^0.4.2",
+        "@gdi/platformer": "^0.4.2",
+        "@gdi/web-ui": "^0.4.2",
         "firebaseui": "^6.0.1"
     }
 }

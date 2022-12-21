@@ -1,4 +1,3 @@
-import * as BABYLON from 'babylonjs';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { color4 } from './isokit.helpers';
 

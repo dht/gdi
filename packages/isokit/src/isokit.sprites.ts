@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { Sprite } from '@babylonjs/core';
 import { packs, logTime, logTimeEnd } from './isokit.globals';
 import { vector3 } from './isokit.helpers';
 
@@ -11,7 +11,7 @@ export const initSprite = (sprite: IStudioSprite) => {
 
     const pack = packs[packId];
     try {
-        const item = new BABYLON.Sprite(identifier, pack);
+        const item = new Sprite(identifier, pack);
 
         const { width, height } = size;
 

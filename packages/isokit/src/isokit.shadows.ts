@@ -1,5 +1,5 @@
-import * as BABYLON from 'babylonjs';
-import { scene, sounds } from './isokit.globals';
+import { ShadowGenerator } from '@babylonjs/core';
+import { scene } from './isokit.globals';
 
 let shadows: string[] = [];
 
@@ -17,7 +17,7 @@ export const initShadows = (lightName: string) => {
         return;
     }
 
-    const shadowGenerator = new BABYLON.ShadowGenerator(1024, light as any);
+    const shadowGenerator = new ShadowGenerator(1024, light as any);
     shadowGenerator.useExponentialShadowMap = true;
     shadowGenerator.usePoissonSampling = true;
 

@@ -1,13 +1,16 @@
-import * as BABYLON from 'babylonjs';
+import { SceneLoader } from '@babylonjs/core';
+import '@babylonjs/loaders';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
-import 'babylonjs-loaders';
 
 export const loadExternal = (external: IStudioExternal) => {
     return new Promise((resolve, reject) => {
         const { url } = external;
 
-        BABYLON.SceneLoader.ShowLoadingScreen = false;
-        BABYLON.SceneLoader.Append('/', url, scene, () => {
+        const rootUrl = url.substring(0, url.lastIndexOf('/') + 1) ?? '/';
+        const fileName = url.substring(url.lastIndexOf('/') + 1);
+
+        SceneLoader.ShowLoadingScreen = false;
+        SceneLoader.Append(rootUrl, fileName, scene, () => {
             resolve(true);
         });
     });

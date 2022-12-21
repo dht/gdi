@@ -1,21 +1,21 @@
 {
     "name": "@gdi/app-settings",
     "description": "Site and account settings",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.4.0",
-        "@gdi/hooks": "^0.4.0",
-        "@gdi/platformer": "^0.4.0",
-        "@gdi/store-auth": "^0.4.0",
-        "@gdi/store-settings": "^0.4.0",
-        "@gdi/store-site": "^0.4.0",
-        "@gdi/types": "^0.4.0",
-        "@gdi/web-ui": "^0.4.0",
+        "shared-base": "^0.4.2",
+        "@gdi/hooks": "^0.4.2",
+        "@gdi/platformer": "^0.4.2",
+        "@gdi/store-auth": "^0.4.2",
+        "@gdi/store-settings": "^0.4.2",
+        "@gdi/store-site": "^0.4.2",
+        "@gdi/types": "^0.4.2",
+        "@gdi/web-ui": "^0.4.2",
         "@testing-library/react": "^13.3.0",
         "bytes": "^3.1.2",
         "chance": "^1.1.8",
@@ -24,7 +24,7 @@
         "react-use": "^17.4.0",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.4.0"
+        "testing-base": "^0.4.2"
     },
     "peerDependencies": {
         "react": "^18.2.0"

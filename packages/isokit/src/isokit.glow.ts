@@ -1,8 +1,8 @@
-import * as BABYLON from 'babylonjs';
-import { logTime, logTimeEnd, scene } from './isokit.globals';
+import { GlowLayer, Color3 } from '@babylonjs/core';
+import { scene } from './isokit.globals';
 
 export const initGlow = () => {
-    const gl = new BABYLON.GlowLayer('glow', scene);
+    const gl = new GlowLayer('glow', scene);
     gl.customEmissiveColorSelector = function (
         mesh,
         _subMesh,
@@ -19,7 +19,7 @@ export const initGlow = () => {
         const parts = name.split('-glow-');
         const glowColor = parts[1].split('_').shift() ?? '';
 
-        const color = BABYLON.Color3.FromHexString(glowColor);
+        const color = Color3.FromHexString(glowColor);
         result.set(color.r, color.g, color.b, 1);
     };
 };

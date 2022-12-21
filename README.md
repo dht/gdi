@@ -117,3 +117,12 @@ After a successful deployment, the `Admin UI` will be served from the `/admin` p
 | gdi list projects           | Shows Firebase projects. A wrapper for `firebase projects:list` |
 | gdi preview                 | Starts `gdi-site` in development mode                           |
 | gdi apps                    | Scans for new apps and sets up the `vite` and `tsconfig` files  |
+
+## General links
+
+-   [AdminUI Demo](https://usegdi.com/admin/pages/home?demo=on)
+-   [Documentation](https://usegdi.com/docs/)
+-   [Homepage](https://usegdi.com)
+-   [Discord channel](https://discord.com/invite/egAbyQHRrm)
+-   [StackOverflow](https://stackoverflow.com/questions/tagged/gdi-cms)
+-   [Babylon.js Demo](https://gdi-demo.web.app/admin/ville?demo=on)

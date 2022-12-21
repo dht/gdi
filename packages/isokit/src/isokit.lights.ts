@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { HemisphericLight } from '@babylonjs/core';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { color3, vector3 } from './isokit.helpers';
 
@@ -7,7 +7,7 @@ type InitMethod = (light: IStudioLight) => void;
 export const initLightHemispheric = (light: IStudioLight) => {
     const { identifier, position, specular, diffuse, intensity } = light;
 
-    const item = new BABYLON.HemisphericLight(
+    const item = new HemisphericLight(
         identifier,
         vector3(position ?? [0, 1, 0]),
         scene

@@ -1,39 +1,42 @@
-import * as BABYLON from 'babylonjs';
+import {
+    Animation,
+    Color3,
+    Color4,
+    CubicEase,
+    EasingFunction,
+    Tools,
+    Vector3,
+} from '@babylonjs/core';
 
 export const color3 = (colorArr: number[]) => {
-    return new BABYLON.Color3(colorArr[0], colorArr[1], colorArr[2]);
+    return new Color3(colorArr[0], colorArr[1], colorArr[2]);
 };
 
 export const color4 = (colorArr: number[]) => {
-    return new BABYLON.Color4(
-        colorArr[0],
-        colorArr[1],
-        colorArr[2],
-        colorArr[3]
-    );
+    return new Color4(colorArr[0], colorArr[1], colorArr[2], colorArr[3]);
 };
 
 export const vector3 = (vectorArr: Json): any => {
-    return new BABYLON.Vector3(vectorArr.x, vectorArr.y, vectorArr.z);
+    return new Vector3(vectorArr.x, vectorArr.y, vectorArr.z);
 };
 
 export const vectorRadians = (vectorArr: Json): any => {
-    return new BABYLON.Vector3(
-        BABYLON.Tools.ToRadians(vectorArr.x),
-        BABYLON.Tools.ToRadians(vectorArr.y),
-        BABYLON.Tools.ToRadians(vectorArr.z)
+    return new Vector3(
+        Tools.ToRadians(vectorArr.x),
+        Tools.ToRadians(vectorArr.y),
+        Tools.ToRadians(vectorArr.z)
     );
 };
 
 export function createAnimation(params: Json) {
     const { property, from, to } = params;
 
-    const ease = new BABYLON.CubicEase();
-    ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEINOUT);
+    const ease = new CubicEase();
+    ease.setEasingMode(EasingFunction.EASINGMODE_EASEINOUT);
 
-    const animation = BABYLON.Animation.CreateAnimation(
+    const animation = Animation.CreateAnimation(
         property,
-        BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+        Animation.ANIMATIONTYPE_FLOAT,
         10,
         ease
     );
@@ -55,6 +58,6 @@ export function simplifyRadians(radians: number) {
     const simplifiedRadians = radians % (2 * Math.PI);
 
     return simplifiedRadians < 0
-        ? simplifiedRadians + BABYLON.Tools.ToRadians(360)
+        ? simplifiedRadians + Tools.ToRadians(360)
         : simplifiedRadians;
 }
