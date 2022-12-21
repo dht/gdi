@@ -1,6 +1,6 @@
 {
     "name": "@gdi/app-tasks",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "description": "Tasks",
     "scripts": {
         "build": "tsc & vite build",
@@ -8,25 +8,25 @@
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.4.0",
-        "@gdi/engine": "^0.4.0",
-        "@gdi/language": "^0.4.0",
-        "@gdi/platformer": "^0.4.0",
-        "@gdi/store-tasks": "^0.4.0",
-        "@gdi/types": "^0.4.0",
-        "@gdi/web-forms": "^0.4.0",
-        "@gdi/web-tables": "^0.4.0",
-        "@gdi/web-ui": "^0.4.0",
+        "shared-base": "^0.4.2",
+        "@gdi/engine": "^0.4.2",
+        "@gdi/language": "^0.4.2",
+        "@gdi/platformer": "^0.4.2",
+        "@gdi/store-tasks": "^0.4.2",
+        "@gdi/types": "^0.4.2",
+        "@gdi/web-forms": "^0.4.2",
+        "@gdi/web-tables": "^0.4.2",
+        "@gdi/web-ui": "^0.4.2",
         "@testing-library/react": "^13.3.0",
         "chance": "^1.1.8",
         "classnames": "^2.3.1",
         "react-redux": "^8.0.2",
         "react-use": "^17.4.0",
         "redux": "^4.2.0",
-        "redux-connected": "^0.4.0",
+        "redux-connected": "^0.4.2",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.4.0"
+        "testing-base": "^0.4.2"
     },
     "peerDependencies": {
         "react": "^18.2.0"

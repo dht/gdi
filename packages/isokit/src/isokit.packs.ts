@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { SpritePackedManager } from '@babylonjs/core';
 import { packs, scene, logTime, logTimeEnd } from './isokit.globals';
 
 export const initPack = (item: IStudioPack) => {
@@ -6,7 +6,7 @@ export const initPack = (item: IStudioPack) => {
 
     logTime(`initPack ${identifier}`, 3);
 
-    packs[identifier] = new BABYLON.SpritePackedManager(
+    packs[identifier] = new SpritePackedManager(
         identifier,
         url,
         capacity,

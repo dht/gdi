@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { SpriteManager, Sprite } from '@babylonjs/core';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { vector3 } from './isokit.helpers';
 
@@ -18,7 +18,7 @@ export const initMicroAnimation = (item: IStudioMicroAnimation) => {
 
     logTime(`initMicroAnimation ${identifier}`);
 
-    var spriteManager = new BABYLON.SpriteManager(
+    var spriteManager = new SpriteManager(
         identifier,
         url,
         capacity,
@@ -27,7 +27,7 @@ export const initMicroAnimation = (item: IStudioMicroAnimation) => {
     );
 
     const spriteId = `${identifier}-sprite`;
-    const mySprite = new BABYLON.Sprite(spriteId, spriteManager);
+    const mySprite = new Sprite(spriteId, spriteManager);
     mySprite.size = size;
 
     mySprite.position = vector3(position ?? [0, 0, 0]);

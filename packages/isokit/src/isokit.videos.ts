@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { MeshBuilder, StandardMaterial, VideoTexture } from '@babylonjs/core';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { color3, vector3, vectorRadians } from './isokit.helpers';
 
@@ -8,7 +8,7 @@ export const initVideoSphere = (item: IStudioVideo) => {
     const { identifier, position, rotation, specularColor, values, url } = item;
     const { diameterX, diameterY, diameterZ } = values;
 
-    const sphere = BABYLON.MeshBuilder.CreateSphere(
+    const sphere = MeshBuilder.CreateSphere(
         identifier,
         {
             diameterX,
@@ -21,12 +21,12 @@ export const initVideoSphere = (item: IStudioVideo) => {
     const vidPos = vector3(position ?? [0, 0, 0]);
 
     sphere.position = vidPos;
-    const vidMaterial = new BABYLON.StandardMaterial('m', scene);
+    const vidMaterial = new StandardMaterial('m', scene);
     vidMaterial.specularColor = color3(specularColor ?? [0, 0, 0]);
 
     const textureId = `texture-${identifier}`;
 
-    const vidTexture = new BABYLON.VideoTexture(textureId, url, scene);
+    const vidTexture = new VideoTexture(textureId, url, scene);
 
     vidMaterial.diffuseTexture = vidTexture;
     sphere.material = vidMaterial;

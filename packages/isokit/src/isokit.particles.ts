@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { Color4, ParticleSystem, Texture, Vector3 } from '@babylonjs/core';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { vector3 } from './isokit.helpers';
 
@@ -7,10 +7,10 @@ export const initParticle = (item: IStudioParticle) => {
 
     logTime(`initParticle ${identifier}`);
 
-    var particleSystem = new BABYLON.ParticleSystem(identifier, 200, scene);
+    var particleSystem = new ParticleSystem(identifier, 200, scene);
 
     //Texture of each particle
-    particleSystem.particleTexture = new BABYLON.Texture(url, scene);
+    particleSystem.particleTexture = new Texture(url, scene);
 
     // lifetime
     particleSystem.minLifeTime = 2;
@@ -20,7 +20,7 @@ export const initParticle = (item: IStudioParticle) => {
     particleSystem.emitRate = emitRate;
 
     // gravity
-    particleSystem.gravity = new BABYLON.Vector3(0.25, 1.5, 0);
+    particleSystem.gravity = new Vector3(0.25, 1.5, 0);
 
     // size gradient
     particleSystem.addSizeGradient(size * 0, size * 0.6, size * 1);
@@ -30,8 +30,8 @@ export const initParticle = (item: IStudioParticle) => {
 
     particleSystem.addColorGradient(
         1.0,
-        new BABYLON.Color4(1 - 0.0, 1 - 0.0, 1 - 0.0, 1),
-        new BABYLON.Color4(1 - 0.03, 1 - 0.03, 1 - 0.03, 1)
+        new Color4(1 - 0.0, 1 - 0.0, 1 - 0.0, 1),
+        new Color4(1 - 0.03, 1 - 0.03, 1 - 0.03, 1)
     );
 
     const size2 = speed || size;
@@ -49,15 +49,15 @@ export const initParticle = (item: IStudioParticle) => {
     particleSystem.maxAngularSpeed = 1;
 
     // blendmode
-    particleSystem.blendMode = BABYLON.ParticleSystem.BLENDMODE_STANDARD;
+    particleSystem.blendMode = ParticleSystem.BLENDMODE_STANDARD;
 
     // emitter shape
     particleSystem.createSphereEmitter(0.1);
 
     // Where the particles come from
     particleSystem.emitter = vector3(position ?? [0, 0, 0]); // the starting object, the emitter
-    particleSystem.minEmitBox = new BABYLON.Vector3(-0.5, -0.5, -0.5); // Starting all from
-    particleSystem.maxEmitBox = new BABYLON.Vector3(0.5, 0.5, 0.5); // To...
+    particleSystem.minEmitBox = new Vector3(-0.5, -0.5, -0.5); // Starting all from
+    particleSystem.maxEmitBox = new Vector3(0.5, 0.5, 0.5); // To...
 
     // Start the particle system
     particleSystem.start();

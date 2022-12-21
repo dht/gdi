@@ -1,18 +1,21 @@
-import * as BABYLON from 'babylonjs';
+import {
+    Scene,
+    Engine,
+    GroundMesh,
+    Light,
+    SpritePackedManager,
+} from '@babylonjs/core';
 
 export let DEBUG = true;
 export let DEBUG_LEVEL = 1;
 
-export let scene: BABYLON.Scene,
-    engine: BABYLON.Engine,
-    ground: BABYLON.GroundMesh,
-    light: BABYLON.Light;
+export let scene: Scene, engine: Engine, ground: GroundMesh, light: Light;
 
-export const setScene = (value: BABYLON.Scene) => {
+export const setScene = (value: Scene) => {
     scene = value;
 };
 
-export const setEngine = (value: BABYLON.Engine) => {
+export const setEngine = (value: Engine) => {
     engine = value;
 };
 
@@ -20,7 +23,7 @@ export const setDebug = (value: boolean) => {
     DEBUG = value;
 };
 
-export const packs: Record<string, BABYLON.SpritePackedManager> = {};
+export const packs: Record<string, SpritePackedManager> = {};
 export const sounds: Record<string, HTMLAudioElement> = {};
 
 export const logTime = (message: string, level: number = 3) => {

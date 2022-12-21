@@ -1,4 +1,3 @@
-import * as BABYLON from 'babylonjs';
 import { sounds, logTime, logTimeEnd } from './isokit.globals';
 
 export const initSound = (item: IStudioSound) => {

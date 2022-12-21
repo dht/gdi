@@ -1,25 +1,25 @@
 {
     "name": "@gdi/app-mixer",
     "description": "Mix widgets to form new pages & sites",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "scripts": {
         "build": "tsc & vite build",
         "test": "jest",
         "coverage": "jest --coverage=true"
     },
     "dependencies": {
-        "shared-base": "^0.4.0",
-        "@gdi/engine": "^0.4.0",
-        "@gdi/hooks": "^0.4.0",
-        "@gdi/language": "^0.4.0",
-        "@gdi/platformer": "^0.4.0",
-        "@gdi/store-mixer": "^0.4.0",
-        "@gdi/store-site": "^0.4.0",
-        "@gdi/template-card": "^0.4.0",
-        "@gdi/template-gdi": "^0.4.0",
-        "@gdi/template-starter": "^0.4.0",
-        "@gdi/types": "^0.4.0",
-        "@gdi/web-ui": "^0.4.0",
+        "shared-base": "^0.4.2",
+        "@gdi/engine": "^0.4.2",
+        "@gdi/hooks": "^0.4.2",
+        "@gdi/language": "^0.4.2",
+        "@gdi/platformer": "^0.4.2",
+        "@gdi/store-mixer": "^0.4.2",
+        "@gdi/store-site": "^0.4.2",
+        "@gdi/template-card": "^0.4.2",
+        "@gdi/template-gdi": "^0.4.2",
+        "@gdi/template-starter": "^0.4.2",
+        "@gdi/types": "^0.4.2",
+        "@gdi/web-ui": "^0.4.2",
         "@testing-library/react": "^13.3.0",
         "axios": "^1.2.0",
         "bytes": "^3.1.2",
@@ -27,11 +27,11 @@
         "classnames": "^2.3.1",
         "react-redux": "^8.0.2",
         "react-use": "^17.4.0",
-        "redux-connected": "^0.4.0",
+        "redux-connected": "^0.4.2",
         "redux-saga": "^1.2.1",
         "saga-ts": "^0.0.3",
         "styled-components": "^5.3.5",
-        "testing-base": "^0.4.0"
+        "testing-base": "^0.4.2"
     },
     "peerDependencies": {
         "react": "^18.2.0"

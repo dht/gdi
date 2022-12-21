@@ -1,4 +1,4 @@
-import * as BABYLON from 'babylonjs';
+import { ArcRotateCamera, Tools } from '@babylonjs/core';
 import { delay, getJson, setJson, ts } from 'shared-base';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
 import { vector3, createAnimation, simplifyRadians } from './isokit.helpers';
@@ -18,7 +18,7 @@ export const initCameraArc = (camera: IStudioCamera) => {
         upperBetaLimit,
     } = values ?? {};
 
-    const item = new BABYLON.ArcRotateCamera(
+    const item = new ArcRotateCamera(
         'camera',
         alpha,
         beta,
@@ -30,8 +30,8 @@ export const initCameraArc = (camera: IStudioCamera) => {
     item.attachControl(true);
     item.lowerRadiusLimit = lowerRadiusLimit;
     item.upperRadiusLimit = upperRadiusLimit;
-    item.lowerBetaLimit = BABYLON.Tools.ToRadians(lowerBetaLimit);
-    item.upperBetaLimit = BABYLON.Tools.ToRadians(upperBetaLimit);
+    item.lowerBetaLimit = Tools.ToRadians(lowerBetaLimit);
+    item.upperBetaLimit = Tools.ToRadians(upperBetaLimit);
 };
 
 const map: Record<string, InitMethod> = {
@@ -65,7 +65,7 @@ export const cameraFlyIn = async (values: Json) => {
 
     await delay(0);
 
-    const camera = scene.activeCamera as BABYLON.ArcRotateCamera;
+    const camera = scene.activeCamera as ArcRotateCamera;
 
     const toRadius = camera.radius;
     const toAlpha = camera.alpha;
@@ -89,7 +89,7 @@ export const cameraFlyIn = async (values: Json) => {
     });
 };
 
-function moveCamera(camera: BABYLON.ArcRotateCamera, params: Json) {
+function moveCamera(camera: ArcRotateCamera, params: Json) {
     const { radius, alpha, beta, target } = params;
 
     camera.animations = [
