@@ -1,13 +1,20 @@
 import { MeshBuilder, StandardMaterial, Texture } from '@babylonjs/core';
 import { GridMaterial } from '@babylonjs/materials';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
-import { color3, vector3 } from './isokit.helpers';
+import { color3, vector3, vectorRadians } from './isokit.helpers';
 
 type InitMethod = (ground: IStudioGround) => void;
 
 export const initGroundWithColor = (ground: IStudioGround) => {
-    const { identifier, width, height, subdivisions, position, values } =
-        ground;
+    const {
+        identifier,
+        width,
+        height,
+        subdivisions,
+        position,
+        rotation,
+        values,
+    } = ground;
 
     const { diffuseColor, specularColor } = values ?? {};
 
@@ -29,6 +36,11 @@ export const initGroundWithColor = (ground: IStudioGround) => {
     groundMaterial.diffuseColor = color3(diffuseColor);
 
     item.position = vector3(position ?? [0, 0, 0]);
+
+    if (rotation) {
+        item.rotation = vectorRadians(rotation);
+    }
+
     item.material = groundMaterial;
     item.receiveShadows = true;
 
@@ -41,8 +53,15 @@ export const initGroundWithColor = (ground: IStudioGround) => {
 let firstLoad = true;
 
 export const initGroundWithTexture = (ground: IStudioGround) => {
-    const { identifier, width, height, subdivisions, position, values } =
-        ground;
+    const {
+        identifier,
+        width,
+        height,
+        subdivisions,
+        position,
+        rotation,
+        values,
+    } = ground;
     const { diffuseColor, textureUrl, uScale, vScale } = values ?? {};
 
     const item = MeshBuilder.CreateGround(
@@ -64,6 +83,10 @@ export const initGroundWithTexture = (ground: IStudioGround) => {
     item.material = grassMaterial;
     item.position = vector3(position ?? [0, 0, 0]);
 
+    if (rotation) {
+        item.rotation = vectorRadians(rotation);
+    }
+
     const diffuseTexture = new Texture(textureUrl, scene);
     diffuseTexture.uScale = uScale;
     diffuseTexture.vScale = vScale;
@@ -83,8 +106,15 @@ export const initGroundWithTexture = (ground: IStudioGround) => {
 };
 
 export const initGroundWithGrid = (ground: IStudioGround) => {
-    const { identifier, width, height, subdivisions, position, values } =
-        ground;
+    const {
+        identifier,
+        width,
+        height,
+        subdivisions,
+        position,
+        rotation,
+        values,
+    } = ground;
     const { majorUnitFrequency, gridRatio, lineColor, opacity } = values ?? {};
 
     const item = MeshBuilder.CreateGround(
@@ -104,6 +134,10 @@ export const initGroundWithGrid = (ground: IStudioGround) => {
     defaultGridMaterial.lineColor = color3(lineColor);
 
     item.position = vector3(position ?? [0, 0, 0]);
+
+    if (rotation) {
+        item.rotation = vectorRadians(rotation ?? [0, 0, 0]);
+    }
 
     item.material = defaultGridMaterial as any;
     defaultGridMaterial.opacity = opacity;
@@ -127,10 +161,10 @@ export const initGround = (item: IStudioGround) => {
     }
 };
 
-export const initGrounds = async (externals: IStudioGrounds) => {
+export const initGrounds = async (grounds: IStudioGrounds) => {
     logTime('loadGrounds');
 
-    for (let ground of Object.values(externals)) {
+    for (let ground of Object.values(grounds)) {
         const { identifier } = ground;
         logTime(`loadGround ${identifier}`);
         await initGround(ground);

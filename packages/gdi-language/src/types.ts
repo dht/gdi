@@ -40,6 +40,7 @@ export type ILanguages = Record<LanguageIso, ILanguage>;
 
 export type ILanguageDefinitions = {
     languageCode: LanguageIso;
+    isMonthFirst: boolean;
     dateOptions: Intl.DateTimeFormatOptions;
     dateLongOptions: Intl.DateTimeFormatOptions;
     timeOptions: Intl.DateTimeFormatOptions;

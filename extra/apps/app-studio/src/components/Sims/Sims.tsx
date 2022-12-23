@@ -64,10 +64,7 @@ export function Sims(props: SimsProps) {
     }
 
     return (
-        <Wrapper
-            className='Sims-wrapper animate__animated animate__fadeInLeft'
-            data-testid='Sims-wrapper'
-        >
+        <Wrapper className='Sims-wrapper ' data-testid='Sims-wrapper'>
             {renderStats(true)}
             <br />
             {renderStats(false)}

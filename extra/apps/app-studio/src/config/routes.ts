@@ -1,15 +1,15 @@
 import { ROOT } from './ids';
 
 export const routes: IRoutes = {
-    ville: `${ROOT}/ville`,
+    studio: `${ROOT}/studio`,
     overviewNavigate: `${ROOT}/overview/:inboxMessageId`,
 };
 
 export const menuItems: IMenuItem[] = [
     {
-        path: routes.ville,
+        path: routes.studio,
         icon: 'SearchNearby',
-        label: 'Overview',
+        label: 'Studio',
         groupId: 'doing',
         showOnSlim: true,
         order: 0.5,

@@ -1,12 +1,17 @@
-import { ArcRotateCamera, Tools } from '@babylonjs/core';
+import { ArcRotateCamera, FreeCamera, Tools } from '@babylonjs/core';
 import { delay, getJson, setJson, ts } from 'shared-base';
 import { logTime, logTimeEnd, scene } from './isokit.globals';
-import { vector3, createAnimation, simplifyRadians } from './isokit.helpers';
+import {
+    vector3,
+    createAnimation,
+    simplifyRadians,
+    vectorRadians,
+} from './isokit.helpers';
 
 type InitMethod = (camera: IStudioCamera) => void;
 
 export const initCameraArc = (camera: IStudioCamera) => {
-    const { values } = camera;
+    const { identifier, values } = camera;
     const {
         alpha,
         beta,
@@ -19,7 +24,7 @@ export const initCameraArc = (camera: IStudioCamera) => {
     } = values ?? {};
 
     const item = new ArcRotateCamera(
-        'camera',
+        identifier,
         alpha,
         beta,
         radius,
@@ -34,7 +39,21 @@ export const initCameraArc = (camera: IStudioCamera) => {
     item.upperBetaLimit = Tools.ToRadians(upperBetaLimit);
 };
 
+export const initCameraUniversal = (camera: IStudioCamera) => {
+    const { identifier, position, rotation } = camera;
+
+    const item = new FreeCamera(
+        identifier,
+        vector3(position ?? [0, 0, 0]),
+        scene
+    );
+
+    item.rotation = vectorRadians(rotation ?? [0, 0, 0]);
+    // item.attachControl(true);
+};
+
 const map: Record<string, InitMethod> = {
+    universal: initCameraUniversal,
     arc: initCameraArc,
 };
 

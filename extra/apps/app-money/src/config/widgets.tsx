@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { OnionContainer } from '../containers/OnionContainer';
 import { IWidget, Wrapper } from '@gdi/platformer';
 import { APP_ID } from './ids';
 

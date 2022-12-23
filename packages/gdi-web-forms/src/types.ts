@@ -29,6 +29,7 @@ export type FieldType =
     | 'hidden'
     | 'imageUpload'
     | 'number'
+    | 'money'
     | 'boolean'
     | 'paragraph'
     | 'dataset'

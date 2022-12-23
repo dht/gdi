@@ -6,6 +6,7 @@ import {
 } from '../utils/breakpoints';
 import { breakpoints } from '../utils/breakpoints.data';
 import { useCustomEvent } from './useCustomEvent';
+import classnames from 'classnames';
 
 export function useStyledTheme(
     languageCode: string,
@@ -82,8 +83,14 @@ export function useStyledTheme(
                     parts.push('0');
                 }
 
+                if (isRtl) {
+                    const temp = parts[1];
+                    parts[1] = parts[3];
+                    parts[3] = temp;
+                }
+
                 return {
-                    padding: `${parts[0]} ${parts[3]} ${parts[2]} ${parts[1]}`,
+                    padding: `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3]}`,
                 };
             },
             margin: (value: string | number) => {
@@ -99,8 +106,37 @@ export function useStyledTheme(
                     parts.push('0');
                 }
 
+                if (isRtl) {
+                    const temp = parts[1];
+                    parts[1] = parts[3];
+                    parts[3] = temp;
+                }
+
                 return {
-                    margin: `${parts[0]} ${parts[3]} ${parts[2]} ${parts[1]}`,
+                    margin: `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3]}`,
+                };
+            },
+            borderRadius: (value: string | number) => {
+                const parts = String(value).split(' ');
+
+                if (typeof value === 'number' || !isRtl || parts.length <= 2) {
+                    return {
+                        borderRadius: value,
+                    };
+                }
+
+                if (parts.length === 3) {
+                    parts.push('0');
+                }
+
+                if (isRtl) {
+                    const temp = parts[1];
+                    parts[1] = parts[3];
+                    parts[3] = temp;
+                }
+
+                return {
+                    borderRadius: `${parts[0]} ${parts[1]} ${parts[2]} ${parts[3]}`,
                 };
             },
             floatLeft: () => {
@@ -182,6 +218,33 @@ export function useStyledTheme(
                 if (isEqual || (isLower && orLower)) {
                     return css;
                 }
+            },
+            backgroundImageRtl: (url: string, urlRtl: string) => {
+                const value = isRtl ? urlRtl : url;
+
+                return {
+                    backgroundImage: `url(${value})`,
+                };
+            },
+            animationNameRtl: (name: string, nameRtl: string) => {
+                const value = isRtl ? nameRtl : name;
+
+                return {
+                    animationName: value,
+                };
+            },
+            cssAnimationRtl: (animation: string) => {
+                if (!isRtl) {
+                    return animation;
+                }
+
+                return animation
+                    .replace('Left', 'TMP')
+                    .replace('Right', 'Left')
+                    .replace('TMP', 'Right');
+            },
+            rtl: () => {
+                return isRtl;
             },
             languageCode,
             fontFamily: isRtl

@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     padding: 3px;
     font-size: 15px;
     font-weight: 500;
-    border-radius: 0 0 10px 10px;
+    ${(props) => props.theme.borderRadius('0 10px 10px 0')};
     ${(props) => props.theme.padding('3px 20px 5px')}
     transform: translate(${(props) =>
         props.theme.isRtl ? '-50%' : '50%'}) rotate(90deg);

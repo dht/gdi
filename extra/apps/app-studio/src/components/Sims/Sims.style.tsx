@@ -2,23 +2,12 @@ import styled from 'styled-components';
 import { device, css } from '@gdi/engine';
 
 export const Wrapper = styled.div`
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    transform: perspective(500px) rotate3d(-0.3, 1, 0, 10deg);
-    zoom: 1.2;
-    animation-delay: 2.4s;
-
-    ${device(
-        '1080p',
-        css`
-            zoom: 0.9;
-        `
-    )}
+    flex-direction: row;
 `;
 
 export const Parameter = styled.div`
-    margin: 4px 0 7px;
+    margin: 0 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,6 +29,7 @@ export const ParameterName = styled.div`
 export const Visual = styled.div`
     flex: 1;
     margin: 3px 0;
+    display: none;
 `;
 
 export const BottomLine = styled.div`
@@ -64,7 +54,7 @@ export const Icon = styled.button`
     top: 1px;
 
     i {
-        font-size: 23px;
+        font-size: 27px;
     }
 `;
 
@@ -74,7 +64,7 @@ export const Value = styled.div`
     padding: 5px;
     border-radius: 5px;
     box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.02);
-    font-size: 14px;
+    font-size: 19px;
     font-weight: 500;
     color: #778;
     background-color: rgba(0, 0, 0, 0.1);

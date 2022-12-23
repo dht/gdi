@@ -14,22 +14,22 @@ const ScheduleContainer = React.lazy(() => import('../containers/ScheduleContain
 const SimsContainer = React.lazy(() => import('../containers/SimsContainer')); // prettier-ignore
 const NotificationsContainer = React.lazy(() => import('../containers/NotificationsContainer')); // prettier-ignore
 
-export enum VilleWidgets {
-    MainDisplay = 'ville.MainDisplay',
-    Reader = 'ville.Reader',
-    Overview = 'ville.Overview',
-    OverviewBar = 'ville.OverviewBar',
-    OverviewNavigate = 'ville.OverviewNavigate',
-    Schedule = 'ville.Schedule',
-    Sims = 'ville.Sims',
-    DomainPanel = 'ville.DomainPanel',
-    ProTip = 'ville.ProTip',
-    Notifications = 'ville.Notifications',
+export enum StudioWidgets {
+    MainDisplay = 'studio.MainDisplay',
+    Reader = 'studio.Reader',
+    Overview = 'studio.Overview',
+    OverviewBar = 'studio.OverviewBar',
+    OverviewNavigate = 'studio.OverviewNavigate',
+    Schedule = 'studio.Schedule',
+    Sims = 'studio.Sims',
+    DomainPanel = 'studio.DomainPanel',
+    ProTip = 'studio.ProTip',
+    Notifications = 'studio.Notifications',
 }
 
 export const widgets: IWidget[] = [
     {
-        id: VilleWidgets.MainDisplay,
+        id: StudioWidgets.MainDisplay,
         name: 'MainDisplay',
         description: 'MainDisplay',
         defaultDimension: {
@@ -39,7 +39,7 @@ export const widgets: IWidget[] = [
         component: (props: any) => <MainDisplayContainer {...props} />,
     },
     {
-        id: VilleWidgets.Reader,
+        id: StudioWidgets.Reader,
         name: 'Reader',
         description: 'Reader',
         defaultDimension: {
@@ -49,7 +49,7 @@ export const widgets: IWidget[] = [
         component: (props: any) => <ReaderContainer {...props} />,
     },
     {
-        id: VilleWidgets.Overview,
+        id: StudioWidgets.Overview,
         name: 'Overview',
         description: 'Overview',
         defaultDimension: {
@@ -66,7 +66,7 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: VilleWidgets.OverviewBar,
+        id: StudioWidgets.OverviewBar,
         name: 'OverviewBar',
         description: 'OverviewBar',
         defaultDimension: {
@@ -82,7 +82,7 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: VilleWidgets.OverviewNavigate,
+        id: StudioWidgets.OverviewNavigate,
         name: 'OverviewNavigate',
         description: 'OverviewNavigate',
         defaultDimension: {
@@ -99,7 +99,7 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: VilleWidgets.Sims,
+        id: StudioWidgets.Sims,
         name: 'Sims',
         description: 'Sims',
         defaultDimension: {
@@ -112,7 +112,7 @@ export const widgets: IWidget[] = [
     },
 
     {
-        id: VilleWidgets.ProTip,
+        id: StudioWidgets.ProTip,
         name: 'ProTip',
         description: 'ProTip',
         defaultDimension: {
@@ -124,7 +124,7 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: VilleWidgets.Schedule,
+        id: StudioWidgets.Schedule,
         name: 'ProTip',
         description: 'Schedule',
         defaultDimension: {
@@ -140,7 +140,7 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: VilleWidgets.Sims,
+        id: StudioWidgets.Sims,
         name: 'Sims',
         description: 'Sims',
         defaultDimension: {
@@ -152,7 +152,7 @@ export const widgets: IWidget[] = [
         ),
     },
     {
-        id: VilleWidgets.Notifications,
+        id: StudioWidgets.Notifications,
         name: 'Notifications',
         description: 'Notifications',
         defaultDimension: {

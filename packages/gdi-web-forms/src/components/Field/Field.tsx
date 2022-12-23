@@ -496,6 +496,7 @@ const map: Record<FieldType, FC<FieldProps>> = {
     hidden: FieldHidden,
     color: FieldColor,
     number: FieldNumber,
+    money: FieldNumber,
     dataset: FieldDataset,
     icon: FieldInput,
     imageUpload: FieldImageUpload,

@@ -1,5 +1,5 @@
 export default {
-    Overview: 'סקירה כללית',
+    Overview: 'סקירה',
     'All Leads': 'כל הלידים',
     'Leads Inbox': 'תיבת לידים',
     'Total Sites': 'סך הכל אתרים',
@@ -20,7 +20,7 @@ export default {
     'Visitors > 20s': 'מבקרים >20s',
     'Github Visitors': 'מבקרים של Github',
     'Total Stars': 'סך הכל כוכבים',
-    Inbox: 'תיבת הדואר הנכנס',
+    Inbox: 'דואר נכנס',
     'Back stage': 'בהמתנה',
     Front: 'בפוקוס',
     'Upload Date': 'תאריך העלאה',

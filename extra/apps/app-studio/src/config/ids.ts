@@ -1,2 +1,2 @@
-export const APP_ID = 'ville';
+export const APP_ID = 'studio';
 export const ROOT = '/admin';

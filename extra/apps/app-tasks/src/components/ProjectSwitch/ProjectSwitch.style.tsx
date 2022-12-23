@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     border-radius: 5px;
     padding: 10px 0;
     box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.3);
-    min-width: 160px;
+    min-width: 165px;
 `;
 
 export const Project = styled.div`

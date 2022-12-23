@@ -1,0 +1,11 @@
+id: MoneysFilter
+fields:
+    - id: tags
+      title: Tags
+      cellType: tags
+      optionSelectorId: $moneyTags
+      allowMultiple: false
+sort:
+    - id: name
+      text: Name
+      value: name

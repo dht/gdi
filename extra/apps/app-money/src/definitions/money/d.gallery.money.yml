@@ -1,0 +1,7 @@
+id: MoneysGallery
+header: Money
+itemType: money
+actions:
+    - id: new
+      iconName: add
+      title: New Money

@@ -3,6 +3,7 @@ import { initFormat } from '../utils/formatObjects';
 
 export const definitionsBase: ILanguageDefinitions = {
     languageCode: 'en',
+    isMonthFirst: true,
     dateOptions: {},
     dateLongOptions: {
         weekday: 'short',

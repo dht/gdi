@@ -4,7 +4,7 @@ export function useStartTyping(callback: Callback, depArray: any[] = []) {
     return useKey(
         callback,
         {
-            filterRegex: /[a-zA-Z0-9#]/,
+            filterRegex: /[a-zA-Z0-9א-ת-#]/,
             preventFocusSteal: true,
         },
         depArray

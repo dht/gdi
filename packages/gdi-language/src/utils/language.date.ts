@@ -1,5 +1,6 @@
 import { TimePeriod } from '../types';
 import { normalize } from './date';
+import { getIsMonthFirst } from './formatObjects';
 import {
     add,
     dateDbLong,
@@ -24,6 +25,15 @@ export class XDate {
         date.setDate(diff);
 
         return new XDate(date);
+    }
+
+    static fromString(string: string) {
+        const parts = string.split(/[\.-]/g);
+        const isMonthFirst = getIsMonthFirst();
+        console.log('parts ->', parts);
+        console.log('isMonthFirst ->', isMonthFirst);
+
+        return new XDate();
     }
 
     constructor(date?: DateTime) {
