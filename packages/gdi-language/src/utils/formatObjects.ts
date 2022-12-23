@@ -28,17 +28,26 @@ export let workdayConfig: IWorkdayConfig = {
 };
 
 export let languageCode: LanguageIso = 'en';
+export let isMonthFirst: boolean = true;
 
 export const getLanguageCode = () => {
     return languageCode;
 };
 
-export const getIsRtl = () => {
-    return rtlLanguages.includes(getLanguageCode());
-};
-
 export const setLanguageCode = (code: LanguageIso) => {
     languageCode = code;
+};
+
+export const setIsMonthFirst = (value: boolean) => {
+    isMonthFirst = value;
+};
+
+export const getIsMonthFirst = () => {
+    return isMonthFirst;
+};
+
+export const getIsRtl = () => {
+    return rtlLanguages.includes(getLanguageCode());
 };
 
 export const initFormat = (definitions: ILanguageDefinitions) => {

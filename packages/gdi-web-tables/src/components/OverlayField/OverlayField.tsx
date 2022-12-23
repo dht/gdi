@@ -132,6 +132,7 @@ const map: Record<FieldType, FC<OverlayFieldProps>> = {
     hidden: FieldText,
     color: FieldText,
     number: FieldText,
+    money: FieldText,
     imageUpload: FieldText,
     boolean: FieldText,
     slider: FieldText,

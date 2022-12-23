@@ -12,12 +12,13 @@ export type MoneyProps = {
         onSelectionChange: (ids: string[]) => void;
         onCustomAction: (actionId: string, data?: Json) => void;
     };
+    customView: React.FC<any>;
     dispatch: any;
 };
 
 export function Money(props: MoneyProps) {
-    const { data, callbacks, allOptions, dispatch } = props;
-    const crudDefinitions = useCrudDefinitions('image');
+    const { data, callbacks, allOptions, customView, dispatch } = props;
+    const crudDefinitions = useCrudDefinitions('money');
     const { t } = useLanguage();
 
     return (
@@ -25,20 +26,16 @@ export function Money(props: MoneyProps) {
             <Multi
                 id='Money'
                 header={t('Money')}
-                itemType='article'
+                itemType='money'
                 data={data}
                 callbacks={callbacks}
                 definitions={crudDefinitions}
                 dispatch={dispatch}
                 allOptions={allOptions}
-                customView={CustomView}
+                customView={customView}
             />
         </Wrapper>
     );
-}
-
-function CustomView() {
-    return <div>CustomView</div>;
 }
 
 export default Money;

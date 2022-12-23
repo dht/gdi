@@ -72,10 +72,11 @@ export function SheetRow(props: SheetRowProps) {
             <SheetCell
                 key='id'
                 value={rowData['id']}
+                title={rowData['id']}
                 field={idField}
                 rowData={rowData}
                 coords={{ rowIndex, columnIndex: -1 }}
-                className={`row_${rowIndex}_col_-1}`}
+                className={`row_${rowIndex}_col_-1 id`}
                 readOnly
             />
 

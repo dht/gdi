@@ -6,4 +6,11 @@ export const Wrapper = styled.div`
     &.selected {
         background-color: rgba(255, 255, 255, 0.07);
     }
+
+    .id {
+        max-width: 100px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
 `;

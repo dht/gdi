@@ -78,9 +78,9 @@ const apps: Record<string, App> = {
         id: 'dashboard',
         nodes: ['dashboard'],
     },
-    ville: {
-        id: 'ville',
-        nodes: ['ville'],
+    studio: {
+        id: 'studio',
+        nodes: ['studio'],
     },
     factory: {
         id: 'factory',

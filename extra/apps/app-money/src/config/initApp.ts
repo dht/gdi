@@ -13,6 +13,7 @@ import { widgets } from './widgets';
 import type { AppBuilders } from '@gdi/platformer';
 import i18n from './i18n';
 import p from '../../package.json';
+import { allDefinitions } from '../definitions';
 
 export const initApp = (
     builders: AppBuilders,
@@ -26,6 +27,7 @@ export const initApp = (
         apiConfigBuilder,
         i18nBuilder,
         metaBuilder,
+        definitionsBuilder,
     } = builders;
 
     routerBuilder
@@ -60,4 +62,6 @@ export const initApp = (
         isDraft: p.gdi.isDraft,
         isBeta: p.gdi.isBeta,
     });
+
+    definitionsBuilder.withDefinitions(APP_ID, allDefinitions);
 };

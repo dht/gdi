@@ -1,0 +1,74 @@
+{
+    "id": "MoneyBucket",
+    "header": "Money",
+    "permutations": [
+        {
+            "id": "todo",
+            "buckets": [
+                {
+                    "id": "backlog",
+                    "title": "Todo",
+                    "dataTags": [
+                        "backlog"
+                    ],
+                    "itemModification": "IM_backlog"
+                },
+                {
+                    "id": "doing",
+                    "title": "Doing",
+                    "dataTags": [
+                        "doing"
+                    ],
+                    "itemModification": "IM_doing"
+                },
+                {
+                    "id": "done",
+                    "title": "Done",
+                    "dataTags": [
+                        "done"
+                    ],
+                    "itemModification": "IM_done"
+                }
+            ]
+        },
+        {
+            "id": "priority",
+            "buckets": [
+                {
+                    "id": "unassigned",
+                    "title": "Unassigned",
+                    "dataTags": [],
+                    "itemsFilter": "IF_unassigned"
+                },
+                {
+                    "id": "important",
+                    "title": "important",
+                    "dataTags": [
+                        "important"
+                    ]
+                },
+                {
+                    "id": "urgent",
+                    "title": "urgent",
+                    "dataTags": [
+                        "urgent"
+                    ]
+                },
+                {
+                    "id": "importantAndUrgent",
+                    "title": "Important & urgent",
+                    "dataTags": [
+                        "importantAndUrgent"
+                    ]
+                },
+                {
+                    "id": "none",
+                    "title": "None",
+                    "dataTags": [
+                        "none"
+                    ]
+                }
+            ]
+        }
+    ]
+}

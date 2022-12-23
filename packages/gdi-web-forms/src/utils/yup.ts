@@ -35,6 +35,7 @@ const fieldTypeToYupMethod: Record<FieldType, any> = {
     icon: yup.string(),
     email: yup.string().email(),
     imageUpload: yup.string(),
+    money: yup.number(),
     number: yup.number(),
     paragraph: yup.string(),
     password: yup.string(),

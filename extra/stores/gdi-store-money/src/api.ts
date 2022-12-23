@@ -5,16 +5,18 @@ export const endpointsConfigOverrides = (
 ): EndpointsConfigOverrides => ({
     appStateMoney: {
         id: 'appStateMoney',
-        connectionType,
-        optimistic: true,
+        connectionType: ConnectionType.NONE,
     },
     moneyLines: {
         id: 'moneyLines',
         connectionType,
         optimistic: true,
+        optimisticPosts: true,
     },
     moneyBehaviors: {
         id: 'moneyBehaviors',
         connectionType,
+        optimistic: true,
+        optimisticPosts: true,
     },
 });

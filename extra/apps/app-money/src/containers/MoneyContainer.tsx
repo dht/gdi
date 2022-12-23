@@ -3,6 +3,7 @@ import Money from '../components/Money/Money';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectors } from '../store';
 import { invokeEvent } from 'shared-base';
+import { OnionContainer } from './OnionContainer';
 
 export const MoneyContainer = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export const MoneyContainer = () => {
             callbacks={callbacks}
             allOptions={allOptions}
             dispatch={dispatch}
+            customView={OnionContainer}
         />
     );
 };

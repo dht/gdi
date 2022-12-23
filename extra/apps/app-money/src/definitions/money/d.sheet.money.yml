@@ -1,0 +1,29 @@
+id: MoneySheet
+header: Money
+layout:
+    flavour: singleColumn
+    width: 300
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: date
+      fieldType: date
+      placeholder: Date
+      label: Date
+    - id: topic
+      fieldType: text
+      placeholder: Topic
+      label: Topic
+      groupId: basic
+    - id: sum
+      fieldType: money
+      placeholder: Sum
+      label: Sum
+    - id: category
+      fieldType: text
+      placeholder: Category
+      label: Category
+submit:
+    title: Save & close

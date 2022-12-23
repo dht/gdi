@@ -1,2 +1,4 @@
 export { BabylonScene } from './isokit.scene';
-export { loadBoard, startRender } from './isokit';
+export { startRender } from './isokit';
+export { loadBoard } from './isokit.load.board';
+export { loadTimeline } from './isokit.load.timeline';

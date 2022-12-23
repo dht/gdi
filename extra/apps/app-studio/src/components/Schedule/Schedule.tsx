@@ -1,6 +1,8 @@
 import React from 'react';
 import { Wrapper, Item, Time, Title } from './Schedule.style';
 import { isBefore, isAfter } from '@gdi/language';
+import { useTheme } from 'styled-components';
+import classnames from 'classnames';
 
 export type ScheduleProps = {
     items: IScheduleSession[];
@@ -13,6 +15,7 @@ type IScheduleSession = {
 
 export function Schedule(props: ScheduleProps) {
     const { items = [] } = props;
+    const { cssAnimationRtl } = useTheme() as any;
 
     const currentItem = findCurrentItem(items);
 
@@ -34,11 +37,15 @@ export function Schedule(props: ScheduleProps) {
         return items.map((item: IScheduleSession) => renderItem(item));
     }
 
+    const className = cssAnimationRtl(
+        classnames('Schedule-wrapper', {
+            animate__animated: true,
+            animate__fadeInLeft: true,
+        })
+    );
+
     return (
-        <Wrapper
-            className='Schedule-wrapper  animate__animated animate__fadeInLeft'
-            data-testid='Schedule-wrapper'
-        >
+        <Wrapper className={className} data-testid='Schedule-wrapper'>
             {renderItems()}
         </Wrapper>
     );

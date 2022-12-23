@@ -61,7 +61,7 @@ export function SheetCellEditing(props: SheetCellEditingProps) {
 
         switch (fieldType) {
             case 'number':
-                parsedValue = parseFloat(currentValue);
+                parsedValue = parseFloat(currentValue.replace(/,/g, ''));
                 break;
             case 'date':
                 parsedValue = parseDate(currentValue);
