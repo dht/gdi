@@ -8,14 +8,6 @@ import { $s, getString, systemEvent } from 'shared-base';
 
 export const CURRENT_ACCOUNT_KEY = 'CURRENT_ACCOUNT';
 
-type AllSaps = {};
-
-type SapId = keyof AllSaps;
-
-const activeSaps: SapId[] = [];
-
-const initSapMethods: AllSaps = {};
-
 let didBootstrap = false;
 
 export const bootstrapApp = async (
@@ -33,6 +25,7 @@ export const bootstrapApp = async (
     const { config } = props;
     const {
         activeApps,
+        activeSaps,
         initializers,
         menuSections,
         firebaseConfigs,
@@ -59,7 +52,7 @@ export const bootstrapApp = async (
             activeApps,
             activeSaps,
             initAppMethods: initializers,
-            initSapMethods,
+            initSapMethods: initializers,
             sagas,
             menuSections,
             logger: (message, data) => $s(message, data),

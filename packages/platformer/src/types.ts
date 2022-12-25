@@ -1,4 +1,3 @@
-import { LanguageIso } from '@gdi/language/dist/dts/types';
 import { EndpointsConfigOverrides } from 'redux-connected';
 
 export type IAppConfig = {
@@ -83,10 +82,7 @@ export type AppBuilders = {
     metaBuilder: IMetaBuilder;
 };
 
-export type SapBuilders = {
-    storeBuilder: IStoreBuilder;
-    selectorsBuilder: ISelectorsBuilder;
-};
+export type SapBuilders = AppBuilders & {};
 
 export type InitAppMethod = (
     builders: AppBuilders,
@@ -170,6 +166,7 @@ export type IPlatformConfig = {
     firebaseConfigs: IFirebaseConfig[];
     initializers: Record<string, InitAppMethod>;
     activeApps: string[];
+    activeSaps: string[];
     menuSections: string[];
     languageCode: LanguageIso;
     isRtl: boolean;

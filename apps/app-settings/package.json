@@ -12,6 +12,7 @@
         "@gdi/hooks": "^0.4.2",
         "@gdi/platformer": "^0.4.2",
         "@gdi/store-auth": "^0.4.2",
+        "@gdi/store-business": "^0.4.2",
         "@gdi/store-settings": "^0.4.2",
         "@gdi/store-site": "^0.4.2",
         "@gdi/types": "^0.4.2",

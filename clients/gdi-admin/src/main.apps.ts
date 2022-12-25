@@ -5,7 +5,7 @@ import { initApp as initSettings } from '@gdi/app-settings';
 import { initApp as initDashboard } from '@gdi/app-dashboard';
 import { initializersExtra } from './extra/main.extra';
 
-export const initializers = {
+export const initializersApps = {
     login: initLogin,
     mixer: initMixer,
     factory: initFactory,

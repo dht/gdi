@@ -26,7 +26,6 @@ import { DefinitionsBuilder } from '../builders/DefinitionsBuilder';
 import { PieMenuBuilder } from '../builders/PieMenuBuilder';
 import platformI18n from '../i18n';
 import { MetaBuilder } from '../builders/MetaBuilder';
-import { getJson } from 'shared-base';
 import { getDemoConfig } from '../utils/demo';
 
 const DEBUG = false;
@@ -37,8 +36,8 @@ type Params = {
     activeApps: string[];
     initAppMethods: Record<string, InitAppMethod>;
     activeSaps: string[];
-    menuSections: string[];
     initSapMethods: Record<string, InitSapMethod>;
+    menuSections: string[];
     sagas: any[];
     logger: LogMethod;
     languageCode?: LanguageIso;
@@ -124,7 +123,11 @@ export async function initPlatform<T extends StoreStructure>(
 
     logger('platform: iterating through saps');
 
+    console.log('activeSaps ->', activeSaps);
+
     for (let sapId of activeSaps) {
+        console.log('sapId ->', sapId);
+
         const initMethod = initSapMethods[sapId];
 
         if (typeof initMethod !== 'function') {
@@ -137,6 +140,13 @@ export async function initPlatform<T extends StoreStructure>(
             {
                 storeBuilder: storeBuilder as any,
                 selectorsBuilder,
+                routerBuilder,
+                widgetBuilder,
+                apiConfigBuilder,
+                i18nBuilder,
+                definitionsBuilder,
+                pieMenuBuilder,
+                metaBuilder,
             },
             connectionType
         );

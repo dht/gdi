@@ -48,6 +48,7 @@ declare global {
 
     export type ILanguageDefinitions = {
         languageCode: LanguageIso;
+        isMonthFirst: boolean;
         dateOptions: Intl.DateTimeFormatOptions;
         dateLongOptions: Intl.DateTimeFormatOptions;
         timeOptions: Intl.DateTimeFormatOptions;

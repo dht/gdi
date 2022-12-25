@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "../gdi-store-business/dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["ES2020", "DOM"],
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "declarationDir": "../gdi-store-business/dist/dts",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "types": ["types-base", "@gdi/types", "@types/jest"]
+    },
+    "include": [
+        "../gdi-store-business/src/*.ts",
+        "../gdi-store-business/test/*.ts"
+    ]
+}

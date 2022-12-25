@@ -87,10 +87,7 @@ declare global {
         metaBuilder: IMetaBuilder;
     };
 
-    export type SapBuilders = {
-        storeBuilder: IStoreBuilder;
-        selectorsBuilder: ISelectorsBuilder;
-    };
+    export type SapBuilders = AppBuilders & {};
 
     export type InitAppMethod = (
         builders: AppBuilders,
@@ -174,6 +171,7 @@ declare global {
         firebaseConfigs: IFirebaseConfig[];
         initializers: Record<string, InitAppMethod>;
         activeApps: string[];
+        activeSaps: string[];
         menuSections: string[];
         languageCode: LanguageIso;
         isRtl: boolean;

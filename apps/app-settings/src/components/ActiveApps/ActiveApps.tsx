@@ -41,6 +41,8 @@ export function ActiveApps(props: ActiveAppsProps) {
     const { count, totalSize: allAppsSize } = stats;
     const [toggleAll, setToggleAll] = useToggle(false);
 
+    console.log('templatesMeta ->', templatesMeta);
+
     const { displayName = '', photoURL } = me;
 
     const [activeState, patchActiveState] = useLocalStorage<

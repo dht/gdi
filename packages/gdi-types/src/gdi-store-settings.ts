@@ -31,4 +31,22 @@ declare global {
         totalNodeCount: number;
         totalSize: number;
     };
+
+    export type IActiveService = {
+        id: string;
+        title: string;
+        color: string;
+        description: string;
+        isActive?: boolean;
+        isRequired?: boolean;
+        apiUrl: string;
+        apiToken?: string;
+        refreshToken?: string;
+    };
+
+    export type IActiveServicesStats = {
+        count: number;
+        totalNodeCount: number;
+        totalSize: number;
+    };
 }

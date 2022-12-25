@@ -1,10 +1,11 @@
 import { ROOT } from './ids';
 
 export const routes: IRoutes = {
-    account: '/account',
-    activeApps: '/apps',
-    settings: '/settings',
-    siteProperties: '/siteProperties',
+    account: `${ROOT}/account`,
+    activeApps: `${ROOT}/apps`,
+    activeServices: `${ROOT}/services`,
+    settings: `${ROOT}/settings`,
+    siteProperties: `${ROOT}/siteProperties`,
 };
 
 export const menuItems: IMenuItem[] = [];

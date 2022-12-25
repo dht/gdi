@@ -9,6 +9,7 @@
             "@gdi/app-dashboard": ["apps/app-dashboard"],
 
             "@gdi/store-auth": ["extra/stores/gdi-store-auth"],
+            "@gdi/store-business": ["extra/stores/gdi-store-business"],
             "@gdi/store-mixer": ["stores/gdi-store-mixer"],
             "@gdi/store-site": ["stores/gdi-store-site"],
             "@gdi/store-factory": ["stores/gdi-store-factory"],
@@ -67,6 +68,10 @@
             "@gdi/store-tasks": ["extra/stores/gdi-store-tasks"],
             "@gdi/store-things": ["extra/stores/gdi-store-things"],
             "@gdi/store-voice": ["extra/stores/gdi-store-voice"],
+
+            "@gdi/service-freelancers": ["extra/services/service-freelancers"],
+            "@gdi/service-guidance": ["extra/services/service-guidance"],
+            "@gdi/service-level-up": ["extra/services/service-levelUp"],
 
             "@gdi/uno": ["packages/gdi-uno"],
             "redux-connected": ["submodules/redux-connected"],

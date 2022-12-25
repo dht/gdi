@@ -4,11 +4,16 @@ export const tabs: TabData[] = [
     {
         id: 'account',
         label: 'Account',
-        pathName: '/account',
+        pathName: '/admin/account',
     },
     {
         id: 'activeApps',
         label: 'Active Apps',
-        pathName: '/apps',
+        pathName: '/admin/apps',
+    },
+    {
+        id: 'activeServices',
+        label: 'Services',
+        pathName: '/admin/services',
     },
 ];
