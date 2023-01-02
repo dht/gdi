@@ -22,8 +22,6 @@ export function SheetCell(props: SheetCellProps) {
         readOnly,
     });
 
-    console.log('fieldType ->', fieldType);
-
     const Cmp = map[fieldType];
 
     if (!Cmp) {

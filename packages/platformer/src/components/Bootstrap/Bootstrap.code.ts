@@ -8,14 +8,6 @@ import { $s, getString, systemEvent } from 'shared-base';
 
 export const CURRENT_ACCOUNT_KEY = 'CURRENT_ACCOUNT';
 
-type AllSaps = {};
-
-type SapId = keyof AllSaps;
-
-const activeSaps: SapId[] = [];
-
-const initSapMethods: AllSaps = {};
-
 let didBootstrap = false;
 
 export const bootstrapApp = async (
@@ -33,16 +25,13 @@ export const bootstrapApp = async (
     const { config } = props;
     const {
         activeApps,
+        activeSaps,
         initializers,
         menuSections,
         firebaseConfigs,
         languageCode,
         connectionType,
     } = config;
-
-    const axiosInstance: any = axios.create({
-        baseURL: 'http://localhost:3009',
-    });
 
     const firebaseConfig = getFirebaseConfig(firebaseConfigs);
     const accountName = firebaseConfig.projectId;
@@ -51,15 +40,14 @@ export const bootstrapApp = async (
 
     const availableAccounts = firebaseConfigs.map((config) => config.projectId);
 
-    await initPlatform<any>(
-        axiosInstance as AxiosInstance,
+    await initPlatform(
         {
             accountName,
             availableAccounts,
             activeApps,
             activeSaps,
             initAppMethods: initializers,
-            initSapMethods,
+            initSapMethods: initializers,
             sagas,
             menuSections,
             logger: (message, data) => $s(message, data),

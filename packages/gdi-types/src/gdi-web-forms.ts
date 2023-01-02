@@ -34,6 +34,7 @@ declare global {
         | 'hidden'
         | 'imageUpload'
         | 'number'
+        | 'money'
         | 'boolean'
         | 'paragraph'
         | 'dataset'

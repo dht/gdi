@@ -23,6 +23,7 @@ import {
 } from 'firebase/auth';
 import * as firebaseui from 'firebaseui';
 import { GoogleUser } from '../types';
+import { Firestore, getFirestore, doc, setDoc } from 'firebase/firestore/lite';
 
 export type FirebaseConfig = {
     apiKey: string;
@@ -42,6 +43,7 @@ export class Firebase {
     private ui: firebaseui.auth.AuthUI;
     private authListeners: AuthListener[] = [];
     private storage: FirebaseStorage;
+    private firestore: Firestore;
 
     public uid: string;
     public clientId: string;
@@ -54,10 +56,13 @@ export class Firebase {
             },
         });
         this.auth = getAuth(this.app);
-        this.ui = new firebaseui.auth.AuthUI(this.auth);
-        this.uid = '';
+        this.firestore = getFirestore(this.app);
         this.storage = getStorage();
+
+        this.ui = new firebaseui.auth.AuthUI(this.auth);
+
         this.clientId = firebaseConfig.appId;
+        this.uid = '';
 
         onAuthStateChanged(this.auth, (user) => {
             if (user) {
@@ -159,6 +164,19 @@ export class Firebase {
                 data,
             };
         });
+    }
+
+    async writeHandshakeToken(token: string, validUntil: string) {
+        const ref = doc(this.firestore, 'serviceHandshakes', token);
+        await setDoc(
+            ref,
+            {
+                value: token,
+                validUntil,
+            },
+            { merge: true }
+        );
+        return true;
     }
 
     get value() {

@@ -47,6 +47,12 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
                 isSearchable={true}
                 options={optionsParsed as any}
                 onChange={onChange}
+                menuPortalTarget={document.body}
+                styles={{
+                    menuList: (base) => ({
+                        ...base,
+                    }),
+                }}
                 theme={(theme) => ({
                     ...theme,
                     colors: {

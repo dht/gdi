@@ -138,7 +138,6 @@ declare global {
         | 'coupon'
         | 'product'
         | 'campaign'
-        | 'money'
 
         // Project management
         | 'ticket'

@@ -5,6 +5,8 @@ const sent: Json = {};
 export const log = (language: LanguageIso, appId: string, key: string) => {
     const sentKey = `${language}-${appId}-${key}`;
 
+    console.log('sentKey ->', sentKey);
+
     if (sent[sentKey]) {
         return;
     }

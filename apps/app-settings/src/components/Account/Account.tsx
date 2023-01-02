@@ -1,5 +1,8 @@
 import React from 'react';
 import { Avatar, TrianglesBk } from '@gdi/web-ui';
+import { SettingsTab } from '../SettingsTab/SettingsTab';
+import { tabs } from '../SettingsTab/SettingsTab.data';
+import { useLanguage } from '@gdi/language';
 import {
     Column,
     Wrapper,
@@ -13,19 +16,19 @@ import {
     UserField,
     UserRow,
     Users,
+    H2,
 } from './Account.style';
-import { SettingsTab } from '../SettingsTab/SettingsTab';
-import { tabs } from '../SettingsTab/SettingsTab.data';
 
 export type AccountProps = {
     me: IUser;
     users: IUsers;
+    children: React.ReactNode;
 };
 
 export function Account(props: AccountProps) {
     const { me, users } = props;
-
     const { displayName = '', email, photoURL } = me;
+    const { t } = useLanguage();
 
     function renderUser(user: IUser) {
         const { displayName = '', email, photoURL, role } = user;
@@ -69,6 +72,9 @@ export function Account(props: AccountProps) {
             <Content>
                 <Column></Column>
                 <Column>
+                    <H2>{t('Basic Info')}</H2>
+                    {props.children}
+                    <H2>{t('Users')}</H2>
                     <Users>{renderUsers()}</Users>
                 </Column>
             </Content>

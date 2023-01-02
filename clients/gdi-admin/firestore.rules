@@ -12,6 +12,11 @@ service cloud.firestore {
     function isCurrentUser(uid) {
       return uid == request.auth.uid;
     }
+      
+    match /serviceHandshakes/{document=**}  {
+      allow get: if true;
+      allow write: if isAdmin();
+    }
     
     match /singles/{document=**}  {
       allow read: if isPublic() || isAdmin();

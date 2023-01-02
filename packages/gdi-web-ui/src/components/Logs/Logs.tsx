@@ -15,8 +15,15 @@ import {
 } from './Logs.style';
 import classnames from 'classnames';
 
+type LogItem = Json & {
+    id: string;
+    timestamp: string;
+    timestampText: string;
+    eventId: string;
+};
+
 export type LogsProps = {
-    items: Json[];
+    items: LogItem[];
     flavour?: 'small' | 'large';
     showData?: boolean;
     showStatus?: boolean;
@@ -67,6 +74,7 @@ export function Logs(props: LogsProps) {
         delete dataWithoutMeta['timestamp'];
         delete dataWithoutMeta['timestampText'];
         delete dataWithoutMeta['eventId'];
+        delete dataWithoutMeta['isRunning'];
 
         function renderStatus() {
             const className = classnames(result, {

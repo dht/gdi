@@ -2,6 +2,7 @@ import React from 'react';
 
 const AccountContainer = React.lazy(() => import('../containers/AccountContainer')); // prettier-ignore
 const ActiveAppsContainer = React.lazy(() => import('../containers/ActiveAppsContainer')); // prettier-ignore
+const ActiveServicesContainer = React.lazy(() => import('../containers/ActiveServicesContainer')); // prettier-ignore
 const SettingsContainer = React.lazy(() => import('../containers/SettingsContainer')); // prettier-ignore
 const SitePropertiesContainer = React.lazy(() => import('../containers/SitePropertiesContainer')); // prettier-ignore
 
@@ -14,6 +15,7 @@ export enum SettingsWidgets {
     SiteProperties = 'settings.SiteProperties',
     Account = 'settings.Account',
     ActiveApps = 'settings.ActiveApps',
+    ActiveServices = 'settings.ActiveServices',
 }
 export const widgets: IWidget[] = [
     {
@@ -76,6 +78,22 @@ export const widgets: IWidget[] = [
             <Wrapper
                 appId={APP_ID}
                 component={ActiveAppsContainer}
+                props={props}
+            />
+        ),
+    },
+    {
+        id: SettingsWidgets.ActiveServices,
+        name: 'ActiveServices',
+        description: 'ActiveServices',
+        defaultDimension: {
+            y: 16,
+            x: 12,
+        },
+        component: (props: any) => (
+            <Wrapper
+                appId={APP_ID}
+                component={ActiveServicesContainer}
                 props={props}
             />
         ),

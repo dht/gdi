@@ -46,18 +46,21 @@ export function SideMenuContainer(_props: SideMenuContainerProps) {
     const onUserMenuClick = useCallback((actionId: string) => {
         switch (actionId) {
             case 'account':
-                dispatch({ type: 'NAVIGATE_EXTERNAL', path: '/account' });
+                dispatch({ type: 'NAVIGATE_EXTERNAL', path: '/admin/account' });
                 break;
             case 'apps':
-                dispatch({ type: 'NAVIGATE_EXTERNAL', path: '/apps' });
+                dispatch({ type: 'NAVIGATE_EXTERNAL', path: '/admin/apps' });
                 break;
             case 'settings':
-                dispatch({ type: 'NAVIGATE_EXTERNAL', path: '/settings' });
+                dispatch({
+                    type: 'NAVIGATE_EXTERNAL',
+                    path: '/admin/settings',
+                });
                 break;
             case 'connectDevice':
                 dispatch({
                     type: 'NAVIGATE_EXTERNAL',
-                    path: '/connect-device',
+                    path: '/admin/connect-device',
                 });
                 break;
             case 'logout':

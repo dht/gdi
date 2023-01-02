@@ -14,8 +14,10 @@
     "workspaces": [
         "apps/*",
         "clients/*",
-        "extra/stores/*",
         "extra/apps/*",
+        "extra/stores/*",
+        "extra/services/*",
+        "extra/services/*/server",
         "packages/*",
         "servers/*",
         "stores/*",

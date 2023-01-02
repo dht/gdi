@@ -20,7 +20,7 @@ export const initLanguage = () => {
 
     if (typeof initMethod !== 'function') {
         console.log(`No init method for language ${languageCode}`);
-        return;
+        return 'en';
     }
 
     initMethod();

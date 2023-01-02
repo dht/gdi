@@ -13,3 +13,6 @@
 [submodule "submodules/igrid"]
 	path = submodules/igrid
 	url = git@github.com:dht/igrid
+[submodule "submodules/axios-oauth"]
+	path = submodules/axios-oauth
+	url = git@github.com:dht/axios-oauth.git

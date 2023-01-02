@@ -4,6 +4,7 @@ import { LabelSize } from '../../types';
 export const Wrapper = styled.div`
     flex: 1;
     position: relative;
+    z-index: 1;
 `;
 
 export const LabelValue = styled.label`

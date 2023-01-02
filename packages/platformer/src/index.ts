@@ -28,6 +28,12 @@ export { BootstrapContainer as Bootstrap } from './components/Bootstrap/Bootstra
 export { CurrentIdsHoc } from './components/Bootstrap/Bootstrap.currentIds';
 export { firebase } from './utils/firebase';
 export { Sleeve as Wrapper } from './components/Sleeve/Sleeve';
+export { ServiceSleeve as ServiceWrapper } from './components/ServiceSleeve/ServiceSleeve';
 
 export { useCrudDefinitions } from './hooks/useCrudDefinitions';
 export { initDemo, getDemoConfig } from './utils/demo';
+export { ServiceContextProvider } from './core/Service.context';
+export {
+    serviceRegisterSuccessChannel,
+    serviceRegisterErrorChannel,
+} from './sagas/channels/channel.serviceLifecycle';

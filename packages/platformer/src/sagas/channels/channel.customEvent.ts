@@ -4,7 +4,7 @@ import { eventChannel } from 'redux-saga';
 export function customEventChannel(type: string) {
     return eventChannel((emitter) => {
         function callback(data: Json) {
-            emitter(data);
+            emitter(data ?? {});
         }
 
         const removeListener = addListener(type, callback);

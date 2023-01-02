@@ -1,0 +1,7 @@
+.DS_Store
+.depcheck
+node_modules
+dist
+coverage
+server/config/serviceAccountKey.json
+server/.env

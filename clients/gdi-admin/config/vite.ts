@@ -11,6 +11,7 @@ export const alias = {
     '@gdi/app-dashboard': `${cwd}/apps/app-dashboard/src`,
 
     '@gdi/store-auth': `${cwd}/stores/gdi-store-auth/src`,
+    '@gdi/store-business': `${cwd}/stores/gdi-store-business/src`,
     '@gdi/store-mixer': `${cwd}/stores/gdi-store-mixer/src`,
     '@gdi/store-site': `${cwd}/stores/gdi-store-site/src`,
     '@gdi/store-factory': `${cwd}/stores/gdi-store-factory/src`,
@@ -68,6 +69,12 @@ export const alias = {
     '@gdi/store-things': `${cwd}/extra/stores/gdi-store-things/src`,
     '@gdi/store-voice': `${cwd}/extra/stores/gdi-store-voice/src`,
 
+    '@gdi/service-google-sync': `${cwd}/extra/services/service-googleSync/src`,
+    '@gdi/service-freelancers': `${cwd}/extra/services/service-freelancers/src`,
+    '@gdi/service-guidance': `${cwd}/extra/services/service-guidance/src`,
+    '@gdi/service-level-up': `${cwd}/extra/services/service-levelUp/src`,
+
+    'axios-oauth': `${cwd}/submodules/axios-oauth/src`,
     'redux-connected': `${cwd}/submodules/redux-connected/src`,
     'shared-base': `${cwd}/submodules/shared-base/src`,
     '@gdi/language': `${cwd}/packages/gdi-language/src`,

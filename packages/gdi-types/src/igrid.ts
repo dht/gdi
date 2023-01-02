@@ -45,6 +45,7 @@ declare global {
         hideHeader?: boolean;
         isTransparent?: boolean;
         allowOverflow?: boolean;
+        selfPosition?: boolean;
         flavour?: string;
         isHidden?: boolean;
         isFullPage?: boolean;

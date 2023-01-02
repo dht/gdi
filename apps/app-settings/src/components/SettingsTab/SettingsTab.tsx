@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
-import { invokeEvent } from 'shared-base';
-import { Wrapper, Tab } from './SettingsTab.style';
+import React, { useMemo } from 'react';
 import classnames from 'classnames';
+import { invokeEvent } from 'shared-base';
+import { Tab, Wrapper } from './SettingsTab.style';
+import { useLanguage } from '@gdi/language';
 
 export type TabData = {
     id: string;
@@ -16,6 +17,11 @@ export type SettingsTabProps = {
 
 export function SettingsTab(props: SettingsTabProps) {
     const { tabs, selectedTabId } = props;
+    const { tj } = useLanguage();
+
+    const tabsTranslated = useMemo(() => {
+        return tj(tabs);
+    }, [tabs]);
 
     function onClick(tab: TabData) {
         invokeEvent('navigate', { path: tab.pathName });
@@ -40,7 +46,7 @@ export function SettingsTab(props: SettingsTabProps) {
     }
 
     function renderTabs() {
-        return tabs.map((tab: TabData) => renderTab(tab));
+        return tabsTranslated.map((tab: TabData) => renderTab(tab));
     }
 
     return (

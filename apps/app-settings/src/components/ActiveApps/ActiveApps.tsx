@@ -1,5 +1,10 @@
 import React, { useCallback } from 'react';
-import { Avatar, TrianglesBk, Toggle } from '@gdi/web-ui';
+import bytes from 'bytes';
+import { Avatar, Toggle, TrianglesBk } from '@gdi/web-ui';
+import { SettingsTab } from '../SettingsTab/SettingsTab';
+import { tabs } from '../SettingsTab/SettingsTab.data';
+import { useLanguage } from '@gdi/language';
+import { useLocalStorage, useToggle } from 'react-use';
 import {
     Column,
     Wrapper,
@@ -20,11 +25,6 @@ import {
     Flags,
     Version,
 } from './ActiveApps.style';
-import { SettingsTab } from '../SettingsTab/SettingsTab';
-import { tabs } from '../SettingsTab/SettingsTab.data';
-
-import bytes from 'bytes';
-import { useLocalStorage, useToggle } from 'react-use';
 
 const ACTIVE_APPS_LOCAL_STORAGE_KEY = 'active-apps';
 
@@ -40,6 +40,7 @@ export function ActiveApps(props: ActiveAppsProps) {
     const { me, activeApps, stats, templatesMeta } = props;
     const { count, totalSize: allAppsSize } = stats;
     const [toggleAll, setToggleAll] = useToggle(false);
+    const { t } = useLanguage();
 
     const { displayName = '', photoURL } = me;
 
@@ -139,7 +140,9 @@ export function ActiveApps(props: ActiveAppsProps) {
                             name={displayName}
                         />
                         <Me>
-                            <TotalCount>{count} apps</TotalCount>
+                            <TotalCount>
+                                {count} {t('apps')}
+                            </TotalCount>
                             <TotalSize>{bytes(allAppsSize)}</TotalSize>
                         </Me>
                         <SettingsWrapper>

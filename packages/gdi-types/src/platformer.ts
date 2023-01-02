@@ -87,10 +87,7 @@ declare global {
         metaBuilder: IMetaBuilder;
     };
 
-    export type SapBuilders = {
-        storeBuilder: IStoreBuilder;
-        selectorsBuilder: ISelectorsBuilder;
-    };
+    export type SapBuilders = AppBuilders & {};
 
     export type InitAppMethod = (
         builders: AppBuilders,
@@ -174,6 +171,7 @@ declare global {
         firebaseConfigs: IFirebaseConfig[];
         initializers: Record<string, InitAppMethod>;
         activeApps: string[];
+        activeSaps: string[];
         menuSections: string[];
         languageCode: LanguageIso;
         isRtl: boolean;
@@ -280,6 +278,7 @@ declare global {
         responsive?: boolean;
         icon?: string;
         appId?: string;
+        showOnStart?: boolean;
     };
 
     export type ICommandBarItem = {
@@ -360,4 +359,23 @@ declare global {
         | 'tutorial_begin'
         | 'tutorial_complete'
         | string;
+
+    export type IServiceConfig = {
+        serviceId: string;
+        serviceName: string;
+        description: string;
+        imageUrl: string;
+        apiUrl: string;
+        $status: (state: any) => ServiceStatus;
+        patchStatus: (status: ServiceStatus) => Action;
+    };
+
+    export type IServiceState = IServiceConfig & {};
+
+    export type ServiceStatus =
+        | 'INITIAL'
+        | 'HANDSHAKING'
+        | 'FETCHING_DATA'
+        | 'READY'
+        | 'REFRESHING_DATA';
 }

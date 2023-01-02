@@ -1,0 +1,30 @@
+id: BusinessInfo
+header: Business Info
+layout:
+    flavour: singleColumn
+    width: 300
+    padding: 0
+    labelSize: compact
+groups:
+    - id: basic
+      layoutColumnIndex: 0
+fields:
+    - id: businessName
+      fieldType: text
+      placeholder: Business name
+      label: Business name
+      groupId: basic
+    - id: category
+      fieldType: select
+      placeholder: Business domain
+      label: Category
+      groupId: basic
+      optionSelector: $businessDomains
+    - id: city
+      fieldType: select
+      placeholder: City
+      label: Location
+      groupId: basic
+      optionSelector: $cities
+submit:
+    title: Save Business Info

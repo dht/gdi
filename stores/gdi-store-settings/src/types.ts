@@ -26,3 +26,15 @@ export type IActiveAppsStats = {
     totalNodeCount: number;
     totalSize: number;
 };
+
+export type IActiveService = IActiveApp & {
+    apiUrl: string;
+    apiToken?: string;
+    refreshToken?: string;
+};
+
+export type IActiveServicesStats = {
+    count: number;
+    totalNodeCount: number;
+    totalSize: number;
+};

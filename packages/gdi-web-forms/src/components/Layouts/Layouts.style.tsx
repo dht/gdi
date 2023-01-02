@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div<{ width?: number }>`
+export const Wrapper = styled.div<{ width?: number; padding?: number }>`
     flex: 1;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     width: ${(props) => (props.width ? props.width + 'px' : 'auto')};
-    padding: 10px;
+    padding: ${(props) => props.padding ?? 0}px;
 
     @media (max-width: 768px) {
         flex-direction: column;

@@ -18,6 +18,14 @@ export const instances: IWidgetInstancesByPageList = {
             dimension: { y: 48, x: 88 },
         },
     ],
+    activeServices: [
+        {
+            id: 'activeServices',
+            widgetId: SettingsWidgets.ActiveServices,
+            position: { y: 1, x: 10 },
+            dimension: { y: 48, x: 88 },
+        },
+    ],
     settings: [
         {
             id: 'settings',

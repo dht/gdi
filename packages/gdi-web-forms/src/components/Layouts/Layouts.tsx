@@ -34,6 +34,7 @@ export function LayoutSingleColumn(props: LayoutProps) {
             className='Layouts-wrapper'
             data-testid='Layouts-wrapper'
             width={width}
+            padding={padding}
         >
             {renderColumn(0)}
         </Wrapper>

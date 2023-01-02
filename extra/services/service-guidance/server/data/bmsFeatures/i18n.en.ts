@@ -1,0 +1,16 @@
+export default {
+    tasks: 'Tasks',
+    tasksDescription: 'Manage your tasks',
+    blog: 'Blog',
+    blogDescription: 'Write a blog about your business domain',
+    contacts: 'Contacts',
+    contactsDescription: 'Manage your contacts',
+    sales: 'Sales',
+    salesDescription: 'Manage leads and sales',
+    money: 'Money',
+    moneyDescription: 'Manage your income and expenses',
+    store: 'Store',
+    storeDescription: 'Sell your products online',
+    website: 'Website',
+    websiteDescription: 'Build a website for your business',
+};
