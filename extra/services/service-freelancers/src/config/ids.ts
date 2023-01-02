@@ -1,2 +1,2 @@
 export const APP_ID = 'freelancers';
-export const ROOT = `/admin/${APP_ID}`;
+export const ROOT = '/admin/services';

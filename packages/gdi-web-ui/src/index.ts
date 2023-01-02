@@ -13,7 +13,6 @@ export { KeyboardShortcuts } from './components/KeyboardShortcuts/KeyboardShortc
 export { KeyboardHint } from './components/KeyboardHint/KeyboardHint';
 export { Layouts } from './components/Layouts/Layouts';
 export { LibrarySelector } from './components/LibrarySelector/LibrarySelector';
-export { Lifecycle } from './components/Lifecycle/Lifecycle';
 export { MarkDown } from './components/MarkDown/MarkDown';
 export { MessageModal } from './components/MessageModal/MessageModal';
 export { OAuthPopup } from './components/OAuthPopup/OAuthPopup';
@@ -23,7 +22,9 @@ export { SidePanel } from './components/SidePanel/SidePanel';
 export { Sort } from './components/Sort/Sort';
 export { Snoozer } from './components/Snoozer/Snoozer';
 export { Stopwatch } from './components/Stopwatch/Stopwatch';
+export { Logs } from './components/Logs/Logs';
 export { LogsConsole } from './components/LogsConsole/LogsConsole';
+export { LogsLifecycle } from './components/LogsLifecycle/LogsLifecycle';
 export { LogsSystem } from './components/LogsSystem/LogsSystem';
 export { Switcher } from './components/Switcher/Switcher';
 export { TypeView } from './components/TypeView/TypeView';

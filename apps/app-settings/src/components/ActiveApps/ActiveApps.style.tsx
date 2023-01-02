@@ -130,7 +130,7 @@ export const Color = styled.div<{ value: string }>`
 export const SettingsWrapper = styled.div`
     position: absolute;
     ${(props) => props.theme.left('500px')}
-    top: 18px;
+    top: 14px;
 `;
 
 export const ToggleWrapper = styled.div`

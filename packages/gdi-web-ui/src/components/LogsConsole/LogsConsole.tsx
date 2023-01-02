@@ -5,10 +5,11 @@ import Logs from '../Logs/Logs';
 
 export type LogsConsoleProps = {
     items: Json[];
+    showData?: boolean;
 };
 
 export function LogsConsole(props: LogsConsoleProps) {
-    const { items = [] } = props;
+    const { items = [], showData } = props;
 
     const itemsSorted = useMemo(() => {
         return items.sort(sortBy('id'));
@@ -19,7 +20,12 @@ export function LogsConsole(props: LogsConsoleProps) {
             className='LogsConsole-wrapper'
             data-testid='LogsConsole-wrapper'
         >
-            <Logs flavour='large' items={itemsSorted} showStatus={true} />
+            <Logs
+                flavour='large'
+                items={itemsSorted}
+                showStatus={true}
+                showData={showData}
+            />
         </Wrapper>
     );
 }

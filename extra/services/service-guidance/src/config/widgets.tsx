@@ -1,5 +1,6 @@
 import React from 'react';
-import { IWidget, Wrapper } from '@gdi/platformer';
+import { IWidget, ServiceWrapper } from '@gdi/platformer';
+import { serviceConfig } from './service';
 import { APP_ID } from './ids';
 
 const GuidanceContainer =  React.lazy(() => import('../containers/GuidanceContainer')); // prettier-ignore
@@ -18,9 +19,10 @@ export const widgets: IWidget[] = [
         },
 
         component: (props: any) => (
-            <Wrapper
+            <ServiceWrapper
                 appId={APP_ID}
                 component={GuidanceContainer}
+                serviceConfig={serviceConfig}
                 props={props}
             />
         ),

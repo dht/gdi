@@ -1,0 +1,16 @@
+export default {
+  tasks: "משימות",
+  blog: "בלוג",
+  contacts: "אנשי קשר",
+  sales: "מכירות",
+  money: "כֶּסֶף",
+  store: "חנות",
+  website: "אתר אינטרנט",
+  tasksDescription: "נהל את המשימות שלך",
+  blogDescription: "כתוב בלוג על התחום העסקי שלך",
+  contactsDescription: "נהל את אנשי הקשר שלך",
+  salesDescription: "ניהול לידים ומכירות",
+  moneyDescription: "נהל את ההכנסות וההוצאות שלך",
+  storeDescription: "מכור את המוצרים שלך באינטרנט",
+  websiteDescription: "בנה אתר לעסק שלך",
+};

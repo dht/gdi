@@ -14,6 +14,7 @@ export const Tab = styled.div`
     white-space: nowrap;
     font-size: 20px;
     border: 1px solid transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
 
     &:hover {

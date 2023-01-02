@@ -1,0 +1,16 @@
+export default {
+  tasks: "Taken",
+  blog: "bloggen",
+  contacts: "Contacten",
+  sales: "verkoop",
+  money: "Geld",
+  store: "Op te slaan",
+  website: "Website",
+  tasksDescription: "Beheer uw taken",
+  blogDescription: "Schrijf een blog over uw zakelijke domein",
+  contactsDescription: "Beheer uw contacten",
+  salesDescription: "Leads en verkopen beheren",
+  moneyDescription: "Beheer uw inkomsten en uitgaven",
+  storeDescription: "Verkoop uw producten online",
+  websiteDescription: "Bouw een website voor uw bedrijf",
+};

@@ -8,7 +8,7 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.upgrades,
-        icon: 'Color',
+        icon: 'TeamFavorite',
         label: 'Freelancers',
         groupId: 'services',
         showOnSlim: false,

@@ -10,6 +10,7 @@ export type ILevelUpStore = StoreStructure & {
 export type ILevelUpState = {
     stateKey: string;
     currentSceneId: string;
+    serviceStatus: ServiceStatus;
 };
 
 export type ILevelUpCategory = {

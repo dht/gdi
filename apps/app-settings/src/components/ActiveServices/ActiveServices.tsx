@@ -1,5 +1,10 @@
 import React, { useCallback } from 'react';
-import { Avatar, TrianglesBk, Toggle } from '@gdi/web-ui';
+import bytes from 'bytes';
+import { Avatar, Toggle, TrianglesBk } from '@gdi/web-ui';
+import { SettingsTab } from '../SettingsTab/SettingsTab';
+import { tabs } from '../SettingsTab/SettingsTab.data';
+import { useLanguage } from '@gdi/language';
+import { useLocalStorage, useToggle } from 'react-use';
 import {
     Column,
     Wrapper,
@@ -20,13 +25,8 @@ import {
     Flags,
     Version,
 } from './ActiveServices.style';
-import { SettingsTab } from '../SettingsTab/SettingsTab';
-import { tabs } from '../SettingsTab/SettingsTab.data';
 
-import bytes from 'bytes';
-import { useLocalStorage, useToggle } from 'react-use';
-
-const ACTIVE_APPS_LOCAL_STORAGE_KEY = 'active-apps';
+const ACTIVE_SERVICES_LOCAL_STORAGE_KEY = 'active-services';
 
 export type ActiveServicesProps = {
     me: IUser;
@@ -40,17 +40,16 @@ export function ActiveServices(props: ActiveServicesProps) {
     const { me, activeServices = [], stats, templatesMeta } = props;
     const { count, totalSize: allServicesSize } = stats;
     const [toggleAll, setToggleAll] = useToggle(false);
-
-    console.log('templatesMeta ->', templatesMeta);
+    const { t } = useLanguage();
 
     const { displayName = '', photoURL } = me;
 
     const [activeState, patchActiveState] = useLocalStorage<
         Record<string, boolean>
-    >(ACTIVE_APPS_LOCAL_STORAGE_KEY, {
-        login: true,
-        mixer: true,
-        settings: true,
+    >(ACTIVE_SERVICES_LOCAL_STORAGE_KEY, {
+        guidance: true,
+        freelancers: true,
+        levelUp: true,
     });
 
     const onToggleAll = useCallback(
@@ -143,7 +142,9 @@ export function ActiveServices(props: ActiveServicesProps) {
                             name={displayName}
                         />
                         <Me>
-                            <TotalCount>{count} apps</TotalCount>
+                            <TotalCount>
+                                {count} {t('services')}
+                            </TotalCount>
                             <TotalSize>{bytes(allServicesSize)}</TotalSize>
                         </Me>
                         <SettingsWrapper>

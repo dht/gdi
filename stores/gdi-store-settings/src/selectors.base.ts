@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { IActiveApp, ISettingsStore } from './types';
+import { IActiveApp, IActiveService } from './types';
 import { sortBy, distinctColors } from 'shared-base';
 
 export const $i = (state: any) => state;
@@ -63,6 +63,66 @@ export const $activeAppsStats = createSelector(
     }
 );
 
+export const $activeServices = createSelector(
+    $i,
+    (state: Json): IActiveService[] => {
+        return Object.values(services)
+            .map((service) => {
+                const { id, nodes, isRequired } = service;
+
+                let nodeCount = 0;
+                let totalSize = 0;
+
+                nodes.forEach((nodeKey) => {
+                    const data = state[nodeKey] || {};
+                    nodeCount += Object.keys(data).length;
+                    totalSize += calcSize(data);
+                });
+
+                const description = '';
+
+                return {
+                    id,
+                    title: id,
+                    nodeCount,
+                    totalSize,
+                    description,
+                    isRequired,
+                } as IActiveService;
+            })
+            .sort(sortBy('title'))
+            .map((activeService: any, index) => {
+                const color = distinctColors[index];
+
+                return {
+                    ...activeService,
+                    color,
+                };
+            });
+    }
+);
+
+export const $activeServicesStats = createSelector(
+    $activeServices,
+    (activeServices: IActiveService[]): IActiveServicesStats => {
+        const count = activeServices.length;
+
+        const totalNodeCount = activeServices.reduce((acc, service) => {
+            return acc + service.nodeCount;
+        }, 0);
+
+        const totalSize = activeServices.reduce((acc, service) => {
+            return acc + service.totalSize;
+        }, 0);
+
+        return {
+            count,
+            totalNodeCount,
+            totalSize,
+        };
+    }
+);
+
 const calcSize = (json: Json) => {
     return JSON.stringify(json).length;
 };
@@ -72,6 +132,8 @@ type App = {
     nodes: string[];
     isRequired?: boolean;
 };
+
+type Service = App;
 
 const apps: Record<string, App> = {
     dashboard: {
@@ -169,5 +231,28 @@ const apps: Record<string, App> = {
     voice: {
         id: 'voice',
         nodes: ['voice'],
+    },
+};
+
+const services: Record<string, Service> = {
+    googleSync: {
+        id: 'googleSync',
+        nodes: ['googleSync'],
+        isRequired: true,
+    },
+    guidance: {
+        id: 'guidance',
+        nodes: ['guidance'],
+        isRequired: true,
+    },
+    freelancers: {
+        id: 'freelancers',
+        nodes: ['freelancers'],
+        isRequired: true,
+    },
+    levelUp: {
+        id: 'levelUp',
+        nodes: ['levelUp'],
+        isRequired: true,
     },
 };

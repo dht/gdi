@@ -2,6 +2,31 @@ import { Configuration, Logger } from '../types';
 
 export let instances: any = {};
 
+export let platformState: IPlatformState = {
+    isReady: false,
+    languageCode: 'en',
+    isRtl: false,
+    routes: {},
+    initialRoute: '',
+    accountName: '',
+    availableAccounts: [],
+    menuItems: [],
+    menuGroups: [],
+    instancesByPage: {},
+    contextBarItems: [],
+    commandBarItems: [],
+    store: null,
+    navigate: null,
+    selectors: {},
+    widgetLibrary: {},
+    i18nKeys: {} as any,
+    pieMenuConfig: {},
+    crudDefinitions: {},
+    templatesMeta: {},
+    analyticsOn: false,
+    demoMode: false,
+};
+
 let logger: Logger = {
     log: (message: string) => console.log(message),
 };
@@ -16,6 +41,14 @@ const defaultConfig: Configuration = {
     autoStartAll: false,
     onError: defaultOnError,
     logger,
+};
+
+export const getPlatformState = () => {
+    return platformState;
+};
+
+export const setPlatformState = (state: Partial<IPlatformState>) => {
+    platformState = state as IPlatformState;
 };
 
 export const config = { ...defaultConfig };

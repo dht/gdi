@@ -10,6 +10,7 @@ export type IFreelancerStore = StoreStructure & {
 export type IFreelancerState = {
     stateKey: string;
     currentUpgradeId: string;
+    serviceStatus: ServiceStatus;
 };
 
 export type IUpgradeCategory = {

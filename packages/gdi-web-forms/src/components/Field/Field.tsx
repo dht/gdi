@@ -489,7 +489,7 @@ export function FieldDataset(props: FieldProps) {
 const map: Record<FieldType, FC<FieldProps>> = {
     checkbox: FieldCheckbox,
     text: FieldInput,
-    choice: FieldDate,
+    choice: FieldDropdown,
     date: FieldDate,
     tags: FieldTags,
     select: FieldDropdown,

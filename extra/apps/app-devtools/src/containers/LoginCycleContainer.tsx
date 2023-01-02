@@ -7,7 +7,7 @@ import {
 } from './LoginCycleContainer.data';
 import { useCustomEvent } from '@gdi/hooks';
 import { useDispatch } from 'react-redux';
-import { Lifecycle } from '@gdi/web-ui';
+import { LogsLifecycle } from '@gdi/web-ui';
 
 type LoginCycleContainerProps = {
     googleClientId: string;
@@ -43,7 +43,7 @@ export const LoginCycleContainer = (props: LoginCycleContainerProps) => {
     }, []);
 
     return (
-        <Lifecycle
+        <LogsLifecycle
             title='Global Login'
             stages={data as any}
             devMode={true}

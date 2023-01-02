@@ -40,6 +40,13 @@ export const contextBarItems: IContextBarItem[] = [
         widgetId: DevtoolsWidgets.LocalDataViewer,
         responsive: true,
     },
+    {
+        id: 'devLogs',
+        label: 'DevLogs Viewer',
+        widgetId: DevtoolsWidgets.DevLogsViewer,
+        responsive: true,
+        showOnStart: true,
+    },
 ];
 
 export const commandBarItems: ICommandBarItem[] = [
@@ -116,6 +123,16 @@ export const commandBarItems: ICommandBarItem[] = [
             type: 'ADD_ITEM_TO_CONTEXT_BAR',
             payload: {
                 contextBarItemId: 'devtools_loginCycle',
+            },
+        },
+    },
+    {
+        id: 'devLogs',
+        label: 'Show DevLogs Viewer',
+        event: {
+            type: 'ADD_ITEM_TO_CONTEXT_BAR',
+            payload: {
+                contextBarItemId: 'devtools_devLogs',
             },
         },
     },

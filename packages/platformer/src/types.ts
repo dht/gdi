@@ -273,6 +273,7 @@ export type IContextBarItem = {
     responsive?: boolean;
     icon?: string;
     appId?: string;
+    showOnStart?: boolean;
 };
 
 export type ICommandBarItem = {
@@ -353,3 +354,23 @@ export type GaId =
     | 'tutorial_begin'
     | 'tutorial_complete'
     | string;
+
+export type IServiceConfig = {
+    serviceId: string;
+    serviceName: string;
+    description: string;
+    imageUrl: string;
+    apiUrl: string;
+    $status: (state: any) => ServiceStatus;
+    patchStatus: (status: ServiceStatus) => Action;
+    connectRootNodes?: string[];
+};
+
+export type IServiceState = IServiceConfig & {};
+
+export type ServiceStatus =
+    | 'INITIAL'
+    | 'REGISTERING'
+    | 'FETCHING_DATA'
+    | 'READY'
+    | 'REFRESHING_DATA';

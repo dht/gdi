@@ -90,3 +90,12 @@ export const SettingsWrapper = styled.div`
     ${(props) => props.theme.left('500px')}
     top: 18px;
 `;
+
+export const H2 = styled.h2`
+    color: #ccd;
+    font-variation-settings: 'wdth' 100, 'wght' 500;
+`;
+
+export const Info = styled.div`
+    margin-left: -10px;
+`;

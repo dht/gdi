@@ -1,5 +1,4 @@
 import { generateReducersForStore } from 'redux-store-generator';
-import { actions } from './actions';
 import { IBusinessStore } from './types';
 import p from '../package.json';
 

@@ -57,6 +57,10 @@ export function useAdhocLogs() {
                 return;
             }
 
+            if (!data.statusText) {
+                delete data.statusText;
+            }
+
             updateAt(index, {
                 ...list[index],
                 timestampEnd: ts(),

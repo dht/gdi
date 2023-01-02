@@ -175,7 +175,7 @@ export const translatePieMenu = (
         const translatedOptions = translateObject(
             keys,
             languageCode,
-            'platform',
+            'platformer',
             options,
             ['text']
         );

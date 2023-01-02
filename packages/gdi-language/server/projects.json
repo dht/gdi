@@ -113,5 +113,30 @@
         "id": "platformer",
         "path": "platformer",
         "i18n": "src/i18n"
+    },
+    "platform": {
+        "id": "platform",
+        "path": "platformer",
+        "i18n": "src/i18n"
+    },
+    "google-sync": {
+        "id": "google-sync",
+        "path": "extra/services/service-google-sync",
+        "i18n": "src/config/i18n"
+    },
+    "guidance": {
+        "id": "guidance",
+        "path": "extra/services/service-guidance",
+        "i18n": "src/config/i18n"
+    },
+    "freelancers": {
+        "id": "freelancers",
+        "path": "extra/services/service-freelancers",
+        "i18n": "src/config/i18n"
+    },
+    "levelUp": {
+        "id": "levelUp",
+        "path": "extra/services/service-levelUp",
+        "i18n": "src/config/i18n"
     }
 }

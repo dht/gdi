@@ -13,6 +13,7 @@ export const initialState: ILevelUpStore = {
     appStateLevelUp: {
         stateKey: 'levelUp',
         currentSceneId: '',
+        serviceStatus: 'INITIAL',
     },
     levelUpCategories: {
         '1': {

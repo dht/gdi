@@ -1,0 +1,61 @@
+{
+    "name": "@gdi/service-base",
+    "version": "0.4.3",
+    "description": "Producer service",
+    "scripts": {
+        "build": "tsc & vite build",
+        "test": "jest",
+        "coverage": "jest --coverage=true",
+        "dev": "ts-node src/index.mock.ts",
+        "watch": "nodemon -x \"npm run dev\""
+    },
+    "dependencies": {
+        "axios": "^1.2.2",
+        "bcrypt": "^5.1.0",
+        "body-parser": "^1.20.1",
+        "cors": "^2.8.5",
+        "express": "^4.18.2",
+        "firebase-admin": "^11.4.1",
+        "firebase-functions": "^4.1.1",
+        "kleur": "^4.1.5",
+        "shared-base": "^0.4.2",
+        "testing-base": "^0.4.2",
+        "uuid": "^9.0.0",
+        "yup": "^0.32.11"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/jest": "^28.1.6",
+        "@types/styled-components": "^5.1.25",
+        "@types/supertest": "^2.0.12",
+        "@vitejs/plugin-react": "^2.0.1",
+        "chance": "^1.1.9",
+        "dotenv-flow": "^3.2.0",
+        "jest": "^28.1.3",
+        "jest-cli": "^28.1.3",
+        "rollup-plugin-analyzer": "^4.0.0",
+        "supertest": "^6.3.3",
+        "ts-jest": "^28.0.7",
+        "types-base": "^0.0.3",
+        "typescript": "^4.7.4",
+        "vite": "^3.0.3",
+        "vite-plugin-dts": "^1.7.1"
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/service-base.umd.js",
+    "module": "./dist/service-base.es.js",
+    "types": "./dist/dts/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/service-base.es.js",
+            "require": "./dist/service-base.umd.js"
+        }
+    },
+    "gdi": {
+        "packageType": "service",
+        "isDraft": true,
+        "isBeta": false
+    }
+}

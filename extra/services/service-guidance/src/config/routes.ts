@@ -7,7 +7,7 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.guidance,
-        icon: 'Color',
+        icon: 'AssessmentGroup',
         label: 'Guidance',
         groupId: 'services',
         showOnSlim: false,

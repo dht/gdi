@@ -7,7 +7,7 @@ export const routes: IRoutes = {
 export const menuItems: IMenuItem[] = [
     {
         path: routes.boosters,
-        icon: 'Color',
+        icon: 'Rocket',
         label: 'LevelUp Shop',
         groupId: 'services',
         showOnSlim: false,

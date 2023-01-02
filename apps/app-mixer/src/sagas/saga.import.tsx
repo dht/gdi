@@ -1,6 +1,6 @@
 import { actions } from '../store';
 import { call, delay, put, takeEvery } from 'saga-ts';
-import { invokeEvent, isEmpty } from 'shared-base';
+import { invokeEvent, isEmpty, log, logStart, logEnd } from 'shared-base';
 import { prompt, toast, ImportExport } from '@gdi/web-ui';
 import axios from 'axios';
 
@@ -65,27 +65,21 @@ function* importSite(action: ActionImportSite) {
         })
     );
 
-    invokeEvent('ADHOC_LOG', {
-        eventId: 'Starting import',
-    });
+    log('Starting import');
 
     for (let key of Object.keys(value2)) {
         const nodeValue = value2[key];
 
         if (singles.includes(key)) {
-            invokeEvent('ADHOC_LOG_START', {
-                eventId: `Importing ${key}`,
-                statusText: 'importing...',
-            });
-
+            logStart(`Importing ${key}`, 'importing...');
             yield put(actions[key].patch(nodeValue));
         } else {
             const ids = Object.keys(nodeValue);
 
-            invokeEvent('ADHOC_LOG_START', {
-                eventId: `Importing ${key}`,
-                statusText: 'importing ' + ids.length + ' items...',
-            });
+            logStart(
+                `Importing ${key}`,
+                'importing ' + ids.length + ' items...'
+            );
 
             for (let id of ids) {
                 const item = nodeValue[id];
@@ -95,11 +89,7 @@ function* importSite(action: ActionImportSite) {
 
         yield delay(100);
 
-        invokeEvent('ADHOC_LOG_END', {
-            eventId: `Importing ${key}`,
-            statusText: 'success',
-            result: 'success',
-        });
+        logEnd(`Importing ${key}`, 'success', 'success');
     }
 
     yield delay(1000);

@@ -33,10 +33,6 @@ export const bootstrapApp = async (
         connectionType,
     } = config;
 
-    const axiosInstance: any = axios.create({
-        baseURL: 'http://localhost:3009',
-    });
-
     const firebaseConfig = getFirebaseConfig(firebaseConfigs);
     const accountName = firebaseConfig.projectId;
     systemEvent('initFirebase', firebaseConfig);
@@ -44,8 +40,7 @@ export const bootstrapApp = async (
 
     const availableAccounts = firebaseConfigs.map((config) => config.projectId);
 
-    await initPlatform<any>(
-        axiosInstance as AxiosInstance,
+    await initPlatform(
         {
             accountName,
             availableAccounts,

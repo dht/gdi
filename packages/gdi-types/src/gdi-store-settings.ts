@@ -32,13 +32,7 @@ declare global {
         totalSize: number;
     };
 
-    export type IActiveService = {
-        id: string;
-        title: string;
-        color: string;
-        description: string;
-        isActive?: boolean;
-        isRequired?: boolean;
+    export type IActiveService = IActiveApp & {
         apiUrl: string;
         apiToken?: string;
         refreshToken?: string;

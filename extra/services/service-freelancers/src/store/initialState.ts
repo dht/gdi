@@ -13,6 +13,7 @@ export const initialState: IFreelancerStore = {
     appStateFreelancer: {
         stateKey: 'freelancer',
         currentUpgradeId: '',
+        serviceStatus: 'INITIAL',
     },
     upgrades: {
         '1': {

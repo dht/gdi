@@ -69,10 +69,12 @@
             "@gdi/store-things": ["extra/stores/gdi-store-things"],
             "@gdi/store-voice": ["extra/stores/gdi-store-voice"],
 
+            "@gdi/service-google-sync": ["extra/services/service-googleSync"],
             "@gdi/service-freelancers": ["extra/services/service-freelancers"],
             "@gdi/service-guidance": ["extra/services/service-guidance"],
             "@gdi/service-level-up": ["extra/services/service-levelUp"],
 
+            "axios-oauth": ["packages/axios-oauth"],
             "@gdi/uno": ["packages/gdi-uno"],
             "redux-connected": ["submodules/redux-connected"],
             "shared-base": ["submodules/shared-base"]

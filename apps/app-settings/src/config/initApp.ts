@@ -1,3 +1,5 @@
+import i18n from './i18n';
+import p from '../../package.json';
 import { APP_ID } from './ids';
 import { appSagas } from '../sagas';
 import { commandBarItems, contextBarItems, menuItems, routes } from './routes';
@@ -7,11 +9,11 @@ import {
     clearState,
     endpointsConfig,
     initialState,
+    initialStateBusiness,
     reducers,
+    reducersBusiness,
     selectors,
 } from '../store';
-import i18n from './i18n';
-import p from '../../package.json';
 
 export const initApp = (
     builders: AppBuilders,
@@ -38,10 +40,14 @@ export const initApp = (
         .withWidgets(widgets);
 
     storeBuilder
-        .withReducers(APP_ID, reducers)
-        .withInitialState(APP_ID, initialState)
+        .withReducers('settings', reducers)
+        .withInitialState('settings', initialState)
         .withSagas(...appSagas)
         .withPostBuildHook(clearState);
+
+    storeBuilder
+        .withReducers('business', reducersBusiness)
+        .withInitialState('business', initialStateBusiness);
 
     i18nBuilder //
         .withKeysByLanguage(APP_ID, i18n);

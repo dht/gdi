@@ -8,7 +8,7 @@ export const tabs: TabData[] = [
     },
     {
         id: 'activeApps',
-        label: 'Active Apps',
+        label: 'Apps',
         pathName: '/admin/apps',
     },
     {

@@ -10,7 +10,6 @@
     "dependencies": {
         "@gdi/engine": "^0.4.2",
         "@gdi/platformer": "^0.4.2",
-        "@gdi/store-guidance": "^0.4.2",
         "@gdi/types": "^0.4.2",
         "@gdi/web-forms": "^0.4.2",
         "@gdi/web-ui": "^0.4.2",
