@@ -4,36 +4,6 @@ export const Wrapper = styled.div`
     flex: 1;
 `;
 
-export const Top = styled.div`
-    height: 25vh;
-    position: relative;
-    display: flex;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-    .fg {
-        background-image: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.9) 10%,
-            rgba(0, 0, 0, 0) 100%
-        );
-    }
-`;
-
-export const Details = styled.div`
-    position: absolute;
-    bottom: -50px;
-    ${(props) => props.theme.left('50px')}
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
-
-export const Me = styled.div`
-    ${(props) => props.theme.marginLeft('40px')}
-    margin-bottom: 15px;
-`;
-
 export const Content = styled.div`
     flex: 1;
     padding: 100px 0;
@@ -47,18 +17,6 @@ export const Column = styled.div`
     &:first-child {
         max-width: 200px;
     }
-`;
-
-export const TotalCount = styled.div`
-    font-size: 40px;
-    margin-bottom: 10px;
-    font-weight: 300;
-`;
-
-export const TotalSize = styled.div`
-    font-size: 20px;
-    font-weight: 200;
-    color: gold;
 `;
 
 export const Services = styled.div`
@@ -125,12 +83,6 @@ export const Color = styled.div<{ value: string }>`
             rgba(255, 255, 255, 0.3) 100%
         );
     }
-`;
-
-export const SettingsWrapper = styled.div`
-    position: absolute;
-    ${(props) => props.theme.left('500px')}
-    top: 18px;
 `;
 
 export const ToggleWrapper = styled.div`

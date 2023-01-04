@@ -1,29 +1,22 @@
 import React, { useCallback } from 'react';
 import bytes from 'bytes';
-import { Avatar, Toggle, TrianglesBk } from '@gdi/web-ui';
-import { SettingsTab } from '../SettingsTab/SettingsTab';
-import { tabs } from '../SettingsTab/SettingsTab.data';
+import { Toggle, TabbedPages } from '@gdi/web-ui';
+import { tabs } from '../../data/data.tabs';
 import { useLanguage } from '@gdi/language';
 import { useLocalStorage, useToggle } from 'react-use';
 import {
     Column,
     Wrapper,
-    Content,
-    Details,
-    TotalSize,
-    Me,
-    TotalCount,
-    Top,
     Color,
     AppField,
     AppRow,
     Apps,
-    SettingsWrapper,
     ToggleWrapper,
     ToggleAll,
     Description,
     Flags,
     Version,
+    Content,
 } from './ActiveApps.style';
 
 const ACTIVE_APPS_LOCAL_STORAGE_KEY = 'active-apps';
@@ -131,43 +124,29 @@ export function ActiveApps(props: ActiveAppsProps) {
             className='ActiveApps-wrapper'
             data-testid='ActiveApps-wrapper'
         >
-            <Top>
-                <TrianglesBk>
-                    <Details>
-                        <Avatar
-                            size={100}
-                            imageUrl={photoURL}
-                            name={displayName}
-                        />
-                        <Me>
-                            <TotalCount>
-                                {count} {t('apps')}
-                            </TotalCount>
-                            <TotalSize>{bytes(allAppsSize)}</TotalSize>
-                        </Me>
-                        <SettingsWrapper>
-                            <SettingsTab
-                                tabs={tabs}
-                                selectedTabId='activeApps'
+            <TabbedPages
+                avatarUrl={photoURL}
+                avatarName={displayName}
+                title={`${count} ${t('apps')}`}
+                subtitle={bytes(allAppsSize)}
+                selectedTabId='activeApps'
+                tabs={tabs}
+            >
+                <Content>
+                    <Column></Column>
+                    <Column>
+                        <ToggleAll>
+                            <Toggle
+                                value={toggleAll}
+                                onChange={(_ev: any, checked?: boolean) =>
+                                    onToggleAll(checked === true)
+                                }
                             />
-                        </SettingsWrapper>
-                    </Details>
-                </TrianglesBk>
-            </Top>
-            <Content>
-                <Column></Column>
-                <Column>
-                    <ToggleAll>
-                        <Toggle
-                            value={toggleAll}
-                            onChange={(_ev: any, checked?: boolean) =>
-                                onToggleAll(checked === true)
-                            }
-                        />
-                    </ToggleAll>
-                    <Apps>{renderApps()}</Apps>
-                </Column>
-            </Content>
+                        </ToggleAll>
+                        <Apps>{renderApps()}</Apps>
+                    </Column>
+                </Content>
+            </TabbedPages>
         </Wrapper>
     );
 }

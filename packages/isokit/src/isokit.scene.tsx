@@ -33,10 +33,10 @@ export const BabylonScene = (props: any) => {
             setScene(scene.current);
 
             if (scene.current.isReady()) {
-                callback();
+                callback(scene.current);
             } else {
                 scene.current.onReadyObservable.addOnce(() => {
-                    callback();
+                    callback(scene.current);
                 });
             }
 

@@ -1,16 +1,19 @@
 import { ROOT } from './ids';
 
 export const routes: IRoutes = {
-    guidance: `${ROOT}/guidance`,
+    guidanceIntro: `${ROOT}/guidance/intro`,
+    guidanceRanking: `${ROOT}/guidance/ranking`,
+    guidanceBusinessInfo: `${ROOT}/guidance/businessInfo`,
+    guidanceFeatures: `${ROOT}/guidance/features`,
 };
 
 export const menuItems: IMenuItem[] = [
     {
-        path: routes.guidance,
+        path: routes.guidanceIntro,
         icon: 'AssessmentGroup',
         label: 'Guidance',
         groupId: 'services',
-        showOnSlim: false,
+        showOnSlim: true,
         order: 0,
     },
 ];

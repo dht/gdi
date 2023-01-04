@@ -1,22 +1,15 @@
 import React from 'react';
-import { Avatar, TrianglesBk } from '@gdi/web-ui';
-import { SettingsTab } from '../SettingsTab/SettingsTab';
-import { tabs } from '../SettingsTab/SettingsTab.data';
+import { Avatar, TabbedPages } from '@gdi/web-ui';
+import { tabs } from '../../data/data.tabs';
 import { useLanguage } from '@gdi/language';
 import {
     Column,
     Wrapper,
-    Content,
-    Details,
-    Email,
-    Me,
-    Name,
-    SettingsWrapper,
-    Top,
     UserField,
     UserRow,
     Users,
     H2,
+    Content,
 } from './Account.style';
 
 export type AccountProps = {
@@ -51,33 +44,24 @@ export function Account(props: AccountProps) {
 
     return (
         <Wrapper className='Account-wrapper' data-testid='Account-wrapper'>
-            <Top>
-                <TrianglesBk>
-                    <Details>
-                        <Avatar
-                            size={100}
-                            imageUrl={photoURL}
-                            name={displayName}
-                        />
-                        <Me>
-                            <Name>{displayName}</Name>
-                            <Email>{email}</Email>
-                        </Me>
-                        <SettingsWrapper>
-                            <SettingsTab tabs={tabs} selectedTabId='account' />
-                        </SettingsWrapper>
-                    </Details>
-                </TrianglesBk>
-            </Top>
-            <Content>
-                <Column></Column>
-                <Column>
-                    <H2>{t('Basic Info')}</H2>
-                    {props.children}
-                    <H2>{t('Users')}</H2>
-                    <Users>{renderUsers()}</Users>
-                </Column>
-            </Content>
+            <TabbedPages
+                avatarUrl={photoURL}
+                avatarName={displayName}
+                title={displayName}
+                subtitle={email}
+                tabs={tabs}
+                selectedTabId='account'
+            >
+                <Content>
+                    <Column></Column>
+                    <Column>
+                        <H2>{t('Basic Info')}</H2>
+                        {props.children}
+                        <H2>{t('Users')}</H2>
+                        <Users>{renderUsers()}</Users>
+                    </Column>
+                </Content>
+            </TabbedPages>
         </Wrapper>
     );
 }

@@ -45,7 +45,7 @@ export const contextBarItems: IContextBarItem[] = [
         label: 'DevLogs Viewer',
         widgetId: DevtoolsWidgets.DevLogsViewer,
         responsive: true,
-        showOnStart: true,
+        showOnStart: false,
     },
 ];
 
