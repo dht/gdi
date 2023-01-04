@@ -1,24 +1,17 @@
 import React, { useCallback } from 'react';
 import bytes from 'bytes';
-import { Avatar, Toggle, TrianglesBk } from '@gdi/web-ui';
-import { SettingsTab } from '../SettingsTab/SettingsTab';
-import { tabs } from '../SettingsTab/SettingsTab.data';
+import { Toggle, TabbedPages } from '@gdi/web-ui';
+import { tabs } from '../../data/data.tabs';
 import { useLanguage } from '@gdi/language';
 import { useLocalStorage, useToggle } from 'react-use';
 import {
     Column,
     Wrapper,
     Content,
-    Details,
-    TotalSize,
-    Me,
-    TotalCount,
-    Top,
     Color,
     ServiceField,
     ServiceRow,
     Services,
-    SettingsWrapper,
     ToggleWrapper,
     ToggleAll,
     Description,
@@ -133,43 +126,29 @@ export function ActiveServices(props: ActiveServicesProps) {
             className='ActiveServices-wrapper'
             data-testid='ActiveServices-wrapper'
         >
-            <Top>
-                <TrianglesBk>
-                    <Details>
-                        <Avatar
-                            size={100}
-                            imageUrl={photoURL}
-                            name={displayName}
-                        />
-                        <Me>
-                            <TotalCount>
-                                {count} {t('services')}
-                            </TotalCount>
-                            <TotalSize>{bytes(allServicesSize)}</TotalSize>
-                        </Me>
-                        <SettingsWrapper>
-                            <SettingsTab
-                                tabs={tabs}
-                                selectedTabId='activeServices'
+            <TabbedPages
+                avatarUrl={photoURL}
+                avatarName={displayName}
+                title={`${count} ${t('services')}`}
+                subtitle={bytes(allServicesSize)}
+                tabs={tabs}
+                selectedTabId='activeServices'
+            >
+                <Content>
+                    <Column></Column>
+                    <Column>
+                        <ToggleAll>
+                            <Toggle
+                                value={toggleAll}
+                                onChange={(_ev: any, checked?: boolean) =>
+                                    onToggleAll(checked === true)
+                                }
                             />
-                        </SettingsWrapper>
-                    </Details>
-                </TrianglesBk>
-            </Top>
-            <Content>
-                <Column></Column>
-                <Column>
-                    <ToggleAll>
-                        <Toggle
-                            value={toggleAll}
-                            onChange={(_ev: any, checked?: boolean) =>
-                                onToggleAll(checked === true)
-                            }
-                        />
-                    </ToggleAll>
-                    <Services>{renderServices()}</Services>
-                </Column>
-            </Content>
+                        </ToggleAll>
+                        <Services>{renderServices()}</Services>
+                    </Column>
+                </Content>
+            </TabbedPages>
         </Wrapper>
     );
 }

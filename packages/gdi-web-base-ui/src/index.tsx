@@ -46,6 +46,7 @@ export { SocialIcons } from './components/SocialIcons/SocialIcons';
 export { SpinButton } from './components/SpinButton/SpinButton';
 export { Spinner } from './components/Spinner/Spinner';
 export { Switch } from './components/Switch/Switch';
+export { Tabs } from './components/Tabs/Tabs';
 export { Tag } from './components/Tag/Tag';
 export { Tags } from './components/Tags/Tags';
 export { TagsInput } from './components/TagsInput/TagsInput';

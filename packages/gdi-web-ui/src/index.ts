@@ -27,6 +27,7 @@ export { LogsConsole } from './components/LogsConsole/LogsConsole';
 export { LogsLifecycle } from './components/LogsLifecycle/LogsLifecycle';
 export { LogsSystem } from './components/LogsSystem/LogsSystem';
 export { Switcher } from './components/Switcher/Switcher';
+export { TabbedPages } from './components/TabbedPages/TabbedPages';
 export { TypeView } from './components/TypeView/TypeView';
 export { Versioning } from './components/Versioning/Versioning';
 export { Weather } from './components/Weather/Weather';

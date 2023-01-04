@@ -1,0 +1,47 @@
+export const board: IBoardConfig = {
+    id: 'w-1',
+    identifier: 'wheel-1',
+    name: 'Wheel',
+    backgroundType: 'transparent',
+    flyIn: {
+        radius: 33,
+        alpha: 0.5,
+        beta: 1,
+        target: [0, 0, 0],
+    },
+    externals: {
+        x1: {
+            id: 'x1',
+            boardId: 'ville',
+            identifier: 'external-1',
+            url: '/wheel.glb',
+        },
+    },
+    cameras: {
+        c1: {
+            id: 'c1',
+            boardId: 'ville',
+            identifier: 'arc-camera-1',
+            type: 'arc',
+            values: {
+                radius: 12,
+                alpha: 0.2,
+                beta: 1,
+                target: [0, 0, 0],
+                lowerRadiusLimit: 0,
+                upperRadiusLimit: 90,
+                lowerBetaLimit: 0,
+                upperBetaLimit: 90,
+            },
+        },
+    },
+    lights: {},
+    microAnimations: {},
+    grounds: {},
+    packs: {},
+    particles: {},
+    sounds: {},
+    sprites: {},
+    videos: {},
+    backgroundValues: {},
+};

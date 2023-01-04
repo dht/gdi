@@ -320,6 +320,7 @@ export const triangleColors = {
         '#1a9850',
         '#006837',
     ],
+    Gdi: ['#A1CE2A', '#FFB358', '#6CCBFA', '#8F98EC', '#F585C3'],
 };
 
 export const allColors = [
@@ -350,6 +351,7 @@ export const allColors = [
     'RdGy',
     'RdYlBu',
     'RdYlGn',
+    'Gdi',
 ].reduce((acc: string[], key: string) => {
     return [...acc, ...(triangleColors as any)[key]];
 }, []);
