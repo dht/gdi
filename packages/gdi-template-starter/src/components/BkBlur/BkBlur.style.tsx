@@ -8,7 +8,6 @@ export const Wrapper = styled.div<{
     background-color: #112;
 
     &::before {
-        border: 10px solid green;
         content: '';
         top: 0;
         left: 0;

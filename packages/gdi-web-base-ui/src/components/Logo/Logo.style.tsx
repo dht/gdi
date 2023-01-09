@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    filter: contrast(1.1) brightness(1.3);
 
     img.logo {
         opacity: 0.9;

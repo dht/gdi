@@ -34,5 +34,4 @@ export const StreetSignWrapper = styled.div`
     position: absolute;
     bottom: 5vh;
     left: 0;
-    border: 1px solid green;
 `;

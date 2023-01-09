@@ -37,17 +37,19 @@ export const items: IHudItem[] = [
     },
 ];
 
+const TS_START = 1000;
+
 export const timeline: ITimeline = [
     {
         id: '1',
         itemId: '1',
-        millis: 100,
+        millis: TS_START + 100,
         visibility: 'APPEAR',
     },
     {
         id: '2',
         itemId: '1',
-        millis: 3100,
+        millis: TS_START + 3100,
         visibility: 'DISAPPEAR',
         cameraPosition: {
             alpha: 1,
@@ -56,13 +58,13 @@ export const timeline: ITimeline = [
     {
         id: '3',
         itemId: '2',
-        millis: 3600,
+        millis: TS_START + 3600,
         visibility: 'APPEAR',
     },
     {
         id: '4',
         itemId: '2',
-        millis: 6600,
+        millis: TS_START + 6600,
         visibility: 'DISAPPEAR',
         cameraPosition: {
             alpha: 0,
@@ -72,13 +74,13 @@ export const timeline: ITimeline = [
     {
         id: '5',
         itemId: '3',
-        millis: 7100,
+        millis: TS_START + 7100,
         visibility: 'APPEAR',
     },
     {
         id: '6',
         itemId: '3',
-        millis: 10100,
+        millis: TS_START + 10100,
         visibility: 'DISAPPEAR',
         cameraPosition: {
             alpha: 0.5,
@@ -88,13 +90,13 @@ export const timeline: ITimeline = [
     {
         id: '7',
         itemId: '4',
-        millis: 10600,
+        millis: TS_START + 10600,
         visibility: 'APPEAR',
     },
     {
         id: '8',
         itemId: '4',
-        millis: 13600,
+        millis: TS_START + 13600,
         visibility: 'DISAPPEAR',
         cameraPosition: {
             alpha: 0,

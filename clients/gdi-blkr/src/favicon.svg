@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <text id="text-1" font-family="Heebo-ExtraBold, Heebo" font-size="244.048114" font-weight="700" fill="#FFFFFF">
+            <tspan x="29.1397084" y="260.459201">g</tspan>
+        </text>
+        <filter x="-44.9%" y="-17.0%" width="202.6%" height="136.8%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="15" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-0" dy="0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.690859921 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+        <text id="text-3" font-family="Heebo-ExtraBold, Heebo" font-size="223.513321" font-weight="700" fill="#FFFFFF">
+            <tspan x="225.223003" y="289.874228">D</tspan>
+        </text>
+        <filter x="-55.7%" y="-18.6%" width="199.1%" height="141.5%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="-15" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.318919362 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-0" dy="0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.690859921 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+        <text id="text-5" font-family="Heebo-ExtraBold, Heebo" font-size="223.513321" font-weight="700" fill="#FFFFFF">
+            <tspan x="400.476858" y="289.874058">I</tspan>
+        </text>
+        <filter x="-101.9%" y="-18.6%" width="294.9%" height="141.5%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="-3" dy="7" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="-0" dy="0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.690859921 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-10" transform="translate(11.561290, 27.880658)">
+            <polygon id="Rectangle" fill="#79AE46" points="-9.14942175e-14 99.310765 72.6245526 99.310765 82.9289708 338.3637 13.5484589 344.652215"></polygon>
+            <polygon id="Rectangle" fill="#79AE46" points="215.393193 217.508955 278.634246 217.508955 282.529255 324.529275 219.163253 330.042705"></polygon>
+            <polygon id="Rectangle" fill="#ECB272" points="282.529255 216.108254 375.071569 212.131127 372.925843 318.837099 284.605564 324.529275"></polygon>
+            <polygon id="Rectangle" fill="#ECB272" points="76.8951786 98.7552616 196.674014 101.709985 198.7241 215.348758 83.7233983 217.508955"></polygon>
+            <polygon id="Rectangle" fill="#79DAD2" points="80.9837805 220.020663 199.02953 220.020663 201.891011 330.509605 88.6071989 337.636562"></polygon>
+            <polygon id="Rectangle" fill="#79DAD2" points="211.300735 97.7328579 278.634246 100.75153 278.634246 215.348758 215.606069 215.348758"></polygon>
+            <polygon id="Rectangle" fill="#CE82D8" points="284.880143 101.709985 378.210714 101.709985 375.071569 209.013836 284.880143 212.131127"></polygon>
+            <polygon id="Rectangle" fill="#CE82D8" points="383.605108 212.163486 476.93568 212.163486 473.796534 312.598657 383.605108 317.481085"></polygon>
+            <polygon id="Rectangle" fill="#6C64C4" points="386.764307 101.709985 480.619355 101.709985 475.35608 209.60401 386.764307 209.60401"></polygon>
+            <g id="g" fill-rule="nonzero" transform="translate(99.089046, 183.959201) rotate(-4.000000) translate(-99.089046, -183.959201) " fill="#FFFFFF" fill-opacity="1">
+                <use filter="url(#filter-2)" xlink:href="#text-1"></use>
+                <use xlink:href="#text-1"></use>
+            </g>
+            <g id="D" fill-rule="nonzero" transform="translate(297.744781, 219.874228) rotate(-2.000000) translate(-297.744781, -219.874228) " fill="#FFFFFF" fill-opacity="1">
+                <use filter="url(#filter-4)" xlink:href="#text-3"></use>
+                <use xlink:href="#text-3"></use>
+            </g>
+            <g id="I" fill-rule="nonzero" fill="#FFFFFF" fill-opacity="1">
+                <use filter="url(#filter-6)" xlink:href="#text-5"></use>
+                <use xlink:href="#text-5"></use>
+            </g>
+        </g>
+    </g>
+</svg>
