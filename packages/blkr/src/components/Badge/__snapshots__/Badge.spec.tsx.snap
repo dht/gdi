@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe geifYo Badge-wrapper"
+  data-testid="Badge-wrapper"
+>
+  <img
+    alt="Staff Pick"
+    className="sc-gswNZR hPwHSK"
+    src="/badge-staff-pick.svg"
+  />
+</div>
+`;

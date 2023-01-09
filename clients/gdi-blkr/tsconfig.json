@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["DOM", "ES2020", "WebWorker"],
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "declaration": true,
+        "declarationDir": "dist/dts",
+        "strict": true,
+        "skipLibCheck": true,
+        "types": ["types-base", "@gdi/types", "@types/jest", "vite/client"],
+        "jsx": "react-jsx",
+        "baseUrl": "../../",
+        "paths": {
+            "@gdi/blkr": ["packages/blkr"],
+            "@gdi/app-mixer": ["apps/app-mixer"],
+            "@gdi/store-auth": ["stores/gdi-store-auth"],
+            "@gdi/store-mixer": ["stores/gdi-store-mixer"],
+            "@gdi/store-site": ["stores/gdi-store-site"],
+            "@gdi/template-starter": ["packages/gdi-template-starter"],
+            "@gdi/web-base-ui": ["packages/gdi-web-base-ui"],
+            "@gdi/web-ui": ["packages/gdi-web-ui"],
+            "@gdi/web-forms": ["packages/gdi-web-forms"],
+            "@gdi/platformer": ["packages/platformer"],
+            "@gdi/engine": ["packages/gdi-engine"],
+            "redux-connected": ["submodules/redux-connected"]
+        }
+    },
+    "include": ["src-admin/*.ts", "test/*.ts"]
+}

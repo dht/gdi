@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PriceTag snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe fpKDIP PriceTag-wrapper"
+  data-testid="PriceTag-wrapper"
+>
+  <div
+    className="sc-dkrFOg dQLGIQ"
+  >
+    $289
+  </div>
+  <div
+    className="sc-gKPRtg hrHVHP"
+  >
+    <div
+      className="sc-hLBbgP hPvJyL"
+    >
+      Only*
+    </div>
+    <div
+      className="sc-eDvSVe cCUvzO"
+    >
+      <i>
+        $
+      </i>
+      185
+      <span>
+        95
+      </span>
+    </div>
+  </div>
+  <div
+    className="sc-jSUZER cEhsfy"
+  >
+    * For early city birds
+  </div>
+</div>
+`;
