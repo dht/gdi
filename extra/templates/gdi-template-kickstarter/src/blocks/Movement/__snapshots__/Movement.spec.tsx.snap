@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movement snapshots should match snapshot 1`] = `
+<div
+  className="sc-dkrFOg cvteVs Movement-wrapper"
+  data-testid="Movement-wrapper"
+>
+  <h1
+    className="sc-hLBbgP jbHgGZ"
+  >
+    Join the movement
+  </h1>
+  <div
+    className="sc-eDvSVe dDvpek"
+  >
+    <span>
+      9,510
+    </span>
+     backers already have their back covered
+  </div>
+  <div
+    className="sc-bcXHqe ButtonCta-wrapper"
+    data-testid="ButtonCta-wrapper"
+  >
+    <img
+      className="sc-gswNZR hKPUND"
+      src="/button-kickstarter.svg"
+    />
+  </div>
+</div>
+`;

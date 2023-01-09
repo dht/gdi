@@ -3,15 +3,10 @@ import React, { useMemo } from 'react';
 import { invokeEvent } from 'shared-base';
 import { Tab, Wrapper } from './Tabs.style';
 import { useLanguage } from '@gdi/language';
-
-export type TabData = {
-    id: string;
-    label: string;
-    pathName: string;
-};
+import { ITabData } from '../../types';
 
 export type TabsProps = {
-    tabs: TabData[];
+    tabs: ITabData[];
     selectedTabId: string;
 };
 
@@ -23,11 +18,11 @@ export function Tabs(props: TabsProps) {
         return tj(tabs);
     }, [tabs]);
 
-    function onClick(tab: TabData) {
+    function onClick(tab: ITabData) {
         invokeEvent('navigate', { path: tab.pathName });
     }
 
-    function renderTab(tab: TabData) {
+    function renderTab(tab: ITabData) {
         const { label } = tab;
 
         const className = classnames('tab', {
@@ -46,7 +41,7 @@ export function Tabs(props: TabsProps) {
     }
 
     function renderTabs() {
-        return tabsTranslated.map((tab: TabData) => renderTab(tab));
+        return tabsTranslated.map((tab: ITabData) => renderTab(tab));
     }
 
     return (

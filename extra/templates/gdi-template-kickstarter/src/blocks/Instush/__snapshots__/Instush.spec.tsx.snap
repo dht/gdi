@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Instush snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe kOCJXX Instush-wrapper"
+  data-testid="Instush-wrapper"
+>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=1"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=2"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=3"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=4"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=5"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=6"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=7"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=8"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=9"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=10"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=11"
+    />
+  </div>
+  <div
+    className="sc-gswNZR hJIhTi item"
+  >
+    <img
+      className="sc-dkrFOg hrwvyO"
+      src="https://picsum.photos/400/400?random=12"
+    />
+  </div>
+</div>
+`;

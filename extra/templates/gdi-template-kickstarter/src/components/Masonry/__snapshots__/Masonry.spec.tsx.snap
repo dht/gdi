@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Masonry snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe iWzEjo Masonry-wrapper"
+  data-testid="Masonry-wrapper"
+>
+  Masonry
+</div>
+`;

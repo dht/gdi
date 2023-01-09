@@ -108,6 +108,20 @@ export const cameraFlyIn = async (values: Json) => {
     });
 };
 
+export function animateCamera(params: Json) {
+    const camera = scene.activeCamera as ArcRotateCamera;
+
+    const { radius, alpha, beta, target } = camera;
+
+    moveCamera(camera, {
+        radius,
+        alpha,
+        beta,
+        target,
+        ...params,
+    });
+}
+
 function moveCamera(camera: ArcRotateCamera, params: Json) {
     const { radius, alpha, beta, target } = params;
 

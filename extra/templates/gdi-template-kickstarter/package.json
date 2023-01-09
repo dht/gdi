@@ -1,0 +1,77 @@
+{
+    "name": "@gdi/template-kickstarter",
+    "version": "0.0.1",
+    "description": "",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build && npm run copy && npm run copy:assets",
+        "copy": "cp -r dist/site/ ../gdi-admin/dist/site/",
+        "copy:assets": "cp -r dist/site/assets/ ../gdi-admin/dist/assets/",
+        "test": "jest",
+        "coverage": "jest --coverage=true"
+    },
+    "private": true,
+    "dependencies": {
+        "@gdi/engine": "^0.4.2",
+        "@gdi/store-site": "^0.4.2",
+        "@gdi/template-card": "^0.4.2",
+        "@gdi/template-gdi": "^0.4.2",
+        "@gdi/template-starter": "^0.4.2",
+        "@gdi/types": "^0.4.3",
+        "@gdi/web-ui": "^0.4.4",
+        "firebaseui": "^6.0.1",
+        "igrid": "^0.4.2",
+        "isokit": "^0.4.4",
+        "prosemirror-commands": "^1.5.0",
+        "prosemirror-dropcursor": "^1.5.0",
+        "prosemirror-gapcursor": "^1.3.1",
+        "prosemirror-history": "^1.3.0",
+        "prosemirror-keymap": "^1.2.0",
+        "prosemirror-schema-list": "^1.2.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^8.0.2",
+        "react-toastify": "^9.0.7",
+        "react-use": "^17.4.0",
+        "redux-connected": "^0.4.2",
+        "saga-ts": "^0.0.3",
+        "styled-components": "^5.3.5",
+        "testing-base": "^0.4.2",
+        "types-base": "^0.0.3"
+    },
+    "devDependencies": {
+        "@testing-library/react": "^13.3.0",
+        "@types/jest": "^28.1.6",
+        "@types/styled-components": "^5.1.25",
+        "@vitejs/plugin-react": "^2.2.0",
+        "chance": "^1.1.9",
+        "dotenv-flow": "^3.2.0",
+        "jest": "^28.1.3",
+        "jest-cli": "^28.1.3",
+        "jest-environment-jsdom": "^29.3.1",
+        "rollup-plugin-visualizer": "^5.8.3",
+        "sass": "^1.54.0",
+        "ts-jest": "^28.0.7",
+        "tslib": "^2.4.0",
+        "typescript": "^4.7.4",
+        "vite": "^3.0.3",
+        "vite-tsconfig-paths": "^3.5.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/gdi-site.umd.js",
+    "module": "./dist/gdi-site.es.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/gdi-site.es.js",
+            "require": "./dist/gdi-site.umd.js"
+        }
+    },
+    "gdi": {
+        "isBeta": true,
+        "isDraft": true,
+        "packageType": "template"
+    }
+}

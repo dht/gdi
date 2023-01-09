@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewTalk snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe hkCVLC ReviewTalk-wrapper"
+  data-testid="ReviewTalk-wrapper"
+>
+  <div
+    className="sc-dkrFOg ecEVSO"
+  >
+    <div
+      className="sc-hLBbgP"
+    >
+      Jason McBright, 
+      <span>
+        29
+      </span>
+    </div>
+    <div
+      className="sc-eDvSVe bFTKQX"
+    >
+      Oklahoma
+    </div>
+  </div>
+  <iframe
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowFullScreen={true}
+    className="sc-gswNZR hdaSAs"
+    frameBorder={0}
+    height={256}
+    src="https://www.youtube.com/embed/O3EplEYzvBY"
+    title="YouTube video player"
+    width={341.3333333333333}
+  />
+  <div
+    className="sc-gKPRtg cHRJrV"
+  >
+    <div
+      className="sc-iBYQkv jAbQtf Stars-wrapper"
+      data-testid="Stars-wrapper"
+    >
+      <img
+        className="sc-ftTHYK jGvIE"
+        src="/stars.png"
+      />
+    </div>
+  </div>
+</div>
+`;

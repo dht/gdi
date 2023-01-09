@@ -15,7 +15,7 @@ import {
 } from './Logs.style';
 import classnames from 'classnames';
 
-type LogItem = Json & {
+export type LogItem = Json & {
     id: string;
     timestamp: string;
     timestampText: string;

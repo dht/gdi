@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stars snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe giHcUI Stars-wrapper"
+  data-testid="Stars-wrapper"
+>
+  <img
+    className="sc-gswNZR clZOqp"
+    src="/stars.png"
+  />
+</div>
+`;

@@ -368,13 +368,14 @@ declare global {
         apiUrl: string;
         $status: (state: any) => ServiceStatus;
         patchStatus: (status: ServiceStatus) => Action;
+        connectRootNodes?: string[];
     };
 
     export type IServiceState = IServiceConfig & {};
 
     export type ServiceStatus =
         | 'INITIAL'
-        | 'HANDSHAKING'
+        | 'REGISTERING'
         | 'FETCHING_DATA'
         | 'READY'
         | 'REFRESHING_DATA';

@@ -18,7 +18,7 @@ export type TabbedPagesProps = {
     avatarUrl: string;
     avatarName: string;
     children: React.ReactNode;
-    tabs: Json[];
+    tabs: ITabData[];
     selectedTabId: string;
     paletteIndex?: number;
     noGradient?: boolean;

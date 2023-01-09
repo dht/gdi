@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroundDivider snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe plZcP GroundDivider-wrapper"
+  data-testid="GroundDivider-wrapper"
+/>
+`;

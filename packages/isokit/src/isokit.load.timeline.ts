@@ -26,7 +26,6 @@ import {
     Color3,
     Mesh,
 } from '@babylonjs/core';
-import { createGraphPart, graphPart } from './meshes/graph';
 import {
     addGraphPart,
     graphPointsToGraphParts,

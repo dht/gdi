@@ -23,7 +23,7 @@ export function LogsSystem(_props: LogsSystemProps) {
                 data-testid='LogsSystem-wrapper'
             >
                 <Header>System Logs</Header>
-                <Logs items={eventsSorted} showData={true} />
+                <Logs items={eventsSorted as any} showData={true} />
             </Wrapper>
         </Cmp>
     );
