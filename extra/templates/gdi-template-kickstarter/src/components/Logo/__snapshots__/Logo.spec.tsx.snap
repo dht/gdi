@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe Logo-wrapper"
+  data-testid="Logo-wrapper"
+>
+  <img
+    className="sc-gswNZR GRepH"
+    height={50}
+    src="/logo.svg"
+  />
+</div>
+`;

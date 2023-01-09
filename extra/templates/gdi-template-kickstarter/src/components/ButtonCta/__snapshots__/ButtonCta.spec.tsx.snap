@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonCta snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe ButtonCta-wrapper"
+  data-testid="ButtonCta-wrapper"
+>
+  <img
+    className="sc-gswNZR hKPUND"
+    src="/button-kickstarter.svg"
+  />
+</div>
+`;

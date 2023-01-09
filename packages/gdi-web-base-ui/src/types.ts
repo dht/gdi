@@ -39,3 +39,9 @@ export type IPoint = {
     x: number;
     y: number;
 };
+
+export type ITabData = {
+    id: string;
+    label: string;
+    pathName: string;
+};

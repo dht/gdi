@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonKickstarter snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe giHcUI ButtonKickstarter-wrapper"
+  data-testid="ButtonKickstarter-wrapper"
+>
+  ButtonKickstarter
+</div>
+`;

@@ -18,6 +18,7 @@
         "extra/stores/*",
         "extra/services/*",
         "extra/services/*/server",
+        "extra/templates/*",
         "packages/*",
         "servers/*",
         "stores/*",

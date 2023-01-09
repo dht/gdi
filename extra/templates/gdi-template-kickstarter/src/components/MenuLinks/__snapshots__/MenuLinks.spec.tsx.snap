@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuLinks snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe ijiIm MenuLinks-wrapper"
+  data-testid="MenuLinks-wrapper"
+>
+  <ul
+    className="sc-gswNZR gplOJJ"
+  >
+    <li
+      className="sc-dkrFOg rmVYm"
+    >
+      <a
+        className="sc-hLBbgP fBLHEp"
+        href="#home"
+      >
+        Customers ❤️
+      </a>
+    </li>
+    <li
+      className="sc-dkrFOg rmVYm"
+    >
+      <a
+        className="sc-hLBbgP fBLHEp"
+        href="#home"
+      >
+        Movement
+      </a>
+    </li>
+    <li
+      className="sc-dkrFOg rmVYm"
+    >
+      <a
+        className="sc-hLBbgP fBLHEp"
+        href="#home"
+      >
+        Dear diary
+      </a>
+    </li>
+    <li
+      className="sc-dkrFOg rmVYm"
+    >
+      <a
+        className="sc-hLBbgP fBLHEp"
+        href="#home"
+      >
+        Contact
+      </a>
+    </li>
+  </ul>
+</div>
+`;

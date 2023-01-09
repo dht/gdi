@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuIcons snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe eNtJIX MenuIcons-wrapper"
+  data-testid="MenuIcons-wrapper"
+>
+  <div
+    className="sc-gswNZR fHsAle"
+  >
+    <i
+      className="material-icons"
+    >
+      image
+    </i>
+  </div>
+  <div
+    className="sc-gswNZR fHsAle"
+  >
+    <i
+      className="material-icons"
+    >
+      tag
+    </i>
+  </div>
+</div>
+`;

@@ -139,6 +139,7 @@ export {
     ImageGallery,
     WidgetGallery,
     VerticalTabs,
+    Masonry,
 } from '@gdi/web-tables';
 
 export { Code, Editor, JsonEditor } from '@gdi/web-editors';

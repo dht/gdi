@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import { Wrapper } from './LogsConsole.style';
 import { sortBy } from 'shared-base';
-import Logs from '../Logs/Logs';
+import Logs, { LogItem } from '../Logs/Logs';
 
 export type LogsConsoleProps = {
-    items: Json[];
+    items: LogItem[];
     showData?: boolean;
 };
 

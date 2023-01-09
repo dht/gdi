@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wdth,wght@75..125,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+html {
+    min-height: 100%;
+    display: flex;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Encode Sans', Courier, monospace;
+    background-color: #334;
+    color: #eee;
+
+    &.rtl {
+        direction: rtl;
+    }
+
+    @media (max-width: 768px) {
+        width: 640px;
+
+        &.no-scroll {
+            max-height: 100vh;
+            overflow: hidden;
+        }
+    }
+}
+
+body,
+#root {
+    display: flex;
+    flex: 1;
+
+    > .theme {
+        display: flex;
+        flex: 1;
+    }
+}
+
+body {
+    overflow-x: hidden;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+input,
+textarea,
+pre {
+    font-family: 'Encode Sans', Courier, monospace;
+}
+
+.instance-wrapper.transparent {
+    border-color: transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
