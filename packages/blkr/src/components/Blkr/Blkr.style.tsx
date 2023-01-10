@@ -72,10 +72,14 @@ export const CtaWrapper = styled.div`
     filter: sepia(0.6) hue-rotate(20deg);
 `;
 
-export const Item = styled.div<{ width: number; height: number }>`
+export const Item = styled.div<{
+    width: number;
+    height: number;
+    paddingLeft: number;
+}>`
     position: absolute;
     top: 0;
-    left: 0;
+    left: ${(props) => props.paddingLeft}px;
     width: ${(props) => props.width}px;
     height: ${(props) => props.width}px;
     transition: transform 0.1s linear;

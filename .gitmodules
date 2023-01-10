@@ -16,3 +16,9 @@
 [submodule "submodules/axios-oauth"]
 	path = submodules/axios-oauth
 	url = git@github.com:dht/axios-oauth.git
+[submodule "submodules/gdi-blocks"]
+	path = submodules/gdi-blocks
+	url = git@github.com:dht/gdi-blocks.git
+[submodule "submodules/gdi-templates"]
+	path = submodules/gdi-templates
+	url = git@github.com:dht/gdi-templates.git

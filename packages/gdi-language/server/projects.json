@@ -138,5 +138,10 @@
         "id": "levelUp",
         "path": "extra/services/service-levelUp",
         "i18n": "src/config/i18n"
+    },
+    "blkr": {
+        "id": "blkr",
+        "path": "extra/services/service-blkr",
+        "i18n": "src/config/i18n"
     }
 }

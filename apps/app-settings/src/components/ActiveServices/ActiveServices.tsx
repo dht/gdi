@@ -43,6 +43,8 @@ export function ActiveServices(props: ActiveServicesProps) {
         guidance: true,
         freelancers: true,
         levelUp: true,
+        googleSync: true,
+        blkr: true,
     });
 
     const onToggleAll = useCallback(

@@ -73,9 +73,11 @@
             "@gdi/service-freelancers": ["extra/services/service-freelancers"],
             "@gdi/service-guidance": ["extra/services/service-guidance"],
             "@gdi/service-level-up": ["extra/services/service-levelUp"],
+            "@gdi/service-blkr": ["extra/services/service-blkr"],
 
             "axios-oauth": ["packages/axios-oauth"],
             "@gdi/uno": ["packages/gdi-uno"],
+            "@gdi/blkr": ["packages/blkr"],
             "redux-connected": ["submodules/redux-connected"],
             "shared-base": ["submodules/shared-base"]
         }

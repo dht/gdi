@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hud snapshots should match snapshot 1`] = `
+<div
+  className="sc-bcXHqe fGPSbS Hud-wrapper"
+  data-testid="Hud-wrapper"
+  style={
+    Object {
+      "minHeight": "700px",
+      "minWidth": "1000px",
+    }
+  }
+>
+  <div
+    className="sc-gswNZR item"
+  >
+    <div
+      className="sc-iBYQkv jaTNcW"
+    >
+      •
+    </div>
+    <div
+      className="sc-jSUZER cVeMwJ"
+      style={
+        Object {
+          "transform": "translate(-50px, 100px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-gKPRtg cFaKNl"
+      style={
+        Object {
+          "bottom": "625px",
+          "right": 200,
+          "transform": "translate(-50px, 100px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-dkrFOg dOTMjZ"
+      style={
+        Object {
+          "maxWidth": "446px",
+          "transform": "translate(-55px, 130px) rotate(-90deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-hLBbgP iPPaLt"
+      style={
+        Object {
+          "bottom": "625px",
+          "left": "50%",
+          "maxWidth": "310px",
+          "transform": "translate(-35px, -25px) rotate(0deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-eDvSVe keBCDf"
+      style={
+        Object {
+          "bottom": 625,
+          "right": 0,
+        }
+      }
+    >
+      Argonomic back system1
+    </div>
+  </div>
+  <div
+    className="sc-gswNZR item"
+  >
+    <div
+      className="sc-iBYQkv jaTNcW"
+    >
+      •
+    </div>
+    <div
+      className="sc-jSUZER cVeMwJ"
+      style={
+        Object {
+          "transform": "translate(-100px, -100px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-gKPRtg cFaKNl"
+      style={
+        Object {
+          "bottom": "625px",
+          "left": 200,
+          "transform": "translate(-100px, -100px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-dkrFOg dOTMjZ"
+      style={
+        Object {
+          "maxWidth": "246px",
+          "transform": "translate(-105px, -70px) rotate(-90deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-hLBbgP iPPaLt"
+      style={
+        Object {
+          "bottom": "625px",
+          "left": "50%",
+          "maxWidth": "360px",
+          "transform": "translate(-85px, -25px) rotate(-180deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-eDvSVe keBCDf"
+      style={
+        Object {
+          "bottom": 625,
+          "left": 0,
+        }
+      }
+    >
+      Durable materials2
+    </div>
+  </div>
+  <div
+    className="sc-gswNZR item"
+  >
+    <div
+      className="sc-iBYQkv jaTNcW"
+    >
+      •
+    </div>
+    <div
+      className="sc-jSUZER cVeMwJ"
+      style={
+        Object {
+          "transform": "translate(40px, -60px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-gKPRtg cFaKNl"
+      style={
+        Object {
+          "bottom": "0px",
+          "left": 200,
+          "transform": "translate(40px, -60px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-dkrFOg dOTMjZ"
+      style={
+        Object {
+          "maxWidth": "286px",
+          "transform": "translate(35px, -30px) rotate(90deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-hLBbgP iPPaLt"
+      style={
+        Object {
+          "bottom": "0px",
+          "left": "50%",
+          "maxWidth": "220px",
+          "transform": "translate(55px, -25px) rotate(-180deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-eDvSVe keBCDf"
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+        }
+      }
+    >
+      Argonomic back system3
+    </div>
+  </div>
+  <div
+    className="sc-gswNZR item"
+  >
+    <div
+      className="sc-iBYQkv jaTNcW"
+    >
+      •
+    </div>
+    <div
+      className="sc-jSUZER cVeMwJ"
+      style={
+        Object {
+          "transform": "translate(130px, 170px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-gKPRtg cFaKNl"
+      style={
+        Object {
+          "bottom": "-6.938893903907228e-14px",
+          "right": 200,
+          "transform": "translate(130px, 170px)",
+        }
+      }
+    >
+      •
+    </div>
+    <div
+      className="sc-dkrFOg dOTMjZ"
+      style={
+        Object {
+          "maxWidth": "516px",
+          "transform": "translate(125px, 200px) rotate(90deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-hLBbgP iPPaLt"
+      style={
+        Object {
+          "bottom": "-6.938893903907228e-14px",
+          "left": "50%",
+          "maxWidth": "130px",
+          "transform": "translate(145px, -25px) rotate(0deg)",
+        }
+      }
+    >
+      ------------------------------------------------------------------------------------------
+    </div>
+    <div
+      className="sc-eDvSVe keBCDf"
+      style={
+        Object {
+          "bottom": -6.938893903907228e-14,
+          "right": 0,
+        }
+      }
+    >
+      Durable materials4
+    </div>
+  </div>
+</div>
+`;

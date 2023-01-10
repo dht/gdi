@@ -18,9 +18,12 @@ import BottomBar from '../BottomBar/BottomBar';
 import SideBar from '../SideBar/SideBar';
 import { useWindowSize } from 'react-use';
 
-export type BlkrProps = {};
+export type BlkrProps = {
+    paddingLeft?: number;
+};
 
-export function Blkr(_props: BlkrProps) {
+export function Blkr(props: BlkrProps) {
+    const { paddingLeft = 0 } = props;
     const { width, height } = useWindowSize();
 
     const [items, { next }] = useBlkr({
@@ -38,11 +41,12 @@ export function Blkr(_props: BlkrProps) {
 
         return (
             <Item
-                width={width - 200}
+                width={width - 200 - paddingLeft}
                 height={height - 100}
                 key={item.id}
                 className={className}
                 style={style}
+                paddingLeft={paddingLeft}
             >
                 item {item.id} ({position})
             </Item>
