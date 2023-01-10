@@ -25,7 +25,14 @@ const ACTIVE_SERVICES_LOCAL_STORAGE_KEY = 'active-services';
 const requiredApps = ['login', 'mixer', 'settings'];
 let activeApps = getArray(ACTIVE_APPS_LOCAL_STORAGE_KEY, requiredApps);
 
-const requiredServices = ['googleSync', 'guidance', 'freelancers', 'levelUp'];
+const requiredServices = [
+    'googleSync',
+    'guidance',
+    'freelancers',
+    'levelUp',
+    'blkr',
+];
+
 let activeSaps = getArray(ACTIVE_SERVICES_LOCAL_STORAGE_KEY, requiredServices); // prettier-ignore
 
 if (demoConfig.on) {

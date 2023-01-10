@@ -1,8 +1,12 @@
 import React, { useMemo } from 'react';
 import Blkr from '../components/Blkr/Blkr';
 
-export type BlkrContainerProps = {};
+export type BlkrContainerProps = {
+    paddingLeft?: number;
+};
 
 export const BlkrContainer = (props: BlkrContainerProps) => {
-    return <Blkr />;
+    const { paddingLeft } = props;
+
+    return <Blkr paddingLeft={paddingLeft} />;
 };

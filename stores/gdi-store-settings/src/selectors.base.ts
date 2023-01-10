@@ -255,4 +255,9 @@ const services: Record<string, Service> = {
         nodes: ['levelUp'],
         isRequired: true,
     },
+    blkr: {
+        id: 'blkr',
+        nodes: ['blkr'],
+        isRequired: true,
+    },
 };

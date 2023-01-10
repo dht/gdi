@@ -73,11 +73,13 @@ export const alias = {
     '@gdi/service-freelancers': `${cwd}/extra/services/service-freelancers/src`,
     '@gdi/service-guidance': `${cwd}/extra/services/service-guidance/src`,
     '@gdi/service-level-up': `${cwd}/extra/services/service-levelUp/src`,
+    '@gdi/service-blkr': `${cwd}/extra/services/service-blkr/src`,
 
     'axios-oauth': `${cwd}/submodules/axios-oauth/src`,
     'redux-connected': `${cwd}/submodules/redux-connected/src`,
     'shared-base': `${cwd}/submodules/shared-base/src`,
     '@gdi/language': `${cwd}/packages/gdi-language/src`,
     '@gdi/uno': `${cwd}/packages/gdi-uno/src`,
+    '@gdi/blkr': `${cwd}/packages/blkr/src`,
     ...aliasExtra,
 };
