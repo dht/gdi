@@ -1,0 +1,10 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "resolveJsonModule": true
+    }
+  }
+}

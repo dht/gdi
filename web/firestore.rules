@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {  	
+    function isAdmin() {
+      return get(/databases/$(database)/documents/roles/$(request.auth.uid)).data.role == "admin";
+    }
+
+    function isCurrentUser(uid) {
+      return uid == request.auth.uid;
+    }
+    
+    match /playbacks/{document=**}  {
+      allow read: if true;
+    }
+    
+    match /users/{uid}/{document=**} {
+      allow read: if isCurrentUser(uid);
+      allow write: if isCurrentUser(uid);
+    }
+
+    match /userData/{uid}/{document=**} {
+      allow read: if isCurrentUser(uid);
+      allow write: if isCurrentUser(uid);
+    }
+
+    match /{document=**} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+  }
+}

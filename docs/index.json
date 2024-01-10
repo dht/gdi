@@ -1,0 +1,202 @@
+{
+  "categories": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "order": 1
+    },
+    {
+      "id": "installation",
+      "title": "Installation",
+      "order": 2
+    },
+    {
+      "id": "boards",
+      "title": "Boards",
+      "order": 3
+    },
+    {
+      "id": "flows",
+      "title": "Flows",
+      "order": 4
+    },
+    {
+      "id": "data",
+      "title": "Data",
+      "order": 5
+    },
+    {
+      "id": "application-logic",
+      "title": "Application logic",
+      "order": 6
+    },
+    {
+      "id": "future",
+      "title": "Future",
+      "order": 7
+    },
+    {
+      "id": "references",
+      "title": "References",
+      "order": 8
+    }
+  ],
+  "docs": [
+    {
+      "fileName": "introduction.md",
+      "path": "boards/introduction.md",
+      "category": "boards",
+      "title": "Introduction"
+    },
+    {
+      "fileName": "data-types.md",
+      "path": "boards/data-types.md",
+      "category": "boards",
+      "title": "Data types"
+    },
+    {
+      "fileName": "layout.md",
+      "path": "boards/layout.md",
+      "category": "boards",
+      "title": "Layout & Widgets"
+    },
+    {
+      "fileName": "board-types.md",
+      "path": "boards/board-types.md",
+      "category": "boards",
+      "title": "Types of boards"
+    },
+    {
+      "fileName": "introduction.md",
+      "path": "flows/introduction.md",
+      "category": "flows",
+      "title": "Introduction"
+    },
+    {
+      "fileName": "flow-runs.md",
+      "path": "flows/flow-runs.md",
+      "category": "flows",
+      "title": "Flow runs"
+    },
+    {
+      "fileName": "about.md",
+      "path": "introduction/about.md",
+      "category": "introduction",
+      "title": "About"
+    },
+    {
+      "fileName": "architecture.md",
+      "path": "introduction/architecture.md",
+      "category": "introduction",
+      "title": "Architecture"
+    },
+    {
+      "fileName": "hosting.md",
+      "path": "hosting/hosting.md",
+      "category": "hosting",
+      "title": "Hosting"
+    },
+    {
+      "fileName": "installation.md",
+      "path": "installation/installation.md",
+      "category": "installation",
+      "title": "Installation"
+    },
+    {
+      "fileName": "core-entities.md",
+      "path": "introduction/core-entities.md",
+      "category": "introduction",
+      "title": "Core entities"
+    },
+    {
+      "fileName": "principles.md",
+      "path": "introduction/principles.md",
+      "category": "introduction",
+      "title": "Principles"
+    },
+    {
+      "fileName": "prompt-bar.md",
+      "path": "introduction/prompt-bar.md",
+      "category": "introduction",
+      "title": "Prompt bar"
+    },
+    {
+      "fileName": "world-view.md",
+      "path": "references/world-view.md",
+      "category": "references",
+      "title": "World view"
+    },
+    {
+      "fileName": "introduction.md",
+      "path": "future/introduction.md",
+      "category": "future",
+      "title": "Introduction"
+    },
+    {
+      "fileName": "agents.md",
+      "path": "future/agents.md",
+      "category": "future",
+      "title": "AI Agents"
+    },
+    {
+      "fileName": "vision-pro.md",
+      "path": "future/vision-pro.md",
+      "category": "future",
+      "title": "Vision Pro & AR"
+    },
+    {
+      "fileName": "IoT.md",
+      "path": "future/IoT.md",
+      "category": "future",
+      "title": "Internet of Things"
+    },
+    {
+      "fileName": "smart-watches.md",
+      "path": "future/smart-watches.md",
+      "category": "future",
+      "title": "Smart watches"
+    },
+    {
+      "fileName": "wearables.md",
+      "path": "future/wearables.md",
+      "category": "future",
+      "title": "Other wearables"
+    },
+    {
+      "fileName": "introduction.md",
+      "path": "data/introduction.md",
+      "category": "data",
+      "title": "Introduction"
+    },
+    {
+      "fileName": "base-store.md",
+      "path": "data/base-store.md",
+      "category": "data",
+      "title": "Base store"
+    },
+    {
+      "fileName": "iso-store.md",
+      "path": "data/iso-store.md",
+      "category": "data",
+      "title": "Iso store"
+    },
+    {
+      "fileName": "extending-store.md",
+      "path": "data/extending-store.md",
+      "category": "data",
+      "title": "Creating stores"
+    },
+    {
+      "fileName": "introduction.md",
+      "path": "application-logic/introduction.md",
+      "category": "application-logic",
+      "title": "Introduction"
+    },
+    {
+      "fileName": "side-effect-management.md",
+      "path": "application-logic/side-effect-management.md",
+      "category": "application-logic",
+      "title": "Side effects"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+.ActionBar-container {
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(30, 30, 30, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: fixed;
+}
+.ActionBar-container .header {
+    background-color: #111;
+    height: 20px;
+}
+.ActionBar-container .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 5px 8px;
+}
+.ActionBar-container .Icon-container {
+    margin: 0 7px;
+}
+
+.Divider-container {
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 25px 25px;
+    background-color: #223;
+    width: 100%;
+}
+
+.Drawer-container {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 200ms ease-in-out;
+}
+
+.Grid-container {
+    --background: #fafafa;
+    --grid: rgba(30, 0, 0, 0.03);
+    --gridEdit: rgba(30, 0, 0, 0.15);
+    --instance: #fff;
+    --instanceBorder: #ddd;
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, calc((100vw - 50px) / 120));
+    grid-template-rows: repeat(auto-fill, 2.0833333333vh);
+    max-height: 100vh;
+    background-color: var(--background);
+    background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: calc((100vw - 277px) / 60) 2.0833333333vh;
+}
+.Grid-container.dark {
+    --background: #232332;
+    --grid: rgba(255, 255, 255, 0.05);
+    --gridEdit: rgba(255, 255, 255, 0.1);
+    --instance: rgba(21, 21, 32, 0.8);
+    --instanceBorder: #223;
+}
+.Grid-container.fullPageMode {
+    display: block;
+    max-height: none;
+}
+.Grid-container.edit {
+    background-image: linear-gradient(var(--gridEdit) 1px, transparent 1px),
+        linear-gradient(90deg, var(--gridEdit) 1px, transparent 1px);
+}
+.Grid-container > div {
+    border-radius: 2px;
+}
+.Grid-container > .Instance-container,
+.Grid-container > .InstanceEdit-container {
+    background-color: var(--instance);
+    border: 1px solid var(--instanceBorder);
+    border-radius: 16px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #223;
+    box-shadow: 0 0 23px 3px rgba(0, 0, 0, 0.15),
+        inset 2px 2px 10px 4px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+.Grid-container > .area {
+    pointer-events: none;
+    transition: opacity 100ms ease-in-out;
+}
+
+.Grid-container .library {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 290px;
+    height: 300px;
+    pointer-events: none;
+}
+.Grid-container .library > div {
+    pointer-events: all;
+}
+
+.Instance-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    transform: scale(0);
+    opacity: 0;
+}
+.Instance-container > .content {
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.Instance-container > .content.overflow {
+    overflow-y: visible;
+    overflow-x: visible;
+}
+.Instance-container > .content::-webkit-scrollbar {
+    width: 0px;
+}
+.Instance-container > .content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #aaa;
+    border-radius: 10px;
+}
+.Instance-container > .content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.Instance-container.transparent {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    border-color: transparent;
+}
+.Instance-container.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.InstanceEdit-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+.InstanceEdit-container.hideHeader .InstanceHeader-container {
+    position: absolute;
+    left: 0;
+    top: -20px;
+    height: 20px;
+    min-width: 150px;
+    background-color: #112;
+    border: 1px solid #223;
+    border-bottom: none;
+}
+.InstanceEdit-container > .content {
+    flex: 1;
+    display: flex;
+    overflow-y: auto;
+}
+.InstanceEdit-container > .content::-webkit-scrollbar {
+    width: 8px;
+}
+.InstanceEdit-container > .content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #555;
+    border-radius: 10px;
+}
+.InstanceEdit-container > .content::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 10px;
+}
+
+.InstanceHeader-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #aaa;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px solid #223;
+    padding: 3px 6px;
+}
+.InstanceHeader-container .title {
+    flex: 1;
+}
+.InstanceHeader-container > .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.WidgetTag-container {
+    color: #777;
+    background-color: rgba(20, 20, 30, 0.9);
+    border: 1px solid #444444;
+    border-radius: 0 5px 5px 0;
+    font-weight: bold;
+    padding: 3px 12px 3px 8px;
+    position: absolute;
+    top: 350px;
+    left: -11px;
+}
+.WidgetTag-container:after {
+    content: ' ';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -11px;
+    left: -1px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid rgba(10, 10, 10, 0.8);
+    border-left: 10px solid transparent;
+}
+
+.WidgetLibrary-container {
+    background-color: var(--background);
+    border: 1px solid #555;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+}
+.WidgetLibrary-container .header {
+    background-color: var(--background);
+    border-bottom: 1px solid #555;
+    height: 26px;
+    color: #666;
+    padding: 3px 10px;
+}
+
+.WidgetRow-container {
+    color: #eee;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.WidgetRow-container .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.WidgetRow-container:nth-child(2n-1) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.WidgetRow-container:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.WidgetRow-container.selected {
+    background-color: rgba(255, 221, 159, 0.15);
+}
+.WidgetRow-container .name {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.WidgetRow-container .description {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 12px;
+}
+.WidgetRow-container .dimensions {
+    color: gold;
+    font-size: 11px;
+}
+
+/*# sourceMappingURL=index.css.map */

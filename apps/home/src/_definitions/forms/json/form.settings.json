@@ -1,0 +1,43 @@
+{
+  "id": "Settings",
+  "header": "Settings",
+  "layout": {
+    "flavour": "singleColumn",
+    "width": 780,
+    "labelSize": "base",
+    "maxContentHeight": "70vh"
+  },
+  "groups": [
+    {
+      "id": "basic",
+      "layoutColumnIndex": 0
+    }
+  ],
+  "fields": [
+    {
+      "id": "skipBoardIntro",
+      "fieldType": "checkbox",
+      "placeholder": "Skip board intro",
+      "label": "Skip board intro",
+      "groupId": "basic"
+    },
+    {
+      "id": "skipBoardDetails",
+      "fieldType": "checkbox",
+      "placeholder": "Skip board details",
+      "label": "Skip board details",
+      "groupId": "basic"
+    },
+    {
+      "id": "allowSfx",
+      "fieldType": "checkbox",
+      "placeholder": "Allow sound effects",
+      "label": "Allow sound effects",
+      "groupId": "basic"
+    }
+  ],
+  "submit": {
+    "title": "Save settings",
+    "iconName": "Save"
+  }
+}

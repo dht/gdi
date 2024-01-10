@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ES2020",
+    "module": "ES2022",
+    "lib": ["dom", "ES2020"],
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationDir": "dist/dts",
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["types-base", "@gdi/types", "@types/jest"],
+    "baseUrl": "../../",
+    "paths": {
+      "@gdi/ui": ["packages/gdi-ui"],
+      "igrid": ["packages/igrid"],
+      "isokit2": ["packages/isokit2"],
+      "shared-base": ["packages/shared-base"],
+      "widgets": ["packages/widgets"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["src/**.*.spec.tsx"]
+}

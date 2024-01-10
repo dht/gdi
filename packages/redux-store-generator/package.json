@@ -1,0 +1,44 @@
+{
+    "name": "redux-store-generator",
+    "version": "0.9.90",
+    "license": "GPL-3.0",
+    "description": "auto-generates a redux store",
+    "scripts": {
+        "build": "tsc & vite build",
+        "test": "jest",
+        "watch": "nodemon -x \"npm run build\""
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "author": "",
+    "devDependencies": {
+        "@jest/types": "^28.0.0",
+        "@types/chance": "^1.1.1",
+        "@types/jest": "^28.1.6",
+        "chance": "^1.1.7",
+        "jest": "^28.0.0",
+        "jest-cli": "^28.0.0",
+        "rollup-plugin-analyzer": "^4.0.0",
+        "shared-base": "^0.0.34",
+        "ts-jest": "^28.0.0",
+        "typescript": "^4.7.4",
+        "vite": "^4.3.9",
+        "vite-plugin-dts": "^1.7.1"
+    },
+    "dependencies": {
+        "reselect": "^4.1.6"
+    },
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/redux-store-generator.umd.js",
+    "module": "./dist/redux-store-generator.es.js",
+    "types": "./dist/dts/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/redux-store-generator.es.js",
+            "require": "./dist/redux-store-generator.umd.js"
+        }
+    }
+}

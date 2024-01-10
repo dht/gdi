@@ -1,0 +1,1 @@
+that helps the developers create new JSON collections given the entity's name and fields and number of items needed. It keeps the items in the same structure and can also expand the collection with new fields given the instruction.

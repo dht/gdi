@@ -1,0 +1,39 @@
+{
+  "$ref": "#/definitions/IFirebaseConfig",
+  "definitions": {
+    "IFirebaseConfig": {
+      "type": "object",
+      "properties": {
+        "apiKey": {
+          "type": "string"
+        },
+        "authDomain": {
+          "type": "string"
+        },
+        "projectId": {
+          "type": "string"
+        },
+        "storageBucket": {
+          "type": "string"
+        },
+        "messagingSenderId": {
+          "type": "string"
+        },
+        "appId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "apiKey",
+        "appId",
+        "authDomain",
+        "messagingSenderId",
+        "projectId",
+        "storageBucket"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
+}

@@ -1,0 +1,96 @@
+{
+  "categories": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "flowType": "multiple",
+      "order": 1
+    },
+    {
+      "id": "installation",
+      "title": "Installation",
+      "flowType": "multiple",
+      "order": 2
+    },
+    {
+      "id": "adapters",
+      "title": "Adapters",
+      "flowType": "multiple",
+      "order": 3
+    },
+    {
+      "id": "hosting",
+      "title": "Hosting",
+      "flowType": "multiple",
+      "order": 4
+    }
+  ],
+  "docs": [
+    {
+      "fileName": "_docs.json",
+      "path": "adapters/_docs.json",
+      "category": "adapters",
+      "title": ""
+    },
+    {
+      "fileName": "database.md",
+      "path": "adapters/database.md",
+      "category": "adapters",
+      "title": "Database"
+    },
+    {
+      "fileName": "playback.md",
+      "path": "adapters/playback.md",
+      "category": "adapters",
+      "title": "Playback"
+    },
+    {
+      "fileName": "prompt.md",
+      "path": "adapters/prompt.md",
+      "category": "adapters",
+      "title": "Prompt"
+    },
+    {
+      "fileName": "_docs.json",
+      "path": "hosting/_docs.json",
+      "category": "hosting",
+      "title": ""
+    },
+    {
+      "fileName": "hosting.md",
+      "path": "hosting/hosting.md",
+      "category": "hosting",
+      "title": "Hosting"
+    },
+    {
+      "fileName": "_docs.json",
+      "path": "installation/_docs.json",
+      "category": "installation",
+      "title": ""
+    },
+    {
+      "fileName": "installation.md",
+      "path": "installation/installation.md",
+      "category": "installation",
+      "title": "Installation"
+    },
+    {
+      "fileName": "_docs.json",
+      "path": "introduction/_docs.json",
+      "category": "introduction",
+      "title": ""
+    },
+    {
+      "fileName": "core-concepts.md",
+      "path": "introduction/core-concepts.md",
+      "category": "introduction",
+      "title": "Core concepts"
+    },
+    {
+      "fileName": "introduction.md",
+      "path": "introduction/introduction.md",
+      "category": "introduction",
+      "title": "Introduction"
+    }
+  ]
+}

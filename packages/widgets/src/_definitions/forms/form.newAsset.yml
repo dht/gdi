@@ -1,0 +1,26 @@
+id: NewAsset
+header: NewAsset
+layout:
+  flavour: singleColumn
+  width: 480
+  labelSize: base
+  maxContentHeight: 70vh
+groups:
+  - id: basic
+    layoutColumnIndex: 0
+fields:
+  - id: assetUrl
+    fieldType: text
+    placeholder: Enter a valid URL
+    label: Asset's URL
+    groupId: basic
+    isRequired: true
+  - id: fileName
+    fieldType: text
+    placeholder: File name
+    label: File name
+    groupId: basic
+    isRequired: true
+submit:
+  title: Create Asset
+  iconName: Save

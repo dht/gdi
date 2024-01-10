@@ -1,0 +1,33 @@
+web:
+  adapters:
+    - boardAdapter: {}
+    - flowAdapter: {}
+    - dbAdapter: {}
+board:
+  id: c-022
+  boardInfo: ''
+  adapters:
+    - boardAdapter: {}
+    - flowAdapter: {}
+    - dbAdapter: {}
+  setups: []
+  siblings: []
+  dependencies: []
+  elements:
+    - flow: {}
+    - sixty: {}
+assets:
+  board: {}
+  example: {}
+packages:
+  widgets: {}
+  isokit: {}
+data:
+  redux:
+    appState: {}
+    items: {}
+    io: {}
+  mid-connected: {}
+adapters:
+  collection: ['localStorage', 'fireStore', 'rest', 'json']
+  io: ['cli', 'bridge', 'direct']

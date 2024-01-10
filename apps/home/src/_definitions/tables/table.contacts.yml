@@ -1,0 +1,36 @@
+id: Contacts
+fields:
+  - id: name
+    title: Name
+    cellType: name
+    mapFields: { icon: entityIcon, value: name }
+    width: 200
+    isPinned: true
+    params: { noTooltip: true }
+rowActions:
+  - id: edit
+    title: Edit
+    tooltip: Edit contact
+    isMain: true
+  - id: delete
+    iconName: Trash
+    title: Delete
+sort:
+  defaultField: dateCreated
+  defaultDirection: desc
+misc:
+  actionType: CONTACT
+  actionsWidth: 130
+features:
+  withNew: false
+  withPagination: true
+  withSort: true
+  withSearch: true
+pagination:
+  itemsPerPage: 100
+emptyState:
+  iconName: contact
+  description: Create a new contact
+  ctaButton: Create a new contact
+  ctaActionId: new
+  searchEmpty: No contactts found

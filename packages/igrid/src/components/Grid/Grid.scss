@@ -1,0 +1,24 @@
+$width: 100vw;
+
+.Grid-container {
+  --background: #fafafa;
+  --grid: rgba(30, 0, 0, 0.03);
+  --gridEdit: rgba(30, 0, 0, 0.15);
+  --instance: #fff;
+  --instanceBorder: #ddd;
+
+  &.dark {
+    --background: #232332;
+    --grid: rgba(255, 255, 255, 0.05);
+    --gridEdit: rgba(255, 255, 255, 0.1);
+    --instance: rgba(21, 21, 32, 0.8);
+    --instanceBorder: #223;
+  }
+
+  flex: 1;
+  display: grid;
+  max-height: 100vh;
+  background-color: var(--background);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+}

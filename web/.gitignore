@@ -1,0 +1,15 @@
+.DS_Store
+.depcheck
+node_modules/
+dist/
+coverage/
+public/*.mp3
+docs/slack.md
+server/.env
+gdi.code-workspace
+docs/ideas.md
+.env
+har/
+.todos/
+stats.html
+scripts/output/

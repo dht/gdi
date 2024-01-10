@@ -1,0 +1,26 @@
+{
+  "cSpell.words": [
+    "Antoni",
+    "IPSV",
+    "isokit",
+    "IVASP",
+    "lottiefiles",
+    "midtones",
+    "Multitrack",
+    "skybox",
+    "todos",
+    "unlisten",
+    "vasp",
+    "vasps",
+    "Wavesurfer",
+    "xpaths"
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true
+  }
+}

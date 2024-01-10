@@ -1,0 +1,38 @@
+{
+  "name": "gdi-root",
+  "version": "0.0.1",
+  "license": "GPL-3.0",
+  "private": true,
+  "workspaces": [
+    "web",
+    "packages/*",
+    "tools/*",
+    "packages/*/scripts",
+    "web/scripts",
+    "web/functions",
+    "apps/*",
+    "scripts"
+  ],
+  "scripts": {
+    "dev": "npm run start:dev",
+    "start": "npm run start:dev",
+    "start:dev": "npm run -w web start:dev",
+    "start:staging": "npm run -w web start:staging",
+    "start:prod": "npm run -w web start:prod",
+    "serve:docs": "./scripts/serveDocs.sh",
+    "sync:boards": "ts-node ./scripts/sync-boards.ts",
+    "sync:forms": "ts-node ./scripts/yaml.ts",
+    "build": "npm run -w web build",
+    "preview": "npm run -w web preview",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "sh ./scripts/pre-commit-prevent-large-files.sh"
+    }
+  },
+  "dependencies": {}
+}

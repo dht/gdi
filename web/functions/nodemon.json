@@ -1,0 +1,11 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules", "**/node_modules", "src/_playground/data"],
+  "verbose": true,
+  "events": {},
+  "watch": ["src"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts"
+}

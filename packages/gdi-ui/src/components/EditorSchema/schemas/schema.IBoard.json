@@ -1,0 +1,299 @@
+{
+  "$ref": "#/definitions/IBoard",
+  "definitions": {
+    "IBoard": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "boardInfo": {
+          "$ref": "#/definitions/IBoardInfo"
+        },
+        "setupsUrl": {
+          "type": "string"
+        },
+        "playbacks": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            ".*": {
+              "$ref": "#/definitions/IPlayback"
+            }
+          }
+        },
+        "playbacksUrl": {
+          "type": "string"
+        },
+        "siblings": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            ".*": {
+              "$ref": "#/definitions/ISibling"
+            }
+          }
+        },
+        "dependencies": {
+          "$ref": "#/definitions/Json"
+        },
+        "elements": {
+          "type": "object",
+          "properties": {
+            "default": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/IDefault"
+                }
+              }
+            },
+            "mobile": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/IMobile"
+                }
+              }
+            },
+            "tablet": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/ITablet"
+                }
+              }
+            },
+            "720p": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/I720p"
+                }
+              }
+            },
+            "HD": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/IHD"
+                }
+              }
+            },
+            "HD+": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/IHD+"
+                }
+              }
+            },
+            "1080p": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/I1080p"
+                }
+              }
+            },
+            "2k": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/I2k"
+                }
+              }
+            },
+            "4k": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/I4k"
+                }
+              }
+            },
+            "8k": {
+              "type": "object",
+              "additionalProperties": false,
+              "patternProperties": {
+                ".*": {
+                  "$ref": "#/definitions/I8k"
+                }
+              }
+            }
+          },
+          "required": ["default"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["boardInfo", "dependencies", "elements", "id"],
+      "additionalProperties": false
+    },
+    "IBoardInfo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InfoField"
+          }
+        },
+        "isPlayback": {
+          "type": "boolean"
+        },
+        "showIntro": {
+          "type": "boolean"
+        },
+        "sourceUrl": {
+          "type": "string"
+        }
+      },
+      "required": ["description", "fields", "imageUrl", "isPlayback", "name", "showIntro"],
+      "additionalProperties": false
+    },
+    "InfoField": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": ["content", "label"],
+      "additionalProperties": false
+    },
+    "AdapterType": {
+      "enum": ["AI-RUNNER", "FIRESTORE", "REST", "STATIC"],
+      "type": "string"
+    },
+    "IPlayback": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        }
+      },
+      "required": ["id", "name", "requestId"],
+      "additionalProperties": false
+    },
+    "Json": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "IElement": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "widgetId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "position": {
+          "$ref": "#/definitions/ICoordinates"
+        },
+        "dimension": {
+          "$ref": "#/definitions/IDimension"
+        },
+        "boardId": {
+          "type": "string"
+        },
+        "flavour": {
+          "type": "string"
+        },
+        "flags": {
+          "$ref": "#/definitions/IElementFlags"
+        },
+        "props": {
+          "$ref": "#/definitions/Json"
+        },
+        "state": {
+          "$ref": "#/definitions/Json"
+        }
+      },
+      "required": ["id", "widgetId"],
+      "additionalProperties": false
+    },
+    "ICoordinates": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false
+    },
+    "IDimension": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      },
+      "required": ["x", "y"],
+      "additionalProperties": false
+    },
+    "IElementFlags": {
+      "type": "object",
+      "properties": {
+        "hideHeader": {
+          "type": "boolean"
+        },
+        "isTransparent": {
+          "type": "boolean"
+        },
+        "allowOverflow": {
+          "type": "boolean"
+        },
+        "isFullPage": {
+          "type": "boolean"
+        },
+        "isFloating": {
+          "type": "boolean"
+        },
+        "isHidden": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
+}

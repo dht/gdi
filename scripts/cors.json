@@ -1,0 +1,7 @@
+[
+  {
+    "origin": ["https://usegdi.com"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]

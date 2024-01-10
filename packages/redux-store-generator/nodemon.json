@@ -1,0 +1,17 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        ".git",
+        "node_modules",
+        "**/node_modules",
+        "src/index.ts",
+        "src/index.scss"
+    ],
+    "verbose": true,
+    "events": {},
+    "watch": ["src"],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "ts"
+}

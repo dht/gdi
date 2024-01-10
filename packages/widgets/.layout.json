@@ -1,0 +1,6 @@
+{
+  "web": {
+    "path": "src/usegdi/starter",
+    "template": "react"
+  }
+}

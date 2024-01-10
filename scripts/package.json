@@ -1,0 +1,31 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "license": "GPL-3.0",
+  "description": "",
+  "main": "downloadRequests.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "firebase-admin": "^11.9.0",
+    "fs-extra": "^11.1.1",
+    "lodash": "^4.17.21",
+    "openai": "^3.3.0",
+    "sharp": "^0.32.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.16",
+    "@types/glob": "^8.1.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/json-server": "^0.14.7",
+    "cors": "^2.8.5",
+    "glob": "^10.3.10",
+    "js-yaml": "^4.1.0",
+    "json-server": "^0.17.4"
+  }
+}

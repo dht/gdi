@@ -1,0 +1,40 @@
+{
+  "$ref": "#/definitions/IAdapter",
+  "definitions": {
+    "IAdapter": {
+      "type": "object",
+      "properties": {
+        "providerType": {
+          "$ref": "#/definitions/AdapterType"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "port": {
+          "type": "number"
+        },
+        "paths": {
+          "type": "object",
+          "properties": {
+            "create": {
+              "type": "string"
+            },
+            "logs": {
+              "type": "string"
+            }
+          },
+          "required": ["create", "logs"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["providerType", "baseUrl", "paths", "port"],
+      "additionalProperties": false
+    },
+    "AdapterType": {
+      "enum": ["AI-RUNNER", "FIRESTORE", "REST", "STATIC"],
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
+}

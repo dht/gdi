@@ -1,0 +1,19 @@
+id: NewBoard
+header: NewBoard
+layout:
+  flavour: singleColumn
+  width: 780
+  labelSize: base
+  maxContentHeight: 70vh
+groups:
+  - id: basic
+    layoutColumnIndex: 0
+fields:
+  - id: boardUrl
+    fieldType: text
+    placeholder: Enter the Github URL of the board's definition
+    label: Board's URL
+    groupId: basic
+submit:
+  title: Submit board
+  iconName: Save

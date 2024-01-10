@@ -1,0 +1,13 @@
+{
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS",
+            "allowSyntheticDefaultImports": true,
+            "resolveJsonModule": true,
+            "moduleResolution": "node"
+        }
+    },
+    "compilerOptions": {
+        "skipLibCheck": true
+    }
+}

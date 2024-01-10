@@ -1,0 +1,163 @@
+{
+  "$ref": "#/definitions/INode",
+  "definitions": {
+    "INode": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "nodeType": {
+          "$ref": "#/definitions/NodeType"
+        },
+        "label": {
+          "type": "string"
+        },
+        "promptTemplate": {
+          "type": "object",
+          "properties": {
+            "content": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "content"
+          ],
+          "additionalProperties": false
+        },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "$ref": "#/definitions/AgentMode"
+            },
+            "system": {
+              "type": "string"
+            },
+            "includeContext": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "mode",
+            "system"
+          ],
+          "additionalProperties": false
+        },
+        "model": {
+          "type": "object",
+          "properties": {
+            "modelType": {
+              "type": "string",
+              "const": "openAI"
+            },
+            "modelName": {
+              "type": "string"
+            },
+            "temperature": {
+              "type": "number"
+            },
+            "maxTokens": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "modelName",
+            "modelType"
+          ],
+          "additionalProperties": false
+        },
+        "api": {
+          "type": "object",
+          "properties": {
+            "apiType": {
+              "$ref": "#/definitions/ApiType"
+            },
+            "formatInput": {
+              "$ref": "#/definitions/ApiFormatInput"
+            }
+          },
+          "required": [
+            "apiType",
+            "formatInput"
+          ],
+          "additionalProperties": false
+        },
+        "position": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "x",
+            "y"
+          ],
+          "additionalProperties": false
+        },
+        "connectors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "price": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "tokensCount": {
+          "type": "number"
+        },
+        "isRunning": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "connectors",
+        "id",
+        "label",
+        "nodeType",
+        "position"
+      ],
+      "additionalProperties": false
+    },
+    "NodeType": {
+      "enum": [
+        "api",
+        "llm",
+        "outcome"
+      ],
+      "type": "string"
+    },
+    "AgentMode": {
+      "enum": [
+        "continues",
+        "singular"
+      ],
+      "type": "string"
+    },
+    "ApiType": {
+      "enum": [
+        "dalle",
+        "elevenLabs",
+        "whisper"
+      ],
+      "type": "string"
+    },
+    "ApiFormatInput": {
+      "enum": [
+        "conversation",
+        "default"
+      ],
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false
+}

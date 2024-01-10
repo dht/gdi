@@ -1,0 +1,46 @@
+export const pricing = {
+  plans: {
+    free: {
+      id: 'free',
+      name: 'Free',
+      charactersPerMonth: 10000,
+      price: 0,
+      pricePer1KCharacter: 0,
+    },
+    starter: {
+      id: 'starter',
+      name: 'Starter',
+      charactersPerMonth: 30000,
+      price: 5,
+      pricePer1KCharacter: 0.167,
+      isAdditionalUsePossible: false,
+    },
+    creator: {
+      id: 'creator',
+      name: 'Creator',
+      charactersPerMonth: 100000,
+      price: 22,
+      pricePer1KCharacter: 0.22,
+      isAdditionalUsePossible: true,
+      priceForAdditional1KCharacter: 0.3,
+    },
+    publisher: {
+      id: 'publisher',
+      name: 'Publisher',
+      charactersPerMonth: 500000,
+      price: 99,
+      pricePer1KCharacter: 0.198,
+      isAdditionalUsePossible: true,
+      priceForAdditional1KCharacter: 0.24,
+    },
+    business: {
+      id: 'business',
+      name: 'Business',
+      charactersPerMonth: 2000000,
+      price: 330,
+      pricePer1KCharacter: 0.165,
+      isAdditionalUsePossible: true,
+      priceForAdditional1KCharacter: 0.18,
+    },
+  },
+};

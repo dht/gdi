@@ -1,0 +1,28 @@
+id: API Keys
+header: API Keys
+layout:
+  flavour: singleColumn
+  width: 780
+  labelSize: base
+  maxContentHeight: 70vh
+groups:
+  - id: keys
+    title: API Keys
+    layoutColumnIndex: 0
+fields:
+  - id: openAI
+    fieldType: password
+    placeholder: Encrypted with aes256 and available only to you
+    label: OpenAI
+    isRequired: true
+    groupId: keys
+    params: { maxChars: 60 }
+  - id: elevenLabs
+    fieldType: password
+    placeholder: Encrypted with aes256 and available only to you
+    label: ElevenLabs
+    groupId: keys
+    params: { maxChars: 60 }
+submit:
+  title: Save settings
+  iconName: Save
