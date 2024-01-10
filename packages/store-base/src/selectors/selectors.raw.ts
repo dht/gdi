@@ -23,7 +23,6 @@ export const $rawFlowConfig = createSelector($i, (state: IGdiStore) => state.flo
 export const $rawFlowAssistants = createSelector($i, (state: IGdiStore) => state.flowAssistants); // prettier-ignore
 export const $rawFlowApis = createSelector($i, (state: IGdiStore) => state.flowApis); // prettier-ignore
 export const $rawFlowState = createSelector($i, (state: IGdiStore) => state.flowState); // prettier-ignore
-export const $rawCamera = createSelector($i, (state: IGdiStore) => state.camera); // prettier-ignore
 export const $rawUser = createSelector($i, (state: IGdiStore) => state.user); // prettier-ignore
 export const $rawSettings = createSelector($i, (state: IGdiStore) => state.settings); // prettier-ignore
 export const $rawTags = createSelector($i, (state: IGdiStore) => state.tags); // prettier-ignore

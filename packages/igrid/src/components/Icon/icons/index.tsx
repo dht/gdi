@@ -5,6 +5,8 @@ import { Icon as Edit } from './edit_black_24dp';
 import { Icon as Info } from './info_black_24dp';
 import { Icon as List } from './view_list_black_24dp';
 import { Icon as Notes } from './notes_black_24dp';
+import { Icon as Back } from './back_black_24dp';
+import { Icon as Forward } from './forward_black_24dp';
 
 export const icons = {
   brush: Brush,
@@ -14,4 +16,6 @@ export const icons = {
   download: Download,
   info: Info,
   notes: Notes,
+  back: Back,
+  forward: Forward,
 };

@@ -14,6 +14,8 @@ import { noMobile } from './Grid.mobile';
 export const initialState: IGridState = {
   id: '',
   flavour: 'default',
+  columnIndex: 0,
+  columns: 0,
   showToggle: false,
 };
 
@@ -33,12 +35,13 @@ export const GridContext = createContext<IGridContext>({
   callbacks: {
     renderElement: (_instance: IElement) => <div />,
     renderInfo: (_instance: IElement) => <div />,
+    onColumnChange: (_columnIndex: number) => {},
   },
   patchState: () => {},
 });
 
 export const GridProvider = (props: GridProviderProps) => {
-  const { id, flavour, widgets, elements, isMobileSupported } = props;
+  const { id, flavour, columnIndex, widgets, elements, isMobileSupported, columns } = props;
   const [state, patchState] = useSetState<IGridState>(initialState);
   const { width } = useWindowSize();
 
@@ -59,8 +62,8 @@ export const GridProvider = (props: GridProviderProps) => {
   }, [id]);
 
   useEffect(() => {
-    patchState({ flavour });
-  }, [flavour]);
+    patchState({ flavour, columnIndex, columns });
+  }, [flavour, columnIndex, columns]);
 
   const callbacks = useMemo(
     () => ({
@@ -76,6 +79,9 @@ export const GridProvider = (props: GridProviderProps) => {
       },
       renderInfo: (_instance: IElement) => {
         return <div />;
+      },
+      onColumnChange: (columnIndex: number) => {
+        props.callbacks?.onColumnChange?.(columnIndex);
       },
     }),
     [state, widgets, elements]

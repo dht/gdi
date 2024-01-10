@@ -38,6 +38,7 @@ export type IAppState = {
   boardsRootUrl: string;
   docsRootUrl: string;
   flavour: string; // base, prepare, outcome
+  flavourColumnIndex: number; // base, prepare, outcome
   prompt: string;
   promptRevised: string;
   promptOriginal: string;
@@ -424,14 +425,19 @@ export type IBoard = {
   npmUrl: string;
   vscodeUrl: string;
   isActive: boolean;
-  mobile?: {
-    hidePrompt?: boolean;
-    darkMode?: boolean;
-  };
+  mobile?: IBoardMobileConfig;
 
   // transient
   reviewInfo: IReviewInfo;
   isMyBoard?: boolean;
+};
+
+export type IBoardMobileConfig = {
+  hidePrompt?: boolean;
+  darkMode?: boolean;
+  columns?: number;
+  flowColumnIndex?: number;
+  outputColumnIndex?: number;
 };
 
 export type IDocument = {

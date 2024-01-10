@@ -1,13 +1,13 @@
-import { MobileModalDriver } from './MobileModal.driver';
+import { MobileHeaderDriver } from './MobileHeader.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('MobileModal', () => {
-    let driver: MobileModalDriver;
+describe('MobileHeader', () => {
+    let driver: MobileHeaderDriver;
 
     beforeAll(() => {
-        driver = new MobileModalDriver();
+        driver = new MobileHeaderDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('MobileModal', () => {
         const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(wrapperClassName).toContain('MobileModal-wrapper');
+        expect(wrapperClassName).toContain('MobileHeader-wrapper');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('MobileModal', () => {
     });
 });
 
-describe('MobileModal snapshots', () => {
-    let driver: MobileModalDriver;
+describe('MobileHeader snapshots', () => {
+    let driver: MobileHeaderDriver;
 
     beforeAll(() => {
-        driver = new MobileModalDriver();
+        driver = new MobileHeaderDriver();
     });
 
     it('should match snapshot', () => {

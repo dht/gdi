@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
 
   @media (max-width: 800px) {
-    padding-top: 25px;
-    margin-bottom: 70px;
   }
 `;
 

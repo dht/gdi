@@ -2,8 +2,8 @@ import { RefObject, useContext } from 'react';
 import { IElement } from '../../grid.types';
 import { GridContext } from '../Grid/Grid.context';
 import { Instance } from '../Instance/Instance';
-import { MobileControls, MobileRoot } from '../_mobile';
 import { isMobile } from '../../utils/mobile';
+import MobileHeader from '../_mobile/MobileHeader/MobileHeader';
 
 export type GridViewProps = {
   gridRef: RefObject<HTMLDivElement>;
@@ -11,12 +11,14 @@ export type GridViewProps = {
 
 export function GridView(_props: GridViewProps) {
   const { state, elements } = useContext(GridContext);
-  const { flavour } = state;
+  const { flavour, columnIndex } = state;
 
   function renderElement(element: IElement) {
-    const isVisible = !flavour || !element.flavour || element.flavour === flavour;
+    const { flavour: f, columnIndex: c = -1 } = element;
+    const isVisibleFlavour = !flavour || !f || element.flavour === f;
+    const isVisibleMobile = !isMobile() || c == -1 || c === columnIndex; // prettier-ignore
 
-    if (!isVisible) {
+    if (!isVisibleFlavour || !isVisibleMobile) {
       return null;
     }
 
@@ -27,15 +29,15 @@ export function GridView(_props: GridViewProps) {
     return Object.values(elements).map((element) => renderElement(element));
   }
 
-  function renderMobileControls() {
-    if (!isMobile) return;
-    return <MobileControls />;
+  function renderMobileHeader() {
+    if (!isMobile()) return;
+    return <MobileHeader />;
   }
 
   return (
     <>
       {renderElements()}
-      {renderMobileControls()}
+      {renderMobileHeader()}
     </>
   );
 }

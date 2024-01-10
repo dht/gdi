@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   background-color: #334;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 800px) {
+    padding-bottom: 0;
+  }
 `;
 
 export const TextArea = styled.textarea`

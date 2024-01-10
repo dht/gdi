@@ -52,7 +52,7 @@ export function Playback(props: PlaybackProps) {
         </Buttons>
         <Stopwatch playbackInfo={playbackInfo} />
 
-        <Stage>{flavour}</Stage>
+        <Stage> </Stage>
       </Row>
       <Status prompt={prompt} />
     </Wrapper>

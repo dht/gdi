@@ -26,7 +26,7 @@ export type IElement = {
   flags?: IElementFlags;
   props?: Json;
   state?: Json;
-  isModal?: boolean;
+  columnIndex?: number;
 };
 
 export type IElements = Record<string, IElement>;
@@ -101,11 +101,14 @@ export type IGridConfig = {
 export type GridProviderProps = {
   id: string;
   flavour?: string;
+  columnIndex?: number;
   widgets: IWidgets;
   elements: IElements;
   config?: IGridConfig;
   children?: React.ReactNode;
-  callbacks?: {};
+  callbacks?: {
+    onColumnChange?: (columnIndex: number) => void;
+  };
   isMobileSupported?: boolean;
 };
 
@@ -113,6 +116,8 @@ export type IGridState = {
   id: string;
   showToggle?: boolean;
   flavour?: string;
+  columnIndex?: number;
+  columns?: number;
 };
 
 export type IGridContext = {
@@ -122,6 +127,7 @@ export type IGridContext = {
   callbacks: {
     renderElement: (_instance: IElement) => JSX.Element;
     renderInfo: (_instance: IElement) => JSX.Element;
+    onColumnChange: (columnIndex: number) => void;
   };
   patchState: (change: Partial<IGridState>) => void;
 };

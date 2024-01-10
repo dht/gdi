@@ -88,7 +88,6 @@ html {
 }
 
 html {
-  min-height: 100%;
   display: flex;
 }
 
@@ -100,11 +99,6 @@ body {
   font-weight: normal;
   font-style: normal;
   letter-spacing: 0.2px;
-
-  @media (max-width: 800px) {
-    width: calc(100vw);
-    overflow-x: hidden;
-  }
 
   &.dark {
     background-color: #000;
@@ -123,6 +117,18 @@ body {
       overflow: hidden;
     }
   }
+
+  @media (max-width: 800px) {
+    max-height: calc(100vh - 65px);
+
+    &.fullscreen {
+      max-height: 100vh;
+
+      .BoardHeader-wrapper {
+        top: 6px;
+      }
+    }
+  }
 }
 
 h1,
@@ -136,17 +142,9 @@ textarea {
 
 body,
 #root {
-  display: flex;
-  flex: 1;
-
-  > .theme {
-    display: flex;
-    flex: 1;
-  }
 }
 
 body {
-  overflow-x: hidden;
   padding: 0;
 }
 

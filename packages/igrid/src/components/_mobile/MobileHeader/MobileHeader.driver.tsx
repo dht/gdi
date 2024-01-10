@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { MobileModal, MobileModalProps } from './MobileModal';
+import { MobileHeader, MobileHeaderProps } from './MobileHeader';
 import { BaseComponentDriver } from 'testing-base';
 
-export class MobileModalDriver extends BaseComponentDriver {
-    private props: Partial<MobileModalProps> = {};
+export class MobileHeaderDriver extends BaseComponentDriver {
+    private props: Partial<MobileHeaderProps> = {};
 
     constructor() {
-        super('MobileModal');
+        super('MobileHeader');
     }
 
     when: any = {
         rendered: () => {
-            render(<MobileModal {...(this.props as MobileModalProps)} />);
+            render(<MobileHeader {...(this.props as MobileHeaderProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,12 +20,12 @@ export class MobileModalDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MobileModal {...(this.props as MobileModalProps)} />);
+            return this.snapshot(<MobileHeader {...(this.props as MobileHeaderProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<MobileModalProps>) => {
+        props: (props: Partial<MobileHeaderProps>) => {
             this.props = props;
             return this;
         },

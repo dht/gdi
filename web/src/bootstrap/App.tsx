@@ -10,11 +10,14 @@ import { LoggerContainer } from '../containers/Logger.container';
 import { SagasContainer } from '../containers/Sagas.container';
 import { all } from '../pages';
 import { useNavigationMethod } from '../sagas/saga.navigation';
+import styled from 'styled-components';
+import { useFullscreen } from './App.hooks';
 
 export const App = () => {
   const location = useLocation();
 
   useNavigationMethod();
+  useFullscreen();
 
   function renderSurrounding() {
     if (location.pathname === '/monitor') {
@@ -34,7 +37,7 @@ export const App = () => {
   }
 
   return (
-    <>
+    <Wrapper>
       <Routes>
         <Route path='/home' element={<pagesHome.home />} />
         <Route path='/browse' element={<pagesHome.browse />} />
@@ -56,6 +59,12 @@ export const App = () => {
       </Routes>
       <Toast />
       {renderSurrounding()}
-    </>
+    </Wrapper>
   );
 };
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`;

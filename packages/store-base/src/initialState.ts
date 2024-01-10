@@ -18,6 +18,7 @@ export const initialState: IGdiStore = {
     docsRootUrl: '/',
     adapter: 'no adapter',
     flavour: 'default',
+    flavourColumnIndex: 0,
     prompt: '',
     promptRevised: '',
     promptOriginal: '',
@@ -94,12 +95,6 @@ export const initialState: IGdiStore = {
     startTime: Date.now(),
     playbackSpeed: 1,
     playbackStatus: 'idle',
-  },
-  camera: {
-    radius: 25,
-    alpha: 1,
-    beta: 1,
-    target: { x: 0, y: 0, z: 0 },
   },
   soundState: {},
   assistants: {

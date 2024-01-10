@@ -88,7 +88,6 @@ export interface IElement {
   flags?: IElementFlags;
   props?: Json;
   state?: Json;
-  isModal?: boolean;
 }
 
 export interface ICoordinates {

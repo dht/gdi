@@ -2,7 +2,7 @@ import { Wrapper } from './Icon.style';
 import { icons } from './icons';
 
 export type IconProps = {
-  icon: 'brush' | 'close' | 'edit' | 'list' | 'download' | 'info' | 'notes';
+  icon: 'brush' | 'close' | 'edit' | 'list' | 'download' | 'info' | 'notes' | 'back' | 'forward';
   size?: number;
   onClick?: (ev: React.MouseEvent<HTMLElement>) => void;
 };

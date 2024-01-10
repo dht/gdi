@@ -2,6 +2,7 @@ import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useEffect, useMemo } from 'react';
 import { DocumentBootstrap } from './DocumentBootstrap';
 import { useMount } from 'react-use';
+import { useSaga } from '../../../helpers/useSaga';
 
 export type DocumentBootstrapContainerProps = {};
 
@@ -13,9 +14,13 @@ export function DocumentBootstrapContainer(_props: DocumentBootstrapContainerPro
   const documentStyle = useSelector(selectors.options.$documentStyle);
   const document = useSelector(selectors.raw.$rawDocument);
 
+  useSaga('widgets.document');
+
   const callbacks = useMemo(
     () => ({
       onBootstrap: (meta: Json) => {
+        console.log('1 ->', 1);
+
         dispatch({
           type: 'DOCUMENT',
           verb: 'bootstrap',

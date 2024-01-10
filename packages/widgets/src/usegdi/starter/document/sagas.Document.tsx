@@ -36,6 +36,8 @@ export function* document(action: any) {
 
   const saga = (map as any)[verb];
 
+  console.log('verb ->', verb);
+
   if (!saga) {
     return;
   }

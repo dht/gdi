@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   font-size: 14px;
+  color: #333;
 
   .MuiInputBase-root {
     background-color: white;

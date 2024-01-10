@@ -3,6 +3,10 @@ import { sortBy } from 'shared-base';
 
 export function useLogData(logs: Json[] = []) {
   return useMemo(() => {
+    if (!Array.isArray(logs)) {
+      return [];
+    }
+
     const map: Record<string, Json> = logs.sort(sortBy('timestamp')).reduce((acc, log) => {
       const { source, verb, message, data = {} } = log;
       const uniqueKey = `${source}-${verb}-${message}`;

@@ -7,6 +7,7 @@ import { invokeEvent } from 'shared-base';
 import { storageUrl } from '../utils/axios';
 import { flowAdapter } from '../utils/globals';
 import { customEvenChannel } from './channels/channel.customEvent';
+import { onFlowMobileEnd, onFlowMobileStart } from './helpers/saga.mobile';
 import { postActions } from './helpers/saga.postFlow';
 import { getPromptPlaceholder } from './helpers/utils';
 import { boardGuard, guestGuard } from './saga.gdi';
@@ -39,6 +40,7 @@ export function* startFlow(action: any) {
   yield put(actions.appState.patch({ promptOriginal: prompt }));
 
   const board = yield* select(selectors.raw.$rawBoard);
+  yield fork(onFlowMobileStart, board);
 
   const response = yield* call(flowAdapter.start, prompt, promptParams, {
     boardId: board.id,
@@ -109,6 +111,10 @@ export function* listenToFlowRun(event: any) {
 export function* onFlowCompleted(event: any) {
   const { flowRun } = event.data;
   const board = yield* select(selectors.raw.$rawBoard);
+  console.time('3');
+  yield fork(onFlowMobileEnd, board);
+  console.timeEnd('3');
+
   const flowConfig = get(board, 'flow.flowConfig', '');
 
   ga('onFlowCompleted', { boardId: board.id });

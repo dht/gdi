@@ -4,7 +4,7 @@ export const board: IBoard = {
   id: 'B-001',
   identifier: 'com.usegdi.3d-ad-creator',
   version: '0.1.0',
-  url: '/boards/b-001',
+  url: '/boards/B-001',
   flowUrl: '',
   boardInfo: {
     name: '3D Ad Creator',

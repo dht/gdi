@@ -8,10 +8,14 @@ import { useDarkMode } from './Board.hooks';
 export type BoardProps = {
   board: IBoard;
   flavour: string;
+  columnIndex: number;
+  callbacks: {
+    onColumnChange?: (columnIndex: number) => void;
+  };
 };
 
 export function Board(props: BoardProps) {
-  const { board, flavour } = props;
+  const { board, flavour, columnIndex, callbacks } = props;
 
   const name = get(board, 'boardInfo.name');
 
@@ -25,6 +29,9 @@ export function Board(props: BoardProps) {
         flavour={flavour}
         widgets={allWidgets}
         elements={board?.elements ?? []}
+        columns={board?.mobile?.columns}
+        columnIndex={columnIndex}
+        callbacks={callbacks}
       />
     </Wrapper>
   );

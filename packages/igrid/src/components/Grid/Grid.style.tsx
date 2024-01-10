@@ -17,6 +17,10 @@ export const Wrapper = styled.div`
     --instanceBorder: #223;
   }
 
+  @media (max-width: 800px) {
+    margin-top: 60px;
+  }
+
   grid-template-columns: repeat(auto-fill, calc(100% / 121));
   grid-template-rows: repeat(auto-fill, calc(100% / 48));
   background-size: 25px 25px;

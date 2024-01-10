@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   position: relative;
+  color: #333;
 
   .react-flow__minimap-mask {
     fill: ${(props) => props.theme.minimapMaskBg};

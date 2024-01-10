@@ -1,28 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  position: relative;
-`;
-
-export const Prompt = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 70px;
   font-size: 30px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 4px 5px;
+  padding: 0 4px;
   background-color: #222;
   overflow: hidden;
   transition: height 0.25s cubic-bezier(0.2, 0, 0, 1);
-
-  &.show {
-    height: 70px;
-  }
+  height: 60px;
 `;
 
 export const Input = styled.input`
@@ -57,20 +45,5 @@ export const Cta = styled.div`
 
   &:active {
     background-color: #aaa;
-  }
-`;
-
-export const TopRight = styled.div`
-  position: fixed;
-  top: 10px;
-  left: 0;
-  background-color: white;
-  padding: 2px 10px 2px 5px;
-  border-radius: 0 5px 5px 0;
-  zoom: 0.65;
-
-  &.darkMode {
-    background-color: #000;
-    color: white;
   }
 `;

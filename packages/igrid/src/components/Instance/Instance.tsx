@@ -4,7 +4,6 @@ import type { IElement } from '../../grid.types';
 import { areaDimension } from '../../utils/cssGrid';
 import { GridContext } from '../Grid/Grid.context';
 import { Wrapper } from './Instance.style';
-import GridModal from '../GridModal/GridModal';
 
 export type InstanceProps = {
   element: IElement;
@@ -12,7 +11,7 @@ export type InstanceProps = {
 
 export function Instance(props: InstanceProps) {
   const { element } = props;
-  const { position, dimension, flags = {}, isModal } = element;
+  const { position, dimension, flags = {}, columnIndex } = element;
   const { callbacks } = useContext(GridContext);
 
   if (!position || !dimension) {
@@ -27,10 +26,6 @@ export function Instance(props: InstanceProps) {
     hidden: flags.isHidden,
     transparent: flags.isTransparent,
   });
-
-  if (isModal) {
-    return <GridModal>{callbacks.renderElement(element)}</GridModal>;
-  }
 
   const style: React.CSSProperties = {
     gridArea: areaDimension(position.y, position.x, dimension.y, dimension.x),

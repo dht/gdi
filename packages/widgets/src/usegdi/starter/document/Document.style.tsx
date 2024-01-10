@@ -26,8 +26,4 @@ export const Actions = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 800px) {
-    margin-bottom: 70px;
-  }
 `;

@@ -1,19 +1,36 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  flex: 1;
-  position: fixed;
-  top: 15px;
-  right: 10px;
-  border: 1px solid #333;
+export const Wrapper = styled.div<{ $count: number; $columnIndex: number }>`
+  width: ${(props) => props.$count * 30}px;
   overflow: hidden;
-  width: 100px;
-  height: 50px;
+  height: 30px;
+  border: 1px solid #333;
   border-radius: 5px;
+  position: relative;
+
+  &:before {
+    content: '';
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+  }
+
+  .inner {
+    &:before {
+      left: ${(props) => props.$columnIndex * 30}px;
+    }
+  }
+`;
+
+export const Inner = styled.div`
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  background-color: white;
+  position: relative;
 
   &:before {
     content: '';
@@ -21,7 +38,8 @@ export const Wrapper = styled.div`
     top: 0;
     bottom: 0;
     left: 0;
-    width: 50%;
+    width: 30px;
+    height: 30px;
     background-color: palevioletred;
     z-index: -1;
     transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1);
@@ -30,9 +48,9 @@ export const Wrapper = styled.div`
 
 export const Screen = styled.div`
   flex: 1;
-  font-size: 30px;
+  font-size: 20px;
   color: #333;
-  height: 50px;
+  height: 30px;
   border: 1px solid #333;
   display: flex;
   flex-direction: row;
