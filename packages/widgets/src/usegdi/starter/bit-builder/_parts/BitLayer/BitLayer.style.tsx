@@ -12,4 +12,9 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
+
+  @media (max-width: 800px) {
+    bottom: 80px;
+  }
 `;

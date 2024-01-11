@@ -14,6 +14,8 @@ export const Wrapper = styled.div`
   display: flex;
   opacity: 1;
   transition: opacity 1.2s ease-out;
+  max-width: 1700px;
+  margin: auto;
 `;
 
 export const Inner = styled.div`
@@ -21,6 +23,10 @@ export const Inner = styled.div`
   display: flex;
   margin: 150px 150px 30px 150px;
   flex: 1;
+
+  @media (max-width: 800px) {
+    margin: 100rem 10rem 0;
+  }
 `;
 
 export const Text = styled.div`
@@ -35,6 +41,12 @@ export const Text = styled.div`
   animation: glowingAnimation 5s infinite;
   letter-spacing: 10rem;
   transform: perspective(1000px) rotateX(-15deg) scaleX(0.9) translateY(-40px);
+
+  @media (max-width: 800px) {
+    font-size: 60rem !important;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   @keyframes glowingAnimation {
     0% {
@@ -78,6 +90,13 @@ export const Subtext = styled.div`
   text-shadow: 0 0 20px rgba(181, 238, 159, 0.415), 0 0 30px rgba(181, 238, 159, 0.415),
     0 0 40px rgba(181, 238, 159, 0.415), 0 0 50px rgba(181, 238, 159, 0.415),
     0 0 60px rgba(181, 238, 159, 0.415);
+
+  @media (max-width: 800px) {
+    font-size: 20rem !important;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100rem;
+  }
 `;
 
 export const SmallPrint = styled.div`
@@ -95,4 +114,10 @@ export const SmallPrint = styled.div`
   text-shadow: 0 0 5px rgba(181, 238, 159, 0.415), 0 0 7px rgba(181, 238, 159, 0.415),
     0 0 9px rgba(181, 238, 159, 0.415), 0 0 1px rgba(181, 238, 159, 0.415),
     0 0 13px rgba(181, 238, 159, 0.415);
+
+  @media (max-width: 800px) {
+    font-size: 8rem !important;
+    left: 10rem;
+    bottom: 10rem;
+  }
 `;

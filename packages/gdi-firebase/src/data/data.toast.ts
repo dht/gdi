@@ -44,11 +44,6 @@ export const toastMessages: any = {
     'Scene saved',
     'Error saving scene',
   ],
-  '/api/saves/scene/restore': [
-    'Loading scene...', //
-    'Scene loaded',
-    'Error loading scene',
-  ],
   '/api/saves/clip': [
     'Saving clip...', //
     'Clip saved',

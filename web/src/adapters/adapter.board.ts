@@ -164,6 +164,7 @@ export class BoardAdapter implements IBoardAdapter {
     this.dispatch(actions.board.patch({ elements: { default: {} }})); // prettier-ignore
     this.dispatch(actions.transcriptLines.setAll({}));
     this.dispatch(actions.transcriptAudios.setAll({}));
+    this.dispatch(actions.appState.patch({ flavourColumnIndex: 0 }));
   }
 
   loadBoard = async (action: Json) => {

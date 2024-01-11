@@ -24,6 +24,10 @@ export const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
 
+  span {
+    pointer-events: none;
+  }
+
   .Icon-wrapper {
     position: relative;
     top: 2px;

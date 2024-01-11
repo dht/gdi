@@ -1,10 +1,13 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { useSetState } from 'react-use';
 import { IHudItem, IVisibilityState, Json } from '../Hud.types';
 
-export function useTimeline(items: IHudItem[] = []) {
+export function useTimeline(items: IHudItem[] = [], loop = false) {
   const [timers, patchTimers] = useSetState<Record<string, any>>({});
   const [visible, dispatch] = useReducer(allVisibility, {});
+  const [runIndex, setRunIndex] = useState(0);
+
+  const duration = getDuration(items);
 
   useEffect(() => {
     items.forEach((frame) => {
@@ -36,7 +39,19 @@ export function useTimeline(items: IHudItem[] = []) {
         clearTimeout(timer);
       });
     };
-  }, []);
+  }, [runIndex]);
+
+  useEffect(() => {
+    if (!loop) return;
+
+    const interval = setInterval(() => {
+      setRunIndex((index) => index + 1);
+    }, duration);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [loop]);
 
   return visible as Record<string, IVisibilityState>;
 }
@@ -47,6 +62,7 @@ export function itemVisibility(state: IVisibilityState, action: Json) {
       return {
         ...state,
         isVisible: true,
+        isFadingOut: false,
       };
     case 'DISAPPEAR':
       return {
@@ -72,3 +88,11 @@ export function allVisibility(state: Record<string, IVisibilityState> = {}, acti
       return state;
   }
 }
+
+export const getDuration = (items: IHudItem[]) => {
+  const durations = items.map((item) => {
+    return item.tsEnd;
+  });
+
+  return Math.max(...durations);
+};

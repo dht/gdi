@@ -6,6 +6,7 @@ import { HudItem } from './parts/HudItem/HudItem';
 
 export type HudProps = {
   json: IHud;
+  loop?: boolean;
 };
 
 export function HudInner(_props: HudProps) {
@@ -33,10 +34,10 @@ export function HudInner(_props: HudProps) {
 }
 
 export function Hud(props: HudProps) {
-  const { json } = props;
+  const { json, loop } = props;
 
   return (
-    <HudContextProvider hud={json}>
+    <HudContextProvider hud={json} loop={loop}>
       <HudInner {...props} />
     </HudContextProvider>
   );

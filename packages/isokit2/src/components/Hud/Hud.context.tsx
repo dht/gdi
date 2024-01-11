@@ -7,6 +7,7 @@ import { useTimeline } from './hooks/useTimeline';
 
 type HudContextProps = {
   hud: IHud;
+  loop?: boolean;
 };
 
 type IHudContext = {
@@ -30,11 +31,11 @@ const initialValue: IHudContext = {
 export const HudContext = createContext<IHudContext>(initialValue);
 
 export const HudContextProvider = (props: WithChildren<HudContextProps>) => {
-  const { hud } = props;
+  const { hud, loop } = props;
 
   const { config, items } = hud;
   const { width, height } = config;
-  const visibility = useTimeline(items);
+  const visibility = useTimeline(items, loop);
 
   useCameraPosition(items, config.initialPosition);
 

@@ -19,9 +19,9 @@ export const prepareFile = (fileInfo: IFile, meta: Json) => {
   const { sceneBits, sceneAudios } = json;
 
   output.sceneBits = mapValues(sceneBits, (bit: any) => {
-    const { fileName } = bit;
+    const { attachmentFilename } = bit;
 
-    const asset: any = findAsset(fileName, assets);
+    const asset: any = findAsset(attachmentFilename, assets);
 
     if (asset) {
       bit.attachmentUrl = asset.assetUrl;

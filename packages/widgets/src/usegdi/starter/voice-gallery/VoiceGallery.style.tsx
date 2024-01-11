@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   background-color: #fff;
+  color: #333;
   font-size: 14px;
   display: flex;
   flex-direction: row;

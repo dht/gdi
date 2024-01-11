@@ -14,7 +14,7 @@ export function MobileArrows(_props: MobileArrowsProps) {
   }
 
   function renderLeft() {
-    if (columnIndex === 0) {
+    if (!columns || columnIndex === 0) {
       return null;
     }
 
@@ -26,7 +26,7 @@ export function MobileArrows(_props: MobileArrowsProps) {
   }
 
   function renderRight() {
-    if (columnIndex === columns - 1) {
+    if (!columns || columnIndex === columns - 1) {
       return null;
     }
 
