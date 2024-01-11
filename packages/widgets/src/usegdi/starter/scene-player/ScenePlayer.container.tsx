@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from '@gdi/store-base';
-import { selectors } from '@gdi/store-iso';
+import { actions, selectors } from '@gdi/store-iso';
 import { useBlackBk } from '@gdi/ui';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSagas } from '../../../helpers/useSaga';
 import { ScenePlayer } from './ScenePlayer';
 

@@ -5,7 +5,8 @@ import { moveArc } from '../../../iso.camera';
 export function useArc() {
   useEffect(() => {
     const unlisten = addListener('arc/camera', (ev: any) => {
-      moveArc(ev);
+      const { animated, ...rest } = ev;
+      moveArc(rest, animated);
     });
 
     return () => {

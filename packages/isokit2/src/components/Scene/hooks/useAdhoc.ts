@@ -14,11 +14,14 @@ export function useAdhoc(adhocUrl?: string) {
       url: adhocUrl,
     });
 
-    moveArc({
-      alpha: 0,
-      beta: 0,
-      radius: 20,
-      target: [0, 3, 0],
-    });
+    moveArc(
+      {
+        alpha: 0,
+        beta: 0,
+        radius: 20,
+        target: [0, 3, 0],
+      },
+      true
+    );
   }, [adhocUrl]);
 }

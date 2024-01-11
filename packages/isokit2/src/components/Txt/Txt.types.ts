@@ -1,4 +1,4 @@
-export type Txt = {
+export type ITxt = {
   id: string;
   layerType: 'txt';
   config: TxtConfig;

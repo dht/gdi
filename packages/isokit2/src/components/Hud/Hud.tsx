@@ -5,7 +5,7 @@ import type { IHud, IHudItemWithPoints } from './Hud.types';
 import { HudItem } from './parts/HudItem/HudItem';
 
 export type HudProps = {
-  hud: IHud;
+  json: IHud;
 };
 
 export function HudInner(_props: HudProps) {
@@ -33,10 +33,10 @@ export function HudInner(_props: HudProps) {
 }
 
 export function Hud(props: HudProps) {
-  const { hud } = props;
+  const { json } = props;
 
   return (
-    <HudContextProvider hud={hud}>
+    <HudContextProvider hud={json}>
       <HudInner {...props} />
     </HudContextProvider>
   );

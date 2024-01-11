@@ -27,12 +27,15 @@ export function* startAnimation() {
   yield put(actions.appState.patch({ flavour: 'outcome' }));
   yield put(actions.playbackState.patch({ playbackStatus: 'playing', startTime: Date.now() }));
 
-  moveArc({
-    radius: 6,
-    alpha: 180 / Math.PI,
-    beta: 180 / Math.PI,
-    target: [-5, 1, 10],
-  });
+  moveArc(
+    {
+      radius: 6,
+      alpha: 180 / Math.PI,
+      beta: 180 / Math.PI,
+      target: [-5, 1, 10],
+    },
+    true
+  );
 
   for (let item of transcript) {
     yield* call(talk, item!, index);
@@ -108,12 +111,15 @@ export function* wrapUp() {
     })
   );
 
-  moveArc({
-    radius: 25,
-    alpha: 180 / Math.PI,
-    beta: 180 / Math.PI,
-    target: { x: 0, y: 0, z: 0 },
-  });
+  moveArc(
+    {
+      radius: 25,
+      alpha: 180 / Math.PI,
+      beta: 180 / Math.PI,
+      target: { x: 0, y: 0, z: 0 },
+    },
+    true
+  );
 }
 
 export function* start() {

@@ -8,7 +8,10 @@ export function useCameraPosition(items: IHudItem[] = [], initialPosition: ICame
   const [camera, patchCamera] = useSetState<ICameraPosition>(initialPosition);
 
   useEffect(() => {
-    invokeEvent('arc/camera', initialPosition);
+    invokeEvent('arc/camera', {
+      ...initialPosition,
+      animated: false,
+    });
 
     items.forEach((frame) => {
       const { id, tsStart, cameraValues } = frame;

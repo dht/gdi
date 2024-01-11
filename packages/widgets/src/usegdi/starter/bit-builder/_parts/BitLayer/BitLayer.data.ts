@@ -8,9 +8,9 @@ export const sampleDataHud = {
     height: 650,
     width: 700,
     initialPosition: {
-      radius: 12,
-      alpha: 0,
-      beta: 37.1,
+      radius: 17,
+      alpha: 345,
+      beta: 83,
     },
   },
   items: [
@@ -20,7 +20,7 @@ export const sampleDataHud = {
       tsStart: 0,
       tsEnd: 2600,
       origin: [0, -250],
-      textTop: 60,
+      textTop: 0,
       isLeft: true,
       cameraValues: {
         alpha: -67.77,
@@ -30,11 +30,11 @@ export const sampleDataHud = {
     },
     {
       id: '2',
-      text: 'Holographic Interface, Zero-Gravity Seating',
+      text: 'Adaptive Nano-Fluid Seismic Engine',
       tsStart: 3000,
       tsEnd: 5300,
-      origin: [100, -100],
-      textTop: 200,
+      origin: [50, -100],
+      textTop: 400,
       isLeft: false,
       cameraValues: {
         alpha: 95.88,
@@ -44,11 +44,11 @@ export const sampleDataHud = {
     },
     {
       id: '3',
-      text: 'Adaptive Nano-Fluid Damper',
+      text: 'Holographic Interface, Zero-Gravity Seating',
       tsStart: 6600,
       tsEnd: 9600,
-      origin: [0, 80],
-      textTop: 550,
+      origin: [-30, -50],
+      textTop: 450,
       isLeft: true,
       cameraValues: {
         alpha: -152.76,

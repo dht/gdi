@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Txt, TxtProps } from './Txt';
+import { ITxt, TxtProps } from './Txt';
 import { BaseComponentDriver } from 'testing-base';
 
 export class TxtDriver extends BaseComponentDriver {

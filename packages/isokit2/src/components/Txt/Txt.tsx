@@ -1,13 +1,13 @@
 import { Inner, SmallPrint, Subtext, Text, Wrapper } from './Txt.style';
-import { Txt } from './Txt.types';
+import { ITxt } from './Txt.types';
 
 export type TxtProps = {
-  txt: Txt;
+  json: ITxt;
 };
 
 export function Txt(props: TxtProps) {
-  const { txt } = props;
-  const { config } = txt;
+  const { json } = props;
+  const { config } = json;
   const { header, headerFont, subtext, subtextFont, smallPrint, smallPrintFont } = config;
 
   return (

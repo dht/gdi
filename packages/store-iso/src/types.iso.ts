@@ -111,6 +111,7 @@ export type IBit = {
   elements: Record<string, boolean>;
   cameraId?: string;
   attachmentUrl?: string;
+  attachmentFilename?: string;
 
   // transient
   index?: number;
@@ -146,6 +147,7 @@ export type IAudio = {
   timestamp: number;
   duration: number;
   url: string;
+  fileName: string;
   values?: Json;
   isMain?: boolean;
 };

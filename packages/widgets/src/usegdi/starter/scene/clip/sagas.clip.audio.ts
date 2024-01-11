@@ -1,9 +1,9 @@
-import { IBit, actions, selectors, IAudio } from '@gdi/store-iso';
+import { IAudio, actions, selectors } from '@gdi/store-iso';
 import { playSound, prompt, toast } from '@gdi/ui';
 import { Json } from 'redux-store-generator';
 import { call, delay, fork, put, select, takeLatest } from 'saga-ts';
-import AssetPickerContainer from '../../asset-picker/AssetPicker.container';
 import { guid4 } from 'shared-base';
+import AssetPickerContainer from '../../asset-picker/AssetPicker.container';
 import { getAudio } from '../_helpers/helper.assets';
 
 type Verb =
@@ -44,7 +44,7 @@ export function* changeMusic(action: Action) {
     return;
   }
 
-  const { assetUrl } = value;
+  const { assetUrl, fileName } = value;
 
   yield put(actions.sceneState.patch({ isAudioReady: false }));
 
@@ -56,7 +56,7 @@ export function* changeMusic(action: Action) {
   }
 
   yield delay(100);
-  yield put(actions.sceneAudios.patch('main', { url: assetUrl }));
+  yield put(actions.sceneAudios.patch('main', { url: assetUrl, fileName }));
   yield put(actions.sceneState.patch({ isAudioReady: true }));
 }
 

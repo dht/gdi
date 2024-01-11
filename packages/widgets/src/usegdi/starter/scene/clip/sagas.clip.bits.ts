@@ -149,13 +149,14 @@ export function* attachment(_action: Action, bit: IBit) {
     return;
   }
 
-  const { contentType, assetUrl } = value;
+  const { contentType, assetUrl, fileName } = value;
   const isSkyBox = contentType === 'image';
 
   yield put(
     actions.sceneBits.patch(bit.id, {
       type: isSkyBox ? 'skybox' : 'layer',
       attachmentUrl: assetUrl,
+      attachmentFilename: fileName,
     })
   );
 
@@ -169,6 +170,7 @@ export function* clearAttachment(_action: Action, bit: IBit) {
     actions.sceneBits.patch(bit.id, {
       type: 'basic',
       attachmentUrl: '',
+      attachmentFilename: '',
     })
   );
 }

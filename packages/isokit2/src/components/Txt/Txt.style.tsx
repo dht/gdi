@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 export const Inner = styled.div`
   position: relative;
   display: flex;
-  margin: 150px 100px 30px 100px;
+  margin: 150px 150px 30px 150px;
   flex: 1;
 `;
 

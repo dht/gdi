@@ -100,7 +100,7 @@ export const configArc = (config?: Partial<IArcConfig>) => {
   camera.upperRadiusLimit = upperRadiusLimit ?? camera.upperRadiusLimit;
 };
 
-export const moveArc = (values: Json) => {
+export const moveArc = (values: Json, animated: boolean = true) => {
   const arc = getCamera('arc') as ArcRotateCamera;
 
   if (!arc) {
@@ -108,6 +108,13 @@ export const moveArc = (values: Json) => {
   }
 
   arc.target = vector3(values.target);
+
+  if (!animated) {
+    arc.alpha = degreesToRadians(values.alpha);
+    arc.beta = degreesToRadians(values.beta);
+    arc.radius = values.radius;
+    return;
+  }
 
   animateItem(
     'arc',
