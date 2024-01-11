@@ -11,7 +11,7 @@ export function Toast(_props: ToastBarContainerProps) {
 const StyledToastContainer = styled(ToastContainer)`
   bottom: 54rem;
   font-size: 16rem;
-  z-index: 9;
+  z-index: 9999;
 
   @media (max-width: 800px) {
     bottom: 80rem;

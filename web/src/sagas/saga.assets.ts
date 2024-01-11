@@ -78,9 +78,13 @@ export function* create(action: Action, _asset: IAsset) {
     }
 
     const appState = yield* select(selectors.raw.$rawAppState);
+    const assets = yield* select(selectors.raw.$rawAssets);
     const { tags } = appState;
 
-    const responses = yield* call(uploadFiles, files, { tags });
+    const responses = yield* call(uploadFiles, files, {
+      tags,
+      assets,
+    });
 
     for (let response of responses) {
       const { asset } = response;

@@ -62,7 +62,8 @@ export function* onCheckAnimation(ev: any) {
 
   const animations: any = dotsToAnimation(dots, bit.id, bit.duration!);
   const count = animations.length;
-  // log(`${count} animations`, `found`, animations);
+
+  log(`${count} animations`, `found`, animations);
 
   for (let animation of animations) {
     const { id } = animation;

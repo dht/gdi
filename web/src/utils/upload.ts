@@ -1,14 +1,16 @@
 import { runFunction } from '@gdi/firebase';
 import { Json } from '../types';
+import { prepareFile } from './files';
 
 export type IFile = {
   name: string;
   size: number;
   type: string;
   base64: string;
+  forceContentType?: string;
 };
 
-export const readFile = (file: File) => {
+export const readFile = (file: File): Promise<IFile> => {
   return new Promise((resolve) => {
     const { name, size, type } = file;
 
@@ -32,7 +34,9 @@ export const uploadFiles = (files: File[], meta: Json) => {
   const { tags = [] } = meta;
 
   const promises = files.map(async (file) => {
-    const fileInfo = await readFile(file);
+    const fileInfoRaw = await readFile(file);
+
+    const fileInfo = prepareFile(fileInfoRaw, meta);
 
     return runFunction('/api/assets/upload', {
       fileInfo,

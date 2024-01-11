@@ -38,7 +38,7 @@ router.post('/new', async (req: any, res) => {
 router.post('/upload', async (req: any, res) => {
   try {
     const { fileInfo, tags = [] } = req.body;
-    const { name: fileName, size, type, text, base64 } = fileInfo;
+    const { name: fileName, size, type, text, base64, forceContentType } = fileInfo;
 
     const ext = fileName.split('.').pop();
     const id = guid8();
@@ -54,7 +54,7 @@ router.post('/upload', async (req: any, res) => {
 
     const filePath = `uploads/${id}.${ext}`;
     const assetUrl = await saveToBucket(req, filePath, buffer, type);
-    const contentType = contentTypeFromFileName(fileName);
+    const contentType = forceContentType || contentTypeFromFileName(fileName);
 
     const asset = await db.assets.create(req, {
       id: guid8(),
