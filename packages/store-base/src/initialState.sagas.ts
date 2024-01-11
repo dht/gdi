@@ -367,6 +367,13 @@ export const sagas: ISagas = {
       eventNames: ['waveform/play', 'waveform/pause'],
     },
   },
+  'widgets.player.preloadImages': {
+    id: 'widgets.player.preloadImages',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['waveform/play'],
+    },
+  },
   'widgets.player.setPiece': {
     id: 'widgets.player.setPiece',
     type: 'customEvent',

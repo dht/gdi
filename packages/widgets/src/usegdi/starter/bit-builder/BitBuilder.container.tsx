@@ -32,7 +32,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
   useSagas([
     'widgets.scene.bootstrap',
     'widgets.3d.grid',
-    'widgets.3d.manual',
+    // 'widgets.3d.manual',
     'widgets.3d.selection',
     'widgets.3d.toolbox',
     'widgets.player.audio',
@@ -40,6 +40,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
     'widgets.player.effects',
     'widgets.player.playback',
     'widgets.player.time',
+    'widgets.player.preloadImages',
     'widgets.clip.audio',
     'widgets.clip.bootstrap',
     'widgets.clip.bits',

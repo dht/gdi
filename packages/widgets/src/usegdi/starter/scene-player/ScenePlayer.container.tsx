@@ -26,6 +26,7 @@ export function ScenePlayerContainer(_props: ScenePlayerContainerProps) {
     'widgets.player.effects',
     'widgets.player.playback',
     'widgets.player.time',
+    'widgets.player.preloadImages',
   ]);
 
   useBlackBk();

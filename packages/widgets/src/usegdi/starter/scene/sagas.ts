@@ -1,5 +1,5 @@
 import { saga as sagaBaseGrid } from './base/sagas.base.grid';
-import { saga as sagaBaseManual } from './base/sagas.base.Manual';
+import { saga as sagaBaseManual } from './base/sagas.base.manual';
 import { saga as sagaBaseSelection } from './base/sagas.base.selection';
 import { saga as sagaBaseToolbox } from './base/sagas.base.toolbox';
 import { saga as sagaClipAudio } from './clip/sagas.clip.audio';
@@ -19,6 +19,7 @@ import { saga as sagaPlayerAudio } from './player/sagas.player.audio';
 import { saga as sagaPlayerBootstrap } from './player/sagas.player.bootstrap';
 import { saga as sagaPlayerEffects } from './player/sagas.player.effects';
 import { saga as sagaPlayerPlayback } from './player/sagas.player.playback';
+import { saga as sagaPlayerPreloadImages } from './player/sagas.player.preloadImages';
 import { saga as sagaPlayerSetPiece } from './player/sagas.player.setPiece';
 import { saga as sagaPlayerTime } from './player/sagas.player.time';
 import { saga as sagaSceneBootstrap } from './scene/sagas.scene.bootstrap';
@@ -52,6 +53,7 @@ export const sagas = {
   'widgets.player.bootstrap': sagaPlayerBootstrap,
   'widgets.player.effects': sagaPlayerEffects,
   'widgets.player.playback': sagaPlayerPlayback,
+  'widgets.player.preloadImages': sagaPlayerPreloadImages,
   'widgets.player.setPiece': sagaPlayerSetPiece,
   'widgets.player.time': sagaPlayerTime,
   'widgets.scene.bootstrap': sagaSceneBootstrap,
