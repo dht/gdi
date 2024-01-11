@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { HudContext, HudContextProvider } from './Hud.context';
 import { Wrapper } from './Hud.style';
-import type { IHudConfig, IHudItem, IHudItemWithPoints, IHudTimeline } from './Hud.types';
+import type { IHud, IHudItemWithPoints } from './Hud.types';
 import { HudItem } from './parts/HudItem/HudItem';
 
 export type HudProps = {
-  config: IHudConfig;
-  items: IHudItem[];
-  timeline?: IHudTimeline;
+  hud: IHud;
 };
 
 export function HudInner(_props: HudProps) {
@@ -35,10 +33,10 @@ export function HudInner(_props: HudProps) {
 }
 
 export function Hud(props: HudProps) {
-  const { config, items, timeline } = props;
+  const { hud } = props;
 
   return (
-    <HudContextProvider config={config} items={items} timeline={timeline}>
+    <HudContextProvider hud={hud}>
       <HudInner {...props} />
     </HudContextProvider>
   );

@@ -12,6 +12,7 @@ import { vector3, vectorRadians } from './iso.utils';
 
 export const changeSkyBox = (url: string, showAndFocus?: boolean) => {
   const skyboxMaterial = scene.getMaterialByName('skyboxMaterial') as StandardMaterial;
+
   skyboxMaterial.diffuseTexture = new Texture(url, scene);
 
   if (showAndFocus) {
@@ -47,8 +48,8 @@ export const addSkyBox = (url: string) => {
   const skybox = MeshBuilder.CreatePlane('skybox', { width: 160, height: 90 }, scene);
   const skyboxMaterial = new StandardMaterial('skyboxMaterial', scene);
 
-  skyboxMaterial.diffuseColor = new Color3(0, 0, 255);
-  skyboxMaterial.specularColor = new Color3(0, 255, 0);
+  skyboxMaterial.diffuseColor = new Color3(0, 0, 0);
+  skyboxMaterial.specularColor = new Color3(0, 0, 0);
   skyboxMaterial.emissiveColor = new Color3(255, 255, 255);
   skyboxMaterial.backFaceCulling = false;
 

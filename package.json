@@ -24,7 +24,8 @@
     "sync:forms": "ts-node ./scripts/yaml.ts",
     "build": "npm run -w web build",
     "preview": "npm run -w web preview",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "listen:scene": "ts-node ./scripts/listen-scene.ts"
   },
   "devDependencies": {
     "husky": "^8.0.1"

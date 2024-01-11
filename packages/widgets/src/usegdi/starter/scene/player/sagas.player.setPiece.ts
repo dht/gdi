@@ -25,6 +25,18 @@ export function* refreshPosition(ev: any) {
   if (isCameraTrack) {
     setCamera(reduced.cameraId);
   }
+
+  yield put(
+    actions.sceneCurrentIds.patch({
+      layerId: '',
+    })
+  );
+
+  yield put(
+    actions.sceneState.patch({
+      currentAttachmentUrl: '',
+    })
+  );
 }
 
 export function* refreshDots(ev: any) {

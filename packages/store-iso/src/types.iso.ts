@@ -28,6 +28,7 @@ export type ISceneState = {
   lockMode: LockMode;
   cue: [number, number];
   currentAudioTimestamp: number;
+  currentAttachmentUrl: string;
 };
 
 export type ISceneCurrentIds = {

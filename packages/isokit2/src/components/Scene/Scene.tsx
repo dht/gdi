@@ -10,6 +10,8 @@ import { useKey } from 'react-use';
 import { IEnvironment, IPostEffect } from '@gdi/store-iso';
 import { useAdhoc } from './hooks/useAdhoc';
 import { usePostEffect } from './hooks/usePostEffect';
+import { useArc } from './hooks/useArc';
+import { useHome } from './hooks/useHome';
 
 export type SceneProps = {
   isLoading?: boolean;
@@ -50,6 +52,8 @@ export function Scene(props: SceneProps) {
   usePick(canvasRef);
   useAdhoc(adhocUrl);
   usePostEffect(adhocEffect);
+  useArc();
+  useHome();
 
   function renderToolboxes() {
     if (!showToolbox || !props.onToolbox) {

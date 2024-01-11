@@ -19,8 +19,6 @@ export function DocumentBootstrapContainer(_props: DocumentBootstrapContainerPro
   const callbacks = useMemo(
     () => ({
       onBootstrap: (meta: Json) => {
-        console.log('1 ->', 1);
-
         dispatch({
           type: 'DOCUMENT',
           verb: 'bootstrap',

@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { HudContext } from '../../Hud.context';
 import { HudRect } from '../HudRect/HudRect';
 import { IHudItemWithPoints } from '../../Hud.types';

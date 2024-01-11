@@ -115,5 +115,11 @@ export function* addSkyBoxDot(bit: IBit) {
     },
   };
 
-  yield put(actions.sceneDots.patch(dot.id, dot));
+  const existingDot = yield* select(selectors.singles.$dot, id);
+
+  if (existingDot) {
+    yield put(actions.sceneDots.patch(dot.id, dot));
+  } else {
+    yield put(actions.sceneDots.add(dot));
+  }
 }

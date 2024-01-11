@@ -58,6 +58,8 @@ export function* onBitChange(action: any) {
 
   const { type, attachmentUrl, elements } = bit;
 
+  showMeshes(elements, true);
+
   switch (type) {
     case 'skybox':
       changeSkyBox(attachmentUrl!, true);
@@ -66,8 +68,6 @@ export function* onBitChange(action: any) {
       showSkyBox(false);
       break;
   }
-
-  showMeshes(elements, true);
 }
 
 export function* root() {

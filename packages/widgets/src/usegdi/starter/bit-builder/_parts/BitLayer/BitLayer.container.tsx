@@ -1,28 +1,23 @@
-import { selectors, useDispatch, useSelector } from '@gdi/store-base';
+import { useDispatch, useSelector } from '@gdi/store-base';
+import { selectors } from '@gdi/store-iso';
 import React, { useMemo } from 'react';
 import { BitLayer } from './BitLayer';
 
-export type BitLayerContainerProps = {
-  show: boolean;
-};
+export type BitLayerContainerProps = {};
 
 export function BitLayerContainer(props: BitLayerContainerProps) {
-  const { show } = props;
   const dispatch = useDispatch();
-  const appState = useSelector(selectors.raw.$rawAppState);
+  const currentIds = useSelector(selectors.raw.$rawSceneCurrentIds);
+  const state = useSelector(selectors.raw.$rawSceneState);
 
-  const callbacks = useMemo(
-    () => ({
-      onClick: () => {},
-    }),
-    []
-  );
+  const { layerId } = currentIds;
+  const { currentAttachmentUrl } = state;
 
-  if (!show) {
+  if (!layerId) {
     return null;
   }
 
-  return <BitLayer />;
+  return <BitLayer layerId={layerId} attachmentUrl={currentAttachmentUrl} />;
 }
 
 export default BitLayerContainer;

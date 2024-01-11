@@ -20,6 +20,7 @@ export const initialState: IIsoStore = {
     lockMode: 'dot',
     cue: [0, 0],
     currentAudioTimestamp: 10,
+    currentAttachmentUrl: '',
   },
   sceneCurrentIds: {
     cameraId: 'arc',

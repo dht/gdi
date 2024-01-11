@@ -5,7 +5,7 @@ import { applyMeshListeners, applyVectors, vector3 } from './iso.utils';
 import '@babylonjs/loaders';
 
 export const addExternal = (external: IExternal) => {
-  const { id, url, position, scaling, rotation } = external;
+  const { id, url } = external;
 
   return new Promise((resolve) => {
     SceneLoader.ShowLoadingScreen = false;
@@ -17,6 +17,7 @@ export const addExternal = (external: IExternal) => {
       }
 
       mesh.id = id;
+      mesh.setEnabled(false);
       applyMeshListeners(mesh as any, 'external');
 
       applyVectors(mesh as any, external as any);

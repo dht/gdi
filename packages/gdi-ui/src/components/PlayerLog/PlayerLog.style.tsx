@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const totalWidth = Math.min(1700, window.innerWidth);
+const center = window.innerWidth / 2;
+const left = center - totalWidth / 2;
+
 export const Wrapper = styled.div`
   flex: 1;
   background-color: #010;
@@ -60,7 +64,7 @@ export const Index = styled.div`
 export const LogButton = styled.div`
   position: fixed;
   z-index: 99;
-  left: 10px;
+  left: ${left + 10}px;
   bottom: 300px;
   background-color: rgba(235, 255, 235, 0.1);
   border-radius: 5px;

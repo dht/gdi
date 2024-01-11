@@ -55,7 +55,7 @@ export const elements: Partial<IIsoStore> = {
       type: 'sphere',
       position: [0, 0, 0],
       values: {
-        diameter: 200,
+        diameter: 500,
       },
       material: {
         type: 'color',

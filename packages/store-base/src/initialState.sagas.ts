@@ -255,6 +255,13 @@ export const sagas: ISagas = {
       eventNames: ['SCENE_ELEMENT'],
     },
   },
+  'widgets.clip.live': {
+    id: 'widgets.clip.live',
+    type: 'socket',
+    trigger: {
+      eventNames: ['clip/live'],
+    },
+  },
   'widgets.clip.keys': {
     id: 'widgets.clip.keys',
     type: 'keys',

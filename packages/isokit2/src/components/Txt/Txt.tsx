@@ -1,18 +1,21 @@
 import { Inner, SmallPrint, Subtext, Text, Wrapper } from './Txt.style';
+import { Txt } from './Txt.types';
 
-export type TxtProps = {};
+export type TxtProps = {
+  txt: Txt;
+};
 
 export function Txt(props: TxtProps) {
+  const { txt } = props;
+  const { config } = txt;
+  const { header, headerFont, subtext, subtextFont, smallPrint, smallPrintFont } = config;
+
   return (
     <Wrapper className='Txt-wrapper' data-testid='Txt-wrapper'>
       <Inner>
-        <Text>MODELZ</Text>
-        <Subtext>== Get yours today ==</Subtext>
-        <SmallPrint>
-          Regular maintenance and servicing of the modelz hovercraft are essential for optimal
-          performance and safety. VR training on Vision Ultra is required to operate a hovercraft in
-          the case of engine failure.
-        </SmallPrint>
+        <Text style={headerFont}>{header}</Text>
+        <Subtext style={subtextFont}>{subtext}</Subtext>
+        <SmallPrint style={smallPrintFont}>{smallPrint}</SmallPrint>
       </Inner>
     </Wrapper>
   );

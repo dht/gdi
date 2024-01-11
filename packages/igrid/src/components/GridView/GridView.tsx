@@ -15,7 +15,8 @@ export function GridView(_props: GridViewProps) {
 
   function renderElement(element: IElement) {
     const { flavour: f, columnIndex: c = -1 } = element;
-    const isVisibleFlavour = !flavour || !f || element.flavour === f;
+
+    const isVisibleFlavour = !flavour || !f || flavour === f;
     const isVisibleMobile = !isMobile() || c == -1 || c === columnIndex; // prettier-ignore
 
     if (!isVisibleFlavour || !isVisibleMobile) {

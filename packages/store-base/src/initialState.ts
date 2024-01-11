@@ -16,6 +16,7 @@ export const initialState: IGdiStore = {
     assetsRootUrl: '/',
     boardsRootUrl: '/boards',
     docsRootUrl: '/',
+    socketsUrl: '',
     adapter: 'no adapter',
     flavour: 'default',
     flavourColumnIndex: 0,

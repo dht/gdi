@@ -37,6 +37,7 @@ export type IAppState = {
   assetsRootUrl: string;
   boardsRootUrl: string;
   docsRootUrl: string;
+  socketsUrl: string;
   flavour: string; // base, prepare, outcome
   flavourColumnIndex: number; // base, prepare, outcome
   prompt: string;
@@ -562,6 +563,7 @@ export type SagaType =
   | 'predicate'
   | 'authChange'
   | 'crud'
+  | 'socket'
   | 'keys';
 
 export type ISaga = {

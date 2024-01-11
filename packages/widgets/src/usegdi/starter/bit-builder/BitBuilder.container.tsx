@@ -9,6 +9,7 @@ import { SceneModalsContainer } from '../scene-modals/SceneModals.container';
 import { BitBuilder } from './BitBuilder';
 import BitLayerContainer from './_parts/BitLayer/BitLayer.container';
 import BitTimelineContainer from './_parts/BitTimeline/BitTimeline.container';
+import CopyClipContainer from './_parts/CopyClip/CopyClip.container';
 import DotTimelineContainer from './_parts/DotTimeline/DotTimeline.container';
 import DownloadBitsContainer from './_parts/DownloadBits/DownloadBits.container';
 import DynamicTimelineContainer from './_parts/DynamicTimeline/DynamicTimeline.container';
@@ -25,6 +26,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
   const waveTracks = useSelector(selectors.wave.$tracks);
   const waveOptions = useSelector(selectors.wave.$options);
   const elementLabels = useSelector(selectors.base.$elementLabels);
+
   const { bitId, dotId } = currentIds;
 
   useSagas([
@@ -44,6 +46,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
     'widgets.clip.dots',
     'widgets.clip.effects',
     'widgets.clip.elements',
+    'widgets.clip.live',
     'widgets.clip.keys',
     'widgets.clip.keyframes',
     'widgets.clip.position.camera',
@@ -107,10 +110,11 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
     >
       <SceneModalsContainer />
       <MakeKeyframeContainer />
-      <BitLayerContainer show={false} />
+      <BitLayerContainer />
       <PlayerLog />
       <CurrentIds data={currentIds} />
       <DownloadBitsContainer />
+      <CopyClipContainer />
     </BitBuilder>
   );
 }

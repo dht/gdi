@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import ToolboxContainer from '../Toolbox/Toolbox.container';
 
+const totalWidth = Math.min(1700, window.innerWidth);
+const center = window.innerWidth / 2;
+const left = center - totalWidth / 2;
+
 export const Wrapper = styled.div`
   flex: 1;
   display: flex;
@@ -14,7 +18,7 @@ export const Canvas = styled.canvas`
 
 export const ToolboxMain = styled(ToolboxContainer)`
   top: 200px;
-  left: 5vw;
+  left: ${left + 50}px;
 `;
 
 export const ToolboxTop = styled(ToolboxContainer)`

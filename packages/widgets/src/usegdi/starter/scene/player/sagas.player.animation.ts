@@ -1,10 +1,11 @@
 import { actions, selectors } from '@gdi/store-iso';
-import { animateItem, setCamera, showMeshes, stopAllAnimations } from 'isokit2';
-import { put, select, takeEvery } from 'saga-ts';
+import { animateItem, setCamera, showMeshes, showSkyBox, stopAllAnimations } from 'isokit2';
+import { fork, put, select, takeEvery } from 'saga-ts';
 import { customEvenChannelThrottled } from '../../../../helpers/channels/channel.customEvent';
 import { dotsToAnimation } from '../utils/utils.animation';
 import { clearLog, initLog, log } from '../_helpers/helper.logs';
 import { invokeEvent } from 'shared-base';
+import { loadLayerBit, loadSpecialBit } from '../_helpers/helper.layers';
 
 const DEBUG = true;
 
@@ -33,7 +34,12 @@ export function* onCheckAnimation(ev: any) {
     return;
   }
 
-  const { id: bitId, elements, duration } = bit;
+  const { id: bitId, elements, duration, type, attachmentUrl } = bit;
+
+  if (type === 'layer') {
+    yield fork(loadSpecialBit, bit);
+  }
+
   invokeEvent('log/bit', { bit });
 
   // log(`${bitId}`, `identified`, { elements, duration });

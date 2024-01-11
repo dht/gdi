@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const totalWidth = Math.min(1700, window.innerWidth);
+const center = window.innerWidth / 2;
+const right = center + totalWidth / 2;
+
 export const Wrapper = styled.button`
   position: fixed;
   z-index: 99;
@@ -8,7 +12,7 @@ export const Wrapper = styled.button`
   padding: 10px;
   border-radius: 15px;
   color: #676;
-  right: 20px;
+  left: ${right - 170}px;
   font-size: 20px;
   border-top: 2px solid #232;
   border-right: 2px solid #232;
@@ -22,6 +26,8 @@ export const Wrapper = styled.button`
   @media (max-width: 800px) {
     zoom: 0.5;
     bottom: 225px;
+    left: auto;
+    right: 20px;
   }
 
   &:hover {

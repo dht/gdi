@@ -12,6 +12,7 @@ const isAnalyticsOn = import.meta.env.VITE_ENABLE_ANALYTICS === 'true';
 const assetsRootUrl = import.meta.env.VITE_ASSETS_ROOT_URL;
 const boardsRootUrl = import.meta.env.VITE_BOARDS_ROOT_URL;
 const docsRootUrl = import.meta.env.VITE_DOCS_ROOT_URL;
+const socketsUrl = import.meta.env.VITE_SOCKETS_ROOT_URL;
 
 export const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -43,6 +44,7 @@ store.dispatch(
     assetsRootUrl,
     boardsRootUrl,
     docsRootUrl,
+    socketsUrl,
     isEmulator: isEmulator,
   })
 );

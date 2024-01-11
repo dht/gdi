@@ -20,6 +20,7 @@
     "reactflow": "^11.7.0",
     "saga-ts": "^0.0.7",
     "shared-base": "^0.4.8",
+    "socket.io-client": "^4.7.3",
     "styled-components": "^5.3.5",
     "tinycolor2": "^1.6.0",
     "wavesurfer-multitrack": "^0.4.7"

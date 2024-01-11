@@ -1,19 +1,23 @@
 import { useEffect } from 'react';
-import { ICameraPosition, IHudTimeline } from '../Hud.types';
 import { useSetState } from 'react-use';
+import { invokeEvent } from 'shared-base';
+import { ICameraPosition, IHudItem } from '../Hud.types';
 
-export function useCameraPosition(timeline: IHudTimeline = [], initialParams: ICameraPosition) {
+export function useCameraPosition(items: IHudItem[] = [], initialPosition: ICameraPosition) {
   const [timers, patchTimers] = useSetState<Record<string, any>>({});
-  const [camera, patchCamera] = useSetState<ICameraPosition>(initialParams);
+  const [camera, patchCamera] = useSetState<ICameraPosition>(initialPosition);
 
   useEffect(() => {
-    timeline.forEach((frame) => {
-      const { id, millis, cameraPosition } = frame;
+    invokeEvent('arc/camera', initialPosition);
 
-      if (cameraPosition) {
+    items.forEach((frame) => {
+      const { id, tsStart, cameraValues } = frame;
+
+      if (cameraValues) {
         const timer = setTimeout(() => {
-          patchCamera(cameraPosition);
-        }, millis);
+          patchCamera(cameraValues);
+          invokeEvent('arc/camera', cameraValues);
+        }, tsStart);
 
         patchTimers({ [id]: timer });
       }

@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+const totalWidth = Math.min(1700, window.innerWidth);
+const center = window.innerWidth / 2;
+const right = center + totalWidth / 2;
+
 export const Wrapper = styled.div`
   position: fixed;
   top: 345px;
-  left: calc(min(1700px, 100vw) - 170px);
+  left: ${right - 170}px;
   z-index: 999;
   width: 140px;
   background-color: #000;

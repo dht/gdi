@@ -3,8 +3,8 @@ import { invokeEvent } from 'shared-base';
 import { scene } from '../../../globals';
 import { getMeshInfo } from '../../../iso.utils';
 
-var draggedObject: any = null;
-const ignoreItems = ['main-grid', 'center', 'env'];
+export var draggedObject: any = null;
+const ignoreItems = ['main-grid', 'center', 'env', 'skybox'];
 
 export function usePick(canvasRef: RefObject<HTMLCanvasElement>) {
   useEffect(() => {

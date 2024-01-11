@@ -19,11 +19,15 @@ export const applyEasing = (v1: number, v2: number, easing: number[], percent: n
 };
 
 export const applyEasingVector = (v1: IVector, v2: IVector, easing: number[], percent: number) => {
-  return [
-    applyEasing(v1[0], v2[0], easing, percent),
-    applyEasing(v1[1], v2[1], easing, percent),
-    applyEasing(v1[2], v2[2], easing, percent),
-  ];
+  try {
+    return [
+      applyEasing(v1[0], v2[0], easing, percent),
+      applyEasing(v1[1], v2[1], easing, percent),
+      applyEasing(v1[2], v2[2], easing, percent),
+    ];
+  } catch (err) {
+    return [0, 0, 0];
+  }
 };
 
 export const extrapolateAnimation = (percent: number, startDot?: IDot, endDot?: IDot) => {

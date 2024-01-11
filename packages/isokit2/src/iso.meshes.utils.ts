@@ -5,6 +5,7 @@ import { applyMaterial, applyMeshListeners, applyVectors } from './iso.utils';
 import { detachGizmo } from './iso.gizmos';
 import { addObject } from './iso.meshes.add';
 import { base } from './base';
+import { draggedObject } from './components/Scene/hooks/usePick';
 
 export const renameMesh = (meshId: string, newId: string) => {
   const mesh = scene.meshes.find((m) => m.id === meshId);
@@ -38,6 +39,7 @@ export const showMeshes = (ids: Json, hideOthers: boolean = false) => {
     scene.meshes
       .filter((m) => !keys.includes(m.id))
       .filter((m) => !base.all.includes(m.id))
+      .filter((m) => !m.id.includes('skybox'))
       .filter((m) => !m.id.includes('_handler'))
       .filter((m) => !m.id.startsWith('Object_'))
       .forEach((m) => {
@@ -83,4 +85,17 @@ export const removeAllMeshes = () => {
   meshes.forEach((m) => {
     m.dispose();
   });
+};
+
+export const resetMeshVector = () => {
+  console.log(2, draggedObject);
+  if (!draggedObject) {
+    return;
+  }
+
+  applyVectors(draggedObject, {
+    position: [0, 0, 0],
+    rotation: [0, 0, 0],
+    scaling: [1, 1, 1],
+  } as any);
 };

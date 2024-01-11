@@ -10,6 +10,7 @@ import { saga as sagaClipEffects } from './clip/sagas.clip.effects';
 import { saga as sagaClipElements } from './clip/sagas.clip.elements';
 import { saga as sagaClipKeys } from './clip/sagas.clip.keys';
 import { saga as sagaClipKeyframes } from './clip/sagas.clip.keyframes';
+import { saga as sagaClipLive } from './clip/sagas.clip.live';
 import { saga as sagaClipPositionCamera } from './clip/sagas.clip.position.camera';
 import { saga as sagaClipPositionMesh } from './clip/sagas.clip.position.mesh';
 import { saga as sagaClipSave } from './clip/sagas.clip.save';
@@ -42,6 +43,7 @@ export const sagas = {
   'widgets.clip.elements': sagaClipElements,
   'widgets.clip.keys': sagaClipKeys,
   'widgets.clip.keyframes': sagaClipKeyframes,
+  'widgets.clip.live': sagaClipLive,
   'widgets.clip.position.camera': sagaClipPositionCamera,
   'widgets.clip.position.mesh': sagaClipPositionMesh,
   'widgets.clip.save': sagaClipSave,

@@ -30,3 +30,4 @@ playground/data/
 web/.firebase/
 web/public/boards
 playground/serviceAccountKey.json
+live/

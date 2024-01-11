@@ -1,14 +1,12 @@
-import React, { useMemo } from 'react';
-import { createContext } from 'react';
-import { IHudConfig, IHudItem, IHudItemWithPoints, IHudState, IHudTimeline } from './Hud.types';
+import { createContext, useMemo } from 'react';
 import { useSetState } from 'react-use';
+import { IHud, IHudItemWithPoints, IHudState } from './Hud.types';
 import { parseItems } from './Hud.utils';
+import { useCameraPosition } from './hooks/useCameraPosition';
 import { useTimeline } from './hooks/useTimeline';
 
 type HudContextProps = {
-  config: IHudConfig;
-  items: IHudItem[];
-  timeline?: IHudTimeline;
+  hud: IHud;
 };
 
 type IHudContext = {
@@ -32,9 +30,13 @@ const initialValue: IHudContext = {
 export const HudContext = createContext<IHudContext>(initialValue);
 
 export const HudContextProvider = (props: WithChildren<HudContextProps>) => {
-  const { config, items, timeline } = props;
+  const { hud } = props;
+
+  const { config, items } = hud;
   const { width, height } = config;
-  const visibility = useTimeline(timeline);
+  const visibility = useTimeline(items);
+
+  useCameraPosition(items, config.initialPosition);
 
   const mx = width / 2;
   const my = height / 2;
