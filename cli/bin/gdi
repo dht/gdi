@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+const chalk = require('chalk');
+const { allCommands } = require('../index');
+const p = require('../../package.json');
+
+console.log('gdi ' + chalk.green(p.version));
+
+let yargs = require('yargs')
+  .command(
+    'component',
+    'create components',
+    (yargs) => {
+      yargs.positional('componentName', {
+        describe: 'the name of the component',
+      });
+    },
+    (argv) => {
+      const args = argv._.slice(1);
+      allCommands.component(args);
+    }
+  )
+  .command(
+    'init',
+    'init ai-runner local directory',
+    (yargs) => {
+      yargs.positional('directoryName', {
+        describe: 'the name of the directory',
+      });
+    },
+    (argv) => {
+      const args = argv._.slice(1);
+      allCommands.init(args);
+    }
+  )
+  .command('start', 'start the ai-runner', (argv) => {
+    allCommands.start();
+  });
+
+yargs.argv;

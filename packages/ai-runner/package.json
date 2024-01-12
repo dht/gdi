@@ -1,0 +1,31 @@
+{
+  "name": "@gdi/ai-runner",
+  "version": "0.0.1",
+  "license": "GPL-3.0",
+  "scripts": {
+    "build": "tsc & vite build",
+    "test": "jest",
+    "coverage": "jest --coverage=true"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "rollup-plugin-analyzer": "^4.0.0",
+    "shared-base": "^0.5.0",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.0.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/ai-runner.umd.js",
+  "module": "./dist/ai-runner.es.js",
+  "types": "./dist/dts/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/ai-runner.es.js",
+      "require": "./dist/ai-runner.umd.js"
+    }
+  }
+}

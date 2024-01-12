@@ -8,7 +8,6 @@ docs/slack.md
 server/.env
 gdi.code-workspace
 docs/ideas.md
-.env
 har/
 .todos/
 stats.html
@@ -31,3 +30,4 @@ web/.firebase/
 web/public/boards
 playground/serviceAccountKey.json
 live/
+scripts/.env

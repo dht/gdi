@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "../",
+    "removeComments": false,
+    "types": ["types-base", "@types/jest", "@types/node"],
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/templates/**", "dist/**"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

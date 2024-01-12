@@ -1,0 +1,7 @@
+{
+  "port": 3005,
+  "allowedDomains": {
+    "http://localhost:3000": true,
+    "https://usegdi.com": true
+  }
+}
