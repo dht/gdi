@@ -158,7 +158,8 @@ export function* board(action: Action) {
   const saga = map[verb];
 
   const boards = yield* select(selectors.raw.$rawBoards);
-  const board = (boards ?? {})[id];
+  const currentBoard = yield* select(selectors.raw.$rawBoard);
+  const board = (boards ?? {})[id] || currentBoard;
 
   if (!saga) {
     return;

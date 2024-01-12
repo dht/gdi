@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   position: fixed;
   left: ${left + 10}px;
   bottom: 400px;
-  z-index: 99;
+  z-index: 4;
   background-color: rgba(235, 255, 235, 0.1);
   border-radius: 5px;
   padding: 5px;

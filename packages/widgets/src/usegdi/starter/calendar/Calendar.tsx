@@ -22,7 +22,7 @@ export function Calendar(props: CalendarProps) {
 
   return (
     <Wrapper className='Calendar-wrapper' data-testid='Calendar-wrapper'>
-      <H1>2023</H1>
+      <H1>2024</H1>
       <Months>{renderMonths()}</Months>
     </Wrapper>
   );

@@ -11,6 +11,11 @@ export const Wrapper = styled.div<{ $root: string }>`
   background-size: 100% 100%;
   box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.04);
 
+  @media (max-width: 800px) {
+    width: 40px;
+    height: 30px;
+  }
+
   .mouth-background {
     fill: red;
   }

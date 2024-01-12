@@ -1,16 +1,16 @@
-import { takeEvery } from 'saga-ts';
+import { put, takeEvery } from 'saga-ts';
 import { customEvenChannel } from './channels/channel.customEvent';
-import { newLog } from '@gdi/firebase';
+import { actions } from '@gdi/store-base';
 
 export function* log(ev: any) {
   const { data } = ev;
 
-  newLog(data);
+  yield put(actions.logs.patch(data.id, data));
 }
 
 export function* root() {
-  // const channel = customEvenChannel('gdi/log');
-  // yield takeEvery(channel, log);
+  const channel = customEvenChannel('gdi/log');
+  yield takeEvery(channel, log);
 }
 
 export const saga = {

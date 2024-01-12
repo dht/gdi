@@ -6,7 +6,7 @@ const right = center + totalWidth / 2;
 
 export const Wrapper = styled.button`
   position: fixed;
-  z-index: 99;
+  z-index: 4;
   bottom: 260px;
   background-color: #121;
   padding: 10px;

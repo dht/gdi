@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  z-index: 115;
+  z-index: 10000;
 `;
 
 export const Bar = styled.div`

@@ -52,7 +52,7 @@ export const Fps = styled.div`
   padding: 3rem 10rem;
   left: 10rem;
   border-radius: 10rem;
-  z-index: 999;
+  z-index: 99;
   opacity: 0.4;
   box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.2);
 `;
@@ -67,7 +67,7 @@ export const BitName = styled.div`
   padding: 3rem 10rem;
   left: 10rem;
   border-radius: 10rem;
-  z-index: 999;
+  z-index: 99;
   opacity: 0.4;
   box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.2);
 `;

@@ -44,7 +44,7 @@ export const Handler = styled.div`
   background-color: var(--green-900);
   border-radius: 3px;
   cursor: pointer;
-  z-index: 999;
+  z-index: 4;
   margin: 2px;
 
   &:hover {

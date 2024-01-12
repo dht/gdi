@@ -6,7 +6,6 @@ let cached: any = {};
 
 export function* onPlay() {
   const bits = yield* select(selectors.raw.$rawSceneBits);
-  console.log('bits ->', bits);
 
   const urls = Object.values(bits)
     .map((bit: any) => bit.attachmentUrl)

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   bottom: 44rem;
   width: 56vw;
   background-color: #111;
-  z-index: 4;
+  z-index: 9999;
   font-size: 18rem;
   color: #aaa;
   transition: all 20ms ease-in-out;
