@@ -1,22 +1,22 @@
 import { Json } from '@gdi/store-base';
-import { deleteItem, getCollection, getItem, setItem } from '../utils/firebase';
 import { cleanUndefined } from '../utils/object';
 import { getScopedPath } from './db._base';
+import { dbAdapter } from '../utils/globals';
 
 export const newPlayback = (req: any, variables: Json) => {
   const id = variables.id;
   const scopedPath = getScopedPath(req, `playbacks/${id}`, 'global');
-  return setItem(scopedPath, cleanUndefined(variables));
+  return dbAdapter.setItem(scopedPath, cleanUndefined(variables));
 };
 
 export const getPlayback = async (req: any, id: string) => {
   const scopedPath = getScopedPath(req, `playbacks/${id}`, 'global');
-  return getItem(scopedPath);
+  return dbAdapter.getItem(scopedPath);
 };
 
 export const saveBoardForLayer = (req: any, boardId: string) => {
   const scopedPath = getScopedPath(req, `/savedBoards/${boardId}`, 'userData');
-  return setItem(scopedPath, {
+  return dbAdapter.setItem(scopedPath, {
     id: boardId,
     tsAdded: Date.now(),
   });
@@ -24,12 +24,12 @@ export const saveBoardForLayer = (req: any, boardId: string) => {
 
 export const removeSavedBoard = (req: any, boardId: string) => {
   const scopedPath = getScopedPath(req, `/savedBoards/${boardId}`, 'userData');
-  return deleteItem(scopedPath);
+  return dbAdapter.deleteItem(scopedPath);
 };
 
 export const addToMyBoards = async (req: any, boardId: string) => {
   const scopedPath = getScopedPath(req, `/myBoards/${boardId}`, 'userData');
-  return setItem(scopedPath, {
+  return dbAdapter.setItem(scopedPath, {
     id: boardId,
     tsAdded: Date.now(),
     tsLastOpened: Date.now(),
@@ -42,7 +42,7 @@ export const newBoard = async (req: any, board: Json) => {
 
   const scopedPath = getScopedPath(req, `/${board.id}`, 'pendingBoards');
 
-  return setItem(scopedPath, {
+  return dbAdapter.setItem(scopedPath, {
     id: board.id,
     ...board,
     uid,
@@ -56,7 +56,7 @@ export const newReview = async (req: any, review: Json) => {
 
   const scopedPath = getScopedPath(req, `/${review.id}`, 'pendingReviews');
 
-  return setItem(scopedPath, {
+  return dbAdapter.setItem(scopedPath, {
     id: review.id,
     ...review,
     uid,
@@ -66,13 +66,13 @@ export const newReview = async (req: any, review: Json) => {
 
 export const getMyBoards = async (req: any) => {
   const scopedPath = getScopedPath(req, '/myBoards', 'userData');
-  const items = await getCollection(scopedPath);
+  const items = await dbAdapter.getCollection(scopedPath);
   return items.sort((a: any, b: any) => b.tsAdded - a.tsAdded);
 };
 
 export const removeFromMyBoards = async (req: any, boardId: string) => {
   const scopedPath = getScopedPath(req, `/myBoards/${boardId}`, 'userData');
-  return deleteItem(scopedPath);
+  return dbAdapter.deleteItem(scopedPath);
 };
 
 export const all = {

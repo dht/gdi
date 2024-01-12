@@ -1,10 +1,10 @@
 import { Json } from '@gdi/store-base';
-import { getItem, patchItem } from '../utils/firebase';
 import { getScopedPath } from './db._base';
+import { dbAdapter } from '../utils/globals';
 
 export const patchUser = (req: any, json: Json) => {
   const scopedPath = getScopedPath(req, '', 'users');
-  return patchItem(scopedPath, json);
+  return dbAdapter.patchItem(scopedPath, json);
 };
 
 export const all = {

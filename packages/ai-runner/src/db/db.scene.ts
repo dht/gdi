@@ -1,10 +1,10 @@
 import { guid8 } from 'shared-base';
 import { saveToBucket } from '../api/files';
 import { fetchJsonUrl } from '../utils/download';
-import { replaceCollection } from '../utils/firebase';
 import { tsShort } from '../utils/time';
 import { getByNodes, getScopedPath } from './db._base';
 import { createAsset, getAssets, patchAsset } from './db.assets';
+import { dbAdapter } from '../utils/globals';
 
 export const getScene = async (req: any) => {
   const scene = await getByNodes(req, ['sceneLights', 'sceneMeshes', 'sceneExternals']);
@@ -79,11 +79,11 @@ export const restoreScene = async (req: any, projectId: string) => {
     let scopedPath: string;
 
     scopedPath = getScopedPath(req, '/sceneLights', 'userData');
-    await replaceCollection(scopedPath, sceneLights);
+    await dbAdapter.replaceCollection(scopedPath, sceneLights);
     scopedPath = getScopedPath(req, '/sceneMeshes', 'userData');
-    await replaceCollection(scopedPath, sceneMeshes);
+    await dbAdapter.replaceCollection(scopedPath, sceneMeshes);
     scopedPath = getScopedPath(req, '/sceneExternals', 'userData');
-    await replaceCollection(scopedPath, sceneExternals);
+    await dbAdapter.replaceCollection(scopedPath, sceneExternals);
   } catch (err) {
     console.log('err =>', err);
     success = false;

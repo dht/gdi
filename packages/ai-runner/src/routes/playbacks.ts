@@ -14,7 +14,7 @@ router.post('/save', async (req: any, res) => {
     const flowRun = await db.runs.get(req);
     flowRun.id = guid4();
     flowRun.uid = uid;
-    const response = await db.playbacks.create(req, flowRun);
+    const response: any = await db.playbacks.create(req, flowRun);
     res.status(200).json({ text: response.text, uid });
   } catch (error) {
     console.error('Error saving playback:', error);

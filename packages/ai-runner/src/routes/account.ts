@@ -3,6 +3,7 @@ import db from '../db';
 import { cleanUndefined } from '../utils/object';
 import { Json, User } from '../types';
 import { midKeys } from '../middlewares/midKeys';
+import { dbAdapter } from '../utils/globals';
 
 export const router = express.Router();
 
@@ -15,7 +16,7 @@ router.post('/keys', async (req, res) => {
       elevenLabs,
     });
 
-    await db.keys.patch(req, keys);
+    await dbAdapter.patchKeys(req, keys);
 
     res.status(200).json({ success: true });
   } catch (error) {

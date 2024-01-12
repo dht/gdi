@@ -2,33 +2,33 @@ import type { IFlowState } from '@gdi/store-base';
 import { FlowMeta, INodeState, Json } from '@gdi/store-base';
 import { get, mapValues } from 'lodash';
 import { guid4 } from 'shared-base';
-import { deleteItem, getCollection, getItem, patchItem, setItem } from '../utils/firebase';
 import { cleanUndefined } from '../utils/object';
 import { getScopedPath } from './db._base';
+import { dbAdapter } from '../utils/globals';
 
 export const getFlow = async (req: any) => {
   const scopedPath = getScopedPath(req, '/flows/default', 'userData');
-  return getItem(scopedPath);
+  return dbAdapter.getItem(scopedPath);
 };
 
 export const setFlow = (req: any, json: Json) => {
   const scopedPath = getScopedPath(req, '/flows/default', 'userData');
-  return setItem(scopedPath, json);
+  return dbAdapter.setItem(scopedPath, json);
 };
 
 export const getFlowRun = async (req: any) => {
   const scopedPath = getScopedPath(req, '/flowRuns/default', 'userData');
-  return getItem(scopedPath);
+  return dbAdapter.getItem(scopedPath);
 };
 
 export const setFlowRun = (req: any, json: Json) => {
   const scopedPath = getScopedPath(req, '/flowRuns/default', 'userData');
-  return setItem(scopedPath, cleanUndefined(json));
+  return dbAdapter.setItem(scopedPath, cleanUndefined(json));
 };
 
 export const patchFlowRun = (req: any, change: Partial<FlowMeta>) => {
   const scopedPath = getScopedPath(req, '/flowRuns/default', 'userData');
-  return patchItem(scopedPath, cleanUndefined(change));
+  return dbAdapter.patchItem(scopedPath, cleanUndefined(change));
 };
 
 export const getVariables = async (req: any) => {
@@ -63,15 +63,15 @@ export const clearFlow = async (req: any) => {
   let scopedPath;
 
   scopedPath = getScopedPath(req, '/flows/default', 'userData');
-  await deleteItem(scopedPath);
+  await dbAdapter.deleteItem(scopedPath);
 
   scopedPath = getScopedPath(req, '/flowRuns/default', 'userData');
-  await deleteItem(scopedPath);
+  await dbAdapter.deleteItem(scopedPath);
 };
 
 export const changePrompt = async (req: any, data: Json) => {
   const scopedPath = getScopedPath(req, '', 'userData');
-  return patchItem(scopedPath, {
+  return dbAdapter.patchItem(scopedPath, {
     ...data,
     promptTs: Date.now(),
   });
@@ -99,14 +99,14 @@ export const patchDynamicFlow = async (req: any, assistant: Json) => {
 export const logNewAssistant = async (req: any, assistantId: string) => {
   const scopedPath = getScopedPath(req, `/myAssistants/${assistantId}`, 'userData');
 
-  return patchItem(scopedPath, {
+  return dbAdapter.patchItem(scopedPath, {
     tsAdded: Date.now(),
   });
 };
 
 export const getUserNode = async (req: any, nodeName: string) => {
   const scopedPath = getScopedPath(req, `${nodeName}`, 'userData');
-  return getCollection(scopedPath);
+  return dbAdapter.getCollection(scopedPath);
 };
 
 export const all = {

@@ -1,4 +1,4 @@
-import { getCollection } from '../utils/firebase';
+import { dbAdapter } from '../utils/globals';
 import { arrayToObject } from '../utils/object';
 
 export type Scope =
@@ -23,7 +23,7 @@ export const getScopedPath = (req: any, path: string, scope: Scope) => {
 
 export const getByNode = async (req: any, nodeName: string) => {
   const scopedPath = getScopedPath(req, `/${nodeName}`, 'userData');
-  return getCollection(scopedPath);
+  return dbAdapter.getCollection(scopedPath);
 };
 
 export const getByNodes = async (req: any, nodeNames: string[]) => {
@@ -35,5 +35,5 @@ export const getByNodes = async (req: any, nodeNames: string[]) => {
     const nodeName = nodeNames[index];
     acc[nodeName] = arrayToObject(cur);
     return acc;
-  }, {});
+  }, {} as any);
 };

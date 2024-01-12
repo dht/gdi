@@ -1,10 +1,12 @@
-import db from '../db';
-import * as openAI from '../api/openai';
 import * as elevenLabs from '../api/elevenLabs';
+import * as openAI from '../api/openai';
+import { dbAdapter } from '../utils/globals';
 
 export const midKeys = async (req: any, _res: any, next?: any) => {
   try {
-    const keys = await db.keys.get(req);
+    const keys = await dbAdapter.getKeys(req);
+    console.log('keys ->', keys);
+
     req.keys = keys;
 
     // initialize APIs

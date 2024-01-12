@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import db from '../db';
-import { fetchBinaryUrl } from '../utils/download';
+import { storageAdapter } from '../utils/globals';
 
 let bucket: any;
 
@@ -19,7 +19,7 @@ export const saveToBucket = async (
   buffer: any,
   contentType: string
 ) => {
-  const file = bucket.file(filepath);
+  const file = storageAdapter.file(filepath);
 
   await file.save(buffer, {
     contentType,
@@ -39,6 +39,6 @@ export const saveToBucket = async (
 };
 
 export const deleteFromBucket = async (filepath: string) => {
-  const file = bucket.file(filepath);
+  const file = storageAdapter.file(filepath);
   await file.delete();
 };

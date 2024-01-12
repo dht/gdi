@@ -1,11 +1,11 @@
 import { guid8 } from 'shared-base';
 import { saveToBucket } from '../api/files';
 import { fetchJsonUrl } from '../utils/download';
-import { getCollection, replaceCollection } from '../utils/firebase';
 import { tsShort } from '../utils/time';
 import { getByNodes, getScopedPath } from './db._base';
 import { createAsset, getAssets, patchAsset } from './db.assets';
 import { initialAudios, initialBits } from '../data/data.clip';
+import { dbAdapter } from '../utils/globals';
 
 export const getClip = async (req: any) => {
   const scene = await getByNodes(req, ['sceneBits', 'sceneDots', 'sceneAudios', 'sceneEffects']);
@@ -79,13 +79,13 @@ export const restoreClip = async (req: any, projectId: string) => {
     let scopedPath: string;
 
     scopedPath = getScopedPath(req, '/sceneBits', 'userData');
-    await replaceCollection(scopedPath, sceneBits);
+    await dbAdapter.replaceCollection(scopedPath, sceneBits);
     scopedPath = getScopedPath(req, '/sceneDots', 'userData');
-    await replaceCollection(scopedPath, sceneDots);
+    await dbAdapter.replaceCollection(scopedPath, sceneDots);
     scopedPath = getScopedPath(req, '/sceneAudios', 'userData');
-    await replaceCollection(scopedPath, sceneAudios);
+    await dbAdapter.replaceCollection(scopedPath, sceneAudios);
     scopedPath = getScopedPath(req, '/sceneEffects', 'userData');
-    await replaceCollection(scopedPath, sceneEffects);
+    await dbAdapter.replaceCollection(scopedPath, sceneEffects);
 
     await bootstrapClip(req, projectId);
   } catch (err) {
@@ -103,17 +103,17 @@ export const bootstrapClip = async (req: any, _projectId: string) => {
   let scopedPath: string, data;
 
   scopedPath = getScopedPath(req, '/sceneBits', 'userData');
-  data = await getCollection(scopedPath);
+  data = await dbAdapter.getCollection(scopedPath);
 
   if (data.length === 0) {
-    await replaceCollection(scopedPath, initialBits);
+    await dbAdapter.replaceCollection(scopedPath, initialBits);
   }
 
   scopedPath = getScopedPath(req, '/sceneAudios', 'userData');
-  data = await getCollection(scopedPath);
+  data = await dbAdapter.getCollection(scopedPath);
 
   if (data.length === 0) {
-    await replaceCollection(scopedPath, initialAudios);
+    await dbAdapter.replaceCollection(scopedPath, initialAudios);
   }
 };
 

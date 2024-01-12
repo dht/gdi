@@ -1,9 +1,9 @@
-import { getCollection, patchItem } from '../utils/firebase';
 import { getScopedPath } from './db._base';
+import { dbAdapter } from '../utils/globals';
 
 export const getTags = async (req: any) => {
   const scopedPath = getScopedPath(req, '/myTags', 'userData');
-  return getCollection(scopedPath);
+  return dbAdapter.getCollection(scopedPath);
 };
 
 export const createTag = async (req: any, tagValue: string) => {
@@ -18,7 +18,7 @@ export const createTag = async (req: any, tagValue: string) => {
 
   const scopedPath = getScopedPath(req, `/myTags/${id}`, 'userData');
 
-  await patchItem(scopedPath, tag);
+  await dbAdapter.patchItem(scopedPath, tag);
 
   return tag;
 };
