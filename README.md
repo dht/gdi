@@ -77,3 +77,25 @@ npm start
 ```
 
 This will launch GDI on your local development server.
+
+## Running a local instance
+
+To run a local instance of GDI, you will need to run the following commands:
+
+```
+npx @gdi/cli init my-project
+cd my-project
+```
+
+This creates a new project in the `my-project` directory. It will also init a git repository to track changes.
+
+Update the `.env` file with the needed keys.
+Update the `config.json` with the allowed domains.
+
+Run:
+
+```
+npx @gdi/cli start
+```
+
+This will start a local instance of GDI. Now you can visit `https//usegdi.com` and switch the "firebase" adapter to the local instance in the bottom bar.
