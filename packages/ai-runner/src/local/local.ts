@@ -6,6 +6,8 @@ import { setSocketsAdapter } from './utils/globals';
 import * as http from 'http';
 import { initRunner } from '../runner';
 import { Json } from '../types';
+import express from 'express';
+import path from 'path';
 
 export type LocalParams = {
   rootPath: string;
@@ -17,8 +19,10 @@ export type LocalParams = {
 export const startLocalInstance = (params: LocalParams) => {
   const { rootPath, apiKeys, allowedDomains, port } = params;
 
+  const localInstanceUrl = `http://localhost:${port}`;
+
   const dbAdapter = new FsDbAdapter(rootPath, '/db', apiKeys);
-  const storageAdapter = new FsStorageAdapter(rootPath, '/assets');
+  const storageAdapter = new FsStorageAdapter(rootPath, '/assets', localInstanceUrl);
 
   const app = initRunner({
     apiKeys,
@@ -29,6 +33,9 @@ export const startLocalInstance = (params: LocalParams) => {
     middlewares: [midLogger, midUser, midData],
     isLocalInstance: true,
   });
+
+  // public
+  app.use(express.static(`${rootPath}/assets`));
 
   const server = http.createServer(app);
 

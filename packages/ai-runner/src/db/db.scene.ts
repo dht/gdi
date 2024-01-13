@@ -46,7 +46,7 @@ export const saveOrCreateSceneAsset = async (req: any, projectId: string) => {
   const filePath = `/scenes/${id}.json`;
 
   if (!asset) {
-    const url = await saveToBucket(req, filePath, json, 'application/json');
+    const url = await saveToBucket(req, filePath, json, 'application/json', true);
     asset = await createSceneAsset(req, id, url, tags);
   } else {
     const url = await saveToBucket(req, filePath, json, 'application/json');
@@ -72,6 +72,7 @@ export const restoreScene = async (req: any, projectId: string) => {
 
   try {
     const url = asset.assetUrl;
+
     const response = await fetchJsonUrl(url);
 
     const { sceneLights, sceneMeshes, sceneExternals } = response.data;

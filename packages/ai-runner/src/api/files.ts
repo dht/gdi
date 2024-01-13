@@ -17,7 +17,8 @@ export const saveToBucket = async (
   req: any,
   filepath: string,
   buffer: any,
-  contentType: string
+  contentType: string,
+  isNew: boolean = false
 ) => {
   const file = storageAdapter.file(filepath);
 
@@ -28,12 +29,12 @@ export const saveToBucket = async (
 
   await file.makePublic();
 
-  const assetUrl = file.publicUrl();
   // `https://storage.googleapis.com/${bucket.name}/${filepath}`;
+  const assetUrl = file.publicUrl();
 
-  let assetType = 'file';
-
-  await db.assets.logNew(req, assetUrl, contentType);
+  if (isNew) {
+    await db.assets.logNew(req, assetUrl, contentType);
+  }
 
   return assetUrl;
 };

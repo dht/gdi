@@ -1,8 +1,16 @@
 import { guid4 } from 'shared-base';
 import { SocketsAdapter } from '../types';
+import { unScopePath } from '../utils/xpath';
+
+type Listener = {
+  docPath: string;
+  path: string;
+};
+
+type Listeners = Record<string, Listener>;
 
 export class FsSocketsAdapter implements SocketsAdapter {
-  private paths: string[] = [];
+  private listeners: Listeners = {};
   private sockets: any[] = [];
 
   constructor(private io: any) {
@@ -12,9 +20,16 @@ export class FsSocketsAdapter implements SocketsAdapter {
       console.log('a user connected');
 
       socket.on('addListener', (data: any) => {
-        const { path } = data;
-        this.addListener(path);
+        const { docPath } = data;
+        this.addListener(docPath);
       });
+
+      // removeListener is a reserved socket.io event
+      socket.on('rmListener', (data: any) => {
+        const { docPath } = data;
+        this.removeListener(docPath);
+      });
+
       socket.on('disconnect', () => {
         this.sockets = this.sockets.filter((s) => s !== socket);
         console.log('user disconnected');
@@ -22,23 +37,38 @@ export class FsSocketsAdapter implements SocketsAdapter {
     });
   }
 
-  addListener = (path: string) => {
-    this.paths.push(path);
+  addListener = (docPath: string) => {
+    const unscoped = unScopePath(docPath);
+    const { path } = unscoped;
+
+    this.listeners[path] = {
+      docPath,
+      path,
+    };
   };
 
   invokeListeners = (path: string, data: any) => {
-    const match = this.paths.find((p) => path.startsWith(p));
+    const match = this.listeners[path];
 
     if (!match) {
       return;
     }
 
+    const { docPath } = match;
+
     this.sockets.forEach((socket) => {
-      socket.emit('data/change', { path, data });
+      socket.emit('data/change', {
+        docPath,
+        path,
+        data,
+      });
     });
   };
 
-  removeListener = (path: string) => {
-    this.paths = this.paths.filter((p) => p !== path);
+  removeListener = (docPath: string) => {
+    const unscoped = unScopePath(docPath);
+    const { path } = unscoped;
+
+    delete this.listeners[path];
   };
 }

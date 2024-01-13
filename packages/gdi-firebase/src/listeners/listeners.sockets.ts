@@ -6,6 +6,8 @@ import { localInstanceUrl } from '../globals';
 
 let client: any;
 
+const callbacks: any = {};
+
 // listen to subCollection
 export const listenToSubCollection = (
   collectionName: string,
@@ -51,20 +53,18 @@ export const listenToDocument = (
 };
 
 export const listenToDocumentPath = (docPath: string, callback: Callback) => {
-  const ref = doc(db, docPath);
+  callbacks[docPath] = {
+    docPath,
+    callback,
+  };
 
-  client.emit('addListener', { path: docPath });
-  return;
+  client.emit('addListener', { docPath });
 
-  return onSnapshot(
-    ref,
-    (snapshot) => {
-      callback(snapshot.data());
-    },
-    (error: any) => {
-      console.error('Error getting document:', error);
-    }
-  );
+  return () => {
+    // removeListener is a reserved socket.io event
+    client.emit('rmListener', { docPath });
+    delete callbacks[docPath];
+  };
 };
 
 export const initSocketConnection = () => {
@@ -82,7 +82,18 @@ export const initSocketConnection = () => {
     console.log('error -=', error);
   });
 
-  client.on('data/change', (data: any) => {
-    console.log('data/change =>', data);
+  client.on('data/change', (message: any) => {
+    const { docPath, data } = message;
+
+    console.log('data/change =>', docPath, data);
+
+    const callback = callbacks[docPath];
+
+    if (!callback) {
+      console.log('no callback for path', docPath);
+      return;
+    }
+
+    callback.callback(data);
   });
 };

@@ -1,4 +1,4 @@
-export { init } from './fileDb.init';
+export { initDb as init } from './fileDb.fs';
 export {
   deleteItem,
   getCollection,
