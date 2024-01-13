@@ -11,8 +11,6 @@ export class FsDbAdapter implements DBAdapter {
   constructor(projectRoot: any, dbPath: string, env: Json) {
     this.rootPath = projectRoot + dbPath;
 
-    console.log('env ->', env);
-
     this.keys['openAI'] = env.OPENAI_API_KEY;
     this.keys['elevenLabs'] = env.ELEVENLABS_API_KEY;
 

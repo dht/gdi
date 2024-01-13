@@ -7,7 +7,7 @@ const apiKeys = readEnv();
 
 const params: LocalParams = {
   rootPath: 'temp',
-  apiKeys: {},
+  apiKeys,
   allowedDomains: ['http://localhost:3005'],
   port: 3005,
 };

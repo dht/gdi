@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon src/local/index.ts",
     "build": "tsc & vite build",
+    "watch:build": "tsc -w",
     "test": "jest",
     "coverage": "jest --coverage=true"
   },

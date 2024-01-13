@@ -16,6 +16,7 @@ export const runPrompt = async (req: any, prompt: string, promptParams: Json) =>
 
   console.time('flow');
   const flow = await db.flow.get(req);
+
   flow.prompt = prompt;
   flow.promptParams = promptParams;
   console.timeEnd('flow');

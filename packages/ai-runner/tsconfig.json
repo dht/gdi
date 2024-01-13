@@ -6,6 +6,7 @@
     "lib": ["dom", "ES2020"],
     "jsx": "react-jsx",
     "moduleResolution": "node",
+    "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
@@ -18,7 +19,7 @@
     "paths": {}
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["src/**.*.spec.tsx"],
+  "exclude": ["src/**.*.spec.tsx", "node_modules"],
   "ts-node": {
     "compilerOptions": {
       "moduleResolution": "node",

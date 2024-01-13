@@ -2,7 +2,7 @@ import kleur from 'kleur';
 import { Server } from 'socket.io';
 import { FsDbAdapter, FsSocketsAdapter, FsStorageAdapter } from './adapters';
 import { midData, midLogger, midUser } from './midLocal';
-import { setSocketsAdapter } from '../utils/globals';
+import { setSocketsAdapter } from './utils/globals';
 import * as http from 'http';
 import { initRunner } from '../runner';
 import { Json } from '../types';

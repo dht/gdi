@@ -11,6 +11,7 @@ import { Json } from '../types';
 import { logDeltaInSeconds } from '../utils/time';
 import { isLocalInstance } from '../utils/globals';
 import { runPrompt } from '../controllers/prompt';
+import { delay } from 'shared-base';
 
 export const router = express.Router();
 
@@ -109,6 +110,7 @@ router.post('/flow/prompt', async (req, res) => {
     });
 
     if (isLocalInstance) {
+      await delay(100);
       await runPrompt(req, prompt, promptParams);
     }
 

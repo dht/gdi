@@ -13,15 +13,12 @@ export const initDb = (root: string) => {
 };
 
 export const getPath = (path: string) => {
-  console.log('path2 ->', path);
-
   return get(db, path);
 };
 
 export const getCollection = async (xpath: string) => {
   const pathInfo = unScopePath(xpath);
   const data = get(db, pathInfo.path);
-  console.log('xpath2 ->', xpath);
 
   return Object.values(data ?? {}) as Json[];
 };
@@ -39,7 +36,6 @@ export const getItem = async (xpath: string) => {
   }
 
   const q = path.split('/');
-  console.log('q ->', q);
 
   return get(db, q);
 };
@@ -53,7 +49,6 @@ export const setItem = async (xpath: string, item: any) => {
   }
 
   const q = path.split('/');
-  console.log('q ->', q);
 
   set(db, q, item);
 
@@ -76,13 +71,7 @@ export const patchItem = async (xpath: string, change: any, withMerge: boolean) 
 
   socketsAdapter.invokeListeners(xpath, newData);
 
-  console.log('q ->', q);
-
   set(db, q, newData);
-
-  if (path === '') {
-    console.log('xpath, change ->', xpath, change, pathInfo);
-  }
 
   fs.writeJsonSync(dbRoot + '/' + path + '.json', newData, { spaces: 2 });
 };
@@ -92,8 +81,6 @@ export const replaceCollection = async (xpath: string, obj: any) => {
   const { path, collectionName } = pathInfo;
 
   const q = path.split('/');
-
-  console.log('q ->', q);
 
   set(db, q, obj);
 
@@ -140,14 +127,18 @@ export const readCollection = (nodeName: string) => {
   const collectionRoot = dbRoot + '/' + nodeName;
   const all = fs.readdirSync(collectionRoot);
 
-  const files = all
+  const output: any = {};
+
+  all
     .filter((f) => f.endsWith('.json'))
-    .map((file) => {
-      const content = readJson(collectionRoot + '/' + file);
-      return content;
+    .forEach((f) => {
+      const content = readJson(collectionRoot + '/' + f);
+      const id = content.id ?? f.replace('.json', '');
+      content.id = id;
+      output[id] = content;
     });
 
-  return toObject(files);
+  return output;
 };
 
 export const toObject = (arr: any[]) => {

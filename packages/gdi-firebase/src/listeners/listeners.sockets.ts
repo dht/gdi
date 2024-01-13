@@ -79,10 +79,10 @@ export const initSocketConnection = () => {
   });
 
   client.on('error', (error: any) => {
-    console.log('error ->', error);
+    console.log('error -=', error);
   });
 
   client.on('data/change', (data: any) => {
-    console.log('data/change ->', data);
+    console.log('data/change =>', data);
   });
 };

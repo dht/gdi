@@ -31,3 +31,5 @@ web/public/boards
 playground/serviceAccountKey.json
 live/
 scripts/.env
+/.env
+/temp/
