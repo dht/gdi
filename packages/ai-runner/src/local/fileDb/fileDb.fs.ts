@@ -73,8 +73,8 @@ export const deleteItem = (path: string) => {
 
 export const initialRead = () => {
   const all = fs.readdirSync(dbRoot);
-  const files = all.filter((f) => f.endsWith('.json'));
-  const directories = all.filter((f) => !f.endsWith('.json'));
+  const files = all.filter((f: string) => f.endsWith('.json'));
+  const directories = all.filter((f: string) => !f.endsWith('.json'));
 
   for (let file of files) {
     const content = readJson(dbRoot + '/' + file);
@@ -121,8 +121,8 @@ export const readCollection = (nodeName: string) => {
   const output: any = {};
 
   all
-    .filter((f) => f.endsWith('.json'))
-    .forEach((f) => {
+    .filter((f: string) => f.endsWith('.json'))
+    .forEach((f: string) => {
       const content = readJson(collectionRoot + '/' + f);
       const id = content.id ?? f.replace('.json', '');
       content.id = id;

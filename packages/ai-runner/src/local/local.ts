@@ -1,7 +1,7 @@
 import kleur from 'kleur';
 import { Server } from 'socket.io';
 import { FsDbAdapter, FsSocketsAdapter, FsStorageAdapter } from './adapters';
-import { midData, midLogger, midUser } from './midLocal';
+import { midAllowedDomains, midData, midLogger, midUser } from './midLocal';
 import { setSocketsAdapter } from './utils/globals';
 import { createServer } from 'http';
 import { initRunner } from '../runner';
@@ -30,7 +30,7 @@ export const startLocalInstance = (params: LocalParams) => {
     dbAdapter,
     storageAdapter,
     root: '/api',
-    middlewares: [midLogger, midUser, midData],
+    middlewares: [midAllowedDomains(allowedDomains), midLogger, midUser, midData],
     isLocalInstance: true,
     fileSizeLimit: '100mb',
   });
@@ -40,9 +40,17 @@ export const startLocalInstance = (params: LocalParams) => {
 
   const server = createServer(app);
 
+  // allow only https://usegdi.com
+
   const io = new Server(server, {
     cors: {
-      origin: '*',
+      origin: (origin?: string, callback?: any) => {
+        if (origin && allowedDomains.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      },
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
       credentials: true,
       optionsSuccessStatus: 204,

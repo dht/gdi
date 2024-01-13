@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npm link",
     "build": "./scripts/build.sh",
-    "watch": "nodemon -x \"npm run build\""
+    "build:watch": "nodemon -x \"npm run build\""
   },
   "author": "",
   "dependencies": {

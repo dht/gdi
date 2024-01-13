@@ -27,3 +27,16 @@ export const midData = async (req: any, res: any, next: any) => {
 
   next();
 };
+
+export const midAllowedDomains =
+  (allowedDomains: string[]) => async (req: any, res: any, next: any) => {
+    const origin = req.headers.origin;
+
+    const isAllowed = allowedDomains.includes(origin);
+
+    if (!isAllowed) {
+      return res.status(403).send('Not allowed');
+    }
+
+    next();
+  };
