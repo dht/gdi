@@ -3,7 +3,7 @@ import { Server } from 'socket.io';
 import { FsDbAdapter, FsSocketsAdapter, FsStorageAdapter } from './adapters';
 import { midData, midLogger, midUser } from './midLocal';
 import { setSocketsAdapter } from './utils/globals';
-import * as http from 'http';
+import { createServer } from 'http';
 import { initRunner } from '../runner';
 import { Json } from '../types';
 import express from 'express';
@@ -32,12 +32,13 @@ export const startLocalInstance = (params: LocalParams) => {
     root: '/api',
     middlewares: [midLogger, midUser, midData],
     isLocalInstance: true,
+    fileSizeLimit: '100mb',
   });
 
   // public
   app.use(express.static(`${rootPath}/assets`));
 
-  const server = http.createServer(app);
+  const server = createServer(app);
 
   const io = new Server(server, {
     cors: {

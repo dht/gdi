@@ -20,17 +20,17 @@ export type Params = {
   storageAdapter: StorageAdapter;
   root?: string;
   isLocalInstance: boolean;
+  fileSizeLimit?: string;
 };
 
 export const initRunner = (params: Params) => {
   const {
     dbAdapter, //
     storageAdapter,
-    apiKeys,
-    allowedDomains,
     root = '/',
     isLocalInstance = false,
     middlewares = [],
+    fileSizeLimit = '10mb',
   } = params;
 
   setDbAdapter(dbAdapter);
@@ -45,7 +45,8 @@ export const initRunner = (params: Params) => {
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     })
   );
-  app.use(express.json());
+  app.use(express.json({ limit: fileSizeLimit }));
+  app.use(express.urlencoded({ limit: fileSizeLimit, extended: true }));
 
   middlewares.forEach((middleware) => app.use(middleware));
 

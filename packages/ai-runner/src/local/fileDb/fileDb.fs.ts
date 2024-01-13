@@ -147,7 +147,7 @@ export const getSingle = (path: string) => {
 
 export const getAll = (path: string) => {
   const data = get(db, path);
-  return Object.values(data ?? {});
+  return Object.values(data ?? {}).filter((i) => i) as Json[];
 };
 
 export const getItem = (path: string) => {

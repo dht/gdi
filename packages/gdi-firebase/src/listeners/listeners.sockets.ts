@@ -79,13 +79,11 @@ export const initSocketConnection = () => {
   });
 
   client.on('error', (error: any) => {
-    console.log('error -=', error);
+    console.log('error =>', error);
   });
 
   client.on('data/change', (message: any) => {
     const { docPath, data } = message;
-
-    console.log('data/change =>', docPath, data);
 
     const callback = callbacks[docPath];
 

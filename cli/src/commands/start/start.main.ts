@@ -10,7 +10,5 @@ export const main = () => {
     return;
   }
 
-  // console.log('startLocalInstance =>', startLocalInstance);
-
-  // startLocalInstance(params);
+  startLocalInstance(params as any);
 };
