@@ -1,9 +1,11 @@
 import { runFunction, ga } from '@gdi/firebase';
 import { actions, selectors } from '@gdi/store-base';
-import { isMobile, toast } from '@gdi/ui';
+import { isMobile, prompt, toast } from '@gdi/ui';
 import { call, delay, put, select, takeEvery } from 'saga-ts';
 import quickStartBoardIds from '../data/quickStart.json';
 import { checkGuest } from './helpers/guest';
+import SwitchAdapter from '../components/SwitchAdapter/SwitchAdapter';
+import { setBoolean, setString } from 'shared-base';
 
 type Verb =
   | 'preview' //
@@ -14,6 +16,7 @@ type Verb =
   | 'vscode'
   | 'reviewStart'
   | 'share'
+  | 'switchAdapter'
   | 'save'
   | 'quickStart'
   | 'board';
@@ -35,6 +38,7 @@ const mapVerbToSaga: Record<Verb, any> = {
   reviewStart: reviewStart,
   share: share,
   save: save,
+  switchAdapter: switchAdapter,
   quickStart: quickStart,
   board: board,
 };
@@ -127,6 +131,45 @@ function* npm(action: ActionHome, board: Json) {
     type: 'NAVIGATE',
     to: npmUrl,
   });
+}
+
+function* switchAdapter(action: ActionHome, board: Json) {
+  const appState = yield* select(selectors.raw.$rawAppState);
+
+  const { isLocalInstance, localInstanceUrl } = appState;
+
+  const { value: toLocal, didCancel } = yield prompt.custom({
+    title: 'Switch Adapter',
+    component: SwitchAdapter,
+    componentProps: {
+      isLocalInstance,
+      localInstanceUrl,
+    },
+  });
+
+  if (didCancel) {
+    return;
+  }
+
+  if (toLocal) {
+    const { value, didCancel } = yield prompt.input({
+      title: 'Instance URL',
+      defaultValue: localInstanceUrl ?? 'http://localhost:3005',
+      placeholder: 'Enter your local instance URL and port',
+      ctaButtonText: 'Set URL',
+    });
+
+    if (didCancel || !value) {
+      return;
+    }
+
+    setBoolean('USE_INSTANCE', true);
+    setString('INSTANCE_URL', value);
+  } else {
+    setBoolean('USE_INSTANCE', false);
+  }
+
+  document.location.reload();
 }
 
 function* vscode(action: ActionHome, board: Json) {

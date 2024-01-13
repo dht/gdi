@@ -5,7 +5,6 @@ import { useMeasure } from 'react-use';
 export type ImageViewerProps = {
   prompt?: string;
   imageUrl?: string;
-  onSave: () => void;
   children?: React.ReactNode;
 };
 

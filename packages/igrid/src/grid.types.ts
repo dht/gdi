@@ -101,6 +101,7 @@ export type IGridConfig = {
 export type GridProviderProps = {
   id: string;
   flavour?: string;
+  columns?: number;
   columnIndex?: number;
   widgets: IWidgets;
   elements: IElements;

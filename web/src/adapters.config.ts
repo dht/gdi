@@ -1,4 +1,10 @@
+import { getBoolean, getString, setBoolean } from 'shared-base';
 import { boardsRoot } from './main.root';
+
+// setBoolean('USE_INSTANCE', true);
+
+const isLocalInstance = getBoolean('USE_INSTANCE');
+const localInstanceUrl = getString('INSTANCE_URL') || 'http://localhost:3005';
 
 export const config = {
   boardAdapter: {
@@ -8,8 +14,9 @@ export const config = {
   },
   dbAdapter: {
     id: 'dbAdapter',
-    providerType: 'fireStore',
+    providerType: isLocalInstance ? 'rest' : 'fireStore',
     scope: 'userData/${uid}',
+    localInstanceUrl,
     ignoreNodes: [
       'assets',
       'appState',

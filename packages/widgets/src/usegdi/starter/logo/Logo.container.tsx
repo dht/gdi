@@ -18,15 +18,7 @@ export function LogoContainer(props: LogoContainerProps) {
           to: '/',
         });
       },
-      onDoubleClick: () => {
-        if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen();
-        } else {
-          if (document.exitFullscreen) {
-            document.exitFullscreen();
-          }
-        }
-      },
+      onDoubleClick: () => {},
       onGithubClick: () => {
         window.open('https://github.com/dht/gdi', '_blank');
       },

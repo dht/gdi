@@ -59,13 +59,13 @@ export class FlowAdapter implements IFlowAdapter {
   onFlowUpdateDebounced = debounce(this.onFlowUpdate, 500);
 
   start = async (prompt: string, params: Json, meta: Json) => {
+    this.startListening();
+
     const response = await runFunction('/api/ai/flow/prompt', {
       prompt,
       params,
       ...meta,
     });
-
-    this.startListening();
 
     return response;
   };

@@ -1,11 +1,12 @@
 import { runFunction } from '@gdi/firebase';
 import { actions } from '@gdi/store-base';
-import { toast } from '@gdi/ui';
 import { call, put, takeEvery } from 'saga-ts';
 import { customEvenChannel } from './channels/channel.customEvent';
 
 function* saveSettings(event: any) {
   const { data } = event;
+
+  yield put({ type: 'NAVIGATE', to: '/home' });
 
   if (Object.keys(data).length === 0) {
     return;

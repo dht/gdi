@@ -15,30 +15,6 @@ import { takeEvery } from 'typed-redux-saga';
 
 const LOCALE_STORAGE_KEY = 'locale';
 
-export function* configureFlowAdapter(board: IBoard) {
-  l({ message: 'Open prompt adapter configuration', verb: 'config', data: board });
-
-  const { value, didCancel } = yield prompt.custom({
-    title: 'Prompt Adapter Definition',
-    component: EditorSchema,
-    componentProps: {
-      value: '',
-      width: 800,
-      height: 500,
-      actions: ['content_copy', 'download', 'code'],
-      downloadFileName: `adapter-${board.id}.json`,
-      schemaId: 'IAdapter',
-      valueSuggested: suggested,
-    },
-  });
-
-  if (didCancel || !value) {
-    return;
-  }
-
-  l({ message: 'Configuring prompt adapter', verb: 'config', data: value });
-}
-
 export function* os() {
   const isMac = navigator.userAgent.toLowerCase().indexOf('mac') >= 0;
   const cmdKey = isMac ? '⌘' : 'Ctrl';

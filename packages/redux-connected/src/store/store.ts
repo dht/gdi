@@ -11,6 +11,8 @@ import { StoreDefinition } from '../types';
 import { initFirestore, setFireStore } from '../utils/firestore';
 import { lastActionReducer } from './reducers/lastAction';
 import { setActions } from '../utils/actions';
+import { get } from 'lodash';
+import { initAxios } from '../providers/provider.rest';
 
 export let config: any = {},
   meta: any = {
@@ -24,8 +26,15 @@ export const initConnected = (
 ): StoreBuilder => {
   config = definition;
 
-  const { sagas, initialState, firebaseConfig, fireStore, useEmulator } =
-    definition;
+  const {
+    sagas,
+    initialState,
+    firebaseConfig,
+    fireStore,
+    useEmulator,
+    useLocalInstance,
+  } = definition;
+
   const storeBuilder = new StoreBuilder('gdi');
 
   const combinedState = {
@@ -50,10 +59,20 @@ export const initConnected = (
   meta.actionTypes = generateActionTypesDictionaryForStore<any>(combinedState);
   meta.structure = analyzeStructure(combinedState);
 
-  if (fireStore) {
-    setFireStore(fireStore);
-  } else if (firebaseConfig) {
-    initFirestore(firebaseConfig, useEmulator);
+  const providerType = get(config, 'adapter.providerType', 'none');
+
+  switch (providerType) {
+    case 'fireStore':
+      if (fireStore) {
+        setFireStore(fireStore);
+      } else if (firebaseConfig) {
+        initFirestore(firebaseConfig, useEmulator);
+      }
+      break;
+    case 'rest':
+      const localInstanceUrl = get(config, 'adapter.localInstanceUrl', '');
+      initAxios(localInstanceUrl + '/data');
+      break;
   }
 
   const actions = generateActionsForStore<any>(initialState);

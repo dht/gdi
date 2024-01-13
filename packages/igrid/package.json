@@ -1,6 +1,6 @@
 {
   "name": "igrid",
-  "version": "0.4.9",
+  "version": "1.0.0",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc & vite build && npm run scss",
@@ -9,13 +9,11 @@
     "coverage": "jest --coverage=true"
   },
   "dependencies": {
-    "shared-base": "^0.4.8",
+    "shared-base": "^1.0.0",
     "classnames": "^2.3.2",
     "csstype": "^3.1.1",
-    "react-draggable": "^4.4.5",
     "react-use": "^17.4.0",
-    "styled-components": "^6.1.1",
-    "uuid": "^9.0.0"
+    "styled-components": "^6.1.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",

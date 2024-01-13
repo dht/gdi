@@ -1,7 +1,5 @@
 import { useList, useMount } from 'react-use';
 import { listenToLogs } from '@gdi/firebase';
-import { configureFlowAdapter } from '../../sagas/saga.gdi';
-import { Json } from '../../types';
 import { useEffect, useState } from 'react';
 
 export function useLogs() {

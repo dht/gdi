@@ -7,10 +7,10 @@
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "../",
     "removeComments": false,
     "types": ["types-base", "@types/jest", "@types/node"],
-    "outDir": "dist"
+    "outDir": "dist",
+    "paths": {}
   },
   "include": ["src/**/*"],
   "exclude": ["src/templates/**", "dist/**"],

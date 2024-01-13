@@ -1,10 +1,19 @@
-import { signInAnonymously } from '@gdi/firebase';
 import { call } from 'saga-ts';
+import { invokeEvent } from 'shared-base';
 
 export function* anonymous() {
-  try {
-    yield* call(signInAnonymously);
-  } catch (err: any) {
-    console.log('err =>', err);
-  }
+  invokeEvent('auth/change', {
+    user: anonymousUser,
+  });
 }
+
+const anonymousUser = {
+  uid: 'guest',
+  displayName: 'guest',
+  email: 'guest@example.com',
+  emailVerified: false,
+  isAnonymous: true,
+  metadata: {},
+  photoURL: '',
+  providerId: 'anonymous',
+};

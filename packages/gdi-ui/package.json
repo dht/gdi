@@ -8,7 +8,7 @@
     "coverage": "jest --coverage=true"
   },
   "dependencies": {
-    "@gdi/store-base": "^0.0.5",
+    "@gdi/store-base": "^1.0.0",
     "@hookform/resolvers": "^2.9.11",
     "@lottiefiles/lottie-player": "^2.0.2",
     "@monaco-editor/react": "^4.4.5",
@@ -35,7 +35,7 @@
     "redux-saga": "^1.2.3",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^3.0.1",
-    "shared-base": "^0.4.8",
+    "shared-base": "^1.0.0",
     "styled-components": "^6.1.1",
     "tabler-icons-react": "^1.56.0",
     "tinycolor2": "^1.6.0",

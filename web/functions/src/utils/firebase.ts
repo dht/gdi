@@ -1,10 +1,14 @@
 import * as admin from 'firebase-admin';
-import { setBucket } from '../api/files';
+// import { setBucket } from '../api/files';
 import { Json } from '../types';
 
 export let auth: any;
 export let bucket: any;
 export let firestore: any;
+
+export const setFirestore = (value: any) => {
+  firestore = value;
+};
 
 export const initFirebase = () => {
   admin.initializeApp();
@@ -12,7 +16,12 @@ export const initFirebase = () => {
   auth = admin.auth();
   bucket = admin.storage().bucket();
   firestore = admin.firestore();
-  setBucket(bucket);
+
+  return {
+    auth,
+    bucket,
+    firestore,
+  };
 };
 
 export const getCollection = async (path: string) => {
@@ -39,10 +48,6 @@ export const setItem = async (path: string, change: Json) => {
 export const deleteItem = async (path: string) => {
   const response = await firestore.doc(path).delete();
   return response;
-};
-
-export const setFirestore = (value: any) => {
-  firestore = value;
 };
 
 export const deleteCollection = async (path: string) => {

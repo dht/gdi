@@ -12,7 +12,8 @@
   },
   "baseUrl": "../../",
   "paths": {
-    "@gdi/store-base": ["packages/store-base"]
+    "@gdi/store-base": ["packages/store-base"],
+    "@gdi/ai-runner": ["packages/ai-runner"]
   },
   "compileOnSave": true,
   "include": ["src", "_playground"],

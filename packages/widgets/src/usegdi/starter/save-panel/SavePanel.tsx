@@ -1,6 +1,5 @@
 import { Save } from '@gdi/ui';
-import { useEffect, useState } from 'react';
-import { addListener } from 'shared-base';
+import { useState } from 'react';
 import { FileName, Wrapper } from './SavePanel.style';
 import { nextFileName } from './SavePanel.utils';
 
@@ -17,15 +16,6 @@ export type SavePanelProps = {
 export function SavePanel(props: SavePanelProps) {
   const { defaultValue = '', what, disabled, autoProgress, callbacks } = props;
   const [value, setValue] = useState(defaultValue);
-
-  useEffect(() => {
-    const unlisten = addListener('save/filename', (ev: any) => {
-      const { text } = ev;
-      setValue(text);
-    });
-
-    return () => unlisten();
-  }, []);
 
   function onSave() {
     if (!value) return;

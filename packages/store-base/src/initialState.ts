@@ -41,6 +41,8 @@ export const initialState: IGdiStore = {
     isEmulator: false,
     isAuthenticated: false,
     isApiKeyOk: null,
+    isLocalInstance: false,
+    localInstanceUrl: '',
     isFetchingSuggestions: false,
     isFocusLeft: true,
     isLoadingMyBoards: true,
@@ -48,6 +50,7 @@ export const initialState: IGdiStore = {
     q: '',
     filter: '',
     firstDayOfWeek: 0,
+    suggestedFileName: '',
     tags: ['project-new'],
   },
   currentIds: {

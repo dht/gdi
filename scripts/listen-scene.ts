@@ -5,7 +5,7 @@ import * as jsonDiff from 'json-diff';
 import * as kleur from 'kleur';
 import * as path from 'path';
 import { Socket } from 'socket.io';
-import { createExpress } from './express';
+import { createExpress } from './quick-express';
 import * as keypress from 'keypress';
 import { get } from 'lodash';
 

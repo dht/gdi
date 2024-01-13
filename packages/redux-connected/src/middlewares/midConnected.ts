@@ -4,12 +4,6 @@ import { Action } from '../types';
 import { analyzeAction } from '../utils/connected';
 import { get } from 'lodash';
 
-const optimistic: any = {
-  add: true,
-  patch: true,
-  delete: true,
-};
-
 export const midConnected =
   (store: any) => (next: any) => async (action: Action) => {
     const info = analyzeAction(action);

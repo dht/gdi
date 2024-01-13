@@ -5,7 +5,7 @@ import analyze from 'rollup-plugin-analyzer';
 import { externals } from 'shared-base';
 import p from './package.json';
 
-const ANALYZE_BUNDLE = false;
+const ANALYZE_BUNDLE = true;
 
 export default defineConfig({
     plugins: [

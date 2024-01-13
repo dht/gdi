@@ -20,8 +20,8 @@
     "react-use": "^17.4.0",
     "react-window": "^1.8.9",
     "redux": "^4.2.1",
-    "redux-store-generator": "^0.9.90",
-    "shared-base": "^0.4.8",
+    "redux-store-generator": "^1.0.1",
+    "shared-base": "^1.0.0",
     "styled-components": "^6.1.1",
     "types-base": "^0.0.3",
     "uuid": "^9.0.0"

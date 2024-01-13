@@ -65,8 +65,11 @@ export type IAppState = {
   isEmulator: boolean;
   isAuthenticated: boolean;
   isFetchingSuggestions: boolean;
+  isLocalInstance: boolean;
+  localInstanceUrl: string;
   isFocusLeft: boolean;
   isApiKeyOk: null | boolean;
+  suggestedFileName?: string;
   q: string;
   filter: string;
   firstDayOfWeek: number;

@@ -8,8 +8,11 @@ export type DocumentContainerProps = {};
 
 export function DocumentContainer(_props: DocumentContainerProps) {
   const dispatch = useDispatch();
+  const appState = useSelector(selectors.raw.$rawAppState);
   const document = useSelector(selectors.raw.$rawDocument);
   const disabled = document.content === '';
+
+  const { suggestedFileName } = appState;
 
   useSaga('widgets.document');
 
@@ -25,7 +28,12 @@ export function DocumentContainer(_props: DocumentContainerProps) {
 
   return (
     <Document document={document} callbacks={callbacks}>
-      <SavePanelContainer what='document' verb='saveDocument' disabled={disabled} />
+      <SavePanelContainer
+        what='document'
+        verb='saveDocument'
+        disabled={disabled}
+        defaultValue={suggestedFileName}
+      />
     </Document>
   );
 }

@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug TypeScript",
+      "program": "${workspaceFolder}/packages/ai-runner/dist/local/index.js", // Path to the compiled JavaScript entry point
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/packages/ai-runner/dist/**/*.js"], // Specify the path to your compiled JavaScript files
+      "cwd": "${workspaceFolder}",
+      "protocol": "inspector"
+    }
+  ]
+}
