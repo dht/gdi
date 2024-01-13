@@ -50,6 +50,7 @@ export const initialState: IGdiStore = {
     q: '',
     filter: '',
     firstDayOfWeek: 0,
+    suggestedFileName: '',
     tags: ['project-new'],
   },
   currentIds: {

@@ -9,6 +9,8 @@ import db from '../db';
 import { midKeys } from '../middlewares/midKeys';
 import { Json } from '../types';
 import { logDeltaInSeconds } from '../utils/time';
+import { isLocalInstance } from '../utils/globals';
+import { runPrompt } from '../controllers/prompt';
 
 export const router = express.Router();
 
@@ -106,6 +108,10 @@ router.post('/flow/prompt', async (req, res) => {
       boardIdentifier,
     });
 
+    if (isLocalInstance) {
+      await runPrompt(req, prompt, promptParams);
+    }
+
     res.status(200).json({ success: true });
     logDeltaInSeconds('flowEnd');
   } catch (error) {
@@ -153,32 +159,13 @@ export const onPrompt = async (change: Json, context: any) => {
     return;
   }
 
-  const prompt = get(after, 'prompt');
-  const promptParams = get(after, 'promptParams');
-
-  if (!prompt) {
-    return;
-  }
-
   const tsStart = Date.now();
   req.tsStart = tsStart;
 
-  await db.flow.patchFlowState(req, {
-    status: 'running',
-    tsStart,
-  });
+  const prompt = get(after, 'prompt');
+  const promptParams = get(after, 'promptParams');
 
-  console.time('flow');
-  const flow = await db.flow.get(req);
-  flow.prompt = prompt;
-  flow.promptParams = promptParams;
-  console.timeEnd('flow');
-
-  await midKeys(req, null, () => {});
-
-  logDeltaInSeconds('onUserFlowUpdate beforeRun');
-  const flowRun = await runFlow(req, flow);
-  logDeltaInSeconds('onUserFlowUpdate afterRun');
+  await runPrompt(req, prompt, promptParams);
 };
 
 router.post('/flow', async (req, res) => {
@@ -192,4 +179,5 @@ router.post('/flow', async (req, res) => {
     res.status(500).send('Error setting flow');
   }
 });
+
 export const quickRun = async (req: any, res: any) => {};

@@ -34,7 +34,7 @@ const { db } = initFirebase({
   isEmulator,
   isLocalInstance,
   localInstanceUrl,
-  toast,
+  toast: toast.show,
   projectId,
 });
 

@@ -100,7 +100,9 @@ export function* loadBoard(action: Action, _board: IBoard) {
     playbackId,
   });
 
-  if (board.flow) {
+  const isGuest = yield* select(selectors.base.$isGuest);
+
+  if (board.flow && !isGuest) {
     const response: any = yield* call(flowAdapter.loadFlow, board.flow);
 
     if (!response.success) {

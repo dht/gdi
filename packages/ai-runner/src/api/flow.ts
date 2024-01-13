@@ -11,6 +11,7 @@ export const runFlow = async (req: any, flow: any) => {
   await bootstrapAssistants(req, flow);
 
   const firstNode = Object.values(flow.flowNodes).find((node: any) => node.isStart);
+
   await runNode(req, firstNode, flow);
 
   return db.runs.get(req);
@@ -31,6 +32,7 @@ export const runNodeWorkflow = async (req: any, node: any, flow: any) => {
   });
 
   const stateVariables = await db.variables.get(req);
+
   let stateChange: Json = { status: 'done' };
 
   // llm
@@ -44,6 +46,7 @@ export const runNodeWorkflow = async (req: any, node: any, flow: any) => {
     // api
     const flowApi = flowApis[node.apiId];
     const params = bakeInput(node.input, stateVariables);
+
     const result = await runWorkflow(req, flowApi, { ...params, promptParams });
     await db.variables.patch(req, result[0]);
     stateChange = result[1];

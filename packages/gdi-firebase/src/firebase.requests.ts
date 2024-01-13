@@ -1,5 +1,5 @@
 import { auth } from './firebase';
-import { listenToDocumentPath } from './firebase.helpers';
+import { listenToDocumentPath } from './listeners';
 import type { Callback } from './types';
 
 export const listenToFlow = (callback: Callback) => {

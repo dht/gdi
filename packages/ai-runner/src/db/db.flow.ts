@@ -28,11 +28,13 @@ export const setFlowRun = (req: any, json: Json) => {
 
 export const patchFlowRun = (req: any, change: Partial<FlowMeta>) => {
   const scopedPath = getScopedPath(req, '/flowRuns/default', 'userData');
+  console.log('scopedPath ->', scopedPath);
   return dbAdapter.patchItem(scopedPath, cleanUndefined(change));
 };
 
 export const getVariables = async (req: any) => {
   const flowRun = await getFlowRun(req);
+  console.log('flowRun ->', flowRun);
   return get(flowRun, 'variables', {});
 };
 
@@ -70,7 +72,7 @@ export const clearFlow = async (req: any) => {
 };
 
 export const changePrompt = async (req: any, data: Json) => {
-  const scopedPath = getScopedPath(req, '', 'userData');
+  const scopedPath = getScopedPath(req, '/prompts/default', 'userData');
   return dbAdapter.patchItem(scopedPath, {
     ...data,
     promptTs: Date.now(),

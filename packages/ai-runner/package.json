@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "license": "GPL-3.0",
   "scripts": {
+    "dev": "nodemon src/local/index.ts",
     "build": "tsc & vite build",
     "test": "jest",
     "coverage": "jest --coverage=true"
@@ -12,9 +13,12 @@
     "axios": "^1.6.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "fs-extra": "^11.2.0",
+    "kleur": "^4.1.5",
     "lodash": "^4.17.21",
     "openai": "^4.19.0",
-    "shared-base": "^0.5.0"
+    "shared-base": "^0.5.0",
+    "socket.io": "^4.7.4"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.201",

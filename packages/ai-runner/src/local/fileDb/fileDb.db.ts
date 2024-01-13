@@ -1,8 +1,8 @@
 import { Json } from '../types';
 import fs from 'fs-extra';
-import { get, set, toArray } from 'lodash';
-import { unScopePath } from '@gdi/ai-runner';
+import { get, set, merge } from 'lodash';
 import { socketsAdapter } from '../utils/globals';
+import { unScopePath } from '../utils/xpath';
 
 export let dbRoot = '';
 export const db: any = {};
@@ -13,19 +13,21 @@ export const initDb = (root: string) => {
 };
 
 export const getPath = (path: string) => {
+  console.log('path2 ->', path);
+
   return get(db, path);
 };
 
 export const getCollection = async (xpath: string) => {
   const pathInfo = unScopePath(xpath);
   const data = get(db, pathInfo.path);
-  return Object.values(data ?? {});
+  console.log('xpath2 ->', xpath);
+
+  return Object.values(data ?? {}) as Json[];
 };
 
 export const deleteItem = async (xpath: string) => {
   const pathInfo = unScopePath(xpath);
-
-  console.log('deleteItem xpath ->', pathInfo);
 };
 
 export const getItem = async (xpath: string) => {
@@ -35,9 +37,11 @@ export const getItem = async (xpath: string) => {
   if (!isUserData) {
     return get(db, path);
   }
-  console.log('getItem xpath ->', pathInfo);
 
-  return {};
+  const q = path.split('/');
+  console.log('q ->', q);
+
+  return get(db, q);
 };
 
 export const setItem = async (xpath: string, item: any) => {
@@ -45,11 +49,12 @@ export const setItem = async (xpath: string, item: any) => {
   const { path, isUserData, collectionName } = pathInfo;
 
   if (!isUserData) {
-    console.log('setItem path! ->', path);
     return;
   }
 
-  const q = path.replace(/\//g, '.');
+  const q = path.split('/');
+  console.log('q ->', q);
+
   set(db, q, item);
 
   verifyCollectionRoot(collectionName);
@@ -58,19 +63,27 @@ export const setItem = async (xpath: string, item: any) => {
   fs.writeJsonSync(filePath, item, { spaces: 2 });
 };
 
-export const patchItem = async (xpath: string, change: any) => {
+export const patchItem = async (xpath: string, change: any, withMerge: boolean) => {
   const pathInfo = unScopePath(xpath);
   const { path, collectionName } = pathInfo;
 
-  const currentData = db[path] ?? {};
+  const q = path.split('/');
+  const currentData = get(db, q, {});
 
-  const newData = { ...currentData, ...change };
+  const newData = withMerge ? merge(currentData, change) : { ...currentData, ...change };
 
   verifyCollectionRoot(collectionName);
 
   socketsAdapter.invokeListeners(xpath, newData);
 
-  db[path] = newData;
+  console.log('q ->', q);
+
+  set(db, q, newData);
+
+  if (path === '') {
+    console.log('xpath, change ->', xpath, change, pathInfo);
+  }
+
   fs.writeJsonSync(dbRoot + '/' + path + '.json', newData, { spaces: 2 });
 };
 
@@ -78,7 +91,11 @@ export const replaceCollection = async (xpath: string, obj: any) => {
   const pathInfo = unScopePath(xpath);
   const { path, collectionName } = pathInfo;
 
-  set(db, path, obj);
+  const q = path.split('/');
+
+  console.log('q ->', q);
+
+  set(db, q, obj);
 
   const collectionRoot = verifyCollectionRoot(collectionName);
 

@@ -69,6 +69,7 @@ export type IAppState = {
   localInstanceUrl: string;
   isFocusLeft: boolean;
   isApiKeyOk: null | boolean;
+  suggestedFileName?: string;
   q: string;
   filter: string;
   firstDayOfWeek: number;

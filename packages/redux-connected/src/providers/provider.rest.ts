@@ -37,7 +37,6 @@ export const patchCollectionItem = async (action: Action, info: ActionInfo) => {
   const { nodeName } = info;
 
   const xpath = `${nodeName}/${id}`;
-  console.log('123 ->', 123);
 
   const response = await axios.run('patch', xpath, payload);
 
@@ -56,8 +55,6 @@ export const deleteCollectionItem = async (
   const { id } = action;
   const { nodeName } = info;
 
-  console.log('123 ->', 123);
-
   const xpath = `${nodeName}/${id}`;
   const response = await axios.run('delete', xpath);
 
@@ -72,8 +69,6 @@ export const deleteCollectionItem = async (
 
 export const addCollectionItem = async (action: Action, info: ActionInfo) => {
   let nextAction;
-
-  console.log('123 ->', 123);
 
   const { payload = {} } = action;
   const { nodeName } = info;

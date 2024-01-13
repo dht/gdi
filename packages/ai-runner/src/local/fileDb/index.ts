@@ -7,3 +7,4 @@ export {
   replaceCollection,
   setItem,
 } from './fileDb.db';
+export { handleRequest } from './fileDb.requests';

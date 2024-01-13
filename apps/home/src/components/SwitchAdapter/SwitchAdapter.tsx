@@ -41,10 +41,12 @@ export function SwitchAdapter(props: SwitchAdapterProps) {
         {renderUrl()}
         <Cta onClick={onCta}>Switch to {name} instance</Cta>
       </Content>
-      <Note>
-        You can read more about switching to {name} instance in the{' '}
-        <a href='/docs'>docs</a>
-      </Note>
+      <P>
+        Read more about switching to a {name} instance in the{' '}
+        <a href='/docs' target='_blank'>
+          docs
+        </a>
+      </P>
       <Actions>
         <Cancel onClick={props.onCancel} className='link'>
           Cancel

@@ -111,10 +111,3 @@ export type IFile = {
   save: (buffer: Buffer, options: any) => Promise<void>;
   delete: () => Promise<void>;
 };
-
-export type IEncryption = {
-  algorithm: string;
-  pepper: string;
-  key: string;
-  length: number;
-};

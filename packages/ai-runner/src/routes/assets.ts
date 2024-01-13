@@ -130,7 +130,7 @@ router.post('/fileName', async (req: any, res) => {
 
     const response = await chat.chat(text);
 
-    res.status(200).json({ success: true, fileName: response });
+    res.status(200).json({ success: true, fileName: response.text });
   } catch (error) {
     console.error('Error getting assets:', error);
     res.status(500).send('Error getting assets');

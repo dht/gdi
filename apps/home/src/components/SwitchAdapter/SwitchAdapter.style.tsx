@@ -3,7 +3,7 @@ import { Button } from '@gdi/ui';
 
 export const Wrapper = styled.div`
   flex: 1;
-  width: 420px;
+  width: 380px;
   display: flex;
   flex-direction: column;
 `;
@@ -38,3 +38,9 @@ export const Input = styled.input`
 `;
 
 export const Cancel = styled(Button)``;
+
+export const P = styled.p`
+  color: #556;
+  padding: 0 10px 10px;
+  margin: 0;
+`;

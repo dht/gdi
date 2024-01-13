@@ -1,7 +1,7 @@
-import { StorageAdapter, IFile } from '@gdi/ai-runner';
 import fs from 'fs-extra';
 import path from 'path';
-import chalk from 'chalk';
+import kleur from 'kleur';
+import { IFile, StorageAdapter } from '../types';
 
 export class FsStorageAdapter implements StorageAdapter {
   private rootPath: string;
@@ -11,11 +11,7 @@ export class FsStorageAdapter implements StorageAdapter {
 
     if (!fs.existsSync(this.rootPath)) {
       fs.mkdirSync(this.rootPath);
-      console.log(
-        `Created ${chalk.cyan('storage')} directory at ${chalk.magenta(
-          storagePath
-        )}`
-      );
+      console.log(`Created ${kleur.cyan('storage')} directory at ${kleur.magenta(storagePath)}`);
     }
   }
 

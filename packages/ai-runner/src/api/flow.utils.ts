@@ -35,6 +35,8 @@ export const prepareState = (req: any, flow: any) => {
     };
   });
 
+  console.log('change ->', change);
+
   return db.runs.patch(req, change);
 };
 
@@ -64,6 +66,8 @@ export const bakeValue = (variables: Json, valueRaw: any) => {
 };
 
 export const bakeInput = (input: Json, variables: Json) => {
+  console.log('input, variables ->', input, variables);
+
   return Object.keys(input).reduce((acc: Json, key: string) => {
     const valueRaw = input[key];
     const valueBaked = bakeValue(variables, valueRaw);

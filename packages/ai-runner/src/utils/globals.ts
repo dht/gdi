@@ -1,6 +1,10 @@
 import { DBAdapter, StorageAdapter } from '../types';
+import { FsSocketsAdapter } from '../local';
 
-export let dbAdapter: DBAdapter, storageAdapter: StorageAdapter;
+export let dbAdapter: DBAdapter,
+  storageAdapter: StorageAdapter,
+  isLocalInstance: boolean = false,
+  socketsAdapter: FsSocketsAdapter;
 
 export const setDbAdapter = (value: any) => {
   dbAdapter = value;
@@ -16,4 +20,12 @@ export const setStorageAdapter = (value: any) => {
 
 export const getStorageAdapter = () => {
   return storageAdapter;
+};
+
+export const setIsLocalInstance = (value: boolean) => {
+  isLocalInstance = value;
+};
+
+export const setSocketsAdapter = (value: any) => {
+  socketsAdapter = value;
 };

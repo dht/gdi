@@ -17,13 +17,14 @@ const app = initRunner({
   middlewares: [midAuthenticateByHeaders],
   dbAdapter,
   storageAdapter,
+  isLocalInstance: false,
 });
 
 export const api = functions.https.onRequest(app);
 
 export const onPromptTrigger = functions
   .runWith({ memory: '2GB', timeoutSeconds: 540 })
-  .firestore.document('/userData/{userId}')
+  .firestore.document('/userData/{userId}/prompts/default')
   .onWrite(onPrompt);
 
 export const onUserCreation = functions.firestore //

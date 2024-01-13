@@ -1,7 +1,7 @@
-import { DBAdapter, Json, getScopedPath } from '@gdi/ai-runner';
-import * as fdb from '../../fileDb';
-import chalk from 'chalk';
+import * as fdb from '../fileDb';
+import kleur from 'kleur';
 import fs from 'fs-extra';
+import { DBAdapter } from '../types';
 
 export class FsDbAdapter implements DBAdapter {
   private rootPath: string;
@@ -11,14 +11,14 @@ export class FsDbAdapter implements DBAdapter {
   constructor(projectRoot: any, dbPath: string, env: Json) {
     this.rootPath = projectRoot + dbPath;
 
+    console.log('env ->', env);
+
     this.keys['openAI'] = env.OPENAI_API_KEY;
     this.keys['elevenLabs'] = env.ELEVENLABS_API_KEY;
 
     if (!fs.existsSync(this.rootPath)) {
       fs.mkdirSync(this.rootPath);
-      console.log(
-        `Created ${chalk.cyan('DB')} directory at ${chalk.magenta(dbPath)}`
-      );
+      console.log(`Created ${kleur.cyan('DB')} directory at ${kleur.magenta(dbPath)}`);
     }
 
     fdb.init(projectRoot, dbPath);
@@ -44,8 +44,8 @@ export class FsDbAdapter implements DBAdapter {
     return fdb.setItem(path, item);
   }
 
-  patchItem(path: string, change: Json) {
-    return fdb.patchItem(path, change);
+  patchItem(path: string, change: Json, merge: boolean = true) {
+    return fdb.patchItem(path, change, merge);
   }
 
   getKeys(_req: any) {

@@ -10,7 +10,7 @@ import { router as routerPlaybacks } from './routes/playbacks';
 import { router as routerSaves } from './routes/saves';
 import { router as routerTags } from './routes/tags';
 import { DBAdapter, StorageAdapter } from './types';
-import { setDbAdapter, setStorageAdapter } from './utils/globals';
+import { setDbAdapter, setIsLocalInstance, setStorageAdapter } from './utils/globals';
 
 export type Params = {
   apiKeys: Json;
@@ -19,6 +19,7 @@ export type Params = {
   dbAdapter: DBAdapter;
   storageAdapter: StorageAdapter;
   root?: string;
+  isLocalInstance: boolean;
 };
 
 export const initRunner = (params: Params) => {
@@ -27,12 +28,14 @@ export const initRunner = (params: Params) => {
     storageAdapter,
     apiKeys,
     allowedDomains,
-    root = '/api',
+    root = '/',
+    isLocalInstance = false,
     middlewares = [],
   } = params;
 
   setDbAdapter(dbAdapter);
   setStorageAdapter(storageAdapter);
+  setIsLocalInstance(isLocalInstance);
 
   const app = express();
 

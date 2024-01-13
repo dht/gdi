@@ -21,6 +21,7 @@ export const bootstrapAssistants = async (req: any, flow: any) => {
     }
 
     const response = await assistants.create(assistant);
+
     await db.runs.patch(req, {
       assistantIds: {
         [assistant.id]: response.id,

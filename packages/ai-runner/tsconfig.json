@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "target": "ES2020",
-    "module": "ES2022",
+    "module": "CommonJS",
     "lib": ["dom", "ES2020"],
     "jsx": "react-jsx",
     "moduleResolution": "node",
@@ -18,5 +18,15 @@
     "paths": {}
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["src/**.*.spec.tsx"]
+  "exclude": ["src/**.*.spec.tsx"],
+  "ts-node": {
+    "compilerOptions": {
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "resolveJsonModule": true,
+      "baseUrl": "../",
+      "paths": {}
+    }
+  }
 }

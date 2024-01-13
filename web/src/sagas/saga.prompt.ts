@@ -13,51 +13,65 @@ import { getPromptPlaceholder } from './helpers/utils';
 import { boardGuard, guestGuard } from './saga.gdi';
 
 export function* startFlow(action: any) {
-  const { prompt } = action;
+  try {
+    const { prompt } = action;
 
-  const currentIds = yield* select(selectors.raw.$rawCurrentIds);
-  const { boardId } = currentIds;
+    if (!prompt) {
+      return;
+    }
 
-  let shouldContinue = yield* call(guestGuard);
-  if (!shouldContinue) {
-    ga('startFlow.guest', { boardId });
-    return;
-  }
+    const currentIds = yield* select(selectors.raw.$rawCurrentIds);
+    const { boardId } = currentIds;
 
-  shouldContinue = yield* call(boardGuard);
-  if (!shouldContinue) {
-    return;
-  }
+    let shouldContinue = yield* call(guestGuard);
+    if (!shouldContinue) {
+      ga('startFlow.guest', { boardId });
+      return;
+    }
 
-  ga('startFlow', { boardId });
+    shouldContinue = yield* call(boardGuard);
+    if (!shouldContinue) {
+      return;
+    }
 
-  playSfx('prompt');
+    ga('startFlow', { boardId });
 
-  const appState = yield* select(selectors.raw.$rawAppState);
-  const { promptParams } = appState;
+    playSfx('prompt');
 
-  yield put(actions.flowState.patch({ status: 'waiting' }));
-  yield put(actions.appState.patch({ promptOriginal: prompt }));
+    const appState = yield* select(selectors.raw.$rawAppState);
+    const { promptParams } = appState;
 
-  const board = yield* select(selectors.raw.$rawBoard);
-  yield fork(onFlowMobileStart, board);
+    yield put(actions.flowState.patch({ status: 'waiting' }));
+    yield put(actions.appState.patch({ promptOriginal: prompt }));
 
-  const response = yield* call(flowAdapter.start, prompt, promptParams, {
-    boardId: board.id,
-    boardIdentifier: board.identifier,
-  });
+    const board = yield* select(selectors.raw.$rawBoard);
+    yield fork(onFlowMobileStart, board);
 
-  if (!response.success) {
-    toast.show('Error starting flow', 'error');
-    return;
-  }
+    const response = yield* call(flowAdapter.start, prompt, promptParams, {
+      boardId: board.id,
+      boardIdentifier: board.identifier,
+    });
 
-  const flow = yield* select(selectors.base.$flow);
-  const fileNameInstructions = get(flow, 'flowConfig.fileNameInstructions', '');
-  yield fork(generateFileName, fileNameInstructions, prompt);
+    if (!response.success) {
+      toast.show('Error starting flow', 'error');
+      return;
+    }
 
-  if (flow.flowConfig.cumulativeThread) {
-    yield put({ type: 'TRANSCRIPT_PROMPT', prompt });
+    const flow = yield* select(selectors.base.$flow);
+    const fileNameInstructions = get(flow, 'flowConfig.fileNameInstructions', '');
+
+    yield fork(generateFileName, fileNameInstructions, prompt);
+
+    if (flow.flowConfig.cumulativeThread) {
+      yield put({ type: 'TRANSCRIPT_PROMPT', prompt });
+    }
+  } catch (err) {
+    invokeEvent('saga/error', {
+      file: 'saga.prompt.ts',
+      method: 'startFlow',
+      saga,
+      err,
+    });
   }
 }
 
@@ -72,7 +86,16 @@ export function* generateFileName(fileNameInstructions: string, prompt: string) 
   });
 
   const { fileName } = response;
-  invokeEvent('save/filename', fileName);
+
+  if (!fileName) {
+    return;
+  }
+
+  yield put(
+    actions.appState.patch({
+      suggestedFileName: fileName,
+    })
+  );
 }
 
 export function* bootstrap(action: any) {
