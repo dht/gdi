@@ -14,6 +14,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@gdi/ai-runner": "^0.9.4",
     "@types/bcrypt": "^5.0.2",
     "axios": "^1.6.2",
     "bcrypt": "^5.1.1",
