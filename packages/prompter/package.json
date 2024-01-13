@@ -9,7 +9,7 @@
     "coverage": "jest --coverage=true"
   },
   "dependencies": {
-    "shared-base": "^0.4.8",
+    "shared-base": "^1.0.0",
     "classnames": "^2.3.2",
     "csstype": "^3.1.1",
     "react-draggable": "^4.4.5",

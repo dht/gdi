@@ -14,7 +14,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "@gdi/ai-runner": "^0.9.4",
+    "@gdi/ai-runner": "^1.0.0",
     "@types/bcrypt": "^5.0.2",
     "axios": "^1.6.2",
     "bcrypt": "^5.1.1",
@@ -25,7 +25,7 @@
     "node-record-lpcm16": "^1.0.1",
     "node-wav": "^0.0.2",
     "openai": "^4.19.0",
-    "shared-base": "^0.5.0",
+    "shared-base": "^1.0.0",
     "wav": "^1.0.2"
   },
   "devDependencies": {

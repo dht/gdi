@@ -10,7 +10,7 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "react-use": "^17.4.0",
-    "shared-base": "^0.4.8",
+    "shared-base": "^1.0.0",
     "styled-components": "^5.3.5"
   },
   "peerDependencies": {

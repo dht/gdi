@@ -12,26 +12,14 @@
     "@babylonjs/inspector": "^5.49.0",
     "@babylonjs/loaders": "^5.38.0",
     "@babylonjs/materials": "^5.38.0",
-    "@gdi/hooks": "^0.4.3",
-    "@gdi/store-base": "^0.0.5",
-    "@redux-devtools/extension": "^3.2.5",
     "@types/lodash": "^4.14.195",
     "classnames": "^2.3.2",
-    "igrid": "^0.4.8",
     "lodash": "^4.17.21",
-    "polished": "^4.2.2",
     "react-bezier-curve-editor": "^2.0.0",
     "react-draggable": "^4.4.5",
     "react-use": "^17.4.0",
-    "reactflow": "^11.8.3",
-    "redux": "^4.2.1",
-    "redux-saga": "^1.2.3",
-    "redux-store-generator": "^0.9.90",
-    "reselect": "^4.1.8",
-    "saga-ts": "^0.0.7",
-    "shared-base": "^0.4.8",
-    "styled-components": "^6.1.1",
-    "wavesurfer.js": "^7.0.0-beta.14"
+    "shared-base": "^1.0.0",
+    "styled-components": "^6.1.1"
   },
   "peerDependencies": {
     "react": "^18.2.0"

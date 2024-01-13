@@ -10,15 +10,15 @@
   "dependencies": {
     "@babylonjs/core": "^6.23.0",
     "@redux-devtools/extension": "^3.2.5",
-    "igrid": "^0.4.8",
+    "igrid": "^1.0.0",
     "lodash": "^4.17.21",
     "redux": "^4.2.1",
-    "redux-connected": "^0.0.100",
+    "redux-connected": "^1.0.1",
     "redux-saga": "^1.2.3",
-    "redux-store-generator": "^0.9.90",
+    "redux-store-generator": "^1.0.1",
     "reselect": "^4.1.8",
-    "saga-ts": "^0.0.7",
-    "shared-base": "^0.4.8"
+    "saga-ts": "^1.0.0",
+    "shared-base": "^1.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
