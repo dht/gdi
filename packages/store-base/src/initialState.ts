@@ -41,6 +41,8 @@ export const initialState: IGdiStore = {
     isEmulator: false,
     isAuthenticated: false,
     isApiKeyOk: null,
+    isLocalInstance: false,
+    localInstanceUrl: '',
     isFetchingSuggestions: false,
     isFocusLeft: true,
     isLoadingMyBoards: true,

@@ -170,6 +170,8 @@ export const removeCollectionItem = async (path: string) => {
 export const listenToCollection = (path: string, callback: any) => {
   const ref = collection(db, path);
 
+  console.log('listenToCollection ->', path);
+
   return onSnapshot(ref, (snapshot) => {
     const change = snapshot.docChanges()[0];
     const item = change.doc.data();

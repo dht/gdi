@@ -24,6 +24,7 @@ export type StoreDefinition = {
   firebaseConfig?: Json;
   fireStore?: Firestore;
   useEmulator?: boolean;
+  useLocalInstance?: boolean;
 };
 
 export type DataProvider =
@@ -44,6 +45,7 @@ export type AdapterConfig = {
   providerType: DataProvider;
   ignoreNodes: string[];
   scope?: string;
+  localInstanceUrl?: string;
 };
 
 export type ActionInfo = {

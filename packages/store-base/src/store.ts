@@ -4,7 +4,13 @@ import { Json } from './types';
 
 export let store: any;
 
-export const initStore = (root: any, firebase?: Json, dbAdapter?: Json, useEmulator?: boolean) => {
+export const initStore = (
+  root: any,
+  firebase?: Json,
+  dbAdapter?: Json,
+  useEmulator?: boolean,
+  useLocalInstance?: boolean
+) => {
   const { firebaseConfig, fireStore } = firebase || {};
 
   const storeBuilder = initConnected({
@@ -19,6 +25,7 @@ export const initStore = (root: any, firebase?: Json, dbAdapter?: Json, useEmula
     firebaseConfig,
     fireStore,
     useEmulator,
+    useLocalInstance,
   });
 
   // storeBuilder.withAutoClear();

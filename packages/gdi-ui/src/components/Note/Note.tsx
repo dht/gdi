@@ -4,7 +4,7 @@ import Icon from '../Icon/Icon';
 import classnames from 'classnames';
 
 export type NoteProps = {
-  title: string;
+  title?: string;
   iconName: string;
   color?: string;
   children: React.ReactNode;
@@ -15,12 +15,20 @@ export function Note(props: NoteProps) {
 
   const className = classnames('Note-wrapper', color, {});
 
-  return (
-    <Wrapper className={className} data-testid='Note-wrapper'>
+  function renderHeader() {
+    if (!title) return null;
+
+    return (
       <H3>
         <Icon className='icon' name={iconName} />
         {title}
       </H3>
+    );
+  }
+
+  return (
+    <Wrapper className={className} data-testid='Note-wrapper'>
+      {renderHeader()}
       {props.children}
     </Wrapper>
   );

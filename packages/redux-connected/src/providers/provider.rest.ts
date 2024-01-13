@@ -1,9 +1,14 @@
 import { ApiVerb } from 'redux-store-generator';
-import { Action, ActionInfo } from '../types';
-import * as fs from '../utils/firestore';
-import { arrayToObject } from '../utils/object';
+import { Action, ActionInfo, HandleMethod } from '../types';
 import { getActionForNode } from '../utils/actions';
-import { HandleMethod } from '../types';
+import { Axios } from '../utils/axios';
+import { arrayToObject } from '../utils/object';
+
+let axios: Axios;
+
+export const initAxios = (baseUrl: string) => {
+  axios = new Axios(baseUrl);
+};
 
 export const getCollection = async (action: Action, info: ActionInfo) => {
   let nextAction,
@@ -13,7 +18,7 @@ export const getCollection = async (action: Action, info: ActionInfo) => {
 
   const xpath = `${nodeName}`;
 
-  const response = await fs.getCollection(xpath);
+  const response = await axios.run('get', xpath);
 
   if (response.isSuccess) {
     data = arrayToObject(response.data, 'id');
@@ -32,8 +37,9 @@ export const patchCollectionItem = async (action: Action, info: ActionInfo) => {
   const { nodeName } = info;
 
   const xpath = `${nodeName}/${id}`;
+  console.log('123 ->', 123);
 
-  const response = await fs.updateCollectionItem(xpath, payload);
+  const response = await axios.run('patch', xpath, payload);
 
   if (response.isSuccess) {
   }
@@ -50,8 +56,10 @@ export const deleteCollectionItem = async (
   const { id } = action;
   const { nodeName } = info;
 
+  console.log('123 ->', 123);
+
   const xpath = `${nodeName}/${id}`;
-  const response = await fs.removeCollectionItem(xpath);
+  const response = await axios.run('delete', xpath);
 
   if (response.isSuccess) {
   }
@@ -65,6 +73,8 @@ export const deleteCollectionItem = async (
 export const addCollectionItem = async (action: Action, info: ActionInfo) => {
   let nextAction;
 
+  console.log('123 ->', 123);
+
   const { payload = {} } = action;
   const { nodeName } = info;
 
@@ -72,7 +82,7 @@ export const addCollectionItem = async (action: Action, info: ActionInfo) => {
 
   const xpath = `${nodeName}/${id}`;
 
-  const response = await fs.setCollectionItem(xpath, payload);
+  const response = await axios.run('post', xpath, payload);
 
   if (response.isSuccess) {
     nextAction = getActionForNode(nodeName, 'set', payload);

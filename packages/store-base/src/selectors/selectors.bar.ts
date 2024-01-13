@@ -10,7 +10,7 @@ export const $barItemsVariables = createSelector(
   raw.$rawFlowState,
   raw.$rawAdapters,
   (board, appState, flowState, adapters) => {
-    const { screenWidth, tags } = appState;
+    const { screenWidth, tags, isLocalInstance } = appState;
     const { status } = flowState;
     const { id: boardId = '', setups = {} } = board;
 
@@ -18,7 +18,7 @@ export const $barItemsVariables = createSelector(
     const resolution = findResolution(screenWidth);
     const setupsCount = isActiveBoard ? Object.keys(setups).length : '';
     const tagsCount = tags.length;
-    const provider = get(adapters, 'flowAdapter.providerType', 'no adapter');
+    const provider = isLocalInstance ? 'local' : 'firebase';
 
     return {
       $boardIdShort: shortId(boardId),

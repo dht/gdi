@@ -18,10 +18,18 @@ export type Params = {
   middlewares?: any[];
   dbAdapter: DBAdapter;
   storageAdapter: StorageAdapter;
+  root?: string;
 };
 
 export const initRunner = (params: Params) => {
-  const { dbAdapter, storageAdapter, apiKeys, allowedDomains, middlewares = [] } = params;
+  const {
+    dbAdapter, //
+    storageAdapter,
+    apiKeys,
+    allowedDomains,
+    root = '/api',
+    middlewares = [],
+  } = params;
 
   setDbAdapter(dbAdapter);
   setStorageAdapter(storageAdapter);
@@ -38,15 +46,18 @@ export const initRunner = (params: Params) => {
 
   middlewares.forEach((middleware) => app.use(middleware));
 
-  app.use('/ai', routerAi);
-  app.use('/assets', routerAssets);
-  app.use('/account', routerAccount);
-  app.use('/boards', routerBoards);
-  app.use('/document', routerDocument);
-  app.use('/playbacks', routerPlaybacks);
-  app.use('/saves', routerSaves);
-  app.use('/echo', routerEcho);
-  app.use('/tags', routerTags);
+  const router = express.Router();
+  router.use('/ai', routerAi);
+  router.use('/assets', routerAssets);
+  router.use('/account', routerAccount);
+  router.use('/boards', routerBoards);
+  router.use('/document', routerDocument);
+  router.use('/playbacks', routerPlaybacks);
+  router.use('/saves', routerSaves);
+  router.use('/echo', routerEcho);
+  router.use('/tags', routerTags);
+
+  app.use(root, router);
 
   return app;
 };

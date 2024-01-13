@@ -13,6 +13,8 @@ export const listenToSubCollection = (
 
   // get ref data
 
+  console.log('listenToSubCollection collectionName ->', collectionName);
+
   return onSnapshot(
     ref,
     (snapshot) => {
@@ -35,6 +37,8 @@ export const listenToDocument = (
 ) => {
   const ref = doc(db, collectionName, documentId);
 
+  console.log('listenToDocument collectionName ->', collectionName);
+
   return onSnapshot(
     ref,
     (snapshot) => {
@@ -48,6 +52,8 @@ export const listenToDocument = (
 
 export const listenToDocumentPath = (docPath: string, callback: Callback) => {
   const ref = doc(db, docPath);
+
+  console.log('docPath ->', docPath);
 
   return onSnapshot(
     ref,

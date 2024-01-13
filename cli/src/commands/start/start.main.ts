@@ -1,56 +1,52 @@
-import { startExpress } from '@gdi/ai-runner';
+import { initRunner } from '@gdi/ai-runner';
 import chalk from 'chalk';
-import fs from 'fs-extra';
-import _ from 'lodash';
-import path from 'path';
-import { filterAllowedDomains, parseEnv, validateKeys } from './start.utils';
+import { Server } from 'socket.io';
+import { FsDbAdapter } from './start.adapters.db';
+import { FsSocketsAdapter } from './start.adapters.sockets';
+import { FsStorageAdapter } from './start.adapters.storage';
+import { midData, midLogger, midUser } from './start.middlewares';
+import { preRun } from './start.prerun';
+import { setSocketsAdapter } from '../../utils/globals';
+import * as http from 'http';
 
 export type StartParams = {};
 
 export const main = () => {
-  const envPath = path.resolve(process.cwd(), '.env');
-  const configPath = path.resolve(process.cwd(), 'config.json');
+  const params = preRun();
 
-  if (!fs.existsSync(configPath)) {
-    console.log(chalk.red('No config.json file found.'));
+  if (!params.isOk) {
     return;
   }
 
-  if (!fs.existsSync(envPath)) {
-    console.log(chalk.red('No .env file found.'));
-    return;
-  }
+  const { rootPath, apiKeys, allowedDomains, port } = params;
 
-  const config = fs.readJsonSync(configPath);
-  const port = _.get(config, 'port', 3005);
-  const allowedDomains = _.get(config, 'allowedDomains', {});
+  const dbAdapter = new FsDbAdapter(rootPath, '/db', apiKeys);
+  const storageAdapter = new FsStorageAdapter(rootPath, '/assets');
 
-  const filtered = filterAllowedDomains(allowedDomains);
-
-  if (_.isEmpty(filtered)) {
-    console.log(chalk.red('No allowedDomains found in config.json.'));
-    return;
-  }
-
-  const envRaw = fs.readFileSync(envPath, 'utf8');
-  const apiKeys = parseEnv(envRaw);
-
-  const res = validateKeys(apiKeys);
-
-  if (!res.isValid) {
-    console.log(chalk.red(res.message));
-    return;
-  }
-
-  console.table({
-    action: 'start instance',
-    ...filtered,
-    port,
-  });
-
-  startExpress({
-    port,
+  const app = initRunner({
     apiKeys,
     allowedDomains,
+    dbAdapter,
+    storageAdapter,
+    root: '/api',
+    middlewares: [midLogger, midUser, midData],
+  });
+
+  const server = http.createServer(app);
+
+  const io = new Server(server, {
+    cors: {
+      origin: '*',
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      credentials: true,
+      optionsSuccessStatus: 204,
+    },
+  });
+
+  const socketsAdapter = new FsSocketsAdapter(io);
+  setSocketsAdapter(socketsAdapter);
+
+  app.listen(port, () => {
+    console.log(chalk.green(`Listening on port ${port}`));
   });
 };

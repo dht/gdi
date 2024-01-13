@@ -2,6 +2,15 @@ import { DocumentData } from 'firebase/firestore';
 
 export type Json = Record<string, any>;
 
+export type Params = {
+  config: Json;
+  projectId: string;
+  isEmulator: boolean;
+  isLocalInstance: boolean;
+  localInstanceUrl: string;
+  toast: ToastMethod;
+};
+
 export type GdiLog = {
   id: string;
   message: string;

@@ -1,29 +1,25 @@
-import { FirebaseApp, initializeApp } from 'firebase/app';
-import { Firestore, getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
-import { Auth, getAuth, User, connectAuthEmulator } from 'firebase/auth';
 import { Analytics, getAnalytics } from 'firebase/analytics';
-import { clearLogs } from './firebase.logs';
-import { Json, ToastMethod } from './types';
+import { FirebaseApp, initializeApp } from 'firebase/app';
+import { Auth, connectAuthEmulator, getAuth } from 'firebase/auth';
+import { Firestore, connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 import { initFunctions } from './firebase.functions';
+import { Params } from './types';
 
 export let app: FirebaseApp;
 export let db: Firestore;
 export let auth: Auth;
 export let analytics: Analytics;
 
-export const initFirebase = (
-  firebaseConfig: Json,
-  useEmulator: boolean = false,
-  toastMethod: ToastMethod
-) => {
-  app = initializeApp(firebaseConfig);
+export const initFirebase = (params: Params) => {
+  const { config, isEmulator } = params;
+  app = initializeApp(config);
   db = getFirestore(app);
   auth = getAuth(app);
   analytics = getAnalytics(app);
 
-  initFunctions(firebaseConfig.projectId, useEmulator, toastMethod);
+  initFunctions(params);
 
-  if (useEmulator) {
+  if (isEmulator) {
     connectAuthEmulator(auth, 'http://localhost:9099');
     connectFirestoreEmulator(db, 'localhost', 8080);
   }

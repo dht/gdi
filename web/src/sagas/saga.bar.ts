@@ -65,27 +65,10 @@ export function* boardId(_action: Action, board: IBoard) {
 }
 
 export function* configureFlowAdapter(_action: Action, board: IBoard) {
-  l({ message: 'Open prompt adapter configuration', verb: 'config', data: board });
-
-  const { value, didCancel } = yield prompt.custom({
-    title: 'Prompt Adapter Definition',
-    component: EditorSchema,
-    componentProps: {
-      value: '',
-      width: 800,
-      height: 500,
-      actions: ['content_copy', 'download', 'code'],
-      downloadFileName: `adapter-${board.id}.json`,
-      schemaId: 'IAdapter',
-      valueSuggested: suggested,
-    },
+  yield put({
+    type: 'HOME',
+    verb: 'switchAdapter',
   });
-
-  if (didCancel || !value) {
-    return;
-  }
-
-  l({ message: 'Configuring prompt adapter', verb: 'config', data: value });
 }
 
 export function* showPlaybacks(_action: Action, board: IBoard) {

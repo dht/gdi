@@ -6,12 +6,29 @@ import { invokeEvent } from 'shared-base';
 
 let baseUrl = '',
   instance: AxiosInstance,
-  toastMethod: ToastMethod;
+  toastMethod: ToastMethod,
+  params: Params;
 
-export const initFunctions = (projectId: string, isEmulator: boolean, toast: ToastMethod) => {
+type Params = {
+  projectId: string;
+  isEmulator: boolean;
+  isLocalInstance: boolean;
+  localInstanceUrl: string;
+  toast: ToastMethod;
+};
+
+export const initFunctions = (_params: Params) => {
+  const { projectId, isEmulator, isLocalInstance, localInstanceUrl, toast } = _params;
+
+  params = _params;
+
   baseUrl = isEmulator
     ? `http://127.0.0.1:5001/${projectId}/us-central1`
     : `https://us-central1-${projectId}.cloudfunctions.net`;
+
+  if (isLocalInstance && localInstanceUrl) {
+    baseUrl = localInstanceUrl;
+  }
 
   instance = axios.create({
     baseURL: baseUrl,

@@ -5,7 +5,6 @@ import { dbAdapter } from '../utils/globals';
 export const midKeys = async (req: any, _res: any, next?: any) => {
   try {
     const keys = await dbAdapter.getKeys(req);
-    console.log('keys ->', keys);
 
     req.keys = keys;
 
