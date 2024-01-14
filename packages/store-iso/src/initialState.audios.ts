@@ -6,5 +6,6 @@ export const audios: IAudios = {
     timestamp: 8.75,
     duration: 0,
     url: '/voices/scene/v-01.mp3',
+    fileName: '',
   },
 };

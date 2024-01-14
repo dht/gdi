@@ -1,13 +1,13 @@
-import { SoundPlayerDriver } from './SoundPlayer.driver';
+import { SaveBoardDriver } from './SaveBoard.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('SoundPlayer', () => {
-    let driver: SoundPlayerDriver;
+describe('SaveBoard', () => {
+    let driver: SaveBoardDriver;
 
     beforeAll(() => {
-        driver = new SoundPlayerDriver();
+        driver = new SaveBoardDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('SoundPlayer', () => {
         const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(wrapperClassName).toContain('SoundPlayer-wrapper');
+        expect(wrapperClassName).toContain('SaveBoard-wrapper');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('SoundPlayer', () => {
     });
 });
 
-describe('SoundPlayer snapshots', () => {
-    let driver: SoundPlayerDriver;
+describe('SaveBoard snapshots', () => {
+    let driver: SaveBoardDriver;
 
     beforeAll(() => {
-        driver = new SoundPlayerDriver();
+        driver = new SaveBoardDriver();
     });
 
     it('should match snapshot', () => {

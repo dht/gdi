@@ -36,7 +36,7 @@ export function* save(action: any) {
 
     yield put(actions.assets.set(asset.id, asset));
 
-    document.location.hash = `#default|${asset.id}`;
+    // document.location.hash = `#default|${asset.id}`;
   } catch (err) {
     invokeEvent('saga/error', {
       file: 'saga.clip.save.ts',

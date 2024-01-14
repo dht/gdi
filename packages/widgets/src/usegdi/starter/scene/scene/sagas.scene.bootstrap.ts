@@ -14,7 +14,18 @@ const nodes = [
 ];
 
 export function* restoreScene() {
+  const projectId = yield* select(selectors.base.$projectTag);
+  const isRemoteData = yield* select(selectors.base.$isRemoteData);
+
+  if (isRemoteData) {
+    return;
+  }
+
   try {
+    const response = yield* call(runFunction, '/api/saves/scene/restore', {
+      projectId,
+    });
+
     yield call(getNodes, nodes);
   } catch (err) {
     console.log('err =>', err);
@@ -23,6 +34,8 @@ export function* restoreScene() {
 
 export function* onSceneReady(ev: any) {
   const { data } = ev;
+  const { autoHideExternals } = data;
+
   const scene = data.scene as Scene;
 
   if (!scene) {
@@ -31,20 +44,14 @@ export function* onSceneReady(ev: any) {
 
   yield put(actionsIso.sceneState.patch({ isLoading: true }));
   yield put(actionsIso.sceneCurrentIds.patch({ bitId: '' }));
-  const projectId = yield* select(selectors.base.$projectTag);
-
-  let response;
-
-  response = yield* call(runFunction, '/api/saves/scene/restore', {
-    projectId,
-  });
 
   yield call(restoreScene);
 
   const elements = yield* select(selectorsIso.base.$elements);
 
   yield put(actionsIso.sceneState.patch({ isLoading: false }));
-  yield* call(addElements, elements);
+
+  yield* call(addElements, elements, { autoHideExternals });
 
   addSkyBox('');
 }

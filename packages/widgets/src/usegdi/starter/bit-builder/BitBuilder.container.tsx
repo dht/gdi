@@ -19,7 +19,6 @@ export type BitBuilderContainerProps = {};
 
 export function BitBuilderContainer(_props: BitBuilderContainerProps) {
   const dispatch = useDispatch();
-  const bits = useSelector(selectors.base.$bits);
   const bit = useSelector(selectors.base.$bit);
   const sceneState = useSelector(selectors.raw.$rawSceneState);
   const currentIds = useSelector(selectors.raw.$rawSceneCurrentIds);
@@ -47,7 +46,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
     'widgets.clip.dots',
     'widgets.clip.effects',
     'widgets.clip.elements',
-    'widgets.clip.live',
+    // 'widgets.clip.live',
     'widgets.clip.keys',
     'widgets.clip.keyframes',
     'widgets.clip.position.camera',
@@ -98,16 +97,12 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
     <BitBuilder
       bit={bit}
       dotId={dotId}
-      cue={sceneState.cue}
       waveTracks={waveTracks}
       waveOptions={waveOptions}
-      isAudioReady={sceneState.isAudioReady}
-      freeMove={sceneState.freeMove}
-      isLoading={sceneState.isLoading}
-      isPlaying={sceneState.isPlaying}
       elementLabels={elementLabels}
       callbacks={callbacks}
       timelines={[DynamicTimelineContainer, BitTimelineContainer, DotTimelineContainer]}
+      state={sceneState}
     >
       <SceneModalsContainer />
       <MakeKeyframeContainer />

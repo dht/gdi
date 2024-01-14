@@ -1,22 +1,20 @@
-import { IBit } from '@gdi/store-iso';
+import { IBit, ISceneState } from '@gdi/store-iso';
 import { Loader, MultiTrack } from '@gdi/ui';
 import { CameraPosition, ElementPosition, Scene } from 'isokit2';
 import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
 import { Audio, BitName, Canvas, Fps, Loading, Panel, Timeline, Wrapper } from './BitBuilder.style';
 import { ReactNode } from 'react';
 import { environment } from './BitBuilder.environment';
+import BigPlayButton from './_parts/BigPlayButton/BigPlayButton';
 
 export type BitBuilderProps = {
   waveTracks: MultitrackTracks;
-  waveOptions: MultitrackOptions;
-  bit: IBit;
+  waveOptions: Partial<MultitrackOptions>;
+  bit?: IBit;
+  state: ISceneState;
   elementLabels: Json;
   dotId: string;
-  isLoading?: boolean;
-  isAudioReady?: boolean;
-  freeMove?: boolean;
   element?: Json;
-  cue: number[];
   timelines: any[];
   callbacks: {
     onToolbox: (commandId: string) => void;
@@ -27,22 +25,10 @@ export type BitBuilderProps = {
 };
 
 export function BitBuilder(props: BitBuilderProps) {
-  const {
-    bit,
-    dotId,
-    cue,
-    isAudioReady,
-    isLoading,
-    freeMove,
-    waveTracks,
-    waveOptions,
-    callbacks,
-    timelines,
-    elementLabels,
-  } = props;
+  const { bit, dotId, waveTracks, waveOptions, callbacks, timelines, elementLabels, state } = props;
 
   function renderMultiTrack() {
-    if (!isAudioReady) {
+    if (!state.isAudioReady) {
       return (
         <Loading>
           <Loader size={20} />
@@ -56,8 +42,8 @@ export function BitBuilder(props: BitBuilderProps) {
         onAudio={callbacks.onAudio}
         dotId={dotId}
         tracks={waveTracks}
-        options={waveOptions}
-        cue={cue}
+        options={waveOptions as MultitrackOptions}
+        cue={state.cue}
       />
     );
   }
@@ -80,9 +66,9 @@ export function BitBuilder(props: BitBuilderProps) {
     <Wrapper className='BitBuilder-wrapper' data-testid='BitBuilder-wrapper'>
       <Canvas>
         <Scene
-          isLoading={isLoading}
+          isLoading={state.isLoading}
           showToolbox={true}
-          freeMove={freeMove}
+          freeMove={state.freeMove}
           hideActions={['add']}
           environment={environment}
           onToolbox={callbacks.onToolbox}
@@ -90,6 +76,7 @@ export function BitBuilder(props: BitBuilderProps) {
         />
         <CameraPosition onClick={callbacks.onToolbox} />
         <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />
+        <BigPlayButton isPlaying={state.isPlaying} />
         {props.children}
       </Canvas>
       <Panel>

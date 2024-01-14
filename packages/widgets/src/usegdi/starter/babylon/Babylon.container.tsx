@@ -1,30 +1,22 @@
 import { useDispatch } from '@gdi/store-base';
+import { selectors } from '@gdi/store-iso';
 import { useEffect, useState } from 'react';
 import { useSaga } from '../../../helpers/useSaga';
 import { Babylon } from './Babylon';
+import { useSelector } from 'react-redux';
 
-export type BabylonContainerProps = {
-  sceneUrl: string;
-  scene: any;
-};
+export type BabylonContainerProps = {};
 
-export const BabylonContainer = (props: BabylonContainerProps) => {
-  const { scene } = props;
+export const BabylonContainer = (_props: BabylonContainerProps) => {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
 
   useSaga('widgets.babylon');
 
   useEffect(() => {
-    if (!scene) return;
-    dispatch({ type: 'BABYLON_BOOTSTRAP', payload: { scene } });
-  }, [scene]);
+    dispatch({ type: 'BABYLON_BOOTSTRAP' });
+  }, []);
 
-  if (!scene) {
-    return null;
-  }
-
-  return <Babylon isLoading={isLoading} />;
+  return <Babylon isLoading={false} />;
 };
 
 export default BabylonContainer;

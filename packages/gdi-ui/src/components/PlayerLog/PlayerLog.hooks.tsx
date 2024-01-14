@@ -1,5 +1,5 @@
 import { useSetState } from 'react-use';
-import { infos } from './PlayerLog.data';
+import { Info, infos } from './PlayerLog.data';
 import { useCustomEvent } from '../../hooks/useCustomEvent';
 import { useMemo, useState } from 'react';
 
@@ -82,7 +82,7 @@ export function useElementsInfo() {
     return Object.values(elementsInfo).filter((i: any) => {
       const { id } = i;
       return elements?.[id] || id === cameraId;
-    });
+    }) as Info[];
   }, [bit, elementsInfo]);
 
   return [bit, filteredInfos] as const;

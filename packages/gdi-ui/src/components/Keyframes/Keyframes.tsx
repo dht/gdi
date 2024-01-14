@@ -1,5 +1,6 @@
-import { Icon, useMeasureOnce } from '@gdi/ui';
 import { useRef, useState } from 'react';
+import { useMeasureOnce } from '../../hooks/useMeasureOnce';
+import Icon from '../Icon/Icon';
 import { Icons, Slide, Wrapper } from './Keyframes.style';
 import Keyframe from './_parts/Keyframe/Keyframe';
 import TimelineCursor from './_parts/TimelineCursor/TimelineCursor';

@@ -27,7 +27,7 @@ import playback from './playback';
 import productTour from './product-tour';
 import SceneBuilder from './scene-builder';
 import savePanel from './save-panel';
-import soundPlayer from './sound-player';
+import saveBoard from './save-board';
 import soundboard from './soundboard';
 import speech from './speech';
 import speechParams from './speech-params';
@@ -77,7 +77,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.save-panel': savePanel,
   'com.usegdi.starter.scene-builder': SceneBuilder,
   'com.usegdi.starter.scene-player': scenePlayer,
-  'com.usegdi.starter.sound-player': soundPlayer,
+  'com.usegdi.starter.save-board': saveBoard,
   'com.usegdi.starter.soundboard': soundboard,
   'com.usegdi.starter.speech': speech,
   'com.usegdi.starter.speech-params': speechParams,

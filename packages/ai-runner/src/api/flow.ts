@@ -91,40 +91,11 @@ export const runNode = async (req: any, node: any, flow: any) => {
 };
 
 export const onFlowCompleted = async (req: any, flow: any) => {
-  const { flowConfig } = flow;
-
-  console.log('flow done');
-
-  let playbackId = '';
-
-  if (flowConfig.flowType === 'linear') {
-    playbackId = guid4();
-    await savePlayback(req, playbackId);
-  }
-
   const tsEnd = Date.now();
 
   await db.flow.patchFlowState(req, {
     tsEnd: Date.now(),
     status: 'done',
     duration: tsEnd - req.tsStart,
-    playbackId,
   });
-};
-
-export const savePlayback = async (req: any, playbackId: string) => {
-  const { uid } = req.user;
-
-  const flowRun = await db.runs.get(req);
-
-  const variables = { ...(flowRun.variables ?? {}) };
-
-  variables.id = playbackId;
-  variables.uid = uid;
-
-  let response;
-
-  response = await db.playbacks.create(req, variables);
-
-  return response;
 };

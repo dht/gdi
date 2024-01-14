@@ -1,7 +1,7 @@
 import { actions, selectors } from '@gdi/store-base';
 import { toast, playSound, stopSound } from '@gdi/ui';
 import { moveTorus } from 'isokit2';
-import { call, cancel, delay, fork, put, select, takeEvery, takeLatest } from '../../../helpers';
+import { call, cancel, delay, fork, put, select, takeEvery, takeLatest } from 'saga-ts';
 
 let scene: any, task: any;
 

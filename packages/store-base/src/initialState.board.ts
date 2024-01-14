@@ -30,8 +30,6 @@ export const board: IBoard = {
   dependencies: ['@gdi/widgets-starter'],
   apis: ['turbo-3.5'],
   isActive: true,
-  setupsUrl: '',
-  playbacksUrl: '',
   reviewInfo: {
     installationCount: 0,
     rating: 5,
@@ -42,7 +40,7 @@ export const board: IBoard = {
   npmUrl: 'https://www.npmjs.com/package/@gdi/widgets-starter',
   vscodeUrl: 'https://vscode.dev/github/dht/gdi',
   defaults: {
-    setupId: '',
+    previewPath: '',
   },
   elements: {
     default: {},

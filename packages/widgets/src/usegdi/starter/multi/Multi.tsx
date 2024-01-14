@@ -1,4 +1,4 @@
-import { Multi as MultiUI } from 'multi';
+// import { Multi as MultiUI } from 'multi';
 import { Wrapper } from './Multi.style';
 
 export type MultiProps = {
@@ -16,13 +16,13 @@ export function Multi(props: MultiProps) {
 
   return (
     <Wrapper className='Multi-wrapper' data-testid='Multi-wrapper'>
-      <MultiUI
+      {/* <MultiUI
         initialView={views[0]}
         views={views}
         config={multi}
         data={data}
         callbacks={callbacks}
-      />
+      /> */}
     </Wrapper>
   );
 }

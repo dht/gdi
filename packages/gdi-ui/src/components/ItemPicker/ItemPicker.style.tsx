@@ -1,5 +1,5 @@
-import { Button } from '@gdi/ui';
 import styled from 'styled-components';
+import Button from '../Button/Button';
 
 export const Wrapper = styled.div`
   font-size: 17px;

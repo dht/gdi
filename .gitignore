@@ -33,3 +33,4 @@ live/
 scripts/.env
 /.env
 /temp/
+web/public/scenes

@@ -1,4 +1,3 @@
-import { runFunction } from '@gdi/firebase';
 import { actions, IBoard } from '@gdi/store-base';
 import axios, { AxiosInstance } from 'axios';
 import { get, merge, set } from 'lodash';
@@ -11,8 +10,7 @@ import { IBoardAdapter, IBoardAdapterConfig } from './adapter.types';
 export class BoardAdapter implements IBoardAdapter {
   private instance: AxiosInstance;
   private boardId: string = '';
-  private setupId: string = '';
-  private playbackId: string = '';
+  private boardDbPath: string = '';
   private board: IBoard = {} as IBoard;
 
   constructor(public config: IBoardAdapterConfig, private store: any) {
@@ -37,34 +35,18 @@ export class BoardAdapter implements IBoardAdapter {
     return this.fetchResource(filePath);
   }
 
-  async fetchSetup(setupId: string) {
-    const output = {} as any;
-    const boardId = this.boardId;
-    const filePathBoard = `/${boardId.toUpperCase()}/setups/${setupId}/board.json`;
-    output.board = await this.fetchResource(filePathBoard);
-    const filePathDb = `/${boardId.toUpperCase()}/setups/${setupId}/db.json`;
-    output.db = await this.fetchResource(filePathDb);
-    return output;
+  getBoard() {
+    return this.board;
   }
 
-  async fetchPlayback(playbackId: string) {
-    const output = {} as any;
-    const boardId = this.boardId;
+  async fetchRemoteDb(dbPath: string) {
+    const output = { db: {} } as any;
 
-    if (!playbackId) {
-      return {};
+    if (!dbPath) {
+      return output;
     }
 
-    try {
-      const filePathBoard = `/${boardId.toUpperCase()}/playbacks/${playbackId}/board.json`;
-      output.board = await this.fetchResource(filePathBoard);
-      const filePathDb = `/${boardId.toUpperCase()}/playbacks/${playbackId}/db.json`;
-      output.db = await this.fetchResource(filePathDb);
-    } catch (err) {
-      // fetching from function
-      output.db = await runFunction(`/api/playbacks/${playbackId}`, null, 'GET');
-    }
-
+    output.db = await this.fetchResource(dbPath);
     return output;
   }
 
@@ -95,30 +77,17 @@ export class BoardAdapter implements IBoardAdapter {
     }
   }
 
-  getBoard() {
-    return this.board;
-  }
-
   async prepareBoard(board: IBoard) {
     let output = {
       board: { ...board },
       db: {},
     } as any;
 
-    const { elements: allElements, defaults } = board;
-    const { setupId, playbackId } = defaults;
-
-    if (!this.setupId && setupId) {
-      this.setupId = setupId;
-    }
-
-    if (!this.playbackId && playbackId) {
-      this.playbackId = playbackId;
-    }
+    const { elements: allElements } = board;
 
     l({ message: 'Fetching external resources', verb: 'board' }); // prettier-ignore
 
-    for (let resourceId of ['flow', 'playbacks', 'setups']) {
+    for (let resourceId of ['flow']) {
       const key = `${resourceId}Url`;
       const url = (board as any)[key];
 
@@ -132,11 +101,9 @@ export class BoardAdapter implements IBoardAdapter {
       output.board[resourceId] = response;
     }
 
-    const outputSetup = await this.fetchSetup(this.setupId);
-    const outputPlayback = await this.fetchPlayback(this.playbackId);
+    const remoteDb = await this.fetchRemoteDb(this.boardDbPath);
 
-    merge(output.db, outputSetup.db, outputPlayback.db);
-    merge(output.board, outputSetup.board, outputPlayback.board);
+    merge(output.db, remoteDb.db);
 
     await this.fetchElementRemoteProps(allElements, output.board);
 
@@ -164,29 +131,29 @@ export class BoardAdapter implements IBoardAdapter {
     this.dispatch(actions.board.patch({ elements: { default: {} }})); // prettier-ignore
     this.dispatch(actions.transcriptLines.setAll({}));
     this.dispatch(actions.transcriptAudios.setAll({}));
-    this.dispatch(actions.appState.patch({ flavourColumnIndex: 0 }));
+    this.dispatch(actions.appState.patch({ boardDbPath: '', flavourColumnIndex: 0 }));
   }
 
   loadBoard = async (action: Json) => {
-    const { boardId, setupId, playbackId, autoPlay } = action;
+    const { boardId, boardDbPath, autoPlay } = action;
 
     this.clearBoard();
 
     this.boardId = boardId;
-    this.setupId = setupId;
-    this.playbackId = playbackId;
+    this.boardDbPath = boardDbPath;
+
+    this.dispatch(actions.appState.patch({ boardDbPath }));
 
     l({
-      message: `Loading board "${boardId}" (${playbackId})`,
+      message: `Loading board "${boardId}" (${boardDbPath})`,
       verb: 'bootstrap',
-      data: { boardId, playbackId, autoPlay },
+      data: { boardId, boardDbPath, autoPlay },
     });
 
     try {
       const board = await this.fetchBoard();
       console.time('prepareBoard');
       const boardAndDb = await this.prepareBoard(board);
-      document.location.hash = `${this.setupId ?? ''}|${this.playbackId ?? ''}`;
       console.timeEnd('prepareBoard');
 
       await this.seedDb(boardAndDb.db);

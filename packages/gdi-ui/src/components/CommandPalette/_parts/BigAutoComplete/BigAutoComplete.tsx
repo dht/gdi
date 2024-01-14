@@ -31,7 +31,7 @@ export function BigAutoComplete(props: BigAutoCompleteProps) {
   const search = useFuzzySearch(items, ['label']);
   const [term, setTerm] = useState('');
   const [isFocus, setIsFocus] = useBoolean(false);
-  const [showOptions, toggleOptions] = useBoolean(false);
+  const [showOptions, toggleOptions] = useBoolean(true);
   const inputRef = useRef<HTMLInputElement>(null);
   const ref = useRef<HTMLDivElement>(null);
 

@@ -53,6 +53,7 @@ export type IAppState = {
   transcriptId?: string;
   sourceUrl?: string;
   storageUrl?: string;
+  boardDbPath?: string;
   isMac: boolean;
   is24Hours: boolean;
   showLog: boolean;
@@ -93,8 +94,6 @@ export type IUser = {
 
 export type ICurrentIds = {
   boardId: string;
-  setupId: string;
-  playbackId: string;
   requestId: string;
   assistantId: string;
   voiceId: string;
@@ -276,7 +275,6 @@ export type IFlowConfig = {
   variables: Json;
   clearVariables?: boolean;
   cumulativeThread?: boolean;
-  replaceHash?: boolean;
   textToSpeech?: boolean;
   fileNameInstructions?: string;
   improveAssistantId?: string;
@@ -360,7 +358,6 @@ export type IFlowState = {
   isError?: boolean;
   isSuccess?: boolean;
   error?: string;
-  playbackId?: string;
 };
 
 export type IMyBoard = {
@@ -417,13 +414,8 @@ export type IBoard = {
   apis: string[];
   elements: IElementsPerResolution;
   defaults: {
-    setupId: string;
-    playbackId?: string;
+    previewPath?: string;
   };
-  setupsUrl: string;
-  setups?: ISetups;
-  playbacksUrl: string;
-  playbacks?: IPlaybacks;
   flowUrl: string;
   flow?: IFlow & Json;
   sourceUrl: string;
@@ -431,6 +423,7 @@ export type IBoard = {
   vscodeUrl: string;
   isActive: boolean;
   mobile?: IBoardMobileConfig;
+  storeNodes?: string[];
 
   // transient
   reviewInfo: IReviewInfo;
@@ -536,27 +529,6 @@ export type IReview = {
 };
 
 export type IReviews = Record<string, IReview>;
-
-export type IPlayback = {
-  id: string;
-  name: string;
-  description?: string;
-  boardId: string;
-  isEnabled?: boolean;
-};
-
-export type IPlaybacks = Record<string, IPlayback>;
-
-export type ISetup = {
-  id: string;
-  name: string;
-  description?: string;
-  playbackId: string;
-  isPlaybackStatic?: boolean;
-  isEnabled?: boolean;
-};
-
-export type ISetups = Record<string, ISetup>;
 
 export type SagaType =
   | 'api'

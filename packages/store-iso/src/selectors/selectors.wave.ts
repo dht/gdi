@@ -47,7 +47,7 @@ export const $options = createSelector(
       dragBounds: false,
       envelopeOptions: {
         lineColor: 'rgba(255, 0, 0, 0.7)',
-        lineWidth: 4,
+        lineWidth: '4',
         dragPointSize: window.innerWidth < 600 ? 20 : 10,
         dragPointFill: 'rgba(255, 255, 255, 0.8)',
         dragPointStroke: 'rgba(255, 255, 255, 0.3)',
@@ -55,7 +55,7 @@ export const $options = createSelector(
       timelineOptions: {
         height: 17,
         style: {
-          opacity: 0.6,
+          opacity: '0.6',
         },
       },
     };

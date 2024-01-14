@@ -1,4 +1,5 @@
 import { actions, selectors } from '@gdi/store-base';
+import { actions as actionsIso, selectors as selectorsIso } from '@gdi/store-iso';
 import { playAmbience, playSound, stopAmbience, stopSound, toast } from '@gdi/ui';
 import {
   addElements,
@@ -8,7 +9,7 @@ import {
   moveArc,
   moveSpeakingStone,
 } from 'isokit2';
-import { call, cancel, delay, fork, put, select, takeEvery, takeLatest } from '../../../helpers';
+import { call, cancel, delay, fork, put, select, takeEvery, takeLatest } from 'saga-ts';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
 import { DataItem, mouthShapesBackMap, mouthShapesMap } from '../babylon/utils/phonetics';
 
@@ -133,15 +134,11 @@ export function* stop() {
 }
 
 export function* sceneBootstrap(action: any) {
-  const { payload } = action;
-  const { scene } = payload;
-
-  if (!scene) return;
-
-  const { sceneConfig } = scene;
+  const sceneConfig = yield* select(selectorsIso.raw.$rawSceneConfig);
+  const elements = yield* select(selectorsIso.base.$elements);
 
   applyConfig(sceneConfig);
-  addElements(scene);
+  addElements(elements);
   createSpeakingStone();
 }
 

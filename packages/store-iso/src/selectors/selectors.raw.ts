@@ -16,6 +16,8 @@ export const $rawSceneExternals = createSelector($i, (state: IIsoStore) =>state.
 export const $rawSceneLights = createSelector($i, (state: IIsoStore) =>state.sceneLights); // prettier-ignore
 export const $rawSceneMeshes = createSelector($i, (state: IIsoStore) =>state.sceneMeshes); // prettier-ignore
 export const $rawSceneEffects = createSelector($i, (state: IIsoStore) =>state.sceneEffects); // prettier-ignore
+export const $rawScenePacks = createSelector($i, (state: IIsoStore) =>state.scenePacks); // prettier-ignore
+export const $rawSceneVASPs = createSelector($i, (state: IIsoStore) =>state.sceneVASPs); // prettier-ignore
 
 // store-base
 export const $rawAppState = createSelector($i, (state: any) =>state.appState); // prettier-ignore

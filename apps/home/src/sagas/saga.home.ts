@@ -1,11 +1,11 @@
-import { runFunction, ga } from '@gdi/firebase';
+import { ga, runFunction } from '@gdi/firebase';
 import { actions, selectors } from '@gdi/store-base';
-import { isMobile, prompt, toast } from '@gdi/ui';
+import { prompt, toast } from '@gdi/ui';
 import { call, delay, put, select, takeEvery } from 'saga-ts';
+import { setBoolean, setString } from 'shared-base';
+import SwitchAdapter from '../components/SwitchAdapter/SwitchAdapter';
 import quickStartBoardIds from '../data/quickStart.json';
 import { checkGuest } from './helpers/guest';
-import SwitchAdapter from '../components/SwitchAdapter/SwitchAdapter';
-import { setBoolean, setString } from 'shared-base';
 
 type Verb =
   | 'preview' //
@@ -46,9 +46,19 @@ const mapVerbToSaga: Record<Verb, any> = {
 function* preview(action: ActionHome, board: Json) {
   const { url } = board;
 
+  const isPreview = yield* select(selectors.base.$isPreview);
+  const { defaults } = board;
+  const { previewPath } = defaults;
+
+  let hash = '';
+
+  if (isPreview) {
+    hash = `#${previewPath}`;
+  }
+
   yield put({
     type: 'NAVIGATE',
-    to: url,
+    to: url + hash,
   });
 }
 

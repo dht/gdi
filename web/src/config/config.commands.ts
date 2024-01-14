@@ -10,6 +10,24 @@ export const commandPaletteItems: ICommandPaletteItems = [
     },
   },
   {
+    id: 'copy_board_data_to_clipboard',
+    label: 'Board: Copy Data to Clipboard',
+    action: {
+      type: 'BOARD',
+      verb: 'saveBoardData',
+      destination: 'clipboard',
+    },
+  },
+  {
+    id: 'download_board_data',
+    label: 'Board: Download Data',
+    action: {
+      type: 'BOARD',
+      verb: 'saveBoardData',
+      destination: 'file',
+    },
+  },
+  {
     id: 'board_intro',
     label: 'Board: Show Intro',
     action: {

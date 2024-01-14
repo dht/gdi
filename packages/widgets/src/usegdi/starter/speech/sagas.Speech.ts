@@ -1,6 +1,6 @@
 import { actions, selectors } from '@gdi/store-base';
 import { fork, put, select } from 'saga-ts';
-import { takeEvery } from '../../../helpers';
+import { takeEvery } from 'saga-ts';
 import { predicateCurrentIds } from '../../../helpers/predicates';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
 
