@@ -86,6 +86,7 @@ export function BitBuilder(props: BitBuilderProps) {
           hideActions={['add']}
           environment={environment}
           onToolbox={callbacks.onToolbox}
+          autoHideExternals={true}
         />
         <CameraPosition onClick={callbacks.onToolbox} />
         <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />

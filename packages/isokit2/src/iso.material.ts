@@ -18,7 +18,8 @@ export const initMaterialColor = (material: IMaterial) => {
 
   // opacity
   output.alpha = alpha;
-  output.backFaceCulling = backFaceCulling;
+
+  output.backFaceCulling = backFaceCulling ?? false;
 
   return output;
 };

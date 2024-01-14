@@ -4,6 +4,7 @@ import { Container, Content, H1, Wrapper } from './BasePage.style';
 import classnames from 'classnames';
 import { useLinesBk } from '@gdi/ui';
 import HistoryContainer from '../components/History/History.container';
+import FooterContainer from '../containers/Footer.container';
 
 export type BasePageProps = {
   children: React.ReactNode;
@@ -41,7 +42,7 @@ export function BasePage(props: BasePageProps) {
           {props.children}
         </Container>
       </Content>
-      <Footer />
+      <FooterContainer />
       {/* <HistoryContainer /> */}
     </Wrapper>
   );

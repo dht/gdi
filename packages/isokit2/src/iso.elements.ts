@@ -22,12 +22,13 @@ import { removeMesh } from './iso.meshes.utils';
 
 type Options = {
   hideBase?: boolean;
+  autoHideExternals?: boolean;
 };
 
 export const addElements = (elements: Partial<IIsoStore>, options: Options = {}) => {
   const { sceneCameras, sceneMeshes, sceneLights, sceneExternals, sceneVASPs, scenePacks } =
     elements;
-  const { hideBase } = options;
+  const { hideBase, autoHideExternals } = options;
 
   let item;
 
@@ -49,7 +50,7 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
     }
 
     for (item of Object.values(sceneExternals ?? {})) {
-      addExternal(item as IExternal);
+      addExternal(item as IExternal, autoHideExternals);
     }
 
     for (item of Object.values(scenePacks ?? {})) {

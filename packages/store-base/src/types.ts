@@ -34,6 +34,7 @@ export type IGdiStore = {
   IFlow;
 
 export type IAppState = {
+  version: string;
   assetsRootUrl: string;
   boardsRootUrl: string;
   docsRootUrl: string;

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   right: 0;
-  width: 40px;
+  width: 21px;
   height: 50vh;
   bottom: 35px;
 
@@ -19,12 +19,19 @@ export const Wrapper = styled.div`
 
 export const Container = styled(ContainerBase)`
   transform: rotate(-90deg) translateX(-80%);
-  transform-origin: left top 0;
+  transform-origin: left top;
   width: 50vh;
-  height: 40px;
+  height: 20px;
   // cancel flex
   flex: none;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
+  pointer-events: none;
+`;
+
+export const Version = styled.div`
+  font-size: 12px;
+  color: #999;
+  margin-left: 10px;
 `;

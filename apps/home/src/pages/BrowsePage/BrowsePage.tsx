@@ -1,9 +1,9 @@
 import { IBoard } from '@gdi/store-base';
 import { Gallery } from '@gdi/ui';
 import { useState } from 'react';
-import FilterContainer from '../../containers/FilterContainer';
+import FilterContainer from '../../containers/Filter.container';
 import BasePage from '../BasePage';
-import GalleryContainer from '../../containers/GalleryContainer';
+import GalleryContainer from '../../containers/Gallery.container';
 
 export type BrowsePageProps = {
   boards: IBoard[];
