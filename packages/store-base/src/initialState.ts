@@ -13,6 +13,7 @@ import { voices } from './initialState.voices';
 
 export const initialState: IGdiStore = {
   appState: {
+    version: '0.0.0',
     assetsRootUrl: '/',
     boardsRootUrl: '/boards',
     docsRootUrl: '/',

@@ -1,10 +1,10 @@
 import { IBoard } from '@gdi/store-base';
 import { Gallery, Loader } from '@gdi/ui';
-import FilterContainer from '../../containers/FilterContainer';
+import FilterContainer from '../../containers/Filter.container';
 import BasePage from '../BasePage';
 import HomePageEmpty from './HomePage.empty';
 import { Center, Container, Content } from './HomePage.style';
-import GalleryContainer from '../../containers/GalleryContainer';
+import GalleryContainer from '../../containers/Gallery.container';
 
 export type HomePageProps = {
   boards: IBoard[];

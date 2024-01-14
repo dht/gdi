@@ -4,7 +4,7 @@ import { IExternal } from '@gdi/store-iso';
 import { applyMeshListeners, applyVectors, vector3 } from './iso.utils';
 import '@babylonjs/loaders';
 
-export const addExternal = (external: IExternal) => {
+export const addExternal = (external: IExternal, autoHide: boolean = false) => {
   const { id, url } = external;
 
   return new Promise((resolve) => {
@@ -17,7 +17,11 @@ export const addExternal = (external: IExternal) => {
       }
 
       mesh.id = id;
-      mesh.setEnabled(false);
+
+      if (autoHide) {
+        mesh.setEnabled(false);
+      }
+
       applyMeshListeners(mesh as any, 'external');
 
       applyVectors(mesh as any, external as any);

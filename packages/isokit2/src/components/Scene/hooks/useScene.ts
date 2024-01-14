@@ -23,10 +23,11 @@ type Options = {
   hideBase?: boolean;
   disableGizmos?: boolean;
   environment?: Partial<IEnvironment>;
+  autoHideExternals?: boolean;
 };
 
 export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: Options) {
-  const { isAdhoc, disableGizmos, hideBase, environment } = options;
+  const { isAdhoc, disableGizmos, hideBase, environment, autoHideExternals } = options;
 
   useEffect(() => {
     const engine = new Engine(canvasRef.current, true);
@@ -45,7 +46,7 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
 
     scene.clearColor = new Color4(0, 0, 0, 0);
 
-    addElements(elements, { hideBase });
+    addElements(elements, { hideBase, autoHideExternals });
 
     const arcCamera = scene.cameras.find((camera) => camera.id === 'arc');
     setArcCamera(arcCamera as ArcRotateCamera);
