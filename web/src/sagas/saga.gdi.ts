@@ -33,6 +33,8 @@ export function* os() {
 }
 
 export function* version() {
+  yield put(actions.appState.patch({ version: p.version }));
+
   yield take('BOARD_LOAD_DONE');
   yield delay(1000);
 

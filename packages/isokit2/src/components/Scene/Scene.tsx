@@ -1,17 +1,16 @@
+import { IEnvironment, IPostEffect } from '@gdi/store-iso';
 import { useRef } from 'react';
 import Loader from '../Loader/Loader';
 import { elements } from './Scene.data';
 import { Canvas, Loading, ToolboxMain, ToolboxTop, Wrapper } from './Scene.style';
 import { toolbarMain, toolbarTop } from './Scene.toolbox';
-import { useMoveMesh } from './hooks/useMove';
-import { usePick } from './hooks/usePick';
-import { useScene } from './hooks/useScene';
-import { useKey } from 'react-use';
-import { IEnvironment, IPostEffect } from '@gdi/store-iso';
 import { useAdhoc } from './hooks/useAdhoc';
-import { usePostEffect } from './hooks/usePostEffect';
 import { useArc } from './hooks/useArc';
 import { useHome } from './hooks/useHome';
+import { useMoveMesh } from './hooks/useMove';
+import { usePick } from './hooks/usePick';
+import { usePostEffect } from './hooks/usePostEffect';
+import { useScene } from './hooks/useScene';
 
 export type SceneProps = {
   isLoading?: boolean;
@@ -21,6 +20,7 @@ export type SceneProps = {
   adhocEffect?: IPostEffect;
   freeMove?: boolean;
   hideBase?: boolean;
+  autoHideExternals?: boolean;
   disableGizmos?: boolean;
   environment?: Partial<IEnvironment>;
   onToolbox?: (id: string) => void;
@@ -35,19 +35,20 @@ export function Scene(props: SceneProps) {
     adhocModelUrl: adhocUrl,
     adhocEffect,
     hideBase,
+    autoHideExternals,
     disableGizmos,
     environment,
   } = props;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const isAdhoc = adhocUrl || adhocEffect;
-
   useScene(canvasRef, elements, {
     hideBase,
     disableGizmos,
     environment,
+    autoHideExternals,
   });
+
   useMoveMesh(canvasRef, freeMove);
   usePick(canvasRef);
   useAdhoc(adhocUrl);

@@ -1,12 +1,19 @@
 import React from 'react';
-import { Container, Wrapper } from './Footer.style';
+import { Container, Version, Wrapper } from './Footer.style';
 
-export type FooterProps = {};
+export type FooterProps = {
+  version: string;
+};
 
-export function Footer(_props: FooterProps) {
+export function Footer(props: FooterProps) {
+  const { version } = props;
+
   return (
     <Wrapper className='Footer-wrapper' data-testid='Footer-wrapper'>
-      <Container>&copy; 2024, GDI</Container>
+      <Container>
+        &copy; 2024, GDI
+        <Version>{version}</Version>
+      </Container>
     </Wrapper>
   );
 }
