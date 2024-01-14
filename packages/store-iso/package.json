@@ -1,6 +1,6 @@
 {
   "name": "@gdi/store-iso",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc & vite build",
@@ -18,7 +18,8 @@
     "redux-store-generator": "^1.0.1",
     "reselect": "^4.1.8",
     "saga-ts": "^1.0.0",
-    "shared-base": "^1.0.0"
+    "shared-base": "^1.0.0",
+    "tinycolor2": "^1.6.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",

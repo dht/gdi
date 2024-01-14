@@ -1,6 +1,6 @@
 import { actions, selectors } from '@gdi/store-base';
 import { put, select } from 'saga-ts';
-import { takeEvery } from '../../../helpers';
+import { takeEvery } from 'saga-ts';
 import { findCurrentLineIndex } from '../transcript/Transcript.utils';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
 

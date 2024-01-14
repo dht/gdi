@@ -12,7 +12,7 @@ export const initialState: IIsoStore = {
     isSceneReady: false,
     isAudioReady: true,
     isLoading: true,
-    isPlaying: true,
+    isPlaying: false,
     hideGrid: getBoolean('HIDE_GRID'),
     freeMove: true,
     currentTime: 0,

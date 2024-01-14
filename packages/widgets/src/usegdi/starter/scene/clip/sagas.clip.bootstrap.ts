@@ -15,7 +15,19 @@ const nodes = [
 ];
 
 export function* restoreClip() {
+  const isRemoteData = yield* select(selectors.base.$isRemoteData);
+
+  if (isRemoteData) {
+    return;
+  }
+
+  const projectId = yield* select(selectors.base.$projectTag);
+
   try {
+    const response = yield* call(runFunction, '/api/saves/clip/restore', {
+      projectId,
+    });
+
     yield call(getNodes, nodes);
   } catch (err) {
     console.log('err =>', err);
@@ -23,14 +35,6 @@ export function* restoreClip() {
 }
 
 export function* onSceneReady(ev: any) {
-  let response;
-
-  const projectId = yield* select(selectors.base.$projectTag);
-
-  response = yield* call(runFunction, '/api/saves/clip/restore', {
-    projectId,
-  });
-
   yield call(restoreClip);
 
   const bits = yield* select(selectorsIso.base.$bits);

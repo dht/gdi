@@ -1,10 +1,8 @@
-import { useNavigate } from 'react-router-dom';
+import { get } from 'lodash';
+import { useState } from 'react';
 import type { BarProps } from '../Bar/Bar';
 import Icon from '../Icon/Icon';
-import { Cta, Prompt, Input, Wrapper } from './BarMobile.style';
-import { useState } from 'react';
-import classnames from 'classnames';
-import { get } from 'lodash';
+import { Cta, Input, Wrapper } from './BarMobile.style';
 
 export type BarMobileProps = BarProps & {};
 

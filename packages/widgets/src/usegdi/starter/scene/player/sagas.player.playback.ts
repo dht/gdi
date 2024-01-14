@@ -35,7 +35,7 @@ export function* onPause() {
   stopAllSounds();
 
   task = yield* fork(rootRefreshPosition);
-  yield put(actionsIso.sceneState.patch({ isPlaying: true }));
+  yield put(actionsIso.sceneState.patch({ isPlaying: false }));
   stopAllAnimations();
 }
 

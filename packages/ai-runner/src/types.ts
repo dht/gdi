@@ -71,7 +71,6 @@ export interface IResponseBuilder {
 export type ISave = {
   id: string;
   boardId: string;
-  setupId: string;
   nodeNames: string[];
 
   // transient

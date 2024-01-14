@@ -34,7 +34,6 @@ export function Select(props: SelectProps) {
     <Wrapper
       value={value}
       onChange={onChange}
-      placeholder={placeholder}
       className='Select-wrapper'
       data-testid='Select-wrapper'
     >

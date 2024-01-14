@@ -10,7 +10,6 @@ export const prepareState = (req: any, flow: any) => {
     flowState: {
       tsStart: Date.now(),
       status: 'running',
-      playbackId: '',
     },
     variables: { prompt },
     nodeState: {},

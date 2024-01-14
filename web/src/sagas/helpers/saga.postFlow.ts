@@ -8,30 +8,10 @@ import { runFunction } from '@gdi/firebase';
 import { arrayToObject } from '../../utils/object';
 
 export const postActions = {
-  replaceHash,
   textToSpeech,
   parseOutput,
   improve,
 };
-
-export function* replaceHash(board: IBoard, params: any) {
-  const { playbackId } = params;
-  const hash = document.location.hash;
-  const [setupId, currentPlaybackId] = hash.replace('#', '').split('|');
-
-  if (playbackId === currentPlaybackId || !playbackId) {
-    return;
-  }
-
-  const defaultSetupId = get(board, 'defaults.setupId');
-
-  boardAdapter.loadBoard({
-    boardId: shortId(board.id),
-    setupId: setupId || defaultSetupId,
-    playbackId,
-    autoPlay: true,
-  });
-}
 
 export function* textToSpeech(_board: IBoard, params: any) {
   const { transcriptLines } = params;

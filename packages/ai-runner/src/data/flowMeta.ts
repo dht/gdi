@@ -8,7 +8,6 @@ export const seedFlowMeta = (flowType: FlowType): FlowMeta => {
     flowState: {
       status: 'running',
       tsStart: Date.now(),
-      playbackId: '',
     },
     nodeState: {},
     variables: {},

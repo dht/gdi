@@ -10,21 +10,6 @@
         "boardInfo": {
           "$ref": "#/definitions/IBoardInfo"
         },
-        "setupsUrl": {
-          "type": "string"
-        },
-        "playbacks": {
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            ".*": {
-              "$ref": "#/definitions/IPlayback"
-            }
-          }
-        },
-        "playbacksUrl": {
-          "type": "string"
-        },
         "siblings": {
           "type": "object",
           "additionalProperties": false,

@@ -147,14 +147,10 @@ export function* onFlowCompleted(event: any) {
     return;
   }
 
-  const { replaceHash, textToSpeech, output, improveAssistantId } = flowConfig;
-  const { flowState, variables } = flowRun;
+  const { textToSpeech, output, improveAssistantId } = flowConfig;
+  const { variables } = flowRun;
 
   yield fork(postActions.parseOutput, board, { output, variables });
-
-  if (replaceHash) {
-    yield call(postActions.replaceHash, board, flowState);
-  }
 
   if (textToSpeech) {
     yield call(postActions.textToSpeech, board, variables);

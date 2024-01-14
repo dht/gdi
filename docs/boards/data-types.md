@@ -18,13 +18,8 @@ export type IBoard = {
   apis: string[];
   elements: IElementsPerResolution;
   defaults: {
-    setupId: string;
-    playbackId?: string;
+    previewPath?: string;
   };
-  setupsUrl: string;
-  setups?: ISetups;
-  playbacksUrl: string;
-  playbacks?: IPlaybacks;
   flowUrl: string;
   flow?: IFlow & Json;
   sourceUrl: string;

@@ -51,7 +51,7 @@ export function ItemPicker(props: ItemPickerProps) {
   }
 
   function renderPreview() {
-    if (!hasPreviewComponent) {
+    if (!hasPreviewComponent || !props.renderPreview) {
       return null;
     }
 

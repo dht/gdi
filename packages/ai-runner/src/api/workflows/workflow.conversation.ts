@@ -1,7 +1,6 @@
 import { guid4 } from 'shared-base';
 import { seedEmptyAudio } from '../../data/empty.audio';
 import { Json } from '../../types';
-import db from '../../db';
 import { RateLimitApi } from '../../utils/queue';
 import { speech } from '../facade';
 import { saveToBucket } from '../files';

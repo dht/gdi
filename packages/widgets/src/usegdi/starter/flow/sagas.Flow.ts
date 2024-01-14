@@ -1,5 +1,5 @@
 import { EditorSchema, prompt } from '@gdi/ui';
-import { takeEvery } from '../../../helpers';
+import { takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
 
 export function* flow(action: any) {

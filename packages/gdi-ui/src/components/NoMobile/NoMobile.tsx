@@ -1,4 +1,4 @@
-import { toast } from '@gdi/ui';
+import { toast } from '../Toast/Toast.actions';
 import { Cta, H3, P, Wrapper } from './NoMobile.style';
 
 export type NoMobileProps = {};

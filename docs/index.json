@@ -16,10 +16,16 @@
       "order": 3
     },
     {
+      "id": "guides",
+      "title": "Guides",
+      "order": 3.5
+    },
+    {
       "id": "flows",
       "title": "Flows",
       "order": 4
     },
+
     {
       "id": "data",
       "title": "Data",
@@ -181,12 +187,6 @@
       "title": "Iso store"
     },
     {
-      "fileName": "extending-store.md",
-      "path": "data/extending-store.md",
-      "category": "data",
-      "title": "Creating stores"
-    },
-    {
       "fileName": "introduction.md",
       "path": "application-logic/introduction.md",
       "category": "application-logic",
@@ -197,6 +197,24 @@
       "path": "application-logic/side-effect-management.md",
       "category": "application-logic",
       "title": "Side effects"
+    },
+    {
+      "fileName": "creating-boards.md",
+      "path": "guides/creating-boards.md",
+      "category": "guides",
+      "title": "Creating Boards"
+    },
+    {
+      "fileName": "extending-store.md",
+      "path": "guides/extending-store.md",
+      "category": "guides",
+      "title": "Creating data stores"
+    },
+    {
+      "fileName": "updating-docs.md",
+      "path": "guides/updating-docs.md",
+      "category": "guides",
+      "title": "Updating the docs"
     }
   ]
 }

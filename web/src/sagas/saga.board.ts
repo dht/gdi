@@ -1,4 +1,4 @@
-import { ga } from '@gdi/firebase';
+import { ga, runFunction } from '@gdi/firebase';
 import { IBoard, actions, selectors } from '@gdi/store-base';
 import { BoardIntro, EditorSchema, LinkList, prompt, toast } from '@gdi/ui';
 import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
@@ -7,14 +7,18 @@ import { Json } from '../types';
 import { boardAdapter, flowAdapter } from '../utils/globals';
 import { l } from '../utils/logs';
 import { guestGuard } from './saga.gdi';
+import { saveBoardData } from './helpers/saga.clipboard';
+import { prepareBoardData } from '../utils/boards';
 
 type Verb =
   | 'openBoardDefinition'
   | 'loadFromUrl'
   | 'loadBoard'
+  | 'saveBoard'
   | 'showPlaybacks'
   | 'startReview'
-  | 'showIntroModal';
+  | 'showIntroModal'
+  | 'saveBoardData';
 
 type Action = {
   type: 'BOARD';
@@ -27,9 +31,11 @@ const map: Record<Verb, any> = {
   openBoardDefinition: openBoardDefinition,
   loadFromUrl: loadBoardFromUrl,
   loadBoard: loadBoard,
+  saveBoard: saveBoard,
   showPlaybacks: showPlaybacks,
   showIntroModal: showIntroModal,
   startReview: startReview,
+  saveBoardData: saveBoardData,
 };
 
 export function* openBoardDefinition(_action: Action, board: IBoard) {
@@ -89,15 +95,20 @@ export function* showPlaybacks(_action: Action, board: IBoard) {
 export function* loadBoard(action: Action, _board: IBoard) {
   const { id } = action;
 
-  const hash = location.hash.replace('#', '');
-  const [setupId = '', playbackId = ''] = hash.split('|');
-  yield put(actions.currentIds.patch({setupId, playbackId })); // prettier-ignore
-  yield put(actions.appState.patch({prompt: '', promptOriginal: '',promptRevised: '' })); // prettier-ignore
+  const boardDbPath = location.hash.replace('#', '');
+
+  yield put(
+    actions.appState.patch({
+      boardDbPath,
+      prompt: '',
+      promptOriginal: '',
+      promptRevised: '',
+    })
+  );
 
   const board = yield* call(boardAdapter.loadBoard, {
     boardId: id,
-    setupId,
-    playbackId,
+    boardDbPath,
   });
 
   const isGuest = yield* select(selectors.base.$isGuest);
@@ -117,6 +128,17 @@ export function* loadBoard(action: Action, _board: IBoard) {
   }
 
   invokeEvent('board/loaded');
+}
+
+export function* saveBoard(action: Action, board: IBoard) {
+  const { storeNodes = [] } = board;
+
+  const all = yield* select((i) => i);
+  const state = prepareBoardData(all, storeNodes);
+
+  const response = yield* call(runFunction, '/store/save', {
+    state,
+  });
 }
 
 export function* startReview(_action: Action, board: IBoard) {

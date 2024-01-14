@@ -9,11 +9,15 @@ export const $elements = createSelector(
   raw.$rawSceneLights,
   raw.$rawSceneExternals,
   raw.$rawSceneMeshes,
-  (sceneLights, sceneExternals, sceneMeshes) => {
+  raw.$rawScenePacks,
+  raw.$rawSceneVASPs,
+  (sceneLights, sceneExternals, sceneMeshes, scenePacks, sceneVASPs) => {
     return {
       sceneLights,
       sceneExternals,
       sceneMeshes,
+      scenePacks,
+      sceneVASPs,
     };
   }
 );

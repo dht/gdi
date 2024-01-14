@@ -6,19 +6,10 @@ export interface IBoard {
   id: string; // internal id => B-001
   identifier: string; // external id => com.usegdi.chit-chat
   boardInfo: IBoardInfo;
-  setupsUrl?: string;
-  setups?: {
-    [key: string]: IExample;
-  };
   flowUrl?: string;
   flow?: IFlow;
-  playbacksUrl?: string;
-  playbacks?: {
-    [key: string]: IPlayback;
-  };
   defaults: {
-    setupId: string;
-    playbackId?: string;
+    previewPath?: string;
   };
   dependencies: Json;
   elements: {

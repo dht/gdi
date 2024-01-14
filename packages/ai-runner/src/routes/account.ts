@@ -34,6 +34,7 @@ router.post('/login', async (req: any, res) => {
       email,
       displayName,
       photoURL,
+      lastLogin: new Date().toISOString(),
     });
 
     await db.user.patch(req, user);
@@ -97,5 +98,5 @@ export const onNewUser = async (snapshot: any, context: any) => {
 
   const req = { user: { uid } };
 
-  await db.tags.create(req, 'project-new');
+  await db.tags.create(req, 'project-tutorial');
 };

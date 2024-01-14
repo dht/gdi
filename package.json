@@ -20,7 +20,6 @@
     "start:staging": "npm run -w web start:staging",
     "start:prod": "npm run -w web start:prod",
     "serve:docs": "./scripts/serveDocs.sh",
-    "sync:boards": "ts-node ./scripts/sync-boards.ts",
     "sync:forms": "ts-node ./scripts/yaml.ts",
     "build": "npm run -w web build",
     "preview": "npm run -w web preview",
