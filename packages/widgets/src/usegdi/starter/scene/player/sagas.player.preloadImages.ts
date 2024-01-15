@@ -1,6 +1,19 @@
-import { selectors } from '@gdi/store-iso';
+import { IBit, selectors } from '@gdi/store-iso';
 import { select, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../../helpers/channels/channel.customEvent';
+import { changeSkyBox } from 'isokit2';
+
+export function* preloadNextBit(currentBitId: string) {
+  const nextBit = yield* select(selectors.base.$nextBit, currentBitId);
+
+  if (!nextBit) {
+    return;
+  }
+
+  const { attachmentUrl } = nextBit;
+
+  changeSkyBox(attachmentUrl);
+}
 
 let cached: any = {};
 

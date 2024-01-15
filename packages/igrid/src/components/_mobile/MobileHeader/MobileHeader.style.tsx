@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 5px;
+  color: var(--logo-color);
 `;
 
 export const Flex = styled.div`

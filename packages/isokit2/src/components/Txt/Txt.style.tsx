@@ -118,6 +118,6 @@ export const SmallPrint = styled.div`
   @media (max-width: 800px) {
     font-size: 8rem !important;
     left: 10rem;
-    bottom: 10rem;
+    bottom: 150rem;
   }
 `;

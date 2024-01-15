@@ -2,6 +2,7 @@ import { RefObject } from 'react';
 import Icon from '../Icon/Icon';
 import { Audio, Content, Icons, Panel, Row, Wrapper } from './MultiTrack.style';
 import Controls from './_parts/Controls/Controls';
+import { MobileLayer } from './MultiTrack.mobile';
 
 export type MultiTrackProps = {
   isPlaying: boolean;
@@ -33,6 +34,8 @@ export function MultiTrack(props: MultiTrackProps) {
         <Content>
           <Audio ref={divRef}></Audio>
         </Content>
+
+        <MobileLayer />
       </Row>
     </Wrapper>
   );

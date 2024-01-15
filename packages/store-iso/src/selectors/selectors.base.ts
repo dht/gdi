@@ -264,3 +264,11 @@ export const $totalTime = createSelector(raw.$rawSceneState, (sceneState) => {
 
   return totalTime;
 });
+
+export const $nextBit = createSelector(
+  [$bits, (_state, currentBitId) => currentBitId],
+  (bits, currentBitId) => {
+    const index = bits.findIndex((bit: Json) => bit.id === currentBitId);
+    return bits[index + 1];
+  }
+);

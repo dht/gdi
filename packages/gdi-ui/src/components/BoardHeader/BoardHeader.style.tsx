@@ -16,4 +16,9 @@ export const Wrapper = styled.div`
   padding: 3px 10px 5px;
   border-radius: 0 0 15px 15px;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 800px) {
+    background-color: #232;
+    color: #565;
+  }
 `;

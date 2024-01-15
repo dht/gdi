@@ -14,6 +14,7 @@ import DotTimelineContainer from './_parts/DotTimeline/DotTimeline.container';
 import DownloadBitsContainer from './_parts/DownloadBits/DownloadBits.container';
 import DynamicTimelineContainer from './_parts/DynamicTimeline/DynamicTimeline.container';
 import MakeKeyframeContainer from './_parts/MakeKeyframe/MakeKeyframe.container';
+import BigPlayButtonContainer from './_parts/BigPlayButton/BigPlayButton.container';
 
 export type BitBuilderContainerProps = {};
 
@@ -111,6 +112,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
       <CurrentIds data={currentIds} />
       <DownloadBitsContainer />
       <CopyClipContainer />
+      <BigPlayButtonContainer />
     </BitBuilder>
   );
 }

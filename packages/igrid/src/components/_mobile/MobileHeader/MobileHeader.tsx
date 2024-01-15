@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { GridContext } from '../../Grid/Grid.context';
 import MobileArrows from '../MobileArrows/MobileArrows';
 import MobileMiniMap from '../MobileMiniMap/MobileMiniMap';
-import { Flex, Logo, Wrapper } from './MobileHeader.style';
+import { Flex, Wrapper } from './MobileHeader.style';
 import { invokeEvent } from 'shared-base';
+import { Logo } from './MobileHeader.components';
 
 export type MobileHeaderProps = {};
 
@@ -17,7 +18,7 @@ export function MobileHeader(_props: MobileHeaderProps) {
 
   return (
     <Wrapper className='MobileHeader-wrapper' data-testid='MobileHeader-wrapper'>
-      <Logo src='/logo-white.svg' alt='logo' onClick={onLogo} />
+      <Logo onClick={onLogo} />
       <Flex />
       <MobileMiniMap columnsCount={2} />
       <MobileArrows />

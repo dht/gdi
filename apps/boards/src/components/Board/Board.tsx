@@ -18,11 +18,16 @@ export function Board(props: BoardProps) {
   const { board, flavour, columnIndex, callbacks } = props;
 
   const name = get(board, 'boardInfo.name');
+  const logoColor = get(board, 'boardInfo.logoColor');
 
   useDarkMode(board);
 
   return (
-    <Wrapper className='Board-wrapper' data-testid='Board-wrapper'>
+    <Wrapper
+      className='Board-wrapper'
+      data-testid='Board-wrapper'
+      $logoColor={logoColor}
+    >
       <BoardHeader name={name} />
       <Grid
         id='main'

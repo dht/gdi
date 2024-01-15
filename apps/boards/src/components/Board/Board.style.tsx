@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $logoColor: string }>`
   flex: 1;
   display: flex;
+  --logo-color: ${(props) => props.$logoColor};
 `;
 
 export const WrapperLoading = styled(Wrapper)`

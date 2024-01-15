@@ -1,26 +1,20 @@
 import React from 'react';
 import { Wrapper } from './BigPlayButton.style';
-import { Icon } from '@gdi/ui';
+import { Icon, isMobile } from '@gdi/ui';
 import { invokeEvent } from 'shared-base';
 
 export type BigPlayButtonProps = {
-  isPlaying: boolean;
+  onPlay: () => void;
 };
 
 export function BigPlayButton(props: BigPlayButtonProps) {
-  const { isPlaying } = props;
-
-  if (isPlaying) {
-    return null;
-  }
-
-  function onPlay() {
-    invokeEvent('waveform/play');
-  }
-
   return (
-    <Wrapper className='BigPlayButton-wrapper' data-testid='BigPlayButton-wrapper' onClick={onPlay}>
-      <Icon name='play_arrow' size={50} color='#aca' />
+    <Wrapper
+      className='BigPlayButton-wrapper'
+      data-testid='BigPlayButton-wrapper'
+      onClick={props.onPlay}
+    >
+      <Icon name='play_arrow' size={isMobile() ? 40 : 50} color='#aca' />
     </Wrapper>
   );
 }
