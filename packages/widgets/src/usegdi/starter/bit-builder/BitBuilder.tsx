@@ -13,6 +13,7 @@ export type BitBuilderProps = {
   state: ISceneState;
   elementLabels: Json;
   dotId: string;
+  hideBase: boolean;
   element?: Json;
   timelines: any[];
   callbacks: {
@@ -68,6 +69,7 @@ export function BitBuilder(props: BitBuilderProps) {
           isLoading={state.isLoading}
           showToolbox={true}
           freeMove={state.freeMove}
+          hideBase={true}
           hideActions={['add']}
           environment={environment}
           onToolbox={callbacks.onToolbox}
