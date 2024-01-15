@@ -1,11 +1,10 @@
 import { IBit, ISceneState } from '@gdi/store-iso';
 import { Loader, MultiTrack } from '@gdi/ui';
 import { CameraPosition, ElementPosition, Scene } from 'isokit2';
-import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
-import { Audio, BitName, Canvas, Fps, Loading, Panel, Timeline, Wrapper } from './BitBuilder.style';
 import { ReactNode } from 'react';
+import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
 import { environment } from './BitBuilder.environment';
-import BigPlayButton from './_parts/BigPlayButton/BigPlayButton';
+import { Audio, BitName, Canvas, Fps, Loading, Panel, Timeline, Wrapper } from './BitBuilder.style';
 
 export type BitBuilderProps = {
   waveTracks: MultitrackTracks;
@@ -76,7 +75,6 @@ export function BitBuilder(props: BitBuilderProps) {
         />
         <CameraPosition onClick={callbacks.onToolbox} />
         <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />
-        <BigPlayButton isPlaying={state.isPlaying} />
         {props.children}
       </Canvas>
       <Panel>

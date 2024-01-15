@@ -498,6 +498,7 @@ export type IBoardInfo = {
   index: number;
   imageUrl: string;
   videoUrl: string;
+  logoColor?: string;
   boardType: FlowType;
   description: string;
   descriptionLong: string;

@@ -59,3 +59,14 @@ export const Audio = styled.div`
   display: flex;
   border-bottom: 1px solid var(--green-200);
 `;
+
+export const MobileLayerWrapper = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  @media (max-width: 800px) {
+    display: block;
+  }
+`;

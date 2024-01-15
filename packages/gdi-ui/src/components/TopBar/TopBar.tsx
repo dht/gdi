@@ -9,12 +9,14 @@ import { isMobile } from '../../utils/mobile';
 export type TopBarProps = {
   children?: React.ReactNode;
   className?: string;
+  logoColor?: string;
   renderCenter?: () => React.ReactNode;
   renderActions?: () => React.ReactNode;
   renderUserMenu?: () => React.ReactNode;
 };
 
 export function TopBar(props: TopBarProps) {
+  const { logoColor } = props;
   const navigate = useNavigate();
 
   function toHome() {

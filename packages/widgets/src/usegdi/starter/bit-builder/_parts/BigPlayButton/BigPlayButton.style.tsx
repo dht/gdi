@@ -10,11 +10,13 @@ export const Wrapper = styled.button`
   border-radius: 20%;
   background-color: #232;
   color: #fff;
-
   box-shadow: inset -3px -3px 10px 2px rgba(0, 0, 0, 0.1);
-
   border: 3px solid #343;
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
 
   &:hover {
     background-color: #343;
