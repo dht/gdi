@@ -1,6 +1,6 @@
 {
   "name": "gdi-web",
-  "version": "0.9.25",
+  "version": "0.9.30",
   "license": "GPL-3.0",
   "scripts": {
     "start:dev": "vite",
