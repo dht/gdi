@@ -15,6 +15,7 @@ import DownloadBitsContainer from './_parts/DownloadBits/DownloadBits.container'
 import DynamicTimelineContainer from './_parts/DynamicTimeline/DynamicTimeline.container';
 import MakeKeyframeContainer from './_parts/MakeKeyframe/MakeKeyframe.container';
 import BigPlayButtonContainer from './_parts/BigPlayButton/BigPlayButton.container';
+import { getBoolean } from 'shared-base';
 
 export type BitBuilderContainerProps = {};
 
@@ -28,6 +29,8 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
   const elementLabels = useSelector(selectors.base.$elementLabels);
 
   const { bitId, dotId } = currentIds;
+
+  const hideBase = getBoolean('HIDE_GRID') !== false;
 
   useSagas([
     'widgets.scene.bootstrap',
@@ -101,6 +104,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
       waveTracks={waveTracks}
       waveOptions={waveOptions}
       elementLabels={elementLabels}
+      hideBase={hideBase}
       callbacks={callbacks}
       timelines={[DynamicTimelineContainer, BitTimelineContainer, DotTimelineContainer]}
       state={sceneState}
