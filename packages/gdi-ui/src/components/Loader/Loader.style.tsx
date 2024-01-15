@@ -46,6 +46,15 @@ export const Circle = styled.svg`
     }
   }
 
+  &.green {
+    .loader-svg {
+      stroke: #343;
+    }
+    .loader-svg.bg {
+      stroke: #787;
+    }
+  }
+
   .animate {
     stroke-dasharray: 242.6;
     animation: fill-animation 1s cubic-bezier(1, 1, 1, 1) 0s infinite;
