@@ -1,8 +1,7 @@
-import React from 'react';
-import { Wrapper } from './VoiceGallery.style';
+import { IVoice, actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
+import { stopAllSounds, playSound } from '@gdi/ui';
 import VoiceGallery from './VoiceGallery';
-import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
-import { playSound } from '@gdi/ui';
+import { useState } from 'react';
 
 export type VoiceGalleryContainerProps = {};
 
@@ -11,9 +10,16 @@ export function VoiceGalleryContainer(_props: VoiceGalleryContainerProps) {
   const currentIds = useSelector(selectors.raw.$rawCurrentIds);
   const voices = useSelector(selectors.base.$voices);
   const currentVoiceId = currentIds.voiceId;
+  const [lastVoiceId, setLastVoiceId] = useState<string>('');
 
-  const onVoiceClick = (voice: VoiceItem) => {
-    const { audioUrl } = voice;
+  const onVoiceClick = (voice: IVoice) => {
+    const { id, audioUrl } = voice;
+
+    let nextVoiceId = id;
+
+    if (lastVoiceId === id) {
+      nextVoiceId = '';
+    }
 
     dispatch(
       actions.currentIds.patch({
@@ -22,6 +28,7 @@ export function VoiceGalleryContainer(_props: VoiceGalleryContainerProps) {
     );
 
     if (audioUrl) {
+      stopAllSounds();
       playSound(audioUrl);
     }
   };
