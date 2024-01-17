@@ -47,6 +47,11 @@ export function* startFlow(action: any) {
     const board = yield* select(selectors.raw.$rawBoard);
     yield fork(onFlowMobileStart, board);
 
+    const flow = yield* select(selectors.base.$flow);
+    const fileNameInstructions = get(flow, 'flowConfig.fileNameInstructions', '');
+
+    yield fork(generateFileName, fileNameInstructions, prompt);
+
     const response = yield* call(flowAdapter.start, prompt, promptParams, {
       boardId: board.id,
       boardIdentifier: board.identifier,
@@ -56,11 +61,6 @@ export function* startFlow(action: any) {
       toast.show('Error starting flow', 'error');
       return;
     }
-
-    const flow = yield* select(selectors.base.$flow);
-    const fileNameInstructions = get(flow, 'flowConfig.fileNameInstructions', '');
-
-    yield fork(generateFileName, fileNameInstructions, prompt);
 
     if (flow.flowConfig.cumulativeThread) {
       yield put({ type: 'TRANSCRIPT_PROMPT', prompt });
@@ -84,6 +84,8 @@ export function* generateFileName(fileNameInstructions: string, prompt: string) 
     instructions: fileNameInstructions,
     prompt,
   });
+
+  console.log('response ->', response);
 
   const { fileName } = response;
 

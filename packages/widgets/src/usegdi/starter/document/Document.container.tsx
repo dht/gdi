@@ -32,7 +32,7 @@ export function DocumentContainer(_props: DocumentContainerProps) {
         what='document'
         verb='saveDocument'
         disabled={disabled}
-        defaultValue={suggestedFileName}
+        value={suggestedFileName}
       />
     </Document>
   );

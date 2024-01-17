@@ -37,7 +37,7 @@ export class FlowAdapter implements IFlowAdapter {
     this.dispatch(actions.flowApis.setAll({}));
     this.dispatch(actions.flowAssistants.setAll({}));
     this.dispatch(actions.flowNodes.setAll({}));
-    this.dispatch(actions.appState.patch({ promptParams: {} }));
+    this.dispatch(actions.appState.patch({ promptParams: {}, suggestedFileName: '' }));
   }
 
   onFlowUpdate = (data: any) => {
