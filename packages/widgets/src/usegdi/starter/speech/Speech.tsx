@@ -86,11 +86,11 @@ export function Speech(props: SpeechProps) {
         <SavePanelContainer
           what='audio'
           verb='saveAudio'
-          defaultValue='voice_1.mp3'
+          value='voice_1.mp3'
           autoProgress
           disabled={disabledSave}
         />
-      </Actions>{' '}
+      </Actions>
     </Wrapper>
   );
 }

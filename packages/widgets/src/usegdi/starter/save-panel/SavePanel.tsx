@@ -1,10 +1,10 @@
 import { Save } from '@gdi/ui';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FileName, Wrapper } from './SavePanel.style';
 import { nextFileName } from './SavePanel.utils';
 
 export type SavePanelProps = {
-  defaultValue?: string;
+  value?: string;
   what: string;
   autoProgress?: boolean;
   disabled?: boolean;
@@ -14,21 +14,25 @@ export type SavePanelProps = {
 };
 
 export function SavePanel(props: SavePanelProps) {
-  const { defaultValue = '', what, disabled, autoProgress, callbacks } = props;
-  const [value, setValue] = useState(defaultValue);
+  const { value = '', what, disabled, autoProgress, callbacks } = props;
+  const [fileName, setFileName] = useState(value);
+
+  useEffect(() => {
+    setFileName(value);
+  }, [value]);
 
   function onSave() {
-    if (!value) return;
+    if (!fileName) return;
     callbacks.onSave(value);
 
     if (autoProgress) {
-      const fileName = nextFileName(value);
-      setValue(fileName);
+      const nextName = nextFileName(fileName);
+      setFileName(nextName);
     }
   }
 
   function onChange(ev: any) {
-    setValue(ev.target.value);
+    setFileName(ev.target.value);
   }
 
   return (

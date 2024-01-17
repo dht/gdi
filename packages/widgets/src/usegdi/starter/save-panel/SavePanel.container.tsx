@@ -5,13 +5,13 @@ import { SavePanel } from './SavePanel';
 export type SavePanelContainerProps = {
   what: string;
   verb: string;
-  defaultValue?: string;
+  value?: string;
   autoProgress?: boolean;
   disabled?: boolean;
 };
 
 export function SavePanelContainer(props: SavePanelContainerProps) {
-  const { defaultValue, what, verb, autoProgress, disabled } = props;
+  const { value, what, verb, autoProgress, disabled } = props;
   const dispatch = useDispatch();
 
   const callbacks = useMemo(
@@ -31,7 +31,7 @@ export function SavePanelContainer(props: SavePanelContainerProps) {
 
   return (
     <SavePanel
-      defaultValue={defaultValue}
+      value={value}
       autoProgress={autoProgress}
       callbacks={callbacks}
       what={what}
