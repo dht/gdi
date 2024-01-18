@@ -11,9 +11,7 @@
     "preview": "vite preview --port 3000",
     "test": "jest",
     "coverage": "jest --coverage=true",
-    "deploy:all": "firebase deploy",
-    "deploy:content": "firebase deploy --only hosting,storage,firestore",
-    "deploy:functions": "firebase deploy --only functions"
+    "deploy": "npm run build && firebase deploy --only hosting,storage,firestore"
   },
   "private": true,
   "dependencies": {

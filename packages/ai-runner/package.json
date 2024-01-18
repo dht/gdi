@@ -1,13 +1,14 @@
 {
   "name": "@gdi/ai-runner",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "license": "GPL-3.0",
   "scripts": {
     "dev": "nodemon src/local/index.ts",
     "build": "tsc",
     "build:watch": "tsc -w",
     "test": "jest",
-    "coverage": "jest --coverage=true"
+    "coverage": "jest --coverage=true",
+    "deploy": "npm version patch && npm run build && npm publish"
   },
   "dependencies": {
     "@gdi/store-base": "^1.0.0",
