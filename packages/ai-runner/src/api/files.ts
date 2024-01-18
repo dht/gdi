@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import db from '../db';
 import { storageAdapter } from '../utils/globals';
+import { get } from 'lodash';
 
 let bucket: any;
 
@@ -20,7 +21,18 @@ export const saveToBucket = async (
   contentType: string,
   isNew: boolean = false
 ) => {
-  const file = storageAdapter.file(filepath);
+  const uid = get(req, 'user.uid');
+
+  let filepathWithUid;
+
+  if (uid !== 'user') {
+    const uid4 = uid.slice(0, 4);
+    filepathWithUid = `${uid4}/${filepath}`;
+  } else {
+    filepathWithUid = filepath;
+  }
+
+  const file = storageAdapter.file(filepathWithUid);
 
   await file.save(buffer, {
     contentType,
