@@ -48,12 +48,12 @@ function* preview(action: ActionHome, board: Json) {
 
   const isPreview = yield* select(selectors.base.$isPreview);
   const { defaults } = board;
-  const { previewPath } = defaults;
+  const { previewPath, dbTag } = defaults;
 
   let hash = '';
 
   if (isPreview) {
-    hash = `#${previewPath}`;
+    hash = `#${previewPath}|${dbTag}`;
   }
 
   yield put({
@@ -65,7 +65,8 @@ function* preview(action: ActionHome, board: Json) {
 function* board(action: ActionHome, board: Json) {
   const { params } = action;
   const { isBrowse } = params ?? {};
-  const { id, url } = board;
+  const { id, url, defaults } = board;
+  const { dbPath = '', dbTag = '' } = defaults;
 
   let to = `/browse/${id}`;
 
@@ -74,6 +75,10 @@ function* board(action: ActionHome, board: Json) {
 
   if (!isBrowse && skipBoardDetails) {
     to = url;
+
+    if (dbPath) {
+      to += `#${dbPath}|${dbTag}`;
+    }
   }
 
   yield put({

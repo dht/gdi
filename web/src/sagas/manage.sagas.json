@@ -23,6 +23,7 @@
     "gdi.onboarding",
     "gdi.logs",
     "gdi.prompt",
-    "gdi.transcript"
+    "gdi.transcript",
+    "gdi.tags"
   ]
 }

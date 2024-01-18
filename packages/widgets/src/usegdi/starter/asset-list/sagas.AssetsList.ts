@@ -33,7 +33,7 @@ const map: Record<Verb, any> = {
 
 export function* functionKey(action: Action, _asset: IAsset) {
   const { payload, id: listId } = action;
-  const { key, asset } = payload;
+  const { key, asset, ev } = payload;
 
   const saga = mapFunctions[key];
 
@@ -59,7 +59,7 @@ export function* functionKey(action: Action, _asset: IAsset) {
     isFocusLeft,
   };
 
-  yield* fork(saga, asset, commanderState);
+  yield* fork(saga, asset, commanderState, ev);
 }
 
 export function* drillDown(action: Action, _asset: IAsset) {

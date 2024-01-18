@@ -85,8 +85,6 @@ export function* generateFileName(fileNameInstructions: string, prompt: string) 
     prompt,
   });
 
-  console.log('response ->', response);
-
   const { fileName } = response;
 
   if (!fileName) {

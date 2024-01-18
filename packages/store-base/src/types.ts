@@ -15,7 +15,6 @@ export type IGdiStore = {
   messages: IMessages;
   transcriptLines: ITranscriptLines;
   transcriptAudios: ITranscriptAudios;
-  barItems: IBarItems;
   myBoards: IMyBoards;
   board: NoId<IBoard>;
   boards: IBoards;
@@ -54,6 +53,7 @@ export type IAppState = {
   sourceUrl?: string;
   storageUrl?: string;
   boardDbPath?: string;
+  boardDbTag?: string;
   isMac: boolean;
   is24Hours: boolean;
   showLog: boolean;
@@ -415,6 +415,8 @@ export type IBoard = {
   elements: IElementsPerResolution;
   defaults: {
     previewPath?: string;
+    dbPath?: string;
+    dbTag?: string;
   };
   flowUrl: string;
   flow?: IFlow & Json;

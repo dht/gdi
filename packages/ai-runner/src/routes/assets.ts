@@ -8,6 +8,8 @@ import { cleanUndefined } from '../utils/object';
 import { chat } from '../api/openai';
 import { instructionsFileName } from '../data/fileName';
 import { tsShort } from '../utils/time';
+import { upload } from '../controllers/upload';
+import { uploadZip } from '../controllers/zip';
 
 export const router = express.Router();
 
@@ -38,34 +40,14 @@ router.post('/new', async (req: any, res) => {
 router.post('/upload', async (req: any, res) => {
   try {
     const { fileInfo, tags = [] } = req.body;
-    const { name: fileName, size, type, text, base64, forceContentType } = fileInfo;
+    const { name = '' } = fileInfo ?? {};
 
-    const ext = fileName.split('.').pop();
-    const id = guid8();
-
-    let buffer: Buffer;
-
-    if (base64) {
-      const dataWithoutHeader = base64.replace(/^data:[^;]+;base64,/, '');
-      buffer = Buffer.from(dataWithoutHeader, 'base64');
-    } else {
-      buffer = Buffer.from(text);
+    if (name.endsWith('.zip')) {
+      res.status(200).json({ success: true, asset: null });
+      return;
     }
 
-    const filePath = `uploads/${id}.${ext}`;
-    const assetUrl = await saveToBucket(req, filePath, buffer, type);
-    const contentType = forceContentType || contentTypeFromFileName(fileName);
-
-    const asset = await db.assets.create(req, {
-      id: guid8(),
-      fileName,
-      filePath,
-      assetUrl,
-      contentType,
-      tsAdded: tsShort(),
-      tags,
-      size,
-    });
+    const asset = await upload(req, fileInfo, tags);
 
     res.status(200).json({ success: true, asset });
   } catch (error) {
@@ -134,5 +116,24 @@ router.post('/fileName', async (req: any, res) => {
   } catch (error) {
     console.error('Error getting assets:', error);
     res.status(500).send('Error getting assets');
+  }
+});
+
+router.post('/upload/zip', async (req: any, res) => {
+  try {
+    const { fileInfo, tags = [] } = req.body;
+    const { name = '' } = fileInfo ?? {};
+
+    if (!name.endsWith('.zip')) {
+      res.status(200).json({ success: true, asset: null });
+      return;
+    }
+
+    const assets = await uploadZip(req, fileInfo, tags);
+
+    res.status(200).json({ success: true, assets });
+  } catch (error) {
+    console.error('Error getting playback:', error);
+    res.status(500).send('Error getting playback');
   }
 });

@@ -30,8 +30,31 @@ export const readFile = (file: File): Promise<IFile> => {
   });
 };
 
+export const uploadZip = async (file: File, meta: Json) => {
+  const { tags = [] } = meta;
+
+  const fileInfoRaw = await readFile(file);
+
+  const fileInfo = prepareFile(fileInfoRaw, meta);
+
+  const response = await runFunction('/api/assets/upload/zip', {
+    fileInfo,
+    tags,
+  });
+
+  return response.assets.map((asset: Json) => {
+    return { asset };
+  });
+};
+
 export const uploadFiles = (files: File[], meta: Json) => {
   const { tags = [] } = meta;
+
+  const zipFile = files.find((file) => file.name.endsWith('.zip'));
+
+  if (zipFile) {
+    return uploadZip(zipFile, meta);
+  }
 
   const promises = files.map(async (file) => {
     const fileInfoRaw = await readFile(file);

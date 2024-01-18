@@ -21,6 +21,7 @@ export function AssetNew(props: AssetNewProps) {
       'model/gltf-binary': ['.glb'],
       'audio/mpeg': [],
       'application/json': [],
+      'application/zip': [],
     },
   });
 

@@ -189,20 +189,24 @@ export function* newFolder(_asset: IAsset, commanderState: CommanderState) {
   yield put(actions.currentIds.patch({ [key]: value }));
 }
 
-export function* deleteAsset(asset: IAsset) {
+export function* deleteAsset(asset: IAsset, skipConfirmation?: boolean) {
   yield put({
     type: 'ASSET',
     verb: 'remove',
     id: asset.id,
+    payload: {
+      skipConfirmation,
+    },
   });
 }
 
-export function* remove(asset: IAsset, commanderState: CommanderState) {
+export function* remove(asset: IAsset, commanderState: CommanderState, ev: any) {
   const { root } = commanderState;
   const { id, contentType, tags = [] } = asset;
+  const { shiftKey } = ev ?? {};
 
-  if (root === '$unassigned') {
-    yield* fork(deleteAsset, asset);
+  if (root === '$unassigned' || shiftKey) {
+    yield* fork(deleteAsset, asset, shiftKey);
     return;
   }
 

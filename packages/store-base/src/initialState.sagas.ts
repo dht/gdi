@@ -79,6 +79,11 @@ export const sagas: ISagas = {
       actionTypes: ['TRANSCRIPT_PROMPT'],
     },
   },
+  'gdi.tags': {
+    id: 'gdi.tags',
+    type: 'bootstrap',
+    trigger: {},
+  },
   'boards.api': {
     id: 'boards.api',
     type: 'api',

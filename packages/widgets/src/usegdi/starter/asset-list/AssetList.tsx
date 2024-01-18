@@ -12,7 +12,7 @@ export type AssetListProps = {
     onDrillDown: (asset: IAsset) => void;
     onDrillUp: () => void;
     onPreview: (asset: IAsset) => void;
-    onFunctionKey: (asset: Json, key: string) => void;
+    onFunctionKey: (asset: Json, key: string, ev: any) => void;
   };
   root: string;
 };

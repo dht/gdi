@@ -1,6 +1,6 @@
 {
   "name": "@gdi/ai-runner",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "license": "GPL-3.0",
   "scripts": {
     "dev": "nodemon src/local/index.ts",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@gdi/store-base": "^1.0.0",
+    "adm-zip": "^0.5.10",
     "axios": "^1.6.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -19,11 +20,14 @@
     "lodash": "^4.17.21",
     "openai": "^4.19.0",
     "shared-base": "^1.0.0",
-    "socket.io": "^4.7.4"
+    "socket.io": "^4.7.4",
+    "temp": "^0.9.4"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.5",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.14.201",
+    "@types/temp": "^0.9.4",
     "jest": "^29.7.0",
     "typescript": "^4.9.5"
   },

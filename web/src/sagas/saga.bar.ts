@@ -1,12 +1,11 @@
+import { ga } from '@gdi/firebase';
 import { IBoard, actions, selectors } from '@gdi/store-base';
-import { EditorSchema, LinkList, ScreenInfo, prompt } from '@gdi/ui';
+import { LinkList, ScreenInfo, prompt } from '@gdi/ui';
+import { Json } from 'redux-store-generator';
 import { call, fork, put, select, takeEvery } from 'saga-ts';
 import { invokeEvent, patchJson } from 'shared-base';
-import suggested from '../defaults/default.adapter.json';
 import { l } from '../utils/logs';
-import { Json } from 'redux-store-generator';
-import TagPickerContainer from '../containers/TagsModal.container';
-import { runFunction, ga } from '@gdi/firebase';
+import { showTagPicker } from './saga.tags';
 
 const LOCALE_STORAGE_KEY = 'locale';
 
@@ -35,20 +34,6 @@ const map: Record<Verb, any> = {
   commandPalette: openCommandPalette,
   boardId: boardId,
 };
-
-export function* showTagPicker(_action: Action, _board: IBoard) {
-  const { value, didCancel } = yield prompt.custom({
-    title: 'Global Tags',
-    component: TagPickerContainer,
-    componentProps: {},
-  });
-
-  if (didCancel) {
-    return;
-  }
-
-  yield put(actions.appState.patch({ tags: value }));
-}
 
 export function* openCommandPalette(_action: Action, _board: IBoard) {
   invokeEvent('bar/commandPalette');

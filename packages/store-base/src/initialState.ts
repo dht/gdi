@@ -1,6 +1,5 @@
 import { initialState as initialStateIso } from '@gdi/store-iso';
 import { initialStateAssets } from './initialState.assets';
-import { barItems } from './initialState.bar';
 import { board } from './initialState.board';
 import { messages } from './initialState.messages';
 import { flow } from './initialState.nodes';
@@ -54,6 +53,7 @@ export const initialState: IGdiStore = {
     suggestedFileName: '',
     tags: ['project-tutorial'],
     boardDbPath: '',
+    boardDbTag: '',
   },
   currentIds: {
     boardId: '',
@@ -94,7 +94,6 @@ export const initialState: IGdiStore = {
       tsAdded: 0,
     },
   },
-  barItems,
   playbackState: {
     startTime: Date.now(),
     playbackSpeed: 1,

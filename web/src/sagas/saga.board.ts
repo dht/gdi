@@ -8,7 +8,7 @@ import { boardAdapter, flowAdapter } from '../utils/globals';
 import { l } from '../utils/logs';
 import { guestGuard } from './saga.gdi';
 import { saveBoardData } from './helpers/saga.clipboard';
-import { prepareBoardData } from '../utils/boards';
+import { parseHash, prepareBoardData } from '../utils/boards';
 
 type Verb =
   | 'openBoardDefinition'
@@ -95,11 +95,13 @@ export function* showPlaybacks(_action: Action, board: IBoard) {
 export function* loadBoard(action: Action, _board: IBoard) {
   const { id } = action;
 
-  const boardDbPath = location.hash.replace('#', '');
+  const hashInfo = parseHash(document.location.hash);
+  const { boardDbPath, boardDbTag } = hashInfo;
 
   yield put(
     actions.appState.patch({
       boardDbPath,
+      boardDbTag,
       prompt: '',
       promptOriginal: '',
       promptRevised: '',

@@ -1,5 +1,6 @@
 import { initFirebase, ga, enableAnalytics } from '@gdi/firebase';
 import { actions, initStore } from '@gdi/store-base';
+import { actions as actionsIso } from '@gdi/store-iso';
 import { config } from './adapters.config';
 import { boardsRoot } from './main.root';
 import { root as rootSaga } from './sagas/manage.sagas';
@@ -64,6 +65,8 @@ store.dispatch(
     localInstanceUrl,
   })
 );
+
+store.dispatch(actionsIso.sceneVASPs.setAll({}));
 
 setAssetsRoot(assetsRootUrl);
 setAnalyticsMethod(ga);

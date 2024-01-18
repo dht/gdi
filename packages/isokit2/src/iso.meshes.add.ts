@@ -39,6 +39,8 @@ export const addObject = (item: IMesh) => {
   applyMeshListeners(obj, 'mesh');
 
   obj.setEnabled(enabled);
+
+  return obj;
 };
 
 export const addGround = (ground: IMesh) => {

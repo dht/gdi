@@ -10,6 +10,8 @@ export interface IBoard {
   flow?: IFlow;
   defaults: {
     previewPath?: string;
+    dbPath?: string;
+    dbTag?: string;
   };
   dependencies: Json;
   elements: {
