@@ -24,7 +24,11 @@
     "build": "npm run -w web build",
     "preview": "npm run -w web preview",
     "postinstall": "husky install",
-    "listen:scene": "ts-node ./scripts/listen-scene.ts"
+    "listen:scene": "ts-node ./scripts/listen-scene.ts",
+    "deploy:ai-runner": "npm run -w @gdi/ai-runner deploy",
+    "deploy:functions": "npm run -w functions deploy",
+    "deploy:web": "npm run -w gdi-web deploy",
+    "deploy:all": "npm run deploy:ai-runner && npm run deploy:functions && npm run deploy:web"
   },
   "devDependencies": {
     "husky": "^8.0.1"
