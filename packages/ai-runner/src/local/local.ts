@@ -61,6 +61,6 @@ export const startLocalInstance = (params: LocalParams) => {
   setSocketsAdapter(socketsAdapter);
 
   server.listen(port, () => {
-    console.log(kleur.green(`Listening on port ${port}`));
+    console.log(kleur.green(`Listening on port ${port}...`));
   });
 };

@@ -1,33 +1,35 @@
 import { createSelector } from 'reselect';
+import { sortBy } from 'shared-base';
 import { iconsBits, iconsElements } from '../data/data.icons';
 import { IAudio, ISceneEffect, Json } from '../types.iso';
-import * as raw from './selectors.raw';
-import { sortBy } from 'shared-base';
+import { pickByField } from '../utils/filter';
 import { analyzeItems } from '../utils/timeline';
+import { $tagForFilteringElements } from './selectors.external';
+import * as raw from './selectors.raw';
 
 export const $elements = createSelector(
+  $tagForFilteringElements,
   raw.$rawSceneLights,
   raw.$rawSceneExternals,
   raw.$rawSceneMeshes,
   raw.$rawScenePacks,
   raw.$rawSceneVASPs,
-  (sceneLights, sceneExternals, sceneMeshes, scenePacks, sceneVASPs) => {
+  raw.$rawSceneCameras,
+  (tag, sceneLights, sceneExternals, sceneMeshes, scenePacks, sceneVASPs, sceneCameras) => {
     return {
-      sceneLights,
-      sceneExternals,
-      sceneMeshes,
-      scenePacks,
-      sceneVASPs,
+      sceneLights: pickByField(sceneLights, 'projectTag', tag, true),
+      sceneExternals: pickByField(sceneExternals, 'projectTag', tag, true),
+      sceneMeshes: pickByField(sceneMeshes, 'projectTag', tag, true),
+      scenePacks: pickByField(scenePacks, 'projectTag', tag, true),
+      sceneVASPs: pickByField(sceneVASPs, 'projectTag', tag, true),
+      sceneCameras: pickByField(sceneCameras, 'projectTag', tag, true),
     };
   }
 );
 
 export const $elementsList = createSelector(
-  raw.$rawSceneMeshes,
-  raw.$rawSceneExternals,
-  raw.$rawSceneLights,
-  raw.$rawSceneCameras,
-  (sceneMeshes, sceneExternals, sceneLights, sceneCameras) => {
+  $elements,
+  ({ sceneMeshes, sceneExternals, sceneLights, sceneCameras }) => {
     const output = [];
 
     const createItem = (item: any, type: string) => {

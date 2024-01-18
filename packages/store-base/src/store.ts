@@ -28,7 +28,7 @@ export const initStore = (
     useLocalInstance,
   });
 
-  // storeBuilder.withAutoClear();
+  storeBuilder.withAutoClear();
 
   return storeBuilder;
 };

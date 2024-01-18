@@ -107,15 +107,20 @@ export function* create(action: Action, _asset: IAsset) {
 }
 
 export function* remove(action: Action, asset: IAsset) {
-  try {
-    const { didCancel } = yield prompt.confirm({
-      title: 'Delete Asset',
-      description: `Are you sure you want to delete this asset?`,
-      ctaButtonText: 'Delete Asset',
-    });
+  const { payload } = action;
+  const { skipConfirmation } = payload;
 
-    if (didCancel) {
-      return;
+  try {
+    if (!skipConfirmation) {
+      const { didCancel } = yield prompt.confirm({
+        title: 'Delete Asset',
+        description: `Are you sure you want to delete this asset?`,
+        ctaButtonText: 'Delete Asset',
+      });
+
+      if (didCancel) {
+        return;
+      }
     }
 
     const response = yield* call(runFunction, '/api/assets/delete', {

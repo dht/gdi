@@ -8,7 +8,7 @@ const apiKeys = readEnv();
 const params: LocalParams = {
   rootPath: 'temp',
   apiKeys,
-  allowedDomains: ['http://localhost:3005', 'https://usegdi.com'],
+  allowedDomains: ['http://localhost:3000', 'https://usegdi.com'],
   port: 3005,
 };
 

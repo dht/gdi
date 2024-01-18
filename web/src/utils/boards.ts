@@ -1,5 +1,5 @@
 import { IGdiStore } from '@gdi/store-base';
-import { Json } from '../types';
+import { IHashInfo, Json } from '../types';
 import { get, pickBy } from 'lodash';
 
 export function shortId(id: string) {
@@ -35,6 +35,28 @@ export const prepareBoardData = (state: IGdiStore, storeNodes: string[]) => {
       return asset.tags.includes(projectTag);
     });
   }
+
+  return output;
+};
+
+export const parseHash = (hash: string): IHashInfo => {
+  const output: IHashInfo = {
+    hash,
+    boardDbPath: '',
+    boardDbTag: '',
+    dbType: 'none',
+  };
+
+  const [boardDbPath = '', boardDbTag = ''] = hash.replace(/^#/, '').split('|');
+
+  if (!boardDbPath) {
+    output.boardDbTag = boardDbTag;
+    return output;
+  }
+
+  output.boardDbPath = boardDbPath;
+  output.boardDbTag = boardDbTag;
+  output.dbType = boardDbPath.includes('/static/') ? 'static' : 'dynamic';
 
   return output;
 };

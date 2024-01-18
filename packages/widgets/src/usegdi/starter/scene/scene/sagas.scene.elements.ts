@@ -1,4 +1,5 @@
 import { actions, selectors } from '@gdi/store-iso';
+import { selectors as selectorsBase } from '@gdi/store-base';
 import { prompt, toast } from '@gdi/ui';
 import { detachGizmo, addElement } from 'isokit2';
 import { call, delay, fork, put, select, takeLatest } from 'saga-ts';
@@ -188,6 +189,16 @@ export function* create(action: Action) {
   const { payload } = action;
   const { codeRaw, familyId, elementTypeId } = payload;
 
+  const projectTag = yield* select(selectorsBase.base.$projectTag);
+
+  if (!projectTag) {
+    toast.show(
+      'Please add a project tag in the bottom bar, click the part with the tag emoji',
+      'error'
+    );
+    return;
+  }
+
   const result = yield* call(bakeJson, codeRaw);
   const { isSuccess, json } = result;
 
@@ -202,6 +213,8 @@ export function* create(action: Action) {
     toast.show('Invalid familyId', 'error');
     return;
   }
+
+  json.projectTag = projectTag;
 
   yield put(addAction(json));
 

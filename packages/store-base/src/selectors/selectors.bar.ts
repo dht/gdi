@@ -3,6 +3,7 @@ import * as raw from './selectors.raw';
 import { findResolution } from '../utils/resolution';
 import { upperFirst } from 'lodash';
 import { get } from 'lodash';
+import { barItems } from '../initialState.bar';
 
 export const $barItemsVariables = createSelector(
   raw.$rawBoard,
@@ -31,26 +32,22 @@ export const $barItemsVariables = createSelector(
   }
 );
 
-export const $barItems = createSelector(
-  raw.$rawBarItems,
-  $barItemsVariables,
-  (barItems, variables) => {
-    return Object.values(barItems).map((barItem) => {
-      const { id, value, emoji, modifier, addClassName } = barItem;
+export const $barItems = createSelector($barItemsVariables, (variables) => {
+  return Object.values(barItems).map((barItem) => {
+    const { id, value, emoji, modifier, addClassName } = barItem;
 
-      const parsedValue = value in variables ? variables[value] : value;
+    const parsedValue = value in variables ? variables[value] : value;
 
-      return {
-        id,
-        value: String(parsedValue),
-        emoji,
-        modifier,
-        addClassName,
-        isHidden: parsedValue === '',
-      };
-    });
-  }
-);
+    return {
+      id,
+      value: String(parsedValue),
+      emoji,
+      modifier,
+      addClassName,
+      isHidden: parsedValue === '',
+    };
+  });
+});
 
 function shortId(id: string) {
   return upperFirst(id.split('.').pop() ?? '');

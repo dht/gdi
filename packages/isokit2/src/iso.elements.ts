@@ -42,11 +42,11 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
     }
 
     for (item of Object.values(sceneMeshes ?? {})) {
-      if (hideBase && base.items.includes(item.id)) {
-        continue;
-      }
+      const mesh = addMesh(item as IMesh);
 
-      addMesh(item as IMesh);
+      if (hideBase && base.items.includes(item.id)) {
+        mesh.setEnabled(false);
+      }
     }
 
     for (item of Object.values(sceneExternals ?? {})) {

@@ -15,7 +15,7 @@ export type ListProps = {
   onDrillDown: (asset: Json) => void;
   onDrillUp: () => void;
   onPreview: (asset: Json) => void;
-  onFunctionKey: (asset: Json, key: string) => void;
+  onFunctionKey: (asset: Json, key: string, ev: any) => void;
   renderActions?: (callbacks: any) => React.ReactNode;
   root: string;
 };

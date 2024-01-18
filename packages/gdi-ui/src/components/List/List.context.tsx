@@ -13,7 +13,7 @@ export const ListContext = createContext<IListContext>({
     onPreview: (_asset: Json) => {},
     onDrillUp: () => {},
     onDrillDown: (_asset: Json) => {},
-    onFunctionKey: (_asset: Json, _key: string) => {},
+    onFunctionKey: (_asset: Json, _key: string, _ev: any) => {},
   },
   data: [],
 });
@@ -49,8 +49,8 @@ export const ListProvider = (props: IListProviderProps) => {
       onDrillDown: (asset: Json) => {
         props.onDrillDown(asset);
       },
-      onFunctionKey: (asset: Json, key: string) => {
-        props.onFunctionKey(asset, key);
+      onFunctionKey: (asset: Json, key: string, ev: any) => {
+        props.onFunctionKey(asset, key, ev);
       },
       onAction: (key: string) => {
         const asset = data.find((asset) => asset.id === focusedId);

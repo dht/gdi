@@ -65,13 +65,14 @@ export function AssetListContainer(props: AssetListContainerProps) {
           payload: {},
         });
       },
-      onFunctionKey: (asset: Json, key: string) => {
+      onFunctionKey: (asset: Json, key: string, ev: any) => {
         dispatch({
           type: 'ASSET_LIST',
           verb: 'functionKey',
           payload: {
             asset,
             key,
+            ev,
           },
         });
       },

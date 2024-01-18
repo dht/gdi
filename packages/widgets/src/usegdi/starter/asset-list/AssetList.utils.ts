@@ -38,18 +38,3 @@ export const readFile = (file: File) => {
     };
   });
 };
-
-export const uploadFiles = (files: File[], meta: Json) => {
-  const { tags = [] } = meta;
-
-  const promises = files.map(async (file) => {
-    const fileInfo = await readFile(file);
-
-    return runFunction('/api/assets/upload', {
-      fileInfo,
-      tags,
-    });
-  });
-
-  return Promise.all(promises);
-};

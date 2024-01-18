@@ -25,7 +25,17 @@ export type BitBuilderProps = {
 };
 
 export function BitBuilder(props: BitBuilderProps) {
-  const { bit, dotId, waveTracks, waveOptions, callbacks, timelines, elementLabels, state } = props;
+  const {
+    bit,
+    dotId,
+    waveTracks,
+    hideBase,
+    waveOptions,
+    callbacks,
+    timelines,
+    elementLabels,
+    state,
+  } = props;
 
   function renderMultiTrack() {
     if (!state.isAudioReady) {
@@ -69,7 +79,7 @@ export function BitBuilder(props: BitBuilderProps) {
           isLoading={state.isLoading}
           showToolbox={true}
           freeMove={state.freeMove}
-          hideBase={true}
+          hideBase={hideBase}
           hideActions={['add']}
           environment={environment}
           onToolbox={callbacks.onToolbox}

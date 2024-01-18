@@ -8,6 +8,7 @@ export const elements: Partial<IIsoStore> = {
       target: [0, 0, 0],
       type: 'free',
       isSticky: true,
+      projectTag: '',
     },
     arc: {
       id: 'arc',
@@ -20,6 +21,7 @@ export const elements: Partial<IIsoStore> = {
         radius: 50,
       },
       isSticky: true,
+      projectTag: '',
     },
   },
   sceneLights: {
@@ -31,6 +33,7 @@ export const elements: Partial<IIsoStore> = {
         intensity: 1.5,
       },
       isSticky: true,
+      projectTag: '',
     },
   },
   sceneMeshes: {
@@ -49,6 +52,7 @@ export const elements: Partial<IIsoStore> = {
         },
       },
       isSticky: true,
+      projectTag: '',
     },
     env: {
       id: 'env',
@@ -66,6 +70,7 @@ export const elements: Partial<IIsoStore> = {
         },
       },
       isSticky: true,
+      projectTag: '',
     },
     'main-grid': {
       id: 'main-grid',
@@ -86,6 +91,7 @@ export const elements: Partial<IIsoStore> = {
       },
       isSticky: true,
       enabled: false,
+      projectTag: '',
     },
   },
 };

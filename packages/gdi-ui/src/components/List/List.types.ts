@@ -19,7 +19,7 @@ export type IListProviderProps = {
   onDrillDown: (asset: Json) => void;
   onPreview: (asset: Json) => void;
   onDrillUp: () => void;
-  onFunctionKey: (asset: Json, key: string) => void;
+  onFunctionKey: (asset: Json, key: string, ev: any) => void;
   root: string;
   renderActions?: (callbacks: any) => React.ReactNode;
 };
@@ -32,7 +32,7 @@ export type IListContext = {
     onPreview: (asset: Json) => void;
     onDrillUp: () => void;
     onDrillDown: (asset: Json) => void;
-    onFunctionKey: (asset: Json, key: string) => void;
+    onFunctionKey: (asset: Json, key: string, ev: any) => void;
   };
   patchState: (change: Partial<IListState>) => void;
   data: Json[];

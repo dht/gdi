@@ -11,7 +11,6 @@ export const $rawBoard = createSelector($i, (state: IGdiStore) => state.board as
 export const $rawBoards = createSelector($i, (state: IGdiStore) => state.boards); // prettier-ignore
 export const $rawAssistants = createSelector($i, (state: IGdiStore) =>state.assistants); // prettier-ignore
 export const $rawMyBoards = createSelector($i, (state: IGdiStore) => state.myBoards); // prettier-ignore
-export const $rawBarItems = createSelector($i, (state: IGdiStore) =>state.barItems); // prettier-ignore
 export const $rawBoardInfo = createSelector($i, (state: IGdiStore) => state.board.boardInfo); // prettier-ignore
 export const $rawPlaybackState = createSelector($i, (state: IGdiStore) => state.playbackState); // prettier-ignore
 export const $rawTranscriptLines = createSelector($i, (state: IGdiStore) => state.transcriptLines); // prettier-ignore

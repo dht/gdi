@@ -23,6 +23,7 @@ export const initialState: IIsoStore = {
     currentAttachmentUrl: '',
   },
   sceneCurrentIds: {
+    projectTag: '',
     cameraId: 'arc',
     meshId: '',
     elementId: '',

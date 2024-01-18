@@ -195,7 +195,7 @@ export function useListNavigation(data: Json[], params: Params, cbs: any) {
         if (!isFocused || isModalOpen()) return;
         ev.preventDefault();
         const asset = data.find((item) => item.id === focusedId);
-        cbs.onFunctionKey(asset, ev.key);
+        cbs.onFunctionKey(asset, ev.key, ev);
       },
     }),
     [isFocused, data, state, onDrillUp]
