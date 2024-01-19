@@ -39,3 +39,10 @@ export const optionsStyle = [
   'as a character',
   '',
 ];
+
+export const optionsImageSize = ['1024x1024', '1792x1024', '1024x1792'];
+
+export const optionsImageQuality = [
+  'standard', //
+  'hd',
+];

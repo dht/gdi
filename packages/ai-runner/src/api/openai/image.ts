@@ -3,7 +3,7 @@ import { openai } from './_init';
 import { calculateImageCost } from './_utils';
 import { AIResponseBuilder } from '../../utils/response';
 
-export type ImageSize = '256x256' | '512x512' | '1024x1024' | '1792x1024' | '1024x1792';
+export type ImageSize = '1024x1024' | '1792x1024' | '1024x1792';
 
 type Options = {
   isLarge?: boolean;

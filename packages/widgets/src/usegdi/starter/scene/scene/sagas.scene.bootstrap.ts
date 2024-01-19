@@ -47,11 +47,12 @@ export function* onSceneReady(ev: any) {
 
   yield call(restoreScene);
 
+  const { hideGrid } = yield* select(selectorsIso.raw.$rawSceneState);
   const elements = yield* select(selectorsIso.base.$elements);
 
   yield put(actionsIso.sceneState.patch({ isLoading: false }));
 
-  yield* call(addElements, elements, { autoHideExternals });
+  yield* call(addElements, elements, { autoHideExternals, hideBase: hideGrid });
 
   addSkyBox('');
 }

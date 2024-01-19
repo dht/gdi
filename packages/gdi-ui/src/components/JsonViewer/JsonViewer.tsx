@@ -1,16 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Wrapper } from './JsonViewer.style';
+import { useEffect, useMemo, useState } from 'react';
+import { highlight } from '../../utils/highlight';
 import EditorCode from '../EditorCode/EditorCode';
+import { Pre, Wrapper } from './JsonViewer.style';
+import { useMeasureOnce } from '../List/List.hooks';
 
 export type JsonViewerProps = {
-  url: string;
+  url?: string;
+  value?: Json;
+  simple?: boolean;
 };
 
 export function JsonViewer(props: JsonViewerProps) {
-  const { url } = props;
-  const [text, setText] = useState('');
+  const { simple, url, value = '{}' } = props;
+  const [text, setText] = useState(JSON.stringify(value, null, 2));
+  const [ref, { width }] = useMeasureOnce();
 
   useEffect(() => {
+    if (!url) return;
+
     fetch(url)
       .then((res) => res.text())
       .then((text) => {
@@ -18,17 +25,33 @@ export function JsonViewer(props: JsonViewerProps) {
       });
   }, [url]);
 
+  useEffect(() => {
+    setText(JSON.stringify(value, null, 2));
+  }, [value]);
+
+  const code = useMemo(() => {
+    return highlight(text, { language: 'json' });
+  }, [text]);
+
   function onChange(value: any) {
     setText(value);
   }
 
-  function onKeyDown(ev: any) {
-    ev.stopPropagation();
+  function renderInner() {
+    if (simple) {
+      const style: React.CSSProperties = {
+        maxWidth: width + 'px',
+      };
+
+      return <Pre style={style} dangerouslySetInnerHTML={{ __html: code.value }} />;
+    } else {
+      <EditorCode language='json' readOnly value={text} onChange={onChange} />;
+    }
   }
 
   return (
-    <Wrapper className='JsonViewer-wrapper' data-testid='JsonViewer-wrapper'>
-      <EditorCode language='json' readOnly value={text} onChange={onChange} />
+    <Wrapper ref={ref} className='JsonViewer-wrapper' data-testid='JsonViewer-wrapper'>
+      {renderInner()}
     </Wrapper>
   );
 }

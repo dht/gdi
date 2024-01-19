@@ -6,6 +6,14 @@ export const Wrapper = styled.div`
   background-color: #334;
   display: flex;
   flex-direction: column;
+  color: white;
+  padding: 30px;
+  font-size: 20px;
+
+  .Form-wrapper {
+    zoom: 1.2;
+    color: white;
+  }
 
   @media (max-width: 800px) {
     padding-bottom: 0;
@@ -32,3 +40,5 @@ export const Actions = styled.div`
 `;
 
 export const Cta = styled(Button)``;
+
+export const H2 = styled.div``;

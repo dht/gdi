@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Wrapper, Image, Prompt, Content, Actions } from './ImageViewer.style';
 import { useMeasure } from 'react-use';
+import { useMeasureOnce } from '@gdi/ui';
 
 export type ImageViewerProps = {
   prompt?: string;
@@ -10,7 +11,7 @@ export type ImageViewerProps = {
 
 export function ImageViewer(props: ImageViewerProps) {
   const { prompt, imageUrl } = props;
-  const [ref, { width, height }] = useMeasure<HTMLDivElement>();
+  const [ref, { width, height }] = useMeasureOnce();
 
   useEffect(() => {}, [imageUrl]);
 

@@ -9,6 +9,7 @@ const MAX_CONCURRENT_SPEECH_REQUESTS = 5; // creator plan
 
 export const conversation = async (req: any, api: Json, params: Json) => {
   const { transcript } = params;
+  const { vendor } = api;
 
   const queue = new RateLimitApi(MAX_CONCURRENT_SPEECH_REQUESTS);
   let isWorkflowSuccess = true,
@@ -29,14 +30,25 @@ export const conversation = async (req: any, api: Json, params: Json) => {
         voice: speakerName,
       });
 
-      let { isSuccess = false } = response;
+      let { isSuccess = false, duration, durationText } = response;
 
       let url = '',
         cost = 0;
 
       if (isSuccess) {
         try {
-          url = await saveToBucket(req, `speech/${audioId}.mp3`, response.data, 'audio/mp3');
+          const meta = {
+            id: audioId,
+            source: 'generated',
+            prompt: text,
+            promptParams: { voiceProvider: vendor, voiceId: speakerName },
+            cost: response.cost,
+            workflowId: 'conversation',
+            duration,
+            durationText,
+          };
+
+          url = await saveToBucket(req, `speech/${audioId}.mp3`, response.data, 'audio/mp3', meta);
         } catch (err) {
           console.error('Error saving audio to bucket:', err);
           isSuccess = false;

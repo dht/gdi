@@ -35,6 +35,8 @@ export type BaseResponse = {
   status: FlowStatus;
   meta: ResponseMeta;
   cost: Cost;
+  duration: number;
+  durationText: string;
   data: any;
   isSuccess?: boolean;
 };

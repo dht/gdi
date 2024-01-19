@@ -14,6 +14,7 @@ import flow from './flow';
 import footer from './footer';
 import github from './github';
 import imageParams from './image-params';
+import imageSuggestion from './image-suggestion';
 import imageViewer from './image-viewer';
 import instagram from './instagram';
 import logger from './logger';
@@ -63,6 +64,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.footer': footer,
   'com.usegdi.starter.github': github,
   'com.usegdi.starter.image-params': imageParams,
+  'com.usegdi.starter.image-suggestion': imageSuggestion,
   'com.usegdi.starter.image-viewer': imageViewer,
   'com.usegdi.starter.instagram': instagram,
   'com.usegdi.starter.logger': logger,

@@ -11,13 +11,14 @@ import {
   Provider,
   Column,
 } from './VoiceGallery.style';
-import { VoiceItem } from './VoiceGallery.data';
 import classnames from 'classnames';
+
+type VoiceItem = Json;
 
 export type VoiceGalleryProps = {
   items: VoiceItem[];
   currentVoiceId?: string;
-  onVoiceClick: (voice: VoiceItem) => void;
+  onVoiceClick: (voice: Json) => void;
 };
 
 export function VoiceGallery(props: VoiceGalleryProps) {

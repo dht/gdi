@@ -22,7 +22,18 @@ export const setString = (key: string, value: string) => {
     localStorage.setItem(key, value);
 };
 
-export const getBoolean = (key: string): boolean => {
+export const keyExists = (key: string): boolean => {
+    return key in localStorage;
+};
+
+export const getBoolean = (
+    key: string,
+    defaultValue: boolean = false
+): boolean => {
+    if (!keyExists(key)) {
+        return defaultValue;
+    }
+
     return getString(key) === 'true';
 };
 

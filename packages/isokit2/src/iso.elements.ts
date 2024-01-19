@@ -45,7 +45,7 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
       const mesh = addMesh(item as IMesh);
 
       if (hideBase && base.items.includes(item.id)) {
-        mesh.setEnabled(false);
+        mesh.isVisible = false;
       }
     }
 

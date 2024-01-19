@@ -4,7 +4,9 @@ import { Json } from '../../types';
 import { saveToBucket } from '../files';
 
 export const basic = async (req: any, api: Json, params: Json) => {
-  const { prompt } = params;
+  const { prompt, promptParams } = params;
+
+  const { imageSize = '1024x1024', imageQuality = 'standard' } = promptParams;
 
   const promptOriginal = prompt;
   let promptRevised = '';
@@ -14,16 +16,33 @@ export const basic = async (req: any, api: Json, params: Json) => {
     imageUrl,
     total = 0;
 
-  const response = await image.image(prompt);
+  const options = {
+    isHd: imageQuality === 'hd',
+    size: imageSize,
+  };
+
+  const response = await image.image(prompt, options);
   const id = guid4();
 
   if (response.isSuccess) {
-    const { data, cost } = response;
+    const { data, cost, duration, durationText } = response;
 
     try {
       const buffer = Buffer.from(data.b64Json, 'base64');
       promptRevised = data.revisedPrompt;
-      imageUrl = await saveToBucket(req, `images/${id}.jpg`, buffer, 'image/jpg');
+
+      const meta = {
+        id,
+        source: 'generated',
+        prompt,
+        promptParams,
+        cost,
+        workflowId: 'image',
+        duration,
+        durationText,
+      };
+
+      imageUrl = await saveToBucket(req, `images/${id}.jpg`, buffer, 'image/jpg', meta);
       total = cost.total;
       isWorkflowSuccess = true;
     } catch (err) {

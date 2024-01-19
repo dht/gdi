@@ -3,8 +3,11 @@ import type { Cost } from '@gdi/store-base';
 
 export class AIResponseBuilder implements IResponseBuilder {
   private output: BaseResponse;
+  private tsStart: number;
 
   constructor() {
+    this.tsStart = Date.now();
+
     this.output = {
       id: '',
       status: 'idle',
@@ -16,14 +19,21 @@ export class AIResponseBuilder implements IResponseBuilder {
         inputRate: 0,
         total: 0,
       },
+      duration: 0,
+      durationText: '',
       data: {},
     };
   }
 
   withData(data: any) {
+    const duration = Date.now() - this.tsStart;
+
     this.output.data = data;
     this.output.status = 'done';
     this.output.isSuccess = true;
+    this.output.duration = duration;
+    this.output.durationText = (duration / 1000).toFixed(2) + 's';
+
     return this;
   }
 

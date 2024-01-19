@@ -13,6 +13,7 @@ export { CommandPalette, shortKeysMatch } from './components/CommandPalette/Comm
 export { BigAutoComplete } from './components/CommandPalette/_parts/BigAutoComplete/BigAutoComplete';
 export { useFuzzySearch, useFuzzySearchQ } from './components/CommandPalette/hooks/useFuzzySearch';
 export { ContextBar } from './components/ContextBar/ContextBar';
+export { CostAndDuration } from './components/CostAndDuration/CostAndDuration';
 export { Creatable } from './components/Creatable/Creatable';
 export { CreateAccount } from './components/CreateAccount/CreateAccount';
 export { Docs } from './components/Docs/Docs';
@@ -76,11 +77,12 @@ export { toast } from './components/Toast/Toast.actions';
 export { TopBar } from './components/TopBar/TopBar';
 export { Triangles } from './components/Triangles/Triangles';
 export { Typography } from './components/Typography/Typography';
+export { sendAnalytics as ga, setAnalyticsMethod } from './globals';
 export { useBlackBk } from './hooks/useBlackBk';
 export { useCustomEvent } from './hooks/useCustomEvent';
 export { useLinesBk } from './hooks/useLinesBk';
 export { useMeasureOnce } from './hooks/useMeasureOnce';
-export { sendAnalytics as ga, setAnalyticsMethod } from './globals';
+export { useMount } from './hooks/useMount';
 export * from './types';
 export { format } from './utils';
 export {

@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   flex: 1;
   /* text-transform: capitalize; */
   font-size: 14px;
-  color: #334;
   margin-bottom: 6px;
   display: flex;
   flex-direction: row;

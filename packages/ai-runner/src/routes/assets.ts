@@ -1,15 +1,13 @@
 import * as express from 'express';
-import { guid4, guid8 } from 'shared-base';
-import { midKeys } from '../middlewares/midKeys';
-import db from '../db';
-import { deleteFromBucket, saveToBucket } from '../api/files';
-import { contentTypeFromFileName } from '../utils/contentType';
-import { cleanUndefined } from '../utils/object';
+import { guid8 } from 'shared-base';
+import { deleteFromBucket } from '../api/files';
 import { chat } from '../api/openai';
-import { instructionsFileName } from '../data/fileName';
-import { tsShort } from '../utils/time';
 import { upload } from '../controllers/upload';
 import { uploadZip } from '../controllers/zip';
+import db from '../db';
+import { midKeys } from '../middlewares/midKeys';
+import { contentTypeFromFileName } from '../utils/contentType';
+import { tsShort } from '../utils/time';
 
 export const router = express.Router();
 
