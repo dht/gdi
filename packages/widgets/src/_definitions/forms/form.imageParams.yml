@@ -1,0 +1,21 @@
+id: ImageParams
+header: ImageParams
+layout:
+  flavour: singleColumn
+  labelSize: base
+groups:
+  - id: basic
+    layoutColumnIndex: 0
+fields:
+  - id: imageSize
+    fieldType: select
+    placeholder: Enter a valid URL
+    label: Image size
+    groupId: basic
+    optionSelector: $imageSize
+  - id: imageQuality
+    fieldType: select
+    placeholder: Image quality
+    label: Image quality
+    groupId: basic
+    optionSelector: $imageQuality

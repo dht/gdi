@@ -19,8 +19,12 @@ export const upload = async (req: any, fileInfo: Json, tags: string[]) => {
     buffer = Buffer.from(text);
   }
 
+  const meta = {
+    source: 'uploaded',
+  };
+
   const filePath = `uploads/${id}.${ext}`;
-  const assetUrl = await saveToBucket(req, filePath, buffer, type);
+  const assetUrl = await saveToBucket(req, filePath, buffer, type, meta);
   const contentType = forceContentType || contentTypeFromFileName(fileName);
 
   const asset = await db.assets.create(req, {

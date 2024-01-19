@@ -104,15 +104,22 @@ export function Form(props: IFormProps) {
         return;
       }
 
-      props.onChange({
-        [name]: data[name],
-      });
+      props.onChange(
+        {
+          [name]: data[name],
+        },
+        data
+      );
     });
     return () => subscription.unsubscribe();
   }, [watch, sync]);
 
   const onCta = useCallback(
     async (allData: Json) => {
+      if (!props.onSubmit || isSubmitting) {
+        return;
+      }
+
       setIsSubmitting(true);
 
       const { dirtyFields } = formState;

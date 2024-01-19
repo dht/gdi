@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { IBoard, IGdiStore } from '../types';
+import { voices } from '../initialState.voices';
 
 export const $i = (state: IGdiStore) => state;
 export const $n = (): null => null;
@@ -30,7 +31,7 @@ export const $rawAdapters = createSelector($i, (state: IGdiStore) => state.adapt
 export const $rawDocument = createSelector($i, (state: IGdiStore) => state.document); // prettier-ignore
 export const $rawDocumentSuggestions = createSelector($i, (state: IGdiStore) => state.documentSuggestions); // prettier-ignore
 export const $rawSagas = createSelector($i, (state: IGdiStore) => state.sagas); // prettier-ignore
-export const $rawVoices = createSelector($i, (state: IGdiStore) => state.voices); // prettier-ignore
+export const $rawVoices = createSelector($i, (state: IGdiStore) => voices); // prettier-ignore
 
 // transient
 export const $rawTodos = createSelector($i, (state: IGdiStore) =>state.todos); // prettier-ignore

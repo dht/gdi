@@ -80,8 +80,8 @@ export type IFormProps = {
   config: IFormConfig;
   data: Json;
   allOptions?: Json;
-  onSubmit: (change: Json, allData: Json) => Promise<boolean>;
-  onChange?: (change: Json) => void;
+  onSubmit?: (change: Json, allData: Json) => Promise<boolean>;
+  onChange?: (change: Json, allData: Json) => void;
   onCancel?: () => void;
   children?: React.ReactNode;
   error?: string;

@@ -44,11 +44,15 @@ export const saveOrCreateSceneAsset = async (req: any, projectId: string) => {
   const id = asset ? asset.id : guid8();
   const filePath = `/clips/${id}.json`;
 
+  const meta = {
+    source: 'saved',
+  };
+
   if (!asset) {
-    const url = await saveToBucket(req, filePath, json, 'application/json');
+    const url = await saveToBucket(req, filePath, json, 'application/json', meta);
     asset = await createClipAsset(req, id, url, tags);
   } else {
-    const url = await saveToBucket(req, filePath, json, 'application/json');
+    const url = await saveToBucket(req, filePath, json, 'application/json', meta);
 
     await patchAsset(req, id, {
       assetUrl: url,

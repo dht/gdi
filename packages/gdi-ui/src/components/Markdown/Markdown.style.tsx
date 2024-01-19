@@ -17,6 +17,12 @@ export const Wrapper = styled.div`
     }
   }
 
+  pre {
+    code {
+      color: #eee;
+    }
+  }
+
   strong,
   em {
     display: inline-block;

@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Actions, Cta, TextArea, Wrapper } from './ImageParams.style';
+import { Actions, Cta, H2, TextArea, Wrapper } from './ImageParams.style';
+import { formDefaults, forms } from '../../../_definitions/forms';
+import { Form } from '@gdi/ui';
 
 export type ImageParamsProps = {
+  imageParams: Json;
   promptRevised: string;
+  allOptions: Json;
   callbacks: {
+    onParametersChange: (parameters: Json) => void;
     useSuggestion: (text: string) => void;
   };
 };
 
 export function ImageParams(props: ImageParamsProps) {
-  const { promptRevised, callbacks } = props;
+  const { imageParams, promptRevised, allOptions, callbacks } = props;
   const [value, setValue] = useState(promptRevised);
   const isDisabled = value.length === 0;
 
@@ -17,8 +22,8 @@ export function ImageParams(props: ImageParamsProps) {
     setValue(promptRevised);
   }, [promptRevised]);
 
-  function onChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    setValue(e.target.value);
+  function onChange(_change: Json, allData: Json) {
+    callbacks.onParametersChange(allData);
   }
 
   function onCta() {
@@ -27,17 +32,13 @@ export function ImageParams(props: ImageParamsProps) {
 
   return (
     <Wrapper className='ImageParams-wrapper' data-testid='ImageParams-wrapper'>
-      <TextArea
-        value={value}
-        placeholder='AI suggestion'
-        readOnly={isDisabled}
+      <H2>Image parameters</H2>
+      <Form
+        config={forms.imageParams as any}
+        allOptions={allOptions}
+        data={imageParams}
         onChange={onChange}
       />
-      <Actions>
-        <Cta disabled={isDisabled} onClick={onCta}>
-          Use Suggestion
-        </Cta>
-      </Actions>
     </Wrapper>
   );
 }

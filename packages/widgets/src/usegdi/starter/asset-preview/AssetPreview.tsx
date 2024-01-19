@@ -1,8 +1,10 @@
-import React from 'react';
-import { Close, Wrapper } from './AssetPreview.style';
+import React, { useEffect, useState } from 'react';
+import { Close, Content, Meta, Wrapper } from './AssetPreview.style';
 import { ModelViewer } from 'isokit2';
 import { SoundPlayer, ImageViewer, JsonViewer, TextViewer, Icon, EditorCode } from '@gdi/ui';
 import { IAsset } from '@gdi/store-base';
+import { CostAndDuration } from '@gdi/ui';
+import { useMeta } from './AssetPreview.hooks';
 
 export type AssetPreviewProps = {
   asset: IAsset;
@@ -13,6 +15,8 @@ export type AssetPreviewProps = {
 
 export function AssetPreview(props: AssetPreviewProps) {
   const { asset, callbacks } = props;
+  const { assetUrl } = asset ?? {};
+  const meta = useMeta(assetUrl);
 
   function renderSoundPlayer() {
     const { assetUrl } = asset;
@@ -23,26 +27,26 @@ export function AssetPreview(props: AssetPreviewProps) {
       progressColor: 'pink',
     };
 
-    return <SoundPlayer id='preview' url={assetUrl} options={options} onReady={() => {}} />;
+    return (
+      <Content>
+        <SoundPlayer id='preview' url={assetUrl} options={options} onReady={() => {}} />;
+      </Content>
+    );
   }
 
   function renderModelViewer() {
-    const { assetUrl } = asset;
     return <ModelViewer url={assetUrl} />;
   }
 
   function renderImageViewer() {
-    const { assetUrl } = asset;
     return <ImageViewer imageUrl={assetUrl} />;
   }
 
   function renderTextViewer() {
-    const { assetUrl } = asset;
     return <TextViewer url={assetUrl} />;
   }
 
   function renderJsonViewer() {
-    const { assetUrl } = asset;
     return <JsonViewer url={assetUrl} />;
   }
 
@@ -65,6 +69,17 @@ export function AssetPreview(props: AssetPreviewProps) {
     }
   }
 
+  function renderMeta() {
+    return (
+      <>
+        <CostAndDuration value={meta} />
+        <Meta>
+          <JsonViewer simple value={meta} />
+        </Meta>
+      </>
+    );
+  }
+
   function renderCloseIcon() {
     if (!callbacks?.onClose) return null;
 
@@ -78,6 +93,7 @@ export function AssetPreview(props: AssetPreviewProps) {
   return (
     <Wrapper className='AssetPreview-wrapper' data-testid='AssetPreview-wrapper'>
       {renderInner()}
+      {renderMeta()}
       {renderCloseIcon()}
     </Wrapper>
   );

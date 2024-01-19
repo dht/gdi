@@ -126,7 +126,7 @@ export const calculateImageCost = (isHd: boolean, size: ImageSize) => {
 
   output.outputCount = 1;
   output.outputRate = isLarge ? pricingForModel.imageLarge : pricingForModel.image;
-  output.total = output.inputRate;
+  output.total = output.outputRate ?? 0;
 
   return output;
 };

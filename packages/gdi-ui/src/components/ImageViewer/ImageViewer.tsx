@@ -1,4 +1,5 @@
 import React from 'react';
+import JsonViewer from '../JsonViewer/JsonViewer';
 import { Image, Wrapper } from './ImageViewer.style';
 
 export type ImageViewerProps = {

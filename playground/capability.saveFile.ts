@@ -22,8 +22,12 @@ const run = async () => {
     },
   };
 
+  const meta = {
+    source: 'capability',
+  };
+
   setBucket(bucket);
-  const url = await saveToBucket(req, 'speech/test.mp3', 'test', 'audio/mp3');
+  const url = await saveToBucket(req, 'speech/test.mp3', 'test', 'audio/mp3', meta);
 };
 
 run();

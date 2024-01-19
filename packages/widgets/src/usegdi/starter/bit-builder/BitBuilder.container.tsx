@@ -30,7 +30,7 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
 
   const { bitId, dotId } = currentIds;
 
-  const hideBase = getBoolean('HIDE_GRID') !== false;
+  const hideBase = getBoolean('HIDE_GRID', true);
 
   useSagas([
     'widgets.scene.bootstrap',

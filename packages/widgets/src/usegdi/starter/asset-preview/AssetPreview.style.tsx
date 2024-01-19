@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   background-color: #223;
   display: flex;
   position: relative;
+  flex-direction: column;
 `;
 
 export const Close = styled.div`
@@ -26,4 +27,13 @@ export const Close = styled.div`
     top: 14px;
     right: 14px;
   }
+`;
+
+export const Meta = styled.div`
+  min-height: 33vh;
+  background-color: #000;
+`;
+
+export const Content = styled.div`
+  margin: auto 10px;
 `;

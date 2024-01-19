@@ -1,4 +1,4 @@
-import newAssetDefaults from './form.newAsset.detaults.json';
+import newAssetDefaults from './form.newAsset.defaults.json';
 import newAsset from './json/form.newAsset.json';
 
 export const forms = {

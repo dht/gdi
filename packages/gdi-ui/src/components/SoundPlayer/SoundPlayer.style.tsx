@@ -10,7 +10,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   max-height: 100px;
-  margin: auto;
 `;
 
 export const Player = styled.div`

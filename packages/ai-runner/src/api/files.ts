@@ -1,7 +1,7 @@
-import * as fs from 'fs';
 import db from '../db';
 import { storageAdapter } from '../utils/globals';
 import { get } from 'lodash';
+import bytes from 'bytes';
 
 let bucket: any;
 
@@ -9,30 +9,40 @@ export const setBucket = (value: any) => {
   bucket = value;
 };
 
-export const saveFile = (filename: string, buffer: Buffer) => {
-  fs.writeFileSync(filename, buffer);
-  return filename;
-};
-
 export const saveToBucket = async (
   req: any,
   filepath: string,
   buffer: any,
   contentType: string,
-  isNew: boolean = false
+  meta?: Json,
+  logFile: boolean = false
 ) => {
   const uid = get(req, 'user.uid');
 
-  let filepathWithUid;
+  let filepathWithUid = filepath;
 
   if (uid !== 'user') {
     const uid4 = uid.slice(0, 4);
     filepathWithUid = `${uid4}/${filepath}`;
-  } else {
-    filepathWithUid = filepath;
   }
 
-  const file = storageAdapter.file(filepathWithUid);
+  const assetUrl = await saveFile(filepathWithUid, buffer, contentType);
+
+  if (logFile) {
+    await db.assets.logNew(req, assetUrl, contentType);
+  }
+
+  if (meta) {
+    const fileSize = buffer.length;
+    const fileSizeBytes = bytes(buffer.length);
+    await saveMeta(req, filepathWithUid, { ...meta, fileSize, fileSizeBytes });
+  }
+
+  return assetUrl;
+};
+
+export const saveFile = async (filepath: string, buffer: any, contentType: string) => {
+  const file = storageAdapter.file(filepath);
 
   await file.save(buffer, {
     contentType,
@@ -43,12 +53,11 @@ export const saveToBucket = async (
 
   // `https://storage.googleapis.com/${bucket.name}/${filepath}`;
   const assetUrl = file.publicUrl();
-
-  if (isNew) {
-    await db.assets.logNew(req, assetUrl, contentType);
-  }
-
   return assetUrl;
+};
+
+export const saveMeta = async (req: any, filepath: string, meta: Json) => {
+  return saveFile(filepath + '.json', JSON.stringify(meta, null, 2), 'application/json');
 };
 
 export const deleteFromBucket = async (filepath: string) => {

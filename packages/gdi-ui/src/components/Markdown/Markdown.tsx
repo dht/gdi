@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import { isMobile } from '../../utils/mobile';
+import { highlightAll } from '../../utils/highlight';
 import { Wrapper } from './Markdown.style';
 import { isJson } from './Markdown.utils';
 
@@ -40,7 +40,7 @@ export function Markdown(props: MarkdownProps) {
     }
 
     if (markdown.includes('```')) {
-      (window as any)['hljs'].highlightAll(ref.current);
+      highlightAll();
     }
   }, [markdown]);
 
