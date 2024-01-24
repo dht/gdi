@@ -18,11 +18,12 @@ export {
   applyCurrentKeyframe,
   applyCurrentKeyframes,
 } from './iso.elements';
-export { addExternal } from './iso.externals.add';
+export { addExternal, addRemoteMesh, addRemoteScene } from './iso.externals.add';
 export { removeExternal, showExternal } from './iso.externals.utils';
 export { detachGizmo, setGizmoMode } from './iso.gizmos';
 export { addLight, toggleLights } from './iso.light.add';
 export { removeLight, showLight } from './iso.light.utils';
+export { addDecal, setDecalPick } from './iso.decals';
 export { addMesh } from './iso.meshes.add';
 export { showGrid } from './iso.meshes.grid';
 export {

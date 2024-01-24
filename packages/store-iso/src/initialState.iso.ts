@@ -131,7 +131,8 @@ export const initialState: IIsoStore = {
   sceneExternals: {
     tree: {
       id: 'tree',
-      url: 'http://localhost:3000/scenes/park/tree2.glb',
+      rootUrl: 'http://localhost:3000/scenes/park/',
+      fileName: 'tree2.glb',
     },
   },
 };
