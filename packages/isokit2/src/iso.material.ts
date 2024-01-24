@@ -26,12 +26,16 @@ export const initMaterialColor = (material: IMaterial) => {
 
 export const initMaterialTexture = (material: IMaterial) => {
   const { values } = material;
-  const { textureUrl, uScale, vScale } = values ?? {};
+  const { textureUrl, uScale, vScale, hasAlpha, zOffset } = values ?? {};
+
   const output = initMaterialColor(material);
 
   const diffuseTexture = new Texture(textureUrl, scene);
+  diffuseTexture.hasAlpha = hasAlpha ?? false;
   diffuseTexture.uScale = uScale;
   diffuseTexture.vScale = vScale;
+
+  output.zOffset = zOffset;
 
   output.diffuseTexture = diffuseTexture;
 

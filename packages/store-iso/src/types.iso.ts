@@ -105,6 +105,14 @@ export type ILights = Record<string, ILight>;
 
 export type BitType = 'basic' | 'skybox' | 'layer';
 
+export type IDecal = IBase & {
+  id: string;
+  values: {
+    normal: IVector;
+    destinationMeshId: string;
+  };
+};
+
 export type IBit = {
   id: string;
   type: BitType;
@@ -141,7 +149,9 @@ export type IDot = {
 export type IDots = Record<string, IDot>;
 
 export type IExternal = IBase & {
-  url: string;
+  rootUrl?: string;
+  fileName: string;
+  meshNames?: string | string[];
 };
 
 export type IExternals = Record<string, IExternal>;

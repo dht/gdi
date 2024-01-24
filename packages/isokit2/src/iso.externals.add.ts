@@ -5,14 +5,15 @@ import { applyMeshListeners, applyVectors, vector3 } from './iso.utils';
 import '@babylonjs/loaders';
 
 export const addExternal = (external: IExternal, autoHide: boolean = false) => {
-  const { id, url } = external;
+  const { id, rootUrl = '', fileName } = external;
 
   return new Promise((resolve) => {
     SceneLoader.ShowLoadingScreen = false;
-    SceneLoader.Append('', url, scene, (ev: any) => {
+    SceneLoader.Append(rootUrl, fileName, scene, (ev: any) => {
       const mesh = scene.meshes.find((mesh) => mesh.id === '__root__');
 
       if (!mesh) {
+        resolve(ev);
         return;
       }
 
@@ -29,4 +30,43 @@ export const addExternal = (external: IExternal, autoHide: boolean = false) => {
       resolve(ev);
     });
   });
+};
+
+export const addRemoteMesh = (external: IExternal) => {
+  const { rootUrl = '', fileName, meshNames = '' } = external;
+  return new Promise((resolve) => {
+    SceneLoader.ImportMesh(
+      meshNames,
+      rootUrl,
+      fileName,
+      scene,
+      function (meshes, particleSystems, skeletons) {
+        // Callback function
+
+        resolve(meshes);
+
+        console.log('skeletons[0] ->', skeletons[0]);
+        const animations = scene.animations.map((a) => a.id);
+        console.log('animations ->', animations);
+
+        const animatable = scene.animatables.map((a) => a.id);
+        console.log('animatable ->', animatable);
+
+        // begin animation
+        scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
+      }
+    );
+  });
+};
+
+export const addRemoteScene = async (external: IExternal) => {
+  const { rootUrl = '', fileName, meshNames = '' } = external;
+
+  const { meshes, animationGroups } = await SceneLoader.ImportMeshAsync(
+    meshNames,
+    rootUrl,
+    fileName
+  );
+
+  return { meshes, animationGroups };
 };
