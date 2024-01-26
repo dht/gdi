@@ -7,9 +7,11 @@ import '@babylonjs/loaders';
 export const addExternal = (external: IExternal, autoHide: boolean = false) => {
   const { id, rootUrl = '', fileName } = external;
 
+  console.log('external ->', external);
+
   return new Promise((resolve) => {
     SceneLoader.ShowLoadingScreen = false;
-    SceneLoader.Append(rootUrl, fileName, scene, (ev: any) => {
+    SceneLoader.Append('', rootUrl + fileName, scene, (ev: any) => {
       const mesh = scene.meshes.find((mesh) => mesh.id === '__root__');
 
       if (!mesh) {
@@ -34,6 +36,9 @@ export const addExternal = (external: IExternal, autoHide: boolean = false) => {
 
 export const addRemoteMesh = (external: IExternal) => {
   const { rootUrl = '', fileName, meshNames = '' } = external;
+
+  console.log('external ->', external);
+
   return new Promise((resolve) => {
     SceneLoader.ImportMesh(
       meshNames,

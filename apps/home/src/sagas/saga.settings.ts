@@ -6,8 +6,6 @@ import { customEvenChannel } from './channels/channel.customEvent';
 function* saveSettings(event: any) {
   const { data } = event;
 
-  yield put({ type: 'NAVIGATE', to: '/home' });
-
   if (Object.keys(data).length === 0) {
     return;
   }

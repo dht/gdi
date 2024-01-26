@@ -87,11 +87,19 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
 
     // onSceneReady
     scene.onReadyObservable.addOnce(() => {
+      console.log('555 ->', 555);
+
       invokeEvent('scene/ready', {
         scene,
         isAdhoc,
         autoHideExternals,
       });
+    });
+
+    invokeEvent('scene/ready', {
+      scene,
+      isAdhoc,
+      autoHideExternals,
     });
 
     window.addEventListener('resize', () => {

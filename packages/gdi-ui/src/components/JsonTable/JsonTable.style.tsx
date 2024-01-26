@@ -27,4 +27,13 @@ export const Key = styled.div`
   white-space: nowrap;
 `;
 
-export const Value = styled.div``;
+export const Value = styled.div`
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // max rows : 10
+  max-height: 200px;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+`;

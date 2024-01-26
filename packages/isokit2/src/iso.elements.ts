@@ -9,7 +9,7 @@ import {
   IVASP,
 } from '@gdi/store-iso';
 import { initCamera } from './iso.camera';
-import { addExternal } from './iso.externals.add';
+import { addExternal, addRemoteMesh } from './iso.externals.add';
 import { removeExternal } from './iso.externals.utils';
 import { addLight } from './iso.light.add';
 import { removeLight } from './iso.light.utils';
