@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   flex: 1;
   position: relative;
   max-height: 100px;
+  z-index: 999;
 `;
 
 export const Image = styled.img`

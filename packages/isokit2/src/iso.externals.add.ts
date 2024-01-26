@@ -45,12 +45,9 @@ export const addRemoteMesh = (external: IExternal) => {
 
         resolve(meshes);
 
-        console.log('skeletons[0] ->', skeletons[0]);
         const animations = scene.animations.map((a) => a.id);
-        console.log('animations ->', animations);
 
         const animatable = scene.animatables.map((a) => a.id);
-        console.log('animatable ->', animatable);
 
         // begin animation
         scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);

@@ -12,6 +12,7 @@ import documentBootstrap from './document-bootstrap';
 import facebook from './facebook';
 import flow from './flow';
 import footer from './footer';
+import fourthWall from './fourth-wall';
 import github from './github';
 import imageParams from './image-params';
 import imageSuggestion from './image-suggestion';
@@ -62,6 +63,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.facebook': facebook,
   'com.usegdi.starter.flow': flow,
   'com.usegdi.starter.footer': footer,
+  'com.usegdi.starter.fourth-wall': fourthWall,
   'com.usegdi.starter.github': github,
   'com.usegdi.starter.image-params': imageParams,
   'com.usegdi.starter.image-suggestion': imageSuggestion,
