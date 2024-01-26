@@ -175,6 +175,13 @@ export const sagas: ISagas = {
       eventNames: ['board/exit'],
     },
   },
+  'widgets.fourthWall': {
+    id: 'widgets.fourthWall',
+    type: 'component',
+    trigger: {
+      eventNames: ['scene/ready'],
+    },
+  },
   'widgets.document': {
     id: 'widgets.document',
     type: 'component',

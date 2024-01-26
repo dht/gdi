@@ -21,8 +21,6 @@ export const addDecal = (decal: IDecal, dim: Json) => {
     return null;
   }
 
-  console.log('123 ->', destMesh);
-
   let mat = scene.materials.find((material) => material.id === materialId);
 
   if (!mat) {

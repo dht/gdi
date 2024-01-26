@@ -60,6 +60,7 @@ let unlisten: any;
 export const addGizmoListeners = () => {
   unlisten = gizmo.onAttachedToMeshObservable.add((mesh: any) => {
     if (!mesh) return;
+
     if (base.all.includes(mesh.id)) {
       gizmo.attachToMesh(null);
     }
