@@ -3,16 +3,18 @@ import { Content, Letter, Speaker, Wrapper } from './TranscriptLine.style';
 import classnames from 'classnames';
 import { ISpeaker } from '../../Transcript.types';
 import Karaoke from '../Karaoke/Karaoke';
+import { Timestamp } from './TranscriptLine.components';
 
 export type TranscriptLineProps = {
   speaker: ISpeaker;
   text: string;
+  timestamp?: number;
   duration?: number;
   className?: string;
 };
 
 export function TranscriptLine(props: TranscriptLineProps) {
-  const { speaker, text, duration } = props;
+  const { speaker, text, timestamp, duration } = props;
 
   const speakerName = speaker.name;
 
@@ -21,6 +23,19 @@ export function TranscriptLine(props: TranscriptLineProps) {
   const classNameLetter = classnames('speaker-' + speaker.id, props.className);
   const firstLetter = speakerName[0];
   const rest = speakerName.slice(1);
+
+  function renderSpeaker() {
+    if (timestamp && !speakerName) {
+      return <Timestamp value={timestamp} />;
+    }
+
+    return (
+      <>
+        <Letter className={classNameLetter}>{firstLetter}</Letter>
+        <Speaker className={classNameLetter}>{rest}</Speaker>
+      </>
+    );
+  }
 
   function renderContent() {
     if (props.className === 'current') {
@@ -32,8 +47,7 @@ export function TranscriptLine(props: TranscriptLineProps) {
 
   return (
     <Wrapper className={className} data-testid='TranscriptLine-wrapper'>
-      <Letter className={classNameLetter}>{firstLetter}</Letter>
-      <Speaker className={classNameLetter}>{rest}</Speaker>
+      {renderSpeaker()}
       {renderContent()}
     </Wrapper>
   );

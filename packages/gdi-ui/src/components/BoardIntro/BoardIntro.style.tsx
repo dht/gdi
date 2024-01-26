@@ -79,7 +79,7 @@ export const Actions = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 `;
 
 export const Notes = styled.div`
@@ -104,4 +104,14 @@ export const Cta = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
+`;
+
+export const Column = styled.div`
+  flex: 1;
+
+  .Checkbox-wrapper {
+    margin-top: 5px;
+    padding-top: 5px;
+    opacity: 0.7;
+  }
 `;

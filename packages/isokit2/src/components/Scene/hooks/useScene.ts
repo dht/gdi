@@ -94,6 +94,12 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
       });
     });
 
+    invokeEvent('scene/ready', {
+      scene,
+      isAdhoc,
+      autoHideExternals,
+    });
+
     window.addEventListener('resize', () => {
       engine.resize();
     });

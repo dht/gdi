@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
   position: fixed;
   top: 0;
   left: 50%;
-  left: calc(min(1700px, 100vw) / 2);
   transform: translateX(-50%);
   width: 142px;
   font-size: 15px;

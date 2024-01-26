@@ -8,7 +8,6 @@
     "coverage": "jest --coverage=true"
   },
   "dependencies": {
-    "@babylonjs/core": "^6.23.0",
     "@redux-devtools/extension": "^3.2.5",
     "igrid": "^1.0.0",
     "lodash": "^4.17.21",

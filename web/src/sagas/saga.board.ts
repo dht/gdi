@@ -161,7 +161,7 @@ export function* showIntroModal(_action: Action, board: IBoard) {
 
   l({ message: 'Showing board intro dialog', verb: 'bootstrap' });
 
-  const { didCancel } = yield prompt.custom({
+  const { didCancel, value } = yield prompt.custom({
     title: 'AI Board Intro',
     component: BoardIntro,
     componentProps: {
@@ -171,8 +171,16 @@ export function* showIntroModal(_action: Action, board: IBoard) {
     },
   });
 
-  if (didCancel) {
+  if (didCancel || !value) {
     return;
+  }
+
+  const { hideNextTime } = value;
+
+  if (hideNextTime) {
+    invokeEvent('saveSettings', {
+      skipBoardIntro: true,
+    });
   }
 
   yield put({ type: 'PLAY' });

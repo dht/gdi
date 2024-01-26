@@ -1,8 +1,11 @@
+import { Checkbox } from '@gdi/ui';
 import { upperFirst } from 'lodash';
+import { useState } from 'react';
 import Icon from '../Icon/Icon';
 import {
   Actions,
   BoardId,
+  Column,
   Content,
   Cta,
   Details,
@@ -19,14 +22,19 @@ export type BoardIntroProps = {
   boardId: string;
   boardInfo: Json;
   assetsRootUrl: string;
-  onCta: () => void;
+  onCta: (params?: Json) => void;
 };
 
 export function BoardIntro(props: BoardIntroProps) {
   const { boardId, boardInfo, assetsRootUrl } = props;
   const { name, description, fields, imageUrl } = boardInfo;
+  const [hideNextTime, setHideNextTime] = useState(false);
 
   const isPlayback = document.location.hash.length > 0;
+
+  function onCta() {
+    props.onCta({ hideNextTime });
+  }
 
   function renderField(field: Json, index: number) {
     const { label, content } = field;
@@ -55,18 +63,26 @@ export function BoardIntro(props: BoardIntroProps) {
         {renderFields()}
       </Details>
       <Actions>
-        {isPlayback ? (
-          <Notes>
-            This is a <span className='pink'>playback</span> board,
-            <br />a pre-recorded generation session
-          </Notes>
-        ) : (
-          <Notes>
-            This is a <span>live</span> board, prompts requests are processed by an available server
-            (if exists)
-          </Notes>
-        )}
-        <Cta onClick={props.onCta}>
+        <Column>
+          {isPlayback ? (
+            <Notes>
+              This is a <span className='pink'>playback</span> board,
+              <br />a pre-recorded generation session
+            </Notes>
+          ) : (
+            <Notes>
+              This is a <span>live</span> board, prompts requests are processed by an available
+              server (if exists)
+            </Notes>
+          )}
+          <Checkbox
+            id='do-not-show'
+            label="Don't show board intros"
+            value={hideNextTime}
+            onChange={setHideNextTime}
+          />
+        </Column>
+        <Cta onClick={onCta}>
           <Icon name='play_arrow' />
           {isPlayback ? 'Play' : 'Start'}
         </Cta>
