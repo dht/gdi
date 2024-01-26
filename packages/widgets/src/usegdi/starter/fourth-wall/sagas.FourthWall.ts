@@ -11,8 +11,6 @@ const shapes: any = {};
 export function* onSceneReady(ev: any) {
   const scene: Scene = ev.data.scene;
 
-  console.log('7 ->', 7);
-
   const meshIds = scene.meshes.map((mesh: any) => mesh.id);
 
   const camera = scene.activeCamera as ArcRotateCamera;
@@ -41,8 +39,6 @@ export function* onSceneReady(ev: any) {
 
   const sun = allLights.find((l) => l.id === 'sun') as HemisphericLight;
   sun.dispose();
-
-  console.log('123 ->', 123);
 
   const { meshes, animationGroups } = yield* call(addRemoteScene, {
     id: 'basic',
@@ -76,12 +72,8 @@ export function* root() {
 
   yield put(actions.sceneState.patch({ totalTime: 60 }));
 
-  console.log('1 ->', 1);
-
   channel = customEvenChannel('scene/ready');
   yield takeEvery(channel, onSceneReady);
-
-  console.log('4 ->', 4);
 }
 
 export const saga = {

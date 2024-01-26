@@ -19,6 +19,7 @@ export { Creatable } from './components/Creatable/Creatable';
 export { CreateAccount } from './components/CreateAccount/CreateAccount';
 export { Docs } from './components/Docs/Docs';
 export { Drawer } from './components/Drawer/Drawer';
+export { TranscriptScore } from './components/TranscriptScore/TranscriptScore';
 export { EditorCode } from './components/EditorCode/EditorCode';
 export { EditorJson } from './components/EditorJson/EditorJson';
 export { EditorSchema } from './components/EditorSchema/EditorSchema';

@@ -22,6 +22,7 @@ import logger from './logger';
 import logo from './logo';
 import midi from './midi';
 import mode from './mode';
+import guidanceEditor from './guidance-editor';
 import multi from './multi';
 import noMobile from './no-mobile';
 import pinterest from './pinterest';
@@ -47,6 +48,10 @@ import warhol from './warhol';
 import welcome from './welcome';
 import writerPanel from './writer-panel';
 import youtube from './youtube';
+import videoEffects from './video-effects';
+import videoLibrary from './video-library';
+import youtubeLayer from './youtube-layer';
+import youtubeLayers from './youtube-layers';
 
 export const starter: IWidgets = {
   'com.usegdi.starter.asset-details': assetDetails,
@@ -65,6 +70,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.footer': footer,
   'com.usegdi.starter.fourth-wall': fourthWall,
   'com.usegdi.starter.github': github,
+  'com.usegdi.starter.guidance-editor': guidanceEditor,
   'com.usegdi.starter.image-params': imageParams,
   'com.usegdi.starter.image-suggestion': imageSuggestion,
   'com.usegdi.starter.image-viewer': imageViewer,
@@ -93,9 +99,13 @@ export const starter: IWidgets = {
   'com.usegdi.starter.transcript': transcript,
   'com.usegdi.starter.twitter': twitter,
   'com.usegdi.starter.variables': variables,
+  'com.usegdi.starter.video-effects': videoEffects,
+  'com.usegdi.starter.video-library': videoLibrary,
   'com.usegdi.starter.voice-gallery': voiceGallery,
   'com.usegdi.starter.warhol': warhol,
   'com.usegdi.starter.welcome': welcome,
   'com.usegdi.starter.writer-panel': writerPanel,
   'com.usegdi.starter.youtube': youtube,
+  'com.usegdi.starter.youtube-layer': youtubeLayer,
+  'com.usegdi.starter.youtube-layers': youtubeLayers,
 };

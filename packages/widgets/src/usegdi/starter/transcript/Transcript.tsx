@@ -43,6 +43,7 @@ export function Transcript(props: TranscriptProps) {
         speaker={speaker}
         text={item.text}
         duration={item.duration}
+        timestamp={item.timestamp}
       />
     );
   }
