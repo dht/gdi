@@ -3,9 +3,11 @@ import { scene } from './globals';
 import { IExternal } from '@gdi/store-iso';
 import { applyMeshListeners, applyVectors, vector3 } from './iso.utils';
 import '@babylonjs/loaders';
+import { parseExternalUrl } from './utils/utils.url';
 
 export const addExternal = (external: IExternal, autoHide: boolean = false) => {
-  const { id, rootUrl = '', fileName } = external;
+  const { id } = external;
+  const { rootUrl, fileName } = parseExternalUrl(external);
 
   return new Promise((resolve) => {
     SceneLoader.ShowLoadingScreen = false;
@@ -33,7 +35,8 @@ export const addExternal = (external: IExternal, autoHide: boolean = false) => {
 };
 
 export const addRemoteMesh = (external: IExternal) => {
-  const { rootUrl = '', fileName, meshNames = '' } = external;
+  const { meshNames = '' } = external;
+  const { rootUrl, fileName } = parseExternalUrl(external);
 
   return new Promise((resolve) => {
     SceneLoader.ImportMesh(
@@ -46,10 +49,6 @@ export const addRemoteMesh = (external: IExternal) => {
 
         resolve(meshes);
 
-        const animations = scene.animations.map((a) => a.id);
-
-        const animatable = scene.animatables.map((a) => a.id);
-
         // begin animation
         scene.beginAnimation(skeletons[0], 0, 100, true, 1.0);
       }
@@ -58,7 +57,8 @@ export const addRemoteMesh = (external: IExternal) => {
 };
 
 export const addRemoteScene = async (external: IExternal) => {
-  const { rootUrl = '', fileName, meshNames = '' } = external;
+  const { meshNames = '' } = external;
+  const { rootUrl, fileName } = parseExternalUrl(external);
 
   const { meshes, animationGroups } = await SceneLoader.ImportMeshAsync(
     meshNames,

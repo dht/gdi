@@ -4,7 +4,7 @@ import { Container as ContainerBase } from '../../../base.style';
 export const Wrapper = styled.div`
   padding: 15px 0 0;
   position: sticky;
-  top: 81px;
+  top: 73px;
   background-color: white;
   z-index: 4999;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);

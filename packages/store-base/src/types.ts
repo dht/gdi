@@ -279,6 +279,7 @@ export type IFlowConfig = {
   fileNameInstructions?: string;
   improveAssistantId?: string;
   output?: Json;
+  postFlavour?: string;
 };
 
 export type IFlowApi = {

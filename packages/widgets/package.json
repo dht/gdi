@@ -8,6 +8,7 @@
     "coverage": "jest --coverage=true"
   },
   "dependencies": {
+    "@babylonjs/core": "^6.40.0",
     "@gdi/firebase": "^0.0.1",
     "@gdi/store-base": "^1.0.0",
     "@gdi/store-iso": "^1.0.0",
