@@ -38,31 +38,31 @@ export function* parseOutput(_board: IBoard, params: any) {
 }
 
 export function* improve(board: IBoard, params: any) {
-  const { documentRaw } = params;
-
-  const assistantId = get(board, 'flow.flowConfig.improveAssistantId');
-  const assistant = get(board, `flow.flowAssistants.${assistantId}`);
-  yield put(actions.documentSuggestions.setAll({}));
-
-  if (!assistant) {
-    console.log('No assistant found');
-    return;
-  }
-
-  yield put(actions.appState.patch({ isFetchingSuggestions: true }));
-
-  const response = yield* call(runFunction, '/api/document/improve', {
-    assistant,
-    prompt: `here is the document:\n${documentRaw}`,
-  });
-
-  yield put(actions.appState.patch({ isFetchingSuggestions: false }));
-
-  if (!response.success || typeof response.data !== 'object') {
-    return;
-  }
-
   try {
+    const { documentRaw } = params;
+
+    const assistantId = get(board, 'flow.flowConfig.improveAssistantId');
+    const assistant = get(board, `flow.flowAssistants.${assistantId}`);
+    yield put(actions.documentSuggestions.setAll({}));
+
+    if (!assistant) {
+      console.log('No assistant found');
+      return;
+    }
+
+    yield put(actions.appState.patch({ isFetchingSuggestions: true }));
+
+    const response = yield* call(runFunction, '/api/document/improve', {
+      assistant,
+      prompt: `here is the document:\n${documentRaw}`,
+    });
+
+    yield put(actions.appState.patch({ isFetchingSuggestions: false }));
+
+    if (!response || !response.success || typeof response.data !== 'object') {
+      return;
+    }
+
     const suggestions = arrayToObject(response.data);
     yield put(actions.documentSuggestions.setAll(suggestions));
   } catch (err) {}

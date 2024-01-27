@@ -21,7 +21,7 @@ export const Items = styled.div``;
 
 export const Effect = styled.div`
   float: left;
-  width: 111px;
+  width: 125px;
   color: white;
   display: flex;
   flex-direction: column;

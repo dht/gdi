@@ -134,9 +134,8 @@ export function* listenToFlowRun(event: any) {
 export function* onFlowCompleted(event: any) {
   const { flowRun } = event.data;
   const board = yield* select(selectors.raw.$rawBoard);
-  console.time('3');
+
   yield fork(onFlowMobileEnd, board);
-  console.timeEnd('3');
 
   const flowConfig = get(board, 'flow.flowConfig', '');
 
@@ -147,7 +146,8 @@ export function* onFlowCompleted(event: any) {
     return;
   }
 
-  const { textToSpeech, output, improveAssistantId } = flowConfig;
+  const { textToSpeech, output, improveAssistantId, postFlavour } = flowConfig;
+
   const { variables } = flowRun;
 
   yield fork(postActions.parseOutput, board, { output, variables });
@@ -158,6 +158,10 @@ export function* onFlowCompleted(event: any) {
 
   if (improveAssistantId) {
     yield call(postActions.improve, board, variables);
+  }
+
+  if (postFlavour) {
+    yield put(actions.appState.patch({ flavour: postFlavour }));
   }
 }
 
