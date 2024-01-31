@@ -10,18 +10,27 @@ import { scene } from './globals';
 import { setCamera } from './iso.camera';
 import { vector3, vectorRadians } from './iso.utils';
 
-export const changeSkyBox = (url: string, showAndFocus?: boolean) => {
-  const skyboxMaterial = scene.getMaterialByName('skyboxMaterial') as StandardMaterial;
+export const currentUrls = {
+  skybox: '',
+  stage: '',
+};
 
-  skyboxMaterial.diffuseTexture = new Texture(url, scene);
+type Id = 'skybox' | 'stage' | 'stage-mask';
+
+export const changeImage = (id: Id, url: string, showAndFocus?: boolean) => {
+  const material = scene.getMaterialByName(id + 'Material') as StandardMaterial;
+
+  const texture = new Texture(url, scene);
+  texture.hasAlpha = true;
+  material.diffuseTexture = texture;
 
   if (showAndFocus) {
-    showSkyBox(true);
-    focusOnSkyBox();
+    showImage(id, true);
+    focusOnImage();
   }
 };
 
-export const focusOnSkyBox = () => {
+export const focusOnImage = () => {
   setCamera('free');
 
   const camera = scene.activeCamera as FreeCamera;
@@ -34,33 +43,92 @@ export const focusOnSkyBox = () => {
   camera.rotation = vectorRadians([0, 90, 0]);
 };
 
-export const showSkyBox = (show: boolean) => {
-  const skyBox = scene.getMeshByName('skybox');
+export const showImage = (id: Id, show: boolean) => {
+  const image = scene.getMeshByName(id + 'Mesh');
 
-  if (!skyBox) {
+  if (!image) {
     return;
   }
 
-  skyBox.isVisible = show;
+  image.isVisible = show;
+};
+
+const mapPositionX = {
+  skybox: 105,
+  stage: 103,
+  'stage-mask': 5,
+};
+
+const mapDimension = {
+  skybox: [160, 90],
+  stage: [-90, 90],
+  'stage-mask': [-4.353, 4.353],
+};
+
+export const addImage = (id: Id, url: string) => {
+  const dimension = mapDimension[id];
+  const x = mapPositionX[id];
+
+  const image = MeshBuilder.CreatePlane(
+    id + 'Mesh',
+    {
+      width: dimension[0],
+      height: dimension[1],
+    },
+    scene
+  );
+  image.layerMask = 1;
+
+  const material = new StandardMaterial(id + 'Material', scene);
+
+  material.diffuseColor = new Color3(255, 255, 255);
+  material.backFaceCulling = false;
+
+  image.rotation = new Vector3(0, 0, 0);
+
+  image.position = new Vector3(x, 0, 0);
+
+  // add image texture
+  const texture = new Texture(url, scene);
+  texture.hasAlpha = true;
+
+  material.diffuseTexture = texture;
+
+  image.rotation.y = Math.PI / 2;
+  image.material = material;
+  image.isVisible = true;
+
+  return image;
 };
 
 export const addSkyBox = (url: string) => {
-  const skybox = MeshBuilder.CreatePlane('skybox', { width: 160, height: 90 }, scene);
-  const skyboxMaterial = new StandardMaterial('skyboxMaterial', scene);
+  return addImage('skybox', url);
+};
 
-  skyboxMaterial.diffuseColor = new Color3(0, 0, 0);
-  skyboxMaterial.specularColor = new Color3(0, 0, 0);
-  skyboxMaterial.emissiveColor = new Color3(255, 255, 255);
-  skyboxMaterial.backFaceCulling = false;
+export const changeSkyBox = (url: string, showAndFocus?: boolean) => {
+  changeImage('skybox', url, showAndFocus);
+};
 
-  skybox.rotation = new Vector3(0, 0, 0);
-  skybox.position = new Vector3(105, 0, 0);
+export const focusOnSkyBox = () => {
+  focusOnImage();
+};
 
-  // add image texture
-  skyboxMaterial.diffuseTexture = new Texture(url, scene);
-  skyboxMaterial.diffuseTexture.hasAlpha = true;
+export const showSkyBox = (show: boolean) => {
+  showImage('skybox', show);
+};
 
-  skybox.rotation.y = Math.PI / 2;
-  skybox.material = skyboxMaterial;
-  skybox.isVisible = true;
+export const addStage = (url: string) => {
+  return addImage('stage', url);
+};
+
+export const changeStage = (url: string, showAndFocus?: boolean) => {
+  changeImage('stage', url, showAndFocus);
+};
+
+export const addStageMask = (url: string) => {
+  return addImage('stage-mask', url);
+};
+
+export const changeStageMask = (url: string, showAndFocus?: boolean) => {
+  changeImage('stage-mask', url, showAndFocus);
 };

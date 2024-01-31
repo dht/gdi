@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babylonjs/core": "^6.40.0",
+    "@babylonjs/gui": "^6.40.0",
     "@babylonjs/inspector": "^6.40.0",
     "@babylonjs/loaders": "^6.40.0",
     "@babylonjs/materials": "^6.40.0",

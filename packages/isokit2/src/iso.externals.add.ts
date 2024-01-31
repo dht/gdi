@@ -11,7 +11,7 @@ export const addExternal = (external: IExternal, autoHide: boolean = false) => {
 
   return new Promise((resolve) => {
     SceneLoader.ShowLoadingScreen = false;
-    SceneLoader.Append('', rootUrl + fileName, scene, (ev: any) => {
+    SceneLoader.Append(rootUrl, fileName, scene, (ev: any) => {
       const mesh = scene.meshes.find((mesh) => mesh.id === '__root__');
 
       if (!mesh) {

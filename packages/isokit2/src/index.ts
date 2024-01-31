@@ -36,7 +36,16 @@ export {
   showMeshes,
 } from './iso.meshes.utils';
 export { applyConfig } from './iso.scene';
-export { addSkyBox, changeSkyBox, focusOnSkyBox, showSkyBox } from './iso.skybox';
+export {
+  addSkyBox,
+  changeSkyBox,
+  focusOnSkyBox,
+  showSkyBox,
+  addStage,
+  changeStage,
+  addStageMask,
+  changeStageMask,
+} from './iso.skybox';
 export { changeMouth, createSpeakingStone, moveSpeakingStone } from './iso.speech';
 export { getCameraInfoById, getMeshInfoById, positionElement } from './iso.utils';
 export { setLogMethod } from './logs';

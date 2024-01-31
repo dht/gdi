@@ -1,6 +1,6 @@
 import { IIsoStore } from '@gdi/store-iso';
 
-export const lights: Partial<IIsoStore> = {
+export const elements: Partial<IIsoStore> = {
   sceneLights: {
     d1: {
       id: 'd1',
@@ -41,6 +41,28 @@ export const lights: Partial<IIsoStore> = {
         intensity: 2,
       },
       isSticky: true,
+    },
+  },
+  sceneCameras: {
+    cam1: {
+      id: 'cam1',
+      type: 'arc',
+      values: {
+        alpha: 3.09,
+        beta: 1.54,
+        radius: 1.43,
+        fov: 0.3,
+      },
+    },
+    cam2: {
+      id: 'cam2',
+      type: 'arc',
+      values: {
+        alpha: 3.09,
+        beta: 1.54,
+        radius: 1.43,
+        fov: 0.3,
+      },
     },
   },
   sceneExternals: {

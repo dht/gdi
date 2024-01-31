@@ -43,7 +43,6 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
 
     for (item of Object.values(sceneMeshes ?? {})) {
       const mesh = addMesh(item as IMesh);
-
       if (hideBase && base.items.includes(item.id)) {
         mesh.isVisible = false;
       }

@@ -4,7 +4,7 @@ import { scene } from '../../../globals';
 import { getMeshInfo } from '../../../iso.utils';
 
 export var draggedObject: any = null;
-const ignoreItems = ['main-grid', 'center', 'env', 'skybox'];
+const ignoreItems = ['main-grid', 'center', 'env', 'skyboxMesh', 'stageMesh'];
 
 export function usePick(canvasRef: RefObject<HTMLCanvasElement>) {
   useEffect(() => {

@@ -61,6 +61,7 @@ export const initMaterialVideo = (material: IMaterial) => {
 export const initMaterialGrid = (material: IMaterial) => {
   const { id, values, alpha = 1 } = material;
 
+  // const output = new StandardMaterial(id!, scene as any);
   const output = new GridMaterial(id!, scene);
 
   for (let key in values) {

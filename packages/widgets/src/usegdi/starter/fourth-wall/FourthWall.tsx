@@ -28,7 +28,6 @@ export function FourthWall(props: FourthWallProps) {
   return (
     <Wrapper className='FourthWall-wrapper' data-testid='FourthWall-wrapper'>
       <Canvas>
-        <Stage src='/boards/assets/stage.png' />
         <Scene
           isLoading={false}
           showToolbox={false}
@@ -36,7 +35,6 @@ export function FourthWall(props: FourthWallProps) {
           hideBase
           environment={environment}
         />
-        <Mask src='/boards/assets/stage.png' />
       </Canvas>
       <BitPanel {...props} />
     </Wrapper>

@@ -95,29 +95,5 @@ export const defaultEnvironment: IEnvironment = {
     dofDarken: 0.25,
     blurNoise: false,
   },
-  shaders: [
-    {
-      id: 'basic',
-      path: '/shaders/basic',
-      params: {
-        screenSize: [5, 5],
-        highlightThreshold: 2,
-      },
-      samplers: [],
-      options: 0.25,
-      enabled: false,
-    },
-    {
-      id: 'toon',
-      path: '/shaders/toon',
-      params: {
-        screenSize: [1000, 1000],
-        outlineThreshold: 1,
-        highlightThreshold: 0.2,
-      },
-      samplers: [],
-      options: 0.25,
-      enabled: false,
-    },
-  ],
+  shaders: [],
 };
