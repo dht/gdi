@@ -17,6 +17,7 @@ import { initGizmos, removeGizmoListener } from '../../../iso.gizmos';
 import { attachListenerCamera } from '../../../iso.utils';
 import { stepThrottled } from '../../../utils/utils.effects';
 import { useEnvironment } from './useEnvironment';
+import { isMobile } from '../../../utils/utils.mobile';
 
 type Options = {
   isAdhoc?: boolean;
@@ -82,11 +83,15 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
 
     // onSceneReady
     scene.executeWhenReady(() => {
-      invokeEvent('scene/ready', {
-        scene,
-        isAdhoc,
-        autoHideExternals,
-      });
+      const delay = isMobile() ? 1000 : 0;
+
+      setTimeout(() => {
+        invokeEvent('scene/ready', {
+          scene,
+          isAdhoc,
+          autoHideExternals,
+        });
+      }, delay);
     });
 
     window.addEventListener('resize', () => {

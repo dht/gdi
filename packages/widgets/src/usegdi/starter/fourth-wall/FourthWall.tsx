@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
 import BitPanel from '../bit-panel/BitPanel';
 import { environment } from './FourthWall.environment';
-import { Canvas, Mask, Stage, Wrapper } from './FourthWall.style';
+import { Canvas, Wrapper } from './FourthWall.style';
 
 export type FourthWallProps = {
   waveTracks: MultitrackTracks;
