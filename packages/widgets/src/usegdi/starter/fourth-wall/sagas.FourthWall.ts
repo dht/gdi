@@ -1,19 +1,10 @@
-import { Scene, Vector3 } from '@babylonjs/core';
+import { Scene, Viewport } from '@babylonjs/core';
 import { actions } from '@gdi/store-iso';
-import {
-  addDecal,
-  addSubtitles,
-  applyConfig,
-  initDecalPaste,
-  prepareStage,
-  setActiveCameras,
-  setDecalPick,
-} from 'isokit2';
+import { addSubtitles, applyConfig, prepareStage, setActiveCameras } from 'isokit2';
 import { delay, put, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
 import { elements } from './data/data.elements';
-import { mouthShapes } from './data/data.mouthShapes';
-import { addSlider, initGui, setDecal } from './FourthWall.utils';
+import { isMobile } from '@gdi/ui';
 
 export function* onSceneReady(ev: any) {
   const scene: Scene = ev.data.scene;
@@ -29,12 +20,17 @@ export function* onSceneReady(ev: any) {
 
   yield delay(0);
   applyConfig(elements.sceneConfig);
-  yield delay(4000);
-
-  // addDecal(mouthShapes[1]);
+  yield delay(1400);
 
   scene.activeCamera?.detachControl();
-  // initDecalPaste('/boards/assets/mouth-set-3/mouth-shapes_e.png');
+
+  if (isMobile()) {
+    const cornerCam1 = scene.cameras.find((c) => c.id === 'cornerCam1');
+    const cornerCam2 = scene.cameras.find((c) => c.id === 'cornerCam2');
+    if (!cornerCam1 || !cornerCam2) return;
+    cornerCam1.viewport = new Viewport(0, 0.01, 0.3, 0.1);
+    cornerCam2.viewport = new Viewport(0.7, 0.01, 0.3, 0.1);
+  }
 }
 
 export function* root() {
