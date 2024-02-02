@@ -26,7 +26,7 @@ export const initMaterialColor = (material: IMaterial) => {
 
 export const initMaterialTexture = (material: IMaterial) => {
   const { values } = material;
-  const { textureUrl, uScale, vScale, hasAlpha, zOffset } = values ?? {};
+  const { textureUrl, uScale = 1, vScale = 1, hasAlpha, zOffset } = values ?? {};
 
   const output = initMaterialColor(material);
 

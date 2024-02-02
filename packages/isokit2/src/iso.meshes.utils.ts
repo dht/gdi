@@ -41,7 +41,9 @@ export const showMeshes = (ids: Json, hideOthers: boolean = false) => {
       .filter((m) => !base.all.includes(m.id))
       .filter((m) => !m.id.includes('skyboxMesh'))
       .filter((m) => !m.id.includes('stageMesh'))
+      .filter((m) => !m.id.includes('stage-maskMesh'))
       .filter((m) => !m.id.includes('_handler'))
+      .filter((m) => !m.id.includes('mouth'))
       .filter((m) => !m.id.startsWith('Object_'))
       .forEach((m) => {
         showMesh(m.id, false);

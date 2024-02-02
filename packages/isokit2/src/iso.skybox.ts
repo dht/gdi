@@ -7,6 +7,7 @@ import {
   Vector3,
 } from '@babylonjs/core';
 import { scene } from './globals';
+import { ISceneStage } from '@gdi/store-iso';
 import { setCamera } from './iso.camera';
 import { vector3, vectorRadians } from './iso.utils';
 
@@ -31,9 +32,9 @@ export const changeImage = (id: Id, url: string, showAndFocus?: boolean) => {
 };
 
 export const focusOnImage = () => {
-  setCamera('free');
+  setCamera('free', false);
 
-  const camera = scene.activeCamera as FreeCamera;
+  const camera = scene.cameras.find((c) => c.id === 'free') as FreeCamera;
 
   if (!camera) {
     return;
@@ -131,4 +132,13 @@ export const addStageMask = (url: string) => {
 
 export const changeStageMask = (url: string, showAndFocus?: boolean) => {
   changeImage('stage-mask', url, showAndFocus);
+};
+
+export const prepareStage = (stage: ISceneStage) => {
+  const { bkUrl, stageUrl, stageMaskUrl } = stage;
+
+  addSkyBox(bkUrl);
+  addStage(stageUrl);
+  addStageMask(stageMaskUrl);
+  focusOnSkyBox();
 };

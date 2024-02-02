@@ -37,6 +37,9 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
 
     scene.useRightHandedSystem = true;
 
+    // @ts-ignore
+    window['scene'] = scene;
+
     setCurrentScene(scene);
 
     if (!isAdhoc) {
@@ -56,7 +59,6 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
 
     if (arcCamera) {
       (arcCamera as ArcRotateCamera).upperRadiusLimit = 100;
-      arcCamera.attachControl(canvasRef.current, true);
       scene.activeCamera = arcCamera;
     }
 

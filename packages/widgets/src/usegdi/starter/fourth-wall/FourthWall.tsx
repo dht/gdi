@@ -21,7 +21,7 @@ export type FourthWallProps = {
     onAudio: (verb: string) => void;
     onBit: (verb: string) => void;
   };
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export function FourthWall(props: FourthWallProps) {

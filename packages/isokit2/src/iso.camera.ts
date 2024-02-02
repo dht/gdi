@@ -1,34 +1,55 @@
-import { ArcRotateCamera, Camera, FreeCamera, Vector3 } from '@babylonjs/core';
+import { ArcRotateCamera, Camera, FreeCamera, Vector3, Viewport } from '@babylonjs/core';
 import { CameraType, IArcConfig, ICamera, IFreeConfig } from '@gdi/store-iso';
 import { scene } from './globals';
 import { degreesToRadians, getCamera, getCameraInfo, radiansToDegrees, vector3 } from './iso.utils';
 import { invokeEvent } from 'shared-base';
 import { animateItem } from './iso.animations';
 
+export const applyValues = (camera: ArcRotateCamera | FreeCamera, values: Json) => {
+  const { fov, layerMask, viewport } = values ?? {};
+
+  if (fov) {
+    camera.fov = fov;
+  }
+
+  if (layerMask) {
+    camera.layerMask = layerMask;
+  }
+
+  if (viewport) {
+    camera.viewport = new Viewport(viewport[0], viewport[1], viewport[2], viewport[3]);
+  }
+
+  return camera;
+};
+
 export const addArcRotateCamera = (camera: ICamera) => {
-  const { id, values, target } = camera;
-  const { alpha = 1, beta = 1, radius = 1 } = values ?? {};
+  const { id, values = {}, target = [0, 0, 0] } = camera;
+  const { alpha = 1, beta = 1, radius = 1 } = values;
 
   const output = new ArcRotateCamera(
     id,
     degreesToRadians(alpha),
     degreesToRadians(beta),
     radius,
-    Vector3.Zero(),
+    vector3(target),
     scene
   );
 
-  if (target) {
-    output.setTarget(vector3(target));
-  }
+  applyValues(output, values);
 
   return output;
 };
 
 export const addFreeCamera = (camera: ICamera) => {
-  const { id, position, target } = camera;
+  const { id, position, target, values } = camera;
+  const { fov, layerMask, viewport } = values ?? {};
+
   const output = new FreeCamera(id, vector3(position), scene);
   output.setTarget(vector3(target));
+
+  applyValues(output, values);
+
   return output;
 };
 
@@ -47,8 +68,8 @@ export const map: Record<CameraType, any> = {
   free: addFreeCamera,
 };
 
-export const setCamera = (cameraId?: string) => {
-  if (!cameraId) {
+export const setCamera = (cameraId?: string, attachControl?: boolean) => {
+  if (!cameraId || cameraId === scene.activeCamera?.id) {
     return;
   }
 
@@ -64,7 +85,10 @@ export const setCamera = (cameraId?: string) => {
     return;
   }
 
-  nextCamera.attachControl();
+  if (attachControl) {
+    nextCamera.attachControl();
+  }
+
   scene.activeCamera = nextCamera;
 
   setTimeout(() => {
@@ -145,9 +169,15 @@ export const configFree = (config?: Partial<IFreeConfig>) => {
   }
 };
 
-export const switchCamera = () => {
+export const switchCamera = (attachControl?: boolean) => {
   const cameraId = scene.activeCamera?.id;
   const nextCameraId = cameraId === 'arc' ? 'free' : 'arc';
-  setCamera(nextCameraId);
+  setCamera(nextCameraId, attachControl);
   return nextCameraId;
+};
+
+export const setActiveCameras = (activeCameras: string[] = []) => {
+  const cameras = scene.cameras.filter((camera) => activeCameras.includes(camera.id));
+
+  scene.activeCameras = cameras;
 };

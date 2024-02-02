@@ -5,7 +5,7 @@ import { scene } from './globals';
 
 export const addParticle = (item: IParticle) => {
   const { identifier, position, values, url } = item;
-  const { size, speed, maxLifeTime, emitRate } = values;
+  const { size, speed, maxLifeTime, emitRate, gravity = [0.25, 1.5, 0], alpha = 1 } = values;
 
   var particleSystem = new ParticleSystem(identifier, 200, scene);
 
@@ -20,7 +20,7 @@ export const addParticle = (item: IParticle) => {
   particleSystem.emitRate = emitRate;
 
   // gravity
-  particleSystem.gravity = new Vector3(0.25, 1.5, 0);
+  particleSystem.gravity = vector3(gravity);
 
   // size gradient
   particleSystem.addSizeGradient(size * 0, size * 0.6, size * 1);
@@ -30,8 +30,8 @@ export const addParticle = (item: IParticle) => {
 
   particleSystem.addColorGradient(
     1.0,
-    new Color4(1 - 0.0, 1 - 0.0, 1 - 0.0, 1),
-    new Color4(1 - 0.03, 1 - 0.03, 1 - 0.03, 1)
+    new Color4(1 - 0.0, 1 - 0.0, 1 - 0.0, alpha),
+    new Color4(1 - 0.03, 1 - 0.03, 1 - 0.03, alpha)
   );
 
   const size2 = speed || size;

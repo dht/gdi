@@ -2,6 +2,7 @@ export type IIsoStore = {
   sceneState: ISceneState;
   sceneCurrentIds: ISceneCurrentIds;
   sceneConfig: ISceneConfig;
+  sceneStage?: ISceneStage;
   sceneCameras: ICameras;
   sceneLights: ILights;
   sceneBits: IBits;
@@ -12,6 +13,7 @@ export type IIsoStore = {
   sceneExternals: IExternals;
   sceneAudios: IAudios;
   sceneEffects: ISceneEffects;
+  sceneCharacters: ISceneCharacters;
 };
 
 export type LockMode = 'dot' | 'inBetween';
@@ -61,6 +63,8 @@ export type ISceneConfig = {
     arc: Partial<IArcConfig>;
     free: Partial<IFreeConfig>;
   };
+  activeCameras: string[];
+  isCharacterScene?: boolean;
 };
 
 export type ICameras = Record<string, ICamera>;
@@ -78,6 +82,7 @@ export type IBase = {
   isSticky?: boolean;
   enabled?: boolean;
   projectTag?: string;
+  layerMask?: number;
 };
 
 export type ICamera = IBase & {
@@ -110,6 +115,9 @@ export type IDecal = IBase & {
   values: {
     normal: IVector;
     destinationMeshId: string;
+    cullBackFaces?: boolean;
+    localMode?: boolean;
+    angle?: number;
   };
 };
 
@@ -157,6 +165,17 @@ export type IExternal = IBase & {
 
 export type IExternals = Record<string, IExternal>;
 
+export type ISceneCharacter = IExternal & {
+  animations: string[];
+  rootId: string;
+  meshId: string;
+  cornerFocus?: 'left' | 'right';
+  mouthDecal?: IDecal;
+  mouthShapeUrls?: Json;
+};
+
+export type ISceneCharacters = Record<string, ISceneCharacter>;
+
 export type IAudio = {
   id: string;
   timestamp: number;
@@ -166,6 +185,8 @@ export type IAudio = {
   values?: Json;
   isMain?: boolean;
   projectTag?: string;
+  balance?: number;
+  volume?: number;
 };
 
 export type IAudios = Record<string, IAudio>;
@@ -353,6 +374,12 @@ export type IParticle = IBase & {
     emitRate: number;
   };
   index?: number;
+};
+
+export type ISceneStage = {
+  bkUrl: string;
+  stageUrl: string;
+  stageMaskUrl: string;
 };
 
 export type IVASP = ISprite | IVideo | IMicroAnimation | IParticle;

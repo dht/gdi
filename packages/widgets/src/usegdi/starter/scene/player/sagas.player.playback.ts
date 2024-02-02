@@ -1,6 +1,6 @@
-import { actions, actions as actionsIso } from '@gdi/store-iso';
+import { actions, actions as actionsIso, selectors } from '@gdi/store-iso';
 import { detachGizmo, stopAllAnimations } from 'isokit2';
-import { cancel, fork, put, takeEvery } from 'saga-ts';
+import { cancel, fork, put, select, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../../helpers/channels/channel.customEvent';
 import {
   clearPlayedBits,
@@ -36,7 +36,11 @@ export function* onPause() {
 
   task = yield* fork(rootRefreshPosition);
   yield put(actionsIso.sceneState.patch({ isPlaying: false }));
-  stopAllAnimations();
+
+  const config = yield* select(selectors.raw.$rawSceneConfig);
+  if (!config.isCharacterScene) {
+    stopAllAnimations();
+  }
 }
 
 export function* root() {

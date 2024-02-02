@@ -7,10 +7,8 @@ import { guid4 } from 'shared-base';
 
 export const addDecal = (decal: IDecal, mesh?: any) => {
   const { id, material, position, scaling, values } = decal;
-  const { destinationMeshId } = values;
+  const { destinationMeshId, cullBackFaces, localMode, angle = 0 } = values;
   const { id: materialId } = material ?? {};
-
-  console.log('mesh ->', mesh);
 
   let existingDecal = scene.meshes.find((mesh) => mesh.id === id);
   const destMesh = mesh || scene.meshes.find((mesh) => mesh.id === destinationMeshId);
@@ -18,8 +16,6 @@ export const addDecal = (decal: IDecal, mesh?: any) => {
   if (existingDecal) {
     return existingDecal;
   }
-
-  console.log('destMesh ->', destMesh);
 
   if (!destMesh) {
     return null;
@@ -30,20 +26,14 @@ export const addDecal = (decal: IDecal, mesh?: any) => {
   if (!mat) {
     mat = initMaterialTexture(material!);
   }
-  var decalMaterial = new BABYLON.StandardMaterial('decalMat', scene);
-  decalMaterial.diffuseTexture = new BABYLON.Texture(
-    '/boards/assets/mouth-set-2/mouth-aei.png',
-    scene
-  );
-  decalMaterial.diffuseTexture.hasAlpha = true;
-  decalMaterial.zOffset = -2;
-
-  mat = decalMaterial;
 
   existingDecal = BABYLON.MeshBuilder.CreateDecal(id, destMesh, {
     position: vector3(position),
     normal: vector3(values.normal),
     size: vector3(scaling),
+    cullBackFaces,
+    localMode,
+    angle,
   });
 
   existingDecal.material = mat;
@@ -64,14 +54,11 @@ export const setDecalPick = (decal: IDecal) => {
     const { hit, pickedPoint, pickedMesh } = pickInfo;
     const normal = pickInfo.getNormal(true);
 
-    console.log('hit, pickedPoint, normal ->', hit, pickedPoint, normal);
-
     if (hit && pickedPoint && normal) {
       const newDecal = { ...decal };
       newDecal.id = guid4();
       newDecal.position = [pickedPoint.x, pickedPoint.y, pickedPoint.z];
       newDecal.values.normal = [normal.x, normal.y, normal.z];
-      console.log('123 ->', 123);
 
       addDecal(newDecal, pickedMesh);
     }

@@ -12,7 +12,6 @@ export function useRecorder(scene: any) {
     });
 
     const engine = scene.getEngine();
-    console.log('engine ->', engine);
 
     if (VideoRecorder.IsSupported(engine)) {
       const audioTracks = [];

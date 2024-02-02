@@ -17,10 +17,12 @@ import { saga as sagaClipSave } from './clip/sagas.clip.save';
 import { saga as sagaPlayerAnimation } from './player/sagas.player.animation';
 import { saga as sagaPlayerAudio } from './player/sagas.player.audio';
 import { saga as sagaPlayerBootstrap } from './player/sagas.player.bootstrap';
+import { saga as sagaPlayerCharacters } from './player/sagas.player.characters';
 import { saga as sagaPlayerEffects } from './player/sagas.player.effects';
 import { saga as sagaPlayerPlayback } from './player/sagas.player.playback';
 import { saga as sagaPlayerPreloadImages } from './player/sagas.player.preloadImages';
 import { saga as sagaPlayerSetPiece } from './player/sagas.player.setPiece';
+import { saga as sagaPlayerSubtitles } from './player/sagas.player.subtitles';
 import { saga as sagaPlayerTime } from './player/sagas.player.time';
 import { saga as sagaSceneBootstrap } from './scene/sagas.scene.bootstrap';
 import { saga as sagaSceneElements } from './scene/sagas.scene.elements';
@@ -51,10 +53,12 @@ export const sagas = {
   'widgets.player.animation': sagaPlayerAnimation,
   'widgets.player.audio': sagaPlayerAudio,
   'widgets.player.bootstrap': sagaPlayerBootstrap,
+  'widgets.player.characters': sagaPlayerCharacters,
   'widgets.player.effects': sagaPlayerEffects,
   'widgets.player.playback': sagaPlayerPlayback,
   'widgets.player.preloadImages': sagaPlayerPreloadImages,
   'widgets.player.setPiece': sagaPlayerSetPiece,
+  'widgets.player.subtitles': sagaPlayerSubtitles,
   'widgets.player.time': sagaPlayerTime,
   'widgets.scene.bootstrap': sagaSceneBootstrap,
   'widgets.scene.elements': sagaSceneElements,

@@ -4,7 +4,7 @@ import { invokeEvent } from 'shared-base';
 
 var draggedObject: any = null;
 var startingPoint: any = null;
-const ignoreItems = ['main-grid', 'center', 'env', 'skyboxMesh', 'stageMesh'];
+const ignoreItems = ['main-grid', 'center', 'env', 'skyboxMesh', 'stageMesh', 'stage-maskMesh'];
 
 export function useMoveMesh(canvasRef: RefObject<HTMLCanvasElement>, on?: boolean) {
   useEffect(() => {

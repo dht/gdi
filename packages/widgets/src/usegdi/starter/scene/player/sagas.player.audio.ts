@@ -3,8 +3,10 @@ import { playSound, stopSound } from '@gdi/ui';
 import { fork, put, select, takeEvery } from 'saga-ts';
 import { customEvenChannelThrottled } from '../../../../helpers/channels/channel.customEvent';
 import { clearLog, log } from '../_helpers/helper.logs';
+import { invokeEvent } from 'shared-base';
 
-export let playedAudios: Json = {};
+export let playedAudios: Json = {},
+  playedSpeech: Json = {};
 
 export function* clearedPlayedAudios() {
   clearLog();
@@ -12,6 +14,7 @@ export function* clearedPlayedAudios() {
   const audios = yield* select(selectors.base.$audios);
   // log('bit', 'clearedPlayedAudios', audios);
   playedAudios = {};
+  playedSpeech = {};
 }
 
 export function* onCheckAudio(ev: any) {
@@ -26,12 +29,27 @@ export function* onCheckAudio(ev: any) {
 
   const { id: audioId, url } = audio;
 
-  // log(`${audioId}`, `identified`);
-
   playedAudios[audioId] = true;
   yield put(actions.sceneCurrentIds.patch({ audioId }));
 
   playSound(url);
+}
+
+export function* onCheckSpeech(ev: any) {
+  const { data } = ev;
+  const { currentTime } = data;
+
+  const speech = yield* select(selectors.animation.$speechForAnimation, currentTime);
+
+  if (!speech || playedSpeech[speech.id]) {
+    return;
+  }
+
+  const { id: speechId } = speech;
+
+  playedAudios[speechId] = true;
+
+  invokeEvent('clip/speech', { speech });
 }
 
 export function* onMoveWhilePaused() {
@@ -51,6 +69,9 @@ export function* root() {
 
   channel = customEvenChannelThrottled('waveform/timeupdate', 90);
   yield takeEvery(channel, onCheckAudio);
+
+  channel = customEvenChannelThrottled('waveform/timeupdate', 90);
+  yield takeEvery(channel, onCheckSpeech);
 
   channel = customEvenChannelThrottled('waveform/timeupdate', 90);
   yield takeEvery(channel, onMoveWhilePaused);

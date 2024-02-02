@@ -41,8 +41,8 @@ export const cacheAmbience = (id: string, audioUrl: string) => {
   cache[id] = new Audio(audioUrl);
 };
 
-export const playSound = (audioUrl: string): Promise<PlayAudioResponse> => {
-  return playBase({ url: audioUrl, isAmbience: false });
+export const playSound = (audioUrl: string, balance?: boolean): Promise<PlayAudioResponse> => {
+  return playBase({ url: audioUrl, isAmbience: false, balance });
 };
 
 export const playSfxByUrl = (assetPath: string): Promise<PlayAudioResponse> => {
@@ -80,10 +80,11 @@ type PlayOptions = {
   url: string;
   id?: string;
   isAmbience?: boolean;
+  balance?: number;
 };
 
 export const playBase = (options: PlayOptions): Promise<PlayAudioResponse> => {
-  const { url, id = url, isAmbience } = options;
+  const { url, id = url, isAmbience, balance = 0 } = options;
 
   return new Promise((resolve) => {
     const audio = cache[id] || new Audio(url);

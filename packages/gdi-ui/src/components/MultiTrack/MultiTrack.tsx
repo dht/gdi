@@ -34,7 +34,6 @@ export function MultiTrack(props: MultiTrackProps) {
         <Content>
           <Audio ref={divRef}></Audio>
         </Content>
-
         <MobileLayer />
       </Row>
     </Wrapper>

@@ -33,7 +33,7 @@ export const Fps = styled.div`
   text-align: center;
   font-size: 16rem;
   color: #dfd;
-  bottom: 250px;
+  bottom: 270px;
   padding: 3rem 10rem;
   left: 10rem;
   border-radius: 10rem;
@@ -48,7 +48,7 @@ export const BitName = styled.div`
   text-align: center;
   font-size: 16rem;
   color: #dfd;
-  bottom: 225px;
+  bottom: 244px;
   padding: 3rem 10rem;
   left: 10rem;
   border-radius: 10rem;

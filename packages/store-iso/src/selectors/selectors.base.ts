@@ -15,7 +15,17 @@ export const $elements = createSelector(
   raw.$rawScenePacks,
   raw.$rawSceneVASPs,
   raw.$rawSceneCameras,
-  (tag, sceneLights, sceneExternals, sceneMeshes, scenePacks, sceneVASPs, sceneCameras) => {
+  raw.$rawSceneCharacters,
+  (
+    tag,
+    sceneLights,
+    sceneExternals,
+    sceneMeshes,
+    scenePacks,
+    sceneVASPs,
+    sceneCameras,
+    sceneCharacters
+  ) => {
     return {
       sceneLights: pickByField(sceneLights, 'projectTag', tag, true),
       sceneExternals: pickByField(sceneExternals, 'projectTag', tag, true),
@@ -23,6 +33,7 @@ export const $elements = createSelector(
       scenePacks: pickByField(scenePacks, 'projectTag', tag, true),
       sceneVASPs: pickByField(sceneVASPs, 'projectTag', tag, true),
       sceneCameras: pickByField(sceneCameras, 'projectTag', tag, true),
+      sceneCharacters: pickByField(sceneCharacters, 'projectTag', tag, true),
     };
   }
 );
