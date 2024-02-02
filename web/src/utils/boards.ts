@@ -47,7 +47,7 @@ export const parseHash = (hash: string): IHashInfo => {
     dbType: 'none',
   };
 
-  const [boardDbPath = '', boardDbTag = ''] = hash.replace(/^#/, '').split('|');
+  const [boardDbPath = '', boardDbTag = ''] = hash.replace(/^#/, '').split(/\||%7C/);
 
   if (!boardDbPath) {
     output.boardDbTag = boardDbTag;
