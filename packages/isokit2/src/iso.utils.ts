@@ -106,7 +106,7 @@ export const getMesh = (id: string) => {
 export const applyKeyframe = (elementId: string, keyframe: IKeyframe) => {
   const element: any = getElement(elementId);
 
-  if (!element) {
+  if (!element || element.id === 'cornerCam1' || element.id === 'cornerCam2') {
     return;
   }
 

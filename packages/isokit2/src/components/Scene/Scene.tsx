@@ -11,6 +11,8 @@ import { useMoveMesh } from './hooks/useMove';
 import { usePick } from './hooks/usePick';
 import { usePostEffect } from './hooks/usePostEffect';
 import { useScene } from './hooks/useScene';
+import { useSceneEmpty } from './hooks/useScene.empty';
+import { useRecorder } from './hooks/useRecorder';
 
 export type SceneProps = {
   isLoading?: boolean;
@@ -42,7 +44,7 @@ export function Scene(props: SceneProps) {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  useScene(canvasRef, elements, {
+  const currentScene = useScene(canvasRef, elements, {
     hideBase,
     disableGizmos,
     environment,
@@ -55,6 +57,7 @@ export function Scene(props: SceneProps) {
   usePostEffect(adhocEffect);
   useArc();
   useHome();
+  useRecorder(currentScene);
 
   function renderToolboxes() {
     if (!showToolbox || !props.onToolbox) {

@@ -33,11 +33,12 @@ export function Controls(props: ControlsProps) {
 
   function renderPlayButton() {
     const iconName = isPlaying ? 'pause' : 'play_arrow';
+    const color = isPlaying ? '' : 'gold';
     const callback = isPlaying ? props.onPause : props.onPlay;
 
     return (
       <Button onClick={callback}>
-        <Icon name={iconName} />
+        <Icon name={iconName} color={color} />
       </Button>
     );
   }

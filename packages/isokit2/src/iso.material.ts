@@ -26,7 +26,7 @@ export const initMaterialColor = (material: IMaterial) => {
 
 export const initMaterialTexture = (material: IMaterial) => {
   const { values } = material;
-  const { textureUrl, uScale, vScale, hasAlpha, zOffset } = values ?? {};
+  const { textureUrl, uScale = 1, vScale = 1, hasAlpha, zOffset } = values ?? {};
 
   const output = initMaterialColor(material);
 
@@ -61,6 +61,7 @@ export const initMaterialVideo = (material: IMaterial) => {
 export const initMaterialGrid = (material: IMaterial) => {
   const { id, values, alpha = 1 } = material;
 
+  // const output = new StandardMaterial(id!, scene as any);
   const output = new GridMaterial(id!, scene);
 
   for (let key in values) {

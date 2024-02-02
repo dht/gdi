@@ -365,6 +365,13 @@ export const sagas: ISagas = {
       eventNames: ['scene/ready'],
     },
   },
+  'widgets.player.characters': {
+    id: 'widgets.player.characters',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['clip/speech'],
+    },
+  },
   'widgets.player.effects': {
     id: 'widgets.player.effects',
     type: 'customEvent',
@@ -391,6 +398,13 @@ export const sagas: ISagas = {
     type: 'customEvent',
     trigger: {
       eventNames: ['waveform/timeupdate'],
+    },
+  },
+  'widgets.player.subtitles': {
+    id: 'widgets.player.subtitles',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['clip/speech'],
     },
   },
   'widgets.player.time': {

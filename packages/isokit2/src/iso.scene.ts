@@ -1,11 +1,11 @@
 import { ISceneConfig } from '@gdi/store-iso';
 import { scene } from './globals';
-import { configArc, configFree } from './iso.camera';
+import { configArc, configFree, setActiveCameras } from './iso.camera';
 import { configSun } from './iso.light.utils';
 import { color4 } from './iso.utils';
 
 export const applyConfig = (config: ISceneConfig) => {
-  const { backgroundColor, cameras, sun } = config;
+  const { backgroundColor, cameras, sun, activeCameras } = config;
 
   if (backgroundColor) {
     scene.clearColor = color4(backgroundColor);
@@ -19,4 +19,6 @@ export const applyConfig = (config: ISceneConfig) => {
 
   configArc(arc);
   configFree(free);
+
+  setActiveCameras(activeCameras);
 };

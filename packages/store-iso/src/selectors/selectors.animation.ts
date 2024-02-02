@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import * as raw from './selectors.raw';
 import * as base from './selectors.base';
-import { IBit, IDot } from '../types.iso';
+import { IBit, IDot, Json } from '../types.iso';
 import { calcVirtualDot, findVirtualDotInBit } from '../utils/bits';
 
 export const $bitForAnimation = createSelector(
@@ -28,6 +28,17 @@ export const $audioForAnimation = createSelector(
     return audios.find((audio) => {
       const { start } = audio;
       const delta = currentTime - start;
+      return delta > 0 && delta < 0.1;
+    });
+  }
+);
+
+export const $speechForAnimation = createSelector(
+  [raw.$rawTranscriptLines, (_state, currentTime) => currentTime],
+  (transcriptLines, currentTime) => {
+    return Object.values(transcriptLines).find((transcriptLine: any) => {
+      const { timestamp } = transcriptLine;
+      const delta = currentTime - timestamp;
       return delta > 0 && delta < 0.1;
     });
   }

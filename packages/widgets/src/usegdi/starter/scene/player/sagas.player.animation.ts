@@ -30,6 +30,7 @@ export function* onCheckAnimation(ev: any) {
   const { currentTime } = data;
 
   const bit = yield* select(selectors.animation.$bitForAnimation, currentTime);
+  const config = yield* select(selectors.raw.$rawSceneConfig);
 
   if (!bit || playedBits[bit.id]) {
     return;
@@ -46,7 +47,9 @@ export function* onCheckAnimation(ev: any) {
 
   // log(`${bitId}`, `identified`, { elements, duration });
 
-  stopAllAnimations();
+  if (!config.isCharacterScene) {
+    stopAllAnimations();
+  }
 
   playedBits[bitId] = true;
 

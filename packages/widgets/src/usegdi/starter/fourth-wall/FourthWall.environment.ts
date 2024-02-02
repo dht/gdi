@@ -3,7 +3,7 @@ import { defaultEnvironment } from 'isokit2';
 
 export const environment: IEnvironment = {
   ...defaultEnvironment,
-  hdr: true,
+  hdr: false,
   createDefault: false,
   createSkybox: false,
   imageProcessing: {

@@ -5,16 +5,16 @@ import { vector3 } from './iso.utils';
 import { initMaterialTexture } from './iso.material';
 import { guid4 } from 'shared-base';
 
-export const addDecal = (decal: IDecal, dim: Json) => {
+export const addDecal = (decal: IDecal, mesh?: any) => {
   const { id, material, position, scaling, values } = decal;
-  const { destinationMeshId } = values;
+  const { destinationMeshId, cullBackFaces, localMode, angle = 0 } = values;
   const { id: materialId } = material ?? {};
 
-  let output = scene.meshes.find((mesh) => mesh.id === id);
-  const destMesh = scene.meshes.find((mesh) => mesh.id === destinationMeshId);
+  let existingDecal = scene.meshes.find((mesh) => mesh.id === id);
+  const destMesh = mesh || scene.meshes.find((mesh) => mesh.id === destinationMeshId);
 
-  if (output) {
-    return output;
+  if (existingDecal) {
+    return existingDecal;
   }
 
   if (!destMesh) {
@@ -26,21 +26,18 @@ export const addDecal = (decal: IDecal, dim: Json) => {
   if (!mat) {
     mat = initMaterialTexture(material!);
   }
-  var decalMaterial = new BABYLON.StandardMaterial('decalMat', scene);
-  decalMaterial.diffuseTexture = new BABYLON.Texture('/glbs/mouth-set-2/mouth-aei.png', scene);
-  decalMaterial.diffuseTexture.hasAlpha = true;
-  decalMaterial.zOffset = -2;
 
-  mat = decalMaterial;
-
-  output = BABYLON.MeshBuilder.CreateDecal(id, destMesh, {
+  existingDecal = BABYLON.MeshBuilder.CreateDecal(id, destMesh, {
     position: vector3(position),
     normal: vector3(values.normal),
     size: vector3(scaling),
+    cullBackFaces,
+    localMode,
+    angle,
   });
 
-  output.material = mat;
-  return output;
+  existingDecal.material = mat;
+  return existingDecal;
 };
 
 export const setDecalPick = (decal: IDecal) => {
@@ -54,7 +51,7 @@ export const setDecalPick = (decal: IDecal) => {
       return true; ///mesh === cat;
     });
 
-    const { hit, pickedPoint } = pickInfo;
+    const { hit, pickedPoint, pickedMesh } = pickInfo;
     const normal = pickInfo.getNormal(true);
 
     if (hit && pickedPoint && normal) {
@@ -62,7 +59,8 @@ export const setDecalPick = (decal: IDecal) => {
       newDecal.id = guid4();
       newDecal.position = [pickedPoint.x, pickedPoint.y, pickedPoint.z];
       newDecal.values.normal = [normal.x, normal.y, normal.z];
-      addDecal(newDecal, newDecal);
+
+      addDecal(newDecal, pickedMesh);
     }
   };
 

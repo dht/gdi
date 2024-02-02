@@ -156,6 +156,8 @@ export function* startReview(_action: Action, board: IBoard) {
 export function* showIntroModal(_action: Action, board: IBoard) {
   const { id, boardInfo } = board;
 
+  return;
+
   const appState = yield* select(selectors.raw.$rawAppState);
   const { assetsRootUrl } = appState;
 

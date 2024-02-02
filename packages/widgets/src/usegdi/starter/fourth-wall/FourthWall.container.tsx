@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from '@gdi/store-base';
-import React, { useMemo } from 'react';
-import { FourthWall } from './FourthWall';
-import { useSaga, useSagas } from '../../../helpers/useSaga';
-import { useBlackBk } from '@gdi/ui';
 import { selectors } from '@gdi/store-iso';
-import DynamicTimelineContainer from '../bit-builder/_parts/DynamicTimeline/DynamicTimeline.container';
+import { useBlackBk } from '@gdi/ui';
+import { useMemo } from 'react';
+import { useSagas } from '../../../helpers/useSaga';
 import BitTimelineContainer from '../bit-builder/_parts/BitTimeline/BitTimeline.container';
 import DotTimelineContainer from '../bit-builder/_parts/DotTimeline/DotTimeline.container';
+import DynamicTimelineContainer from '../bit-builder/_parts/DynamicTimeline/DynamicTimeline.container';
+import { FourthWall } from './FourthWall';
 
 export type FourthWallContainerProps = {};
 
@@ -26,6 +26,18 @@ export function FourthWallContainer(_props: FourthWallContainerProps) {
   useSagas([
     'widgets.fourthWall', //
     'widgets.3d.selection',
+    'widgets.scene.bootstrap',
+    'widgets.clip.bootstrap',
+    'widgets.player.audio',
+    'widgets.player.animation',
+    'widgets.player.bits',
+    'widgets.player.bootstrap',
+    'widgets.player.characters',
+    'widgets.player.effects',
+    'widgets.player.playback',
+    'widgets.player.subtitles',
+    'widgets.player.time',
+    'widgets.player.preloadImages',
   ]);
 
   const callbacks = useMemo(
@@ -64,6 +76,7 @@ export function FourthWallContainer(_props: FourthWallContainerProps) {
       callbacks={callbacks}
       timelines={[DynamicTimelineContainer, BitTimelineContainer, DotTimelineContainer]}
       state={sceneState}
+      hideBase={true}
     />
   );
 }

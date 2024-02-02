@@ -3,18 +3,17 @@ import { green100, green200, green400, green900b } from '../data/data.colors';
 import * as raw from './selectors.raw';
 import { get } from 'lodash';
 
-export const $musicUrl = createSelector(raw.$rawSceneAudios, (audios) => {
-  const mainAudio = Object.values(audios).filter((audio) => audio.isMain);
-  return get(mainAudio, '[0].url') ?? '/silence.mp3';
+export const $mainAudio = createSelector(raw.$rawSceneAudios, (audios) => {
+  return Object.values(audios).filter((audio) => audio.isMain)[0];
 });
 
-export const $tracks = createSelector(raw.$rawAppState, $musicUrl, (appState, musicUrl) => {
+export const $tracks = createSelector(raw.$rawAppState, $mainAudio, (appState, mainAudio) => {
   const { assetsRootUrl } = appState;
 
-  let url = musicUrl;
+  let { url, volume, balance } = mainAudio ?? {};
 
   if (!url.includes('http')) {
-    url = `${assetsRootUrl}${musicUrl}`;
+    url = `${assetsRootUrl}${url}`;
   }
 
   return [
@@ -29,6 +28,8 @@ export const $tracks = createSelector(raw.$rawAppState, $musicUrl, (appState, mu
       },
       markers: [],
       url,
+      volume,
+      balance,
     },
   ];
 });

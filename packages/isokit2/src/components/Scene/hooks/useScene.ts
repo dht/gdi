@@ -9,14 +9,14 @@ import {
 } from '@babylonjs/core';
 import { IEnvironment, IIsoStore } from '@gdi/store-iso';
 import { throttle } from 'lodash';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { invokeEvent } from 'shared-base';
 import { setArcCamera, setGround, setMainCamera, setScene } from '../../../globals';
 import { addElements } from '../../../iso.elements';
 import { initGizmos, removeGizmoListener } from '../../../iso.gizmos';
 import { attachListenerCamera } from '../../../iso.utils';
+import { stepThrottled } from '../../../utils/utils.effects';
 import { useEnvironment } from './useEnvironment';
-import { step, stepThrottled } from '../../../utils/utils.effects';
 
 type Options = {
   isAdhoc?: boolean;
@@ -28,6 +28,7 @@ type Options = {
 
 export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: Options) {
   const { isAdhoc, disableGizmos, hideBase, environment, autoHideExternals } = options;
+  const [currentScene, setCurrentScene] = useState<any>();
 
   useEffect(() => {
     const engine = new Engine(canvasRef.current, true);
@@ -35,6 +36,11 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
     const utilLayer = new UtilityLayerRenderer(scene);
 
     scene.useRightHandedSystem = true;
+
+    // @ts-ignore
+    window['scene'] = scene;
+
+    setCurrentScene(scene);
 
     if (!isAdhoc) {
       setScene(scene);
@@ -53,7 +59,6 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
 
     if (arcCamera) {
       (arcCamera as ArcRotateCamera).upperRadiusLimit = 100;
-      arcCamera.attachControl(canvasRef.current, true);
       scene.activeCamera = arcCamera;
     }
 
@@ -75,18 +80,8 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
       div.innerHTML = engine.getFps().toFixed() + ' fps';
     }, 100);
 
-    // Start the engine
-    engine.runRenderLoop(() => {
-      if (!scene) return;
-      scene.render();
-      updateFps();
-
-      // scene time
-      stepThrottled();
-    });
-
     // onSceneReady
-    scene.onReadyObservable.addOnce(() => {
+    scene.executeWhenReady(() => {
       invokeEvent('scene/ready', {
         scene,
         isAdhoc,
@@ -94,14 +89,19 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
       });
     });
 
-    invokeEvent('scene/ready', {
-      scene,
-      isAdhoc,
-      autoHideExternals,
-    });
-
     window.addEventListener('resize', () => {
       engine.resize();
+    });
+
+    // Start the engine
+    engine.runRenderLoop(() => {
+      if (!scene) return;
+
+      scene.render();
+      updateFps();
+
+      // scene time
+      stepThrottled();
     });
 
     return () => {
@@ -114,4 +114,6 @@ export function useScene(canvasRef: any, elements: Partial<IIsoStore>, options: 
   }, []);
 
   useEnvironment(environment);
+
+  return currentScene;
 }

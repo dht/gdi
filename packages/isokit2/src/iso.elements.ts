@@ -6,9 +6,10 @@ import {
   ILight,
   IMesh,
   IPack,
+  ISceneCharacter,
   IVASP,
 } from '@gdi/store-iso';
-import { initCamera } from './iso.camera';
+import { initCamera, setActiveCameras } from './iso.camera';
 import { addExternal, addRemoteMesh } from './iso.externals.add';
 import { removeExternal } from './iso.externals.utils';
 import { addLight } from './iso.light.add';
@@ -19,15 +20,24 @@ import { base } from './base';
 import { addVASP } from './iso.vasps';
 import { addPack } from './iso.sprites';
 import { removeMesh } from './iso.meshes.utils';
+import { addCharacter } from './iso.characters';
 
 type Options = {
   hideBase?: boolean;
   autoHideExternals?: boolean;
+  activeCameras?: string[];
 };
 
 export const addElements = (elements: Partial<IIsoStore>, options: Options = {}) => {
-  const { sceneCameras, sceneMeshes, sceneLights, sceneExternals, sceneVASPs, scenePacks } =
-    elements;
+  const {
+    sceneCameras,
+    sceneMeshes,
+    sceneLights,
+    sceneExternals,
+    sceneCharacters,
+    sceneVASPs,
+    scenePacks,
+  } = elements;
   const { hideBase, autoHideExternals } = options;
 
   let item;
@@ -43,7 +53,6 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
 
     for (item of Object.values(sceneMeshes ?? {})) {
       const mesh = addMesh(item as IMesh);
-
       if (hideBase && base.items.includes(item.id)) {
         mesh.isVisible = false;
       }
@@ -51,6 +60,10 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
 
     for (item of Object.values(sceneExternals ?? {})) {
       addExternal(item as IExternal, autoHideExternals);
+    }
+
+    for (item of Object.values(sceneCharacters ?? {})) {
+      addCharacter(item as ISceneCharacter);
     }
 
     for (item of Object.values(scenePacks ?? {})) {

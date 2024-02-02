@@ -1,70 +1,40 @@
-import { ArcRotateCamera, HemisphericLight, Scene, SceneLoader, Vector3 } from '@babylonjs/core';
-import { IDecal, actions } from '@gdi/store-iso';
-import { addDecal, addElements, addRemoteScene, setDecalPick } from 'isokit2';
-import { call, put, takeEvery } from 'saga-ts';
+import { Scene, Vector3 } from '@babylonjs/core';
+import { actions } from '@gdi/store-iso';
+import {
+  addDecal,
+  addSubtitles,
+  applyConfig,
+  initDecalPaste,
+  prepareStage,
+  setActiveCameras,
+  setDecalPick,
+} from 'isokit2';
+import { delay, put, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
+import { elements } from './data/data.elements';
 import { mouthShapes } from './data/data.mouthShapes';
-import { lights } from './data/data.niceLights';
-
-const shapes: any = {};
+import { addSlider, initGui, setDecal } from './FourthWall.utils';
 
 export function* onSceneReady(ev: any) {
   const scene: Scene = ev.data.scene;
 
-  const meshIds = scene.meshes.map((mesh: any) => mesh.id);
+  setActiveCameras(['free']);
 
-  const camera = scene.activeCamera as ArcRotateCamera;
-  // camera.mode = Camera.ORTHOGRAPHIC_CAMERA;
+  let mainCamera = scene.cameras.find((c) => c.id === 'free');
+  if (!mainCamera) return;
 
-  if (!camera) {
-    return;
-  }
+  addSubtitles(mainCamera);
 
-  camera.target = new Vector3(0, 0.2, 0);
-  // camera.target = new Vector3(0, 2, 0);
-  camera.radius = 1 * 13;
-  // camera.beta = 1.2;
-  camera.alpha = (Math.PI / 4) * 3;
-  camera.beta = (Math.PI / 4) * 1.8;
+  prepareStage(elements.sceneStage);
 
-  addElements(lights);
+  yield delay(0);
+  applyConfig(elements.sceneConfig);
+  yield delay(4000);
 
-  const allLights = scene.lights;
+  // addDecal(mouthShapes[1]);
 
-  SceneLoader.OnPluginActivatedObservable.add(function (loader: any) {
-    if (loader.name === 'gltf') {
-      // loader.animationStartMode = 3;
-    }
-  });
-
-  const sun = allLights.find((l) => l.id === 'sun') as HemisphericLight;
-  sun.dispose();
-
-  const { meshes, animationGroups } = yield* call(addRemoteScene, {
-    id: 'basic',
-    meshNames: '',
-    rootUrl: '/boards/assets/',
-    fileName: 'basic.glb',
-  });
-
-  yield* call(addRemoteScene, {
-    id: 'basic',
-    meshNames: '',
-    rootUrl: '/boards/assets/',
-    fileName: 'phil.obj',
-  });
-
-  const ids = meshes.map((mesh: any) => mesh.id);
-
-  animationGroups[1].play(true);
-
-  // mouthShapes.forEach((decal: IDecal) => {
-  //   const { id } = decal;
-  //   const shape = addDecal(decal);
-  //   shapes[id] = shape;
-  // });
-
-  // setDecalPick(mouthShapes[0]);
+  scene.activeCamera?.detachControl();
+  // initDecalPaste('/boards/assets/mouth-set-3/mouth-shapes_e.png');
 }
 
 export function* root() {

@@ -24,9 +24,15 @@ const map: Record<Verb, any> = {
 };
 
 export function* previous(_action: Action, bit: IBit) {
+  const config = yield* select(selectors.raw.$rawSceneConfig);
+
   yield* fork(clearPlayedBits);
   yield* fork(clearPlayedAudios);
-  stopAllAnimations();
+
+  if (!config.isCharacterScene) {
+    stopAllAnimations();
+  }
+
   invokeEvent('waveform/seek', { value: 0 });
 }
 

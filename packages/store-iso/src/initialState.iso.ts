@@ -51,6 +51,7 @@ export const initialState: IIsoStore = {
       free: {},
     },
     sun: {},
+    activeCameras: ['free', 'cornerCam1', 'cornerCam2'],
   },
   sceneCameras: {
     free: {
@@ -135,4 +136,5 @@ export const initialState: IIsoStore = {
       fileName: 'tree2.glb',
     },
   },
+  sceneCharacters: {},
 };
