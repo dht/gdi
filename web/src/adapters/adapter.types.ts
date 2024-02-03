@@ -1,4 +1,4 @@
-import { IBoard } from 'igrid';
+import { IBoard } from '@gdi/store-base';
 import type { Action, ActionInfo, HandleMethod } from 'redux-connected';
 import { DataProvider } from 'redux-connected';
 import { Json } from '../types';

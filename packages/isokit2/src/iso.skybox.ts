@@ -83,6 +83,7 @@ export const addImage = (id: Id, url: string) => {
   const material = new StandardMaterial(id + 'Material', scene);
 
   material.diffuseColor = new Color3(255, 255, 255);
+  material.specularColor = new Color3(0, 0, 0);
   material.backFaceCulling = false;
 
   image.rotation = new Vector3(0, 0, 0);
