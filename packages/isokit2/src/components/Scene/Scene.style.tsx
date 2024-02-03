@@ -48,4 +48,6 @@ export const Loading = styled.div`
   justify-content: center;
   font-size: 14px;
   color: white;
+  padding: 0 10px;
+  border-radius: 10px;
 `;
