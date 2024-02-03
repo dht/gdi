@@ -22,6 +22,21 @@ export const initialState: IIsoStore = {
     currentAudioTimestamp: 10,
     currentAttachmentUrl: '',
   },
+  sceneAssetLoader: {
+    urls: [],
+    isLoading: false,
+    fileSizes: {},
+    completedBytes: {},
+    isReady: false,
+    bytesCompleted: 0,
+    bytesTotal: 0,
+    percent: 0,
+  },
+  sceneStage: {
+    bkUrl: '',
+    stageMaskUrl: '',
+    stageUrl: '',
+  },
   sceneCurrentIds: {
     projectTag: '',
     cameraId: 'arc',

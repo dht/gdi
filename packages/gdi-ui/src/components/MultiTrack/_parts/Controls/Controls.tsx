@@ -36,8 +36,10 @@ export function Controls(props: ControlsProps) {
     const color = isPlaying ? '' : 'gold';
     const callback = isPlaying ? props.onPause : props.onPlay;
 
+    const style: React.CSSProperties = {};
+
     return (
-      <Button onClick={callback}>
+      <Button onClick={callback} style={style}>
         <Icon name={iconName} color={color} />
       </Button>
     );

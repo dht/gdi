@@ -19,6 +19,7 @@ import { saga as sagaPlayerAudio } from './player/sagas.player.audio';
 import { saga as sagaPlayerBootstrap } from './player/sagas.player.bootstrap';
 import { saga as sagaPlayerCharacters } from './player/sagas.player.characters';
 import { saga as sagaPlayerEffects } from './player/sagas.player.effects';
+import { saga as sagaPlayerLoader } from './player/sagas.player.loader';
 import { saga as sagaPlayerPlayback } from './player/sagas.player.playback';
 import { saga as sagaPlayerPreloadImages } from './player/sagas.player.preloadImages';
 import { saga as sagaPlayerSetPiece } from './player/sagas.player.setPiece';
@@ -55,6 +56,7 @@ export const sagas = {
   'widgets.player.bootstrap': sagaPlayerBootstrap,
   'widgets.player.characters': sagaPlayerCharacters,
   'widgets.player.effects': sagaPlayerEffects,
+  'widgets.player.loader': sagaPlayerLoader,
   'widgets.player.playback': sagaPlayerPlayback,
   'widgets.player.preloadImages': sagaPlayerPreloadImages,
   'widgets.player.setPiece': sagaPlayerSetPiece,

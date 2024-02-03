@@ -7,6 +7,8 @@ import BitTimelineContainer from '../bit-builder/_parts/BitTimeline/BitTimeline.
 import DotTimelineContainer from '../bit-builder/_parts/DotTimeline/DotTimeline.container';
 import DynamicTimelineContainer from '../bit-builder/_parts/DynamicTimeline/DynamicTimeline.container';
 import { FourthWall } from './FourthWall';
+import { useMount } from 'react-use';
+import { invokeEvent } from 'shared-base';
 
 export type FourthWallContainerProps = {};
 
@@ -19,6 +21,9 @@ export function FourthWallContainer(_props: FourthWallContainerProps) {
   const waveTracks = useSelector(selectors.wave.$tracks);
   const waveOptions = useSelector(selectors.wave.$options);
   const elementLabels = useSelector(selectors.base.$elementLabels);
+  const elements = useSelector(selectors.base.$elements);
+  const assetLoader = useSelector(selectors.preload.$assetLoader);
+
   const { bitId, dotId } = currentIds;
 
   useBlackBk();
@@ -34,11 +39,16 @@ export function FourthWallContainer(_props: FourthWallContainerProps) {
     'widgets.player.bootstrap',
     'widgets.player.characters',
     'widgets.player.effects',
+    'widgets.player.loader',
     'widgets.player.playback',
     'widgets.player.subtitles',
     'widgets.player.time',
     'widgets.player.preloadImages',
   ]);
+
+  useMount(() => {
+    invokeEvent('scene/assets/preload');
+  });
 
   const callbacks = useMemo(
     () => ({
@@ -68,6 +78,7 @@ export function FourthWallContainer(_props: FourthWallContainerProps) {
 
   return (
     <FourthWall
+      assetLoader={assetLoader}
       bit={bit}
       dotId={dotId}
       waveTracks={waveTracks}

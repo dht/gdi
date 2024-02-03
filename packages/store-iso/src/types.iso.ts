@@ -1,5 +1,6 @@
 export type IIsoStore = {
   sceneState: ISceneState;
+  sceneAssetLoader: ISceneAssetLoader;
   sceneCurrentIds: ISceneCurrentIds;
   sceneConfig: ISceneConfig;
   sceneStage?: ISceneStage;
@@ -31,6 +32,23 @@ export type ISceneState = {
   cue: [number, number];
   currentAudioTimestamp: number;
   currentAttachmentUrl: string;
+};
+
+export type ISceneAssetLoader = {
+  urls: string[];
+  isLoading: boolean;
+  fileSizes: Record<string, number>;
+  completedBytes: Record<string, number>;
+  isReady: boolean;
+
+  // transient
+  bytesCompleted: number;
+  bytesTotal: number;
+  percent: number;
+};
+
+export type ISceneAssetLoaderWithStage = ISceneAssetLoader & {
+  stage: ISceneStage;
 };
 
 export type ISceneCurrentIds = {
@@ -322,6 +340,7 @@ export type IPack = {
   url: string;
   capacity?: number;
   identifier: string;
+  projectTag?: string;
 };
 
 export type IPacks = Record<string, IPack>;

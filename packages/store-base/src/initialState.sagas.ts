@@ -372,6 +372,13 @@ export const sagas: ISagas = {
       eventNames: ['clip/speech'],
     },
   },
+  'widgets.player.loader': {
+    id: 'widgets.player.loader',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['scene/assets/preload'],
+    },
+  },
   'widgets.player.effects': {
     id: 'widgets.player.effects',
     type: 'customEvent',

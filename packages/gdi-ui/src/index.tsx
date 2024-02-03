@@ -1,6 +1,8 @@
 export { ApiKeys } from './components/ApiKeys/ApiKeys';
 export { Auto } from './components/Auto/Auto';
 export { Avatar } from './components/Avatar/Avatar';
+export { AssetLoader } from './components/AssetLoader/AssetLoader';
+export { ProgressBar } from './components/ProgressBar/ProgressBar';
 export { Bar } from './components/Bar/Bar';
 export { Board } from './components/Board/Board';
 export { BoardHeader } from './components/BoardHeader/BoardHeader';
