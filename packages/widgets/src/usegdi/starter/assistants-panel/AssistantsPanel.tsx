@@ -11,6 +11,7 @@ export type AssistantsPanelProps = {
 
 export function AssistantsPanel(props: AssistantsPanelProps) {
   const { assistant, options } = props;
+  const { id = '' } = assistant ?? {};
 
   function renderAssistant() {
     if (!assistant) {
@@ -26,9 +27,11 @@ export function AssistantsPanel(props: AssistantsPanelProps) {
     <Wrapper className='AssistantsPanel-wrapper' data-testid='AssistantsPanel-wrapper'>
       <Auto
         options={options}
-        value={assistant?.id}
+        value={id}
         placeholder='Select an assistant'
         onChange={props.onChange}
+        items={[]}
+        onRun={() => {}}
       />
       <Info>{renderAssistant()}</Info>
     </Wrapper>

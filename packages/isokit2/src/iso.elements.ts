@@ -105,7 +105,7 @@ export const applyCurrentKeyframe = (element: IElement) => {
   applyKeyframe(id, currentKeyframe);
 };
 
-export const applyCurrentKeyframes = (elements: IElement[], ignoreCameras: true) => {
+export const applyCurrentKeyframes = (elements: IElement[], ignoreCameras: boolean) => {
   for (let element of elements) {
     if (ignoreCameras && element.type === 'camera') {
       continue;

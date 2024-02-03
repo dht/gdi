@@ -39,7 +39,7 @@ export function* onCheckSpeech(ev: any) {
   const { data } = ev;
   const { currentTime } = data;
 
-  const speech = yield* select(selectors.animation.$speechForAnimation, currentTime);
+  const speech: Json = yield* select(selectors.animation.$speechForAnimation, currentTime);
 
   if (!speech || playedSpeech[speech.id]) {
     return;

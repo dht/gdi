@@ -41,8 +41,8 @@ export const cacheAmbience = (id: string, audioUrl: string) => {
   cache[id] = new Audio(audioUrl);
 };
 
-export const playSound = (audioUrl: string, balance?: boolean): Promise<PlayAudioResponse> => {
-  return playBase({ url: audioUrl, isAmbience: false, balance });
+export const playSound = (audioUrl: string, _balance?: boolean): Promise<PlayAudioResponse> => {
+  return playBase({ url: audioUrl, isAmbience: false });
 };
 
 export const playSfxByUrl = (assetPath: string): Promise<PlayAudioResponse> => {

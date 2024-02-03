@@ -1,21 +1,20 @@
 import classnames from 'classnames';
-import { useCallback, useContext } from 'react';
-import { useMeasure } from 'react-use';
+import { useContext } from 'react';
 import { FixedSizeList } from 'react-window';
 import { ListContext, ListProvider } from './List.context';
+import { useMeasureOnce } from './List.hooks';
 import { Cell, Item, Q, Root, Top, Wrapper } from './List.style';
 import { Column } from './List.types';
 import { formatCell } from './List.utils';
-import { useMeasureOnce } from './List.hooks';
 
 export type ListProps = {
-  data: Json[];
+  data: any[];
   columns: Column[];
   isFocused: boolean;
-  onDrillDown: (asset: Json) => void;
+  onDrillDown: (asset: any) => void;
   onDrillUp: () => void;
-  onPreview: (asset: Json) => void;
-  onFunctionKey: (asset: Json, key: string, ev: any) => void;
+  onPreview: (asset: any) => void;
+  onFunctionKey: (asset: any, key: string, ev: any) => void;
   renderActions?: (callbacks: any) => React.ReactNode;
   root: string;
 };

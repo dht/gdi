@@ -35,7 +35,7 @@ export function DocumentBootstrap(props: DocumentBootstrapProps) {
     }
   }
 
-  const onChange = (fieldId: string) => (value: string) => {
+  const onChange = (fieldId: string) => (value: string[]) => {
     patchState({ ...state!, [fieldId]: value });
   };
 

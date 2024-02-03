@@ -1,4 +1,4 @@
-export const columns: Json[] = [
+export const columns: any[] = [
   {
     id: 'icon',
     title: '',

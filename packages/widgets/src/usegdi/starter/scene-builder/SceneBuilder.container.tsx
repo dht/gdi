@@ -43,7 +43,6 @@ export function SceneBuilderContainer(_props: SceneBuilderContainerProps) {
 
   return (
     <SceneBuilder
-      allowAdding
       elementLabels={elementLabels}
       freeMove={sceneState.freeMove}
       isLoading={sceneState.isLoading}

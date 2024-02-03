@@ -24,7 +24,6 @@ import noMobile from './no-mobile';
 import pinterest from './pinterest';
 import playback from './playback';
 import productTour from './product-tour';
-import soundPlayer from './sound-player';
 import soundboard from './soundboard';
 import speech from './speech';
 import speechParams from './speech-params';
@@ -69,7 +68,6 @@ export const starter: IWidgets = {
   'com.usegdi.starter.pinterest': pinterest,
   'com.usegdi.starter.playback': playback,
   'com.usegdi.starter.product-tour': productTour,
-  'com.usegdi.starter.sound-player': soundPlayer,
   'com.usegdi.starter.soundboard': soundboard,
   'com.usegdi.starter.speech': speech,
   'com.usegdi.starter.speech-params': speechParams,

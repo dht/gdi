@@ -116,7 +116,7 @@ export function* seekPrevious(_action: Action, bit: IBit) {
   seekTo(previousBit, 'end');
 }
 
-export function* seekStart(_action: Action, bit: IBit, silent: true) {
+export function* seekStart(_action: Action, bit: IBit, silent: boolean) {
   if (!bit) {
     invokeEvent('waveform/seek', { value: 0 });
     return;

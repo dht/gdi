@@ -18,7 +18,7 @@ export function PlaybackContainer(_props: PlaybackContainerProps) {
     []
   );
 
-  return <Playback playbackInfo={playbackInfo} callbacks={callbacks} />;
+  return <Playback playbackInfo={playbackInfo as any} callbacks={callbacks} />;
 }
 
 export default PlaybackContainer;

@@ -3,7 +3,6 @@ import { Handler, Wrapper } from './BitTimelineItem.style';
 import Draggable from 'react-draggable';
 import classnames from 'classnames';
 import { useKey, useUnmount } from 'react-use';
-import { set } from 'shared-base';
 
 export type BitTimelineItemProps = {
   bit: Json;

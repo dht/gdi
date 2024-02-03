@@ -1,9 +1,9 @@
-import { ArcRotateCamera, Camera, FreeCamera, Vector3, Viewport } from '@babylonjs/core';
+import { ArcRotateCamera, FreeCamera, Viewport } from '@babylonjs/core';
 import { CameraType, IArcConfig, ICamera, IFreeConfig } from '@gdi/store-iso';
-import { scene } from './globals';
-import { degreesToRadians, getCamera, getCameraInfo, radiansToDegrees, vector3 } from './iso.utils';
 import { invokeEvent } from 'shared-base';
+import { scene } from './globals';
 import { animateItem } from './iso.animations';
+import { degreesToRadians, getCamera, getCameraInfo, radiansToDegrees, vector3 } from './iso.utils';
 
 export const applyValues = (camera: ArcRotateCamera | FreeCamera, values: Json) => {
   const { fov, layerMask, viewport } = values ?? {};
@@ -48,7 +48,7 @@ export const addFreeCamera = (camera: ICamera) => {
   const output = new FreeCamera(id, vector3(position), scene);
   output.setTarget(vector3(target));
 
-  applyValues(output, values);
+  applyValues(output, values ?? {});
 
   return output;
 };

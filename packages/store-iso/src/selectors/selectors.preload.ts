@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import * as raw from './selectors.raw';
 import * as base from './selectors.base';
 import { get } from 'lodash';
+import { ISceneAssetLoaderWithStage } from '../types.iso';
 
 type AssetUrl = {
   rootUrl: string;
@@ -58,7 +59,7 @@ export const $assets = createSelector(raw.$rawSceneStage, $glbs, $videos, (stage
     bkUrl,
     stageUrl,
     stageMaskUrl,
-  ].filter((i) => i);
+  ].filter((i) => i) as string[];
 });
 
 export const $assetLoader = createSelector(
@@ -77,6 +78,6 @@ export const $assetLoader = createSelector(
       bytesTotal,
       percent,
       stage: sceneStage,
-    };
+    } as ISceneAssetLoaderWithStage;
   }
 );

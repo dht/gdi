@@ -89,47 +89,6 @@ export const $transcriptCurrentIndex = createSelector(raw.$rawAppState, (appStat
   return lineIndex;
 });
 
-export const $setupsAndPlaybacksList = createSelector(raw.$rawBoard, (board) => {
-  const { setups = {}, playbacks = {} } = board;
-
-  const links: Json[] = [];
-
-  Object.values(setups)
-    .filter((setup) => setup.isEnabled)
-    .forEach((setup) => {
-      const { id, name, description } = setup;
-
-      const url = `#${id}|`;
-
-      links.push({
-        id,
-        tabId: 'Setups',
-        name,
-        description,
-        url,
-      });
-    });
-
-  Object.values(playbacks).forEach((playback) => {
-    const { id, name, description } = playback;
-
-    const url = `#|${id}`;
-
-    links.push({
-      id,
-      tabId: 'Playbacks',
-      name,
-      description,
-      url,
-    });
-  });
-
-  return {
-    tabs: ['Playbacks', 'Setups'], // 'Siblings',
-    links: links,
-  };
-});
-
 export const $barItemsVariables = createSelector(raw.$rawBoard, (board) => {});
 
 export const $messages = createSelector(raw.$rawMessages, (messages) => {

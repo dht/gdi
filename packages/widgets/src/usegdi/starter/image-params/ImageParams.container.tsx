@@ -28,7 +28,7 @@ export function ImageParamsContainer(_props: ImageParamsContainerProps) {
   return (
     <ImageParams
       promptRevised={promptRevised}
-      imageParams={imageParams}
+      imageParams={imageParams as any}
       allOptions={allOptions}
       callbacks={callbacks}
     />

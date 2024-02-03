@@ -13,6 +13,7 @@
     "@babylonjs/inspector": "^6.40.0",
     "@babylonjs/loaders": "^6.40.0",
     "@babylonjs/materials": "^6.40.0",
+    "@gdi/store-iso": "^1.0.0",
     "@types/lodash": "^4.14.195",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",

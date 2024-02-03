@@ -1,4 +1,5 @@
 import { format } from '@gdi/ui';
+import { JsonMap } from './DetailsApis.components';
 import { Cell, Row, Value, Wrapper } from './DetailsApis.style';
 
 export type DetailsApisProps = {
@@ -7,35 +8,45 @@ export type DetailsApisProps = {
 
 export function DetailsApis(props: DetailsApisProps) {
   const { board } = props;
-  const { editMode, dependencies, apis, playbackMode, lastUpdated } = board;
+  const { author, boardInfo, dependencies, apis = {} } = board;
+  const { boardType, tsVersion } = boardInfo ?? {};
 
-  const formattedDate = format.date.db(lastUpdated);
-  const timeAgo = format.date.timeAgo(lastUpdated);
+  const apiExists = Object.keys(apis).length > 0;
+
+  const formattedDate = format.date.db(tsVersion);
+  const timeAgo = format.date.timeAgo(tsVersion);
 
   return (
     <Wrapper className='DetailsApis-wrapper' data-testid='DetailsApis-wrapper'>
       <Row>
         <Cell>
-          <label>EDIT</label>
-          <Value>{editMode ? 'Enabled' : 'Disabled'}</Value>
+          <label>BOARD TYPE</label>
+          <Value>{boardType}</Value>
         </Cell>
         <Cell>
-          <label>PLAYBACK</label>
-          <Value>{playbackMode ? 'Enabled' : 'Disabled'}</Value>
+          <label>AUTHOR</label>
+          <Value>{author}</Value>
         </Cell>
       </Row>
       <Row>
         <Cell>
           <label>DEPS</label>
-          <Value>{Object.values(dependencies).join(', ')}</Value>
+          <Value>
+            <JsonMap json={dependencies} />
+          </Value>
         </Cell>
       </Row>
-      <Row>
-        <Cell>
-          <label>APIs</label>
-          <Value>{apis.join(', ')}</Value>
-        </Cell>
-      </Row>
+      {apiExists && (
+        <Row>
+          <Cell>
+            <label>APIs</label>
+            <Value>
+              {' '}
+              <JsonMap json={apis} />
+            </Value>
+          </Cell>
+        </Row>
+      )}
       <Row>
         <Cell>
           <label>LAST UPDATED</label>

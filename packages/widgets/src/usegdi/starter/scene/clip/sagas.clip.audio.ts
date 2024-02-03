@@ -97,6 +97,7 @@ export function* addAudio(action: Action, audio: IAudio) {
     timestamp: percent * totalTime,
     url,
     duration: 0,
+    fileName: '',
   };
 
   yield put(actions.sceneAudios.add(item));

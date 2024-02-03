@@ -1,6 +1,6 @@
 {
   "name": "@gdi/widgets-starter",
-  "version": "0.0.6",
+  "version": "1.0.1",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc & vite build",
@@ -12,7 +12,7 @@
     "@gdi/firebase": "^0.0.1",
     "@gdi/store-base": "^1.0.0",
     "@gdi/store-iso": "^1.0.0",
-    "@gdi/ui": "^0.0.5",
+    "@gdi/ui": "^1.0.0",
     "@types/tinycolor2": "^1.4.6",
     "axios": "^1.6.5",
     "classnames": "^2.3.1",

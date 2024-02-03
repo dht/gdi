@@ -26,7 +26,7 @@ export function BitManagerContainer(_props: BitManagerContainerProps) {
   return (
     <ElementList
       items={items}
-      columns={list.columns}
+      columns={list.columns as any}
       actions={list.actions}
       onAction={callbacks.onAction}
     />

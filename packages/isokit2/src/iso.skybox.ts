@@ -134,7 +134,9 @@ export const changeStageMask = (url: string, showAndFocus?: boolean) => {
   changeImage('stage-mask', url, showAndFocus);
 };
 
-export const prepareStage = (stage: ISceneStage) => {
+export const prepareStage = (stage?: ISceneStage) => {
+  if (!stage) return;
+
   const { bkUrl, stageUrl, stageMaskUrl } = stage;
 
   addSkyBox(bkUrl);

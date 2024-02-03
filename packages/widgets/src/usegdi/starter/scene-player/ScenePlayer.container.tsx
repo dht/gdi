@@ -53,15 +53,16 @@ export function ScenePlayerContainer(_props: ScenePlayerContainerProps) {
 
   return (
     <ScenePlayer
-      bits={bits}
+      bits={bits as any}
       bitId={bitId}
       cue={sceneState.cue}
       waveTracks={waveTracks}
-      waveOptions={waveOptions}
+      waveOptions={waveOptions as any}
       isAudioReady={sceneState.isAudioReady}
       freeMove={sceneState.freeMove}
       isLoading={sceneState.isLoading}
       isPlaying={sceneState.isPlaying}
+      timeline={{} as any}
       callbacks={callbacks}
     ></ScenePlayer>
   );

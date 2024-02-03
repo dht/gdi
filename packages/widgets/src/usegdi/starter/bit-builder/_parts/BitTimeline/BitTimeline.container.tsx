@@ -30,7 +30,7 @@ export function BitTimelineContainer(_props: BitTimelineContainerProps) {
     []
   );
 
-  return <BitTimeline bits={bits} bitId={currentIds.bitId} callbacks={callbacks} />;
+  return <BitTimeline bits={bits as any} bitId={currentIds.bitId} callbacks={callbacks} />;
 }
 
 export default BitTimelineContainer;

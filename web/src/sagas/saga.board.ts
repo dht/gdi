@@ -72,24 +72,22 @@ export function* loadBoardFromUrl(_action: Action, _board: IBoard) {
 }
 
 export function* showPlaybacks(_action: Action, board: IBoard) {
-  const list = yield* select(selectors.base.$setupsAndPlaybacksList);
-
   l({ message: 'Showing setups and sibling boards', verb: 'board', data: list });
 
-  const { value, didCancel } = yield* call(prompt.custom, {
-    title: 'Playbacks',
-    component: LinkList,
-    componentProps: {
-      links: list.links,
-      tabs: list.tabs,
-    },
-  });
+  // const { value, didCancel } = yield* call(prompt.custom, {
+  //   title: 'Playbacks',
+  //   component: LinkList,
+  //   componentProps: {
+  //     links: list.links,
+  //     tabs: list.tabs,
+  //   },
+  // });
 
-  if (didCancel || !value || !value.url) {
-    return;
-  }
+  // if (didCancel || !value || !value.url) {
+  //   return;
+  // }
 
-  invokeEvent('nav', { path: value.url });
+  // invokeEvent('nav', { path: value.url });
 }
 
 export function* loadBoard(action: Action, _board: IBoard) {

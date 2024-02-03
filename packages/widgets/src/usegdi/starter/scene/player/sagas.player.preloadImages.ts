@@ -12,7 +12,7 @@ export function* preloadNextBit(currentBitId: string) {
 
   const { attachmentUrl } = nextBit;
 
-  changeSkyBox(attachmentUrl);
+  changeSkyBox(attachmentUrl ?? '');
 }
 
 let cached: any = {};

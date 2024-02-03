@@ -6,7 +6,7 @@ export const entities: AllEntities = {
   allBits: [
     {
       id: 'bit-01',
-      order: 1,
+      index: 1,
       name: 'bit-01',
       timestamp: 0,
       type: 'basic',
@@ -20,7 +20,7 @@ export const entities: AllEntities = {
     },
     {
       id: 'bit-02',
-      order: 2,
+      index: 2,
       name: 'bit-02',
       timestamp: 0.1,
       type: 'basic',
@@ -35,7 +35,7 @@ export const entities: AllEntities = {
     },
     {
       id: 'bit-03',
-      order: 3,
+      index: 3,
       name: 'bit-03',
       timestamp: 0.4,
       type: 'basic',

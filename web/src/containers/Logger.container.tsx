@@ -1,6 +1,5 @@
-import { actions, selectors } from '@gdi/store-base';
+import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
 import { Drawer, Logger, useLogData } from '@gdi/ui';
-import { useDispatch, useSelector } from '@gdi/store-base';
 
 const now = Date.now();
 
@@ -14,6 +13,7 @@ export function LoggerContainer(_props: LoggerContainerProps) {
 
   function onClose() {
     dispatch(
+      // @ts-ignore
       actions.appState.patch({
         showLog: false,
       })

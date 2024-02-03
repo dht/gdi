@@ -29,7 +29,7 @@ export function ElementsManagerContainer(props: ElementsManagerContainerProps) {
   return (
     <ElementList
       items={items}
-      columns={list.columns}
+      columns={list.columns as any}
       actions={list.actions}
       onAction={callbacks.onAction}
       emptyMessage='Select a bit to see its elements'

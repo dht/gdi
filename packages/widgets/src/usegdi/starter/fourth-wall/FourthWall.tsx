@@ -46,7 +46,7 @@ export function FourthWall(props: FourthWallProps) {
           environment={environment}
         />
       </Canvas>
-      <BitPanel {...props} />
+      <BitPanel {...(props as any)} />
     </Wrapper>
   );
 }

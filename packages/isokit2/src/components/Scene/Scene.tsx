@@ -11,8 +11,6 @@ import { useMoveMesh } from './hooks/useMove';
 import { usePick } from './hooks/usePick';
 import { usePostEffect } from './hooks/usePostEffect';
 import { useScene } from './hooks/useScene';
-import { useSceneEmpty } from './hooks/useScene.empty';
-import { useRecorder } from './hooks/useRecorder';
 
 export type SceneProps = {
   isLoading?: boolean;
@@ -57,7 +55,7 @@ export function Scene(props: SceneProps) {
   usePostEffect(adhocEffect);
   useArc();
   useHome();
-  useRecorder(currentScene);
+  // useRecorder(currentScene);
 
   function renderToolboxes() {
     if (!showToolbox || !props.onToolbox) {

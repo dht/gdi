@@ -1,4 +1,4 @@
-import { Checkbox } from '@gdi/ui';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { upperFirst } from 'lodash';
 import { useState } from 'react';
 import Icon from '../Icon/Icon';

@@ -1,4 +1,5 @@
-import React from 'react';
+import { Markdown } from '@gdi/ui';
+import { markdown } from './YoutubeLayer.data';
 import {
   Analysis,
   Column,
@@ -8,12 +9,9 @@ import {
   Link,
   Links,
   Sentence,
-  Timestamp,
   Value,
   Wrapper,
 } from './YoutubeLayer.style';
-import { Markdown } from '@gdi/ui';
-import { markdown } from './YoutubeLayer.data';
 import Timestamps from './_parts/Timestamps/Timestamps';
 
 export type YoutubeLayerProps = {};

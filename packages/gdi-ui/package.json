@@ -1,6 +1,6 @@
 {
   "name": "@gdi/ui",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc & vite build",
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@gdi/store-base": "^1.0.0",
+    "@gdi/store-iso": "^1.0.0",
     "@hookform/resolvers": "^2.9.11",
     "@lottiefiles/lottie-player": "^2.0.2",
     "@monaco-editor/react": "^4.4.5",

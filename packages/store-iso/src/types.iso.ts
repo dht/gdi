@@ -176,7 +176,7 @@ export type IDots = Record<string, IDot>;
 
 export type IExternal = IBase & {
   rootUrl?: string;
-  fileName: string;
+  fileName?: string;
   url?: string;
   meshNames?: string | string[];
 };

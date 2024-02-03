@@ -1,10 +1,7 @@
-import React, { useMemo } from 'react';
-import { Wrapper } from './ProductTour.style';
-import { ModelViewer, Scene } from 'isokit2';
-import { useMeasure } from 'react-use';
-import ProductTour from './ProductTour';
 import { useDispatch } from '@gdi/store-base';
+import { useMemo } from 'react';
 import { useSaga } from '../../../helpers/useSaga';
+import ProductTour from './ProductTour';
 
 export type ProductTourContainerProps = {
   sceneUrl: string;
@@ -22,7 +19,7 @@ export function ProductTourContainer(props: ProductTourContainerProps) {
 
   const callbacks = useMemo(
     () => ({
-      onBoardLoaded: (scene: Scene, debugBabylon: boolean) => {
+      onBoardLoaded: (scene: any, debugBabylon: boolean) => {
         dispatch({
           type: 'PRODUCT_TOUR_LOADED',
           scene,
