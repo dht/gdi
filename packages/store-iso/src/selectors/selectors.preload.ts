@@ -50,8 +50,9 @@ export const $videos = createSelector(base.$elements, (elements) => {
   return urls;
 });
 
-export const $assets = createSelector($glbs, $videos, (glbs, videos) => {
-  return [...glbs, ...videos];
+export const $assets = createSelector(raw.$rawSceneStage, $glbs, $videos, (stage, glbs, videos) => {
+  const { bkUrl, stageUrl, stageMaskUrl } = stage ?? {};
+  return [bkUrl, stageUrl, stageMaskUrl, ...videos].filter((i) => i);
 });
 
 export const $assetLoader = createSelector(

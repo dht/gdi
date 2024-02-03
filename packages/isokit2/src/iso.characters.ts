@@ -1,11 +1,11 @@
 import { ArcRotateCamera } from '@babylonjs/core';
+import { set } from 'lodash';
 import { delay } from 'shared-base';
 import { IDecal, ISceneCharacter } from '../../store-iso/dist/dts';
 import { scene } from './globals';
 import { addDecal } from './iso.decals';
 import { addRemoteScene } from './iso.externals.add';
 import { vector3 } from './iso.utils';
-import { set } from 'lodash';
 
 const STANDING_SIZE = 2.4;
 const SITTING_SIZE = STANDING_SIZE / 2;
