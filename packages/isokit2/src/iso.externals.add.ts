@@ -1,9 +1,29 @@
-import { SceneLoader } from '@babylonjs/core';
+import { SceneLoader, SceneLoaderFlags } from '@babylonjs/core';
 import { scene } from './globals';
 import { IExternal } from '@gdi/store-iso';
 import { applyMeshListeners, applyVectors, vector3 } from './iso.utils';
 import '@babylonjs/loaders';
 import { parseExternalUrl } from './utils/utils.url';
+
+export const initLoader = () => {
+  SceneLoaderFlags.ShowLoadingScreen = false;
+
+  SceneLoader.OnPluginActivatedObservable.addOnce((loader: any) => {
+    // This is just a precaution as this isn't strictly necessary since
+    // the only loader in use is the glTF one.
+    if (loader.name !== 'gltf') return;
+
+    // See what the loader is doing in the console.
+    loader.loggingEnabled = false;
+
+    // Use HTTP range requests to load the glTF binary (GLB) in parts.
+    loader.useRangeRequests = true;
+
+    // Update the status text when loading is complete, i.e. when
+    // all the LODs are loaded.
+    loader.onCompleteObservable.add(() => {});
+  });
+};
 
 export const addExternal = (external: IExternal, autoHide: boolean = false) => {
   const { id } = external;
@@ -63,8 +83,25 @@ export const addRemoteScene = async (external: IExternal) => {
   const { meshes, animationGroups } = await SceneLoader.ImportMeshAsync(
     meshNames,
     rootUrl,
-    fileName
+    fileName,
+    scene,
+    function (event: any) {}
   );
 
   return { meshes, animationGroups };
 };
+
+export const addRemoteSceneWithProgress = async (external: IExternal) => {
+  const { rootUrl, fileName } = parseExternalUrl(external);
+
+  const { meshes, animationGroups } = await SceneLoader.AppendAsync(
+    rootUrl,
+    fileName,
+    scene,
+    function (event: any) {}
+  );
+
+  return { meshes, animationGroups };
+};
+
+initLoader();
