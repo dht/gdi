@@ -1,4 +1,5 @@
 import { actions, IBoard } from '@gdi/store-base';
+import { actions as actionsIso } from '@gdi/store-iso';
 import axios, { AxiosInstance } from 'axios';
 import { get, merge, set } from 'lodash';
 import { delay } from 'shared-base';
@@ -131,6 +132,7 @@ export class BoardAdapter implements IBoardAdapter {
     this.dispatch(actions.board.patch({ elements: { default: {} }})); // prettier-ignore
     this.dispatch(actions.transcriptLines.setAll({}));
     this.dispatch(actions.transcriptAudios.setAll({}));
+    this.dispatch(actionsIso.sceneAssetLoader.patch({ isLoading: true }));
     this.dispatch(
       actions.appState.patch({
         boardDbPath: '',

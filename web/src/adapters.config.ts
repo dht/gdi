@@ -42,6 +42,8 @@ export const config = {
       'playState',
       'prompts',
       'sceneState',
+      'sceneStage',
+      'sceneAssetLoader',
       'sceneCurrentIds',
       'sceneConfig',
       'settings',
