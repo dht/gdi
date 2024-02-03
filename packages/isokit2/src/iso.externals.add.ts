@@ -4,6 +4,7 @@ import { IExternal } from '@gdi/store-iso';
 import { applyMeshListeners, applyVectors, vector3 } from './iso.utils';
 import '@babylonjs/loaders';
 import { parseExternalUrl } from './utils/utils.url';
+import { invokeEvent } from 'shared-base';
 
 export const initLoader = () => {
   SceneLoaderFlags.ShowLoadingScreen = false;
@@ -21,7 +22,9 @@ export const initLoader = () => {
 
     // Update the status text when loading is complete, i.e. when
     // all the LODs are loaded.
-    loader.onCompleteObservable.add(() => {});
+    loader.onCompleteObservable.add(() => {
+      invokeEvent('scene/glb/ready');
+    });
   });
 };
 

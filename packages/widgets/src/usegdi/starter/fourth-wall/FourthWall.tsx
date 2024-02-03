@@ -1,6 +1,6 @@
 import { IBit, ISceneAssetLoaderWithStage, ISceneState } from '@gdi/store-iso';
 import { AssetLoader } from '@gdi/ui';
-import { Scene } from 'isokit2';
+import { Scene, useGlbReady } from 'isokit2';
 import { ReactNode } from 'react';
 import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
 import BitPanel from '../bit-panel/BitPanel';
@@ -29,6 +29,7 @@ export type FourthWallProps = {
 export function FourthWall(props: FourthWallProps) {
   const { assetLoader } = props;
   const { isLoading } = assetLoader;
+  const isGlbReady = useGlbReady();
 
   if (isLoading) {
     return <AssetLoader state={assetLoader} />;
@@ -38,10 +39,9 @@ export function FourthWall(props: FourthWallProps) {
     <Wrapper className='FourthWall-wrapper' data-testid='FourthWall-wrapper'>
       <Canvas>
         <Scene
-          isLoading={false}
+          isLoading={!isGlbReady}
           showToolbox={false}
           freeMove={false}
-          withLoader={true}
           hideBase
           environment={environment}
         />

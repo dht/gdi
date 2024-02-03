@@ -52,7 +52,13 @@ export const $videos = createSelector(base.$elements, (elements) => {
 
 export const $assets = createSelector(raw.$rawSceneStage, $glbs, $videos, (stage, glbs, videos) => {
   const { bkUrl, stageUrl, stageMaskUrl } = stage ?? {};
-  return [bkUrl, stageUrl, stageMaskUrl, ...videos].filter((i) => i);
+  return [
+    ...glbs, //
+    ...videos,
+    bkUrl,
+    stageUrl,
+    stageMaskUrl,
+  ].filter((i) => i);
 });
 
 export const $assetLoader = createSelector(
