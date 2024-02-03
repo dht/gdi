@@ -6,13 +6,17 @@ import '@babylonjs/loaders';
 import { parseExternalUrl } from './utils/utils.url';
 import { invokeEvent } from 'shared-base';
 
+let loader: any;
+
 export const initLoader = () => {
   SceneLoaderFlags.ShowLoadingScreen = false;
 
-  SceneLoader.OnPluginActivatedObservable.addOnce((loader: any) => {
+  SceneLoader.OnPluginActivatedObservable.addOnce((anyLoader: any) => {
     // This is just a precaution as this isn't strictly necessary since
     // the only loader in use is the glTF one.
-    if (loader.name !== 'gltf') return;
+    if (anyLoader.name !== 'gltf') return;
+
+    loader = anyLoader;
 
     // See what the loader is doing in the console.
     loader.loggingEnabled = false;
@@ -88,7 +92,12 @@ export const addRemoteScene = async (external: IExternal) => {
     rootUrl,
     fileName,
     scene,
-    function (event: any) {}
+    function (event: any) {
+      const { loaded, total } = event;
+
+      if (loaded === total) {
+      }
+    }
   );
 
   return { meshes, animationGroups };
