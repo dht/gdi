@@ -1,10 +1,6 @@
-import {
-  applyEasing,
-  applyEasingVector,
-  createCubicBezier,
-  extrapolateAnimation,
-} from './utils.extrapolate';
+import { createCubicBezier } from 'isokit2';
 import { get } from 'lodash';
+import { applyEasing, applyEasingVector, extrapolateAnimation } from './utils.extrapolate';
 import { dots } from './utils.extrapolate.fixtures';
 
 describe('extrapolate', () => {

@@ -61,7 +61,7 @@ export const reduceElement = (
 
   if (!currentBit || !element) return element;
 
-  const bitsToReduce = bitsWithPairs.filter((b) => b.order < currentBit.order);
+  const bitsToReduce = bitsWithPairs.filter((b) => b.index ?? 0 < (currentBit?.index ?? 0));
 
   // scene values
   const currentKeyframe: IKeyframe = getKeyframe(element);

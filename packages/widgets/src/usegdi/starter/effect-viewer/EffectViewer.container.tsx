@@ -13,7 +13,7 @@ export function EffectViewerContainer(props: EffectViewerContainerProps) {
 
   const assetUrl = `${assetsRootUrl}/glb/tree.glb`;
 
-  return <EffectViewer effect={effect} assetUrl={assetUrl} />;
+  return <EffectViewer effect={effect} url={assetUrl} />;
 }
 
 export default EffectViewerContainer;

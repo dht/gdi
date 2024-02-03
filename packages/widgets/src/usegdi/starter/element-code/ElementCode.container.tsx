@@ -50,7 +50,7 @@ export function ElementCodeContainer(props: ElementCodeContainerProps) {
     [elementEdit, code]
   );
 
-  return <ElementCode verb='Save' allowDelete code={code} callbacks={callbacks} />;
+  return <ElementCode verb='Save' allowDelete code={code ?? ''} callbacks={callbacks} />;
 }
 
 export default ElementCodeContainer;

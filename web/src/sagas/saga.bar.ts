@@ -1,8 +1,7 @@
-import { ga } from '@gdi/firebase';
 import { IBoard, actions, selectors } from '@gdi/store-base';
-import { LinkList, ScreenInfo, prompt } from '@gdi/ui';
+import { ScreenInfo, ga, prompt } from '@gdi/ui';
 import { Json } from 'redux-store-generator';
-import { call, fork, put, select, takeEvery } from 'saga-ts';
+import { fork, put, select, takeEvery } from 'saga-ts';
 import { invokeEvent, patchJson } from 'shared-base';
 import { l } from '../utils/logs';
 import { showTagPicker } from './saga.tags';
@@ -57,24 +56,22 @@ export function* configureFlowAdapter(_action: Action, board: IBoard) {
 }
 
 export function* showPlaybacks(_action: Action, board: IBoard) {
-  const list = yield* select(selectors.base.$setupsAndPlaybacksList);
-
   l({ message: 'Showing setups and sibling boards', verb: 'board', data: list });
 
-  const { value, didCancel } = yield* call(prompt.custom, {
-    title: 'Playbacks',
-    component: LinkList,
-    componentProps: {
-      links: list.links,
-      tabs: list.tabs,
-    },
-  });
+  // const { value, didCancel } = yield* call(prompt.custom, {
+  //   title: 'Playbacks',
+  //   component: LinkList,
+  //   componentProps: {
+  //     links: list.links,
+  //     tabs: list.tabs,
+  //   },
+  // });
 
-  if (didCancel || !value || !value.url) {
-    return;
-  }
+  // if (didCancel || !value || !value.url) {
+  //   return;
+  // }
 
-  invokeEvent('nav', { path: value.url });
+  // invokeEvent('nav', { path: value.url });
 }
 
 export function* showScreenInfo() {

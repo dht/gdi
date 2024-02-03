@@ -9,7 +9,7 @@ export const parseExternalUrl = (external: IExternal) => {
     output.fileName = url;
   } else {
     output.rootUrl = rootUrl ?? '';
-    output.fileName = fileName;
+    output.fileName = fileName ?? '';
   }
 
   return output;

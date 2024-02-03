@@ -18,7 +18,7 @@ type VoiceItem = Json;
 export type VoiceGalleryProps = {
   items: VoiceItem[];
   currentVoiceId?: string;
-  onVoiceClick: (voice: Json) => void;
+  onVoiceClick: (voice: any) => void;
 };
 
 export function VoiceGallery(props: VoiceGalleryProps) {

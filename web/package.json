@@ -16,8 +16,8 @@
   "private": true,
   "dependencies": {
     "@gdi/store-base": "^1.0.0",
-    "@gdi/ui": "^0.0.1",
-    "@gdi/widgets-starter": "^0.0.6",
+    "@gdi/ui": "^1.0.0",
+    "@gdi/widgets-starter": "^1.0.1",
     "axios": "^1.4.0",
     "firebase": "^10.7.0",
     "igrid": "^1.0.0",

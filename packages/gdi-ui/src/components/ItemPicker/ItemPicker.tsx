@@ -9,8 +9,8 @@ export type ItemPickerProps = {
   contentType: string | string[];
   onCta: (item: Json) => void;
   onCancel: () => void;
-  children: React.ReactNode;
-  renderPreview?: (item?: Json) => React.ReactNode;
+  children?: React.ReactNode;
+  renderPreview?: (item?: any) => React.ReactNode;
   sizeUnits: 'bytes' | 'duration';
 };
 

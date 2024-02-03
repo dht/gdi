@@ -132,7 +132,12 @@ export const initDecalPaste = async (url: string) => {
 
   sp.horizontalAlignment = GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
   sp.verticalAlignment = GUI.Control.VERTICAL_ALIGNMENT_TOP;
-  sp.children[0].checked = cullBackFaces;
+
+  if (sp.children[0]) {
+    // @ts-ignore
+    sp.children[0].checked = cullBackFaces;
+  }
+
   sp.children[1].width = '230px';
 
   return scene;

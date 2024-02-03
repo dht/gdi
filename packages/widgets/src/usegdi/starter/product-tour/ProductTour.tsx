@@ -1,16 +1,16 @@
 import React, { useMemo } from 'react';
 import { Wrapper } from './ProductTour.style';
-import { IHudConfig, IHudItem, IHudTimeline, ModelViewer, Scene } from 'isokit2';
+import { ModelViewer, Scene } from 'isokit2';
 import { useMeasure } from 'react-use';
 
 export type ProductTourProps = {
   board: IBoardConfig;
   hud: {
-    config: IHudConfig;
-    items: IHudItem[];
-    timeline: IHudTimeline;
+    config: any;
+    items: any[];
+    timeline: any;
   };
-  onBoardLoaded: (scene: Scene, debugBabylon: boolean) => void;
+  onBoardLoaded: (scene: any, debugBabylon: boolean) => void;
 };
 
 export function ProductTour(props: ProductTourProps) {
@@ -31,15 +31,7 @@ export function ProductTour(props: ProductTourProps) {
       return null;
     }
 
-    return (
-      <ModelViewer
-        config={config}
-        items={hud.items}
-        timeline={hud.timeline}
-        board={board}
-        onBoardLoaded={props.onBoardLoaded}
-      />
-    );
+    return <ModelViewer url='' />;
   }
 
   return (

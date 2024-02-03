@@ -1,9 +1,7 @@
-import { useMemo } from 'react';
-import { effects } from '../../effects';
+import { IPostEffect } from '@gdi/store-iso';
 import Scene from '../Scene/Scene';
 import { environment } from './EffectViewer.environment';
 import { Wrapper } from './EffectViewer.style';
-import { IPostEffect } from '@gdi/store-iso';
 
 export type EffectViewerProps = {
   url: string;

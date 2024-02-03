@@ -1,7 +1,7 @@
 import type { IWidget, IElement } from 'igrid';
 import { lazy } from 'react';
 
-const BitPanel = lazy(() => import('./BitPanel.container'));
+const BitPanel = lazy(() => import('./BitPanel'));
 
 export const widget: IWidget = {
   id: 'com.usegdi.starter.bit-panel',

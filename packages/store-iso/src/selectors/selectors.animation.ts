@@ -40,7 +40,7 @@ export const $speechForAnimation = createSelector(
       const { timestamp } = transcriptLine;
       const delta = currentTime - timestamp;
       return delta > 0 && delta < 0.1;
-    });
+    }) as Json[];
   }
 );
 

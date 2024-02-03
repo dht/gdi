@@ -412,7 +412,7 @@ export type IBoard = {
   boardInfo: IBoardInfo;
   author: string;
   dependencies: Json;
-  apis: string[];
+  apis: Json;
   elements: IElementsPerResolution;
   defaults: {
     previewPath?: string;

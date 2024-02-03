@@ -1,9 +1,8 @@
-import { createSelector } from 'reselect';
-import * as raw from './selectors.raw';
-import { findResolution } from '../utils/resolution';
 import { upperFirst } from 'lodash';
-import { get } from 'lodash';
+import { createSelector } from 'reselect';
 import { barItems } from '../initialState.bar';
+import { findResolution } from '../utils/resolution';
+import * as raw from './selectors.raw';
 
 export const $barItemsVariables = createSelector(
   raw.$rawBoard,
@@ -13,18 +12,16 @@ export const $barItemsVariables = createSelector(
   (board, appState, flowState, adapters) => {
     const { screenWidth, tags, isLocalInstance } = appState;
     const { status } = flowState;
-    const { id: boardId = '', setups = {} } = board;
+    const { id: boardId = '' } = board;
 
     const isActiveBoard = boardId !== '';
     const resolution = findResolution(screenWidth);
-    const setupsCount = isActiveBoard ? Object.keys(setups).length : '';
     const tagsCount = tags.length;
     const provider = isLocalInstance ? 'local' : 'firebase';
 
     return {
       $boardIdShort: shortId(boardId),
       $flowStatus: status,
-      $setupsCount: setupsCount,
       $flowAdapterProvider: provider,
       $resolution: resolution,
       $tagsCount: tagsCount,

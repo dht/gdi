@@ -18,7 +18,7 @@ export function VideoThumbsContainer(_props: VideoThumbsContainerProps) {
     []
   );
 
-  return <VideoThumbs waveTracks={waveTracks} waveOptions={waveOptions} />;
+  return <VideoThumbs waveTracks={waveTracks} waveOptions={waveOptions} callbacks={callbacks} />;
 }
 
 export default VideoThumbsContainer;

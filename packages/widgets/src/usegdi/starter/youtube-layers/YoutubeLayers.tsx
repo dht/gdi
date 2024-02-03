@@ -1,4 +1,4 @@
-import React from 'react';
+import { TranscriptScore } from '@gdi/ui';
 import {
   Actions,
   Avatar,
@@ -11,7 +11,6 @@ import {
   Score,
   Wrapper,
 } from './YoutubeLayers.style';
-import { TranscriptScore } from '@gdi/ui';
 
 export type YoutubeLayersProps = {};
 

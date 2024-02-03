@@ -54,7 +54,7 @@ export const ListProvider = (props: IListProviderProps) => {
       },
       onAction: (key: string) => {
         const asset = data.find((asset) => asset.id === focusedId);
-        props.onFunctionKey(asset!, key);
+        props.onFunctionKey(asset!, key, {} as any);
       },
     }),
     [state]

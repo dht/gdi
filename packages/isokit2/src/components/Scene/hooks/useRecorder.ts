@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 export function useRecorder(scene: any) {
   useEffect(() => {
     if (!scene) return;
-    return;
 
     const music = new Sound('Music', 'http://localhost:3000/jazz.mp3', scene, null, {
       loop: true,

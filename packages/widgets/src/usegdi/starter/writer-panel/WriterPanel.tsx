@@ -25,7 +25,7 @@ export type WriterPanelProps = {
 
 export function WriterPanel(props: WriterPanelProps) {
   const { isFetchingSuggestions, suggestions, callbacks } = props;
-  const [ref, { width, height }] = useMeasure();
+  const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 
   function renderSuggestion(suggestion: IDocumentSuggestion) {
     const { title, prompt } = suggestion;

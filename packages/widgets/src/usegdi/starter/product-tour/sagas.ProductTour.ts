@@ -1,6 +1,5 @@
 import { actions, selectors } from '@gdi/store-base';
 import { toast, playSound, stopSound } from '@gdi/ui';
-import { moveTorus } from 'isokit2';
 import { call, cancel, delay, fork, put, select, takeEvery, takeLatest } from 'saga-ts';
 
 let scene: any, task: any;
@@ -77,14 +76,14 @@ export function* wrapUp() {
     })
   );
 
-  yield put(
-    actions.camera.patch({
-      radius: 25,
-      alpha: 1,
-      beta: 1,
-      target: { x: 0, y: 0, z: 0 },
-    })
-  );
+  // yield put(
+  //   actions.camera.patch({
+  //     radius: 25,
+  //     alpha: 1,
+  //     beta: 1,
+  //     target: { x: 0, y: 0, z: 0 },
+  //   })
+  // );
 }
 
 export function* play(action: ActionPlay) {
@@ -104,14 +103,14 @@ export function* play(action: ActionPlay) {
     })
   );
 
-  yield put(
-    actions.camera.patch({
-      radius: 6,
-      alpha: 1,
-      beta: 1,
-      target: { x: -5, y: 1, z: 10 },
-    })
-  );
+  // yield put(
+  //   actions.camera.patch({
+  //     radius: 6,
+  //     alpha: 1,
+  //     beta: 1,
+  //     target: { x: -5, y: 1, z: 10 },
+  //   })
+  // );
 }
 
 export function* start() {

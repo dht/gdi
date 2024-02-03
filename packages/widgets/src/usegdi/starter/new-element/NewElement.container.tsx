@@ -29,8 +29,8 @@ export function NewElementContainer(props: NewElementContainerProps) {
           },
         });
       },
-      onCodeChange: (value: string) => {
-        setCode(value);
+      onCodeChange: (value?: string) => {
+        setCode(value ?? '');
       },
       onDelete: () => {},
       onFamilyChange: (id: string) => {
@@ -43,6 +43,7 @@ export function NewElementContainer(props: NewElementContainerProps) {
         const template = get(allTemplates, [familyId, id]);
         setCode(JSON.stringify(template ?? {}, null, 2));
       },
+      onCancel: () => {},
     }),
     [familyId, code]
   );
@@ -52,10 +53,8 @@ export function NewElementContainer(props: NewElementContainerProps) {
       code={code}
       familyId={familyId}
       elementTypeId={elementTypeId}
-      elementEdit={{}}
       allOptions={allOptions}
       callbacks={callbacks}
-      allowEdit={allowEdit}
     />
   );
 }

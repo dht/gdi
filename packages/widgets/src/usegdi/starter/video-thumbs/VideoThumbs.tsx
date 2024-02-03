@@ -1,6 +1,5 @@
-import React from 'react';
-import { Wrapper } from './VideoThumbs.style';
 import { MultiTrack } from '@gdi/ui';
+import { Wrapper } from './VideoThumbs.style';
 
 export type VideoThumbsProps = {
   waveTracks: any;
@@ -13,7 +12,14 @@ export function VideoThumbs(props: VideoThumbsProps) {
 
   return (
     <Wrapper className='VideoThumbs-wrapper' data-testid='VideoThumbs-wrapper'>
-      <MultiTrack options={waveOptions} tracks={waveTracks} />
+      <MultiTrack
+        options={waveOptions as any}
+        tracks={waveTracks}
+        cue={{} as any}
+        dotId=''
+        onAudio={() => {}}
+        onBit={() => {}}
+      />
     </Wrapper>
   );
 }

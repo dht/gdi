@@ -12,7 +12,7 @@ export type NewElementProps = {
   allOptions: Json;
   callbacks: {
     onSave: () => void;
-    onCodeChange: (code: string) => void;
+    onCodeChange: (code?: string) => void;
     onDelete: () => void;
     onCancel: () => void;
     onFamilyChange: (familyId: string) => void;

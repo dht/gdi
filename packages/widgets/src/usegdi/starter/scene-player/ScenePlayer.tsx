@@ -1,16 +1,16 @@
-import { ISceneBits } from '@gdi/store-iso';
+import { IBits } from '@gdi/store-iso';
 import { Loader, MultiTrack } from '@gdi/ui';
 import { Scene } from 'isokit2';
 import { ReactNode } from 'react';
 import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
-import { Audio, Canvas, Fps, Loading, Panel, Timeline, Wrapper } from './ScenePlayer.style';
 import BitTimeline from '../bit-builder/_parts/BitTimeline/BitTimeline';
 import { environment } from './ScenePlayer.environment';
+import { Audio, Canvas, Fps, Loading, Panel, Timeline, Wrapper } from './ScenePlayer.style';
 
 export type ScenePlayerProps = {
   waveTracks: MultitrackTracks;
   waveOptions: MultitrackOptions;
-  bits: ISceneBits[];
+  bits: IBits[];
   bitId: string;
   isLoading?: boolean;
   isAudioReady?: boolean;
@@ -23,7 +23,7 @@ export type ScenePlayerProps = {
     onToolbox: (commandId: string) => void;
     onBit: (verb: string, bitId: string, data?: Json) => void;
   };
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export function ScenePlayer(props: ScenePlayerProps) {
@@ -55,6 +55,8 @@ export function ScenePlayer(props: ScenePlayerProps) {
         tracks={waveTracks}
         options={waveOptions}
         cue={cue}
+        dotId=''
+        onAudio={() => {}}
       />
     );
   }

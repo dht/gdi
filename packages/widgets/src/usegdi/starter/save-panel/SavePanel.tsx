@@ -37,7 +37,7 @@ export function SavePanel(props: SavePanelProps) {
 
   return (
     <Wrapper className='SavePanel-wrapper' data-testid='SavePanel-wrapper'>
-      <FileName darkMode value={value} onChange={onChange} type='text' />
+      <FileName darkMode value={value} onChange={onChange} />
       <Save what={what} disabled={disabled} onClick={onSave} />
     </Wrapper>
   );

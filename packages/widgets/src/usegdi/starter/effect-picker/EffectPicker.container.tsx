@@ -1,10 +1,6 @@
-import { selectors, useSelector } from '@gdi/store-base';
-import { IPostEffect, ISceneEffect } from '@gdi/store-iso';
-import { useMemo } from 'react';
 import { ItemPicker } from '@gdi/ui';
 import { effects } from 'isokit2';
-import EffectPreview from '../effect-viewer/EffectPreview';
-import EffectPreviewContainer from '../effect-viewer/EffectViewer.container';
+import { useMemo } from 'react';
 
 export type EffectPickerContainerProps = {
   contentType: string | string[];

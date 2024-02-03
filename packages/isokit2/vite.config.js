@@ -6,7 +6,7 @@ import analyze from 'rollup-plugin-analyzer';
 import p from './package.json';
 import { externals } from 'shared-base';
 
-const ANALYZE_BUNDLE = false;
+const ANALYZE_BUNDLE = true;
 
 const cwd = path.resolve(process.cwd(), '../');
 
@@ -25,6 +25,11 @@ export default defineConfig({
       ...externals({
         react: '',
         'react/jsx-runtime': '',
+        '@babylonjs/core': '',
+        '@babylonjs/gui': '',
+        '@babylonjs/loader': '',
+        '@babylonjs/materials': '',
+        '@babylonjs/gui/2D': '',
         ...p.dependencies,
       }),
     },

@@ -16,6 +16,7 @@ export type DotTimelineProps = {
     onDotDoubleClick: (virtualDotId: string, trackId: string) => void;
     onCopy: (dotId: string, trackId: string) => void;
     onDelete: (dotId: string, trackId: string) => void;
+    onPaste: (dotId: string, trackId: string) => void;
   };
 };
 
