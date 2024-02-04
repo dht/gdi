@@ -14,12 +14,15 @@ export function* onSpeech(ev: any) {
     .filter((mouthShape: any) => mouthShape && mouthShape !== 'none');
 
   const delayMillis = duration / mouthShapes.length;
+  const characterId = speakerName === 'Mary' ? 'woman' : 'man';
 
   for (let i = 0; i < mouthShapes.length; i++) {
-    const id = speakerName === 'Mary' ? 'woman' : 'man';
-    showMouth(id, mouthShapes[i]);
+    showMouth(characterId, mouthShapes[i]);
     yield delay(delayMillis);
   }
+
+  yield delay(88);
+  showMouth(characterId, 'bmp');
 }
 
 export function* root() {
