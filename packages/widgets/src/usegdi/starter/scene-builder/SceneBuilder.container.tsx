@@ -20,6 +20,7 @@ export function SceneBuilderContainer(_props: SceneBuilderContainerProps) {
     'widgets.scene.bootstrap',
     'widgets.scene.elements',
     'widgets.scene.keys',
+    'widgets.scene.live',
     'widgets.scene.onAdd',
     'widgets.scene.onDelete',
     'widgets.scene.onMove',

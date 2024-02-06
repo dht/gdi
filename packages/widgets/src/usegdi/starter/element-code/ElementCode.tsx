@@ -20,7 +20,7 @@ export function ElementCode(props: ElementCodeProps) {
   return (
     <Wrapper className='ElementCode-wrapper' data-testid='ElementCode-wrapper'>
       <Content>
-        <EditorCode value={code} onChange={callbacks.onCodeChange} language='typescript' />
+        <EditorCode value={code} onChange={callbacks.onCodeChange} language='json' />
       </Content>
       <Actions>
         {allowDelete && (

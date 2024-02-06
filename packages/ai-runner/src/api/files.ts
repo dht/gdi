@@ -41,13 +41,20 @@ export const saveToBucket = async (
   return assetUrl;
 };
 
-export const saveFile = async (filepath: string, buffer: any, contentType: string) => {
-  const file = storageAdapter.file(filepath);
+export const saveFile = async (
+  filepath: string,
+  buffer: any,
+  contentType: string,
+  isMeta?: boolean
+) => {
+  const file = storageAdapter.file(filepath, isMeta);
 
   await file.save(buffer, {
     contentType,
     public: true,
   });
+
+  storageAdapter.addListener(file);
 
   await file.makePublic();
 
@@ -57,7 +64,7 @@ export const saveFile = async (filepath: string, buffer: any, contentType: strin
 };
 
 export const saveMeta = async (req: any, filepath: string, meta: Json) => {
-  return saveFile(filepath + '.json', JSON.stringify(meta, null, 2), 'application/json');
+  return saveFile(filepath + '.json', JSON.stringify(meta, null, 2), 'application/json', true);
 };
 
 export const deleteFromBucket = async (filepath: string) => {

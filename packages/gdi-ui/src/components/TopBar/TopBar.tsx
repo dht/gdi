@@ -59,7 +59,7 @@ export function TopBar(props: TopBarProps) {
         href='https://github.com/dht/gdi'
         data-color-scheme='no-preference: light; light: light; dark: light;'
         data-size='large'
-        data-show-count='true'
+        data-show-count='false'
         aria-label='Star dht/gdi on GitHub'
       >
         Star

@@ -147,9 +147,16 @@ export const initialState: IIsoStore = {
   sceneExternals: {
     tree: {
       id: 'tree',
-      rootUrl: 'http://localhost:3000/scenes/park/',
-      fileName: 'tree2.glb',
+      url: 'http://localhost:3000/scenes/park/tree2.glb',
     },
   },
-  sceneCharacters: {},
+  sceneCharacters: {
+    man: {
+      id: 'man',
+      url: 'http://localhost:3000/scenes/park/tree2.glb',
+      animations: [],
+      meshId: '',
+      rootId: '',
+    },
+  },
 };

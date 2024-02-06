@@ -14,6 +14,7 @@ import flow from './flow';
 import footer from './footer';
 import fourthWall from './fourth-wall';
 import github from './github';
+import guidanceEditor from './guidance-editor';
 import imageParams from './image-params';
 import imageSuggestion from './image-suggestion';
 import imageViewer from './image-viewer';
@@ -21,35 +22,37 @@ import instagram from './instagram';
 import logger from './logger';
 import logo from './logo';
 import midi from './midi';
+import mock from './mock';
 import mode from './mode';
-import guidanceEditor from './guidance-editor';
 import multi from './multi';
 import noMobile from './no-mobile';
 import pinterest from './pinterest';
 import playback from './playback';
 import productTour from './product-tour';
-import SceneBuilder from './scene-builder';
-import savePanel from './save-panel';
 import saveBoard from './save-board';
+import savePanel from './save-panel';
+import SceneBuilder from './scene-builder';
+import scenePlayer from './scene-player';
 import soundboard from './soundboard';
 import speech from './speech';
 import speechParams from './speech-params';
 import spotify from './spotify';
+import spotlight from './spotlight';
 import startPlay from './start-play';
-import scenePlayer from './scene-player';
 import subtext from './subtext';
 import tikTok from './tikTok';
 import todos from './todos';
 import transcript from './transcript';
 import twitter from './twitter';
 import variables from './variables';
+import videoEffects from './video-effects';
+import videoLibrary from './video-library';
+import visionSimulator from './vision-simulator';
 import voiceGallery from './voice-gallery';
 import warhol from './warhol';
 import welcome from './welcome';
 import writerPanel from './writer-panel';
 import youtube from './youtube';
-import videoEffects from './video-effects';
-import videoLibrary from './video-library';
 import youtubeLayer from './youtube-layer';
 import youtubeLayers from './youtube-layers';
 
@@ -79,6 +82,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.logo': logo,
   'com.usegdi.starter.midi': midi,
   'com.usegdi.starter.mode': mode,
+  'com.usegdi.starter.mock': mock,
   'com.usegdi.starter.multi': multi,
   'com.usegdi.starter.no-mobile': noMobile,
   'com.usegdi.starter.pinterest': pinterest,
@@ -92,6 +96,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.speech': speech,
   'com.usegdi.starter.speech-params': speechParams,
   'com.usegdi.starter.spotify': spotify,
+  'com.usegdi.starter.spotlight': spotlight,
   'com.usegdi.starter.start-play': startPlay,
   'com.usegdi.starter.subtext': subtext,
   'com.usegdi.starter.tikTok': tikTok,
@@ -108,4 +113,5 @@ export const starter: IWidgets = {
   'com.usegdi.starter.youtube': youtube,
   'com.usegdi.starter.youtube-layer': youtubeLayer,
   'com.usegdi.starter.youtube-layers': youtubeLayers,
+  'com.usegdi.starter.vision-simulator': visionSimulator,
 };

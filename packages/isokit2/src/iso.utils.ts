@@ -15,6 +15,7 @@ import { scene } from './globals';
 import { initMaterial } from './iso.material';
 import { log } from './logs';
 import { set } from 'lodash';
+import { base } from './base';
 
 export const degreesToRadians = (degrees: number): number => {
   return (degrees * Math.PI) / 180;
@@ -231,13 +232,13 @@ export const getMeshInfoById = (meshId: string) => {
 };
 
 export const applyMeshListeners = (mesh: Mesh, type: string) => {
-  if (!mesh || ['center', 'main-grid'].includes(mesh.id)) {
+  if (!mesh || base.all.includes(mesh.id)) {
     return;
   }
 
   const onMove = debounce(() => {
     const info = getMeshInfo(mesh);
-    invokeEvent('element/move', info);
+    invokeEvent('element/move', { ...info, type });
   }, 300);
 
   const observer = mesh.onAfterWorldMatrixUpdateObservable.add(onMove);

@@ -1,4 +1,4 @@
-import { StandardMaterial, Texture, VideoTexture } from '@babylonjs/core';
+import { PBRMaterial, StandardMaterial, Texture, VideoTexture } from '@babylonjs/core';
 import { GridMaterial } from '@babylonjs/materials';
 import { IMaterial, MaterialType } from '@gdi/store-iso';
 import { scene } from './globals';
@@ -58,10 +58,44 @@ export const initMaterialVideo = (material: IMaterial) => {
   return output;
 };
 
+const pbrTextureCache: any = {};
+
+export const initMaterialPBR = (material: IMaterial) => {
+  const { id, values } = material;
+
+  const {
+    url,
+    indexOfRefraction = 0.52,
+    alpha = 0.5,
+    directIntensity = 0,
+    environmentIntensity = 0.7,
+    cameraExposure = 0.66,
+    cameraContrast = 1.66,
+    microSurface = 1,
+    reflectivityColor = [0.2, 0.2, 0.2],
+    albedoColor = [0.95, 0.95, 0.95],
+  } = values ?? {};
+
+  const output = new PBRMaterial(id!, scene as any);
+
+  const texture = pbrTextureCache[url] ?? new Texture(url, scene);
+  output.reflectionTexture = texture;
+  output.indexOfRefraction = indexOfRefraction;
+  output.alpha = alpha;
+  output.directIntensity = directIntensity;
+  output.environmentIntensity = environmentIntensity;
+  output.cameraExposure = cameraExposure;
+  output.cameraContrast = cameraContrast;
+  output.microSurface = microSurface;
+  output.reflectivityColor = color3(reflectivityColor);
+  output.albedoColor = color3(albedoColor);
+
+  return output;
+};
+
 export const initMaterialGrid = (material: IMaterial) => {
   const { id, values, alpha = 1 } = material;
 
-  // const output = new StandardMaterial(id!, scene as any);
   const output = new GridMaterial(id!, scene);
 
   for (let key in values) {
@@ -87,8 +121,10 @@ export const initMaterial = (material: IMaterial) => {
 };
 
 export const map: Record<MaterialType, any> = {
+  standard: initMaterialColor,
   color: initMaterialColor,
   texture: initMaterialTexture,
   grid: initMaterialGrid,
   video: initMaterialVideo,
+  PBR: initMaterialPBR,
 };

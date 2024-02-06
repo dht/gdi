@@ -20,6 +20,18 @@ export const Wrapper = styled.div`
     }
   }
 
+  &.wip {
+    .wip {
+      display: block;
+    }
+
+    &:hover {
+      .soon {
+        opacity: 1;
+      }
+    }
+  }
+
   &.soon {
     .soon {
       display: block;
@@ -131,4 +143,9 @@ export const Soon = styled.div`
   @media (max-width: 800px) {
     top: 110px;
   }
+`;
+
+export const Wip = styled(Soon)`
+  background-image: linear-gradient(45deg, gold 0%, #eee 100%);
+  color: #916d13;
 `;

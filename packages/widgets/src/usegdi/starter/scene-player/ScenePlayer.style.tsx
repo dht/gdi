@@ -59,3 +59,15 @@ export const Fps = styled.div`
   opacity: 0.4;
   box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.2);
 `;
+
+export const CtaPanel = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  background-color: #111;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform: perspective(1000px) rotateY(-10deg);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), -8px -8px 0 rgba(0, 0, 0, 0.2);
+`;

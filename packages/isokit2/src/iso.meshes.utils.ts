@@ -1,11 +1,12 @@
 import { MeshBuilder } from '@babylonjs/core';
-import { IMesh, MeshType } from '@gdi/store-iso';
+import { IIsoStore, IMesh, MeshType } from '@gdi/store-iso';
 import { gizmo, scene, setGizmo } from './globals';
 import { applyMaterial, applyMeshListeners, applyVectors } from './iso.utils';
 import { detachGizmo } from './iso.gizmos';
 import { addObject } from './iso.meshes.add';
 import { base } from './base';
 import { draggedObject } from './components/Scene/hooks/usePick';
+import { removeLight } from './iso.light.utils';
 
 export const renameMesh = (meshId: string, newId: string) => {
   const mesh = scene.meshes.find((m) => m.id === meshId);
@@ -101,4 +102,19 @@ export const resetMeshVector = () => {
     rotation: [0, 0, 0],
     scaling: [1, 1, 1],
   } as any);
+};
+
+export const removeMeshesByContent = (content: IIsoStore) => {
+  const { sceneMeshes, sceneLights } = content;
+
+  const meshIds = Object.keys(sceneMeshes);
+  const lightIds = Object.keys(sceneLights);
+
+  [...meshIds].forEach((id) => {
+    removeMesh(id);
+  });
+
+  [...lightIds].forEach((id) => {
+    removeLight(id);
+  });
 };

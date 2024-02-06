@@ -14,4 +14,14 @@ export const elementFamilies = [
     name: 'Light',
     iconName: 'wb_sunny',
   },
+  {
+    id: 'characters',
+    name: 'Characters',
+    iconName: 'emoji_people',
+  },
+  {
+    id: 'video',
+    name: 'Video',
+    iconName: 'video_library',
+  },
 ];

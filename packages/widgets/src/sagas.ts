@@ -7,6 +7,7 @@ import { saga as sagaProductTour } from './usegdi/starter/product-tour/sagas.Pro
 import { saga as sagaTranscript } from './usegdi/starter/transcript/sagas.Transcript';
 import { saga as sagaSpeech } from './usegdi/starter/speech/sagas.Speech';
 import { saga as sagaSpeechParams } from './usegdi/starter/speech-params/sagas.SpeechParams';
+import { saga as sagaVisionSimulator } from './usegdi/starter/vision-simulator/sagas.VisionSimulator';
 import { sagas as sagasScene } from './usegdi/starter/scene/sagas';
 
 export const sagas: any = {
@@ -19,5 +20,6 @@ export const sagas: any = {
   'widgets.transcript': sagaTranscript,
   'widgets.speech': sagaSpeech,
   'widgets.speechParams': sagaSpeechParams,
+  'widgets.visionSimulator': sagaVisionSimulator,
   ...sagasScene,
 };

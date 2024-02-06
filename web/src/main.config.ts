@@ -5,7 +5,7 @@ import { config } from './adapters.config';
 import { boardsRoot } from './main.root';
 import { root as rootSaga } from './sagas/manage.sagas';
 import { initAxios, instance } from './utils/axios';
-import { setStore } from './utils/globals';
+import { setStore, setStoreBuilder } from './utils/globals';
 import { toast, setAssetsRoot, setAnalyticsMethod } from '@gdi/ui';
 import { getBoolean, getString } from 'shared-base';
 
@@ -48,6 +48,7 @@ const storeBuilder = initStore(
   isEmulator,
   isLocalInstance
 );
+setStoreBuilder(storeBuilder);
 
 export const store = storeBuilder.build();
 setStore(store);

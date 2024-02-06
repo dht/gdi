@@ -24,20 +24,20 @@ export const startLocalInstance = (params: LocalParams) => {
   const dbAdapter = new FsDbAdapter(rootPath, '/db', apiKeys);
   const storageAdapter = new FsStorageAdapter(rootPath, '/assets', localInstanceUrl);
 
+  const midStatic = express.static(path.resolve(rootPath, 'assets'));
+
   const app = initRunner({
     apiKeys,
     allowedDomains,
     dbAdapter,
     storageAdapter,
     root: '/api',
-    middlewares: [midAllowedDomains(allowedDomains), midLogger, midUser, midData],
+    middlewares: [midStatic, midAllowedDomains(allowedDomains), midLogger, midUser, midData],
     isLocalInstance: true,
     fileSizeLimit: '100mb',
   });
 
   // public
-  app.use(express.static(`${rootPath}/assets`));
-
   const server = createServer(app);
 
   // allow only https://usegdi.com

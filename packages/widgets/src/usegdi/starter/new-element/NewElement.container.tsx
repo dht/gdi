@@ -3,6 +3,7 @@ import { get } from 'lodash';
 import { useMemo, useState } from 'react';
 import { NewElement } from './NewElement';
 import { allTemplates, getTemplateCode } from './templates';
+import { useKey } from 'react-use';
 
 export type NewElementContainerProps = {
   allowEdit?: boolean;
@@ -43,10 +44,15 @@ export function NewElementContainer(props: NewElementContainerProps) {
         const template = get(allTemplates, [familyId, id]);
         setCode(JSON.stringify(template ?? {}, null, 2));
       },
-      onCancel: () => {},
+      onCancel: () => {
+        dispatch(actions.sceneCurrentIds.patch({ modalId: '' }));
+        setCode('');
+      },
     }),
     [familyId, code]
   );
+
+  useKey('Escape', callbacks.onCancel);
 
   return (
     <NewElement

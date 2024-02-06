@@ -4,6 +4,7 @@ export interface SocketsAdapter {
   addListener(path: string): void;
   invokeListeners(path: string, data: any): void;
   removeListener(path: string): void;
+  sendMessageToAll(eventId: string, data: any): void;
 }
 
 export interface DBAdapter {
@@ -19,6 +20,7 @@ export interface DBAdapter {
 
 export interface StorageAdapter {
   file: (path: string) => IFile;
+  addListener: (file: IFile) => void;
 }
 
 export type IFile = {
@@ -26,4 +28,9 @@ export type IFile = {
   makePublic: () => Promise<void>;
   save: (buffer: Buffer, options: any) => Promise<void>;
   delete: () => Promise<void>;
+
+  // for local runners
+  isMeta?: boolean;
+  fullPath: string;
+  info: Json;
 };

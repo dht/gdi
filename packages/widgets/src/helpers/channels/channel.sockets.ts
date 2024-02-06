@@ -1,8 +1,8 @@
 import { eventChannel } from 'redux-saga';
-import { initSocketServer } from '../sockets';
+import { initSocket } from '../sockets';
 
-export function createSocketsChannel(socketsUrl: string, eventName: string) {
-  const server = initSocketServer(socketsUrl);
+export function createSocketsChannel(serverUrl: string, eventName: string) {
+  const socket = initSocket(serverUrl);
 
   return eventChannel((emit) => {
     const handler = (event: any) => {
@@ -10,10 +10,10 @@ export function createSocketsChannel(socketsUrl: string, eventName: string) {
       emit(event);
     };
 
-    server.on(eventName, handler);
+    socket.on(eventName, handler);
 
     const unsubscribe = () => {
-      server.off(eventName, handler);
+      socket.off(eventName, handler);
     };
 
     return unsubscribe;

@@ -100,7 +100,7 @@ export function* toggleGrid() {
 }
 
 export function* camera(_action: Action) {
-  const cameraId = switchCamera();
+  const cameraId = switchCamera(true);
   yield put(actions.sceneCurrentIds.patch({ cameraId }));
   invokeEvent('camera/change', { cameraId });
 }

@@ -425,6 +425,7 @@ export type IBoard = {
   npmUrl: string;
   vscodeUrl: string;
   isActive: boolean;
+  isWip?: boolean;
   mobile?: IBoardMobileConfig;
   storeNodes?: string[];
 

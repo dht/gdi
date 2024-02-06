@@ -56,12 +56,10 @@ export class FsSocketsAdapter implements SocketsAdapter {
 
     const { docPath } = match;
 
-    this.sockets.forEach((socket) => {
-      socket.emit('data/change', {
-        docPath,
-        path,
-        data,
-      });
+    this.sendMessageToAll('data/change', {
+      docPath,
+      path,
+      data,
     });
   };
 
@@ -70,5 +68,11 @@ export class FsSocketsAdapter implements SocketsAdapter {
     const { path } = unscoped;
 
     delete this.listeners[path];
+  };
+
+  sendMessageToAll = (eventId: string, data: Json) => {
+    this.sockets.forEach((socket) => {
+      socket.emit(eventId, data);
+    });
   };
 }

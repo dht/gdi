@@ -175,10 +175,12 @@ export type IDot = {
 export type IDots = Record<string, IDot>;
 
 export type IExternal = IBase & {
+  url: string;
+  meshNames?: string | string[];
+
+  // transient
   rootUrl?: string;
   fileName?: string;
-  url?: string;
-  meshNames?: string | string[];
 };
 
 export type IExternals = Record<string, IExternal>;
@@ -257,7 +259,8 @@ export type IVector4 = [number, number, number, number];
 export type IBezier = [number, number, number, number];
 export type IEasing = [number, number, number, number];
 
-export type MaterialType = 'color' | 'texture' | 'grid' | 'video';
+// standard and color are the same
+export type MaterialType = 'standard' | 'color' | 'texture' | 'grid' | 'video' | 'PBR';
 
 export type IMaterial = {
   id?: string;

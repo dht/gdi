@@ -10,7 +10,7 @@ export const $mainAudio = createSelector(raw.$rawSceneAudios, (audios) => {
 export const $tracks = createSelector(raw.$rawAppState, $mainAudio, (appState, mainAudio) => {
   const { assetsRootUrl } = appState;
 
-  let { url, volume, balance } = mainAudio ?? {};
+  let { url = '', volume, balance } = mainAudio ?? {};
 
   if (!url.includes('http')) {
     url = `${assetsRootUrl}${url}`;
