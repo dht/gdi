@@ -1,19 +1,18 @@
 import { all } from './fileDb.fs';
 
-export const handleRequest = (req: any, res: any, next: any) => {
+export const handleRequest = (req: any, res: any) => {
   switch (req.method) {
     case 'GET':
-      return handleGet(req, res, next);
+      return handleGet(req, res);
     case 'POST':
-      return handlePost(req, res, next);
+      return handlePost(req, res);
     case 'PATCH':
-      return handlePatch(req, res, next);
+      return handlePatch(req, res);
     default:
-      next();
   }
 };
 
-export const handleGet = (req: any, res: any, next: any) => {
+export const handleGet = (req: any, res: any) => {
   const path = fixPath(req);
 
   let data;
@@ -25,32 +24,30 @@ export const handleGet = (req: any, res: any, next: any) => {
   }
 
   res.json(data);
-
-  next();
 };
 
-export const handlePost = (req: any, res: any, next: any) => {
+export const handlePost = (req: any, res: any) => {
   const path = fixPath(req);
 
   all.collection.setItem(path, req.body);
 
-  next();
+  res.json({ success: true });
 };
 
-export const handlePatch = (req: any, res: any, next: any) => {
+export const handlePatch = (req: any, res: any) => {
   const path = fixPath(req);
 
   all.collection.patchItem(path, req.body, true);
 
-  next();
+  res.json({ success: true });
 };
 
-export const handleDelete = (req: any, res: any, next: any) => {
+export const handleDelete = (req: any, res: any) => {
   const path = fixPath(req);
 
   all.collection.deleteItem(path);
 
-  next();
+  res.json({ success: true });
 };
 
 export const fixPath = (req: any) => {

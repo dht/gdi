@@ -103,7 +103,8 @@ export interface DBAdapter {
 }
 
 export interface StorageAdapter {
-  file: (path: string) => IFile;
+  file: (path: string, isMeta?: boolean) => IFile;
+  addListener: (file: IFile) => void;
 }
 
 export type IFile = {
@@ -111,4 +112,9 @@ export type IFile = {
   makePublic: () => Promise<void>;
   save: (buffer: Buffer, options: any) => Promise<void>;
   delete: () => Promise<void>;
+
+  // for local runners
+  isMeta?: boolean;
+  fullPath: string;
+  info: Json;
 };

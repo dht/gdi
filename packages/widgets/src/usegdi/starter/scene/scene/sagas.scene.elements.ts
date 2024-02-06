@@ -43,8 +43,10 @@ const map: Record<Verb, any> = {
 
 const mapAction: Record<string, any> = {
   externals: actions.sceneExternals.add,
+  characters: actions.sceneCharacters.add,
   lights: actions.sceneLights.add,
   meshes: actions.sceneMeshes.add,
+  video: actions.sceneMeshes.add,
 };
 
 export function* removeElement(action: Action) {

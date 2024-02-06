@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   transform: translateX(-50%);
   width: 142px;
   font-size: 15px;
+  z-index: 2;
   color: #333;
   text-align: center;
   background-color: gold;

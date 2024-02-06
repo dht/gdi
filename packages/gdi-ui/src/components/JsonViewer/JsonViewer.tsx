@@ -45,7 +45,7 @@ export function JsonViewer(props: JsonViewerProps) {
 
       return <Pre style={style} dangerouslySetInnerHTML={{ __html: code.value }} />;
     } else {
-      <EditorCode language='json' readOnly value={text} onChange={onChange} />;
+      return <EditorCode language='json' readOnly value={text} onChange={onChange} />;
     }
   }
 

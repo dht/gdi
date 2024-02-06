@@ -1,16 +1,14 @@
-import { IExternal } from '@gdi/store-iso';
+import { IExternal, ISceneCharacter } from '@gdi/store-iso';
 
-export const parseExternalUrl = (external: IExternal) => {
-  const { rootUrl, fileName, url } = external;
+export const parseExternalUrl = (external: IExternal | ISceneCharacter) => {
+  const { url = '' } = external;
 
-  const output = { rootUrl: '', fileName: '' };
+  const parts = url.split('/');
+  const fileName = parts.pop() as string;
+  const rootUrl = parts.join('/') + '/';
 
-  if (url) {
-    output.fileName = url;
-  } else {
-    output.rootUrl = rootUrl ?? '';
-    output.fileName = fileName ?? '';
-  }
-
-  return output;
+  return {
+    fileName,
+    rootUrl,
+  };
 };

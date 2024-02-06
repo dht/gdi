@@ -12,11 +12,11 @@ export const barItems: IBarItems = {
     id: 'boardId',
     value: '$boardIdShort',
   },
-  setups: {
-    id: 'setups',
-    value: '$setupsCount',
-    emoji: '💡',
-  },
+  // setups: {
+  //   id: 'setups',
+  //   value: '$setupsCount',
+  //   emoji: '💡',
+  // },
   adapter: {
     id: 'adapter',
     value: '$flowAdapterProvider',

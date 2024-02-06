@@ -1,4 +1,4 @@
-import { addExternal, addLight, addMesh } from 'isokit2';
+import { addCharacter, addExternal, addLight, addMesh } from 'isokit2';
 import { call, takeEvery } from 'saga-ts';
 import { predicateNewElement } from '../../../../helpers/predicates';
 
@@ -17,10 +17,16 @@ export function* onExternalAdded(action: any) {
   yield call(addExternal, payload);
 }
 
+export function* onCharacterAdded(action: any) {
+  const { payload } = action;
+  yield call(addCharacter, payload);
+}
+
 export function* root() {
   yield takeEvery(predicateNewElement('sceneLight'), onLightAdded);
   yield takeEvery(predicateNewElement('sceneMesh'), onMeshAdded);
   yield takeEvery(predicateNewElement('sceneExternal'), onExternalAdded);
+  yield takeEvery(predicateNewElement('sceneCharacter'), onCharacterAdded);
 }
 
 export const saga = {

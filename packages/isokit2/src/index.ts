@@ -15,6 +15,7 @@ export { animateItem, createAnimation, stopAllAnimations } from './iso.animation
 export { moveArc, setActiveCameras, setCamera, switchCamera } from './iso.camera';
 export { addCharacter, focusCornerCamera, showMouth } from './iso.characters';
 export { addDecal, setDecalPick } from './iso.decals';
+export { initSplat } from './iso.gaussian';
 export { initDecalPaste } from './iso.decals.utils';
 export {
   addElement,
@@ -33,6 +34,7 @@ export {
   checkMeshExists,
   getSelectedMesh,
   removeAllMeshes,
+  removeMeshesByContent,
   removeMesh,
   renameMesh,
   showMesh,

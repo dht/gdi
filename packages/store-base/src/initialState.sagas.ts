@@ -442,6 +442,13 @@ export const sagas: ISagas = {
       keyNames: ['delete'],
     },
   },
+  'widgets.scene.live': {
+    id: 'widgets.scene.live',
+    type: 'socket',
+    trigger: {
+      eventNames: ['asset/change'],
+    },
+  },
   'widgets.scene.onAdd': {
     id: 'widgets.scene.onAdd',
     type: 'crud',
@@ -475,6 +482,13 @@ export const sagas: ISagas = {
     type: 'entity',
     trigger: {
       actionTypes: ['SCENE_SAVE'],
+    },
+  },
+  'widgets.visionSimulator': {
+    id: 'widgets.visionSimulator',
+    type: 'component',
+    trigger: {
+      eventNames: ['scene/ready'],
     },
   },
 };

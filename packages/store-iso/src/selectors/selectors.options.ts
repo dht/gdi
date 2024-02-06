@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { externalTypes, lightTypes, meshTypes } from '../data/data.options';
+import { externalTypes, lightTypes, meshTypes, videoTypes } from '../data/data.options';
 import { createOptions } from '../utils/options';
 import { IIsoStore } from '../types.iso';
 
@@ -19,15 +19,27 @@ export const $meshes = createSelector($o, () => {
   return createOptions(meshTypes);
 });
 
+export const $characters = createSelector($o, () => {
+  return createOptions(externalTypes);
+});
+
+export const $video = createSelector($o, () => {
+  return createOptions(videoTypes);
+});
+
 export const $elementTypes = createSelector(
   $lights,
   $externals,
   $meshes,
-  (lights, externals, meshes) => {
+  $characters,
+  $video,
+  (lights, externals, meshes, characters, video) => {
     return {
       lights,
       externals,
       meshes,
+      characters,
+      video,
     };
   }
 );

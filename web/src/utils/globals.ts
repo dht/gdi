@@ -1,6 +1,6 @@
 import { IDBAdapter, IFlowAdapter, IBoardAdapter } from '../adapters/adapter.types';
 
-export let store: any;
+export let store: any, storeBuilder: any;
 export let flowAdapter: IFlowAdapter, boardAdapter: IBoardAdapter, dbAdapter: IDBAdapter;
 
 export const setStore = (value: any) => {
@@ -9,6 +9,14 @@ export const setStore = (value: any) => {
 
 export const getStore = () => {
   return store;
+};
+
+export const setStoreBuilder = (value: any) => {
+  storeBuilder = value;
+};
+
+export const getStoreBuilder = () => {
+  return storeBuilder;
 };
 
 export const setFlowAdapter = (value: IFlowAdapter) => {

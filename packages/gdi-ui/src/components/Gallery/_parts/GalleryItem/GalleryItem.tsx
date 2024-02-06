@@ -12,6 +12,7 @@ import {
   Soon,
   Tags,
   Version,
+  Wip,
   Wrapper,
 } from './GalleryItem.style';
 
@@ -22,7 +23,7 @@ export type GalleryItemProps = {
 
 export function GalleryItem(props: GalleryItemProps) {
   const { board } = props;
-  const { identifier, version, ratings, reviewsCount, isActive, boardInfo } = board;
+  const { identifier, version, ratings, reviewsCount, isActive, isWip, boardInfo } = board;
   const { index, name, description, imageUrl, boardType } = boardInfo;
 
   const style: React.CSSProperties = useMemo(
@@ -34,6 +35,7 @@ export function GalleryItem(props: GalleryItemProps) {
 
   const className = classnames('GalleryItem-wrapper', {
     soon: !isActive,
+    wip: isWip,
   });
 
   return (
@@ -46,6 +48,7 @@ export function GalleryItem(props: GalleryItemProps) {
         <Shape shape={boardType} />
       </Image>
       <Soon className='soon'>Soon</Soon>
+      <Wip className='wip'>Work in progress</Wip>
       <Details>
         <Row>
           <Name className='name'>

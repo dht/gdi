@@ -17,12 +17,13 @@ export const midUser = async (req: any, res: any, next: any) => {
 
 export const midLogger = async (req: any, res: any, next: any) => {
   // console.log('req.url =>', req.method, req.path);
+
   next();
 };
 
 export const midData = async (req: any, res: any, next: any) => {
   if (req.path.startsWith('/data')) {
-    return handleRequest(req, res, next);
+    return handleRequest(req, res);
   }
 
   next();

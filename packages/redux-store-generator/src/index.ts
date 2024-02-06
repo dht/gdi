@@ -5,7 +5,6 @@ export {
 export { collection_all, generateActionsForStore, single_all } from './actions';
 export { clearStore } from './clear';
 export { initialFetch } from './getAll';
-
 export {
     generateCollection,
     generateReducersForStore,

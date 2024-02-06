@@ -27,3 +27,7 @@ export const meshTypes = [
 ].sort();
 
 export const externalTypes = ['glb', 'audio'];
+
+export const charactersTypes = ['glb'];
+
+export const videoTypes = ['wall'];

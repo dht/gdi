@@ -1,29 +1,29 @@
 import { io } from 'socket.io-client';
 
-const cache: any = {};
+const cacheSockets: any = {};
 
-export const initSocketServer = (url: string) => {
-  if (cache[url]) {
-    return cache[url];
+export const initSocket = (url: string) => {
+  if (cacheSockets[url]) {
+    return cacheSockets[url];
   }
 
-  const server = io(url);
+  const socket = io(url);
 
-  server.on('connect', () => {
+  socket.on('connect', () => {
     console.log('Connected to the server');
   });
 
-  server.on('disconnect', () => {
+  socket.on('disconnect', () => {
     console.log('Disconnected from the server');
   });
 
-  cache[url] = server;
+  cacheSockets[url] = socket;
 
-  return server;
+  return socket;
 };
 
-export const closeSocketServer = (url: string) => {
-  if (cache[url]) {
-    cache[url].close();
+export const closeSocket = (url: string) => {
+  if (cacheSockets[url]) {
+    cacheSockets[url].close();
   }
 };

@@ -30,16 +30,18 @@ export const parsers = {
   '{uid4}': guid,
   '{asset-audio}': asset,
   '{asset-image}': asset,
+  '{asset-video}': asset,
   '{asset-3d}': asset,
 };
 
 export const map: any = {
   '{asset-audio}': 'audio',
   '{asset-image}': 'image',
+  '{asset-video}': 'video',
   '{asset-3d}': '3d',
 };
 
-const extraXPaths = ['values.heightMap'];
+const extraXPaths = ['values.heightMap', 'material.values.url'];
 
 export function* bakeJson(jsonRaw: string) {
   let json = parseJson(jsonRaw, {}),

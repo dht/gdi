@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
@@ -17,7 +17,7 @@ export type MarkdownProps = {
 };
 
 export function Markdown(props: MarkdownProps) {
-  const { markdown: markdownRaw, mode = 'light', zoom, width, height, wrap } = props;
+  const { markdown: markdownRaw = '', mode = 'light', zoom, width, height, wrap } = props;
   const ref = useRef<HTMLDivElement>(null);
 
   const className = classnames('Markdown-wrapper', mode, {

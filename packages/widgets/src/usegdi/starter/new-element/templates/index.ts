@@ -24,6 +24,8 @@ import { template as templateMeshTorus } from './template.mesh.torus';
 import { template as templateMeshTorusKnot } from './template.mesh.torusKnot';
 import { template as templateMeshTopography } from './template.mesh.topography';
 import { template as templateMeshTube } from './template.mesh.tube';
+import { template as templateVideoWall } from './template.video.wall';
+import { template as templateCharactersGlb } from './template.characters.glb';
 import { get } from 'lodash';
 
 export const allTemplates: any = {
@@ -61,6 +63,14 @@ export const allTemplates: any = {
     torusKnot: templateMeshTorusKnot,
     topography: templateMeshTopography,
     tube: templateMeshTube,
+  },
+  video: {
+    _default: templateVideoWall,
+    wall: templateVideoWall,
+  },
+  characters: {
+    _default: templateCharactersGlb,
+    glb: templateCharactersGlb,
   },
 };
 

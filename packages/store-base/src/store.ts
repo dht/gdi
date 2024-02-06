@@ -2,8 +2,6 @@ import { initConnected } from 'redux-connected';
 import { initialState } from './initialState';
 import { Json } from './types';
 
-export let store: any;
-
 export const initStore = (
   root: any,
   firebase?: Json,

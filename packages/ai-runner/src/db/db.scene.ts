@@ -7,7 +7,12 @@ import { createAsset, getAssets, patchAsset } from './db.assets';
 import { dbAdapter } from '../utils/globals';
 
 export const getScene = async (req: any) => {
-  const scene = await getByNodes(req, ['sceneLights', 'sceneMeshes', 'sceneExternals']);
+  const scene = await getByNodes(req, [
+    'sceneLights',
+    'sceneMeshes',
+    'sceneExternals',
+    'sceneCharacters',
+  ]);
 
   return scene;
 };
@@ -79,7 +84,7 @@ export const restoreScene = async (req: any, projectId: string) => {
 
     const response = await fetchJsonUrl(url);
 
-    const { sceneLights, sceneMeshes, sceneExternals } = response.data;
+    const { sceneLights, sceneMeshes, sceneExternals, sceneCharacters } = response.data;
 
     let scopedPath: string;
 
@@ -89,6 +94,8 @@ export const restoreScene = async (req: any, projectId: string) => {
     await dbAdapter.replaceCollection(scopedPath, sceneMeshes);
     scopedPath = getScopedPath(req, '/sceneExternals', 'userData');
     await dbAdapter.replaceCollection(scopedPath, sceneExternals);
+    scopedPath = getScopedPath(req, '/sceneCharacters', 'userData');
+    await dbAdapter.replaceCollection(scopedPath, sceneCharacters);
   } catch (err) {
     console.log('err =>', err);
     success = false;

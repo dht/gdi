@@ -4,33 +4,15 @@ import * as base from './selectors.base';
 import { get } from 'lodash';
 import { ISceneAssetLoaderWithStage } from '../types.iso';
 
-type AssetUrl = {
-  rootUrl: string;
-  fileName: string;
-  url: string;
-};
-
 export const $glbs = createSelector(base.$elements, (elements) => {
   const { sceneExternals, sceneCharacters } = elements;
-
-  const urls: string[] = [];
 
   const externalsAndCharacters = [
     ...Object.values(sceneExternals),
     ...Object.values(sceneCharacters),
   ];
 
-  Object.values(externalsAndCharacters).forEach((external) => {
-    const { rootUrl, fileName, url } = external;
-
-    if (url) {
-      urls.push(url);
-    } else if (rootUrl && fileName) {
-      urls.push(`${rootUrl}/${fileName}`);
-    }
-  });
-
-  return urls;
+  return Object.values(externalsAndCharacters).map((external) => external.url);
 });
 
 export const $videos = createSelector(base.$elements, (elements) => {

@@ -28,6 +28,7 @@ import { saga as sagaPlayerTime } from './player/sagas.player.time';
 import { saga as sagaSceneBootstrap } from './scene/sagas.scene.bootstrap';
 import { saga as sagaSceneElements } from './scene/sagas.scene.elements';
 import { saga as sagaSceneKeys } from './scene/sagas.scene.keys';
+import { saga as sagaSceneLive } from './scene/sagas.scene.live';
 import { saga as sagaSceneOnAdd } from './scene/sagas.scene.onAdd';
 import { saga as sagaSceneOnDelete } from './scene/sagas.scene.onDelete';
 import { saga as sagaSceneOnMove } from './scene/sagas.scene.onMove';
@@ -65,6 +66,7 @@ export const sagas = {
   'widgets.scene.bootstrap': sagaSceneBootstrap,
   'widgets.scene.elements': sagaSceneElements,
   'widgets.scene.keys': sagaSceneKeys,
+  'widgets.scene.live': sagaSceneLive,
   'widgets.scene.onAdd': sagaSceneOnAdd,
   'widgets.scene.onDelete': sagaSceneOnDelete,
   'widgets.scene.onMove': sagaSceneOnMove,

@@ -31,8 +31,7 @@ export const addCharacter = async (character: ISceneCharacter) => {
   const {
     id,
     meshNames,
-    rootUrl,
-    fileName,
+    url,
     animations,
     meshId,
     rootId,
@@ -47,8 +46,7 @@ export const addCharacter = async (character: ISceneCharacter) => {
   const { meshes: m1, animationGroups: ag1 } = await addRemoteScene({
     id,
     meshNames,
-    rootUrl,
-    fileName,
+    url,
   });
 
   const handlers: any = {};
@@ -125,6 +123,9 @@ export const addMouth = (characterMesh: any, decal?: IDecal, mouthShapeUrls?: Js
     set(decalDefinition, 'values.destinationMeshId', characterMesh.id);
 
     decals[key] = addDecal(decalDefinition);
+
+    if (!decals[key]) continue;
+
     decals[key].material.alpha = 0;
   }
 

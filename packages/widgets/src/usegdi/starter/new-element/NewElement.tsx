@@ -66,7 +66,7 @@ export function NewElement(props: NewElementProps) {
       <Left>{renderFamilies()}</Left>
       <Top>{renderTop()}</Top>
       <Editor>
-        <ElementCode verb='Add' code={code} allowDelete callbacks={callbacks} />
+        <ElementCode verb='Add' code={code} callbacks={callbacks} />
       </Editor>
     </Wrapper>
   );
