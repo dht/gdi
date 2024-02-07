@@ -48,10 +48,12 @@ export const initMaterialTexture = (material: IMaterial) => {
 
 export const initMaterialVideo = (material: IMaterial) => {
   const { id, values } = material;
+
   const { url } = values ?? {};
 
   const output = initMaterialColor(material);
   const textureId = `texture-${id}`;
+
   const vidTexture = new VideoTexture(textureId, url, scene);
 
   output.diffuseTexture = vidTexture;

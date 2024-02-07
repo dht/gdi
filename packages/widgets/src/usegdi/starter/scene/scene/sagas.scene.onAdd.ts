@@ -9,6 +9,7 @@ export function* onLightAdded(action: any) {
 
 export function* onMeshAdded(action: any) {
   const { payload } = action;
+
   yield call(addMesh, payload);
 }
 
