@@ -122,10 +122,10 @@ const appScreenshot = async () => {
 const run = async () => {
   const files = fs
     .readdirSync('./raw')
-    .filter((file) => file.startsWith('e_'))
+    .filter((file) => file.startsWith('c_'))
     .map((file, index) => {
       const inputPath = `raw/${file}`;
-      const outputPath = `processed/c${index}.jpg`;
+      const outputPath = `processed/d${index}.jpg`;
 
       return (
         sharp(inputPath)
