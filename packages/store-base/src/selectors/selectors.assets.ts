@@ -85,6 +85,10 @@ export const $assets = createSelector(raw.$rawAssets, base.$projectTag, (assets,
     .sort(sortBy('fileName'));
 });
 
+export const $assetsCurrent = createSelector($assets, (assets) => {
+  return assets.filter((asset) => asset.isCurrentProject);
+});
+
 export const $listLeft = createSelector(
   raw.$rawCurrentIds,
   $projectsList,
