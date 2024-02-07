@@ -7,8 +7,11 @@ import babylon from './babylon';
 import bitBuilder from './bit-builder';
 import calendar from './calendar';
 import chat from './chat';
+import claire from './claire';
+import debateWorkshop from './debate-workshop';
 import document from './document';
 import documentBootstrap from './document-bootstrap';
+import earth from './earth';
 import facebook from './facebook';
 import flow from './flow';
 import footer from './footer';
@@ -19,6 +22,7 @@ import imageParams from './image-params';
 import imageSuggestion from './image-suggestion';
 import imageViewer from './image-viewer';
 import instagram from './instagram';
+import kayak from './kayak';
 import logger from './logger';
 import logo from './logo';
 import midi from './midi';
@@ -26,12 +30,18 @@ import mock from './mock';
 import mode from './mode';
 import multi from './multi';
 import noMobile from './no-mobile';
+import periscope from './periscope';
 import pinterest from './pinterest';
 import playback from './playback';
+import pplDetails from './ppl-details';
+import pplGrid from './ppl-grid';
+import premiere from './premiere';
 import productTour from './product-tour';
+import regex from './regex';
+import regexDoc from './regex-doc';
 import saveBoard from './save-board';
 import savePanel from './save-panel';
-import SceneBuilder from './scene-builder';
+import sceneBuilder from './scene-builder';
 import scenePlayer from './scene-player';
 import soundboard from './soundboard';
 import speech from './speech';
@@ -40,9 +50,11 @@ import spotify from './spotify';
 import spotlight from './spotlight';
 import startPlay from './start-play';
 import subtext from './subtext';
+import tdd from './tdd';
 import tikTok from './tikTok';
 import todos from './todos';
 import transcript from './transcript';
+import tube from './tube';
 import twitter from './twitter';
 import variables from './variables';
 import videoEffects from './video-effects';
@@ -66,8 +78,11 @@ export const starter: IWidgets = {
   'com.usegdi.starter.bit-builder': bitBuilder,
   'com.usegdi.starter.calendar': calendar,
   'com.usegdi.starter.chat': chat,
+  'com.usegdi.starter.claire': claire,
+  'com.usegdi.starter.debate-workshop': debateWorkshop,
   'com.usegdi.starter.document': document,
   'com.usegdi.starter.document-bootstrap': documentBootstrap,
+  'com.usegdi.starter.earth': earth,
   'com.usegdi.starter.facebook': facebook,
   'com.usegdi.starter.flow': flow,
   'com.usegdi.starter.footer': footer,
@@ -78,6 +93,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.image-suggestion': imageSuggestion,
   'com.usegdi.starter.image-viewer': imageViewer,
   'com.usegdi.starter.instagram': instagram,
+  'com.usegdi.starter.kayak': kayak,
   'com.usegdi.starter.logger': logger,
   'com.usegdi.starter.logo': logo,
   'com.usegdi.starter.midi': midi,
@@ -87,9 +103,15 @@ export const starter: IWidgets = {
   'com.usegdi.starter.no-mobile': noMobile,
   'com.usegdi.starter.pinterest': pinterest,
   'com.usegdi.starter.playback': playback,
+  'com.usegdi.starter.ppl-details': pplDetails,
+  'com.usegdi.starter.ppl-grid': pplGrid,
+  'com.usegdi.starter.periscope': periscope,
+  'com.usegdi.starter.premiere': premiere,
   'com.usegdi.starter.product-tour': productTour,
+  'com.usegdi.starter.regex': regex,
+  'com.usegdi.starter.regex-doc': regexDoc,
   'com.usegdi.starter.save-panel': savePanel,
-  'com.usegdi.starter.scene-builder': SceneBuilder,
+  'com.usegdi.starter.scene-builder': sceneBuilder,
   'com.usegdi.starter.scene-player': scenePlayer,
   'com.usegdi.starter.save-board': saveBoard,
   'com.usegdi.starter.soundboard': soundboard,
@@ -99,9 +121,11 @@ export const starter: IWidgets = {
   'com.usegdi.starter.spotlight': spotlight,
   'com.usegdi.starter.start-play': startPlay,
   'com.usegdi.starter.subtext': subtext,
+  'com.usegdi.starter.tdd': tdd,
   'com.usegdi.starter.tikTok': tikTok,
   'com.usegdi.starter.todos': todos,
   'com.usegdi.starter.transcript': transcript,
+  'com.usegdi.starter.tube': tube,
   'com.usegdi.starter.twitter': twitter,
   'com.usegdi.starter.variables': variables,
   'com.usegdi.starter.video-effects': videoEffects,
