@@ -13,6 +13,7 @@ type Verb =
   | 'boardId'
   | 'adapter'
   | 'resolution'
+  | 'assets'
   | 'time'
   | 'tags'
   | 'commandPalette';
@@ -30,6 +31,7 @@ const map: Record<Verb, any> = {
   resolution: showScreenInfo,
   time: toggleTimeFormat,
   tags: showTagPicker,
+  assets: navigateToAssets,
   commandPalette: openCommandPalette,
   boardId: boardId,
 };
@@ -52,6 +54,13 @@ export function* configureFlowAdapter(_action: Action, board: IBoard) {
   yield put({
     type: 'HOME',
     verb: 'switchAdapter',
+  });
+}
+
+export function* navigateToAssets(_action: Action, board: IBoard) {
+  yield put({
+    type: 'NAVIGATE',
+    to: '/boards/B-009',
   });
 }
 

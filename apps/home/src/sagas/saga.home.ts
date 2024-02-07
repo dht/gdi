@@ -99,7 +99,7 @@ function* install(action: ActionHome, board: Json, silent: boolean = false) {
     id: board.id,
   });
 
-  if (response.success && !silent) {
+  if (!response.success || silent) {
     return;
   }
 

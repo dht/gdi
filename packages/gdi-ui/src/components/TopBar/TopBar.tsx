@@ -5,6 +5,7 @@ import { Actions, Center, Github, Left, Right, Slogan, Wrapper } from './TopBar.
 import Logo from '../Logo/Logo';
 import GitHubButton from 'react-github-btn';
 import { isMobile } from '../../utils/mobile';
+import ClientIcons from '../ClientIcons/ClientIcons';
 
 export type TopBarProps = {
   children?: React.ReactNode;
@@ -74,6 +75,7 @@ export function TopBar(props: TopBarProps) {
           <Logo size={isMobile() ? 22 : 30} onClick={toHome} />
           <Slogan>Fusion Interfaces for the AI Era</Slogan>
           {renderGithub()}
+          <ClientIcons />
         </Left>
 
         <Center>{renderCenter()}</Center>

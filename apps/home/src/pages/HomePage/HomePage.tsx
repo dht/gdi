@@ -5,6 +5,8 @@ import BasePage from '../BasePage';
 import HomePageEmpty from './HomePage.empty';
 import { Center, Container, Content } from './HomePage.style';
 import GalleryContainer from '../../containers/Gallery.container';
+import CardBrowse from '../../components/CardBrowse/CardBrowse';
+import CardBrowseContainer from '../../components/CardBrowse/CardBrowse.container';
 
 export type HomePageProps = {
   boards: IBoard[];
@@ -35,7 +37,13 @@ export function HomePage(props: HomePageProps) {
       return <HomePageEmpty callbacks={callbacks} />;
     }
 
-    return <GalleryContainer boards={boards} onClick={callbacks.onClick} />;
+    return (
+      <GalleryContainer
+        boards={boards}
+        extraCard={CardBrowseContainer}
+        onClick={callbacks.onClick}
+      />
+    );
   }
 
   function renderSticky() {
