@@ -7,12 +7,21 @@ export type GalleryProps = {
   filter: string;
   q?: string;
   onClick: (board: Json) => void;
+  extraCard?: any;
 };
 
 export function Gallery(props: GalleryProps) {
-  const { boards, filter, q = '' } = props;
+  const { boards, filter, q = '', extraCard } = props;
 
   const items = useItems(boards, q, filter);
+
+  function renderExtra() {
+    if (!extraCard) return;
+
+    const Cmp = extraCard as any;
+
+    return <Cmp />;
+  }
 
   function renderItem(board: Json) {
     return <GalleryItem onClick={props.onClick} key={board.id} board={board} />;
@@ -25,6 +34,7 @@ export function Gallery(props: GalleryProps) {
   return (
     <Wrapper className='Gallery-wrapper' data-testid='Gallery-wrapper'>
       {renderItems()}
+      {renderExtra()}
     </Wrapper>
   );
 }
