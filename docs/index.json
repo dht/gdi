@@ -139,6 +139,12 @@
       "title": "Introduction"
     },
     {
+      "fileName": "apps-and-extensions.md",
+      "path": "future/apps-and-extensions.md",
+      "category": "future",
+      "title": "Apps & Extensions"
+    },
+    {
       "fileName": "agents.md",
       "path": "future/agents.md",
       "category": "future",

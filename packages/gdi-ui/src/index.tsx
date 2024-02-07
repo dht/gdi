@@ -11,6 +11,7 @@ export { ChartDoughnut } from './components/ChartDoughnut/ChartDoughnut';
 export { ChartTime } from './components/ChartTime/ChartTime';
 export type { ChartTimeProps } from './components/ChartTime/ChartTime';
 export { Checkbox } from './components/Checkbox/Checkbox';
+export { ClientIcons } from './components/ClientIcons/ClientIcons';
 export { CommandPalette, shortKeysMatch } from './components/CommandPalette/CommandPalette';
 export { BigAutoComplete } from './components/CommandPalette/_parts/BigAutoComplete/BigAutoComplete';
 export { useFuzzySearch, useFuzzySearchQ } from './components/CommandPalette/hooks/useFuzzySearch';
