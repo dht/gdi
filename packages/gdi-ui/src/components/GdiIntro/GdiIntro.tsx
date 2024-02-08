@@ -33,9 +33,9 @@ export function GdiIntro(props: GdiIntroProps) {
         <BoardId>Create & use fusion interfaces</BoardId>
         <Name>Welcome to GDI</Name>
         <Paragraph>
-          Build the user interfaces of the AI era. GDI simplifies tasks like asset management, model
-          orchestration, data management, cost optimization while letting you fork and improve
-          others work.
+          Build the user interfaces of the AI era. GDI simplifies tasks such as asset management,
+          model orchestration, data management and cost optimization while allowing you to fork and
+          improve upon others' work.
         </Paragraph>
       </Details>
       <Actions>

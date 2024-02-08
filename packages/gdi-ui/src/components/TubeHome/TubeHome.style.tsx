@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    flex: 1;
-    border: 1px solid green;
+  flex: 1;
+`;
+
+export const Cards = styled.div`
+  max-width: 1150px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
 `;

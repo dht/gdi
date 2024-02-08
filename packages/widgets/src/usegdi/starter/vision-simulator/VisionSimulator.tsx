@@ -1,5 +1,5 @@
 import { IBit, ISceneAssetLoaderWithStage, ISceneState } from '@gdi/store-iso';
-import { AssetLoader } from '@gdi/ui';
+import { AssetLoader, UnderConstruction } from '@gdi/ui';
 import { Scene, useGlbReady } from 'isokit2';
 import { ReactNode } from 'react';
 import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
@@ -31,6 +31,7 @@ export function VisionSimulator(props: VisionSimulatorProps) {
           environment={environment}
         />
       </Canvas>
+      <UnderConstruction />
     </Wrapper>
   );
 }

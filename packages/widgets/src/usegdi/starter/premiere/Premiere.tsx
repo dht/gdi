@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wrapper } from './Premiere.style';
-import { Wip } from '@gdi/ui';
+import { Wip, UnderConstruction } from '@gdi/ui';
 
 export type PremiereProps = {};
 
@@ -8,6 +8,7 @@ export function Premiere(_props: PremiereProps) {
   return (
     <Wrapper className='Premiere-wrapper' data-testid='Premiere-wrapper'>
       <Wip />
+      <UnderConstruction />
     </Wrapper>
   );
 }

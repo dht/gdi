@@ -22,4 +22,10 @@ export const number = {
       maximumFractionDigits: 0,
     }).format(value);
   },
+  duration: (value: number, locale: string = DEFAULT_LOCALE) => {
+    // 2:40
+    const minutes = Math.floor(value / 60);
+    const seconds = value - minutes * 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  },
 };

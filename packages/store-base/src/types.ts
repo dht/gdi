@@ -102,6 +102,7 @@ export type ICurrentIds = {
   rightId: string;
   modalId: string;
   editId: string;
+  clipId: string;
 };
 
 export type ISettings = {

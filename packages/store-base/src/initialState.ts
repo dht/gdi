@@ -57,6 +57,7 @@ export const initialState: IGdiStore = {
   },
   currentIds: {
     boardId: '',
+    clipId: '',
     requestId: '',
     voiceId: 'alloy',
     assetId: '',
