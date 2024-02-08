@@ -27,7 +27,7 @@ export function TopBar(props: TopBarProps) {
   }
 
   function renderMainAction() {
-    return showSubmit ? (
+    return showSubmit || isGuest ? (
       <Cta onClick={() => props.onNavigate('/newBoard')}>Submit your Board</Cta>
     ) : (
       <Cta onClick={() => props.onNavigate('/boards/B-009')}>My Assets</Cta>
