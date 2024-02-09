@@ -53,6 +53,7 @@ export type ActionInfo = {
   nodeName: string;
   verb: ApiVerb;
   nodeType: NodeType;
+  withMerge?: boolean;
 };
 
 export type IApiRequest = {
@@ -98,7 +99,11 @@ export type ITodo = {
 
 export type ITodos = Record<string, ITodo>;
 
-export type HandleMethod = (action: Action, info: ActionInfo) => Promise<any>;
+export type HandleMethod = (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => Promise<any>;
 
 export type IAction = {
   type: string;

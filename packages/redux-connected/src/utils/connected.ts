@@ -2,7 +2,8 @@ import { meta } from '../store/store';
 import { Action } from '../types';
 
 export const analyzeAction = (action: Action) => {
-  const { type } = action;
+  const { type, payload } = action;
+  const { withMerge } = payload ?? {};
 
   const actionInfo = meta.actionTypes[type];
 
@@ -17,5 +18,6 @@ export const analyzeAction = (action: Action) => {
   return {
     ...actionInfo,
     noteType,
+    withMerge,
   };
 };

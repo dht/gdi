@@ -12,9 +12,7 @@ export interface IBoard {
   examples?: IExamples;
   defaults: {
     exampleId?: string;
-    previewPath?: string;
-    dbPath?: string;
-    dbTag?: string;
+    setupId?: string;
   };
   dependencies: Json;
   elements: {

@@ -39,9 +39,7 @@ export const board: IBoard = {
   sourceUrl: 'https://github.com/dht/gdi/tree/main/web/public/boards/B-001',
   npmUrl: 'https://www.npmjs.com/package/@gdi/widgets-starter',
   vscodeUrl: 'https://vscode.dev/github/dht/gdi',
-  defaults: {
-    previewPath: '',
-  },
+  defaults: {},
   elements: {
     default: {},
   },

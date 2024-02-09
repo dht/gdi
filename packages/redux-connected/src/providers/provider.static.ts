@@ -7,24 +7,39 @@ import {
 } from '../utils/storage';
 import { getActionForNode } from '../utils/actions';
 import { HandleMethod } from '../types';
+import { get } from 'lodash';
+import { mergeCollection } from '../utils/collections';
 
-export const getCollection = (action: Action, info: ActionInfo) => {
-  let nextAction;
+export const getCollection = (
+  _action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
+  let nextAction,
+    data = {};
 
-  const { nodeName } = info;
+  const { nodeName, withMerge } = info;
 
   const xpath = `${nodeName}`;
-  const collectionItems = getStoreXPath(xpath);
+  data = getStoreXPath(xpath);
 
-  nextAction = getActionForNode(nodeName, 'setAll', collectionItems);
+  if (withMerge) {
+    data = mergeCollection(nodeName, data, allState);
+  }
+
+  nextAction = getActionForNode(nodeName, 'setAll', data);
 
   return {
-    data: collectionItems,
+    data,
     nextAction,
   };
 };
 
-export const patchCollectionItem = (action: Action, info: ActionInfo) => {
+export const patchCollectionItem = (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   const { id, payload = {} } = action;
   const { nodeName } = info;
 
@@ -35,7 +50,11 @@ export const patchCollectionItem = (action: Action, info: ActionInfo) => {
   return {};
 };
 
-export const deleteCollectionItem = (action: Action, info: ActionInfo) => {
+export const deleteCollectionItem = (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   const { id } = action;
   const { nodeName } = info;
 
@@ -47,7 +66,11 @@ export const deleteCollectionItem = (action: Action, info: ActionInfo) => {
   };
 };
 
-export const addCollectionItem = (action: Action, info: ActionInfo) => {
+export const addCollectionItem = (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   const { payload = {} } = action;
   const { nodeName } = info;
 
@@ -87,7 +110,8 @@ export const allVerbs: Record<ApiVerb, any> = {
 
 export const handleAction: HandleMethod = async (
   action: Action,
-  info: ActionInfo
+  info: ActionInfo,
+  allState: any
 ) => {
   const { verb } = info;
 
@@ -97,7 +121,7 @@ export const handleAction: HandleMethod = async (
     return false;
   }
 
-  const response = await verbHandler(action, info);
+  const response = await verbHandler(action, info, allState);
   const { nextAction } = response;
 
   return {

@@ -38,7 +38,6 @@ export const initialState: IIsoStore = {
     stageUrl: '',
   },
   sceneCurrentIds: {
-    projectTag: '',
     cameraId: 'arc',
     meshId: '',
     elementId: '',
@@ -160,3 +159,16 @@ export const initialState: IIsoStore = {
     },
   },
 };
+
+export const nodeNames = [
+  'sceneBits',
+  'sceneDots',
+  'sceneMeshes',
+  'sceneLights',
+  'sceneAudios',
+  'sceneEffects',
+  'scenePacks',
+  'sceneVASPs',
+  'sceneExternals',
+  'sceneCharacters',
+];

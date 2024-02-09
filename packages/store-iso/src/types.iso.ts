@@ -52,7 +52,6 @@ export type ISceneAssetLoaderWithStage = ISceneAssetLoader & {
 };
 
 export type ISceneCurrentIds = {
-  projectTag: string;
   cameraId: string;
   meshId: string;
   elementId: string;
@@ -99,7 +98,6 @@ export type IBase = {
   values?: Json;
   isSticky?: boolean;
   enabled?: boolean;
-  projectTag?: string;
   layerMask?: number;
 };
 
@@ -148,7 +146,6 @@ export type IBit = {
   cameraId?: string;
   attachmentUrl?: string;
   attachmentFilename?: string;
-  projectTag?: string;
 
   // transient
   index?: number;
@@ -169,7 +166,6 @@ export type IDot = {
   cameraId?: string;
   values: Json;
   easing?: IEasing;
-  projectTag?: string;
 };
 
 export type IDots = Record<string, IDot>;
@@ -204,7 +200,6 @@ export type IAudio = {
   fileName: string;
   values?: Json;
   isMain?: boolean;
-  projectTag?: string;
   balance?: number;
   volume?: number;
 };
@@ -217,7 +212,6 @@ export type ISceneEffect = {
   duration: number;
   effectId: string;
   values?: Json;
-  projectTag?: string;
 };
 
 export type ISceneEffects = Record<string, ISceneEffect>;
@@ -343,7 +337,6 @@ export type IPack = {
   url: string;
   capacity?: number;
   identifier: string;
-  projectTag?: string;
 };
 
 export type IPacks = Record<string, IPack>;

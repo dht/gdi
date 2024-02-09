@@ -1,6 +1,6 @@
 export { runSaga, setUser } from 'redux-connected';
 export { actions } from './actions';
-export { initialState } from './initialState.iso';
+export { initialState, nodeNames } from './initialState.iso';
 export { selectors } from './selectors/selectors.index';
 export * from './types.iso';
 export * from './types.shapes';

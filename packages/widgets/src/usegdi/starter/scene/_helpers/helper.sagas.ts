@@ -1,6 +1,6 @@
-import { actions as actionsIso } from '@gdi/store-iso';
-import { all } from 'redux-saga/effects';
-import { put, take } from 'saga-ts';
+import { actions as actionsIso, selectors } from '@gdi/store-iso';
+import { all, select, put, take } from 'saga-ts';
+import { merge } from 'lodash';
 
 export function* takeAll(actionTypes: string[]) {
   const allTakes = actionTypes.map((actionType) => take(actionType));
@@ -11,8 +11,9 @@ export function* takeAll(actionTypes: string[]) {
 export function* getNodes(nodeNames: string[]) {
   const actionTypes: string[] = [];
 
-  for (let node of nodeNames) {
-    const action = (actionsIso as any)[node].get({});
+  for (let nodeName of nodeNames) {
+    const action = (actionsIso as any)[nodeName].get({ withMerge: false });
+
     yield put(action);
     actionTypes.push(action.type.replace('GET', 'SET'));
   }

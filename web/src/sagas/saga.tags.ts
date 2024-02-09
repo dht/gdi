@@ -52,7 +52,7 @@ export function* changeProjectTag(ev: any) {
   const { tags = [] } = appState;
 
   // remove
-  const newTags = tags.filter((tag) => !tag.startsWith('project-'));
+  const newTags = tags.filter((tag: any) => !tag.startsWith('project-'));
   newTags.push(projectTag);
   yield put(actions.appState.patch({ tags: newTags }));
 

@@ -8,7 +8,6 @@ import { $projectTag } from './selectors.external';
 import * as raw from './selectors.raw';
 
 export const $elements = createSelector(
-  $projectTag,
   raw.$rawSceneLights,
   raw.$rawSceneExternals,
   raw.$rawSceneMeshes,
@@ -17,7 +16,6 @@ export const $elements = createSelector(
   raw.$rawSceneCameras,
   raw.$rawSceneCharacters,
   (
-    tag,
     sceneLights,
     sceneExternals,
     sceneMeshes,
@@ -27,13 +25,13 @@ export const $elements = createSelector(
     sceneCharacters
   ) => {
     return {
-      sceneLights: pickByField(sceneLights, 'projectTag', tag, true),
-      sceneExternals: pickByField(sceneExternals, 'projectTag', tag, true),
-      sceneMeshes: pickByField(sceneMeshes, 'projectTag', tag, true),
-      scenePacks: pickByField(scenePacks, 'projectTag', tag, true),
-      sceneVASPs: pickByField(sceneVASPs, 'projectTag', tag, true),
-      sceneCameras: pickByField(sceneCameras, 'projectTag', tag, true),
-      sceneCharacters: pickByField(sceneCharacters, 'projectTag', tag, true),
+      sceneLights,
+      sceneExternals,
+      sceneMeshes,
+      scenePacks,
+      sceneVASPs,
+      sceneCameras,
+      sceneCharacters,
     };
   }
 );
