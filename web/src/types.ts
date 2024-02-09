@@ -12,6 +12,5 @@ export type GdiLog = {
 export type IHashInfo = {
   hash: string;
   boardDbPath: string;
-  boardDbTag: string;
   dbType: 'none' | 'static' | 'dynamic';
 };

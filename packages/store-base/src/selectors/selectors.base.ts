@@ -235,13 +235,3 @@ export const $voices = createSelector(raw.$rawAppState, raw.$rawVoices, (appStat
     };
   });
 });
-
-export const $isPreview = createSelector($isGuest, $projectTag, (isGuest, projectTag) => {
-  return isGuest || projectTag === 'project-tutorial';
-});
-
-export const $isRemoteData = createSelector(raw.$rawAppState, (appState) => {
-  const { boardDbPath } = appState;
-
-  return boardDbPath !== '';
-});

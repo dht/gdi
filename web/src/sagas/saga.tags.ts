@@ -1,8 +1,10 @@
-import { IBoard, actions } from '@gdi/store-base';
-import { prompt } from '@gdi/ui';
-import { fork, put } from 'saga-ts';
+import { IBoard, actions, selectors } from '@gdi/store-base';
+import { prompt, toast } from '@gdi/ui';
+import { delay, fork, put, select } from 'saga-ts';
 import { getJson, invokeEvent, setJson } from 'shared-base';
 import TagPickerContainer from '../containers/TagsModal.container';
+import { customEvenChannel } from './channels/channel.customEvent';
+import { takeEvery } from 'typed-redux-saga';
 
 const LOCALE_STORAGE_KEY = 'tags';
 
@@ -40,8 +42,30 @@ export function* bootstrapTags() {
   }
 }
 
+export function* changeProjectTag(ev: any) {
+  const { data } = ev;
+  const { projectTag } = data;
+
+  yield delay(100);
+
+  const appState = yield* select(selectors.raw.$rawAppState);
+  const { tags = [] } = appState;
+
+  // remove
+  const newTags = tags.filter((tag) => !tag.startsWith('project-'));
+  newTags.push(projectTag);
+  yield put(actions.appState.patch({ tags: newTags }));
+
+  toast.show('Project tag changed');
+}
+
 export function* root() {
+  let channel: any;
+
   yield* fork(bootstrapTags);
+
+  channel = customEvenChannel('tag/project/set');
+  yield* takeEvery(channel, changeProjectTag);
 }
 
 export const saga = {

@@ -16,10 +16,10 @@ export function DetailsCta(props: DetailsCtaProps) {
   const { id, version, isActive, reviewInfo, isMyBoard } = board;
   const { rating = 0 } = reviewInfo;
 
-  function onPreview() {
+  function onOpen() {
     props.onAction({
       type: 'HOME',
-      verb: 'preview',
+      verb: 'navigateToBoard',
       id,
     });
   }
@@ -54,7 +54,7 @@ export function DetailsCta(props: DetailsCtaProps) {
         <Ratings value={rating} />
       </Row>
       {props.children}
-      <Cta disabled={!isActive} className={className} onClick={onPreview}>
+      <Cta disabled={!isActive} className={className} onClick={onOpen}>
         {previewText}
       </Cta>
       <Cta disabled={!isActive} onClick={isMyBoard ? onUnInstall : onInstall}>

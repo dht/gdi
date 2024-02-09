@@ -34,7 +34,7 @@ export function HomePageContainer(_props: HomePageContainerProps) {
       onClick: (board: Json) => {
         dispatch({
           type: 'HOME',
-          verb: 'board',
+          verb: 'navigateToDetails',
           id: board.id,
           params: {
             isBrowse: false,

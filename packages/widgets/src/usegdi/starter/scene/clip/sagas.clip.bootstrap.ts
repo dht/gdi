@@ -15,9 +15,9 @@ const nodes = [
 ];
 
 export function* restoreClip() {
-  const isRemoteData = yield* select(selectors.base.$isRemoteData);
+  const isGuest = yield* select(selectors.base.$isGuest);
 
-  if (isRemoteData) {
+  if (isGuest) {
     return;
   }
 

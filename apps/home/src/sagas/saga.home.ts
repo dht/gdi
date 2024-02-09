@@ -8,7 +8,6 @@ import quickStartBoardIds from '../data/quickStart.json';
 import { checkGuest } from './helpers/guest';
 
 type Verb =
-  | 'preview' //
   | 'install'
   | 'uninstall'
   | 'source'
@@ -19,7 +18,8 @@ type Verb =
   | 'switchAdapter'
   | 'save'
   | 'quickStart'
-  | 'board';
+  | 'navigateToDetails'
+  | 'navigateToBoard';
 
 export type ActionHome = {
   type: 'HOME';
@@ -29,7 +29,6 @@ export type ActionHome = {
 };
 
 const mapVerbToSaga: Record<Verb, any> = {
-  preview: preview,
   install: install,
   uninstall: uninstall,
   source: source,
@@ -40,29 +39,20 @@ const mapVerbToSaga: Record<Verb, any> = {
   save: save,
   switchAdapter: switchAdapter,
   quickStart: quickStart,
-  board: board,
+  navigateToBoard: navigateToBoard,
+  navigateToDetails: navigateToDetails,
 };
 
-function* preview(action: ActionHome, board: Json) {
+function* navigateToBoard(_action: ActionHome, board: Json) {
   const { url } = board;
-
-  const isPreview = yield* select(selectors.base.$isPreview);
-  const { defaults } = board;
-  const { previewPath, dbTag = '' } = defaults;
-
-  let hash = '';
-
-  if (isPreview) {
-    hash += `#${previewPath}|${dbTag}`;
-  }
 
   yield put({
     type: 'NAVIGATE',
-    to: url + hash,
+    to: url,
   });
 }
 
-function* board(action: ActionHome, board: Json) {
+function* navigateToDetails(action: ActionHome, board: Json) {
   const { params } = action;
   const { isBrowse } = params ?? {};
   const { id, url, defaults } = board;

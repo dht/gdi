@@ -8,7 +8,10 @@ export interface IBoard {
   boardInfo: IBoardInfo;
   flowUrl?: string;
   flow?: IFlow;
+  examplesUrl?: string;
+  examples?: IExamples;
   defaults: {
+    exampleId?: string;
     previewPath?: string;
     dbPath?: string;
     dbTag?: string;
@@ -46,12 +49,6 @@ export interface IBoard {
       [key: string]: IElement;
     };
   };
-}
-
-export interface IExample {
-  id: string;
-  name: string;
-  requestId: string;
 }
 
 export interface IBoardInfo {
@@ -101,6 +98,18 @@ export interface IElementFlags {
   isFloating?: boolean;
   isHidden?: boolean;
 }
+
+export type IExample = {
+  id: string;
+  dbPath: string;
+
+  title: string;
+  description: string;
+  screenshotPath: string;
+  dateAdded: string;
+};
+
+export type IExamples = Record<string, IExample>;
 
 export interface Json {
   [key: string]: any;
