@@ -1,6 +1,6 @@
 import { Scene } from '@babylonjs/core';
 import { runFunction } from '@gdi/firebase';
-import { selectors } from '@gdi/store-base';
+import { actions, selectors } from '@gdi/store-base';
 import { actions as actionsIso, selectors as selectorsIso } from '@gdi/store-iso';
 import { addElements, addSkyBox } from 'isokit2';
 import { call, put, select, takeEvery } from 'saga-ts';
@@ -12,13 +12,18 @@ const nodes = [
   'sceneLights',
   'sceneMeshes',
   'sceneCharacters',
+  'scenePacks',
+  'sceneVASPs',
+  'sceneCharacters',
 ];
 
 export function* restoreScene() {
   const projectId = yield* select(selectors.base.$projectTag);
   const isGuest = yield* select(selectors.base.$isGuest);
+  const appState = yield* select(selectors.raw.$rawAppState);
+  const { source } = appState;
 
-  if (isGuest) {
+  if (isGuest || source === 'static') {
     return;
   }
 
@@ -27,6 +32,7 @@ export function* restoreScene() {
       projectId,
     });
 
+    yield put(actions.appState.patch({ source: 'file' }));
     yield call(getNodes, nodes);
   } catch (err) {
     console.log('err =>', err);

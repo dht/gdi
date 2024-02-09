@@ -2,7 +2,7 @@ import { getProvider } from '../providers';
 import { config } from '../store/store';
 import { Action } from '../types';
 import { analyzeAction } from '../utils/connected';
-import { get } from 'lodash';
+import { get, merge } from 'lodash';
 
 export const midConnected =
   (store: any) => (next: any) => async (action: Action) => {
@@ -38,7 +38,8 @@ export const midConnected =
       }
     }
 
-    const response = await provider(action, info);
+    const state = store.getState();
+    const response = await provider(action, info, state);
 
     const { nextAction } = response;
 

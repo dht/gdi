@@ -51,6 +51,7 @@ export const initialState: IGdiStore = {
     filter: '',
     firstDayOfWeek: 0,
     suggestedFileName: '',
+    source: 'none',
     tags: ['project-tutorial'],
   },
   currentIds: {

@@ -216,8 +216,6 @@ export function* create(action: Action) {
     return;
   }
 
-  json.projectTag = projectTag;
-
   yield put(addAction(json));
 
   // close modal

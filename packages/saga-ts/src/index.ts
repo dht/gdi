@@ -14,6 +14,7 @@ export const call = typedEffects.call;
 export const cancel = typedEffects.cancel;
 export const getContext = typedEffects.getContext;
 export const cancelled = typedEffects.cancelled;
+export const all = effects.all;
 
 export function* api(action: any) {
   try {

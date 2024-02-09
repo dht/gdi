@@ -74,7 +74,10 @@ export type IAppState = {
   filter: string;
   firstDayOfWeek: number;
   tags: string[];
+  source: ContentSource;
 };
+
+export type ContentSource = 'none' | 'static' | 'file';
 
 export type IUser = {
   uid: string;
@@ -417,6 +420,7 @@ export type IBoard = {
   examples?: IExamples;
   defaults: {
     exampleId?: string;
+    setupId?: string;
   };
   flowUrl: string;
   flow?: IFlow & Json;

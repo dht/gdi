@@ -3,6 +3,8 @@ import { Action, ActionInfo, HandleMethod } from '../types';
 import { getActionForNode } from '../utils/actions';
 import { Axios } from '../utils/axios';
 import { arrayToObject } from '../utils/object';
+import { get } from 'lodash';
+import { mergeCollection } from '../utils/collections';
 
 let axios: Axios;
 
@@ -10,11 +12,15 @@ export const initAxios = (baseUrl: string) => {
   axios = new Axios(baseUrl);
 };
 
-export const getCollection = async (action: Action, info: ActionInfo) => {
+export const getCollection = async (
+  _action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   let nextAction,
     data = {};
 
-  const { nodeName } = info;
+  const { nodeName, withMerge } = info;
 
   const xpath = `${nodeName}`;
 
@@ -22,6 +28,11 @@ export const getCollection = async (action: Action, info: ActionInfo) => {
 
   if (response.isSuccess) {
     data = arrayToObject(response.data, 'id');
+
+    if (withMerge) {
+      data = mergeCollection(nodeName, data, allState);
+    }
+
     nextAction = getActionForNode(nodeName, 'setAll', data);
   }
 
@@ -32,7 +43,11 @@ export const getCollection = async (action: Action, info: ActionInfo) => {
   };
 };
 
-export const patchCollectionItem = async (action: Action, info: ActionInfo) => {
+export const patchCollectionItem = async (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   const { id, payload = {} } = action;
   const { nodeName } = info;
 
@@ -50,7 +65,8 @@ export const patchCollectionItem = async (action: Action, info: ActionInfo) => {
 
 export const deleteCollectionItem = async (
   action: Action,
-  info: ActionInfo
+  info: ActionInfo,
+  allState: any
 ) => {
   const { id } = action;
   const { nodeName } = info;
@@ -67,7 +83,11 @@ export const deleteCollectionItem = async (
   };
 };
 
-export const addCollectionItem = async (action: Action, info: ActionInfo) => {
+export const addCollectionItem = async (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   let nextAction;
 
   const { payload = {} } = action;
@@ -113,7 +133,8 @@ export const allVerbs: Record<ApiVerb, any> = {
 
 export const handleAction: HandleMethod = async (
   action: Action,
-  info: ActionInfo
+  info: ActionInfo,
+  allState: any
 ) => {
   const { verb } = info;
 
@@ -123,7 +144,7 @@ export const handleAction: HandleMethod = async (
     return false;
   }
 
-  const response = await verbHandler(action, info);
+  const response = await verbHandler(action, info, allState);
   const { nextAction, stopPropagation } = response;
 
   return {

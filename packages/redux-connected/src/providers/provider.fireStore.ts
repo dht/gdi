@@ -4,16 +4,21 @@ import { getActionForNode } from '../utils/actions';
 import * as fire from '../utils/firestore';
 import { scope } from '../utils/globals';
 import { arrayToObject } from '../utils/object';
+import { mergeCollection } from '../utils/collections';
 
 export const getScopedPath = (path: string) => {
   return `${scope}/${path}`;
 };
 
-export const getCollection = async (action: Action, info: ActionInfo) => {
+export const getCollection = async (
+  _action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   let nextAction,
     data = {};
 
-  const { nodeName } = info;
+  const { nodeName, withMerge } = info;
 
   const xpath = getScopedPath(`${nodeName}`);
 
@@ -21,6 +26,11 @@ export const getCollection = async (action: Action, info: ActionInfo) => {
 
   if (response.isSuccess) {
     data = arrayToObject(response.data, 'id');
+
+    if (withMerge) {
+      data = mergeCollection(nodeName, data, allState);
+    }
+
     nextAction = getActionForNode(nodeName, 'setAll', data);
   }
 
@@ -31,7 +41,11 @@ export const getCollection = async (action: Action, info: ActionInfo) => {
   };
 };
 
-export const patchCollectionItem = async (action: Action, info: ActionInfo) => {
+export const patchCollectionItem = async (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   const { id, payload = {} } = action;
   const { nodeName } = info;
 
@@ -66,7 +80,11 @@ export const deleteCollectionItem = async (
   };
 };
 
-export const addCollectionItem = async (action: Action, info: ActionInfo) => {
+export const addCollectionItem = async (
+  action: Action,
+  info: ActionInfo,
+  allState: any
+) => {
   let nextAction;
 
   const { payload = {} } = action;
@@ -112,7 +130,8 @@ export const allVerbs: Record<ApiVerb, any> = {
 
 export const handleAction: HandleMethod = async (
   action: Action,
-  info: ActionInfo
+  info: ActionInfo,
+  allState: any
 ) => {
   const { verb } = info;
 
@@ -122,7 +141,7 @@ export const handleAction: HandleMethod = async (
     return false;
   }
 
-  const response = await verbHandler(action, info);
+  const response = await verbHandler(action, info, allState);
   const { nextAction, stopPropagation } = response;
 
   return {

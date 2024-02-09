@@ -1,5 +1,5 @@
 import { runFunction } from '@gdi/firebase';
-import { selectors } from '@gdi/store-base';
+import { actions, selectors } from '@gdi/store-base';
 import { selectors as selectorsIso, actions as actionsIso } from '@gdi/store-iso';
 import { call, put, select, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../../helpers/channels/channel.customEvent';
@@ -16,8 +16,10 @@ const nodes = [
 
 export function* restoreClip() {
   const isGuest = yield* select(selectors.base.$isGuest);
+  const appState = yield* select(selectors.raw.$rawAppState);
+  const { source } = appState;
 
-  if (isGuest) {
+  if (isGuest || source === 'static') {
     return;
   }
 
@@ -28,6 +30,7 @@ export function* restoreClip() {
       projectId,
     });
 
+    yield put(actions.appState.patch({ source: 'file' }));
     yield call(getNodes, nodes);
   } catch (err) {
     console.log('err =>', err);
@@ -35,6 +38,7 @@ export function* restoreClip() {
 }
 
 export function* onSceneReady(ev: any) {
+  return;
   yield call(restoreClip);
 
   const bits = yield* select(selectorsIso.base.$bits);

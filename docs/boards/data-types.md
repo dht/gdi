@@ -18,10 +18,13 @@ export type IBoard = {
   apis: string[];
   elements: IElementsPerResolution;
   defaults: {
-    previewPath?: string;
+    exampleId?: string;
+    setupId?: string;
   };
   flowUrl: string;
   flow?: IFlow & Json;
+  examplesUrl: string;
+  examples?: IExamples;
   sourceUrl: string;
   npmUrl: string;
   vscodeUrl: string;

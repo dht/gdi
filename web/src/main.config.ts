@@ -67,8 +67,6 @@ store.dispatch(
   })
 );
 
-store.dispatch(actionsIso.sceneVASPs.setAll({}));
-
 setAssetsRoot(assetsRootUrl);
 setAnalyticsMethod(ga);
 

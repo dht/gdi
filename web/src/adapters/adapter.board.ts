@@ -1,5 +1,5 @@
 import { actions, IBoard, IExample } from '@gdi/store-base';
-import { actions as actionsIso } from '@gdi/store-iso';
+import { actions as actionsIso, nodeNames as nodeNamesIso } from '@gdi/store-iso';
 import axios, { AxiosInstance } from 'axios';
 import { get, merge, set } from 'lodash';
 import { delay, invokeEvent } from 'shared-base';
@@ -106,9 +106,10 @@ export class BoardAdapter implements IBoardAdapter {
     const flow = get(output, 'board.flow', {});
     merge(output.db, flow);
 
-    if (isGuest) {
-      const exampleId = get(output, 'board.defaults.exampleId', '');
+    const exampleId = get(output, 'board.defaults.exampleId', '');
+    const setupId = get(output, 'board.defaults.setupId', '');
 
+    if (isGuest || setupId) {
       this.example = get(output, `board.examples.${exampleId}`);
     }
 
@@ -119,14 +120,8 @@ export class BoardAdapter implements IBoardAdapter {
 
     if (this.boardDbPath) {
       const remoteDb = await this.fetchRemoteDb(this.boardDbPath);
-      const projectTag = get(remoteDb, 'db._projectTag', '');
-
-      if (projectTag) {
-        delete remoteDb.db.projectTag;
-        invokeEvent('tag/project/set', { projectTag });
-      }
-
       merge(output.db, remoteDb.db);
+      this.dispatch(actions.appState.patch({ source: 'static' }));
     }
 
     await this.fetchElementRemoteProps(allElements, output.board);
@@ -139,6 +134,7 @@ export class BoardAdapter implements IBoardAdapter {
   async seedDb(db: Json) {
     for (let nodeName of Object.keys(db)) {
       let value = db[nodeName];
+
       if (Array.isArray(value)) {
         value = arrayToObject(value);
       }
@@ -152,6 +148,9 @@ export class BoardAdapter implements IBoardAdapter {
   }
 
   clearBoard() {
+    this.example = null;
+    this.boardDbPath = '';
+
     this.dispatch(actions.board.patch({ elements: { default: {} }})); // prettier-ignore
     this.dispatch(actions.transcriptLines.setAll({}));
     this.dispatch(actions.transcriptAudios.setAll({}));
@@ -160,8 +159,17 @@ export class BoardAdapter implements IBoardAdapter {
       actions.appState.patch({
         flavourColumnIndex: 0,
         promptParams: {},
+        source: 'none',
       })
     );
+
+    nodeNamesIso.forEach((nodeName: string) => {
+      const action = get(actionsIso, [nodeName, 'setAll'], null);
+
+      if (action) {
+        this.dispatch(action({}));
+      }
+    });
   }
 
   loadBoard = async (action: Json) => {
