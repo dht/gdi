@@ -38,7 +38,6 @@ export function* restoreClip() {
 }
 
 export function* onSceneReady(ev: any) {
-  return;
   yield call(restoreClip);
 
   const bits = yield* select(selectorsIso.base.$bits);
