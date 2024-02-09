@@ -52,8 +52,6 @@ export const initialState: IGdiStore = {
     firstDayOfWeek: 0,
     suggestedFileName: '',
     tags: ['project-tutorial'],
-    boardDbPath: '',
-    boardDbTag: '',
   },
   currentIds: {
     boardId: '',

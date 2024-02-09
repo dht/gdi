@@ -4,11 +4,11 @@ import { iconsBits, iconsElements } from '../data/data.icons';
 import { IAudio, ISceneEffect, Json } from '../types.iso';
 import { pickByField } from '../utils/filter';
 import { analyzeItems } from '../utils/timeline';
-import { $tagForFilteringElements } from './selectors.external';
+import { $projectTag } from './selectors.external';
 import * as raw from './selectors.raw';
 
 export const $elements = createSelector(
-  $tagForFilteringElements,
+  $projectTag,
   raw.$rawSceneLights,
   raw.$rawSceneExternals,
   raw.$rawSceneMeshes,

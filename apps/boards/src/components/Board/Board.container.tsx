@@ -26,7 +26,7 @@ export const BoardContainer = (props: BoardContainerProps) => {
     () => {
       dispatch({
         type: 'BOARD',
-        verb: 'loadBoard',
+        verb: 'bootstrapBoard',
         id: boardId,
       });
     },

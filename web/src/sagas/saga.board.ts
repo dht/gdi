@@ -13,12 +13,12 @@ import { parseHash, prepareBoardData } from '../utils/boards';
 type Verb =
   | 'openBoardDefinition'
   | 'loadFromUrl'
-  | 'loadBoard'
+  | 'bootstrapBoard'
   | 'saveBoard'
-  | 'showPlaybacks'
   | 'startReview'
   | 'showIntroModal'
-  | 'saveBoardData';
+  | 'saveBoardData'
+  | 'showExamples';
 
 type Action = {
   type: 'BOARD';
@@ -30,12 +30,12 @@ type Action = {
 const map: Record<Verb, any> = {
   openBoardDefinition: openBoardDefinition,
   loadFromUrl: loadBoardFromUrl,
-  loadBoard: loadBoard,
+  bootstrapBoard: bootstrapBoard, // source: board container
   saveBoard: saveBoard,
-  showPlaybacks: showPlaybacks,
   showIntroModal: showIntroModal,
   startReview: startReview,
   saveBoardData: saveBoardData,
+  showExamples: showExamples,
 };
 
 export function* openBoardDefinition(_action: Action, board: IBoard) {
@@ -71,35 +71,35 @@ export function* loadBoardFromUrl(_action: Action, _board: IBoard) {
   l({ message: `Loading board from "${value}"`, verb: 'board' });
 }
 
-export function* showPlaybacks(_action: Action, board: IBoard) {
-  l({ message: 'Showing setups and sibling boards', verb: 'board', data: list });
+export function* showExamples(_action: Action, board: IBoard) {
+  l({ message: 'Showing examples available for this board', verb: 'board', data: {} });
 
-  // const { value, didCancel } = yield* call(prompt.custom, {
-  //   title: 'Playbacks',
-  //   component: LinkList,
-  //   componentProps: {
-  //     links: list.links,
-  //     tabs: list.tabs,
-  //   },
-  // });
+  const { value, didCancel } = yield* call(prompt.custom, {
+    title: 'Examples',
+    component: LinkList,
+    componentProps: {
+      // links: list.links,
+      // tabs: list.tabs,
+    },
+  });
 
-  // if (didCancel || !value || !value.url) {
-  //   return;
-  // }
+  if (didCancel || !value || !value.url) {
+    return;
+  }
 
-  // invokeEvent('nav', { path: value.url });
+  invokeEvent('nav', { path: value.url });
 }
 
-export function* loadBoard(action: Action, _board: IBoard) {
+export function* bootstrapBoard(action: Action, _board: IBoard) {
   const { id } = action;
 
+  const isGuest = yield* select(selectors.base.$isGuest);
   const hashInfo = parseHash(document.location.hash);
-  const { boardDbPath, boardDbTag } = hashInfo;
+  const { boardDbPath } = hashInfo;
 
   yield put(
     actions.appState.patch({
       boardDbPath,
-      boardDbTag,
       prompt: '',
       promptOriginal: '',
       promptRevised: '',
@@ -109,9 +109,8 @@ export function* loadBoard(action: Action, _board: IBoard) {
   const board = yield* call(boardAdapter.loadBoard, {
     boardId: id,
     boardDbPath,
+    isGuest,
   });
-
-  const isGuest = yield* select(selectors.base.$isGuest);
 
   if (board.flow && !isGuest) {
     const response: any = yield* call(flowAdapter.loadFlow, board.flow);

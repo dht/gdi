@@ -1,6 +1,6 @@
 import { IGdiStore } from '@gdi/store-base';
-import { IHashInfo, Json } from '../types';
 import { get, pickBy } from 'lodash';
+import { IHashInfo, Json } from '../types';
 
 export function shortId(id: string) {
   return (id.split('.').pop() ?? '').toLowerCase();
@@ -43,19 +43,16 @@ export const parseHash = (hash: string): IHashInfo => {
   const output: IHashInfo = {
     hash,
     boardDbPath: '',
-    boardDbTag: '',
     dbType: 'none',
   };
 
-  const [boardDbPath = '', boardDbTag = ''] = hash.replace(/^#/, '').split(/\||%7C/);
+  const boardDbPath = hash.replace(/^#/, '');
 
   if (!boardDbPath) {
-    output.boardDbTag = boardDbTag;
     return output;
   }
 
   output.boardDbPath = boardDbPath;
-  output.boardDbTag = boardDbTag;
   output.dbType = boardDbPath.includes('/static/') ? 'static' : 'dynamic';
 
   return output;

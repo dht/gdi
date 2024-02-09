@@ -1,8 +1,8 @@
-import { actions, IBoard } from '@gdi/store-base';
+import { actions, IBoard, IExample } from '@gdi/store-base';
 import { actions as actionsIso } from '@gdi/store-iso';
 import axios, { AxiosInstance } from 'axios';
 import { get, merge, set } from 'lodash';
-import { delay } from 'shared-base';
+import { delay, invokeEvent } from 'shared-base';
 import { Json } from '../types';
 import { l } from '../utils/logs';
 import { arrayToObject } from '../utils/object';
@@ -11,8 +11,9 @@ import { IBoardAdapter, IBoardAdapterConfig } from './adapter.types';
 export class BoardAdapter implements IBoardAdapter {
   private instance: AxiosInstance;
   private boardId: string = '';
-  private boardDbPath: string = '';
   private board: IBoard = {} as IBoard;
+  private example: IExample | null = null;
+  private boardDbPath: string = '';
 
   constructor(public config: IBoardAdapterConfig, private store: any) {
     this.instance = axios.create({
@@ -78,7 +79,7 @@ export class BoardAdapter implements IBoardAdapter {
     }
   }
 
-  async prepareBoard(board: IBoard) {
+  async prepareBoard(board: IBoard, isGuest?: boolean) {
     let output = {
       board: { ...board },
       db: {},
@@ -88,7 +89,7 @@ export class BoardAdapter implements IBoardAdapter {
 
     l({ message: 'Fetching external resources', verb: 'board' }); // prettier-ignore
 
-    for (let resourceId of ['flow']) {
+    for (let resourceId of ['flow', 'examples']) {
       const key = `${resourceId}Url`;
       const url = (board as any)[key];
 
@@ -102,9 +103,31 @@ export class BoardAdapter implements IBoardAdapter {
       output.board[resourceId] = response;
     }
 
-    const remoteDb = await this.fetchRemoteDb(this.boardDbPath);
+    const flow = get(output, 'board.flow', {});
+    merge(output.db, flow);
 
-    merge(output.db, remoteDb.db);
+    if (isGuest) {
+      const exampleId = get(output, 'board.defaults.exampleId', '');
+
+      this.example = get(output, `board.examples.${exampleId}`);
+    }
+
+    if (this.example) {
+      const { dbPath } = this.example;
+      this.boardDbPath = dbPath;
+    }
+
+    if (this.boardDbPath) {
+      const remoteDb = await this.fetchRemoteDb(this.boardDbPath);
+      const projectTag = get(remoteDb, 'db._projectTag', '');
+
+      if (projectTag) {
+        delete remoteDb.db.projectTag;
+        invokeEvent('tag/project/set', { projectTag });
+      }
+
+      merge(output.db, remoteDb.db);
+    }
 
     await this.fetchElementRemoteProps(allElements, output.board);
 
@@ -135,7 +158,6 @@ export class BoardAdapter implements IBoardAdapter {
     this.dispatch(actionsIso.sceneAssetLoader.patch({ isLoading: true }));
     this.dispatch(
       actions.appState.patch({
-        boardDbPath: '',
         flavourColumnIndex: 0,
         promptParams: {},
       })
@@ -143,14 +165,12 @@ export class BoardAdapter implements IBoardAdapter {
   }
 
   loadBoard = async (action: Json) => {
-    const { boardId, boardDbPath, autoPlay } = action;
+    const { boardId, boardDbPath, autoPlay, isGuest } = action;
 
     this.clearBoard();
 
     this.boardId = boardId;
     this.boardDbPath = boardDbPath;
-
-    this.dispatch(actions.appState.patch({ boardDbPath }));
 
     l({
       message: `Loading board "${boardId}" (${boardDbPath})`,
@@ -161,7 +181,7 @@ export class BoardAdapter implements IBoardAdapter {
     try {
       const board = await this.fetchBoard();
       console.time('prepareBoard');
-      const boardAndDb = await this.prepareBoard(board);
+      const boardAndDb = await this.prepareBoard(board, isGuest);
       console.timeEnd('prepareBoard');
 
       await this.seedDb(boardAndDb.db);

@@ -1,7 +1,7 @@
 import { IBoard, actions, selectors } from '@gdi/store-base';
-import { ScreenInfo, ga, prompt } from '@gdi/ui';
+import { LinkList, ScreenInfo, ga, prompt } from '@gdi/ui';
 import { Json } from 'redux-store-generator';
-import { fork, put, select, takeEvery } from 'saga-ts';
+import { call, fork, put, select, takeEvery } from 'saga-ts';
 import { invokeEvent, patchJson } from 'shared-base';
 import { l } from '../utils/logs';
 import { showTagPicker } from './saga.tags';
@@ -9,8 +9,7 @@ import { showTagPicker } from './saga.tags';
 const LOCALE_STORAGE_KEY = 'locale';
 
 type Verb =
-  | 'setups' //
-  | 'boardId'
+  | 'boardId' //
   | 'adapter'
   | 'resolution'
   | 'assets'
@@ -26,7 +25,6 @@ type Action = {
 };
 
 const map: Record<Verb, any> = {
-  setups: showPlaybacks,
   adapter: configureFlowAdapter,
   resolution: showScreenInfo,
   time: toggleTimeFormat,
@@ -62,25 +60,6 @@ export function* navigateToAssets(_action: Action, board: IBoard) {
     type: 'NAVIGATE',
     to: '/boards/B-009',
   });
-}
-
-export function* showPlaybacks(_action: Action, board: IBoard) {
-  l({ message: 'Showing setups and sibling boards', verb: 'board', data: list });
-
-  // const { value, didCancel } = yield* call(prompt.custom, {
-  //   title: 'Playbacks',
-  //   component: LinkList,
-  //   componentProps: {
-  //     links: list.links,
-  //     tabs: list.tabs,
-  //   },
-  // });
-
-  // if (didCancel || !value || !value.url) {
-  //   return;
-  // }
-
-  // invokeEvent('nav', { path: value.url });
 }
 
 export function* showScreenInfo() {

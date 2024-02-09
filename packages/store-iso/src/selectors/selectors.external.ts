@@ -12,12 +12,3 @@ export const $projectTag = createSelector($rawAppState, (appState) => {
 
   return projectTag;
 });
-
-export const $dbTag = createSelector($rawAppState, (appState) => {
-  const { boardDbTag } = appState;
-  return boardDbTag ? `project-${boardDbTag}` : '';
-});
-
-export const $tagForFilteringElements = createSelector($projectTag, $dbTag, (projectTag, dbTag) => {
-  return dbTag || projectTag;
-});

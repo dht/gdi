@@ -116,7 +116,6 @@ export function BitBuilderContainer(_props: BitBuilderContainerProps) {
       <CurrentIds data={currentIds} />
       <DownloadBitsContainer />
       <CopyClipContainer />
-      <BigPlayButtonContainer />
     </BitBuilder>
   );
 }

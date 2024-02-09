@@ -52,8 +52,6 @@ export type IAppState = {
   transcriptId?: string;
   sourceUrl?: string;
   storageUrl?: string;
-  boardDbPath?: string;
-  boardDbTag?: string;
   isMac: boolean;
   is24Hours: boolean;
   showLog: boolean;
@@ -415,10 +413,10 @@ export type IBoard = {
   dependencies: Json;
   apis: Json;
   elements: IElementsPerResolution;
+  examplesUrl?: string;
+  examples?: IExamples;
   defaults: {
-    previewPath?: string;
-    dbPath?: string;
-    dbTag?: string;
+    exampleId?: string;
   };
   flowUrl: string;
   flow?: IFlow & Json;
@@ -535,6 +533,18 @@ export type IReview = {
 };
 
 export type IReviews = Record<string, IReview>;
+
+export type IExample = {
+  id: string;
+  title: string;
+  description: string;
+  dbPath: string;
+  screenshotPath: string;
+  dateAdded: string;
+  projectTag: string;
+};
+
+export type IExamples = Record<string, IExample>;
 
 export type SagaType =
   | 'api'

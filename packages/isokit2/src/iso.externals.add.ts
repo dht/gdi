@@ -36,8 +36,13 @@ export const addExternal = (external: IExternal, autoHide: boolean = false) => {
   const { id } = external;
   const { rootUrl, fileName } = parseExternalUrl(external);
 
+  if (!rootUrl || !fileName) {
+    return;
+  }
+
   return new Promise((resolve) => {
     SceneLoader.ShowLoadingScreen = false;
+
     SceneLoader.Append(rootUrl, fileName, scene, (ev: any) => {
       const mesh = scene.meshes.find((mesh) => mesh.id === '__root__');
 

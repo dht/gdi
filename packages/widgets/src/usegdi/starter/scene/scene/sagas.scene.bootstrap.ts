@@ -16,9 +16,9 @@ const nodes = [
 
 export function* restoreScene() {
   const projectId = yield* select(selectors.base.$projectTag);
-  const isRemoteData = yield* select(selectors.base.$isRemoteData);
+  const isGuest = yield* select(selectors.base.$isGuest);
 
-  if (isRemoteData) {
+  if (isGuest) {
     return;
   }
 

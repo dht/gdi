@@ -11,7 +11,7 @@ export function NewBoardNote(_props: any) {
         <a target='_blank' href=''>
           a review
         </a>
-        that verifies that the board:
+        &nbsp; that verifies that the board:
       </p>
       <ol>
         <li>Is safe and well-designed</li>

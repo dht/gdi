@@ -31,7 +31,7 @@ export function VisionSimulator(props: VisionSimulatorProps) {
           environment={environment}
         />
       </Canvas>
-      <UnderConstruction />
+      <UnderConstruction small />
     </Wrapper>
   );
 }
