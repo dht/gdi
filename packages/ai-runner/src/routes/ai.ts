@@ -12,6 +12,7 @@ import { logDeltaInSeconds } from '../utils/time';
 import { isLocalInstance } from '../utils/globals';
 import { runPrompt } from '../controllers/prompt';
 import { delay } from 'shared-base';
+import { logger } from '../utils/logger';
 
 export const router = express.Router();
 

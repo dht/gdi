@@ -22,7 +22,8 @@
     "openai": "^4.19.0",
     "shared-base": "^1.0.0",
     "socket.io": "^4.7.4",
-    "temp": "^0.9.4"
+    "temp": "^0.9.4",
+    "winston": "^3.11.0"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.5",

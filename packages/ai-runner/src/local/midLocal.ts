@@ -1,3 +1,4 @@
+import { logger } from '../utils/logger';
 import { handleRequest } from './fileDb';
 
 export const midUser = async (req: any, res: any, next: any) => {
@@ -17,7 +18,7 @@ export const midUser = async (req: any, res: any, next: any) => {
 
 export const midLogger = async (req: any, res: any, next: any) => {
   // console.log('req.url =>', req.method, req.path);
-
+  logger.info(`${req.method} ${req.path}`);
   next();
 };
 

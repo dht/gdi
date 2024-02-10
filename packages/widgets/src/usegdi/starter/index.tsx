@@ -5,6 +5,7 @@ import assetPreview from './asset-preview';
 import assistantsPanel from './assistants-panel';
 import babylon from './babylon';
 import bitBuilder from './bit-builder';
+import blank from './blank';
 import calendar from './calendar';
 import chat from './chat';
 import claire from './claire';
@@ -35,6 +36,7 @@ import pinterest from './pinterest';
 import playback from './playback';
 import pplDetails from './ppl-details';
 import pplGrid from './ppl-grid';
+import pplSwitch from './ppl-switch';
 import premiere from './premiere';
 import productTour from './product-tour';
 import regex from './regex';
@@ -76,6 +78,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.assistants-panel': assistantsPanel,
   'com.usegdi.starter.babylon': babylon,
   'com.usegdi.starter.bit-builder': bitBuilder,
+  'com.usegdi.starter.blank': blank,
   'com.usegdi.starter.calendar': calendar,
   'com.usegdi.starter.chat': chat,
   'com.usegdi.starter.claire': claire,
@@ -101,11 +104,12 @@ export const starter: IWidgets = {
   'com.usegdi.starter.mock': mock,
   'com.usegdi.starter.multi': multi,
   'com.usegdi.starter.no-mobile': noMobile,
+  'com.usegdi.starter.periscope': periscope,
   'com.usegdi.starter.pinterest': pinterest,
   'com.usegdi.starter.playback': playback,
   'com.usegdi.starter.ppl-details': pplDetails,
   'com.usegdi.starter.ppl-grid': pplGrid,
-  'com.usegdi.starter.periscope': periscope,
+  'com.usegdi.starter.ppl-switch': pplSwitch,
   'com.usegdi.starter.premiere': premiere,
   'com.usegdi.starter.product-tour': productTour,
   'com.usegdi.starter.regex': regex,

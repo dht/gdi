@@ -64,6 +64,8 @@ export const initialState: IGdiStore = {
     rightId: '',
     modalId: '',
     editId: '',
+    tabId: '',
+    personId: 'Albert.Einstein',
     assistantId: 'assistant-vanilla',
   },
   user: {

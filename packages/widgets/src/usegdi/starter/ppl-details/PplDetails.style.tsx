@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  font-size: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+  background-color: #112;
 `;

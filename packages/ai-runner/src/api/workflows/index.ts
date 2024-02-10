@@ -4,6 +4,7 @@ import { oneShot } from './workflow.llm';
 import { basic } from './workflow.voice';
 import { get } from 'lodash';
 import { Json } from '../../types';
+import { logger } from '../../utils/logger';
 
 export const workflows: any = {
   llm: {
@@ -20,6 +21,8 @@ export const workflows: any = {
 
 export const runWorkflow = (req: any, api: Json, variables: Json) => {
   const { endpoint } = api;
+
+  logger.info('runWorkflow', { endpoint });
 
   const workflow = get(workflows, endpoint);
 

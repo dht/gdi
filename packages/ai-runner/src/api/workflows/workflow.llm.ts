@@ -6,6 +6,7 @@ import db from '../../db';
 import { bakeValue } from '../flow.utils';
 import { assistants, threads } from '../openai';
 import * as fs from 'fs';
+import { logger } from '../../utils/logger';
 
 export const bootstrapAssistants = async (req: any, flow: any) => {
   let assistant: any;
@@ -78,6 +79,10 @@ export const createRunAndListen = async (
 ) => {
   const responseRun = await threads.createRun(threadId, assistantId);
 
+  if (!responseRun) {
+    throw new Error('No responseRun');
+  }
+
   await db.flow.patchNode(_req, nodeId, {
     runId: responseRun.id,
   });
@@ -96,8 +101,13 @@ export const createRunAndListen = async (
 
 export const oneShot = async (req: any, _api: Json, params: Json) => {
   const { node, stateVariables, modelId, cumulativeThread } = params;
+
   const { id, input, variables, assistantId } = node;
+
+  logger.info('oneShot', { id, input, variables, assistantId });
+
   const assistantId$ = await db.getXPath(req, `assistantIds.${assistantId}`);
+
   const threadId = await getOrCreateThread(req, id, input);
 
   if (cumulativeThread) {

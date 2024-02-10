@@ -160,6 +160,7 @@ export class BoardAdapter implements IBoardAdapter {
         flavourColumnIndex: 0,
         promptParams: {},
         source: 'none',
+        tabId: '',
       })
     );
 

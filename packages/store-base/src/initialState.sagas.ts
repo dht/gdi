@@ -196,6 +196,13 @@ export const sagas: ISagas = {
       eventNames: ['flow'],
     },
   },
+  'widgets.pplGrid': {
+    id: 'widgets.PplGrid',
+    type: 'component',
+    trigger: {
+      eventNames: ['ppl/change', 'ppl/flavour'],
+    },
+  },
   'widgets.productTour': {
     id: 'widgets.productTour',
     type: 'component',
