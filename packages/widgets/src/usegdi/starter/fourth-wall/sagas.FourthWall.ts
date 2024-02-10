@@ -19,7 +19,6 @@ export function* onSceneReady(ev: any) {
   addSubtitles(mainCamera);
 
   prepareStage(sceneStage);
-  return;
 
   yield delay(0);
   applyConfig(sceneConfig);

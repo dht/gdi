@@ -165,6 +165,7 @@ export function* onFlowCompleted(event: any) {
   }
 }
 
+// from existing assistant
 export function* dynamicFlow(action: any) {
   const { assistantId } = action;
 
@@ -175,6 +176,25 @@ export function* dynamicFlow(action: any) {
 
   if (!assistant) {
     console.log('No assistant found');
+    return;
+  }
+
+  const response = yield* call(flowAdapter.setAssistant, assistant);
+
+  if (!response.success) {
+    toast.show('Error setting assistant', 'error');
+    return;
+  }
+}
+
+// from new assistant
+export function* dynamicFlowAdhoc(action: any) {
+  const { assistant } = action;
+
+  yield delay(500);
+
+  if (!assistant) {
+    console.log('No assistant given');
     return;
   }
 
@@ -198,6 +218,7 @@ export function* root() {
   yield takeEvery('PROMPT', startFlow);
   yield takeEvery('BOOTSTRAP_FLOW', bootstrap);
   yield takeEvery('FLOW_CHANGE_ASSISTANT', dynamicFlow);
+  yield takeEvery('FLOW_SET_ASSISTANT', dynamicFlowAdhoc);
 
   const channel = customEvenChannel('flow/completed');
   yield takeEvery(channel, onFlowCompleted);

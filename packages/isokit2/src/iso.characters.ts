@@ -82,7 +82,7 @@ export const showMouth = (characterId: string, shape: string) => {
 
   if (!character) return;
 
-  const mouthShapes = character.mouthShapes;
+  const mouthShapes = character.mouthShapes ?? {};
   const mouthShape = mouthShapes[shape];
 
   if (!mouthShape) return;

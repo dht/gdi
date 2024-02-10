@@ -74,6 +74,7 @@ export { ShortKeys } from './components/ShortKeys/ShortKeys';
 export { SoundPlayer } from './components/SoundPlayer/SoundPlayer';
 export { Table } from './components/Table/Table';
 export { Tabs } from './components/Tabs/Tabs';
+export { TabsBig } from './components/TabsBig/TabsBig';
 export { TagModal } from './components/TagModal/TagModal';
 export { TagPicker } from './components/TagPicker/TagPicker';
 export { TextArea } from './components/TextArea/TextArea';

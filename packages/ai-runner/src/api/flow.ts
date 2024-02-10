@@ -1,12 +1,14 @@
 import { get } from 'lodash';
-import { Json } from '../types';
 import db from '../db';
+import { Json } from '../types';
+import { logger } from '../utils/logger';
 import { bakeInput, findNodesToRun, prepareState } from './flow.utils';
 import { runWorkflow } from './workflows';
 import { bootstrapAssistants } from './workflows/workflow.llm';
-import { guid4 } from 'shared-base';
 
 export const runFlow = async (req: any, flow: any) => {
+  logger.info('runFlow', { flowId: flow.id });
+
   await prepareState(req, flow);
   await bootstrapAssistants(req, flow);
 
