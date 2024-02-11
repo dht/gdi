@@ -5,12 +5,12 @@ import { getBoolean, setBoolean } from 'shared-base';
 
 export function* showOnboarding() {
   const isPlayback = document.location.hash.length > 0;
-  const wasOnboardSeen = getBoolean('onboardingSeen');
+  const wasOnboardSeen = getBoolean('onBoardingSeen');
   const appState = yield* select(selectors.raw.$rawAppState);
   const { docsRootUrl } = appState;
 
   if (isPlayback || wasOnboardSeen) {
-    // return;
+    return;
   }
 
   yield delay(3000);

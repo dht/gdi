@@ -28,7 +28,7 @@ Install the necessary dependencies using npm:
 npm i
 ```
 
-## Initializing firebase
+## Initializing Firebase
 
 Set up Firebase for the project:
 
@@ -78,7 +78,7 @@ npm start
 
 This will launch GDI on your local development server.
 
-## Running a local instance
+## Running a Local Instance
 
 To run a local instance of GDI, you will need to run the following commands:
 
