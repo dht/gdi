@@ -58,6 +58,7 @@ export { Modal } from './components/Modal/Modal';
 export { MultiTrackContainer as MultiTrack } from './components/MultiTrack/MultiTrack.container';
 export { NoMobile } from './components/NoMobile/NoMobile';
 export { Note } from './components/Note/Note';
+export { OnBoarding } from './components/OnBoarding/OnBoarding';
 export { Panel } from './components/Panel/Panel';
 export { PhoneMenu } from './components/PhoneMenu/PhoneMenu';
 export { PlayerLogContainer as PlayerLog } from './components/PlayerLog/PlayerLog.container';

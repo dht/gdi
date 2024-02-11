@@ -2,6 +2,22 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
+
+  &.modal {
+    .items {
+      padding: 8px 0;
+    }
+
+    .categoryTitle {
+      font-size: 20px;
+      display: none;
+    }
+
+    .item {
+      padding: 8px 0;
+      font-size: 16px;
+    }
+  }
 `;
 
 export const Category = styled.div``;

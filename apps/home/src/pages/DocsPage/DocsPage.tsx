@@ -11,7 +11,11 @@ export function DocsPage(props: DocsPageProps) {
 
   return (
     <BasePage>
-      <Docs data={data} baseUrl={rootUrl} />
+      <Docs
+        data={data}
+        baseUrl={rootUrl}
+        initialPath='installation/installation.md'
+      />
     </BasePage>
   );
 }

@@ -24,8 +24,14 @@ export const Wrapper = styled.div`
   }
 
   strong,
-  em {
-    display: inline-block;
+  em,
+  code {
+    display: inline;
+
+    &::before,
+    &::after {
+      display: none !important;
+    }
   }
 
   &.dark {

@@ -5,10 +5,11 @@ export type DocsMenuProps = {
   data?: Json;
   isLoading?: boolean;
   onSelect: (doc: Json) => void;
+  modal?: boolean;
 };
 
 export function DocsMenu(props: DocsMenuProps) {
-  const { data, isLoading } = props;
+  const { data, isLoading, modal } = props;
   const { categories = [], docs } = data ?? {};
 
   const hash = document.location.hash.replace('#', '');
@@ -18,12 +19,12 @@ export function DocsMenu(props: DocsMenuProps) {
 
     const isSelected = doc.path === hash;
 
-    const className = classnames('item', {
+    const classNameItem = classnames('item', {
       selected: isSelected,
     });
 
     return (
-      <Item key={doc.path} className={className} onClick={() => props.onSelect(doc)}>
+      <Item key={doc.path} className={classNameItem} onClick={() => props.onSelect(doc)}>
         {title}
       </Item>
     );
@@ -39,8 +40,8 @@ export function DocsMenu(props: DocsMenuProps) {
     const { title } = category;
     return (
       <Category key={category.id} className='category'>
-        <CategoryTitle>{title}</CategoryTitle>
-        <CategoryItems>{renderItems(category.id)}</CategoryItems>
+        <CategoryTitle className='categoryTitle'>{title}</CategoryTitle>
+        <CategoryItems className='items'>{renderItems(category.id)}</CategoryItems>
       </Category>
     );
   }
@@ -49,8 +50,12 @@ export function DocsMenu(props: DocsMenuProps) {
     return categories.map((category: Json) => renderCategory(category));
   }
 
+  const className = classnames('DocsMenu-wrapper', {
+    modal,
+  });
+
   return (
-    <Wrapper className='DocsMenu-wrapper' data-testid='DocsMenu-wrapper'>
+    <Wrapper className={className} data-testid='DocsMenu-wrapper'>
       {renderCategories()}
     </Wrapper>
   );

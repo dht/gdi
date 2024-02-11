@@ -7,6 +7,28 @@ export const Wrapper = styled.div`
   font-size: 14px;
   margin-bottom: 20vh;
   min-height: 100vh;
+
+  &.modal {
+    margin-bottom: 0;
+    min-height: unset;
+    position: relative;
+    height: 90%;
+
+    .container {
+      padding: 10px;
+    }
+
+    .left {
+      padding: 0;
+      width: 200px;
+    }
+
+    .right {
+      margin-left: 200px;
+      max-height: 100%;
+      overflow-y: auto;
+    }
+  }
 `;
 
 export const Container = styled(ContainerBase)`
@@ -37,4 +59,10 @@ export const Right = styled.div`
   @media (max-width: 800px) {
     margin-left: 0;
   }
+`;
+
+export const Next = styled.div`
+  position: absolute;
+  bottom: -40px;
+  right: 20px;
 `;

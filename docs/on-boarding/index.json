@@ -1,0 +1,47 @@
+{
+  "categories": [
+    {
+      "id": "on-boarding",
+      "title": "OnBoarding",
+      "order": 1
+    }
+  ],
+  "docs": [
+    {
+      "fileName": "what-is-gdi.md",
+      "path": "what-is-gdi.md",
+      "category": "on-boarding",
+      "title": "What is GDI?"
+    },
+    {
+      "fileName": "key-differentiators.md",
+      "path": "key-differentiators.md",
+      "category": "on-boarding",
+      "title": "What sets it apart?"
+    },
+    {
+      "fileName": "centralized-data.md",
+      "path": "centralized-data.md",
+      "category": "on-boarding",
+      "title": "1. Centralized data"
+    },
+    {
+      "fileName": "ai-powered.md",
+      "path": "ai-powered.md",
+      "category": "on-boarding",
+      "title": "2. AI-powered"
+    },
+    {
+      "fileName": "schema-based.md",
+      "path": "schema-based.md",
+      "category": "on-boarding",
+      "title": "3. Schema based"
+    },
+    {
+      "fileName": "how-to-start.md",
+      "path": "how-to-start.md",
+      "category": "on-boarding",
+      "title": "How to start?"
+    }
+  ]
+}
