@@ -4,7 +4,7 @@ All GDI apps **share a common database and asset library**. Both database and as
 
 ### Post Information Silos Era
 
-**ChatGPT** is changing how we weave information into knowledge. Previously, users had to sift through various sources manually to gather information and fuse it into knowledge. ChatGPT is revolutionizing this process by aggregating and synthesizing information seamlessly, `breaking the boundaries of traditional information silos`.
+**ChatGPT** is changing how we weave information into knowledge. Previously, users had to sift through various sources manually to gather information and fuse it into knowledge. LLMs are revolutionizing this process by aggregating and synthesizing information seamlessly, `breaking the boundaries of traditional information silos`.
 
 GDI takes a comparable approach to handling data and assets. Instead of dispersing a user's personal data among multiple silos on different SaaS providers, GDI allows using a singular source of truth. No more copy/pasting or exporting to move data around.
 
