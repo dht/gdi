@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   margin-right: 10px;
   cursor: pointer;
   box-sizing: border-box;
+  position: relative;
 
   @media (max-width: 800px) {
     color: white;
@@ -16,6 +17,18 @@ export const Wrapper = styled.div`
   &:hover {
     .title {
       border-bottom: 2px solid palevioletred;
+    }
+  }
+
+  &.soon {
+    pointer-events: none;
+
+    .image {
+      filter: grayscale(100%);
+    }
+
+    .soon {
+      display: block;
     }
   }
 
@@ -131,4 +144,17 @@ export const Duration = styled.div`
   padding: 5px;
   border-radius: 5px;
   font-size: 12px;
+`;
+
+export const Soon = styled.div`
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 140px;
+  padding: 10px 15px;
+  border-radius: 10px 0 0 10px;
+  display: none;
+  background-color: #ffd90071;
 `;

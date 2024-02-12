@@ -34,3 +34,4 @@ scripts/.env
 /temp/
 web/public/scenes
 packages/ai-runner/logs/
+docs/on-boarding/show-nh*.md

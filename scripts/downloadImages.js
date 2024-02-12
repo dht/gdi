@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs-extra');
 const sharp = require('sharp');
+const { guid4 } = require('shared-base');
 
 const downloadImage = async (url, filename) => {
   const response = await axios({
@@ -122,16 +123,16 @@ const appScreenshot = async () => {
 const run = async () => {
   const files = fs
     .readdirSync('./raw')
-    .filter((file) => file.startsWith(''))
+    // .filter((file) => file.startsWith(''))
     .map((file, index) => {
       const inputPath = `raw/${file}`;
-      const outputPath = `processed/i_${file.replace('.png', '')}.jpg`;
+      const outputPath = `processed/i_${guid4()}.jpg`;
 
       return (
         sharp(inputPath)
           // Crop the image to a specific region (e.g., x=20, y=20, width=100, height=100)
           // Resize the image to a specific width and height
-          .resize(300, 300)
+          .resize(30, 30)
           // background color white
           .flatten({ background: '#ffffff' })
           // Reduce the quality to 80 (for JPEGs)

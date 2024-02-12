@@ -28,8 +28,9 @@ export function DetailsHeader(props: DetailsHeaderProps) {
   const { board } = props;
   const { id, boardInfo, reviewInfo } = board;
   const { name, imageUrl } = boardInfo;
-  const { rating = 0, installationCount = 0 } = reviewInfo;
+  const { rating = 0, reviewsCount, installationCount = 0 } = reviewInfo;
 
+  const reviewsCountText = reviewsCount.toLocaleString('en-US');
   const installationText = installationCount.toLocaleString('en-US');
 
   const style: React.CSSProperties = {
@@ -69,7 +70,7 @@ export function DetailsHeader(props: DetailsHeaderProps) {
         <Row>
           <Details>
             <Ratings value={rating} />
-            <Reviews>{installationText} reviews</Reviews>
+            <Reviews>{reviewsCountText} reviews</Reviews>
             <Installations>{installationText} installations</Installations>
           </Details>
           <Actions>
