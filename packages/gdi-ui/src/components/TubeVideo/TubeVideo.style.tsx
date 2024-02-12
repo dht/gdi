@@ -9,6 +9,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   padding: 30px;
+
+  @media (max-width: 800px) {
+    max-width: 100vw;
+    padding: 0;
+  }
 `;
 
 export const Player = styled.div`
@@ -19,6 +24,12 @@ export const Player = styled.div`
   overflow: hidden;
   display: flex;
   position: relative;
+
+  @media (max-width: 800px) {
+    max-width: 100vw;
+    max-height: 40vh;
+    padding: 0;
+  }
 `;
 
 export const Row = styled.div`
@@ -31,6 +42,10 @@ export const Row = styled.div`
 export const Details = styled.div`
   font-size: 20px;
   padding: 10px 0;
+
+  @media (max-width: 800px) {
+    margin: 0 20px;
+  }
 `;
 
 export const Title = styled.div`
@@ -63,6 +78,10 @@ export const AuthorAvatar = styled.div`
   background-size: 80%;
   background-repeat: no-repeat;
   box-shadow: inset 1px 1px 1px 0 rgba(0, 0, 0, 0.2), inset -1px -1px 1px 0 rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 800px) {
+    margin-right: -10px;
+  }
 `;
 
 export const TimeAgo = styled.div`
@@ -83,5 +102,10 @@ export const Description = styled.div`
 
   .Markdown-wrapper {
     max-width: unset;
+  }
+
+  @media (max-width: 800px) {
+    background-color: transparent;
+    margin: 10px;
   }
 `;

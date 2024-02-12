@@ -13,6 +13,12 @@
   border-top: 5px solid #3498db;
 }
 
+@media (max-width: 800px) {
+  #loader {
+    left: 40%;
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

@@ -5,6 +5,7 @@ import { useEffect, useMemo } from 'react';
 import { useSagas } from '../../../helpers/useSaga';
 import { ScenePlayer } from './ScenePlayer';
 import BitLayerContainer from '../bit-builder/_parts/BitLayer/BitLayer.container';
+import BigPlayButtonContainer from '../bit-builder/_parts/BigPlayButton/BigPlayButton.container';
 
 export type ScenePlayerContainerProps = {};
 
@@ -63,6 +64,7 @@ export function ScenePlayerContainer(_props: ScenePlayerContainerProps) {
       callbacks={callbacks}
     >
       <BitLayerContainer absolute />
+      <BigPlayButtonContainer />
     </ScenePlayer>
   );
 }

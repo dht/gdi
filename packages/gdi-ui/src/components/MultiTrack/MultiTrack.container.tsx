@@ -77,9 +77,9 @@ export function MultiTrackContainer(props: MultiTrackContainerProps) {
   useCustomEvent(
     'waveform/play',
     () => {
-      instance.play();
+      callbacks.onPlay();
     },
-    [instance]
+    [callbacks]
   );
 
   return <MultiTrack divRef={ref} dotId={dotId} isPlaying={isPlaying} callbacks={callbacks} />;

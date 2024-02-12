@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
       margin-top: 20px;
     }
   }
+
+  @media (max-width: 800px) {
+    margin-top: 40px;
+  }
 `;
 
 export const Cards = styled.div`
@@ -20,4 +24,9 @@ export const Cards = styled.div`
   align-items: center;
   flex-wrap: wrap;
   padding: 30px;
+
+  @media (max-width: 800px) {
+    max-width: 100vw;
+    padding: 10px 15px;
+  }
 `;
