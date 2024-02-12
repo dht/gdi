@@ -18,6 +18,7 @@ export const Player = styled.div`
   border-radius: 20px;
   overflow: hidden;
   display: flex;
+  position: relative;
 `;
 
 export const Row = styled.div`
@@ -33,6 +34,7 @@ export const Details = styled.div`
 `;
 
 export const Title = styled.div`
+  margin: 10px 0 0;
   font-size: 20px;
   font-weight: 700;
 `;
@@ -78,4 +80,8 @@ export const Description = styled.div`
   font-size: 14px;
   line-height: 1.3;
   border-radius: 10px;
+
+  .Markdown-wrapper {
+    max-width: unset;
+  }
 `;

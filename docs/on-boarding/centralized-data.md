@@ -12,4 +12,4 @@ GDI takes a comparable approach to handling data and assets. Instead of dispersi
 
 This unified data interface fosters a dynamic akin to a beehive, where the user's personal data and assets represent the honey, and all the apps, AI models, and business logic function as the bees, constantly cultivating and refining the honey.
 
-This approach becomes paramount in the AI era, where users will continuously leverage portions of their personal data to interact with various AI models and will be unable to do it when they need to run around multiple SaaS and closed data silos to gather the necessary bits.
+This approach becomes paramount in the AI era, where users will continuously leverage portions of their personal data to interact with various AI models and will be unable to do so if they need to navigate multiple SaaS and closed data silos to gather the necessary bits.

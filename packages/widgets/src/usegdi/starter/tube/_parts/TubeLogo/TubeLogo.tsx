@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, Text, Wrapper } from './TubeLogo.style';
+import { Logo, Row, Subtitle, Text, Wrapper } from './TubeLogo.style';
 
 export type TubeLogoProps = {
   onClick: () => void;
@@ -8,8 +8,11 @@ export type TubeLogoProps = {
 export function TubeLogo(props: TubeLogoProps) {
   return (
     <Wrapper className='TubeLogo-wrapper' data-testid='TubeLogo-wrapper' onClick={props.onClick}>
-      <Logo></Logo>
-      <Text>GdiTube</Text>
+      <Row>
+        <Logo></Logo>
+        <Text>GdiTube</Text>
+      </Row>
+      <Subtitle>A collection of schema-based GDI videos</Subtitle>
     </Wrapper>
   );
 }

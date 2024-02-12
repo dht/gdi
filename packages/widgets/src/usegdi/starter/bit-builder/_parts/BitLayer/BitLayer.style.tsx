@@ -14,6 +14,11 @@ export const Wrapper = styled.div`
   justify-content: center;
   pointer-events: none;
 
+  &.absolute {
+    position: absolute;
+    bottom: 0;
+  }
+
   @media (max-width: 800px) {
     bottom: 80px;
   }

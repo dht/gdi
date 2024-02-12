@@ -28,6 +28,16 @@ export const Wrapper = styled.div`
       max-height: 100%;
       overflow-y: auto;
     }
+
+    @media (max-width: 800px) {
+      .left {
+        display: none;
+      }
+
+      .right {
+        margin-left: 0;
+      }
+    }
   }
 `;
 

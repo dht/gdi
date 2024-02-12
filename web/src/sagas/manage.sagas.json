@@ -22,6 +22,7 @@
     "gdi.navigation",
     "gdi.onboarding",
     "gdi.logs",
+    "gdi.predicates",
     "gdi.prompt",
     "gdi.transcript",
     "gdi.tags"

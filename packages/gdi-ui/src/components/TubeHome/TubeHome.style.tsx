@@ -2,6 +2,14 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
+
+  &.minimal {
+    .cards {
+      max-width: 100vw;
+      padding: 0;
+      margin-top: 20px;
+    }
+  }
 `;
 
 export const Cards = styled.div`

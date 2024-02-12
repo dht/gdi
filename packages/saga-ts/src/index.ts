@@ -26,3 +26,21 @@ export function* api(action: any) {
     return { success: false };
   }
 }
+
+let isAuthenticated = false,
+  authActionType = 'AUTHENTICATION_COMPLETED';
+
+export function* trackAuth(actionType?: string) {
+  if (actionType) {
+    authActionType = actionType;
+  }
+
+  yield take(authActionType);
+  isAuthenticated = true;
+}
+
+export function* waitForAuth() {
+  if (isAuthenticated) return;
+
+  yield take(authActionType);
+}

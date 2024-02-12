@@ -16,6 +16,7 @@ import { saga as sagaClipPositionMesh } from './clip/sagas.clip.position.mesh';
 import { saga as sagaClipSave } from './clip/sagas.clip.save';
 import { saga as sagaPlayerAnimation } from './player/sagas.player.animation';
 import { saga as sagaPlayerAudio } from './player/sagas.player.audio';
+import { saga as sagaPlayerBits } from './player/sagas.player.bits';
 import { saga as sagaPlayerBootstrap } from './player/sagas.player.bootstrap';
 import { saga as sagaPlayerCharacters } from './player/sagas.player.characters';
 import { saga as sagaPlayerEffects } from './player/sagas.player.effects';
@@ -54,6 +55,7 @@ export const sagas = {
   'widgets.clip.save': sagaClipSave,
   'widgets.player.animation': sagaPlayerAnimation,
   'widgets.player.audio': sagaPlayerAudio,
+  'widgets.player.bits': sagaPlayerBits,
   'widgets.player.bootstrap': sagaPlayerBootstrap,
   'widgets.player.characters': sagaPlayerCharacters,
   'widgets.player.effects': sagaPlayerEffects,
