@@ -5,8 +5,8 @@ import { Tube } from './Tube';
 import { useSagas } from '../../../helpers/useSaga';
 import { invokeEvent } from 'shared-base';
 
-// const SOURCE_BASE = 'https://raw.githubusercontent.com/dht/gdi-assets/main'
-const SOURCE_BASE = '';
+const SOURCE_BASE = 'https://raw.githubusercontent.com/dht/gdi-assets/main';
+// const SOURCE_BASE = '';
 
 export type TubeContainerProps = {
   flavour: 'tube' | 'babylon';
