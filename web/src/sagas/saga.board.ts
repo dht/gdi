@@ -96,6 +96,7 @@ export function* bootstrapBoard(action: Action, _board: IBoard) {
   const { id } = action;
 
   const isGuest = yield* select(selectors.base.$isGuest);
+  const { itemId } = yield* select(selectors.raw.$rawCurrentIds);
   const hashInfo = parseHash(document.location.hash);
   const { boardDbPath } = hashInfo;
 
@@ -110,6 +111,7 @@ export function* bootstrapBoard(action: Action, _board: IBoard) {
 
   const board = yield* call(boardAdapter.loadBoard, {
     boardId: id,
+    itemId,
     boardDbPath,
     isGuest,
   });

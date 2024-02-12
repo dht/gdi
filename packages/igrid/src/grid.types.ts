@@ -119,6 +119,7 @@ export type IGridState = {
   flavour?: string;
   columnIndex?: number;
   columns?: number;
+  hideArrows?: boolean;
 };
 
 export type IGridContext = {

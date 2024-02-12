@@ -1,18 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  flex: 1;
-
   &.minimal {
     .cards {
       max-width: 100vw;
       padding: 0;
       margin-top: 20px;
     }
-  }
-
-  @media (max-width: 800px) {
-    margin-top: 40px;
   }
 `;
 
@@ -23,7 +17,7 @@ export const Cards = styled.div`
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 30px 30px 30px;
 
   @media (max-width: 800px) {
     max-width: 100vw;

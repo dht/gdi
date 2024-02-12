@@ -174,7 +174,10 @@ export class BoardAdapter implements IBoardAdapter {
   }
 
   loadBoard = async (action: Json) => {
-    const { boardId, boardDbPath, autoPlay, isGuest } = action;
+    const { boardId, itemId, boardDbPath, autoPlay, isGuest } = action;
+
+    const flavour = itemId ? 'item' : 'default';
+    const flavourColumnIndex = itemId ? 1 : 0;
 
     this.clearBoard();
 
@@ -194,7 +197,7 @@ export class BoardAdapter implements IBoardAdapter {
       console.timeEnd('prepareBoard');
 
       await this.seedDb(boardAndDb.db);
-      this.dispatch(actions.appState.patch({ flavour: 'default' }));
+      this.dispatch(actions.appState.patch({ flavour, flavourColumnIndex }));
       this.dispatch(actions.board.setAll(boardAndDb.board));
       this.board = boardAndDb.board;
 

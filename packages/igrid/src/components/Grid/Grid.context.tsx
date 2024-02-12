@@ -16,6 +16,7 @@ export const initialState: IGridState = {
   flavour: 'default',
   columnIndex: 0,
   columns: 0,
+  hideArrows: false,
   showToggle: false,
 };
 
@@ -41,7 +42,8 @@ export const GridContext = createContext<IGridContext>({
 });
 
 export const GridProvider = (props: GridProviderProps) => {
-  const { id, flavour, columnIndex, widgets, elements, isMobileSupported, columns } = props;
+  const { id, flavour, columnIndex, widgets, elements, isMobileSupported, columns, hideArrows } =
+    props;
   const [state, patchState] = useSetState<IGridState>(initialState);
   const { width } = useWindowSize();
 
@@ -62,8 +64,8 @@ export const GridProvider = (props: GridProviderProps) => {
   }, [id]);
 
   useEffect(() => {
-    patchState({ flavour, columnIndex, columns });
-  }, [flavour, columnIndex, columns]);
+    patchState({ flavour, columnIndex, columns, hideArrows });
+  }, [flavour, columnIndex, columns, hideArrows]);
 
   const callbacks = useMemo(
     () => ({

@@ -57,6 +57,7 @@ import tikTok from './tikTok';
 import todos from './todos';
 import transcript from './transcript';
 import tube from './tube';
+import tubeDetails from './tube-details';
 import twitter from './twitter';
 import variables from './variables';
 import videoEffects from './video-effects';
@@ -130,6 +131,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.todos': todos,
   'com.usegdi.starter.transcript': transcript,
   'com.usegdi.starter.tube': tube,
+  'com.usegdi.starter.tube-details': tubeDetails,
   'com.usegdi.starter.twitter': twitter,
   'com.usegdi.starter.variables': variables,
   'com.usegdi.starter.video-effects': videoEffects,

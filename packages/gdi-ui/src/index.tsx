@@ -88,6 +88,7 @@ export { TranscriptScore } from './components/TranscriptScore/TranscriptScore';
 export { Triangles } from './components/Triangles/Triangles';
 export { TubeCard } from './components/TubeCard/TubeCard';
 export { TubeHome } from './components/TubeHome/TubeHome';
+export { TubeTop } from './components/TubeTop/TubeTop';
 export { TubeVideo } from './components/TubeVideo/TubeVideo';
 export { Typography } from './components/Typography/Typography';
 export { UnderConstruction } from './components/UnderConstruction/UnderConstruction';

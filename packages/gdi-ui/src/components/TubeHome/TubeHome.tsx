@@ -3,15 +3,19 @@ import TubeCard from '../TubeCard/TubeCard';
 import { Cards, Wrapper } from './TubeHome.style';
 import classnames from 'classnames';
 import { useMeasureOnce } from '../../hooks/useMeasureOnce';
+import TubeTop from '../TubeTop/TubeTop';
 
 export type TubeHomeProps = {
   cards: Json[];
-  onClick: (id: string) => void;
   minimal?: boolean;
+  callbacks: {
+    onClick: (id: string) => void;
+    onLogoClick: () => void;
+  };
 };
 
 export function TubeHome(props: TubeHomeProps) {
-  const { cards = [], minimal } = props;
+  const { cards = [], minimal, callbacks } = props;
   const [ref, { width }] = useMeasureOnce();
 
   const cardWidth = minimal ? width / 8.2 : undefined;
@@ -22,7 +26,7 @@ export function TubeHome(props: TubeHomeProps) {
         key={card.id}
         width={cardWidth}
         minimal={minimal}
-        onClick={props.onClick}
+        onClick={callbacks.onClick}
         card={card}
       />
     );
@@ -38,6 +42,7 @@ export function TubeHome(props: TubeHomeProps) {
 
   return (
     <Wrapper className={className} data-testid='TubeHome-wrapper'>
+      <TubeTop ctaText='GDI Home' minimal={minimal} callbacks={callbacks} />
       <Cards ref={ref} className='cards'>
         {renderCards()}
       </Cards>

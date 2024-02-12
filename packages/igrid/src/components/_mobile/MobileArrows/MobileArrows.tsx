@@ -7,7 +7,11 @@ export type MobileArrowsProps = {};
 
 export function MobileArrows(_props: MobileArrowsProps) {
   const { state, callbacks } = useContext(GridContext);
-  const { columns = 0, columnIndex = 0 } = state;
+  const { columns = 0, columnIndex = 0, hideArrows } = state;
+
+  if (hideArrows) {
+    return null;
+  }
 
   function onClick(index: number) {
     callbacks.onColumnChange(index);
