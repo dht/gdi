@@ -1,4 +1,4 @@
-import { DidYouKnow, TubeHome, TubeVideo, UnderConstruction } from '@gdi/ui';
+import { DidYouKnow, TubeHome, TubeVideo, UnderConstruction, isMobile } from '@gdi/ui';
 import ScenePlayerContainer from '../scene-player/ScenePlayer.container';
 import { Gap, Tip, Top, Wrapper } from './Tube.style';
 import TubeLogo from './_parts/TubeLogo/TubeLogo';
@@ -37,23 +37,45 @@ export function Tube(props: TubeProps) {
     return <Cmp onClick={callbacks.onLogoClick} />;
   }
 
-  return (
-    <Wrapper className='Tube-wrapper' data-testid='Tube-wrapper'>
+  function renderDidYouKnow() {
+    if (minimal || isMobile()) {
+      return;
+    }
+
+    return (
+      <DidYouKnow>
+        Gdi Videos are <span>JSONs</span> and can be easily forked, modified & versioned. When
+        combined with AI, they transform into interactive experiences that{' '}
+        <span>respond in real-time to user actions</span>.
+      </DidYouKnow>
+    );
+  }
+
+  function renderTop() {
+    if (isMobile() && card) {
+      return null;
+    }
+
+    return (
       <Top>
         <Gap />
         {renderLogo()}
-        <Tip>
-          {!minimal && (
-            <DidYouKnow>
-              Gdi Videos are <span>JSONs</span> and can be easily forked, modified & versioned. When
-              combined with AI, they transform into interactive experiences that{' '}
-              <span>respond in real-time to user actions</span>.
-            </DidYouKnow>
-          )}
-        </Tip>
+        <Tip>{renderDidYouKnow()}</Tip>
       </Top>
+    );
+  }
+
+  function renderUnderConstruction() {
+    if (card) return null;
+
+    return <UnderConstruction small />;
+  }
+
+  return (
+    <Wrapper className='Tube-wrapper' data-testid='Tube-wrapper'>
+      {renderTop()}
       {renderInner()}
-      <UnderConstruction small />
+      {renderUnderConstruction()}
     </Wrapper>
   );
 }

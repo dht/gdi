@@ -1,4 +1,8 @@
 import React from 'react';
+import { format } from '../../utils';
+import { isMobile } from '../../utils/mobile';
+import Markdown from '../Markdown/Markdown';
+import { toast } from '../Toast/Toast.actions';
 import {
   Actions,
   Author,
@@ -13,10 +17,6 @@ import {
   Title,
   Wrapper,
 } from './TubeVideo.style';
-import { format } from '../../utils';
-import Markdown from '../Markdown/Markdown';
-import { Toast } from '../Toast/Toast';
-import { toast } from '../Toast/Toast.actions';
 
 export type TubeVideoProps = {
   card: Json;
@@ -34,6 +34,7 @@ export function TubeVideo(props: TubeVideoProps) {
   };
 
   const descriptionParsed = description.replace(/\$url/, url);
+  const descriptionColorMode = isMobile() ? 'dark' : 'light';
 
   function onShare() {
     toast.show('Link copied to clipboard');
@@ -62,7 +63,7 @@ export function TubeVideo(props: TubeVideoProps) {
         </Row>
       </Details>
       <Description>
-        <Markdown markdown={descriptionParsed} />
+        <Markdown mode={descriptionColorMode} markdown={descriptionParsed} />
       </Description>
     </Wrapper>
   );

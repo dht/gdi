@@ -22,6 +22,10 @@ export const Audio = styled.div`
       height: 0;
     }
   }
+
+  @media (max-width: 800px) {
+    zoom: 0.5;
+  }
 `;
 
 export const Timeline = styled.div`
@@ -35,6 +39,10 @@ export const Timeline = styled.div`
 export const Panel = styled.div`
   height: 80px;
   position: relative;
+
+  @media (max-width: 800px) {
+    height: 40px;
+  }
 `;
 
 export const Loading = styled.div`

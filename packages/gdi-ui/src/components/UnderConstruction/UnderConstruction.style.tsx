@@ -38,6 +38,10 @@ export const Wrapper = styled.div`
       font-size: 20px;
       margin: 0 40px;
     }
+
+    @media (max-width: 800px) {
+      zoom: 0.7;
+    }
   }
 `;
 

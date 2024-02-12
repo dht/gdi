@@ -17,7 +17,7 @@ export function* loadClip(ev: any) {
   const response: any = yield* call(axios.get, url);
   const data = response.data;
 
-  addElements(data, { hideBase: true, autoHideExternals: false });
+  addElements(data, { hideBase: true, autoHideExternals: true });
   seedDb(data);
 
   addSkyBox('');

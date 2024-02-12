@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.button`
   border: none;
-  position: fixed;
+  position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);

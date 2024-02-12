@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   cursor: pointer;
   box-sizing: border-box;
 
+  @media (max-width: 800px) {
+    color: white;
+  }
+
   &:hover {
     .title {
       border-bottom: 2px solid palevioletred;

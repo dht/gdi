@@ -21,6 +21,10 @@ export const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  @media (max-width: 800px) {
+    margin-left: -30px;
+  }
 `;
 
 export const Text = styled.div`
