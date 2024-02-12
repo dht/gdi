@@ -1,4 +1,4 @@
-# What is GDI?
+## What is GDI?
 
 GDI is an `app store for AI-powered apps`.
 

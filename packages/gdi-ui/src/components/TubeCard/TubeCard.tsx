@@ -11,6 +11,7 @@ import {
   Title,
   Views,
   Wrapper,
+  Soon,
 } from './TubeCard.style';
 import { format } from '../../utils';
 import classnames from 'classnames';
@@ -24,7 +25,7 @@ export type TubeCardProps = {
 
 export function TubeCard(props: TubeCardProps) {
   const { card, minimal, width = 354 } = props;
-  const { id, imageUrl, iconUrl, title, author, version, duration, creationDate } = card;
+  const { id, imageUrl, iconUrl, title, author, version, duration, creationDate, isActive } = card;
 
   const height = (210 * width) / 354;
 
@@ -54,6 +55,7 @@ export function TubeCard(props: TubeCardProps) {
 
   const className = classnames('TubeCard-wrapper', {
     minimal,
+    soon: !isActive,
   });
 
   return (
@@ -62,6 +64,7 @@ export function TubeCard(props: TubeCardProps) {
         {minimal && <Author className='author'>by {author}</Author>}
         <Duration className='duration'>{durationFormatted}</Duration>
       </Image>
+      <Soon className='soon'>Soon</Soon>
       <Details className='details'>
         <Column>
           <AvatarUrl style={styleAvatar} />

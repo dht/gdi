@@ -1,6 +1,8 @@
 import React from 'react';
-import { Wrapper } from './Ratings.style';
+import { Count, Wrapper } from './Ratings.style';
 import Icon from '../Icon/Icon';
+import classnames from 'classnames';
+import { Star } from './Ratings.components';
 
 export type RatingsProps = {
   value: number;
@@ -15,13 +17,17 @@ export function Ratings(props: RatingsProps) {
       return null;
     }
 
-    return <span data-testid='Ratings-count'>({count})</span>;
+    return <Count data-testid='Ratings-count'>({count})</Count>;
   }
 
+  const className = classnames('Ratings-wrapper', {
+    rated: count > 0,
+  });
+
   return (
-    <Wrapper className='Ratings-wrapper' data-testid='Ratings-wrapper'>
-      {!value ? '-' : value.toFixed(2)}
-      <Icon name='Star' size={15} />
+    <Wrapper className={className} data-testid='Ratings-wrapper'>
+      {!value ? '-' : value.toFixed(1)}
+      <Star />
       {renderCount()}
     </Wrapper>
   );

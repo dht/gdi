@@ -23,8 +23,9 @@ export type GalleryItemProps = {
 
 export function GalleryItem(props: GalleryItemProps) {
   const { board } = props;
-  const { identifier, version, ratings, reviewsCount, isActive, isWip, boardInfo } = board;
+  const { identifier, version, reviewInfo, isActive, isWip, boardInfo } = board;
   const { index, name, description, imageUrl, boardType } = boardInfo;
+  const { reviewsCount = 0, rating = 0 } = reviewInfo ?? {};
 
   const style: React.CSSProperties = useMemo(
     () => ({
@@ -54,7 +55,7 @@ export function GalleryItem(props: GalleryItemProps) {
           <Name className='name'>
             {index}. <span>{name}</span>
           </Name>
-          <Ratings value={ratings} count={reviewsCount} />
+          <Ratings value={rating} count={reviewsCount} />
         </Row>
         <Row>
           <Identifier>{identifier}</Identifier>
