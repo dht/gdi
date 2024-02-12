@@ -441,6 +441,7 @@ export type IBoard = {
 
 export type IBoardMobileConfig = {
   hidePrompt?: boolean;
+  hideArrows?: boolean;
   darkMode?: boolean;
   columns?: number;
   flowColumnIndex?: number;

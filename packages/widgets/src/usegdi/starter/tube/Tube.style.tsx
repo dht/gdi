@@ -1,3 +1,4 @@
+import { Button } from '@gdi/ui';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -12,6 +13,10 @@ export const Top = styled.div`
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
+  width: 1150px;
+  margin: auto;
+  position: relative;
+  border: 1px solid green;
 `;
 
 export const Gap = styled.div`
@@ -19,5 +24,15 @@ export const Gap = styled.div`
 `;
 
 export const Tip = styled.div`
-  flex: 1;
+  position: fixed;
+  top: 30px;
+  right: 50px;
 `;
+
+export const Actions = styled.div`
+  position: absolute;
+  left: 0;
+  left: 0;
+`;
+
+export const Nav = styled(Button)``;

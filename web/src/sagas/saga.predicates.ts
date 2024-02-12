@@ -1,13 +1,24 @@
-import { ISaga } from '@gdi/store-base';
+import { ISaga, actions } from '@gdi/store-base';
 import { get } from 'lodash';
 import { put, take, takeEvery, waitForAuth } from 'saga-ts';
 import { predicateCurrentIds } from './predicates';
 import { call } from 'saga-ts';
+import { isMobile } from '@gdi/ui';
 
 export function* onBoardChange(action: any) {
-  const boardId = get(action, 'payload.boardId');
+  const { payload } = action;
+  const { boardId, itemId } = payload ?? {};
+
+  const flavour = itemId ? 'item' : 'default';
+
+  yield put(actions.currentIds.patch({ itemId }));
+  yield put(actions.appState.patch({ flavour }));
 
   if (!boardId) return;
+
+  if (isMobile()) {
+    window.scrollTo(0, 0);
+  }
 
   yield call(waitForAuth);
 

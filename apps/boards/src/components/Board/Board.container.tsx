@@ -11,14 +11,13 @@ export type BoardContainerProps = {};
 
 export const BoardContainer = (props: BoardContainerProps) => {
   const dispatch = useDispatch();
-  const p = useParams();
   const { boardId, itemId } = useParams();
   const board = useSelector(selectors.raw.$rawBoard);
   const appState = useSelector(selectors.raw.$rawAppState);
   const { flavour, flavourColumnIndex } = appState;
 
   useEffect(() => {
-    dispatch(actions.currentIds.patch({ boardId }));
+    dispatch(actions.currentIds.patch({ boardId, itemId }));
   }, [boardId]);
 
   useEffect(() => {

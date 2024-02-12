@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   align-items: center;
   font-size: 30px;
   cursor: pointer;
+
+  @media (max-width: 800px) {
+    margin-right: 30px;
+  }
 `;
 
 export const Row = styled.div`

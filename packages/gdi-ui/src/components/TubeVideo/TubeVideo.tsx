@@ -17,14 +17,20 @@ import {
   Title,
   Wrapper,
 } from './TubeVideo.style';
+import TubeTop from '../TubeTop/TubeTop';
 
 export type TubeVideoProps = {
   card: Json;
   children: React.ReactNode;
+  minimal?: boolean;
+  callbacks: {
+    onClick: (id: string) => void;
+    onLogoClick: () => void;
+  };
 };
 
 export function TubeVideo(props: TubeVideoProps) {
-  const { card } = props;
+  const { card, minimal, callbacks } = props;
   const { iconUrl, title, author, url, creationDate, description = '' } = card;
 
   const timeAgo = format.date.timeAgo(creationDate);
@@ -44,6 +50,7 @@ export function TubeVideo(props: TubeVideoProps) {
 
   return (
     <Wrapper className='TubeVideo-wrapper' data-testid='TubeVideo-wrapper'>
+      <TubeTop hideTip ctaText='All Videos' minimal={minimal} callbacks={callbacks} />
       <Player>{props.children}</Player>
       <Details>
         <Title>{title}</Title>

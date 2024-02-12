@@ -9,7 +9,7 @@ export type GridViewProps = {
   gridRef: RefObject<HTMLDivElement>;
 };
 
-export function GridView(_props: GridViewProps) {
+export function GridView(props: GridViewProps) {
   const { state, elements } = useContext(GridContext);
   const { flavour, columnIndex } = state;
 

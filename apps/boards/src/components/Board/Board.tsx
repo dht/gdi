@@ -34,6 +34,7 @@ export function Board(props: BoardProps) {
         flavour={flavour}
         widgets={allWidgets}
         elements={board?.elements ?? []}
+        hideArrows={board?.mobile?.hideArrows}
         columns={board?.mobile?.columns}
         columnIndex={columnIndex}
         callbacks={callbacks}

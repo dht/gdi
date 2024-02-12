@@ -8,10 +8,7 @@ import { Logo } from './MobileHeader.components';
 
 export type MobileHeaderProps = {};
 
-export function MobileHeader(_props: MobileHeaderProps) {
-  const context = useContext(GridContext);
-  const { state } = context;
-
+export function MobileHeader(props: MobileHeaderProps) {
   function onLogo() {
     invokeEvent('nav', { path: '/' });
   }
