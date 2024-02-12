@@ -5,4 +5,8 @@ export const Wrapper = styled.div`
   width: 700px;
   height: 500px;
   background-color: #fff;
+
+  @media (max-width: 800px) {
+    width: 90vw;
+  }
 `;

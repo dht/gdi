@@ -67,6 +67,7 @@ export function ScenePlayer(props: ScenePlayerProps) {
         <Scene
           isLoading={isLoading}
           showToolbox={false}
+          hideBase
           freeMove={freeMove}
           disableGizmos
           environment={environment}
@@ -75,10 +76,6 @@ export function ScenePlayer(props: ScenePlayerProps) {
       </Canvas>
       <Panel>
         <Audio>{renderMultiTrack()}</Audio>
-        <Timeline className='bits'>
-          <BitTimeline bits={bits} bitId={bitId} callbacks={callbacks} />
-        </Timeline>
-        <Fps id='fps' />
       </Panel>
     </Wrapper>
   );

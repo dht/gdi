@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { Wrapper } from './BitLayer.style';
+import classnames from 'classnames';
 import { Hud, Txt } from 'isokit2';
-import { sampleDataHud, sampleDataTxt } from './BitLayer.data';
-import { useJsonResource } from './BitLayer.hooks';
 import { get } from 'lodash';
+import { useJsonResource } from './BitLayer.hooks';
+import { Wrapper } from './BitLayer.style';
 
 export type BitLayerProps = {
   layerId: string;
   attachmentUrl: string;
+  absolute?: boolean;
 };
 
 const map: any = {
@@ -16,7 +16,7 @@ const map: any = {
 };
 
 export function BitLayer(props: BitLayerProps) {
-  const { layerId, attachmentUrl } = props;
+  const { layerId, attachmentUrl, absolute } = props;
   const json = useJsonResource(attachmentUrl);
 
   if (!json || layerId !== 'layer') {
@@ -31,11 +31,15 @@ export function BitLayer(props: BitLayerProps) {
       return null;
     }
 
-    return <Cmp json={json} />;
+    return <Cmp json={json} absolute={absolute} />;
   }
 
+  const className = classnames('BitLayer-wrapper', {
+    absolute,
+  });
+
   return (
-    <Wrapper className='BitLayer-wrapper' data-testid='BitLayer-wrapper'>
+    <Wrapper className={className} data-testid='BitLayer-wrapper'>
       {renderInner()}
     </Wrapper>
   );

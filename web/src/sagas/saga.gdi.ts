@@ -12,6 +12,7 @@ import { bootstrapAdapters } from './helpers/saga.adapters';
 import { toast } from '@gdi/ui';
 import { boardsRoot } from '../main.root';
 import { takeEvery } from 'typed-redux-saga';
+import { call, trackAuth } from 'saga-ts';
 
 const LOCALE_STORAGE_KEY = 'locale';
 
@@ -168,7 +169,7 @@ export function* root() {
   yield delay(0);
 
   l({ message: 'Starting GDI bootstrap', verb: 'clear' });
-
+  yield* fork(trackAuth);
   yield* fork(bootstrapAdapters);
   yield* fork(fetchBoards);
   yield* fork(fetchAssistants);

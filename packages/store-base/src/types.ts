@@ -104,7 +104,7 @@ export type ICurrentIds = {
   modalId: string;
   tabId: string;
   editId: string;
-  clipId: string;
+  itemId: string;
   personId: string;
 };
 
@@ -577,6 +577,7 @@ export type ISaga = {
     keyNames?: string[];
     xpaths?: string[];
   };
+  root?: any;
 };
 
 export type ISagas = Record<string, ISaga>;

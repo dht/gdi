@@ -8,6 +8,7 @@ import { saga as sagaKeys } from './saga.keys';
 import { saga as sagaLogs } from './saga.logs';
 import { saga as sagaNavigation } from './saga.navigation';
 import { saga as sagaOnboarding } from './saga.onboarding';
+import { saga as sagaPredicates } from './saga.predicates';
 import { saga as sagaTags } from './saga.tags';
 import { saga as sagaPrompt } from './saga.prompt';
 import { saga as sagaTranscript } from './saga.transcript';
@@ -27,6 +28,7 @@ export const allSagas = {
   'gdi.keys': sagaKeys,
   'gdi.logs': sagaLogs,
   'gdi.navigation': sagaNavigation,
+  'gdi.predicates': sagaPredicates,
   'gdi.prompt': sagaPrompt,
   'gdi.tags': sagaTags,
   'gdi.transcript': sagaTranscript,

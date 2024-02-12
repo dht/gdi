@@ -72,6 +72,11 @@ export const sagas: ISagas = {
       eventNames: ['flow/completed'],
     },
   },
+  'gdi.predicates': {
+    id: 'gdi.predicates',
+    type: 'predicate',
+    trigger: {},
+  },
   'gdi.transcript': {
     id: 'gdi.transcript',
     type: 'component',
@@ -201,6 +206,13 @@ export const sagas: ISagas = {
     type: 'component',
     trigger: {
       eventNames: ['ppl/change', 'ppl/flavour'],
+    },
+  },
+  'widgets.tube': {
+    id: 'widgets.tube',
+    type: 'component',
+    trigger: {
+      eventNames: [],
     },
   },
   'widgets.productTour': {

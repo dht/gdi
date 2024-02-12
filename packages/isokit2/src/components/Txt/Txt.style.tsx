@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
   transition: opacity 1.2s ease-out;
   max-width: 1700px;
   margin: auto;
+
+  &.absolute {
+    .inner {
+      margin: 50px 10px 110px;
+    }
+  }
 `;
 
 export const Inner = styled.div`

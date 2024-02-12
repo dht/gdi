@@ -5,9 +5,10 @@ import { saga as sagaFlow } from './usegdi/starter/flow/sagas.Flow';
 import { saga as sagaFourthWall } from './usegdi/starter/fourth-wall/sagas.FourthWall';
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
 import { saga as sagaProductTour } from './usegdi/starter/product-tour/sagas.ProductTour';
-import { saga as sagaTranscript } from './usegdi/starter/transcript/sagas.Transcript';
 import { saga as sagaSpeech } from './usegdi/starter/speech/sagas.Speech';
 import { saga as sagaSpeechParams } from './usegdi/starter/speech-params/sagas.SpeechParams';
+import { saga as sagaTranscript } from './usegdi/starter/transcript/sagas.Transcript';
+import { saga as sagaTube } from './usegdi/starter/tube/sagas.Tube';
 import { saga as sagaVisionSimulator } from './usegdi/starter/vision-simulator/sagas.VisionSimulator';
 import { sagas as sagasScene } from './usegdi/starter/scene/sagas';
 
@@ -22,6 +23,7 @@ export const sagas: any = {
   'widgets.transcript': sagaTranscript,
   'widgets.speech': sagaSpeech,
   'widgets.speechParams': sagaSpeechParams,
+  'widgets.tube': sagaTube,
   'widgets.visionSimulator': sagaVisionSimulator,
   ...sagasScene,
 };

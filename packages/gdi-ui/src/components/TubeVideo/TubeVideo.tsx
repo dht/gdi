@@ -14,6 +14,9 @@ import {
   Wrapper,
 } from './TubeVideo.style';
 import { format } from '../../utils';
+import Markdown from '../Markdown/Markdown';
+import { Toast } from '../Toast/Toast';
+import { toast } from '../Toast/Toast.actions';
 
 export type TubeVideoProps = {
   card: Json;
@@ -22,13 +25,21 @@ export type TubeVideoProps = {
 
 export function TubeVideo(props: TubeVideoProps) {
   const { card } = props;
-  const { iconUrl, title, author, creationDate, description = '' } = card;
+  const { iconUrl, title, author, url, creationDate, description = '' } = card;
 
   const timeAgo = format.date.timeAgo(creationDate);
 
   const styleAvatar: React.CSSProperties = {
     backgroundImage: `url(${iconUrl})`,
   };
+
+  const descriptionParsed = description.replace(/\$url/, url);
+
+  function onShare() {
+    toast.show('Link copied to clipboard');
+    const url = document.location.href;
+    navigator.clipboard.writeText(url);
+  }
 
   return (
     <Wrapper className='TubeVideo-wrapper' data-testid='TubeVideo-wrapper'>
@@ -44,11 +55,15 @@ export function TubeVideo(props: TubeVideoProps) {
             </Details>
           </Author>
           <Actions>
-            <Cta iconName='share'>Share</Cta>
+            <Cta iconName='share' onClick={onShare}>
+              Share
+            </Cta>
           </Actions>
         </Row>
       </Details>
-      <Description>{description}</Description>
+      <Description>
+        <Markdown markdown={descriptionParsed} />
+      </Description>
     </Wrapper>
   );
 }

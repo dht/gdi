@@ -4,6 +4,7 @@ import { useBlackBk } from '@gdi/ui';
 import { useEffect, useMemo } from 'react';
 import { useSagas } from '../../../helpers/useSaga';
 import { ScenePlayer } from './ScenePlayer';
+import BitLayerContainer from '../bit-builder/_parts/BitLayer/BitLayer.container';
 
 export type ScenePlayerContainerProps = {};
 
@@ -17,8 +18,6 @@ export function ScenePlayerContainer(_props: ScenePlayerContainerProps) {
   const { bitId } = currentIds;
 
   useSagas([
-    'widgets.scene.bootstrap',
-    'widgets.clip.bootstrap',
     'widgets.player.audio',
     'widgets.player.animation',
     'widgets.player.bits',
@@ -28,8 +27,6 @@ export function ScenePlayerContainer(_props: ScenePlayerContainerProps) {
     'widgets.player.time',
     'widgets.player.preloadImages',
   ]);
-
-  useBlackBk();
 
   const callbacks = useMemo(
     () => ({
@@ -64,7 +61,9 @@ export function ScenePlayerContainer(_props: ScenePlayerContainerProps) {
       isPlaying={sceneState.isPlaying}
       timeline={{} as any}
       callbacks={callbacks}
-    ></ScenePlayer>
+    >
+      <BitLayerContainer absolute />
+    </ScenePlayer>
   );
 }
 

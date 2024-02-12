@@ -14,7 +14,7 @@ export function* showOnboarding() {
   }
 
   yield delay(3000);
-  setBoolean('onboardingSeen', true);
+  setBoolean('onBoardingSeen', true);
 
   yield prompt.custom({
     title: 'GDI Intro',
@@ -25,7 +25,7 @@ export function* showOnboarding() {
   yield delay(200);
 
   yield prompt.custom({
-    title: 'Onboarding',
+    title: 'Welcome to GDI',
     component: OnBoarding,
     componentProps: {
       rootUrl: docsRootUrl + '/on-boarding',

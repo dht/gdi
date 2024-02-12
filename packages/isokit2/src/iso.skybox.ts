@@ -20,6 +20,7 @@ type Id = 'skybox' | 'stage' | 'stage-mask';
 
 export const changeImage = (id: Id, url: string, showAndFocus?: boolean) => {
   const material = scene.getMaterialByName(id + 'Material') as StandardMaterial;
+  if (!material) return;
 
   const texture = new Texture(url, scene);
   texture.hasAlpha = true;

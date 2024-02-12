@@ -1,15 +1,55 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  flex: 1;
   font-size: 20px;
   color: #333;
   margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
   cursor: pointer;
+  box-sizing: border-box;
 
   &:hover {
     .title {
       border-bottom: 2px solid palevioletred;
+    }
+  }
+
+  &.minimal {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin: 1px;
+    cursor: pointer;
+
+    .image {
+      border-radius: 0;
+
+      .author {
+        display: none;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        color: goldenrod;
+        background-color: #000;
+        padding: 2px 4px;
+        border-radius: 4px;
+      }
+    }
+
+    .details,
+    .duration {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 0.8;
+
+      .image {
+        .author {
+          display: block;
+        }
+      }
     }
   }
 `;

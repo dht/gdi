@@ -43,6 +43,7 @@ export const App = () => {
         <Route path='/browse' element={<pagesHome.browse />} />
         <Route path='/browse/:id' element={<pagesHome.boardDetails />} />
         <Route path='/boards/:boardId' element={<pagesBoards.gdi />} />
+        <Route path='/boards/:boardId/:itemId' element={<pagesBoards.gdi />} />
         <Route path='/account' element={<pagesHome.account />} />
         <Route path='/login' element={<pagesAuth.login />} />
         <Route path='/monitor' element={<all.monitor />} />

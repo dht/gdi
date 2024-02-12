@@ -5,7 +5,7 @@ export const environment: IEnvironment = {
   ...defaultEnvironment,
   hdr: true,
   createDefault: true,
-  createSkybox: true,
+  createSkybox: false,
   bloom: {
     enabled: true,
     kernel: 64,

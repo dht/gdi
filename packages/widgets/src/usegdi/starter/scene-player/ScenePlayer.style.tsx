@@ -33,7 +33,7 @@ export const Timeline = styled.div`
 `;
 
 export const Panel = styled.div`
-  height: 125px;
+  height: 80px;
   position: relative;
 `;
 

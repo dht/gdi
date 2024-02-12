@@ -9,6 +9,8 @@ import { l } from '../utils/logs';
 import { guestGuard } from './saga.gdi';
 import { saveBoardData } from './helpers/saga.clipboard';
 import { parseHash, prepareBoardData } from '../utils/boards';
+import { predicateCurrentIds } from './predicates';
+import { get } from 'lodash';
 
 type Verb =
   | 'openBoardDefinition'
@@ -153,8 +155,6 @@ export function* startReview(_action: Action, board: IBoard) {
 export function* showIntroModal(_action: Action, board: IBoard) {
   const { id, boardInfo } = board;
 
-  return;
-
   const appState = yield* select(selectors.raw.$rawAppState);
   const { assetsRootUrl } = appState;
 
@@ -205,7 +205,6 @@ export function* board(action: Action) {
 
 export function* root() {
   yield delay(0);
-
   yield takeEvery('BOARD', board);
 }
 

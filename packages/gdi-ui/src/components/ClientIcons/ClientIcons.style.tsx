@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 10px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const Client = styled.div`
