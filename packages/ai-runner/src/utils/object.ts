@@ -22,3 +22,13 @@ export const arrayToObject = (array: Json[], keyField: string = 'id') => {
     return obj;
   }, {});
 };
+
+export const cleanObject = (obj: Json) => {
+  const output: Json = {};
+
+  for (let key of Object.keys(obj)) {
+    output[key] = obj[key];
+  }
+
+  return output;
+};

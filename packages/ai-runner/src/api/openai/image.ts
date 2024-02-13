@@ -38,8 +38,6 @@ export const image = async (prompt: string, options: Options = {}) => {
         .withCost(cost);
     }
   } catch (err: any) {
-    console.log('err =>', err);
-
     output //
       .withError(err.message)
       .withStatusCode(err.statusCode);

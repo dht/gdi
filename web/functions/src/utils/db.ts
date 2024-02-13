@@ -1,6 +1,7 @@
 import { DBAdapter, Json, getScopedPath } from '@gdi/ai-runner';
 import * as fb from './firebase';
 import { decodeJson, encodeJson } from './crypto';
+import { guid4 } from 'shared-base';
 
 export class FirestoreAdapter implements DBAdapter {
   constructor(firestore: any) {
@@ -41,5 +42,16 @@ export class FirestoreAdapter implements DBAdapter {
     const scopedPath = getScopedPath(req, '', 'keys');
     const jsonEncoded = encodeJson(json);
     return this.patchItem(scopedPath, jsonEncoded);
+  }
+
+  async addLog(req: any, json: Json = {}) {
+    const id = guid4();
+
+    const scopedPath = getScopedPath(req, `/${id}`, 'logs');
+
+    return this.patchItem(scopedPath, {
+      id,
+      ...json,
+    });
   }
 }

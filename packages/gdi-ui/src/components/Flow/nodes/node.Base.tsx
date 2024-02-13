@@ -4,16 +4,24 @@ import { NodeBottomBar } from '../_parts/NodeBottomBar/NodeBottomBar';
 import { NodeTopBar } from '../_parts/NodeTopBar/NodeTopBar';
 import { Label, Wrapper } from './node.Base.style';
 import { CustomNodeProps } from './node.types';
+import { toast } from '../../Toast/Toast.actions';
 
 export function CustomNode(props: CustomNodeProps) {
   const { data, handles } = props;
-  const { name, isRunning, isEnd, status } = data;
+  const { name, isRunning, isEnd, status, errorMessage } = data;
 
   const className = classnames(props.color, {
     running: isRunning,
-    error: status === 'error',
+    error: status === 'error' || errorMessage,
     done: isEnd && status === 'done',
   });
+
+  function onClick(ev: any) {
+    if (!errorMessage) return;
+
+    ev.stopPropagation();
+    toast.show(errorMessage, 'error');
+  }
 
   function renderInputHandle() {
     if (handles === 'input' || handles === 'both') {
@@ -28,7 +36,7 @@ export function CustomNode(props: CustomNodeProps) {
   }
 
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} onClick={onClick}>
       <NodeTopBar {...props} />
       {renderInputHandle()}
       {renderOutputHandle()}

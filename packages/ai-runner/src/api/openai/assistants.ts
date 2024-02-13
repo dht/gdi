@@ -35,13 +35,9 @@ export const clearAll = async () => {
 
   const count = response.data.length;
 
-  console.time(`clearing ${count} assistants`);
-
   for (let assistant of response.data) {
     await remove(assistant.id);
   }
-
-  console.timeEnd(`clearing ${count} assistants`);
 
   if (count >= 20) {
     await clearAll();

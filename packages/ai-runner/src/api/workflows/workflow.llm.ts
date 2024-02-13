@@ -6,7 +6,6 @@ import db from '../../db';
 import { bakeValue } from '../flow.utils';
 import { assistants, threads } from '../openai';
 import * as fs from 'fs';
-import { logger } from '../../utils/logger';
 
 export const bootstrapAssistants = async (req: any, flow: any) => {
   let assistant: any;
@@ -103,8 +102,6 @@ export const oneShot = async (req: any, _api: Json, params: Json) => {
   const { node, stateVariables, modelId, cumulativeThread } = params;
 
   const { id, input, variables, assistantId } = node;
-
-  logger.info('oneShot', { id, input, variables, assistantId });
 
   const assistantId$ = await db.getXPath(req, `assistantIds.${assistantId}`);
 
