@@ -80,22 +80,24 @@ export function* generateFileName(fileNameInstructions: string, prompt: string) 
     return;
   }
 
-  const response = yield* call(runFunction, '/api/assets/fileName', {
-    instructions: fileNameInstructions,
-    prompt,
-  });
+  try {
+    const response = yield* call(runFunction, '/api/assets/fileName', {
+      instructions: fileNameInstructions,
+      prompt,
+    });
 
-  const { fileName } = response;
+    const { fileName } = response;
 
-  if (!fileName) {
-    return;
-  }
+    if (!fileName) {
+      return;
+    }
 
-  yield put(
-    actions.appState.patch({
-      suggestedFileName: fileName,
-    })
-  );
+    yield put(
+      actions.appState.patch({
+        suggestedFileName: fileName,
+      })
+    );
+  } catch (err: any) {}
 }
 
 export function* bootstrap(action: any) {
