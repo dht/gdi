@@ -7,6 +7,8 @@
 - [Website](https://usegdi.com)
 - [Documentation](https://usegdi.com/docs#introduction/about.md)
 
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/screenshot.jpg" width="500"/>
+
 # Installation
 
 Follow these steps to get GDI up and running locally.
