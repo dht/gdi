@@ -1,18 +1,15 @@
 import * as express from 'express';
 import { get } from 'lodash';
+import { delay } from 'shared-base';
 import * as elevenLabs from '../api/elevenLabs';
-import { runFlow } from '../api/flow';
 import { resetFlowRun } from '../api/flow.utils';
 import * as openAI from '../api/openai';
+import { runPrompt } from '../controllers/prompt';
 import { seedFlowMeta } from '../data/flowMeta';
 import db from '../db';
 import { midKeys } from '../middlewares/midKeys';
 import { Json } from '../types';
-import { logDeltaInSeconds } from '../utils/time';
 import { isLocalInstance } from '../utils/globals';
-import { runPrompt } from '../controllers/prompt';
-import { delay } from 'shared-base';
-import { logger } from '../utils/logger';
 
 export const router = express.Router();
 
@@ -116,7 +113,6 @@ router.post('/flow/prompt', async (req, res) => {
     }
 
     res.status(200).json({ success: true });
-    logDeltaInSeconds('flowEnd');
   } catch (error) {
     console.error('Error running flow:', error);
     res.status(500).send('Error running flow');
@@ -150,8 +146,6 @@ router.patch('/flow/dynamic', async (req, res) => {
 export const onPrompt = async (change: Json, context: any) => {
   const userId = context.params.userId;
   const req = { user: { uid: userId }, tsStart: 0 };
-
-  logDeltaInSeconds('onUserFlowUpdate Start');
 
   const before: Json = change.before.data();
   const after: Json = change.after.data();

@@ -2,6 +2,7 @@ import * as fdb from '../fileDb';
 import kleur from 'kleur';
 import fs from 'fs-extra';
 import { DBAdapter } from '../types';
+import { guid4 } from 'shared-base';
 
 export class FsDbAdapter implements DBAdapter {
   private rootPath: string;
@@ -52,5 +53,14 @@ export class FsDbAdapter implements DBAdapter {
 
   patchKeys(_req: any, _json: Json) {
     return Promise.resolve();
+  }
+
+  async addLog(_req: any, json: Json = {}) {
+    const id = guid4();
+
+    return fdb.setItem(`userData/user/logs/${id}`, {
+      id,
+      ...json,
+    });
   }
 }

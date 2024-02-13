@@ -1,14 +1,11 @@
 import { get } from 'lodash';
 import db from '../db';
 import { Json } from '../types';
-import { logger } from '../utils/logger';
 import { bakeInput, findNodesToRun, prepareState } from './flow.utils';
 import { runWorkflow } from './workflows';
 import { bootstrapAssistants } from './workflows/workflow.llm';
 
 export const runFlow = async (req: any, flow: any) => {
-  logger.info('runFlow', { flowId: flow.id });
-
   await prepareState(req, flow);
   await bootstrapAssistants(req, flow);
 
@@ -23,8 +20,6 @@ export const runNodeWorkflow = async (req: any, node: any, flow: any) => {
   const { flowApis, flowAssistants, flowConfig, promptParams } = flow;
 
   const { flowType, cumulativeThread } = flowConfig;
-
-  console.time(`run node ${node.id} ${node.name}`);
 
   const tsStart = Date.now();
 
@@ -62,19 +57,14 @@ export const runNodeWorkflow = async (req: any, node: any, flow: any) => {
     duration,
     ...stateChange,
   });
-
-  console.timeEnd(`run node ${node.id} ${node.name}`);
 };
 
 export const runNode = async (req: any, node: any, flow: any) => {
   const { flowNodes, flowConfig } = flow;
 
-  console.time(`run node ${node.id}`);
-
   await runNodeWorkflow(req, node, flow);
 
   // find ready nodes to run
-  console.time(`run child nodes ${node.id}`);
   const nodeState = await db.getXPath(req, 'nodeState');
   const readyNodesId = findNodesToRun(node.id, flowNodes, nodeState);
 
@@ -84,8 +74,6 @@ export const runNode = async (req: any, node: any, flow: any) => {
   });
 
   await Promise.all(promises);
-
-  console.timeEnd(`run child nodes ${node.id}`);
 
   if (node.isEnd) {
     await onFlowCompleted(req, flow);

@@ -4,6 +4,7 @@ import { arrayToObject } from '../utils/object';
 export type Scope =
   | 'users'
   | 'keys'
+  | 'logs'
   | 'userData'
   | 'settings'
   | 'pendingBoards'
@@ -58,6 +59,9 @@ export const unScopePath = (inPath: string) => {
       break;
     case 'keys':
       output.path = 'keys';
+      break;
+    case 'logs':
+      output.path = 'logs';
       break;
   }
 

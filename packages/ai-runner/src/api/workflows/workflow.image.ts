@@ -48,6 +48,8 @@ export const basic = async (req: any, api: Json, params: Json) => {
     } catch (err) {
       console.error('Error saving jpg to bucket:', err);
     }
+  } else {
+    errorMessage = response.meta.errorMessage ?? '';
   }
 
   const changeVariables = {

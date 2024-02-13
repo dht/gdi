@@ -1,13 +1,14 @@
 import kleur from 'kleur';
 import { Server } from 'socket.io';
 import { FsDbAdapter, FsSocketsAdapter, FsStorageAdapter } from './adapters';
-import { midAllowedDomains, midData, midLogger, midUser } from './midLocal';
+import { midAllowedDomains, midData, midUser } from './midLocal';
 import { setSocketsAdapter } from './utils/globals';
 import { createServer } from 'http';
 import { initRunner } from '../runner';
 import { Json } from '../types';
 import express from 'express';
 import path from 'path';
+import { midLogger } from '../middlewares/midLogger';
 
 export type LocalParams = {
   rootPath: string;

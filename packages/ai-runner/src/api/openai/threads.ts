@@ -1,5 +1,4 @@
 import { Json, ThreadCreateParams } from '../../types';
-import { logger } from '../../utils/logger';
 import { AIResponseBuilder } from '../../utils/response';
 import { openai } from './_init';
 import { calculateAssistantCosts } from './_utils';
@@ -20,7 +19,6 @@ export const getMessages = async (threadId: string, context: Json) => {
       .withData(response.data)
       .withCost(calculateAssistantCosts(response.data, modelId));
   } catch (err: any) {
-    logger.error('api.openai.threads.getMessages error', err);
     const { message, type } = err?.error ?? {};
     responseBuilder.withError(message, type);
   }
@@ -44,9 +42,7 @@ export const createRun = async (threadId: string, assistantId: string) => {
     run = await openai.beta.threads.runs.create(threadId, {
       assistant_id: assistantId,
     });
-  } catch (err: any) {
-    logger.error('api.openai.threads.createRun error', err);
-  }
+  } catch (err: any) {}
 
   return run;
 };
