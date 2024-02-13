@@ -7,7 +7,8 @@ export function* onFunctionError(ev: any) {
   const { data } = ev;
   const { path, error } = data;
 
-  toast.show(`Error calling "${path}"`, 'error');
+  // replace toast with logging the error
+  // toast.show(`Error calling "${path}"`, 'error');
 }
 
 export function* onSagaError(ev: any) {
