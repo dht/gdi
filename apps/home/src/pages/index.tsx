@@ -7,6 +7,7 @@ import { MobilePage } from './MobilePage/MobilePage';
 import { NewBoardPageContainer } from './NewBoardPage/NewBoardPage.container';
 import { NewReviewPageContainer } from './NewReviewPage/NewReviewPage.container';
 import { PrivacyPolicyPageContainer } from './PrivacyPolicyPage/PrivacyPolicyPage.container';
+import { ReportIssuePageContainer } from './ReportIssuePage/ReportIssuePage.container';
 import { SettingsPageContainer } from './SettingsPage/SettingsPage.container';
 import { TermsOfUsePageContainer } from './TermsOfUsePage/TermsOfUsePage.container';
 
@@ -20,6 +21,7 @@ export const pages = {
   newReview: NewReviewPageContainer,
   docs: DocsPageContainer,
   mobile: MobilePage,
+  reportIssue: ReportIssuePageContainer,
   termsOfUse: TermsOfUsePageContainer,
   privacyPolicy: PrivacyPolicyPageContainer,
 };

@@ -34,6 +34,7 @@ export const Input = forwardRef((props: InputProps, forwardRef: any) => {
     autoSelect,
     isNumeric,
     isPassword,
+    rows,
     preventArrows,
     width,
   } = props;
@@ -49,7 +50,7 @@ export const Input = forwardRef((props: InputProps, forwardRef: any) => {
     }
   });
 
-  if (multiline) {
+  if (multiline || rows) {
     return <TextArea {...props} ref={ref} />;
   }
 

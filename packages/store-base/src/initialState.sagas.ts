@@ -111,6 +111,13 @@ export const sagas: ISagas = {
       actionTypes: ['HOME'],
     },
   },
+  'home.issues': {
+    id: 'home.issues',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['report/issue'],
+    },
+  },
   'home.newBoard': {
     id: 'home.newBoard',
     type: 'customEvent',

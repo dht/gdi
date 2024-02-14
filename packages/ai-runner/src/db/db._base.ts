@@ -5,6 +5,7 @@ export type Scope =
   | 'users'
   | 'keys'
   | 'logs'
+  | 'issues'
   | 'userData'
   | 'settings'
   | 'pendingBoards'

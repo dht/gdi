@@ -1,0 +1,21 @@
+id: Report Issue
+header: Report Issue
+layout:
+  flavour: singleColumn
+  width: 780
+  labelSize: base
+  maxContentHeight: 70vh
+groups:
+  - id: basic
+    layoutColumnIndex: 0
+fields:
+  - id: description
+    fieldType: text
+    params:
+      multiline: true
+      rows: 15
+    placeholder: Describe the issue
+    groupId: basic
+submit:
+  title: Submit Report
+  iconName: Save
