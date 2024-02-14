@@ -18,6 +18,10 @@ service cloud.firestore {
       allow write: if isCurrentUser(uid);
     }
 
+    match /issues/{uid}/{document=**} {
+      allow write: if isCurrentUser(uid);
+    }
+
     match /userData/{uid}/{document=**} {
       allow read: if isCurrentUser(uid);
       allow write: if isCurrentUser(uid);

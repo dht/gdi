@@ -56,6 +56,12 @@ export const itemsUser = [
     divider: true,
   },
   {
+    id: 'report-issue',
+    name: 'Report an Issue',
+    path: '/report-issue',
+    divider: true,
+  },
+  {
     id: 'logout',
     name: 'Logout',
     path: '/logout',

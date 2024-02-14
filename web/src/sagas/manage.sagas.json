@@ -9,6 +9,7 @@
     "home.api",
     "home.keys",
     "home.home",
+    "home.issues",
     "home.newBoard",
     "home.settings",
     "boards.api",

@@ -6,6 +6,7 @@ import { router as routerAssets } from './routes/assets';
 import { router as routerBoards } from './routes/boards';
 import { router as routerDocument } from './routes/document';
 import { router as routerEcho } from './routes/echo';
+import { router as routerIssues } from './routes/issues';
 import { router as routerPlaybacks } from './routes/playbacks';
 import { router as routerSaves } from './routes/saves';
 import { router as routerTags } from './routes/tags';
@@ -56,6 +57,7 @@ export const initRunner = (params: Params) => {
   router.use('/account', routerAccount);
   router.use('/boards', routerBoards);
   router.use('/document', routerDocument);
+  router.use('/issues', routerIssues);
   router.use('/playbacks', routerPlaybacks);
   router.use('/saves', routerSaves);
   router.use('/echo', routerEcho);

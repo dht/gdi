@@ -56,6 +56,7 @@ export const App = () => {
         <Route path='/terms' element={<pagesHome.termsOfUse />} />
         <Route path='/privacy' element={<pagesHome.privacyPolicy />} />
         <Route path='/mobile' element={<pagesHome.mobile />} />
+        <Route path='/report-issue' element={<pagesHome.reportIssue />} />
         <Route path='/' element={<Navigate to='/home' />} />
       </Routes>
       <Toast />
