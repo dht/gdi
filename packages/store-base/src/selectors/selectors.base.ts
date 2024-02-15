@@ -156,7 +156,7 @@ export const $boards = createSelector(
 
     return Object.values(boards).map((board) => {
       const { id, boardInfo } = board;
-      const { name, imageUrl, description, tags } = boardInfo;
+      const { name, imageUrl, videoThumbUrl, description, tags } = boardInfo;
       const isMyBoard = id in myBoards;
 
       return {
@@ -164,6 +164,7 @@ export const $boards = createSelector(
         boardInfo: {
           ...boardInfo,
           imageUrl: `${assetsRootUrl}${imageUrl}`,
+          videoThumbUrl: `${assetsRootUrl}${videoThumbUrl}`,
         },
         name,
         description,

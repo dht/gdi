@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Ratings from '../../../Ratings/Ratings';
 import Shape from '../../../Shape/Shape';
 import {
@@ -12,6 +12,7 @@ import {
   Soon,
   Tags,
   Version,
+  Video,
   Wip,
   Wrapper,
 } from './GalleryItem.style';
@@ -24,7 +25,9 @@ export type GalleryItemProps = {
 export function GalleryItem(props: GalleryItemProps) {
   const { board } = props;
   const { identifier, version, reviewInfo, isActive, isWip, boardInfo } = board;
-  const { index, name, description, imageUrl, boardType } = boardInfo;
+  const { index, name, description, imageUrl, boardType, videoThumbUrl } = boardInfo;
+  const [hover, setHover] = useState(false);
+
   const { reviewsCount = 0, rating = 0 } = reviewInfo ?? {};
 
   const style: React.CSSProperties = useMemo(
@@ -39,15 +42,31 @@ export function GalleryItem(props: GalleryItemProps) {
     wip: isWip,
   });
 
+  function renderVideo() {
+    return <Video src={videoThumbUrl} autoPlay style={style} />;
+  }
+
+  function renderImage() {
+    if (hover && videoThumbUrl) {
+      return renderVideo();
+    }
+
+    return (
+      <Image className='image' style={style}>
+        <Shape shape={boardType} />
+      </Image>
+    );
+  }
+
   return (
     <Wrapper
       className={className}
       data-testid='GalleryItem-wrapper'
       onClick={() => props.onClick(board)}
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
     >
-      <Image className='image' style={style}>
-        <Shape shape={boardType} />
-      </Image>
+      {renderImage()}
       <Soon className='soon'>Soon</Soon>
       <Wip className='wip'>Work in progress</Wip>
       <Details>
