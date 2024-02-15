@@ -1,18 +1,16 @@
 import { runFunction } from '@gdi/firebase';
-import { IBoard, actions, selectors } from '@gdi/store-base';
-import { CreateAccount, EditorSchema, prompt } from '@gdi/ui';
-import { call, delay, fork, put, select, take } from 'saga-ts';
+import { actions, selectors } from '@gdi/store-base';
+import { CreateAccount, isMobile, prompt, toast } from '@gdi/ui';
+import { get } from 'lodash';
+import { call, delay, fork, put, select, take, trackAuth } from 'saga-ts';
 import { getJson, invokeEvent, patchJson } from 'shared-base';
+import { takeEvery } from 'typed-redux-saga';
 import p from '../../package.json';
-import suggested from '../defaults/default.adapter.json';
+import { boardsRoot } from '../main.root';
 import { instanceLocal } from '../utils/axios';
 import { l } from '../utils/logs';
 import { arrayToObject } from '../utils/object';
 import { bootstrapAdapters } from './helpers/saga.adapters';
-import { toast } from '@gdi/ui';
-import { boardsRoot } from '../main.root';
-import { takeEvery } from 'typed-redux-saga';
-import { call, trackAuth } from 'saga-ts';
 
 const LOCALE_STORAGE_KEY = 'locale';
 
@@ -76,10 +74,26 @@ export function* loadValuesFromStorage() {
   yield* put(actions.appState.patch({ is24Hours }));
 }
 
+export function* cacheVideos() {
+  if (isMobile()) {
+    return;
+  }
+
+  const boards = yield* select(selectors.base.$boards);
+
+  for (let board of boards) {
+    const videoThumbUrl = get(board, 'boardInfo.videoThumbUrl');
+    if (videoThumbUrl) {
+      fetch(videoThumbUrl);
+    }
+  }
+}
+
 export function* fetchBoards() {
   const response: any = yield* call(instanceLocal.get, boardsRoot + '/allBoards.json');
   const obj = arrayToObject(response.data);
   yield put(actions.boards.setAll(obj));
+  yield call(cacheVideos);
 }
 
 export function* fetchAssistants() {

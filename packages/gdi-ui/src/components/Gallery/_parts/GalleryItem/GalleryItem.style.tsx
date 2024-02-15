@@ -73,6 +73,15 @@ export const Image = styled.div`
   }
 `;
 
+export const Video = styled.video`
+  width: 100%;
+  height: 283px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px 2px 20px 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+`;
+
 export const Details = styled.div`
   font-size: 15px;
   padding: 12px 0 0;
