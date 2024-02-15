@@ -74,26 +74,10 @@ export function* loadValuesFromStorage() {
   yield* put(actions.appState.patch({ is24Hours }));
 }
 
-export function* cacheVideos() {
-  if (isMobile()) {
-    return;
-  }
-
-  const boards = yield* select(selectors.base.$boards);
-
-  for (let board of boards) {
-    const videoThumbUrl = get(board, 'boardInfo.videoThumbUrl');
-    if (videoThumbUrl) {
-      fetch(videoThumbUrl);
-    }
-  }
-}
-
 export function* fetchBoards() {
   const response: any = yield* call(instanceLocal.get, boardsRoot + '/allBoards.json');
   const obj = arrayToObject(response.data);
   yield put(actions.boards.setAll(obj));
-  yield call(cacheVideos);
 }
 
 export function* fetchAssistants() {
