@@ -92,6 +92,12 @@ export const Name = styled.div`
   margin-bottom: 4px;
   font-weight: bold;
 
+  @media (max-width: 800px) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   span {
     border-bottom: 2px solid transparent;
   }

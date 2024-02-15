@@ -16,6 +16,7 @@ import {
   Wip,
   Wrapper,
 } from './GalleryItem.style';
+import { isMobile } from '../../../../utils/mobile';
 
 export type GalleryItemProps = {
   board: Json;
@@ -47,7 +48,7 @@ export function GalleryItem(props: GalleryItemProps) {
   }
 
   function renderImage() {
-    if (hover && videoThumbUrl) {
+    if (hover && videoThumbUrl && !isMobile()) {
       return renderVideo();
     }
 
