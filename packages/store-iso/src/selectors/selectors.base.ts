@@ -15,6 +15,7 @@ export const $elements = createSelector(
   raw.$rawSceneVASPs,
   raw.$rawSceneCameras,
   raw.$rawSceneCharacters,
+  raw.$rawSceneDynamics,
   (
     sceneLights,
     sceneExternals,
@@ -22,7 +23,8 @@ export const $elements = createSelector(
     scenePacks,
     sceneVASPs,
     sceneCameras,
-    sceneCharacters
+    sceneCharacters,
+    sceneDynamics
   ) => {
     return {
       sceneLights,
@@ -32,13 +34,14 @@ export const $elements = createSelector(
       sceneVASPs,
       sceneCameras,
       sceneCharacters,
+      sceneDynamics,
     };
   }
 );
 
 export const $elementsList = createSelector(
   $elements,
-  ({ sceneMeshes, sceneExternals, sceneLights, sceneCameras }) => {
+  ({ sceneMeshes, sceneExternals, sceneLights, sceneCameras, sceneCharacters, sceneDynamics }) => {
     const output = [];
 
     const createItem = (item: any, type: string) => {
@@ -62,6 +65,14 @@ export const $elementsList = createSelector(
 
     for (const item of Object.values(sceneCameras)) {
       output.push(createItem(item, 'camera'));
+    }
+
+    for (const item of Object.values(sceneCharacters)) {
+      output.push(createItem(item, 'character'));
+    }
+
+    for (const item of Object.values(sceneDynamics)) {
+      output.push(createItem(item, 'dynamicMesh'));
     }
 
     return output;

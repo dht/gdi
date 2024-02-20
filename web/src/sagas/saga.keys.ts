@@ -10,17 +10,12 @@ const isMac = navigator.userAgent.toLowerCase().indexOf('mac') >= 0;
 
 const map: Record<string, any> = {
   toggleCommandPalette,
-  focusOnPrompt,
   showShortKeys,
   toggleRoot,
 };
 
 export function* toggleCommandPalette(_action: any) {
   invokeEvent('bar/commandPalette');
-}
-
-export function* focusOnPrompt() {
-  invokeEvent('prompt/focus');
 }
 
 export function* showShortKeys() {

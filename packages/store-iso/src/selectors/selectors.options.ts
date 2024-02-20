@@ -1,7 +1,13 @@
 import { createSelector } from 'reselect';
-import { externalTypes, lightTypes, meshTypes, videoTypes } from '../data/data.options';
-import { createOptions } from '../utils/options';
+import {
+  dynamicTypes,
+  externalTypes,
+  lightTypes,
+  meshTypes,
+  videoTypes,
+} from '../data/data.options';
 import { IIsoStore } from '../types.iso';
+import { createOptions } from '../utils/options';
 
 export const $i = (state: IIsoStore) => state;
 export const $n = (): null => null;
@@ -27,19 +33,25 @@ export const $video = createSelector($o, () => {
   return createOptions(videoTypes);
 });
 
+export const $dynamics = createSelector($o, () => {
+  return createOptions(dynamicTypes);
+});
+
 export const $elementTypes = createSelector(
   $lights,
   $externals,
   $meshes,
   $characters,
   $video,
-  (lights, externals, meshes, characters, video) => {
+  $dynamics,
+  (lights, externals, meshes, characters, video, dynamics) => {
     return {
       lights,
       externals,
       meshes,
       characters,
       video,
+      dynamics,
     };
   }
 );

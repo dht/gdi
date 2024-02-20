@@ -1,4 +1,4 @@
-import { selectors, useDispatch, useSelector } from '@gdi/store-base';
+import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useMemo } from 'react';
 import { Root } from './Root';
 
@@ -12,7 +12,11 @@ export function RootContainer(_props: RootContainerProps) {
   const callbacks = useMemo(
     () => ({
       onClick: () => {},
+      onClose: () => {
+        dispatch(actions.appState.patch({ showRoot: false }));
+      },
     }),
+
     []
   );
 
@@ -20,7 +24,7 @@ export function RootContainer(_props: RootContainerProps) {
     return null;
   }
 
-  return <Root root={root} />;
+  return <Root callbacks={callbacks} root={root} />;
 }
 
 export default RootContainer;

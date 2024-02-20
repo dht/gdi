@@ -19,10 +19,4 @@ export const globalShortKeys: IShortKey[] = [
     withCtrl: true,
     description: 'Show Short Keys',
   },
-  {
-    id: 'focusOnPrompt',
-    key: 'Enter',
-    withCommand: true,
-    description: 'Focus on Prompt',
-  },
 ];

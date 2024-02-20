@@ -8,9 +8,18 @@ import { firestoreFlowChannel } from './channels/channel.firebase';
 
 let streamChannel: any;
 
-function* mux(ev: any) {
+export function* clear() {
+  yield* put(actions.messages.setAll({}));
+}
+
+export function* mux(ev: any) {
   const { data } = ev;
   const { prompt } = data;
+
+  if (prompt === 'clear') {
+    yield* clear();
+    return;
+  }
 
   const message = {
     id: guid4(),
@@ -51,11 +60,23 @@ export function* onStream(ev: any) {
   invokeEvent('mux/content', data);
 }
 
+export function* onPromptFocus(ev: any) {
+  const currentIds = yield* select(selectors.raw.$rawCurrentIds);
+  const { boardId } = currentIds;
+
+  if (boardId) return;
+
+  yield put(actions.appState.patch({ showRoot: true }));
+}
+
 export function* root() {
   let channel;
 
   channel = customEvenChannel('MUX/PROMPT');
   yield takeEvery(channel, mux);
+
+  channel = customEvenChannel('prompt/focus');
+  yield takeEvery(channel, onPromptFocus);
 }
 
 export const saga = {

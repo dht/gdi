@@ -5,6 +5,7 @@ import { detachGizmo, addElement } from 'isokit2';
 import { call, delay, fork, put, select, takeLatest } from 'saga-ts';
 import { findElement } from '../_helpers/helper.elements';
 import { bakeJson } from '../_helpers/helper.newAsset';
+import { getAction } from '../_helpers/helper.actions';
 
 /*
   - create: create a new element
@@ -41,14 +42,6 @@ const map: Record<Verb, any> = {
   editSave: editSave,
 };
 
-const mapAction: Record<string, any> = {
-  externals: actions.sceneExternals.add,
-  characters: actions.sceneCharacters.add,
-  lights: actions.sceneLights.add,
-  meshes: actions.sceneMeshes.add,
-  video: actions.sceneMeshes.add,
-};
-
 export function* removeElement(action: Action) {
   const { payload } = action;
   const { id, type } = payload ?? {};
@@ -63,13 +56,7 @@ export function* removeElement(action: Action) {
     return;
   }
 
-  const map: any = {
-    mesh: actions.sceneMeshes.delete,
-    light: actions.sceneLights.delete,
-    external: actions.sceneExternals.delete,
-  };
-
-  const deleteAction = map[type];
+  const deleteAction = getAction(type, 'delete');
 
   if (!deleteAction) {
     toast.show('Invalid type', 'error');
@@ -98,17 +85,10 @@ export function* editSave(action: Action) {
 
   try {
     const json = JSON.parse(code);
+    const action = getAction(type, 'patch');
 
-    switch (type) {
-      case 'mesh':
-        yield put(actions.sceneMeshes.patch(id, json));
-        break;
-      case 'light':
-        yield put(actions.sceneLights.patch(id, json));
-        break;
-      case 'external':
-        yield put(actions.sceneExternals.patch(id, json));
-        break;
+    if (action) {
+      yield put(action(id, json));
     }
 
     addElement({ ...item, ...json }, type, true);
@@ -125,21 +105,17 @@ export function* editSave(action: Action) {
   }
 }
 
-export function* toggleElement(action: Action) {
-  const { id, payload } = action;
+export function* toggleElement(_action: Action) {
+  const { id, payload } = _action;
   const { type, isVisible } = payload ?? {};
 
-  switch (type) {
-    case 'mesh':
-      yield put(actions.sceneMeshes.patch(id, { enabled: !isVisible }));
-      break;
-    case 'light':
-      yield put(actions.sceneLights.patch(id, { enabled: !isVisible }));
-      break;
-    case 'external':
-      yield put(actions.sceneExternals.patch(id, { enabled: !isVisible }));
-      break;
+  const action = getAction(type, 'patch');
+
+  if (!action) {
+    return;
   }
+
+  yield put(action(id, { enabled: !isVisible }));
 }
 
 export function* toggleModal(action: Action) {
@@ -171,13 +147,7 @@ export function* renameElement(action: Action) {
     return;
   }
 
-  const map: any = {
-    mesh: actions.sceneMeshes.patch,
-    light: actions.sceneLights.patch,
-    external: actions.sceneExternals.patch,
-  };
-
-  const patchAction = map[type];
+  const patchAction = getAction(type, 'patch');
 
   if (!patchAction) {
     toast.show('Invalid type', 'error');
@@ -209,7 +179,7 @@ export function* create(action: Action) {
     return;
   }
 
-  const addAction = mapAction[familyId];
+  const addAction = getAction(familyId, 'add');
 
   if (!addAction) {
     toast.show('Invalid familyId', 'error');

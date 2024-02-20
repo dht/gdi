@@ -15,6 +15,7 @@ export type IIsoStore = {
   sceneAudios: IAudios;
   sceneEffects: ISceneEffects;
   sceneCharacters: ISceneCharacters;
+  sceneDynamics: ISceneDynamics;
 };
 
 export type LockMode = 'dot' | 'inBetween';
@@ -245,6 +246,13 @@ export type MeshType =
   | 'capsule';
 
 export type IMeshes = Record<string, IMesh>;
+
+export type ISceneDynamic = IBase & {
+  type: 'dynamic';
+  flavour: string;
+};
+
+export type ISceneDynamics = Record<string, ISceneDynamic>;
 
 //   =========================== helpers ===========================
 
