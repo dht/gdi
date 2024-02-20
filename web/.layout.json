@@ -1,6 +1,4 @@
 {
-    "web": {
-        "path": "src/components",
-        "template": "react"
-    }
+  "path": "src/components",
+  "template": "react"
 }

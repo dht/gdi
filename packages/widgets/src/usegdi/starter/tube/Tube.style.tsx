@@ -16,7 +16,6 @@ export const Top = styled.div`
   width: 1150px;
   margin: auto;
   position: relative;
-  border: 1px solid green;
 `;
 
 export const Gap = styled.div`

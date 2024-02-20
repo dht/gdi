@@ -8,6 +8,7 @@ export type SettingsPageContainerProps = {};
 export function SettingsPageContainer(_props: SettingsPageContainerProps) {
   const dispatch = useDispatch();
   const settings = useSelector(selectors.raw.$rawSettings);
+  const allOptions = useSelector(selectors.options.$allOptions);
 
   const callbacks = useMemo(
     () => ({
@@ -19,7 +20,13 @@ export function SettingsPageContainer(_props: SettingsPageContainerProps) {
     []
   );
 
-  return <SettingsPage settings={settings} callbacks={callbacks} />;
+  return (
+    <SettingsPage
+      settings={settings}
+      allOptions={allOptions}
+      callbacks={callbacks}
+    />
+  );
 }
 
 export default SettingsPageContainer;

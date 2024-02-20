@@ -12,6 +12,7 @@ import { all } from '../pages';
 import { useNavigationMethod } from '../sagas/saga.navigation';
 import styled from 'styled-components';
 import { useFullscreen } from './App.hooks';
+import { RootContainer } from '@gdi/app-root';
 
 export const App = () => {
   const location = useLocation();
@@ -60,6 +61,7 @@ export const App = () => {
         <Route path='/' element={<Navigate to='/home' />} />
       </Routes>
       <Toast />
+      <RootContainer />
       {renderSurrounding()}
     </Wrapper>
   );

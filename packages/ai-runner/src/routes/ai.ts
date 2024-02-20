@@ -21,7 +21,32 @@ router.post('/chat', async (req: any, res) => {
 
     const { prompt } = req.body;
     const response = await openAI.chat.chat(prompt);
+
     res.status(200).json({ text: response.text, uid });
+  } catch (error) {
+    console.error('Error generating text:', error);
+    res.status(500).send('Error generating text');
+  }
+});
+
+router.post('/chat/stream', async (req: any, res) => {
+  try {
+    const { uid } = req.user;
+
+    const { messages } = req.body;
+
+    const messagesClean = messages.map((message: any) => {
+      return {
+        role: message.role,
+        content: message.content,
+      };
+    });
+
+    const response: any = await openAI.chat.stream(messagesClean, (content: string) => {
+      db.messages.adhoc(req, { content });
+    });
+
+    res.status(200).json({ ...response });
   } catch (error) {
     console.error('Error generating text:', error);
     res.status(500).send('Error generating text');

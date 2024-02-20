@@ -50,6 +50,7 @@ export default defineConfig(() => {
         '@gdi/widgets-starter': `${cwd}/packages/widgets/src`,
         '@gdi/store-base': `${cwd}/packages/store-base/src`,
         '@gdi/store-iso': `${cwd}/packages/store-iso/src`,
+        '@gdi/app-root': `${cwd}/apps/root/src`,
         '@gdi/app-boards': `${cwd}/apps/boards/src`,
         '@gdi/app-home': `${cwd}/apps/home/src`,
         'redux-connected': `${cwd}/packages/redux-connected/src`,

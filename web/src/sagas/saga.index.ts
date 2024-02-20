@@ -9,10 +9,12 @@ import { saga as sagaLogs } from './saga.logs';
 import { saga as sagaNavigation } from './saga.navigation';
 import { saga as sagaOnboarding } from './saga.onboarding';
 import { saga as sagaPredicates } from './saga.predicates';
+import { saga as sagaRoot } from './saga.root';
 import { saga as sagaTags } from './saga.tags';
 import { saga as sagaPrompt } from './saga.prompt';
 import { saga as sagaTranscript } from './saga.transcript';
 
+import { sagas as allSagasRoot } from '@gdi/app-root';
 import { sagas as allSagasBoards } from '@gdi/app-boards';
 import { sagas as allSagasHome } from '@gdi/app-home';
 import { sagas as allSagasAuth } from '@gdi/auth';
@@ -30,10 +32,12 @@ export const allSagas = {
   'gdi.navigation': sagaNavigation,
   'gdi.predicates': sagaPredicates,
   'gdi.prompt': sagaPrompt,
+  'gdi.root': sagaRoot,
   'gdi.tags': sagaTags,
   'gdi.transcript': sagaTranscript,
   'gdi.onboarding': sagaOnboarding,
 
+  ...allSagasRoot,
   ...allSagasBoards,
   ...allSagasHome,
   ...allSagasAuth,

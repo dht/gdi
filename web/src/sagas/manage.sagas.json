@@ -1,5 +1,8 @@
 {
   "bootstrap": [
+    "root.api",
+    "root.mux",
+    "root.village",
     "auth.analytics",
     "auth.auth",
     "auth.email",
@@ -25,6 +28,7 @@
     "gdi.logs",
     "gdi.predicates",
     "gdi.prompt",
+    "gdi.root",
     "gdi.transcript",
     "gdi.tags"
   ]

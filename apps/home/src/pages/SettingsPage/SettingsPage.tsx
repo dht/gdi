@@ -5,13 +5,14 @@ import BasePage from '../BasePage';
 
 export type SettingsPageProps = {
   settings: ISettings;
+  allOptions: Json;
   callbacks: {
     onSave: (data: Json) => void;
   };
 };
 
 export function SettingsPage(props: SettingsPageProps) {
-  const { settings, callbacks } = props;
+  const { settings, allOptions, callbacks } = props;
 
   function onSave(values: Json, _all: Json) {
     callbacks.onSave(values);
@@ -22,6 +23,7 @@ export function SettingsPage(props: SettingsPageProps) {
     <BasePage header='Settings'>
       <Form
         config={forms.settings as any}
+        allOptions={allOptions}
         data={{ ...formDefaults.settings, ...settings }}
         onSubmit={onSave}
       />

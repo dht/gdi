@@ -21,6 +21,7 @@ export class FsSocketsAdapter implements SocketsAdapter {
 
       socket.on('addListener', (data: any) => {
         const { docPath } = data;
+
         this.addListener(docPath);
       });
 

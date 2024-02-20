@@ -75,7 +75,11 @@ export type IAppState = {
   firstDayOfWeek: number;
   tags: string[];
   source: ContentSource;
+  root: Root;
+  showRoot?: boolean;
 };
+
+export type Root = 'mux' | 'village' | 'apps';
 
 export type ContentSource = 'none' | 'static' | 'file';
 
@@ -111,6 +115,9 @@ export type ICurrentIds = {
 export type ISettings = {
   skipBoardIntro?: boolean;
   skipBoardDetails?: boolean;
+  allowSfx?: boolean;
+  defaultRoot: Root;
+  startWithRoot?: boolean;
 };
 
 export type ICamera = {
@@ -508,6 +515,7 @@ export type IBoardInfo = {
   index: number;
   imageUrl: string;
   videoUrl: string;
+  videoThumbUrl?: string;
   logoColor?: string;
   boardType: FlowType;
   description: string;

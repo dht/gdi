@@ -164,7 +164,7 @@ export const $boards = createSelector(
         boardInfo: {
           ...boardInfo,
           imageUrl: `${assetsRootUrl}${imageUrl}`,
-          videoThumbUrl: `${assetsRootUrl}${videoThumbUrl}`,
+          videoThumbUrl: videoThumbUrl ? `${assetsRootUrl}${videoThumbUrl}` : '',
         },
         name,
         description,
@@ -235,4 +235,11 @@ export const $voices = createSelector(raw.$rawAppState, raw.$rawVoices, (appStat
       audioUrl: `${assetsRootUrl}${audioUrl}`,
     };
   });
+});
+
+export const $root = createSelector(raw.$rawSettings, raw.$rawAppState, (settings, appState) => {
+  const { defaultRoot, startWithRoot } = settings;
+  const { root } = appState;
+
+  return {};
 });

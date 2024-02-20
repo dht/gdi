@@ -8,9 +8,9 @@ export const globalShortKeys: IShortKey[] = [
     description: 'Toggle Command Palette',
   },
   {
-    id: 'toggleLog',
+    id: 'toggleRoot',
     key: '`',
-    description: 'Toggle Log',
+    description: 'Toggle Root',
   },
   {
     id: 'showShortKeys',

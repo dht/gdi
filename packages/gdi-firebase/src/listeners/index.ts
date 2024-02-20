@@ -36,3 +36,8 @@ export const listenToDocumentPath = (docPath: string, callback: Callback) => {
     return firebase.listenToDocumentPath(docPath, callback);
   }
 };
+
+const rnd1 = Math.floor(Math.random() * 3);
+const rnd2 = Math.floor(Math.random() * 3);
+const comment = ['Stunning', 'Beautiful', 'Gorgeous'][rnd1] + ' ' + '😍'.repeat(rnd2);
+console.log(comment);
