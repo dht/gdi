@@ -7,6 +7,7 @@ import {
   IMesh,
   IPack,
   ISceneCharacter,
+  ISceneDynamic,
   IVASP,
 } from '@gdi/store-iso';
 import { initCamera, setActiveCameras } from './iso.camera';
@@ -21,6 +22,7 @@ import { addVASP } from './iso.vasps';
 import { addPack } from './iso.sprites';
 import { removeMesh } from './iso.meshes.utils';
 import { addCharacter } from './iso.characters';
+import { addDynamic } from './iso.dynamics.add';
 
 type Options = {
   hideBase?: boolean;
@@ -37,6 +39,7 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
     sceneCharacters,
     sceneVASPs,
     scenePacks,
+    sceneDynamics,
   } = elements;
   const { hideBase, autoHideExternals } = options;
 
@@ -72,6 +75,10 @@ export const addElements = (elements: Partial<IIsoStore>, options: Options = {})
 
     for (item of Object.values(sceneVASPs ?? {})) {
       addVASP(item as IVASP);
+    }
+
+    for (item of Object.values(sceneDynamics ?? {})) {
+      addDynamic(item as ISceneDynamic);
     }
   } catch (err) {
     console.log('err =>', err);

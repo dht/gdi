@@ -12,6 +12,7 @@ export const getScene = async (req: any) => {
     'sceneMeshes',
     'sceneExternals',
     'sceneCharacters',
+    'sceneDynamics',
   ]);
 
   return scene;

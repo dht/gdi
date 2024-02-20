@@ -4,9 +4,11 @@ import { useMemo } from 'react';
 import { invokeEvent } from 'shared-base';
 import { Mux } from './Mux';
 
-export type MuxContainerProps = {};
+export type MuxContainerProps = {
+  children?: React.ReactNode;
+};
 
-export function MuxContainer(_props: MuxContainerProps) {
+export function MuxContainer(props: MuxContainerProps) {
   const dispatch = useDispatch();
   const appState = useSelector(selectors.raw.$rawAppState);
   const messages = useSelector(selectors.base.$messages);
@@ -23,7 +25,11 @@ export function MuxContainer(_props: MuxContainerProps) {
     []
   );
 
-  return <Mux messages={messages} callbacks={callbacks} />;
+  return (
+    <Mux messages={messages} callbacks={callbacks}>
+      {props.children}
+    </Mux>
+  );
 }
 
 export default MuxContainer;

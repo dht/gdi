@@ -1,15 +1,17 @@
 import { IMessage } from '@gdi/store-base';
-import { Content, Wrapper } from './Mux.style';
+import { Content, Overlay, Wrapper } from './Mux.style';
 import MuxInput from './_parts/MuxInput/MuxInput';
 import MuxMessages from './_parts/MuxMessages/MuxMessages';
 import { useRef, useState } from 'react';
 import { useCustomEvent } from '@gdi/ui';
+import MuxEmpty from './_parts/MuxEmpty/MuxEmpty';
 
 export type MuxProps = {
   messages: IMessage[];
   callbacks: {
     onSubmit: (prompt: string) => void;
   };
+  children?: React.ReactNode;
 };
 
 export function Mux(props: MuxProps) {
@@ -26,12 +28,20 @@ export function Mux(props: MuxProps) {
     refContent.current.scrollTop = refContent.current.scrollHeight;
   });
 
+  function renderInner() {
+    if (messages.length === 0) {
+      return <MuxEmpty />;
+    }
+
+    return <MuxMessages messages={messages} message={message} />;
+  }
+
   return (
     <Wrapper className='Mux-wrapper' data-testid='Mux-wrapper'>
-      <Content ref={refContent}>
-        <MuxMessages messages={messages} message={message} />
-      </Content>
+      <Content ref={refContent}>{renderInner()}</Content>
       <MuxInput callbacks={callbacks} />
+      {props.children}
+      <Overlay />
     </Wrapper>
   );
 }

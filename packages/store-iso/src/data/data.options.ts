@@ -31,3 +31,5 @@ export const externalTypes = ['glb', 'audio'];
 export const charactersTypes = ['glb'];
 
 export const videoTypes = ['wall'];
+
+export const dynamicTypes = ['sphere'];

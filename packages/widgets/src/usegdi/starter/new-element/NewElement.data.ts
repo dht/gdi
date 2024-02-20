@@ -24,4 +24,9 @@ export const elementFamilies = [
     name: 'Video',
     iconName: 'video_library',
   },
+  {
+    id: 'dynamics',
+    name: 'Dynamics',
+    iconName: 'movie_filter',
+  },
 ];

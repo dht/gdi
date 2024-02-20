@@ -10,6 +10,7 @@ import { getNodes } from '../_helpers/helper.sagas';
 const nodes = [
   'sceneExternals', //
   'sceneLights',
+  'sceneDynamics',
   'sceneMeshes',
   'sceneCharacters',
   'scenePacks',

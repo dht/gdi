@@ -149,6 +149,13 @@ export const initialState: IIsoStore = {
       url: 'http://localhost:3000/scenes/park/tree2.glb',
     },
   },
+  sceneDynamics: {
+    d1: {
+      id: 'd1',
+      type: 'dynamic',
+      flavour: 'crumbling-sphere',
+    },
+  },
   sceneCharacters: {
     man: {
       id: 'man',
@@ -165,6 +172,7 @@ export const nodeNames = [
   'sceneDots',
   'sceneMeshes',
   'sceneLights',
+  'sceneDynamics',
   'sceneAudios',
   'sceneEffects',
   'scenePacks',

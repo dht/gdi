@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { addListener } from 'shared-base';
+import { addListener, invokeEvent } from 'shared-base';
 import { MicrophoneContainer } from '../Microphone/Microphone.container';
 import { IBarItem } from '../../types';
 import { useTime } from './Bar.hooks';
@@ -38,13 +38,9 @@ export function Bar(props: BarProps) {
     }
   }
 
-  addListener('prompt/focus', () => {
-    if (!ref.current) {
-      return;
-    }
-
-    ref.current.focus();
-  });
+  function onFocus() {
+    invokeEvent('prompt/focus');
+  }
 
   function renderBarItem(barItem: IBarItem) {
     let { value = '', emoji, modifier, addClassName } = barItem;
@@ -82,6 +78,7 @@ export function Bar(props: BarProps) {
       <Input
         ref={ref}
         onChange={(ev) => setPrompt(ev.target.value)}
+        onFocus={onFocus}
         value={prompt}
         onKeyDown={onKeyDown}
         placeholder={promptPlaceholder}
