@@ -53,6 +53,8 @@ export const initialState: IGdiStore = {
     suggestedFileName: '',
     source: 'none',
     tags: ['project-tutorial'],
+    root: 'mux',
+    showRoot: false,
   },
   currentIds: {
     boardId: '',
@@ -84,6 +86,7 @@ export const initialState: IGdiStore = {
   settings: {
     skipBoardIntro: false,
     skipBoardDetails: false,
+    defaultRoot: 'apps',
   },
   board: removeId(board),
   boards: {

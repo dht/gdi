@@ -35,3 +35,6 @@ scripts/.env
 web/public/scenes
 packages/ai-runner/logs/
 docs/on-boarding/show-nh*.md
+playground/.env
+playground/capability.x.sh
+playground/*.wav

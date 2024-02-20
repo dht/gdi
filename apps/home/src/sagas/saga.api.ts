@@ -26,6 +26,8 @@ function* api() {
 
     initSfx(allowSfx);
 
+    invokeEvent('settings/loaded');
+
     yield delay(100);
   } catch (err) {
     invokeEvent('saga/error', {

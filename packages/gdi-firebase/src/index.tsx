@@ -22,5 +22,5 @@ export {
 } from './firebase.auth';
 export { runFunction } from './firebase.functions';
 export { clearLogs, listenToLogs, newLog } from './firebase.logs';
-export { listenToFlow } from './firebase.requests';
+export { listenToFlow, listenToMessageStream } from './firebase.requests';
 export { setUser } from './firebase.user';

@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   background-color: white;
   z-index: 4999;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 
   @media (max-width: 800px) {
     top: 65px;
@@ -15,7 +16,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled(ContainerBase)`
-  max-width: 100vw;
+  max-width: calc(100vw - 50px);
+  box-sizing: border-box;
 `;
 
 export const Items = styled.div`

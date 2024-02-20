@@ -96,6 +96,7 @@ export { Vision } from './components/Vision/Vision';
 export { Wip } from './components/Wip/Wip';
 export { sendAnalytics as ga, setAnalyticsMethod } from './globals';
 export { useBlackBk } from './hooks/useBlackBk';
+export { useNoScroll } from './hooks/useNoScroll';
 export { useCustomEvent } from './hooks/useCustomEvent';
 export { useFetch } from './hooks/useFetch';
 export { useLinesBk } from './hooks/useLinesBk';

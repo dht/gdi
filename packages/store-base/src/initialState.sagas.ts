@@ -1,6 +1,11 @@
 import { ISagas } from './types';
 
 export const sagas: ISagas = {
+  'root.api': {
+    id: 'root.api',
+    type: 'api',
+    trigger: {},
+  },
   'gdi.api': {
     id: 'gdi.api',
     type: 'api',
@@ -47,6 +52,11 @@ export const sagas: ISagas = {
   'gdi.keys': {
     id: 'gdi.keys',
     type: 'keys',
+    trigger: {},
+  },
+  'gdi.root': {
+    id: 'gdi.root',
+    type: 'customEvent',
     trigger: {},
   },
   'gdi.navigation': {

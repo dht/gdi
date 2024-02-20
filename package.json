@@ -38,5 +38,7 @@
       "pre-commit": "sh ./scripts/pre-commit-prevent-large-files.sh"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "eleven-next-gen": "^0.0.2"
+  }
 }

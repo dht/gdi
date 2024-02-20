@@ -6,6 +6,7 @@ import {
   optionsImageQuality,
   optionsImageSize,
   optionsLength,
+  optionsRootPanel,
   optionsStyle,
   optionsType,
 } from '../data/data.document';
@@ -59,19 +60,25 @@ export const $imageQuality = createSelector($o, () => {
   return createOptions(optionsImageQuality);
 });
 
+export const $rootPanels = createSelector($o, () => {
+  return createOptions(optionsRootPanel);
+});
+
 export const $allOptions = createSelector(
   $documentTypes,
   $documentLength,
   $documentStyle,
   $imageSize,
   $imageQuality,
-  (documentTypes, documentLength, documentStyle, imageSize, imageQuality) => {
+  $rootPanels,
+  (documentTypes, documentLength, documentStyle, imageSize, imageQuality, rootPanels) => {
     return {
       $documentTypes: documentTypes,
       $documentLength: documentLength,
       $documentStyle: documentStyle,
       $imageSize: imageSize,
       $imageQuality: imageQuality,
+      $rootPanels: rootPanels,
     };
   }
 );

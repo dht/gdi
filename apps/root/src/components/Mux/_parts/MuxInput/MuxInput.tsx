@@ -1,0 +1,57 @@
+import { Icon, useMount } from '@gdi/ui';
+import { useCallback, useRef, useState } from 'react';
+import { useKey } from 'react-use';
+import { Input, Send, Wrapper } from './MuxInput.style';
+
+export type MuxInputProps = {
+  callbacks: {
+    onSubmit: (prompt: string) => void;
+  };
+};
+
+export function MuxInput(props: MuxInputProps) {
+  const { callbacks } = props;
+  const [input, setInput] = useState('');
+  const refInput = useRef<any>(null);
+
+  const ctaEnabled = input.length > 0;
+
+  function onChange(e: any) {
+    setInput(e.target.value);
+  }
+
+  const onSubmit = useCallback(() => {
+    callbacks.onSubmit(input);
+    setInput('');
+  }, [input]);
+
+  const onEnter = useCallback(
+    (ev: any) => {
+      ev.preventDefault();
+      onSubmit();
+    },
+    [onSubmit]
+  );
+
+  useKey('Enter', onEnter, {}, [onEnter]);
+
+  useMount(() => {
+    refInput.current?.focus();
+  });
+
+  return (
+    <Wrapper className='MuxInput-wrapper' data-testid='MuxInput-wrapper'>
+      <Input
+        ref={refInput}
+        placeholder='Message ChatGPT...'
+        value={input}
+        onChange={onChange}
+      />
+      <Send disabled={!ctaEnabled} onClick={onSubmit}>
+        <Icon name='arrow_upward' />
+      </Send>
+    </Wrapper>
+  );
+}
+
+export default MuxInput;

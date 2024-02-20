@@ -46,3 +46,9 @@ export const optionsImageQuality = [
   'standard', //
   'hd',
 ];
+
+export const optionsRootPanel = [
+  'none', //
+  'mux',
+  'village',
+];

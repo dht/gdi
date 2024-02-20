@@ -23,6 +23,7 @@
       "@gdi/ui": ["packages/gdi-ui"],
       "@gdi/store-base": ["packages/store-base"],
       "@gdi/widgets-starter": ["packages/widgets"],
+      "@gdi/app-root": ["apps/root"],
       "@gdi/app-home": ["apps/home"],
       "@gdi/app-boards": ["apps/boards"],
       "redux-connected": ["packages/redux-connected"],

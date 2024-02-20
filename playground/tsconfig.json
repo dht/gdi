@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": false,
+    "types": ["types-base", "@types/jest", "@types/node"],
+    "outDir": "dist",
+    "paths": {
+      "eleven-next-gen": ["../packages/eleven-next-gen/src"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/templates/**", "dist/**"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

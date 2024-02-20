@@ -24,6 +24,17 @@ fields:
     placeholder: Allow sound effects
     label: Allow sound effects
     groupId: basic
+  - id: defaultRoot
+    fieldType: select
+    placeholder: Default root
+    optionSelector: $rootPanels
+    label: Default root
+    groupId: basic
+  - id: startWithRoot
+    fieldType: checkbox
+    placeholder: Start with root
+    label: Start with root
+    groupId: basic
 submit:
   title: Save settings
   iconName: Save

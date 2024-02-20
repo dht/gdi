@@ -8,6 +8,7 @@
     "coverage": "jest --coverage=true"
   },
   "dependencies": {
+    "@gdi/store-iso": "^1.0.0",
     "@redux-devtools/extension": "^3.2.5",
     "igrid": "^1.0.0",
     "lodash": "^4.17.21",

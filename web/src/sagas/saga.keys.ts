@@ -12,7 +12,7 @@ const map: Record<string, any> = {
   toggleCommandPalette,
   focusOnPrompt,
   showShortKeys,
-  toggleLog,
+  toggleRoot,
 };
 
 export function* toggleCommandPalette(_action: any) {
@@ -34,14 +34,8 @@ export function* showShortKeys() {
   });
 }
 
-export function* toggleLog() {
-  const appState = yield* select(selectors.raw.$rawAppState);
-
-  yield put(
-    actions.appState.patch({
-      showLog: !appState.showLog,
-    })
-  );
+export function* toggleRoot() {
+  invokeEvent('root/toggle');
 }
 
 export function* shortKey(action: any) {

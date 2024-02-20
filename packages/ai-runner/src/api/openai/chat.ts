@@ -31,6 +31,55 @@ export const chat = async (prompt: string, flavour: Flavour = 'turbo3') => {
   }
 };
 
+export const stream = (messages: any[], callback: any, flavour: Flavour = 'turbo3') => {
+  return new Promise(async (resolve) => {
+    const tsStart = Date.now();
+
+    const model = map[flavour];
+    try {
+      const res: any = await openai.chat.completions.create({
+        model,
+        messages,
+        temperature: 0,
+        stream: true,
+        stop: '{}',
+        response_format: {
+          type: 'text',
+        },
+      });
+
+      let allContent = '',
+        finishReason = '';
+
+      for await (const item of res.iterator()) {
+        const content = get(item, 'choices[0].delta.content', '');
+        finishReason = get(item, 'choices[0].finish_reason');
+
+        allContent += content;
+        callback(allContent);
+      }
+
+      const tsEnd = Date.now();
+      const duration = (tsEnd - tsStart) / 1000;
+
+      resolve({
+        success: true,
+        content: allContent,
+        finishReason,
+        duration,
+        tsStart,
+        tsEnd,
+      });
+    } catch (err: any) {
+      console.error('An error occurred:', err);
+      resolve({
+        success: false,
+        error: err.message,
+      });
+    }
+  });
+};
+
 export const completion = async (prompt: string, flavour: Flavour = 'turbo3') => {
   const model = map[flavour];
 
