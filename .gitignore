@@ -38,3 +38,6 @@ docs/on-boarding/show-nh*.md
 playground/.env
 playground/capability.x.sh
 playground/*.wav
+playground/capability.retrieval.pdf
+playground/*.ids.json
+playground/*.log.json
