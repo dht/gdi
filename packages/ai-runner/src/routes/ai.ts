@@ -66,9 +66,9 @@ router.post('/image', async (req, res) => {
 
 router.post('/speech', async (req, res) => {
   try {
-    const { prompt } = req.body;
-    const response: any = await openAI.speech.speech(prompt, {} as any);
-    res.status(200).json({ url: response.url });
+    const { text } = req.body;
+    const response: any = await elevenLabs.sockets.stream(req, text, {} as any);
+    res.status(200).json({ success: true });
   } catch (error) {
     console.error('Error generating speech:', error);
     res.status(500).send('Error generating speech');

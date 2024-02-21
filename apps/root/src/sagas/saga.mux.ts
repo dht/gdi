@@ -5,6 +5,7 @@ import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
 import { guid4, invokeEvent } from 'shared-base';
 import { customEvenChannel } from './channels/channel.customEvent';
 import { firestoreFlowChannel } from './channels/channel.firebase';
+import { speak } from '../utils/speech.sockets';
 
 let streamChannel: any;
 

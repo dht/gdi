@@ -10,7 +10,7 @@ type Model =
   | 'eleven_turbo_v2'
   | 'eleven_english_sts_v2';
 
-type Options = {
+export type Options = {
   voice: Voice;
   style: number; // 0-1 | exaggerate style
   model: Model;
@@ -18,6 +18,42 @@ type Options = {
   similarity: number; // 0-1 | Low = broader emotional range
   boost: boolean;
   turbo: boolean;
+};
+
+export const stream = async (text: string, options?: Partial<Options>) => {
+  let {
+    voice = DEFAULT_VOICE,
+    style = 0,
+    model = 'eleven_multilingual_v2',
+    stability = 0,
+    similarity = 0,
+    boost = true,
+    turbo = false,
+  } = options ?? {};
+
+  const voiceId = nameToIds[voice];
+
+  const res: any = await instance.post(
+    `/text-to-speech/${voiceId}/stream`,
+    {
+      text,
+      model_id: model,
+      voice_settings: {
+        similarity_boost: similarity,
+        stability,
+        style,
+        use_speaker_boost: boost,
+      },
+    },
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      responseType: 'stream',
+    }
+  );
+
+  return res;
 };
 
 export const speech = async (prompt: string, options: Partial<Options>) => {
