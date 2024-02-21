@@ -51,3 +51,16 @@ export const getRun = async (threadId: string, runId: string) => {
   const run = await openai.beta.threads.runs.retrieve(threadId, runId);
   return run;
 };
+
+type ToolOutput = {
+  tool_call_id: string;
+  output: string;
+};
+
+export const submitToolOutputs = async (threadId: string, runId: string, outputs: ToolOutput[]) => {
+  const run = await openai.beta.threads.runs.submitToolOutputs(threadId, runId, {
+    tool_outputs: outputs,
+  });
+
+  return run;
+};

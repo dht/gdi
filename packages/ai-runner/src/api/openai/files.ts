@@ -10,3 +10,13 @@ export const create = async (params: Partial<FileCreateParams>) => {
 
   return file;
 };
+
+export const get = async (id: string) => {
+  const file = await openai.files.content(id);
+
+  return file as any;
+};
+
+export const remove = async (id: string) => {
+  await openai.files.del(id);
+};
