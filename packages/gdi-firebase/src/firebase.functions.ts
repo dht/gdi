@@ -37,11 +37,16 @@ export const initFunctions = (_params: Params) => {
   toastMethod = toast;
 };
 
-export const runFunction = (path: string, data: Json = {}, method: string = 'post') => {
-  return invokeApi(method, path, data);
+export const runFunction = (
+  path: string,
+  data: Json = {},
+  method: string = 'post',
+  stream: boolean = false
+) => {
+  return invokeApi(method, path, data, stream);
 };
 
-const invokeApi = async (method: string, path: string, data: Json) => {
+const invokeApi = async (method: string, path: string, data: Json, stream: boolean = false) => {
   const token = await auth.currentUser?.getIdToken();
 
   const promise = instance({
@@ -54,6 +59,7 @@ const invokeApi = async (method: string, path: string, data: Json) => {
       'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       contentType: 'application/json',
     },
+    responseType: stream ? 'stream' : 'json',
   })
     .then((response) => {
       return response.data;
