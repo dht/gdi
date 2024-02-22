@@ -67,6 +67,7 @@ export const initialState: IGdiStore = {
     modalId: '',
     editId: '',
     tabId: '',
+    remoteItemId: '',
     personId: 'Albert.Einstein',
     assistantId: 'assistant-vanilla',
   },
@@ -172,6 +173,11 @@ export const initialState: IGdiStore = {
     },
   },
   ...initialStateTodos,
+  remoteItems: {
+    r1: {
+      id: 'r1',
+    },
+  },
   document: {
     content: '',
     meta: {

@@ -1,7 +1,8 @@
 import type { ISettings } from '@gdi/store-base';
-import { Form } from '@gdi/ui';
+import { Button, Form } from '@gdi/ui';
 import { formDefaults, forms } from '../../_definitions/forms';
 import BasePage from '../BasePage';
+import { DeleteKeys } from './SettingsPage.style';
 
 export type SettingsPageProps = {
   settings: ISettings;

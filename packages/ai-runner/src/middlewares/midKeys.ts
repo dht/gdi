@@ -1,5 +1,6 @@
 import * as elevenLabs from '../api/elevenLabs';
 import * as openAI from '../api/openai';
+import * as envato from '../api/envato';
 import { dbAdapter } from '../utils/globals';
 
 export const midKeys = async (req: any, _res: any, next?: any) => {
@@ -11,6 +12,8 @@ export const midKeys = async (req: any, _res: any, next?: any) => {
     // initialize APIs
     openAI.init(keys);
     elevenLabs.init(keys);
+
+    envato.init(keys);
   } catch (err: any) {
     console.log('err =>', err);
   }

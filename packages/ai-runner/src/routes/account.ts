@@ -9,11 +9,12 @@ export const router = express.Router();
 
 router.post('/keys', async (req, res) => {
   try {
-    const { openAI, elevenLabs } = req.body;
+    const { openAI, elevenLabs, envato } = req.body;
 
     const keys = cleanUndefined({
       openAI,
       elevenLabs,
+      envato,
     });
 
     await dbAdapter.patchKeys(req, keys);
@@ -50,17 +51,19 @@ router.use('/keys/validate', midKeys);
 
 const API_KEY_OPEN_AI_LENGTH = 51;
 const API_KEY_ELEVEN_LABS_LENGTH = 32;
+const API_KEY_ENVATO_LENGTH = 32;
 
 router.post('/keys/validate', async (req: any, res) => {
   try {
     const keys = req.keys;
 
-    const { openAI = '', elevenLabs } = keys ?? {};
+    const { openAI = '', elevenLabs, envato } = keys ?? {};
 
     const isOpenAiOk = openAI.length >= API_KEY_OPEN_AI_LENGTH;
     const isElevenLabsOk = !elevenLabs || elevenLabs.length >= API_KEY_ELEVEN_LABS_LENGTH;
+    const isEnvatoOk = !envato || envato.length >= API_KEY_ENVATO_LENGTH;
 
-    const isApiKeyOk = isOpenAiOk && isElevenLabsOk;
+    const isApiKeyOk = isOpenAiOk && isElevenLabsOk && isEnvatoOk;
 
     res.status(200).json({ isApiKeyOk });
   } catch (error) {

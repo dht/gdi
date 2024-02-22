@@ -211,6 +211,11 @@ export const sagas: ISagas = {
       actionTypes: ['DOCUMENT', 'SET_DOCUMENT'],
     },
   },
+  'widgets.musicList': {
+    id: 'widgets.musicList',
+    type: 'component',
+    trigger: {},
+  },
   'widgets.flow': {
     id: 'widgets.flow',
     type: 'component',
