@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 export type TxtProps = {
   json: ITxt;
+  absolute?: boolean;
 };
 
 export function Txt(props: TxtProps) {

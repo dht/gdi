@@ -1,6 +1,7 @@
 import { Effect, ShaderMaterial, Vector2 } from '@babylonjs/core';
 import { scene } from './globals';
 import { fragmentShaderSource, vertexShaderSource } from './iso.gaussian.data';
+import { IMaterial } from '@gdi/store-iso';
 
 export const initMaterialGaussian = (material: IMaterial) => {
   Effect.ShadersStore['customVertexShader'] = vertexShaderSource;

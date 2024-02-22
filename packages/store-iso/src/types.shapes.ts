@@ -1,15 +1,14 @@
-import {
-  Color3,
-  Color4,
-  GoldbergCreationOption,
-  ICreateCapsuleOptions,
-  LinesMesh,
-  Material,
-  Mesh,
-  Nullable,
-  Plane,
-  Vector2,
-} from '@babylonjs/core';
+type Color3 = any;
+type Color4 = any;
+type GoldbergCreationOption = any;
+type ICreateCapsuleOptions = any;
+type LinesMesh = any;
+type Material = any;
+type Mesh = any;
+type Nullable = any;
+type Plane = any;
+type Vector2 = any;
+
 import { IVector, IVector4 } from './types.iso';
 
 export type ICreateBox = {

@@ -1,4 +1,3 @@
-import { Scene } from '@babylonjs/core';
 import { runFunction } from '@gdi/firebase';
 import { actions, selectors } from '@gdi/store-base';
 import { actions as actionsIso, selectors as selectorsIso } from '@gdi/store-iso';
@@ -44,7 +43,7 @@ export function* onSceneReady(ev: any) {
   const { data } = ev;
   const { autoHideExternals } = data;
 
-  const scene = data.scene as Scene;
+  const scene = data.scene as any;
 
   if (!scene) {
     return;
