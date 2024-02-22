@@ -564,7 +564,6 @@ export type IExample = {
   dbPath: string;
   screenshotPath: string;
   dateAdded: string;
-  projectTag: string;
 };
 
 export type IExamples = Record<string, IExample>;

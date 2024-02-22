@@ -29,6 +29,15 @@ export default defineConfig(() => {
   return {
     build: {
       sourcemap: false,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/@babylonjs')) {
+              return 'babylonjs';
+            }
+          },
+        },
+      },
     },
     plugins: [
       tsconfigPaths({

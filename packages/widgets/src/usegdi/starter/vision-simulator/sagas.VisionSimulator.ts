@@ -1,10 +1,17 @@
-import { ArcRotateCamera, Scene, Vector3, Viewport } from '@babylonjs/core';
 import { actions, selectors } from '@gdi/store-iso';
-import { initSplat, switchCamera } from 'isokit2';
 import { isMobile } from '@gdi/ui';
-import { addSubtitles, applyConfig, prepareStage, setActiveCameras } from 'isokit2';
+import {
+  ArcRotateCamera,
+  Vector3,
+  Viewport,
+  addSubtitles,
+  applyConfig,
+  prepareStage,
+} from 'isokit2';
 import { delay, put, select, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
+
+export type Scene = any;
 
 export function* onSceneReady(ev: any) {
   const scene: Scene = ev.data.scene;
@@ -12,7 +19,7 @@ export function* onSceneReady(ev: any) {
   const sceneStage = yield* select(selectors.raw.$rawSceneStage);
   const sceneConfig = yield* select(selectors.raw.$rawSceneConfig);
 
-  let mainCamera = scene.cameras.find((c) => c.id === 'free');
+  let mainCamera = scene.cameras.find((c: any) => c.id === 'free');
   if (!mainCamera) return;
   mainCamera.position = new Vector3(10, 5, 0);
 
@@ -25,12 +32,12 @@ export function* onSceneReady(ev: any) {
   yield delay(400);
 
   if (isMobile()) {
-    const cornerCam1 = scene.cameras.find((c) => c.id === 'cornerCam1');
+    const cornerCam1 = scene.cameras.find((c: any) => c.id === 'cornerCam1');
     if (!cornerCam1) return;
     cornerCam1.viewport = new Viewport(0, 0.01, 0.3, 0.1);
   }
 
-  const arc = scene.cameras.find((c) => c.id === 'arc') as ArcRotateCamera;
+  const arc = scene.cameras.find((c: any) => c.id === 'arc') as ArcRotateCamera;
 
   if (!arc) return;
   scene.activeCamera = arc;

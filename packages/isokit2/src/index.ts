@@ -1,3 +1,4 @@
+export { ArcRotateCamera, Vector3, Viewport } from '@babylonjs/core';
 export { Bezier } from './components/Bezier/Bezier';
 export { CameraPosition } from './components/CameraPosition/CameraPosition';
 export { CurrentIds } from './components/CurrentIds/CurrentIds';
@@ -15,7 +16,6 @@ export { animateItem, createAnimation, stopAllAnimations } from './iso.animation
 export { moveArc, setActiveCameras, setCamera, switchCamera } from './iso.camera';
 export { addCharacter, focusCornerCamera, showMouth } from './iso.characters';
 export { addDecal, setDecalPick } from './iso.decals';
-export { initSplat } from './iso.gaussian';
 export { initDecalPaste } from './iso.decals.utils';
 export {
   addElement,
@@ -25,6 +25,7 @@ export {
 } from './iso.elements';
 export { addExternal, addRemoteMesh, addRemoteScene } from './iso.externals.add';
 export { removeExternal, showExternal } from './iso.externals.utils';
+export { initSplat } from './iso.gaussian';
 export { detachGizmo, setGizmoMode } from './iso.gizmos';
 export { addLight, toggleLights } from './iso.light.add';
 export { removeLight, showLight } from './iso.light.utils';
@@ -34,8 +35,8 @@ export {
   checkMeshExists,
   getSelectedMesh,
   removeAllMeshes,
-  removeMeshesByContent,
   removeMesh,
+  removeMeshesByContent,
   renameMesh,
   showMesh,
   showMeshes,

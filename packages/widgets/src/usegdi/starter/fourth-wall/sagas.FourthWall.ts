@@ -1,4 +1,3 @@
-import { Scene, Viewport } from '@babylonjs/core';
 import { actions, selectors } from '@gdi/store-iso';
 import { isMobile } from '@gdi/ui';
 import { addSubtitles, applyConfig, prepareStage, setActiveCameras } from 'isokit2';
@@ -6,7 +5,7 @@ import { delay, put, select, takeEvery } from 'saga-ts';
 import { customEvenChannel } from '../../../helpers/channels/channel.customEvent';
 
 export function* onSceneReady(ev: any) {
-  const scene: Scene = ev.data.scene;
+  const scene: any = ev.data.scene;
 
   const sceneStage = yield* select(selectors.raw.$rawSceneStage);
   const sceneConfig = yield* select(selectors.raw.$rawSceneConfig);
