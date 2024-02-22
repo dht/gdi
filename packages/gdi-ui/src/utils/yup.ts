@@ -58,10 +58,7 @@ const fieldTypeToYupMethod: Record<FieldType, any> = {
       }
       return true;
     }),
-  password: yup
-    .string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
+  password: yup.string(),
   // .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
   // .matches(/[0-9]/, 'Password must contain at least one number')
   // .matches(/[!@#$%^&*()_+]/, 'Password must contain at least one special character'),

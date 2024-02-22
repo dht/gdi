@@ -18,6 +18,8 @@ import flow from './flow';
 import footer from './footer';
 import fourthWall from './fourth-wall';
 import github from './github';
+import musicList from './music-list';
+import musicPreview from './music-preview';
 import guidanceEditor from './guidance-editor';
 import imageParams from './image-params';
 import imageSuggestion from './image-suggestion';
@@ -104,6 +106,8 @@ export const starter: IWidgets = {
   'com.usegdi.starter.mode': mode,
   'com.usegdi.starter.mock': mock,
   'com.usegdi.starter.multi': multi,
+  'com.usegdi.starter.music-list': musicList,
+  'com.usegdi.starter.music-preview': musicPreview,
   'com.usegdi.starter.no-mobile': noMobile,
   'com.usegdi.starter.periscope': periscope,
   'com.usegdi.starter.pinterest': pinterest,

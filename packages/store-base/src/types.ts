@@ -28,6 +28,7 @@ export type IGdiStore = {
   todos: ITodos;
   sagas: ISagas;
   voices: IVoices;
+  remoteItems: IRemoteItems;
   _lastAction: Action;
 } & IIsoStore &
   IFlow;
@@ -110,6 +111,7 @@ export type ICurrentIds = {
   editId: string;
   itemId: string;
   personId: string;
+  remoteItemId: string;
 };
 
 export type ISettings = {
@@ -244,6 +246,12 @@ export type IMessage = {
 };
 
 export type IMessages = Record<string, IMessage>;
+
+export type IRemoteItem = {
+  id: string;
+} & Json;
+
+export type IRemoteItems = Record<string, IRemoteItem>;
 
 export type ModelType = 'openAI';
 

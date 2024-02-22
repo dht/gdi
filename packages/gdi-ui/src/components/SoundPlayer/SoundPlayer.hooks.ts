@@ -26,6 +26,10 @@ export const useWavesurfer = (
       autoplay: true,
       fillParent: true,
       container: containerRef.current,
+      fetchParams: {
+        mode: 'cors',
+        credentials: 'include',
+      },
     });
 
     ws.once('ready', () => {

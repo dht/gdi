@@ -14,6 +14,7 @@ export class FsDbAdapter implements DBAdapter {
 
     this.keys['openAI'] = env.OPENAI_API_KEY;
     this.keys['elevenLabs'] = env.ELEVENLABS_API_KEY;
+    this.keys['envato'] = env.ENVATO_PERSONAL_TOKEN;
 
     if (!fs.existsSync(this.rootPath)) {
       fs.mkdirSync(this.rootPath);

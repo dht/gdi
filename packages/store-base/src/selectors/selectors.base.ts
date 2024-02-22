@@ -237,6 +237,22 @@ export const $voices = createSelector(raw.$rawAppState, raw.$rawVoices, (appStat
   });
 });
 
+export const $remoteItems = createSelector(
+  raw.$rawRemoteItems,
+  raw.$rawCurrentIds,
+  (items, currentIds) => {
+    const { remoteItemId } = currentIds;
+    return Object.values(items).map((item) => {
+      const isSelected = item.id === remoteItemId;
+
+      return {
+        ...item,
+        isSelected,
+      };
+    });
+  }
+);
+
 export const $root = createSelector(raw.$rawSettings, raw.$rawAppState, (settings, appState) => {
   const { defaultRoot, startWithRoot } = settings;
   const { root } = appState;

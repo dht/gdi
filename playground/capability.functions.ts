@@ -72,7 +72,6 @@ const run = async () => {
     ids['run'] = res?.id;
   } else {
     res = await threads.getRun(ids['thread'], ids['run']);
-    console.log('res?.status ->', res?.status);
   }
 
   fs.writeJsonSync(idsPath, ids, { spaces: 2 });
@@ -89,8 +88,6 @@ const run = async () => {
     fs.writeJsonSync(logPath, res, { spaces: 2 });
 
     const toolCalls = get(res, 'required_action.submit_tool_outputs.tool_calls', []);
-
-    console.log('toolCalls ->', toolCalls);
 
     const outputs: any[] = [];
 

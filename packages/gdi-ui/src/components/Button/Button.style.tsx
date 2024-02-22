@@ -43,16 +43,6 @@ export const Wrapper = styled.button`
     pointer-events: none;
   }
 
-  &.link {
-    background: none;
-    border: none;
-    color: #1a1a1a;
-    font-size: 16rem;
-    margin: 0;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
   &.primary {
     background-color: #222;
     color: white;
@@ -87,6 +77,16 @@ export const Wrapper = styled.button`
     &:active {
       background-color: #eee;
     }
+  }
+
+  &.link {
+    background: none;
+    border: none;
+    color: #1a1a1a;
+    font-size: 16rem;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: underline;
   }
 
   .icon {

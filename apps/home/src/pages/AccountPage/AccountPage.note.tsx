@@ -1,6 +1,6 @@
 import { Note } from '@gdi/ui';
 
-export function AccountNote(_props: any) {
+export function AccountNote(props: any) {
   return (
     <Note iconName='lock' title='Security Note'>
       <p>
@@ -15,6 +15,7 @@ export function AccountNote(_props: any) {
         </a>
         .
       </p>
+      {props.children}
     </Note>
   );
 }

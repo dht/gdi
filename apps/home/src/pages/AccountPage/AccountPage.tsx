@@ -2,6 +2,7 @@ import { Form } from '@gdi/ui';
 import { formDefaults, forms } from '../../_definitions/forms';
 import BasePage from '../BasePage';
 import AccountNote from './AccountPage.note';
+import { DeleteKeys } from './AccountPage.style';
 
 export type AccountPageProps = {
   callbacks: {
@@ -19,7 +20,9 @@ export function AccountPage(props: AccountPageProps) {
 
   return (
     <BasePage header='Account'>
-      <AccountNote />
+      <AccountNote>
+        <DeleteKeys className='link'>Delete all my keys</DeleteKeys>
+      </AccountNote>
       <Form
         config={forms.keys as any}
         data={formDefaults.keys}

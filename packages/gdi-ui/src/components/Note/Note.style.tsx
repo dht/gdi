@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   padding: 20px;
+  position: relative;
 
   @media (max-width: 800px) {
     max-width: 85vw;

@@ -35,6 +35,16 @@
       "params": {
         "maxChars": 60
       }
+    },
+    {
+      "id": "envato",
+      "fieldType": "password",
+      "placeholder": "Encrypted with aes256 and available only to you",
+      "label": "Envato",
+      "groupId": "keys",
+      "params": {
+        "maxChars": 32
+      }
     }
   ],
   "submit": {
