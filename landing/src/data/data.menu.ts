@@ -1,7 +1,7 @@
 import { uniq } from 'lodash';
 
 export const items = [
-  { text: 'API Docs', groupId: 'Project', url: '/docs' },
+  { text: 'Docs', groupId: 'Project', url: '/docs' },
   { text: 'World view', groupId: 'Project', url: '/docs#references/world-view.md' },
   { text: 'Privacy Policy', groupId: 'Project', url: '/privacy' },
   { text: 'Terms of Service', groupId: 'Project', url: '/terms' },

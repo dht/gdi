@@ -28,6 +28,7 @@ export function SectionScreenshot(props: SectionScreenshotProps) {
     videoUrl,
     videoHeight = 463,
     videoLoop = true,
+    controls = false,
   } = data;
 
   const className = classnames('SectionScreenshot-wrapper', color, {});
@@ -52,7 +53,7 @@ export function SectionScreenshot(props: SectionScreenshotProps) {
       </Column>
       <Column className='column'>
         <Media className='media' style={style}>
-          <Video autoPlay loop={videoLoop} muted playsInline>
+          <Video autoPlay loop={videoLoop} muted playsInline controls={controls}>
             <source src={videoUrl} type='video/webm' />
           </Video>
         </Media>
