@@ -5,6 +5,8 @@ import Logo from '../Logo/Logo';
 import { items } from './Top.data';
 import GitHubButton from 'react-github-btn';
 import classnames from 'classnames';
+import { isMobile } from '../../utils/mobile';
+import MenuMobile from '../MenuMobile/MenuMobile';
 
 export type TopProps = {};
 
@@ -28,10 +30,18 @@ export function Top(props: TopProps) {
       .map((item: Json) => renderMenuItem(item));
   }
 
+  function renderMenu() {
+    if (isMobile()) {
+      return null;
+    }
+
+    return <Menu>{renderMenuItems('menu')}</Menu>;
+  }
+
   return (
     <Wrapper className='Top-wrapper' data-testid='Top-wrapper'>
       <Logo />
-      <Menu>{renderMenuItems('menu')}</Menu>
+      {renderMenu()}
       <GitHubButton
         href='https://github.com/dht/gdi'
         data-color-scheme='no-preference: dark; light: dark; dark: dark;'

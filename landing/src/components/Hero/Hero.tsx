@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Json } from '../../types';
-import { Cta, Explain, Noun, Title1, Title2, Versions, Wrapper } from './Hero.style';
+import { Comet, Cta, Explain, Noun, Title1, Title2, Versions, Wrapper } from './Hero.style';
 import classnames from 'classnames';
 import { useMount } from 'react-use';
 
@@ -48,16 +48,24 @@ export function Hero(_props: HeroProps) {
         </Noun>
       </Title2>
       <Explain>
-        GDI adds contextual UIs to your ChatGPT experience. <br /> It explores the power of
-        interfaces built bottom-up for AI.
+        GDI adds contextual UIs to your ChatGPT experience.
+        <br />
+        It explores the power of interfaces built bottom-up for AI.
       </Explain>
       <Cta className='cta medium'>Start Here</Cta>
       <Versions>
-        <span>v1.68.1</span>
+        <span>v0.9.25</span>
         <a href='https://github.com/dht/gdi' target='_blank'>
           Github
         </a>
       </Versions>
+
+      <Comet autoPlay loop playsInline muted>
+        <source
+          src='https://raw.githubusercontent.com/dht/gdi-assets/main/videos/comet.webm'
+          type='video/webm'
+        />
+      </Comet>
     </Wrapper>
   );
 }

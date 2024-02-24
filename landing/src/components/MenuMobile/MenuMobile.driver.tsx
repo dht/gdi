@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { SectionCta, SectionCtaProps } from './SectionCta';
+import { MenuMobile, MenuMobileProps } from './MenuMobile';
 import { BaseComponentDriver } from 'testing-base';
 
-export class SectionCtaDriver extends BaseComponentDriver {
-    private props: Partial<SectionCtaProps> = {};
+export class MenuMobileDriver extends BaseComponentDriver {
+    private props: Partial<MenuMobileProps> = {};
 
     constructor() {
-        super('SectionCta');
+        super('MenuMobile');
     }
 
     when: any = {
         rendered: () => {
-            render(<SectionCta {...(this.props as SectionCtaProps)} />);
+            render(<MenuMobile {...(this.props as MenuMobileProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,12 +20,12 @@ export class SectionCtaDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<SectionCta {...(this.props as SectionCtaProps)} />);
+            return this.snapshot(<MenuMobile {...(this.props as MenuMobileProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<SectionCtaProps>) => {
+        props: (props: Partial<MenuMobileProps>) => {
             this.props = props;
             return this;
         },

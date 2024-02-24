@@ -6,6 +6,10 @@ export const Wrapper = styled(Container)`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media (max-width: 768px) {
+    max-height: 80px;
+  }
 `;
 
 export const Menu = styled.div`
@@ -21,6 +25,10 @@ export const Actions = styled.div`
   flex-direction: row;
   align-items: center;
   margin-left: 50px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const MenuItem = styled.a`

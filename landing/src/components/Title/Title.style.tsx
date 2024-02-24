@@ -8,4 +8,9 @@ export const Wrapper = styled.div`
     color: #ff6397;
     font-weight: 600;
   }
+
+  @media (max-width: 768px) {
+    font-size: 35px;
+    text-align: left;
+  }
 `;

@@ -11,3 +11,20 @@ export const items = [
 ];
 
 export const groups = uniq(items.map((item) => item.groupId));
+
+export const menuCategories = groups.map((group) => ({
+  id: group,
+  title: group,
+}));
+
+export const menuItems = items.map((item) => ({
+  id: item.text,
+  title: item.text,
+  category: item.groupId,
+  path: item.url,
+}));
+
+export const menuData = {
+  categories: menuCategories,
+  items: menuItems,
+};

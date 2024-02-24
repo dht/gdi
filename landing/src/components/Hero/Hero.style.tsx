@@ -8,17 +8,10 @@ export const Wrapper = styled(Container)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
 
-export const ScreenShot = styled.div`
-  background-image: url(/hero.png);
-  width: 860px;
-  height: 447px;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
+  @media (max-width: 768px) {
+    min-height: 600px;
+  }
 `;
 
 export const Title1 = styled.div`
@@ -33,6 +26,12 @@ export const Title1 = styled.div`
   text-align: center;
   letter-spacing: 1.2px;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 50px;
+    position: relative;
+    left: -2px;
+  }
 `;
 
 export const Title2 = styled.div`
@@ -42,6 +41,10 @@ export const Title2 = styled.div`
   text-align: center;
   letter-spacing: 1.2px;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 50px;
+  }
 `;
 
 export const Explain = styled.div`
@@ -51,6 +54,18 @@ export const Explain = styled.div`
   font-size: 20px;
   text-align: center;
   line-height: 1.4;
+
+  br {
+    display: block;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    font-size: 19px;
+  }
 `;
 
 export const Cta = styled.button`
@@ -89,14 +104,26 @@ export const Noun = styled.div`
 
   &.index-0 {
     width: 60px;
+
+    @media (max-width: 768px) {
+      width: 50px;
+    }
   }
 
   &.index-1 {
     width: 260px;
+
+    @media (max-width: 768px) {
+      width: 165px;
+    }
   }
 
   &.index-2 {
     width: 160px;
+
+    @media (max-width: 768px) {
+      width: 105px;
+    }
   }
 
   &:after {
@@ -109,6 +136,10 @@ export const Noun = styled.div`
     border-radius: 200px 0 0 0;
     border-top: 10px solid white;
     opacity: 0.3;
+
+    @media (max-width: 768px) {
+      left: -10px;
+    }
   }
 
   span {
@@ -122,8 +153,28 @@ export const Noun = styled.div`
     text-align: center;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
+
     &.show {
       opacity: 1;
     }
+  }
+`;
+
+export const Comet = styled.video`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2;
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 `;

@@ -1,5 +1,14 @@
 import React from 'react';
-import { Column, Cta, Description, Icon, Media, Title, Wrapper } from './SectionScreenshot.style';
+import {
+  Column,
+  Cta,
+  Description,
+  Icon,
+  Media,
+  Title,
+  Video,
+  Wrapper,
+} from './SectionScreenshot.style';
 import { Json } from 'redux-store-generator';
 import classnames from 'classnames';
 
@@ -9,13 +18,27 @@ export type SectionScreenshotProps = {
 
 export function SectionScreenshot(props: SectionScreenshotProps) {
   const { data } = props;
-  const { color, icon, title, description, cta, ctaUrl, videoUrl } = data;
+  const {
+    color,
+    icon,
+    title,
+    description,
+    cta,
+    ctaUrl,
+    videoUrl,
+    videoHeight = 463,
+    videoLoop = true,
+  } = data;
 
   const className = classnames('SectionScreenshot-wrapper', color, {});
 
   function onClick() {
     window.open(ctaUrl, '_blank');
   }
+
+  const style = {
+    height: videoHeight + 'px',
+  };
 
   return (
     <Wrapper className={className} data-testid='SectionScreenshot-wrapper'>
@@ -28,16 +51,10 @@ export function SectionScreenshot(props: SectionScreenshotProps) {
         <Cta onClick={onClick}>{cta}</Cta>
       </Column>
       <Column className='column'>
-        <Media className='media'>
-          <iframe
-            width='100%'
-            height={560}
-            src={videoUrl}
-            title='YouTube video player'
-            frameBorder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;'
-            allowFullScreen
-          ></iframe>
+        <Media className='media' style={style}>
+          <Video autoPlay loop={videoLoop} muted playsInline>
+            <source src={videoUrl} type='video/webm' />
+          </Video>
         </Media>
       </Column>
     </Wrapper>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Column, Cta, P, Title, Wrapper } from './SectionEvent.style';
+import { Column, Cta, P, Seat, Title, Video, Wrapper } from './SectionEvent.style';
 import { Json } from 'redux-store-generator';
 
 export type SectionEventProps = {
@@ -12,10 +12,18 @@ export function SectionEvent(props: SectionEventProps) {
 
   return (
     <Wrapper className='SectionEvent-wrapper' data-testid='SectionEvent-wrapper'>
+      <Seat />
+      <Video autoPlay loop muted playsInline>
+        <source
+          src='https://raw.githubusercontent.com/dht/gdi-assets/main/videos/workshop.webm'
+          type='video/webm'
+        />
+      </Video>
       <Column>
         <Title>{title}</Title>
         <P>{description}</P>
       </Column>
+
       <Cta className='button' href={ctaUrl} target='_blank'>
         {cta}
       </Cta>
