@@ -8,6 +8,10 @@ export const Wrapper = styled(Container)`
   align-items: center;
   justify-content: center;
   min-height: 500px;
+
+  @media (max-width: 768px) {
+    min-height: 60vh;
+  }
 `;
 
 export const Title = styled(TitleBase)``;
@@ -19,4 +23,12 @@ export const P = styled.p`
   line-height: 30px;
   color: rgba(255, 255, 255, 0.6);
   max-width: 800px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    text-align: left;
+  }
 `;

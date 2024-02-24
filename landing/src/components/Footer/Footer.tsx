@@ -2,8 +2,9 @@ import React from 'react';
 import { Group, GroupTitle, Inner, Item, Items, Wrapper } from './Footer.style';
 import { Json } from 'redux-store-generator';
 import Container from '../Container/Container';
-import { groups, items } from './Footer.data';
+import { groups, items } from '../../data/data.menu';
 import Logo from '../Logo/Logo';
+import { isMobile } from '../../utils/mobile';
 
 export type FooterProps = {};
 
@@ -35,10 +36,18 @@ export function Footer(_props: FooterProps) {
     return groups.map((group: string) => renderGroup(group));
   }
 
+  function renderLogo() {
+    if (isMobile()) {
+      return null;
+    }
+
+    return <Logo />;
+  }
+
   return (
     <Wrapper className='Footer-wrapper' data-testid='Footer-wrapper'>
       <Inner>
-        <Logo />
+        {renderLogo()}
         {renderGroups()}
       </Inner>
     </Wrapper>

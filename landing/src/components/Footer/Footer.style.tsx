@@ -17,6 +17,10 @@ export const Inner = styled(Container)`
   max-width: 800px;
   font-size: 14px;
   padding: 50px 0;
+
+  @media (max-width: 768px) {
+    max-width: 70vw;
+  }
 `;
 
 export const Group = styled.div``;

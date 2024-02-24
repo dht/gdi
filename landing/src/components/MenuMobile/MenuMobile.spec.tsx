@@ -1,13 +1,13 @@
-import { SectionCtaDriver } from './SectionCta.driver';
+import { MenuMobileDriver } from './MenuMobile.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('SectionCta', () => {
-    let driver: SectionCtaDriver;
+describe('MenuMobile', () => {
+    let driver: MenuMobileDriver;
 
     beforeAll(() => {
-        driver = new SectionCtaDriver();
+        driver = new MenuMobileDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('SectionCta', () => {
         const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(wrapperClassName).toContain('SectionCta-wrapper');
+        expect(wrapperClassName).toContain('MenuMobile-wrapper');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('SectionCta', () => {
     });
 });
 
-describe('SectionCta snapshots', () => {
-    let driver: SectionCtaDriver;
+describe('MenuMobile snapshots', () => {
+    let driver: MenuMobileDriver;
 
     beforeAll(() => {
-        driver = new SectionCtaDriver();
+        driver = new MenuMobileDriver();
     });
 
     it('should match snapshot', () => {

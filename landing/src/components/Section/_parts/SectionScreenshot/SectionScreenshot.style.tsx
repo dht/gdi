@@ -10,6 +10,12 @@ export const Wrapper = styled(Container)`
   display: flex;
   flex-direction: row;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 40px 20px;
+    height: unset;
+  }
+
   &.pink {
     background-image: linear-gradient(107.56deg, #ffa7a7 2.2%, #a30cb5 29.17%, #00173a 95.31%);
   }
@@ -27,6 +33,22 @@ export const Wrapper = styled(Container)`
     .column {
       &:nth-child(1) {
         padding-left: 100px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+
+      .media {
+        left: -30px;
+        right: unset;
+      }
+
+      .column {
+        &:nth-child(1) {
+          margin-top: 20px;
+          padding-left: 0;
+        }
       }
     }
   }
@@ -49,6 +71,10 @@ export const Column = styled.div`
   &:nth-child(2) {
     flex: 3;
   }
+
+  @media (max-width: 768px) {
+    flex: unset;
+  }
 `;
 
 export const Icon = styled.div`
@@ -63,6 +89,17 @@ export const Icon = styled.div`
 
   i {
     font-size: 40px;
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    i {
+      font-size: 30px;
+    }
   }
 `;
 
@@ -87,7 +124,7 @@ export const Cta = styled.button`
 
 export const Media = styled.div`
   width: 120%;
-  height: 500px;
+  height: 463px;
   right: -20%;
   position: absolute;
   top: 50%;
@@ -96,4 +133,23 @@ export const Media = styled.div`
   background-color: #000;
   // glow
   box-shadow: 0 0 20px 10px #ffffff14;
+
+  @media (max-width: 768px) {
+    position: relative;
+    max-width: 100vw;
+    height: 300px;
+    margin-top: 20px;
+    top: unset;
+    transform: unset;
+    right: unset;
+    left: -30px;
+    max-height: 280px;
+  }
+`;
+
+export const Video = styled.video`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
 `;

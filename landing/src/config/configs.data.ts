@@ -72,6 +72,8 @@ export const allData: any = {
       "Whenever you need to do something that GPT can't do, it will open a UI for you. Anything from creating a 3d animation to analyzing the transcript of a youtube video. The right UI for the right task.",
     cta: 'Browse Boards',
     ctaUrl: '/boards',
+    videoUrl: 'https://raw.githubusercontent.com/dht/gdi-assets/main/videos/contextual.mp4',
+    videoHeight: 570,
   },
   'ai-runner': {
     id: 'ai-runner',
@@ -82,6 +84,9 @@ export const allData: any = {
       'When you run GDI on your machine, all your data and assets are saved locally. You can create a git repository to track versioning of your personal data. Moreover, all the API calls to AI models originate from your machine.',
     cta: 'Install AI runner',
     ctaUrl: 'https://github.com/dht/gdi',
+    videoUrl: 'https://raw.githubusercontent.com/dht/gdi-assets/main/videos/iterm.mp4',
+    videoLoop: false,
+    videoHeight: 520,
   },
   'dynamic-content': {
     id: 'dynamic-content',
@@ -91,6 +96,7 @@ export const allData: any = {
     description:
       "Who said videos must be static? GDI allows you to create dynamic content that can be updated in real-time. It's like a live website, but for any type of content.",
     cta: 'View Examples',
+    videoUrl: 'https://raw.githubusercontent.com/dht/gdi-assets/main/videos/dynamic.mp4',
   },
   'apple-vision': {
     id: 'apple-vision',
@@ -100,5 +106,7 @@ export const allData: any = {
     description:
       'GDI is AR/VR ready. You can use your VR headset to interact with the GDI interface. It’s like a 3D command center for your digital realm.',
     cta: 'See Possibilities',
+    videoUrl:
+      'https://www.apple.com/105/media/us/apple-vision-pro/2024/6e1432b2-fe09-4113-a1af-f20987bcfeee/anim/experience-apps/large.mp4',
   },
 };
