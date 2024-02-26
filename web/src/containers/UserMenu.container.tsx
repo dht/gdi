@@ -26,6 +26,7 @@ export function UserMenuContainer(props: UserMenuContainerProps) {
       badge={badge}
       isAnonymous={isAnonymous}
       onClick={onClick}
+      darkMode
     />
   );
 }

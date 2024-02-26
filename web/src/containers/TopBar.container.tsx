@@ -1,6 +1,7 @@
 import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
-import TopBar from './TopBar';
+import { TopBar } from '@gdi/ui';
 import { useLocation } from 'react-router-dom';
+import UserMenuContainer from './UserMenu.container';
 
 export type TopBarContainerProps = {};
 
@@ -34,7 +35,9 @@ export function TopBarContainer(props: TopBarContainerProps) {
       user={user}
       isGuest={isGuest}
       isApiKeyOk={isApiKeyOk}
-    />
+    >
+      <UserMenuContainer />
+    </TopBar>
   );
 }
 

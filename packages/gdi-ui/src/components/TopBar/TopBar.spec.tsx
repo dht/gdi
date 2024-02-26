@@ -4,50 +4,50 @@ import Chance from 'chance';
 const chance = new Chance();
 
 describe('TopBar', () => {
-    let driver: TopBarDriver;
+  let driver: TopBarDriver;
 
-    beforeAll(() => {
-        driver = new TopBarDriver();
-    });
+  beforeAll(() => {
+    driver = new TopBarDriver();
+  });
 
-    it('should render button', () => {
-        const label = chance.word();
+  it('should render button', () => {
+    const label = chance.word();
 
-        const element = driver.given
-            .props({
-                title: label,
-            })
-            .when.rendered();
+    const element = driver.given
+      .props({
+        title: label,
+      })
+      .when.rendered();
 
-        const wrapperClassName = element.get.wrapperClassName();
-        const innerText = element.get.label();
+    const wrapperClassName = element.get.wrapperClassName();
+    const innerText = element.get.label();
 
-        expect(wrapperClassName).toContain('TopBar-wrapper');
-        expect(innerText).toBe(label);
-    });
+    expect(wrapperClassName).toContain('TopBar-wrapper');
+    expect(innerText).toBe(label);
+  });
 
-    it('should click button', () => {
-        const callback = jest.fn();
+  it('should click button', () => {
+    const callback = jest.fn();
 
-        driver.given
-            .props({
-                onClick: callback,
-            })
-            .when.rendered()
-            .when.clicked();
+    driver.given
+      .props({
+        onClick: callback,
+      })
+      .when.rendered()
+      .when.clicked();
 
-        expect(callback).toHaveBeenCalledTimes(1);
-    });
+    expect(callback).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('TopBar snapshots', () => {
-    let driver: TopBarDriver;
+  let driver: TopBarDriver;
 
-    beforeAll(() => {
-        driver = new TopBarDriver();
-    });
+  beforeAll(() => {
+    driver = new TopBarDriver();
+  });
 
-    it('should match snapshot', () => {
-        expect(driver.when.snapshot()).toMatchSnapshot();
-    });
+  it('should match snapshot', () => {
+    expect(driver.when.snapshot()).toMatchSnapshot();
+  });
 });
