@@ -36,6 +36,7 @@ export default defineConfig({
     alias: {
       'shared-base': `${cwd}/shared-base/src`,
       '@gdi/ui': `${cwd}/gdi-ui/src`,
+      '@gdi/app-boards': `${cwd}/apps/boards/src`,
     },
   },
 });

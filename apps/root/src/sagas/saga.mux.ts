@@ -6,6 +6,8 @@ import { guid4, invokeEvent } from 'shared-base';
 import { customEvenChannel } from './channels/channel.customEvent';
 import { firestoreFlowChannel } from './channels/channel.firebase';
 import { speak } from '../utils/speech.sockets';
+import { tools } from '../data/data.tools';
+import { parseResponse } from './saga.mux.response';
 
 let streamChannel: any;
 
@@ -38,20 +40,12 @@ export function* mux(ev: any) {
 
   const response = yield* call(runFunction, '/api/ai/chat/stream', {
     messages: [...messages, message],
+    tools,
   });
-
-  const { content } = response;
 
   invokeEvent('mux/content', { content: '' });
 
-  yield put(
-    actions.messages.add({
-      id: guid4(),
-      content,
-      role: 'assistant',
-      timestamp: Date.now(),
-    })
-  );
+  yield call(parseResponse, response);
 
   streamChannel.close();
 }

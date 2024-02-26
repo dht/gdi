@@ -98,6 +98,7 @@ export const allData: any = {
     description:
       "Who said videos have to be static? GDI enables you to create dynamic content that can be updated in real-time. It's like having a live website for any type of content.",
     cta: 'View Examples',
+    ctaUrl: '/boards/B-013',
     videoUrl: 'https://raw.githubusercontent.com/dht/gdi-assets/main/videos/dynamic.mp4',
     controls: true,
   },

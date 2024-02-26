@@ -7,13 +7,13 @@ import 'react-toastify/dist/ReactToastify.css';
 export type GdiProps = {};
 
 export function Gdi(_props: GdiProps) {
-    return (
-        <Wrapper className='Gdi-wrapper' data-testid='Gdi-wrapper'>
-            <ThemeProvider theme={lightTheme}>
-                <BoardContainer />
-            </ThemeProvider>
-        </Wrapper>
-    );
+  return (
+    <Wrapper className='Gdi-wrapper' data-testid='Gdi-wrapper'>
+      <ThemeProvider theme={lightTheme}>
+        <BoardContainer />
+      </ThemeProvider>
+    </Wrapper>
+  );
 }
 
 export default Gdi;

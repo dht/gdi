@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../Button/Button';
 
 export const Wrapper = styled.div`
   border-bottom: 1px solid #ccc;
@@ -42,10 +43,21 @@ export const Center = styled.div`
 `;
 
 export const Actions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-right: 20px;
 
   @media (max-width: 800px) {
     display: none;
+  }
+
+  button {
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 `;
 
@@ -74,3 +86,5 @@ export const Github = styled.a`
     opacity: 0.8;
   }
 `;
+
+export const Cta = styled(Button)``;

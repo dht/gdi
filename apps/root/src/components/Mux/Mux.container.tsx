@@ -4,9 +4,7 @@ import { useMemo } from 'react';
 import { invokeEvent } from 'shared-base';
 import { Mux } from './Mux';
 
-export type MuxContainerProps = {
-  children?: React.ReactNode;
-};
+export type MuxContainerProps = {};
 
 export function MuxContainer(props: MuxContainerProps) {
   const dispatch = useDispatch();
@@ -25,11 +23,7 @@ export function MuxContainer(props: MuxContainerProps) {
     []
   );
 
-  return (
-    <Mux messages={messages} callbacks={callbacks}>
-      {props.children}
-    </Mux>
-  );
+  return <Mux messages={messages} callbacks={callbacks} />;
 }
 
 export default MuxContainer;

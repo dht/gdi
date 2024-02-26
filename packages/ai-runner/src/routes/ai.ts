@@ -31,9 +31,7 @@ router.post('/chat', async (req: any, res) => {
 
 router.post('/chat/stream', async (req: any, res) => {
   try {
-    const { uid } = req.user;
-
-    const { messages } = req.body;
+    const { messages, tools } = req.body;
 
     const messagesClean = messages.map((message: any) => {
       return {
@@ -42,7 +40,7 @@ router.post('/chat/stream', async (req: any, res) => {
       };
     });
 
-    const response: any = await openAI.chat.stream(messagesClean, (content: string) => {
+    const response: any = await openAI.chat.stream(messagesClean, tools, (content: string) => {
       db.messages.adhoc(req, { content });
     });
 

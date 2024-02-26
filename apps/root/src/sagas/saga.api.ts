@@ -4,12 +4,49 @@ import { initSfx } from '@gdi/ui';
 import { call, delay, fork, put, select } from 'saga-ts';
 import { invokeEvent } from 'shared-base';
 
-function* api() {}
+function* api() {
+  try {
+    const isGuest = yield* select(selectors.base.$isGuest);
 
-export function* root() {}
+    if (isGuest) {
+      return;
+    }
+
+    const response = yield* call(
+      runFunction,
+      '/api/account/settings',
+      {},
+      'GET'
+    );
+    const { settings = {} } = response;
+
+    yield put(actions.settings.patch(settings));
+
+    const { allowSfx } = settings;
+
+    initSfx(allowSfx);
+
+    invokeEvent('settings/loaded');
+
+    yield delay(100);
+  } catch (err) {
+    invokeEvent('saga/error', {
+      file: 'saga.api.ts',
+      method: 'api',
+      err,
+    });
+  }
+}
+
+export function* root() {
+  console.time('auth');
+  yield call(auth);
+  console.timeEnd('auth');
+  yield* fork(api);
+}
 
 export const saga = {
-  id: 'root.api',
+  id: 'home.api',
   type: 'api',
   root: root,
 };

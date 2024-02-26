@@ -1,9 +1,7 @@
-import { pages as pagesBoards } from '@gdi/app-boards';
-import { pages as pagesHome } from '@gdi/app-home';
 import { pages as pagesAuth } from '@gdi/auth';
+import { pages as pagesRoot } from '@gdi/app-root';
 import { Form, Prompt, Toast } from '@gdi/ui';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import { BarContainer } from '../containers/Bar.container';
 import { CommandPaletteContainer } from '../containers/CommandPalette.container';
 import { ContextBarContainer } from '../containers/ContextBar.container';
 import { LoggerContainer } from '../containers/Logger.container';
@@ -12,7 +10,6 @@ import { all } from '../pages';
 import { useNavigationMethod } from '../sagas/saga.navigation';
 import styled from 'styled-components';
 import { useFullscreen } from './App.hooks';
-import { RootContainer } from '@gdi/app-root';
 
 export const App = () => {
   const location = useLocation();
@@ -31,7 +28,6 @@ export const App = () => {
         <CommandPaletteContainer />
         <LoggerContainer />
         <Prompt formComponent={Form} />
-        <BarContainer />
         <SagasContainer />
       </>
     );
@@ -40,28 +36,13 @@ export const App = () => {
   return (
     <Wrapper>
       <Routes>
-        <Route path='/home' element={<pagesHome.home />} />
-        <Route path='/browse' element={<pagesHome.browse />} />
-        <Route path='/browse/:id' element={<pagesHome.boardDetails />} />
-        <Route path='/boards/:boardId' element={<pagesBoards.gdi />} />
-        <Route path='/boards/:boardId/:itemId' element={<pagesBoards.gdi />} />
-        <Route path='/account' element={<pagesHome.account />} />
         <Route path='/login' element={<pagesAuth.login />} />
-        <Route path='/monitor' element={<all.monitor />} />
-        <Route path='/docs' element={<pagesHome.docs />} />
         <Route path='/logout' element={<pagesAuth.logout />} />
-        <Route path='/boards' element={<Navigate to='/home' />} />
-        <Route path='/settings' element={<pagesHome.settings />} />
-        <Route path='/newBoard' element={<pagesHome.newBoard />} />
-        <Route path='/newReview' element={<pagesHome.newReview />} />
-        <Route path='/terms' element={<pagesHome.termsOfUse />} />
-        <Route path='/privacy' element={<pagesHome.privacyPolicy />} />
-        <Route path='/mobile' element={<pagesHome.mobile />} />
-        <Route path='/report-issue' element={<pagesHome.reportIssue />} />
         <Route path='/' element={<Navigate to='/home' />} />
+        <Route path='/boards' element={<Navigate to='/home' />} />
+        <Route path='/*' element={<pagesRoot.root />} />
       </Routes>
       <Toast />
-      <RootContainer />
       {renderSurrounding()}
     </Wrapper>
   );

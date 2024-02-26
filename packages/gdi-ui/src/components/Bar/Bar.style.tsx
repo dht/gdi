@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   left: 50%;
   transform: translateX(-50%);
   height: 44rem;
-  background-color: #112;
+  background-color: #000;
   color: #eef;
   font-size: 22rem;
   font-family: monospace;
@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
   line-height: 32rem;
   user-select: none;
   z-index: 999;
+  border-top: 1px solid #334;
 `;
 
 export const Sign = styled.div`
@@ -29,7 +30,7 @@ export const Sign = styled.div`
 `;
 
 export const Input = styled.input`
-  background-color: #112;
+  background-color: #000;
   color: #eef;
   border: none;
   outline: none;
