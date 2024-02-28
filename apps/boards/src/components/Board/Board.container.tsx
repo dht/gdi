@@ -7,11 +7,15 @@ import { BoardLoading } from './Board.components';
 import { isEmpty } from './Board.utils';
 import { useEffect, useMemo } from 'react';
 
-export type BoardContainerProps = {};
+export type BoardContainerProps = {
+  id?: string;
+  darkMode?: boolean;
+};
 
 export const BoardContainer = (props: BoardContainerProps) => {
+  const { id, darkMode } = props;
   const dispatch = useDispatch();
-  const { boardId, itemId } = useParams();
+  const { boardId = id, itemId } = useParams();
   const board = useSelector(selectors.raw.$rawBoard);
   const appState = useSelector(selectors.raw.$rawAppState);
   const { flavour, flavourColumnIndex } = appState;
@@ -45,6 +49,7 @@ export const BoardContainer = (props: BoardContainerProps) => {
 
   return (
     <Board
+      darkMode={darkMode}
       board={board}
       flavour={flavour}
       columnIndex={flavourColumnIndex}

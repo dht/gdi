@@ -19,4 +19,6 @@ export const Content = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 `;

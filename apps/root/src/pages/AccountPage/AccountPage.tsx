@@ -1,4 +1,4 @@
-import { Form } from '@gdi/ui';
+import { Form, Container } from '@gdi/ui';
 import { formDefaults, forms } from '../../_definitions/forms';
 import AccountNote from './AccountPage.note';
 import { DeleteKeys } from './AccountPage.style';
@@ -20,14 +20,16 @@ export function AccountPage(props: AccountPageProps) {
 
   return (
     <Wrapper header='Account'>
-      <AccountNote>
-        <DeleteKeys className='link'>Delete all my keys</DeleteKeys>
-      </AccountNote>
-      <Form
-        config={forms.keys as any}
-        data={formDefaults.keys}
-        onSubmit={onSave}
-      />
+      <Container>
+        <AccountNote>
+          <DeleteKeys className='link'>Delete all my keys</DeleteKeys>
+        </AccountNote>
+        <Form
+          config={forms.keys as any}
+          data={formDefaults.keys}
+          onSubmit={onSave}
+        />
+      </Container>
     </Wrapper>
   );
 }

@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
+  margin-top: 60px;
 `;
 
 export const Column = styled.div`

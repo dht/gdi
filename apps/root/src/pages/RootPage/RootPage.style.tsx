@@ -4,4 +4,6 @@ export const Wrapper = styled.div`
   flex: 1;
   display: flex;
   margin-bottom: 36px;
+  flex-direction: column;
+  color: #eee;
 `;

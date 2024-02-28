@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   font-size: 16px;
-  color: #333;
 `;
 
 export const Label = styled.label`

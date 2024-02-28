@@ -5,17 +5,22 @@ import { MuxPage } from './MuxPage';
 export type MuxPageContainerProps = {};
 
 export function MuxPageContainer(_props: MuxPageContainerProps) {
-    const dispatch = useDispatch();
-    const appState = useSelector(selectors.raw.$rawAppState);
+  const dispatch = useDispatch();
+  const tab = useSelector(selectors.base.$muxTab);
+  const currentIds = useSelector(selectors.raw.$rawCurrentIds);
+  const tabs = useSelector(selectors.base.$muxTabs);
+  const { muxTabId } = currentIds;
 
-    const callbacks = useMemo(
-        () => ({
-            onClick: () => {},
-        }),
-        []
-    );
+  console.log('muxTabId2 ->', muxTabId);
 
-    return <MuxPage />;
+  const callbacks = useMemo(
+    () => ({
+      onClick: () => {},
+    }),
+    []
+  );
+
+  return <MuxPage tab={tab} tabId={muxTabId} />;
 }
 
 export default MuxPageContainer;

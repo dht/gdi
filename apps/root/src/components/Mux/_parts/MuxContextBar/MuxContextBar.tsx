@@ -1,4 +1,4 @@
-import React from 'react';
+import ContextRecipeContainer from '../../../ContextRecipe/ContextRecipe.container';
 import { Wrapper } from './MuxContextBar.style';
 
 export type MuxContextBarProps = {};
@@ -8,7 +8,9 @@ export function MuxContextBar(_props: MuxContextBarProps) {
     <Wrapper
       className='MuxContextBar-wrapper'
       data-testid='MuxContextBar-wrapper'
-    ></Wrapper>
+    >
+      <ContextRecipeContainer />
+    </Wrapper>
   );
 }
 

@@ -12,4 +12,5 @@ export const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-left: 10px;
+  margin-bottom: 30px;
 `;

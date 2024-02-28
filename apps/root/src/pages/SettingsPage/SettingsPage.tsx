@@ -1,5 +1,5 @@
 import type { ISettings } from '@gdi/store-base';
-import { Form } from '@gdi/ui';
+import { Form, Container } from '@gdi/ui';
 import { formDefaults, forms } from '../../_definitions/forms';
 import { Wrapper } from './SettingsPage.style';
 
@@ -20,13 +20,15 @@ export function SettingsPage(props: SettingsPageProps) {
   }
 
   return (
-    <Wrapper header='Settings'>
-      <Form
-        config={forms.settings as any}
-        allOptions={allOptions}
-        data={{ ...formDefaults.settings, ...settings }}
-        onSubmit={onSave}
-      />
+    <Wrapper>
+      <Container header='Settings'>
+        <Form
+          config={forms.settings as any}
+          allOptions={allOptions}
+          data={{ ...formDefaults.settings, ...settings }}
+          onSubmit={onSave}
+        />
+      </Container>
     </Wrapper>
   );
 }

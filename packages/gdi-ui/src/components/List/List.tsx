@@ -17,10 +17,11 @@ export type ListProps = {
   onFunctionKey: (asset: any, key: string, ev: any) => void;
   renderActions?: (callbacks: any) => React.ReactNode;
   root: string;
+  darkMode?: boolean;
 };
 
 export function ListInner(props: ListProps) {
-  const { root = '', columns, isFocused } = props;
+  const { root = '', columns, isFocused, darkMode = true } = props;
   const { data, state, callbacks } = useContext(ListContext);
   const { focusedId, q } = state;
   const [ref, { height }] = useMeasureOnce();
@@ -107,6 +108,7 @@ export function ListInner(props: ListProps) {
 
   const className = classnames('List-wrapper', {
     focused: isFocused,
+    dark: darkMode,
   });
 
   return (

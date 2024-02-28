@@ -1,16 +1,25 @@
 import React from 'react';
-import { Gap, Wrapper } from './TopBar.style';
+import TabsBig from '../TabsBig/TabsBig';
+import { Actions, Tabs, Wrapper } from './TopBar.style';
 
 export type TopBarProps = {
+  tabs: Json[];
+  tabId: string;
+  onChange: (tab: string) => void;
   children?: React.ReactNode;
 };
 
 export function TopBar(props: TopBarProps) {
+  const { tabs, tabId } = props;
+
+  function renderTabs() {
+    return <TabsBig tabs={tabs} activeTab={tabId} onChange={props.onChange} />;
+  }
+
   return (
     <Wrapper className='TopBar-wrapper' data-testid='TopBar-wrapper'>
-      <Gap />
-      {/* <Focus /> */}
-      {props.children}
+      <Tabs>{renderTabs()}</Tabs>
+      <Actions>{props.children}</Actions>
     </Wrapper>
   );
 }

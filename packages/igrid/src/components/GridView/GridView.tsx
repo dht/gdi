@@ -11,7 +11,7 @@ export type GridViewProps = {
 
 export function GridView(props: GridViewProps) {
   const { state, elements } = useContext(GridContext);
-  const { flavour, columnIndex } = state;
+  const { flavour, columnIndex, darkMode } = state;
 
   function renderElement(element: IElement) {
     const { flavour: f, columnIndex: c = -1 } = element;

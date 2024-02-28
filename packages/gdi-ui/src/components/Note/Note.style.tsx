@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   flex: 1;
   padding: 20px;
   position: relative;
+  border-radius: 5px;
 
   @media (max-width: 800px) {
     max-width: 85vw;
@@ -14,10 +15,11 @@ export const Wrapper = styled.div`
   }
 
   &.yellow {
-    background-color: #ffd90060;
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   a {
+    color: dodgerblue;
   }
 
   p {

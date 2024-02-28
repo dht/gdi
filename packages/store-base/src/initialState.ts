@@ -9,6 +9,8 @@ import { IGdiStore } from './types';
 import { removeId } from './utils/id';
 import { sagas } from './initialState.sagas';
 import { voices } from './initialState.voices';
+import { apiProviders } from './initialState.apiProviders';
+import { capabilities } from './initialState.capabilities';
 
 export const initialState: IGdiStore = {
   appState: {
@@ -65,6 +67,7 @@ export const initialState: IGdiStore = {
     leftId: '',
     rightId: '',
     modalId: '',
+    muxTabId: 'home',
     editId: '',
     tabId: '',
     remoteItemId: '',
@@ -199,6 +202,15 @@ export const initialState: IGdiStore = {
     dbAdapter: {
       id: 'dbAdapter',
       providerType: 'fireStore',
+    },
+  },
+  apiProviders,
+  capabilities,
+  muxTabs: {
+    home: {
+      id: 'home',
+      name: 'Home',
+      description: 'Welcome to Mux',
     },
   },
 };

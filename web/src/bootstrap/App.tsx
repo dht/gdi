@@ -7,7 +7,6 @@ import { ContextBarContainer } from '../containers/ContextBar.container';
 import { LoggerContainer } from '../containers/Logger.container';
 import { SagasContainer } from '../containers/Sagas.container';
 import { SideBarContainer } from '../containers/SideBar.container';
-import { TopBarContainer } from '../containers/TopBar.container';
 import { useNavigationMethod } from '../sagas/saga.navigation';
 import { useFullscreen } from './App.hooks';
 import { Content, Wrapper } from './App.style';
@@ -27,6 +26,7 @@ export const App = () => {
         <Prompt formComponent={Form} />
         <SagasContainer />
         <Toast />
+        <BarContainer />
       </>
     );
   }
@@ -35,9 +35,7 @@ export const App = () => {
     <Wrapper>
       <SideBarContainer />
       <Content>
-        <TopBarContainer />
         <Root />
-        <BarContainer />
       </Content>
       {renderSurrounding()}
     </Wrapper>

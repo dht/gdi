@@ -6,10 +6,10 @@ export const items = [
     path: '/',
   },
   {
-    id: 'browse',
+    id: 'capabilities',
     title: 'Capabilities',
     icon: 'browse',
-    path: '/browse',
+    path: '/capabilities',
   },
   {
     id: 'flows',

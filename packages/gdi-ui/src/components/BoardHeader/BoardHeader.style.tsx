@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  margin-left: 110px;
   font-size: 15px;
   z-index: 2;
   color: #333;

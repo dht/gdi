@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
     var(--breakpoint-grid_row-gap);
 
   --image-size: 600px;
-  padding-bottom: 100px;
-  padding-top: 30px;
+  padding: 30px 20px 100px;
 
   @media screen and (min-width: 1350px) {
     --breakpoint-grid_columns: 4;

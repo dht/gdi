@@ -14,3 +14,4 @@ export type IHashInfo = {
   boardDbPath: string;
   dbType: 'none' | 'static' | 'dynamic';
 };
+

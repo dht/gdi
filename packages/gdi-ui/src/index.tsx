@@ -17,6 +17,7 @@ export { ClientIcons } from './components/ClientIcons/ClientIcons';
 export { CommandPalette, shortKeysMatch } from './components/CommandPalette/CommandPalette';
 export { BigAutoComplete } from './components/CommandPalette/_parts/BigAutoComplete/BigAutoComplete';
 export { useFuzzySearch, useFuzzySearchQ } from './components/CommandPalette/hooks/useFuzzySearch';
+export { Container } from './components/Container/Container';
 export { ContextBar } from './components/ContextBar/ContextBar';
 export { CostAndDuration } from './components/CostAndDuration/CostAndDuration';
 export { Creatable } from './components/Creatable/Creatable';
