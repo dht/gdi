@@ -8,9 +8,8 @@ export type MuxPageContainerProps = {};
 
 export function MuxPageContainer(_props: MuxPageContainerProps) {
   const dispatch = useDispatch();
-  const tab = useSelector(selectors.base.$muxTab);
   const currentIds = useSelector(selectors.raw.$rawCurrentIds);
-  const tabs = useSelector(selectors.base.$muxTabs);
+  const tabs = useSelector(selectors.mux.$muxTabs);
   const { muxTabId } = currentIds;
 
   useMount(() => {
@@ -24,7 +23,7 @@ export function MuxPageContainer(_props: MuxPageContainerProps) {
     []
   );
 
-  return <MuxPage tab={tab} tabId={muxTabId} />;
+  return <MuxPage tabs={tabs} tabId={muxTabId} />;
 }
 
 export default MuxPageContainer;

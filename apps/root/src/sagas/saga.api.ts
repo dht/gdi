@@ -46,7 +46,7 @@ export function* root() {
 }
 
 export const saga = {
-  id: 'home.api',
+  id: 'root.api',
   type: 'api',
   root: root,
 };

@@ -7,11 +7,11 @@ export function useSlide(tabs: Json[], activeTab: string) {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    if (!ref.current) {
+    const index = tabs.findIndex((tab) => tab.id === activeTab);
+
+    if (!ref.current || ref.current.children.length === 0 || index === -1) {
       return;
     }
-
-    const index = tabs.findIndex((tab) => tab.id === activeTab);
 
     try {
       const boundingBoxParent = ref.current.getBoundingClientRect();
@@ -19,7 +19,7 @@ export function useSlide(tabs: Json[], activeTab: string) {
       setLeft(boundingBox.left - boundingBoxParent.left);
       setWidth(boundingBox.width);
     } catch (_err) {}
-  }, [activeTab]);
+  }, [activeTab, tabs.length]);
 
   return [ref, { left, width }] as const;
 }

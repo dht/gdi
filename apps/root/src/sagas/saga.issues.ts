@@ -32,7 +32,7 @@ export function* root() {
 }
 
 export const saga: ISaga = {
-  id: 'home.issues',
+  id: 'root.issues',
   type: 'customEvent',
   root: root,
   trigger: {

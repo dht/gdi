@@ -6,6 +6,7 @@ export const apiProviders: IApiProviders = {
     name: 'OpenAI',
     description: 'OpenAI is a leading provider of AI models and APIs.',
     providerType: 'AI',
+    imageUrl: '/docs/20.png',
     models: [
       'text-generation',
       'text-to-speech',
@@ -20,6 +21,7 @@ export const apiProviders: IApiProviders = {
     name: 'ElevenLabs',
     description: 'ElevenLabs  specializes in Speech and Audio AI models and APIs.',
     providerType: 'AI',
+    imageUrl: '/docs/21.png',
     models: ['text-to-speech', 'text-to-audio', 'speech-to-text', 'speech-to-speech'],
   },
 };

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     min-width: 15px;
     overflow: hidden;
     margin-right: 0;
-    margin-left: 2px;
+    margin-left: 1px;
   }
 `;
 

@@ -20,7 +20,7 @@ export function* root() {
 }
 
 export const saga = {
-  id: 'home.newBoard',
+  id: 'root.newBoard',
   type: 'customEvent',
   root: root,
   trigger: {

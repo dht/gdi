@@ -41,9 +41,12 @@ router.post('/chat/stream', async (req: any, res) => {
     });
 
     const response: any = await openAI.chat.stream(messagesClean, tools, (content: string) => {
+      // console.log('content ->', content);
+
       db.messages.adhoc(req, { content });
     });
 
+    db.messages.adhoc(req, { content: '' });
     res.status(200).json({ ...response });
   } catch (error) {
     console.error('Error generating text:', error);

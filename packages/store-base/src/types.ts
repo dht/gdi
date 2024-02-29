@@ -645,6 +645,7 @@ export type ICapabilityInstruction = {
   name: string;
   description?: string;
   boardId: string;
+  isSilent?: boolean;
 };
 
 export type ProviderType = 'AI' | 'NON-AI';

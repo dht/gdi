@@ -260,52 +260,6 @@ export const $root = createSelector(raw.$rawSettings, raw.$rawAppState, (setting
   return {};
 });
 
-export const $tools = createSelector(
-  raw.$rawApiProviders,
-  raw.$rawCapabilities,
-  (apiProviders, capabilities) => {
-    const capabilitiesIds = Object.keys(capabilities);
-
-    return {
-      type: 'function',
-      function: {
-        name: 'getAppIdForTask',
-        description: 'Get the app ID for a given task',
-        parameters: {
-          type: 'object',
-          properties: {
-            prompt: {
-              type: 'string',
-              description: 'The task description e.g. "manage todos" or "create 3D animation"',
-            },
-            taskType: {
-              type: 'string',
-              enum: capabilitiesIds,
-            },
-          },
-          required: ['prompt', 'taskType'],
-        },
-      },
-    };
-  }
-);
-
-export const $muxTabs = createSelector(raw.$rawMuxTabs, (tabs) => {
-  return Object.values(tabs).map((tab) => {
-    const { name } = tab;
-
-    return {
-      ...tab,
-      title: name,
-    };
-  });
-});
-
-export const $muxTab = createSelector(raw.$rawMuxTabs, raw.$rawCurrentIds, (tabs, currentIds) => {
-  const { muxTabId } = currentIds;
-  return tabs[muxTabId];
-});
-
 export const $capabilities = createSelector(
   raw.$rawAppState,
   raw.$rawCapabilities,

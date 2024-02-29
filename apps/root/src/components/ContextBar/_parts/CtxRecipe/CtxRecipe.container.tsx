@@ -1,21 +1,25 @@
-import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import React, { useMemo } from 'react';
+import { selectors, useSelector } from '@gdi/store-base';
+import { useMemo } from 'react';
+import { invokeEvent } from 'shared-base';
 import { CtxRecipe } from './CtxRecipe';
 
 export type CtxRecipeContainerProps = {};
 
 export function CtxRecipeContainer(_props: CtxRecipeContainerProps) {
-    const dispatch = useDispatch();
-    const appState = useSelector(selectors.raw.$rawAppState);
+  const capability = useSelector(selectors.mux.$capability);
 
-    const callbacks = useMemo(
-        () => ({
-            onClick: () => {},
-        }),
-        []
-    );
+  const callbacks = useMemo(
+    () => ({
+      onStart: () => {
+        invokeEvent('MUX/START', { capability });
+      },
+    }),
+    []
+  );
 
-    return <CtxRecipe />;
+  if (!capability) return null;
+
+  return <CtxRecipe capability={capability} onStart={callbacks.onStart} />;
 }
 
 export default CtxRecipeContainer;

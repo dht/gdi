@@ -23,6 +23,7 @@ export function Mux(props: MuxProps) {
 
   useCustomEvent('mux/content', (data: Json) => {
     const { content } = data;
+
     setMessage(content);
 
     if (!refInner.current) return;

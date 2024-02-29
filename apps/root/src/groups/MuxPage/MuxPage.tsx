@@ -1,19 +1,16 @@
-import React from 'react';
-import { Inner, Top, Wrapper } from './MuxPage.style';
-import MuxContainer from '../../components/Mux/Mux.container';
-import MuxOverlayContainer from '../../components/MuxOverlay/MuxOverlay.container';
-import { IMuxTab } from '@gdi/store-base';
 import { Board } from '@gdi/app-boards';
+import MuxContainer from '../../components/Mux/Mux.container';
 import MuxTabsContainer from '../../containers/MuxTabs.container';
-import { tabs } from '../../data/data.MuxTabs';
+import { Inner, Top, Wrapper } from './MuxPage.style';
+import { IMuxTab } from '@gdi/store-base';
 
 export type MuxPageProps = {
-  tab: IMuxTab;
+  tabs: IMuxTab[];
   tabId?: string;
 };
 
 export function MuxPage(props: MuxPageProps) {
-  const { tab, tabId = 'home' } = props;
+  const { tabs, tabId = 'home' } = props;
 
   function renderInner() {
     const tab = tabs.find((t) => t.id === tabId);

@@ -21,7 +21,7 @@ export function* invokeTools(toolCalls: any) {
     return;
   }
 
-  yield put(actions.appState.patch({ capabilityId: capability.id }));
+  yield put(actions.currentIds.patch({ capabilityId: capability.id }));
 }
 
 export const saga = {

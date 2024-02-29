@@ -28,6 +28,7 @@ export function MuxInput(props: MuxInputProps) {
 
   const onEnter = useCallback(
     (ev: any) => {
+      if (ev.metaKey) return;
       ev.preventDefault();
       onSubmit();
     },

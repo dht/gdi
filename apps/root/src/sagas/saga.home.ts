@@ -238,7 +238,7 @@ export function* root() {
 }
 
 export const saga = {
-  id: 'home.home',
+  id: 'root.home',
   type: 'entity',
   root: root,
   trigger: {

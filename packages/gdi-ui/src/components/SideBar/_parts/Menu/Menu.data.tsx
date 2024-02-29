@@ -6,6 +6,12 @@ export const items = [
     path: '/',
   },
   {
+    id: 'assets',
+    title: 'Assets',
+    icon: 'folder',
+    path: '/assets',
+  },
+  {
     id: 'capabilities',
     title: 'Capabilities',
     icon: 'browse',
@@ -23,12 +29,6 @@ export const items = [
     icon: 'history',
     path: '/history',
     isHidden: true,
-  },
-  {
-    id: 'assets',
-    title: 'Assets',
-    icon: 'folder',
-    path: '/assets',
   },
   {
     id: 'account',
