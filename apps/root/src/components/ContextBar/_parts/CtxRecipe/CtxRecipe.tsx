@@ -53,7 +53,7 @@ export function CtxRecipe(props: CtxRecipeProps) {
 
   return (
     <Wrapper className='CtxRecipe-wrapper' data-testid='CtxRecipe-wrapper'>
-      <H2>Create a 3d animation</H2>
+      <H2>{capability.name}</H2>
       <H3>Ingredients</H3>
       <Ul>{renderIngredients()}</Ul>
       <H3>Instructions</H3>

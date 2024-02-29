@@ -13,6 +13,7 @@ export function MuxPageContainer(_props: MuxPageContainerProps) {
   const { muxTabId } = currentIds;
 
   useMount(() => {
+    if (muxTabId) return;
     dispatch(actions.currentIds.patch({ muxTabId: 'home' }));
   });
 

@@ -1,7 +1,7 @@
 import { AccountPageContainer } from '../groups/AccountPage/AccountPage.container';
+import { AssetsPageContainer } from '../groups/AssetsPage/AssetsPage.container';
 import { CapabilitiesPageContainer } from '../groups/CapabilitiesPage/CapabilitiesPage.container';
 import { MuxPageContainer } from '../groups/MuxPage/MuxPage.container';
-import { AssetsPageContainer } from './AssetsPage/AssetsPage.container';
 import { BrowsePageContainer } from './BrowsePage/BrowsePage.container';
 import { DocsPageContainer } from './DocsPage/DocsPage.container';
 import { FlowsPageContainer } from './FlowsPage/FlowsPage.container';
@@ -20,6 +20,7 @@ export const pages = {
   mux: MuxPageContainer,
   capabilities: CapabilitiesPageContainer,
   account: AccountPageContainer,
+  assets: AssetsPageContainer,
   // pages
   map: MapPageContainer,
   browse: BrowsePageContainer,
@@ -33,5 +34,4 @@ export const pages = {
   flows: FlowsPageContainer,
   logs: LogsPageContainer,
   history: HistoryPageContainer,
-  assets: AssetsPageContainer,
 };

@@ -8,16 +8,11 @@ export const Wrapper = styled.div`
 `;
 
 export const Top = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   background-color: #000;
-  padding-right: 0;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  min-height: 50px;
   z-index: 99999;
 `;
 

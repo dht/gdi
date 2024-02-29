@@ -50,7 +50,7 @@ export const Textarea = styled.textarea`
   font-size: 18px;
   margin-top: 15px;
   box-sizing: border-box;
-  color: #778;
+  color: var(--color-text);
   background-color: #111115;
   border: 1px solid rgba(245, 245, 255, 0.1);
 `;

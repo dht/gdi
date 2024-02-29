@@ -115,15 +115,17 @@ export function ListInner(props: ListProps) {
     <Wrapper className={className} data-testid='List-wrapper' ref={ref}>
       {renderTop()}
       {renderHeader()}
-      <FixedSizeList
-        itemData={data}
-        height={height - 60}
-        width={'100%'}
-        itemSize={30}
-        itemCount={data.length}
-      >
-        {renderItem}
-      </FixedSizeList>
+      {height && (
+        <FixedSizeList
+          itemData={data}
+          height={height - 90}
+          width={'100%'}
+          itemSize={30}
+          itemCount={data.length}
+        >
+          {renderItem}
+        </FixedSizeList>
+      )}
       {q && (
         <Q>
           <span>Search:</span> {q}

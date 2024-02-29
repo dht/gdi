@@ -5,8 +5,9 @@ import { ContextBar } from './ContextBar';
 export type ContextBarContainerProps = {};
 
 export function ContextBarContainer(_props: ContextBarContainerProps) {
-  const dispatch = useDispatch();
-  const appState = useSelector(selectors.raw.$rawAppState);
+  const capability = useSelector(selectors.mux.$capability);
+
+  const hideWelcome = capability !== undefined;
 
   const callbacks = useMemo(
     () => ({
@@ -15,7 +16,7 @@ export function ContextBarContainer(_props: ContextBarContainerProps) {
     []
   );
 
-  return <ContextBar />;
+  return <ContextBar hideWelcome={hideWelcome} />;
 }
 
 export default ContextBarContainer;

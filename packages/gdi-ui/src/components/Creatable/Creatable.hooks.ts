@@ -20,12 +20,14 @@ export function useOptions(options: Json[]) {
 export function useValues(values: string[]) {
   const valuesMapped = useMemo(() => {
     return values.map((value) => {
-      const color = value.startsWith('project-') ? 'pink' : 'gold';
+      const valueToCheck = Array.isArray(value) ? value[0] : value;
+
+      const color = valueToCheck.startsWith('project-') ? 'pink' : 'gold';
       const colorStyle = colors[color] || colors.neutral;
 
       return {
-        value: value,
-        label: value,
+        value: valueToCheck,
+        label: valueToCheck,
         ...colorStyle,
       };
     });

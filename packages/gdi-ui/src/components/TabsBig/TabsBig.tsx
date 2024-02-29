@@ -1,7 +1,7 @@
 import React from 'react';
-import { Rect, Tab, Tabs, Wrapper } from './TabsBig.style';
+import { useCustomEvent } from '../../hooks/useCustomEvent';
 import { useAltNumber, useSlide } from './TabsBig.hooks';
-import { useMount } from '../../hooks/useMount';
+import { Rect, Tab, Tabs, Wrapper } from './TabsBig.style';
 
 export type TabsBigProps = {
   tabs: Json[];
@@ -12,6 +12,12 @@ export type TabsBigProps = {
 export function TabsBig(props: TabsBigProps) {
   const { tabs, activeTab } = props;
   const [ref, boundingBox] = useSlide(tabs, activeTab);
+
+  useCustomEvent('tabs/setActive', (ev) => {
+    const { id } = ev;
+    if (!id) return;
+    props.onChange(id);
+  });
 
   useAltNumber(
     (num: number) => {

@@ -1,33 +1,33 @@
 import { TopBar } from '@gdi/ui';
+import { Wrapper } from './AssetsPage.style';
 import UserMenuContainer from '../../containers/UserMenu.container';
-import ApiPageContainer from '../../pages/ApiPage/ApiPage.container';
-import SettingsPageContainer from '../../pages/SettingsPage/SettingsPage.container';
-import { tabs } from './AccountPage.data';
-import { Wrapper } from './AccountPage.style';
+import { tabs } from './AssetsPage.data';
+import { AssetsPageContainer } from '../../pages/AssetsPage/AssetsPage.container';
+import { DataPageContainer } from '../../pages/DataPage/DataPage.container';
 
-export type AccountPageProps = {
+export type AssetsPageProps = {
   tab: string;
   callbacks: {
     onChangeTab: (tabId: string) => void;
   };
 };
 
-export function AccountPage(props: AccountPageProps) {
+export function AssetsPage(props: AssetsPageProps) {
   const { tab, callbacks } = props;
 
   function renderInner() {
     switch (tab) {
-      case 'api_keys':
-        return <ApiPageContainer />;
+      case 'assets':
+        return <AssetsPageContainer />;
       case 'settings':
-        return <SettingsPageContainer />;
+        return <DataPageContainer />;
       default:
         return null;
     }
   }
 
   return (
-    <Wrapper>
+    <Wrapper className='AssetsPage-wrapper' data-testid='AssetsPage-wrapper'>
       <TopBar
         tabId={tab}
         tabs={tabs}
@@ -41,4 +41,4 @@ export function AccountPage(props: AccountPageProps) {
   );
 }
 
-export default AccountPage;
+export default AssetsPage;

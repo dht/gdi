@@ -1,6 +1,5 @@
 import { Root } from '@gdi/app-root';
 import { Form, Prompt, Toast } from '@gdi/ui';
-import { useLocation } from 'react-router-dom';
 import { BarContainer } from '../containers/Bar.container';
 import { CommandPaletteContainer } from '../containers/CommandPalette.container';
 import { ContextBarContainer } from '../containers/ContextBar.container';
@@ -12,8 +11,6 @@ import { useFullscreen } from './App.hooks';
 import { Content, Wrapper } from './App.style';
 
 export const App = () => {
-  const location = useLocation();
-
   useNavigationMethod();
   useFullscreen();
 

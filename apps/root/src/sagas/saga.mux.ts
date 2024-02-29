@@ -104,6 +104,10 @@ export function* onStart() {
       ...tabs,
     })
   );
+
+  yield delay(100);
+
+  invokeEvent('tabs/setActive', { id: Object.keys(tabs)[0] });
 }
 
 export function* root() {

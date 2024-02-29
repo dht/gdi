@@ -14,7 +14,12 @@ export const Wrapper = styled.div`
     .creatable__control {
       background-color: var(--bg-secondary);
       border-color: var(--border-color);
+      color: var(--text-primary);
       transition: none;
+
+      input {
+        border: 1px solid green;
+      }
 
       &:hover {
         border-color: var(--border-color);
@@ -25,17 +30,29 @@ export const Wrapper = styled.div`
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
     }
+    .creatable__option--is-focused {
+      color: #333;
+    }
 
     .creatable__option {
-      background-color: var(--bg-secondary);
-
       &:hover {
         background-color: var(--bg-primary);
+        color: #333;
+        font-weight: bold;
+      }
+
+      &.is-focused {
+        border: 1px solid green;
+        background-color: var(--bg-secondary);
       }
     }
 
     .creatable__indicator-separator {
       background-color: var(--border-color);
+    }
+
+    .creatable__input-container {
+      color: var(--text-primary);
     }
 
     .creatable__placeholder,

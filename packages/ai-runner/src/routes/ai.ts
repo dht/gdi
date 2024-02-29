@@ -41,8 +41,6 @@ router.post('/chat/stream', async (req: any, res) => {
     });
 
     const response: any = await openAI.chat.stream(messagesClean, tools, (content: string) => {
-      // console.log('content ->', content);
-
       db.messages.adhoc(req, { content });
     });
 
