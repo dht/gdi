@@ -21,4 +21,5 @@ export const Content = styled.div`
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  margin-bottom: 50px;
 `;

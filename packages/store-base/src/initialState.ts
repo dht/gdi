@@ -57,6 +57,8 @@ export const initialState: IGdiStore = {
     tags: ['project-tutorial'],
     root: 'mux',
     showRoot: false,
+    tsStart: Date.now(),
+    isFullScreen: true,
   },
   currentIds: {
     boardId: '',
@@ -73,6 +75,7 @@ export const initialState: IGdiStore = {
     remoteItemId: '',
     personId: 'Albert.Einstein',
     assistantId: 'assistant-vanilla',
+    capabilityId: '',
   },
   user: {
     displayName: '',

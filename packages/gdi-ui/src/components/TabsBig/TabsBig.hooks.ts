@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useKey } from 'react-use';
 
 export function useSlide(tabs: Json[], activeTab: string) {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,4 +22,21 @@ export function useSlide(tabs: Json[], activeTab: string) {
   }, [activeTab]);
 
   return [ref, { left, width }] as const;
+}
+
+export function useAltNumber(callback: any, depArray: any[] = []) {
+  const predicate = (ev: any) => {
+    return ev.altKey && ev.code.match(/Digit[0-9]/);
+  };
+
+  useKey(
+    predicate,
+    (ev: any) => {
+      callback(ev.keyCode - 48);
+    },
+    {
+      event: 'keydown',
+    },
+    depArray
+  );
 }

@@ -13,9 +13,9 @@ export type BoardContainerProps = {
 };
 
 export const BoardContainer = (props: BoardContainerProps) => {
-  const { id, darkMode } = props;
+  const { id: boardId, darkMode } = props;
   const dispatch = useDispatch();
-  const { boardId = id, itemId } = useParams();
+  const { itemId } = useParams();
   const board = useSelector(selectors.raw.$rawBoard);
   const appState = useSelector(selectors.raw.$rawAppState);
   const { flavour, flavourColumnIndex } = appState;

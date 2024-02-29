@@ -5,9 +5,9 @@ export const Wrapper = styled.div`
   color: #333;
 
   &.dark {
-    --bg-secondary: #112;
+    --bg-secondary: #111115;
     --bg-primary: #fff;
-    --border-color: #888;
+    --border-color: #445;
     --text-primary: #eee;
     color: inherit;
 

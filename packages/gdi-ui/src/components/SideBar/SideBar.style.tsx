@@ -4,6 +4,11 @@ export const Wrapper = styled.div`
   width: 230px;
   box-sizing: border-box;
   padding: 20px 20px 10px 20px;
+
+  &.minimal {
+    max-width: 50px;
+    padding: 20px 8px;
+  }
 `;
 
 export const Top = styled.div`

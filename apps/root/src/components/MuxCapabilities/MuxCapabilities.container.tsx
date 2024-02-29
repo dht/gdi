@@ -4,18 +4,20 @@ import { MuxCapabilities } from './MuxCapabilities';
 
 export type MuxCapabilitiesContainerProps = {};
 
-export function MuxCapabilitiesContainer(_props: MuxCapabilitiesContainerProps) {
-    const dispatch = useDispatch();
-    const appState = useSelector(selectors.raw.$rawAppState);
+export function MuxCapabilitiesContainer(
+  _props: MuxCapabilitiesContainerProps
+) {
+  const dispatch = useDispatch();
+  const capabilities = useSelector(selectors.base.$capabilities);
 
-    const callbacks = useMemo(
-        () => ({
-            onClick: () => {},
-        }),
-        []
-    );
+  const callbacks = useMemo(
+    () => ({
+      onClick: () => {},
+    }),
+    []
+  );
 
-    return <MuxCapabilities />;
+  return <MuxCapabilities capabilities={capabilities} />;
 }
 
 export default MuxCapabilitiesContainer;

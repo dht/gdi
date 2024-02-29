@@ -2,6 +2,8 @@ import { selectors, useDispatch, useSelector } from '@gdi/store-base';
 import { useMemo } from 'react';
 import { invokeEvent } from 'shared-base';
 import { SettingsPage } from './SettingsPage';
+import { useLocation } from 'react-router-dom';
+import { useMount } from 'react-use';
 
 export type SettingsPageContainerProps = {};
 

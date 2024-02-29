@@ -1,6 +1,5 @@
-import { put } from 'saga-ts';
-import { toolsMap } from '../data/data.tools.map';
-import { actions } from '@gdi/store-base';
+import { actions, selectors } from '@gdi/store-base';
+import { put, select } from 'saga-ts';
 
 export function* invokeTools(toolCalls: any) {
   if (toolCalls.length === 0) {
@@ -10,20 +9,19 @@ export function* invokeTools(toolCalls: any) {
   const toolCall = toolCalls[0];
 
   const { name } = toolCall;
-  const { prompt, taskType } = toolCall.arguments;
+  const { taskType } = toolCall.arguments;
 
   if (name !== 'getAppIdForTask') {
     return;
   }
 
-  const boardId = toolsMap[taskType];
+  const capability = yield* select(selectors.single.$capability, taskType);
 
-  if (!boardId) {
+  if (!capability) {
     return;
   }
 
-  yield put({ type: 'NAVIGATE', to: `/boards/${boardId}` });
-  yield put(actions.appState.patch({ showRoot: false }));
+  yield put(actions.appState.patch({ capabilityId: capability.id }));
 }
 
 export const saga = {

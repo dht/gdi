@@ -1,7 +1,5 @@
-import React from 'react';
-import { ToHome, Wrapper } from './BoardHeader.style';
-import Icon from '../Icon/Icon';
 import { invokeEvent } from 'shared-base';
+import { Wrapper } from './BoardHeader.style';
 
 export type BoardHeaderProps = {
   name: string;
@@ -10,15 +8,8 @@ export type BoardHeaderProps = {
 export function BoardHeader(props: BoardHeaderProps) {
   const { name } = props;
 
-  function navToHome() {
-    invokeEvent('nav', { path: '/' });
-  }
-
   return (
     <Wrapper className='BoardHeader-wrapper' data-testid='BoardHeader-wrapper'>
-      <ToHome onClick={navToHome}>
-        <Icon name='home' size={20} />
-      </ToHome>
       {name}
     </Wrapper>
   );

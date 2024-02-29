@@ -1,13 +1,22 @@
 import React from 'react';
 import { Image, Wrapper } from './Logo.style';
-import { Json } from '../../types';
+import classnames from 'classnames';
 
-export type LogoProps = {};
+export type LogoProps = {
+  minimal?: boolean;
+  onClick: () => void;
+};
 
-export function Logo(_props: LogoProps) {
+export function Logo(props: LogoProps) {
+  const { minimal } = props;
+
+  const className = classnames('Logo-wrapper', {
+    minimal,
+  });
+
   return (
-    <Wrapper className='Logo-wrapper' data-testid='Logo-wrapper'>
-      <Image src='/logo-white.svg' alt='logo' width='100' height='100' />
+    <Wrapper className={className} data-testid='Logo-wrapper' onClick={props.onClick}>
+      <Image className='image' src='/logo-white.svg' alt='logo' width='100' height='100' />
     </Wrapper>
   );
 }

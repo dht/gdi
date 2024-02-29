@@ -1,17 +1,17 @@
 import styled from 'styled-components';
+import { Container } from '@gdi/ui';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Container)`
   flex: 1;
   display: flex;
   color: white;
   font-size: 14px;
   flex-direction: column;
-  background-color: #111115;
+  background-color: var(--color-bk);
   position: relative;
   display: flex;
   flex-direction: row;
   flex: 1;
-  margin-top: 60px;
 `;
 
 export const Column = styled.div`

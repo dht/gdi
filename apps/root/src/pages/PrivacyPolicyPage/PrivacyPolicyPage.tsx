@@ -1,16 +1,19 @@
 import { Markdown } from '@gdi/ui';
 import { policy } from './PrivacyPolicy';
 import { Wrapper } from './PrivacyPolicyPage.style';
+import { TabsBig } from '@gdi/ui';
+import GenericTabsContainer from '../../containers/GenericTab.container';
 
 export type PrivacyPolicyPageProps = {};
 
 export function PrivacyPolicyPage(_props: PrivacyPolicyPageProps) {
   return (
-    <Wrapper>
+    <>
+      <GenericTabsContainer />
       <Wrapper>
-        <Markdown markdown={policy} />
+        <Markdown markdown={policy} mode='dark' />
       </Wrapper>
-    </Wrapper>
+    </>
   );
 }
 

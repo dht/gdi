@@ -48,6 +48,7 @@ export const Tabs = styled.div`
 export const Tab = styled.div`
   padding: 10px 20px;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover {
     background-color: #ffffff22;

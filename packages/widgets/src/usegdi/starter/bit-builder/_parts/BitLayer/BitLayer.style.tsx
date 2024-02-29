@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   z-index: 4;
-  position: fixed;
+  position: absolute;
   left: 0;
   right: 0;
   top: 0;

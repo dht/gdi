@@ -305,3 +305,47 @@ export const $muxTab = createSelector(raw.$rawMuxTabs, raw.$rawCurrentIds, (tabs
   const { muxTabId } = currentIds;
   return tabs[muxTabId];
 });
+
+export const $capabilities = createSelector(
+  raw.$rawAppState,
+  raw.$rawCapabilities,
+  (appState, capabilities) => {
+    const { assetsRootUrl } = appState;
+
+    return Object.values(capabilities).map((capability) => {
+      const { imageUrl, pilar, verb } = capability;
+
+      const meta = { pilar, verb };
+
+      return {
+        ...capability,
+        imageUrl: `${assetsRootUrl}${imageUrl}`,
+        meta,
+        isOk: true,
+      };
+    });
+  }
+);
+
+export const $apiProviders = createSelector(
+  raw.$rawAppState,
+  raw.$rawApiProviders,
+  (appState, apiProviders) => {
+    const { assetsRootUrl } = appState;
+
+    return Object.values(apiProviders).map((apiProvider) => {
+      const { imageUrl, models, providerType } = apiProvider;
+
+      const modelsCount = Object.keys(models).length;
+
+      const meta = { providerType, models: modelsCount };
+
+      return {
+        ...apiProvider,
+        imageUrl: `${assetsRootUrl}${imageUrl}`,
+        meta,
+        isOk: true,
+      };
+    });
+  }
+);

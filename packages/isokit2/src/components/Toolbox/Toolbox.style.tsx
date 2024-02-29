@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
-  position: fixed;
+  position: absolute;
   z-index: 100;
   background-color: #111;
   box-shadow: 0 0 0 2px rgba(235, 235, 235, 0.1);

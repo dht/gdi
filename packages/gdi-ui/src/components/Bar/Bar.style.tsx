@@ -4,9 +4,7 @@ export const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: min(1700px, 100vw);
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
   height: 44rem;
   background-color: #000;
   color: #eef;

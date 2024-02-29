@@ -1,6 +1,9 @@
 import React from 'react';
 import TabsBig from '../TabsBig/TabsBig';
-import { Actions, Tabs, Wrapper } from './TopBar.style';
+import { Action, Actions, Tabs, Wrapper } from './TopBar.style';
+import Container from '../Container/Container';
+import Icon from '../Icon/Icon';
+import { invokeEvent } from 'shared-base';
 
 export type TopBarProps = {
   tabs: Json[];
@@ -16,10 +19,21 @@ export function TopBar(props: TopBarProps) {
     return <TabsBig tabs={tabs} activeTab={tabId} onChange={props.onChange} />;
   }
 
+  function onFullScreen() {
+    invokeEvent('fullscreen/toggle');
+  }
+
   return (
     <Wrapper className='TopBar-wrapper' data-testid='TopBar-wrapper'>
-      <Tabs>{renderTabs()}</Tabs>
-      <Actions>{props.children}</Actions>
+      <Container row>
+        <Tabs>{renderTabs()}</Tabs>
+        <Actions>
+          <Action>
+            <Icon color='#777' name='fullscreen' onClick={onFullScreen} />
+          </Action>
+          {props.children}
+        </Actions>
+      </Container>
     </Wrapper>
   );
 }

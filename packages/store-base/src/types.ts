@@ -81,6 +81,8 @@ export type IAppState = {
   source: ContentSource;
   root: Root;
   showRoot?: boolean;
+  isFullScreen?: boolean;
+  tsStart: number;
 };
 
 export type Root = 'mux' | 'village' | 'apps';
@@ -116,6 +118,7 @@ export type ICurrentIds = {
   itemId: string;
   personId: string;
   remoteItemId: string;
+  capabilityId: string;
 };
 
 export type ISettings = {
@@ -661,6 +664,7 @@ export type IApiProvider = {
   id: string;
   name: string;
   description: string;
+  imageUrl: string;
   providerType: ProviderType;
   models: ModelType[];
   isApiKeyValid?: boolean;
@@ -683,6 +687,7 @@ export type CapabilityVerb = 'create' | 'manage' | 'analyze' | 'other';
 
 export type ICapability = {
   id: string;
+  identifier: string;
   name: string;
   description: string;
   pilar: CapabilityPilar;

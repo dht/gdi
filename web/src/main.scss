@@ -6,6 +6,14 @@
 
 @import '/fonts/style.css';
 
+:root {
+  --color-primary: #16161c;
+  --color-bk: #111115;
+  --color-text: #ccc;
+  --color-border: rgba(245, 245, 255, 0.1);
+  --color-button: #222227;
+}
+
 html {
   min-height: 100vh;
   display: flex;
@@ -17,12 +25,6 @@ body,
   display: flex;
   flex: 1;
   font-family: sans-serif;
-}
-
-#root {
-  max-width: 1700px;
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.05);
-  margin: 0 auto;
 }
 
 body {

@@ -22,6 +22,7 @@ export const items = [
     title: 'History',
     icon: 'history',
     path: '/history',
+    isHidden: true,
   },
   {
     id: 'assets',
@@ -30,9 +31,9 @@ export const items = [
     path: '/assets',
   },
   {
-    id: 'logs',
-    title: 'Logs',
+    id: 'account',
+    title: 'Account',
     icon: 'list',
-    path: '/logs',
+    path: '/account',
   },
 ];

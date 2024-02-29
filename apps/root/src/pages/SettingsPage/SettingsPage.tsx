@@ -1,7 +1,9 @@
 import type { ISettings } from '@gdi/store-base';
 import { Form, Container } from '@gdi/ui';
 import { formDefaults, forms } from '../../_definitions/forms';
-import { Wrapper } from './SettingsPage.style';
+import { H1, Wrapper } from './SettingsPage.style';
+import { Top } from '../../groups/MuxPage/MuxPage.style';
+import { GenericTabsContainer } from '../../containers/GenericTab.container';
 
 export type SettingsPageProps = {
   settings: ISettings;
@@ -21,7 +23,8 @@ export function SettingsPage(props: SettingsPageProps) {
 
   return (
     <Wrapper>
-      <Container header='Settings'>
+      <Container>
+        <H1>Settings</H1>
         <Form
           config={forms.settings as any}
           allOptions={allOptions}

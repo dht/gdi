@@ -6,12 +6,15 @@ export type ContainerProps = {
   header?: string;
   className?: string;
   children: React.ReactNode;
+  row?: boolean;
 };
 
 export function Container(props: ContainerProps) {
-  const { header } = props;
+  const { header, row } = props;
 
-  const className = classnames('Container-wrapper', props.className, {});
+  const className = classnames('Container-wrapper', props.className, {
+    row,
+  });
 
   function renderHeader() {
     if (!header) {

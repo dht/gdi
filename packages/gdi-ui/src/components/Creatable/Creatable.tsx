@@ -56,7 +56,6 @@ export function Creatable(props: CreatableProps) {
         placeholder={placeholder}
         classNamePrefix='creatable'
         onKeyDown={onKeyDown}
-        autoFocus
       />
     </Wrapper>
   );

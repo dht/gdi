@@ -5,17 +5,17 @@ import { MuxApis } from './MuxApis';
 export type MuxApisContainerProps = {};
 
 export function MuxApisContainer(_props: MuxApisContainerProps) {
-    const dispatch = useDispatch();
-    const appState = useSelector(selectors.raw.$rawAppState);
+  const dispatch = useDispatch();
+  const apiProviders = useSelector(selectors.base.$apiProviders);
 
-    const callbacks = useMemo(
-        () => ({
-            onClick: () => {},
-        }),
-        []
-    );
+  const callbacks = useMemo(
+    () => ({
+      onClick: () => {},
+    }),
+    []
+  );
 
-    return <MuxApis />;
+  return <MuxApis apiProviders={apiProviders} />;
 }
 
 export default MuxApisContainer;

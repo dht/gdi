@@ -1,6 +1,7 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useMemo } from 'react';
 import { MuxInputGuidance } from './MuxInputGuidance';
+import { invokeEvent } from 'shared-base';
 
 export type MuxInputGuidanceContainerProps = {};
 
@@ -13,7 +14,9 @@ export function MuxInputGuidanceContainer(
 
   const callbacks = useMemo(
     () => ({
-      onClick: () => {},
+      onSelect: (item: Json) => {
+        invokeEvent('MUX/PROMPT', { prompt: item.title });
+      },
     }),
     []
   );
@@ -22,7 +25,7 @@ export function MuxInputGuidanceContainer(
     return null;
   }
 
-  return <MuxInputGuidance />;
+  return <MuxInputGuidance onSelect={callbacks.onSelect} />;
 }
 
 export default MuxInputGuidanceContainer;

@@ -2,7 +2,6 @@ import { IMessage } from '@gdi/store-base';
 import { useCustomEvent, useMeasureOnce } from '@gdi/ui';
 import { useRef, useState } from 'react';
 import { Bottom, Column, Inner, Wrapper } from './Mux.style';
-import MuxContextBar from './_parts/MuxContextBar/MuxContextBar';
 import MuxEmpty from './_parts/MuxEmpty/MuxEmpty';
 import MuxInput from './_parts/MuxInput/MuxInput';
 import MuxInputGuidanceContainer from './_parts/MuxInputGuidance/MuxInputGuidance.container';
@@ -13,6 +12,7 @@ export type MuxProps = {
   callbacks: {
     onSubmit: (prompt: string) => void;
   };
+  children: React.ReactNode;
 };
 
 export function Mux(props: MuxProps) {
@@ -53,9 +53,7 @@ export function Mux(props: MuxProps) {
           <MuxInput callbacks={callbacks} />
         </Bottom>
       </Column>
-      <Column>
-        <MuxContextBar />
-      </Column>
+      <Column>{props.children}</Column>
     </Wrapper>
   );
 }

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div<{ $row?: boolean }>`
   padding: 0 80px;
   flex: 1;
+  max-width: 1500px;
+  margin: auto;
 
   &.details {
     max-width: 1280px;

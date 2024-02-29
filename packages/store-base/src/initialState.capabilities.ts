@@ -3,6 +3,7 @@ import { ICapabilities } from './types';
 export const capabilities: ICapabilities = {
   animation_3d: {
     id: 'animation_3d',
+    identifier: 'com.usegdi.animation_3d',
     name: 'Create a 3D Animation',
     description: 'Create a 3D animation using various AI-powered sources',
     iconName: '',
@@ -50,8 +51,9 @@ export const capabilities: ICapabilities = {
       },
     ],
   },
-  meeting_prepare: {
-    id: 'meeting_prepare',
+  prepare_meeting: {
+    id: 'prepare_meeting',
+    identifier: 'com.usegdi.prepare_meeting',
     name: 'Prepare for a Meeting',
     description: 'Prepare for a meeting using AI-powered tools',
     pilar: 'productivity',
@@ -62,6 +64,7 @@ export const capabilities: ICapabilities = {
   },
   build_a_website: {
     id: 'build_a_website',
+    identifier: 'com.usegdi.build_a_website',
     name: 'Build a website',
     description: 'Build a website using AI-powered tools',
     pilar: 'content',
@@ -72,6 +75,7 @@ export const capabilities: ICapabilities = {
   },
   write_a_post: {
     id: 'write_a_post',
+    identifier: 'com.usegdi.write_a_post',
     name: 'Write a post',
     description: 'Write a post using AI-powered tools',
     pilar: 'content',
@@ -82,6 +86,7 @@ export const capabilities: ICapabilities = {
   },
   manage_finances: {
     id: 'manage_finances',
+    identifier: 'com.usegdi.manage_finances',
     name: 'Manage Finances',
     pilar: 'productivity',
     verb: 'manage',
@@ -92,6 +97,7 @@ export const capabilities: ICapabilities = {
   },
   rhetoric: {
     id: 'rhetoric',
+    identifier: 'com.usegdi.rhetoric',
     name: 'Rhetoric',
     description: 'Build an argument using AI-powered tools',
     pilar: 'knowledge',
@@ -102,6 +108,7 @@ export const capabilities: ICapabilities = {
   },
   debug_express: {
     id: 'debug_express',
+    identifier: 'com.usegdi.debug_express',
     name: 'Debug an Express App',
     description: 'Debug an Express app using AI-powered tools',
     pilar: 'productivity',

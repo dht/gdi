@@ -6,7 +6,6 @@ import { guid4, invokeEvent } from 'shared-base';
 import { customEvenChannel } from './channels/channel.customEvent';
 import { firestoreFlowChannel } from './channels/channel.firebase';
 import { speak } from '../utils/speech.sockets';
-import { tools } from '../data/data.tools';
 import { parseResponse } from './saga.mux.response';
 
 let streamChannel: any;
@@ -32,6 +31,7 @@ export function* mux(ev: any) {
   };
 
   const messages = yield* select(selectors.base.$messages);
+  const tools = yield* select(selectors.mux.$tools);
 
   yield put(actions.messages.add(message));
 
@@ -52,6 +52,8 @@ export function* mux(ev: any) {
 
 export function* onStream(ev: any) {
   const { data } = ev;
+  const { content } = data ?? {};
+  if (content === 'null') return;
   invokeEvent('mux/content', data);
 }
 
@@ -64,14 +66,27 @@ export function* onPromptFocus(ev: any) {
   yield put(actions.appState.patch({ showRoot: true }));
 }
 
+export function* onToggleFullscreen() {
+  const appState = yield* select(selectors.raw.$rawAppState);
+  const { isFullScreen } = appState;
+
+  yield put(actions.appState.patch({ isFullScreen: !isFullScreen }));
+}
+
 export function* root() {
   let channel;
 
   channel = customEvenChannel('MUX/PROMPT');
   yield takeEvery(channel, mux);
 
+  channel = customEvenChannel('MUX/CLEAR');
+  yield takeEvery(channel, clear);
+
   channel = customEvenChannel('prompt/focus');
   yield takeEvery(channel, onPromptFocus);
+
+  channel = customEvenChannel('fullscreen/toggle');
+  yield takeEvery(channel, onToggleFullscreen);
 }
 
 export const saga = {

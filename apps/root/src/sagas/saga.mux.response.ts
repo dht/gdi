@@ -4,11 +4,12 @@ import { guid4 } from 'shared-base';
 import { invokeTools } from './saga.mux.tools';
 
 export function* parseResponse(response: any) {
-  const { finishReason, content, toolCalls } = response;
+  let { finishReason, content, toolCalls } = response;
 
   if (finishReason === 'tool_calls') {
     yield call(invokeTools, toolCalls);
-    return;
+    content =
+      'I found a capability that can help you with that. Click on "Start workflow" on the right-side panel to get started.';
   }
 
   yield put(

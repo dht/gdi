@@ -26,17 +26,17 @@ export const itemsUser = [
   {
     id: 'browse-boards',
     name: 'Browse Boards',
-    path: '/browse',
+    path: '/capabilities#boards',
   },
   {
     id: 'account',
     name: 'API Keys',
-    path: '/account',
+    path: '/account#api_keys',
   },
   {
     id: 'settings',
     name: 'Settings',
-    path: '/settings',
+    path: '/account#settings',
   },
   {
     id: 'docs',
@@ -47,12 +47,12 @@ export const itemsUser = [
   {
     id: 'terms',
     name: 'Terms of Use',
-    path: '/terms',
+    path: '/terms-of-use',
   },
   {
     id: 'privacy',
     name: 'Privacy Policy',
-    path: '/privacy',
+    path: '/privacy-policy',
     divider: true,
   },
   {

@@ -2,8 +2,9 @@ import { Button } from '@gdi/ui';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  background-color: #333;
-  color: white;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   font-size: 15px;
   flex: 1;
   padding: 20rem 40rem;
@@ -50,4 +51,6 @@ export const Textarea = styled.textarea`
   margin-top: 15px;
   box-sizing: border-box;
   color: #778;
+  background-color: #111115;
+  border: 1px solid rgba(245, 245, 255, 0.1);
 `;

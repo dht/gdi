@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { MultitrackOptions, MultitrackTracks } from 'wavesurfer-multitrack';
 import BitPanel from '../bit-panel/BitPanel';
 import { environment } from './BitBuilder.environment';
-import { Canvas, Wrapper } from './BitBuilder.style';
+import { Canvas, Overlay, Wrapper } from './BitBuilder.style';
 
 export type BitBuilderProps = {
   waveTracks: MultitrackTracks;
@@ -40,9 +40,11 @@ export function BitBuilder(props: BitBuilderProps) {
           onToolbox={callbacks.onToolbox}
           autoHideExternals={true}
         />
-        <CameraPosition onClick={callbacks.onToolbox} />
-        <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />
-        {props.children}
+        <Overlay>
+          <CameraPosition onClick={callbacks.onToolbox} />
+          <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />
+          {props.children}
+        </Overlay>
       </Canvas>
       <BitPanel {...props} />
     </Wrapper>

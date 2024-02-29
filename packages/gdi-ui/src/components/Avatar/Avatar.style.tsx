@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   background-color: #eee;
   border-radius: 50%;
   background-size: cover;
@@ -35,6 +35,6 @@ export const Inner = styled.div`
   justify-content: center;
   background-size: cover;
   border-radius: 15px;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
 `;

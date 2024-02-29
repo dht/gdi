@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from '@gdi/ui';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -49,5 +50,20 @@ export const Send = styled.button`
     background-color: #444;
     color: #222;
     pointer-events: none;
+  }
+`;
+
+export const Clear = styled(Button)`
+  width: 35px;
+  position: absolute;
+  top: 5px;
+  right: -90px;
+  width: 70px;
+  text-align: center;
+  color: #aaa;
+
+  &:active {
+    position: absolute;
+    top: 5px;
   }
 `;

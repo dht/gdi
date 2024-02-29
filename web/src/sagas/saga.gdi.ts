@@ -80,6 +80,16 @@ export function* fetchBoards() {
   yield put(actions.boards.setAll(obj));
 }
 
+export function* fetchCapabilities() {
+  const response: any = yield* call(instanceLocal.get, boardsRoot + '/allCapabilities.json');
+  yield put(actions.capabilities.setAll(response.data));
+}
+
+export function* fetchApiProviders() {
+  const response: any = yield* call(instanceLocal.get, boardsRoot + '/allApiProviders.json');
+  yield put(actions.apiProviders.setAll(response.data));
+}
+
 export function* fetchAssistants() {
   const response: any = yield* call(instanceLocal.get, boardsRoot + '/allAssistants.json');
 
@@ -170,6 +180,8 @@ export function* root() {
   yield* fork(trackAuth);
   yield* fork(bootstrapAdapters);
   yield* fork(fetchBoards);
+  yield* fork(fetchCapabilities);
+  yield* fork(fetchApiProviders);
   yield* fork(fetchAssistants);
   yield* fork(os);
   yield* fork(version);

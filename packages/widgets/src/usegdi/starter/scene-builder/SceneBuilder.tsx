@@ -1,6 +1,6 @@
 import { CameraPosition, ElementPosition, Scene } from 'isokit2';
 import React from 'react';
-import { Wrapper } from './SceneBuilder.style';
+import { Overlay, Wrapper } from './SceneBuilder.style';
 import { environment } from './SceneBuilder.environment';
 
 export type SceneBuilderProps = {
@@ -26,9 +26,11 @@ export function SceneBuilder(props: SceneBuilderProps) {
         onToolbox={callbacks.onToolbox}
         freeMove={freeMove}
       />
-      <CameraPosition onClick={callbacks.onToolbox} />
-      <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />
-      {props.children}
+      <Overlay>
+        <CameraPosition onClick={callbacks.onToolbox} />
+        <ElementPosition elementLabels={elementLabels} onClick={callbacks.onToolbox} />
+        {props.children}
+      </Overlay>
     </Wrapper>
   );
 }

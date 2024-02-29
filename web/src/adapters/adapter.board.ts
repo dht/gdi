@@ -33,7 +33,9 @@ export class BoardAdapter implements IBoardAdapter {
 
   fetchBoard() {
     const boardId = this.boardId;
+
     const filePath = `/${boardId.toUpperCase()}/${boardId.toUpperCase()}.json`;
+
     return this.fetchResource(filePath);
   }
 

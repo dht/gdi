@@ -6,15 +6,20 @@ import { invokeEvent } from 'shared-base';
 import classnames from 'classnames';
 import { getSelectedIndex } from './Menu.utils';
 
-export type MenuProps = {};
+export type MenuProps = {
+  minimal?: boolean;
+};
 
-export function Menu(_props: MenuProps) {
+export function Menu(props: MenuProps) {
+  const { minimal } = props;
+  const filteredItems = items.filter((item) => !item.isHidden);
+
   function onClick(item: Json) {
     const { path } = item;
     invokeEvent('nav', { path });
   }
 
-  const selectedIndex = getSelectedIndex(items);
+  const selectedIndex = getSelectedIndex(filteredItems);
 
   function renderItem(item: Json, index: number) {
     const { icon, title } = item;
@@ -26,13 +31,13 @@ export function Menu(_props: MenuProps) {
     return (
       <Item key={item.id} className={className} onMouseDown={() => onClick(item)}>
         <Icon name={icon} />
-        <Title>{title}</Title>
+        {!minimal && <Title>{title}</Title>}
       </Item>
     );
   }
 
   function renderItems() {
-    return items.map((item: Json, index) => renderItem(item, index));
+    return filteredItems.map((item: Json, index) => renderItem(item, index));
   }
   return (
     <Wrapper className='Menu-wrapper' data-testid='Menu-wrapper'>
