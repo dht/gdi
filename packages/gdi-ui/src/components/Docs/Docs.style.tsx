@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import { Container as ContainerBase } from '../base.style';
 
 export const Wrapper = styled.div`
-  flex: 1;
   display: flex;
   font-size: 14px;
-  margin-bottom: 20vh;
-  min-height: 100vh;
+  flex: 1;
+  max-height: calc(100vh - 80px);
 
   &.modal {
     margin-bottom: 0;
@@ -54,7 +53,9 @@ export const Container = styled(ContainerBase)`
 
 export const Left = styled.div`
   width: 300px;
-  position: fixed;
+  position: absolute;
+  max-height: calc(100vh - 220px);
+  overflow-y: hidden;
 
   @media (max-width: 800px) {
     position: relative;
@@ -63,8 +64,9 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  flex: 1;
   margin-left: 300px;
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
 
   @media (max-width: 800px) {
     margin-left: 0;

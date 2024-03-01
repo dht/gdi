@@ -36,4 +36,10 @@ export const items = [
     icon: 'list',
     path: '/account',
   },
+  {
+    id: 'documentation',
+    title: 'Docs',
+    icon: 'description',
+    path: '/docs',
+  },
 ];

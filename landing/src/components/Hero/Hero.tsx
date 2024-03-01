@@ -62,7 +62,7 @@ export function Hero(_props: HeroProps) {
 
       <Comet autoPlay loop playsInline muted>
         <source
-          src='https://raw.githubusercontent.com/dht/gdi-assets/main/videos/comet.webm'
+          src='https://raw.githubusercontent.com/dht/gdi-assets/main/public/videos/comet.webm'
           type='video/webm'
         />
       </Comet>

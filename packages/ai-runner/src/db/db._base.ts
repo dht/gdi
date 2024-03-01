@@ -4,6 +4,7 @@ import { arrayToObject } from '../utils/object';
 export type Scope =
   | 'users'
   | 'keys'
+  | 'credits'
   | 'logs'
   | 'issues'
   | 'userData'

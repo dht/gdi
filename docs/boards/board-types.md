@@ -8,9 +8,9 @@ GDI categorizes its boards into three distinct types, each symbolized by a speci
 | ![shape-circle][circle]     | Continues | Repeatable input-output AI flows |
 | ![shape-triangle][triangle] | Adhoc     | AI flows used as side-tools      |
 
-[line]: https://raw.githubusercontent.com/dht/gdi-assets/main/docs/shape-line.png
-[circle]: https://raw.githubusercontent.com/dht/gdi-assets/main/docs/shape-circle.png
-[triangle]: https://raw.githubusercontent.com/dht/gdi-assets/main/docs/shape-triangle.png
+[line]: https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/shape-line.png
+[circle]: https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/shape-circle.png
+[triangle]: https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/shape-triangle.png
 
 ## Indication
 
@@ -34,4 +34,4 @@ Continuous boards are designed for tasks that involve ongoing refinement and dev
 
 Ad-hoc boards are the most complex and versatile among the three. They integrate LLMs and AI models to provide a comprehensive application experience. For instance, a 3D editor board exemplifies an ad-hoc board, where AI models are dynamically employed as tools within the workflow. The term 'ad-hoc' reflects the flexibility and on-demand use of AI models in these boards.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/docs/3.png" width="500"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/3.png" width="500"/>

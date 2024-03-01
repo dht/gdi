@@ -7,7 +7,7 @@ export type AssetsPageProps = {};
 export function AssetsPage(_props: AssetsPageProps) {
   return (
     <Wrapper className='AssetsPage-wrapper' data-testid='AssetsPage-wrapper'>
-      <Board id='B-009' darkMode />
+      <Board id='B-001' darkMode />
     </Wrapper>
   );
 }

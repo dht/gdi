@@ -10,13 +10,10 @@ export function IssueSubmitted(props: IssueSubmittedProps) {
   const { id = '' } = props;
 
   return (
-    <Wrapper
-      className='IssueSubmitted-wrapper'
-      data-testid='IssueSubmitted-wrapper'
-    >
+    <Wrapper className='IssueSubmitted-wrapper' data-testid='IssueSubmitted-wrapper'>
       <Animation>
         <Lottie
-          url='https://raw.githubusercontent.com/dht/gdi-assets/main/lottie/thank-you.json'
+          url='https://raw.githubusercontent.com/dht/gdi-assets/main/public/lottie/thank-you.json'
           size={530}
         />
       </Animation>

@@ -20,4 +20,4 @@ GDI's flows are capable of invoking multiple AI models from various providers wi
 
 GDI frequently leverages the [OpenAI Assistant API](https://platform.openai.com/docs/assistants/overview) for various tasks. This involves managing assistants, threads, and runs tailored to the specific requirements of each flow.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/docs/16.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/16.png" width="100%"/>

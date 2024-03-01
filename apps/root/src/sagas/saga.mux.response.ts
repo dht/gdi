@@ -3,9 +3,18 @@ import { call, put } from 'saga-ts';
 import { guid4 } from 'shared-base';
 import { invokeTools } from './saga.mux.tools';
 import { get } from 'lodash';
+import { toast } from '@gdi/ui';
 
 export function* parseResponse(response: any) {
-  let { finishReason, content, toolCalls } = response;
+  let { finishReason, content, toolCalls, flagged } = response;
+
+  if (flagged) {
+    toast.show(
+      'Your message was flagged. Please clear the chat and try again.',
+      'error'
+    );
+    return;
+  }
 
   if (finishReason === 'tool_calls') {
     yield call(invokeTools, toolCalls);

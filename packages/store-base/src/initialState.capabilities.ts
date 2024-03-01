@@ -27,28 +27,28 @@ export const capabilities: ICapabilities = {
       {
         id: 'generate_script',
         name: 'Generate a script',
-        boardId: 'B-005',
+        boardId: 'B-002',
       },
       {
         id: 'upload_3D_assets',
         name: 'Upload 3D assets',
-        boardId: 'B-009',
+        boardId: 'B-001',
         isSilent: true,
       },
       {
         id: 'generate_voiceover',
         name: 'Generate voiceover',
-        boardId: 'B-007',
+        boardId: 'B-005',
       },
       {
         id: 'create_scene',
         name: 'Create a scene',
-        boardId: 'B-008',
+        boardId: 'B-006',
       },
       {
         id: 'animate_scene',
         name: 'Animate scene',
-        boardId: 'B-001',
+        boardId: 'B-007',
       },
     ],
   },

@@ -10,10 +10,14 @@ import db from '../db';
 import { midKeys } from '../middlewares/midKeys';
 import { Json } from '../types';
 import { isLocalInstance } from '../utils/globals';
+import { midModeration } from '../middlewares/midModeration';
+import { midCredits } from '../middlewares/midCredits';
 
 export const router = express.Router();
 
 router.use(midKeys);
+router.use(midModeration);
+router.use(midCredits);
 
 router.post('/chat', async (req: any, res) => {
   try {
@@ -52,9 +56,10 @@ router.post('/chat/stream', async (req: any, res) => {
   }
 });
 
-router.post('/image', async (req, res) => {
+router.post('/image', async (req: any, res) => {
   try {
     const { prompt } = req.body;
+
     const response = await openAI.image.image(prompt);
     res.status(200).json({ url: response.data.url });
   } catch (error) {
@@ -63,9 +68,12 @@ router.post('/image', async (req, res) => {
   }
 });
 
-router.post('/speech', async (req, res) => {
+router.post('/speech', async (req: any, res) => {
   try {
     const { text } = req.body;
+
+    req.text = text;
+
     const response: any = await elevenLabs.sockets.stream(req, text, {} as any);
     res.status(200).json({ success: true });
   } catch (error) {
@@ -85,9 +93,10 @@ router.post('/vision', async (req, res) => {
   }
 });
 
-router.post('/eleven', async (req, res) => {
+router.post('/eleven', async (req: any, res) => {
   try {
     const { prompt } = req.body;
+    req.input = prompt;
     const response = await elevenLabs.speech.speech(prompt, {});
     res.status(200).json({ success: true });
   } catch (error) {
@@ -96,9 +105,11 @@ router.post('/eleven', async (req, res) => {
   }
 });
 
-router.post('/flow/prepare', async (req, res) => {
+router.post('/flow/prepare', async (req: any, res) => {
   try {
     const { flow, prompt } = req.body;
+
+    req.input = prompt;
 
     const flowType = get(flow, 'flowConfig.flowType');
     const flowMeta = seedFlowMeta(flowType);
@@ -116,7 +127,7 @@ router.post('/flow/prepare', async (req, res) => {
   }
 });
 
-router.post('/flow/prompt', async (req, res) => {
+router.post('/flow/prompt', async (req: any, res) => {
   try {
     const { boardId, boardIdentifier, prompt, params: promptParams = {} } = req.body;
 

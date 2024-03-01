@@ -76,7 +76,7 @@ export function* loadValuesFromStorage() {
 
 export function* fetchBoards() {
   const response: any = yield* call(instanceLocal.get, boardsRoot + '/allBoards.json');
-  const obj = arrayToObject(response.data);
+  const obj = Array.isArray(response.data) ? arrayToObject(response.data) : response.data;
   yield put(actions.boards.setAll(obj));
 }
 

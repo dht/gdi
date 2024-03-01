@@ -15,6 +15,7 @@ import { capabilities } from './initialState.capabilities';
 export const initialState: IGdiStore = {
   appState: {
     version: '0.0.0',
+    credits: 0,
     assetsRootUrl: '/',
     boardsRootUrl: '/boards',
     docsRootUrl: '/',
@@ -58,7 +59,7 @@ export const initialState: IGdiStore = {
     root: 'mux',
     showRoot: false,
     tsStart: Date.now(),
-    isFullScreen: true,
+    isFullScreen: false,
   },
   currentIds: {
     boardId: '',

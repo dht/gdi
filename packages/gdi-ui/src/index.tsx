@@ -21,6 +21,7 @@ export { ContextBar } from './components/ContextBar/ContextBar';
 export { CostAndDuration } from './components/CostAndDuration/CostAndDuration';
 export { Creatable } from './components/Creatable/Creatable';
 export { CreateAccount } from './components/CreateAccount/CreateAccount';
+export { Credits } from './components/Credits/Credits';
 export { DidYouKnow } from './components/DidYouKnow/DidYouKnow';
 export { Docs } from './components/Docs/Docs';
 export { Drawer } from './components/Drawer/Drawer';

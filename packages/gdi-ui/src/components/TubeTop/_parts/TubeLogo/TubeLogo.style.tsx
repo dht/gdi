@@ -21,7 +21,7 @@ export const Row = styled.div`
 export const Logo = styled.div`
   width: 70px;
   height: 70px;
-  background-image: url(https://raw.githubusercontent.com/dht/gdi-assets/main/icon-gdi-tube.svg);
+  background-image: url(https://raw.githubusercontent.com/dht/gdi-assets/main/public/icons/icon-gdi-tube.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

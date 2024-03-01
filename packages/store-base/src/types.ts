@@ -38,6 +38,7 @@ export type IGdiStore = {
 
 export type IAppState = {
   version: string;
+  credits: number;
   assetsRootUrl: string;
   boardsRootUrl: string;
   docsRootUrl: string;
@@ -540,7 +541,6 @@ export type IBoardInfo = {
   header: string;
   fields: InfoField[];
   tags: string[];
-  order: number;
   supportedResolutions: Json;
   tsVersion: number;
 };

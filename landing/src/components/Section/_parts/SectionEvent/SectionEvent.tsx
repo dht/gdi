@@ -15,7 +15,7 @@ export function SectionEvent(props: SectionEventProps) {
       <Seat />
       <Video autoPlay loop muted playsInline>
         <source
-          src='https://raw.githubusercontent.com/dht/gdi-assets/main/videos/workshop.webm'
+          src='https://raw.githubusercontent.com/dht/gdi-assets/main/public/videos/workshop.webm'
           type='video/webm'
         />
       </Video>

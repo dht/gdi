@@ -2,7 +2,7 @@ import { IBoard } from './types';
 
 export const board: IBoard = {
   id: 'B-001',
-  identifier: 'com.usegdi.3d-ad-creator',
+  identifier: 'com.usegdi.3d-animations',
   version: '0.1.0',
   url: '/boards/B-001',
   flowUrl: '',
@@ -36,7 +36,7 @@ export const board: IBoard = {
     reviewsCount: 0,
     reviews: {},
   },
-  sourceUrl: 'https://github.com/dht/gdi/tree/main/web/public/boards/B-001',
+  sourceUrl: 'https://github.com/dht/gdi/tree/reorg/web/public/boards/B-001',
   npmUrl: 'https://www.npmjs.com/package/@gdi/widgets-starter',
   vscodeUrl: 'https://vscode.dev/github/dht/gdi',
   defaults: {},

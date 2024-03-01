@@ -2,6 +2,7 @@ import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
 import { TopBar } from '@gdi/ui';
 import { useMemo } from 'react';
 import UserMenuContainer from './UserMenu.container';
+import CreditsContainer from './Credits.container';
 
 export type MuxTabsContainerProps = {};
 
@@ -22,6 +23,7 @@ export function MuxTabsContainer(_props: MuxTabsContainerProps) {
 
   return (
     <TopBar tabId={muxTabId} tabs={tabs} onChange={callbacks.onChange}>
+      <CreditsContainer />
       <UserMenuContainer />
     </TopBar>
   );

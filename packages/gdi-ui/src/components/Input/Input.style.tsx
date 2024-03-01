@@ -13,8 +13,9 @@ export const Wrapper = styled.input`
   }
 
   &.dark {
-    background-color: #000;
-    color: #fff;
+    background-color: #111115;
+    color: #ccc;
     outline: none;
+    border: 1px solid #445;
   }
 `;

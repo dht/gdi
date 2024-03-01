@@ -24,7 +24,7 @@ export const vasps: IVASPs = {
     id: 'ma',
     identifier: 'ma-bird',
     vaspType: 'microAnimation',
-    url: 'https://raw.githubusercontent.com/dht/gdi-assets/main/sprites/bird-1.png',
+    url: 'https://raw.githubusercontent.com/dht/gdi-assets/main/public/sprites/bird-1.png',
     values: {
       size: 2,
       toFrame: 3,
@@ -42,7 +42,7 @@ export const vasps: IVASPs = {
     id: 'v1',
     vaspType: 'video',
     identifier: 'video-water',
-    url: 'https://raw.githubusercontent.com/dht/gdi-assets/main/videos/water-2.mp4',
+    url: 'https://raw.githubusercontent.com/dht/gdi-assets/main/public/videos/water-2.mp4',
     type: 'sphere',
     values: {
       diameterX: 9.3,
@@ -63,7 +63,7 @@ export const vasps: IVASPs = {
     id: 'p1',
     vaspType: 'particle',
     identifier: 'particle-1',
-    url: 'https://raw.githubusercontent.com/dht/gdi-assets/main/sprites/smoke.png',
+    url: 'https://raw.githubusercontent.com/dht/gdi-assets/main/public/sprites/smoke.png',
     position: [9, 0, -3.9],
     values: {
       size: 1,

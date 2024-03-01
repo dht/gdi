@@ -16,4 +16,4 @@
 
 - **Playback**: Some boards have the capability to record and replay the output of a FlowRun. A playback is this recorded output, allowing users to share a board's generated content with others.
 
-![500](https://raw.githubusercontent.com/dht/gdi-assets/main/docs/2.png)
+![500](https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/2.png)

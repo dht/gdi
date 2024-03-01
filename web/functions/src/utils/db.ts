@@ -44,6 +44,17 @@ export class FirestoreAdapter implements DBAdapter {
     return this.patchItem(scopedPath, jsonEncoded);
   }
 
+  async getCredits(req: any) {
+    const scopedPath = getScopedPath(req, '', 'credits');
+    const data = await this.getItem(scopedPath);
+    return data.value;
+  }
+
+  async patchCredits(req: any, value: number) {
+    const scopedPath = getScopedPath(req, '', 'credits');
+    return this.patchItem(scopedPath, { value });
+  }
+
   async addLog(req: any, json: Json = {}) {
     const id = guid4();
 

@@ -77,6 +77,7 @@ export function FieldInput(props: FieldProps) {
       autoFocus={autoFocus}
       label={label}
       data-testid={`input-${field.id}`}
+      darkMode
       {...fieldMethods}
     />
   );
@@ -102,6 +103,7 @@ export function FieldSelect(props: FieldProps) {
       data-testid={`input-${field.id}`}
       isDisabled={isDisabled}
       options={options}
+      darkMode
       {...fieldMethods}
     />
   );
@@ -152,6 +154,7 @@ export function FieldEmail(props: FieldProps) {
       autoFocus={autoFocus}
       label={label}
       data-testid={`input-${field.id}`}
+      darkMode
       {...fieldMethods}
     />
   );
@@ -191,6 +194,7 @@ export function FieldPassword(props: FieldProps) {
       label={label}
       placeholder={placeholder}
       data-testid={`input-${field.id}`}
+      darkMode
       {...fieldMethods}
     />
   );
