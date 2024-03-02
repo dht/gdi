@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
   &.minimal {
     max-width: 50px;
     padding: 20px 8px;
+
+    .slogan {
+      display: none;
+    }
   }
 `;
 

@@ -11,7 +11,6 @@ export function Blank(props: BlankProps) {
   return (
     <Wrapper className='Blank-wrapper' data-testid='Blank-wrapper'>
       <Wip />
-
       {showBigWip && <UnderConstruction />}
     </Wrapper>
   );

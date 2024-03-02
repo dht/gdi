@@ -25,9 +25,9 @@ export function SideBar(props: SideBarProps) {
     <Wrapper className={className} data-testid='SideBar-wrapper'>
       <Top>
         <Logo minimal={minimal} onClick={onLogoClick} />
-        <Slogan>Work at the speed of AI</Slogan>
+        <Slogan className='slogan'>Work at the speed of AI</Slogan>
         <Gap />
-        <Icon color='#999' name='map' />
+        {/* <Icon color='#999' name='map' /> */}
       </Top>
       {!minimal && <CommandPalette />}
       <Menu minimal={minimal} />

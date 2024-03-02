@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
-  box-shadow: inset 0 0 5px #e5e5e5;
+  box-shadow: inset 0 0 5px #333;
   text-align: center;
   height: 24px;
   line-height: 24px;

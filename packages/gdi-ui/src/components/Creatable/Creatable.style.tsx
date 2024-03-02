@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
       transition: none;
 
       input {
-        border: 1px solid green;
       }
 
       &:hover {
@@ -42,7 +41,6 @@ export const Wrapper = styled.div`
       }
 
       &.is-focused {
-        border: 1px solid green;
         background-color: var(--bg-secondary);
       }
     }

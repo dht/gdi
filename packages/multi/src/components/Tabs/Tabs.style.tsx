@@ -22,7 +22,7 @@ export const Tab = styled.div`
   user-select: none;
   cursor: pointer;
   position: relative;
-  height: 15px;
+  height: 18px;
   top: 1px;
   background-color: #000;
   box-shadow: inset 2rem 2rem 0 2rem rgba(0, 0, 0, 0.1);

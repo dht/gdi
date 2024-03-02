@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div.attrs<{
   style: React.CSSProperties;
-  backgroundColor?: string;
+  $backgroundColor?: string;
 }>((props) => ({
   style: props.style,
-  backgroundColor: props.backgroundColor ?? '#aaa',
+  $backgroundColor: props.$backgroundColor ?? '#aaa',
 }))`
   position: absolute;
   border: 1px solid rgba(0, 0, 0, 0.3);

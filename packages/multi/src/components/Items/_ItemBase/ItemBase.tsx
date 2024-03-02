@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { MasonryItemProps } from '../../Masonry/Masonry';
-import { Wrapper, Image, ImageOverlay, Images } from './ItemBase.style';
 import classnames from 'classnames';
+import React, { useEffect, useState } from 'react';
 import { IItem } from '../../../types';
+import { MasonryItemProps } from '../../Masonry/Masonry';
+import { Image, ImageOverlay, Images, Wrapper } from './ItemBase.style';
 
 export type ItemBaseProps = MasonryItemProps & {
   item: IItem;
@@ -49,7 +49,6 @@ export function ItemBase(props: ItemBaseProps) {
       return;
     }
 
-    // @ts-expect-error
     return <Image url={imageUrl} className='masonry-image' />;
   }
 
@@ -59,9 +58,8 @@ export function ItemBase(props: ItemBaseProps) {
 
   return (
     <Wrapper
-      style={style}
-      // @ts-expect-error
-      backgroundColor={backgroundColor}
+      style={style ?? {}}
+      $backgroundColor={backgroundColor}
       onMouseDown={onClick}
       onTouchStart={onClick}
       className={className}
@@ -69,7 +67,6 @@ export function ItemBase(props: ItemBaseProps) {
       onMouseOver={() => setShowFull(true)}
     >
       <Images style={styleImages}>
-        {/* @ts-expect-error */}
         <Image url={imageThumbUrl} className='masonry-image' />
         {renderFull()}
       </Images>
