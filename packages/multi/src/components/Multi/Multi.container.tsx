@@ -11,10 +11,11 @@ export type MultiContainerProps = {
   config: IMultiConfig;
   callbacks: IMultiCallbacks;
   data: Json[];
+  darkMode?: boolean;
 };
 
 export function MultiContainer(props: MultiContainerProps) {
-  const { callbacks, config, views, initialView, data } = props;
+  const { callbacks, config, views, initialView, data, darkMode } = props;
 
   const initialState = useMemo(
     () => ({
@@ -22,6 +23,7 @@ export function MultiContainer(props: MultiContainerProps) {
       views,
       activeView: initialView,
       data,
+      darkMode,
     }),
     []
   );

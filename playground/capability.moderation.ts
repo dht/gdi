@@ -8,7 +8,7 @@ init({
 });
 
 const prompt = {
-  nice: ['fuck around'],
+  nice: ['f@ck around'],
 };
 
 const run = async () => {
@@ -18,7 +18,7 @@ const run = async () => {
   res = await moderation.moderate(prompt);
   console.timeEnd('moderation');
 
-  console.log('res.data ->', res);
+  console.log('res.data =>', res);
 };
 
 run();

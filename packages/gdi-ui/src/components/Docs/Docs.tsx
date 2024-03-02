@@ -48,7 +48,7 @@ export function Docs(props: DocsProps) {
       return <div>Error: {error}</div>;
     }
 
-    return <Markdown markdown={docContent ?? ''} mode='dark' />;
+    return <Markdown markdown={docContent ?? ''} />;
   }
 
   function renderMenu() {

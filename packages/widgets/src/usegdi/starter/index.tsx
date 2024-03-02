@@ -6,6 +6,7 @@ import assistantsPanel from './assistants-panel';
 import babylon from './babylon';
 import bitBuilder from './bit-builder';
 import blank from './blank';
+import contacts from './contacts';
 import calendar from './calendar';
 import chat from './chat';
 import claire from './claire';
@@ -85,6 +86,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.calendar': calendar,
   'com.usegdi.starter.chat': chat,
   'com.usegdi.starter.claire': claire,
+  'com.usegdi.starter.contacts': contacts,
   'com.usegdi.starter.debate-workshop': debateWorkshop,
   'com.usegdi.starter.document': document,
   'com.usegdi.starter.document-bootstrap': documentBootstrap,

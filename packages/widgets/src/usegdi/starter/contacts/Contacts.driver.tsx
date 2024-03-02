@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { MuxOverlay, MuxOverlayProps } from './MuxOverlay';
+import { Contacts, ContactsProps } from './Contacts';
 import { BaseComponentDriver } from 'testing-base';
 
-export class MuxOverlayDriver extends BaseComponentDriver {
-    private props: Partial<MuxOverlayProps> = {};
+export class ContactsDriver extends BaseComponentDriver {
+    private props: Partial<ContactsProps> = {};
 
     constructor() {
-        super('MuxOverlay');
+        super('Contacts');
     }
 
     when: any = {
         rendered: () => {
-            render(<MuxOverlay {...(this.props as MuxOverlayProps)} />);
+            render(<Contacts {...(this.props as ContactsProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,12 +20,12 @@ export class MuxOverlayDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<MuxOverlay {...(this.props as MuxOverlayProps)} />);
+            return this.snapshot(<Contacts {...(this.props as ContactsProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<MuxOverlayProps>) => {
+        props: (props: Partial<ContactsProps>) => {
             this.props = props;
             return this;
         },

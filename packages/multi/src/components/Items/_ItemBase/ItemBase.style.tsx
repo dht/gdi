@@ -9,7 +9,7 @@ export const Wrapper = styled.div.attrs<{
 }))`
   position: absolute;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 5rem;
+  border-radius: 5px;
   overflow: hidden;
 
   &:hover {

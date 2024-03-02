@@ -13,6 +13,7 @@
     "root.keys",
     "root.home",
     "root.issues",
+    "root.tabs",
     "root.newBoard",
     "root.settings",
     "boards.api",

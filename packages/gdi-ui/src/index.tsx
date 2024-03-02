@@ -42,6 +42,7 @@ export { GdiIntro } from './components/GdiIntro/GdiIntro';
 export { GenericTable } from './components/GenericTable/GenericTable';
 export { History } from './components/History/History';
 export { Icon } from './components/Icon/Icon';
+export { IconGrid } from './components/IconGrid/IconGrid';
 export { ImageViewer } from './components/ImageViewer/ImageViewer';
 export { Input } from './components/Input/Input';
 export { IssueSubmitted } from './components/IssueSubmitted/IssueSubmitted';

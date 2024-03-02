@@ -55,3 +55,19 @@ export const $capabilityTabs = createSelector($capability, (capability) => {
 
   return arrayToObject(arr, 'id');
 });
+
+export const $previousTab = createSelector(
+  raw.$rawMuxTabs,
+  raw.$rawCurrentIds,
+  (tabs, currentIds) => {
+    const { muxTabId } = currentIds;
+
+    const arr = Object.values(tabs);
+
+    const index = arr.findIndex((tab) => tab.id === muxTabId);
+    const previousIndex = index - 1;
+    const previousTab = arr[previousIndex];
+
+    return previousTab;
+  }
+);

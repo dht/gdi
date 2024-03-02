@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import MuxOverlayContainer from '../components/MuxOverlay/MuxOverlay.container';
 import { pages } from '../pages';
 
 export type RootPageProps = {};
@@ -10,6 +9,8 @@ export function RootPage(_props: RootPageProps) {
     <Wrapper className='RootPage-wrapper' data-testid='RootPage-wrapper'>
       <Routes>
         <Route path='/' element={<pages.mux />} />
+        <Route path='/browse/:id' element={<pages.details />} />
+        <Route path='/boards/:id' element={<pages.board />} />
         <Route path='/account' element={<pages.account />} />
         <Route path='/capabilities' element={<pages.capabilities />} />
         <Route path='/assets' element={<pages.assets />} />
@@ -24,7 +25,6 @@ export function RootPage(_props: RootPageProps) {
         <Route path='/report-issue' element={<pages.reportIssue />} />
         <Route path='/terms-of-use' element={<pages.termsOfUse />} />
       </Routes>
-      <MuxOverlayContainer />
     </Wrapper>
   );
 }

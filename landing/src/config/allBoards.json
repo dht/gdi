@@ -95,12 +95,12 @@
     }
   },
   {
-    "id": "B-023",
+    "id": "{boardId}",
     "boardInfo": {
       "name": "Books",
       "imageUrl": "/images/boards/i_books.jpg",
       "description": "Discover, track, and recommend books with the Books. This platform offers personalized book tracking, reading progress monitoring, and intelligent book recommendations based on your preferences. Whether you're an avid reader or looking for your next great read, Books enriches your reading experience and fosters a vibrant community of book enthusiasts.",
-      "videoThumbUrl": "/images/boards/B-023.mp4",
+      "videoThumbUrl": "/images/boards/{boardId}.mp4",
       "videoUrl": ""
     }
   },

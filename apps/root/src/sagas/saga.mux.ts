@@ -2,7 +2,7 @@ import { runFunction } from '@gdi/firebase';
 import { actions, selectors } from '@gdi/store-base';
 import { toast } from '@gdi/ui';
 import { call, delay, fork, put, select, takeEvery } from 'saga-ts';
-import { guid4, invokeEvent } from 'shared-base';
+import { guid4, invokeEvent, setBoolean } from 'shared-base';
 import { customEvenChannel } from './channels/channel.customEvent';
 import { firestoreFlowChannel } from './channels/channel.firebase';
 import { parseResponse } from './saga.mux.response';
@@ -13,14 +13,8 @@ export function* clear() {
   yield* put(actions.messages.setAll({}));
   yield* put(actions.currentIds.patch({ capabilityId: '' }));
   invokeEvent('mux/content', { content: '' });
-  yield put(
-    actions.muxTabs.setAll({
-      home: {
-        id: 'home',
-        name: 'Home',
-      },
-    })
-  );
+
+  yield* put({ type: 'TABS', verb: 'clearAll' });
 }
 
 export function* mux(ev: any) {
@@ -83,7 +77,9 @@ export function* onToggleFullscreen() {
   const appState = yield* select(selectors.raw.$rawAppState);
   const { isFullScreen } = appState;
 
-  yield put(actions.appState.patch({ isFullScreen: !isFullScreen }));
+  const nextValue = !isFullScreen;
+  yield put(actions.appState.patch({ isFullScreen: nextValue }));
+  setBoolean('fullscreen', nextValue);
 }
 
 export function* onStart() {
@@ -91,23 +87,11 @@ export function* onStart() {
 
   if (!capability) return;
 
-  toast.show('Starting workflow', 'info');
-
   const tabs = yield* select(selectors.mux.$capabilityTabs);
 
-  yield put(
-    actions.muxTabs.setAll({
-      home: {
-        id: 'home',
-        name: 'Home',
-      },
-      ...tabs,
-    })
-  );
+  yield put({ type: 'TABS', verb: 'loadCapability', payload: { tabs } });
 
-  yield delay(100);
-
-  invokeEvent('tabs/setActive', { id: Object.keys(tabs)[0] });
+  toast.show('Starting workflow', 'info');
 }
 
 export function* root() {

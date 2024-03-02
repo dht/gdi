@@ -5,8 +5,12 @@ export const Wrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin-bottom: 100px;
   font-size: 14px;
+  background-color: white;
+  color: #333;
+  padding: 0 40px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
 `;
 
 export const Content = styled.div`

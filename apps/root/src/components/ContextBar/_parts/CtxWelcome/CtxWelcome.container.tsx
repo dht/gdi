@@ -11,12 +11,16 @@ export function CtxWelcomeContainer(_props: CtxWelcomeContainerProps) {
 
   const callbacks = useMemo(
     () => ({
-      onClick: () => {},
+      onIconClick: (item: Json) => {
+        dispatch({ type: 'TABS', verb: 'add', payload: { item } });
+      },
     }),
     []
   );
 
-  return <CtxWelcome is24Hours={is24Hours} />;
+  return (
+    <CtxWelcome is24Hours={is24Hours} onIconClick={callbacks.onIconClick} />
+  );
 }
 
 export default CtxWelcomeContainer;

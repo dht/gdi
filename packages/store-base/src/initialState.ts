@@ -11,6 +11,7 @@ import { sagas } from './initialState.sagas';
 import { voices } from './initialState.voices';
 import { apiProviders } from './initialState.apiProviders';
 import { capabilities } from './initialState.capabilities';
+import { getBoolean } from 'shared-base';
 
 export const initialState: IGdiStore = {
   appState: {
@@ -59,7 +60,7 @@ export const initialState: IGdiStore = {
     root: 'mux',
     showRoot: false,
     tsStart: Date.now(),
-    isFullScreen: false,
+    isFullScreen: getBoolean('fullscreen'),
   },
   currentIds: {
     boardId: '',

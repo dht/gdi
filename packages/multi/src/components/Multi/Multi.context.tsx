@@ -7,6 +7,7 @@ const initialState: IMultiState = {
   views: [],
   activeView: 'masonry',
   data: [],
+  darkMode: true,
 };
 
 const callbacks = {

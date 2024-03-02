@@ -1,9 +1,7 @@
 import { useMemo } from 'react';
-import BoardDetailsPage from './BoardDetailsPage';
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import { Loader } from '@gdi/ui';
+import { Loader, BoardDetailsPage } from '@gdi/ui';
 import { useParams } from 'react-router-dom';
-import { ActionHome } from '../../sagas/saga.home';
 
 export type BoardDetailsPageContainerProps = {};
 
@@ -19,7 +17,7 @@ export function BoardDetailsPageContainer(
     return boards.find((board: any) => board.id === id) as Json;
   }, [id, boards]);
 
-  const onAction = (action: ActionHome) => {
+  const onAction = (action: any) => {
     dispatch(action);
   };
 

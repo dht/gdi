@@ -3,10 +3,10 @@ import { ITab } from './Tabs.types';
 
 export const tabNames: Json = {
   jsonEditor: 'Json',
-  masonry: 'Masonry',
-  spreadsheet: 'Spreadsheet',
+  masonry: 'Gallery',
+  sheet: 'Sheet',
   table: 'Table',
-  board: 'Board',
+  lanes: 'Lanes',
 };
 
 export const getTabs = (tabIds: string[] = []) => {

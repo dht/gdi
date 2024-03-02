@@ -1,3 +1,5 @@
+import BoardContainer from '../containers/Board.container';
+import BoardDetailsPageContainer from '../containers/BoardDetailsPage.container';
 import { AccountPageContainer } from '../groups/AccountPage/AccountPage.container';
 import { AssetsPageContainer } from '../groups/AssetsPage/AssetsPage.container';
 import { CapabilitiesPageContainer } from '../groups/CapabilitiesPage/CapabilitiesPage.container';
@@ -34,4 +36,6 @@ export const pages = {
   flows: FlowsPageContainer,
   logs: LogsPageContainer,
   history: HistoryPageContainer,
+  details: BoardDetailsPageContainer,
+  board: BoardContainer,
 };

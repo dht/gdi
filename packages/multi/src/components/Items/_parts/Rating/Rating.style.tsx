@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
 
 export const Stars = styled.div`
   position: relative;
-  width: 150rem;
-  height: 30rem;
+  width: 150px;
+  height: 30px;
 `;
 
 export const Star = styled.div``;
@@ -30,7 +30,7 @@ export const Full = styled.div`
   top: 0;
   left: 0;
   display: flex;
-  width: 50rem;
+  width: 50px;
   overflow: hidden;
   flex-direction: row;
   align-items: center;
@@ -38,10 +38,10 @@ export const Full = styled.div`
 `;
 
 export const Votes = styled.div`
-  margin-top: 5rem;
-  margin-left: 10rem;
-  height: 30rem;
-  line-height: 30rem;
+  margin-top: 5px;
+  margin-left: 10px;
+  height: 30px;
+  line-height: 30px;
   opacity: 0.5;
-  font-size: 16rem;
+  font-size: 16px;
 `;

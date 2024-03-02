@@ -1,11 +1,12 @@
 import React from 'react';
 import { Stats, Wrapper } from './CtxWelcome.style';
 import { WelcomeTime } from '../WelcomeTime/WelcomeTime';
-import { JsonGrid } from '@gdi/ui';
-import { data } from './CtxWelcome.data';
+import { IconGrid, JsonGrid } from '@gdi/ui';
+import { data, icons } from './CtxWelcome.data';
 
 export type CtxWelcomeProps = {
   is24Hours: boolean;
+  onIconClick: (icon: Json) => void;
 };
 
 export function CtxWelcome(props: CtxWelcomeProps) {
@@ -16,6 +17,7 @@ export function CtxWelcome(props: CtxWelcomeProps) {
       <Stats>
         <JsonGrid data={data} />
       </Stats>
+      <IconGrid icons={icons} onClick={props.onIconClick} />
     </Wrapper>
   );
 }

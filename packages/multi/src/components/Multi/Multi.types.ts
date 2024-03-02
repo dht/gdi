@@ -6,8 +6,8 @@ import { ITableConfig } from '../Table/Table.types';
 import { ITrelloConfig } from '../Trello/Trello.types';
 
 export type IMultiConfig = Partial<{
-  spreadsheet: ISpreadsheetConfig;
-  board: ITrelloConfig;
+  sheet: ISpreadsheetConfig;
+  lanes: ITrelloConfig;
   table: ITableConfig;
   masonry: IMasonryConfig;
   jsonEditor: IJsonEditorConfig;
@@ -19,6 +19,7 @@ export type IMultiState = {
   activeView: IMultiView;
   isReady?: boolean;
   data: Json[];
+  darkMode?: boolean;
 };
 
 export type IMultiCallbacks = IContextCallbacks & {};
@@ -27,4 +28,4 @@ export type IMultiContext = IContext<IMultiState, IMultiCallbacks>;
 
 export type IMultiProps = IContextProviderProps<IMultiState, IMultiCallbacks>;
 
-export type IMultiView = 'spreadsheet' | 'board' | 'table' | 'masonry' | 'jsonEditor';
+export type IMultiView = 'sheet' | 'lanes' | 'table' | 'masonry' | 'jsonEditor';

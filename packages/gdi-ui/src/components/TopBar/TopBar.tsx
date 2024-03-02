@@ -9,6 +9,7 @@ export type TopBarProps = {
   tabs: Json[];
   tabId: string;
   onChange: (tab: string) => void;
+  onClose: (tab: string) => void;
   children?: React.ReactNode;
 };
 
@@ -23,12 +24,25 @@ export function TopBar(props: TopBarProps) {
     invokeEvent('fullscreen/toggle');
   }
 
+  function onClose() {
+    invokeEvent('tab/close', { tabId });
+  }
+
+  function renderClose() {
+    if (tabs.length === 1 || tabId === 'home') {
+      return null;
+    }
+
+    return <Icon color='#777' name='close' onClick={onClose} />;
+  }
+
   return (
     <Wrapper className='TopBar-wrapper' data-testid='TopBar-wrapper'>
       <Container row>
         <Tabs>{renderTabs()}</Tabs>
         <Actions>
           <Action>
+            {renderClose()}
             <Icon color='#777' name='fullscreen' onClick={onFullScreen} />
           </Action>
           {props.children}

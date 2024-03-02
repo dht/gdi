@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.h2`
   font-weight: 200;
-  font-size: 22rem;
+  font-size: 22px;
   user-select: none;
   padding: 10px 5px;
   margin: 0 0 5px;

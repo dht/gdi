@@ -39,7 +39,7 @@ export function Gallery(props: GalleryProps) {
 
     return (
       <Item style={style}>
-        <GalleryItem board={data} onClick={() => {}} />
+        <GalleryItem board={data} onClick={() => props.onClick(data)} />
       </Item>
     );
   }

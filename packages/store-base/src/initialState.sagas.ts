@@ -117,6 +117,13 @@ export const sagas: ISagas = {
       actionTypes: ['HOME'],
     },
   },
+  'root.tabs': {
+    id: 'root.tabs',
+    type: 'entity',
+    trigger: {
+      actionTypes: ['TABS'],
+    },
+  },
   'root.issues': {
     id: 'root.issues',
     type: 'customEvent',

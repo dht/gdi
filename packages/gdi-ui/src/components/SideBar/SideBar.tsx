@@ -1,5 +1,5 @@
 import { Icon } from '@gdi/ui';
-import { Top, Wrapper } from './SideBar.style';
+import { Gap, Slogan, Top, Wrapper } from './SideBar.style';
 import Logo from './_parts/Logo/Logo';
 import { CommandPalette } from './_parts/CommandPalette/CommandPalette';
 import { Menu } from './_parts/Menu/Menu';
@@ -25,7 +25,9 @@ export function SideBar(props: SideBarProps) {
     <Wrapper className={className} data-testid='SideBar-wrapper'>
       <Top>
         <Logo minimal={minimal} onClick={onLogoClick} />
-        {/* <Icon color='#999' name='map' /> */}
+        <Slogan>Work at the speed of AI</Slogan>
+        <Gap />
+        <Icon color='#999' name='map' />
       </Top>
       {!minimal && <CommandPalette />}
       <Menu minimal={minimal} />

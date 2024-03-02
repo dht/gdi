@@ -19,3 +19,16 @@ export const Top = styled.div`
   padding-left: 10px;
   margin-bottom: 30px;
 `;
+
+export const Gap = styled.div`
+  flex: 1;
+`;
+
+export const Slogan = styled.div`
+  opacity: 0.4;
+  width: 60px;
+  position: relative;
+  font-size: 11px;
+  top: -1.5px;
+  left: -20px;
+`;

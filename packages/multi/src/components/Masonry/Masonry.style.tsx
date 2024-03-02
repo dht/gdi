@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   display: flex;
+  background-color: #1e1e2e;
 `;
 
 export const Content = styled.div`

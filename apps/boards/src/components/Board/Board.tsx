@@ -15,12 +15,12 @@ export type BoardProps = {
   };
 };
 
-const config = {
-  darkMode: true,
-};
-
 export function Board(props: BoardProps) {
   const { board, darkMode, flavour, columnIndex, callbacks } = props;
+
+  const config = {
+    darkMode,
+  };
 
   const name = get(board, 'boardInfo.name');
   const logoColor = get(board, 'boardInfo.logoColor');

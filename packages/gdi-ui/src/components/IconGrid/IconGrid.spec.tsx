@@ -1,13 +1,13 @@
-import { MuxOverlayDriver } from './MuxOverlay.driver';
+import { IconGridDriver } from './IconGrid.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('MuxOverlay', () => {
-    let driver: MuxOverlayDriver;
+describe('IconGrid', () => {
+    let driver: IconGridDriver;
 
     beforeAll(() => {
-        driver = new MuxOverlayDriver();
+        driver = new IconGridDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('MuxOverlay', () => {
         const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(wrapperClassName).toContain('MuxOverlay-wrapper');
+        expect(wrapperClassName).toContain('IconGrid-wrapper');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('MuxOverlay', () => {
     });
 });
 
-describe('MuxOverlay snapshots', () => {
-    let driver: MuxOverlayDriver;
+describe('IconGrid snapshots', () => {
+    let driver: IconGridDriver;
 
     beforeAll(() => {
-        driver = new MuxOverlayDriver();
+        driver = new IconGridDriver();
     });
 
     it('should match snapshot', () => {

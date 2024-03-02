@@ -39,9 +39,7 @@ function* api() {
 }
 
 export function* root() {
-  console.time('auth');
   yield call(auth);
-  console.timeEnd('auth');
   yield* fork(api);
 }
 
