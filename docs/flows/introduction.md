@@ -20,6 +20,6 @@ In the GDI user interface, flows are represented through a specific Flow compone
 
 This graphical representation enhances the user's understanding and control over the flow, making the process transparent and manageable.
 
-![Flow Component Visualization](https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/flow.png)
+![Flow Component Visualization](https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/flow.png)
 
 The above image is an example of how a Flow component might appear within a GDI board, illustrating the detailed and user-friendly interface design that characterizes GDI's approach.

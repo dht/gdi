@@ -66,4 +66,4 @@ Interface in this category may enable the user to :
 
 In essence this category is about creating a multi agent system where the orchestration and integration is done by the user.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/5.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/5.png" width="100%"/>

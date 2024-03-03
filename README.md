@@ -7,7 +7,7 @@
 - [Website](https://usegdi.com)
 - [Documentation](https://usegdi.com/docs#introduction/about.md)
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/screenshot.jpg" width="500"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/screenshot.jpg" width="500"/>
 
 # Installation
 

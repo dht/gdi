@@ -1,7 +1,7 @@
 export const cards = [
   {
     id: 'video1',
-    imageUrl: 'https://raw.githubusercontent.com/dht/gdi-assets/main/images/mq2.webp',
+    imageUrl: 'https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/mq2.webp',
     iconUrl: '/logo.svg',
     title: 'ModelZ',
     author: 'gdi',

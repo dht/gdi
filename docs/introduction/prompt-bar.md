@@ -2,7 +2,7 @@
 
 At the bottom of the screen is the prompt bar, a universal input area that allows users to interact with the GDI ecosystem. It is designed to be a central hub for user interactions, providing a consistent and intuitive experience across boards.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/prompt-bar.png" width="500"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/prompt-bar.png" width="500"/>
 
 Its common elements include:
 
@@ -14,7 +14,7 @@ Its common elements include:
 
 At the right side of the prompt bar is the tag selection button:
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/tag-selection.png" width="100"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/tag-selection.png" width="100"/>
 
 When you click it a tag selector will appear. The first tag you enter will be the project tag followed by any other tags you want to add. Each time you save an asset in any board on GDI, it will be tagged with all the tags you entered in the tag selector.
 
@@ -26,4 +26,4 @@ Project tags are used to organize assets by project. For example, if you are wor
 
 This contextual tagging system makes it easy to switch between projects and focus on the task at hand.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/18.png" width="500"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/18.png" width="500"/>

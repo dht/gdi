@@ -13,4 +13,4 @@ We start by finding GUI-oriented ways to simplify complex and repetitive tasks i
 
 Our goal is not just to answer the question, "What will the user interfaces of the AI era look like?" but to actively define and create this future. GDI is dedicated to continuously redefining what is possible in the AI era.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/1.png" width="500"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/1.png" width="500"/>
