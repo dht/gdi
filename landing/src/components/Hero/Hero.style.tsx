@@ -164,17 +164,22 @@ export const Noun = styled.div`
 `;
 
 export const Comet = styled.video`
-  position: absolute;
-  bottom: 0;
+  position: fixed;
   right: 0;
+  top: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   z-index: -1;
-  opacity: 0.2;
-  display: none;
+  opacity: 0.1;
 
   @media (max-width: 768px) {
-    display: block;
+    position: absolute;
+    object-fit: cover;
+    top: unset;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
   }
 `;

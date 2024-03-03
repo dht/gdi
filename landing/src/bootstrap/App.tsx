@@ -8,6 +8,7 @@ import { Json } from '../types';
 import { isMobile } from '../utils/mobile';
 import MenuMobile from '../components/MenuMobile/MenuMobile';
 import { menuData } from '../data/data.menu';
+import { allData } from '../config/configs.data';
 
 export const App = () => {
   function onSelect(item: Json) {
@@ -35,7 +36,7 @@ export const App = () => {
   return (
     <Wrapper>
       <Top />
-      <Hero />
+      <Hero data={allData.hero} />
       {renderSections()}
       <Footer />
       {renderMobileMenu()}

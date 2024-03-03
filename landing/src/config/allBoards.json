@@ -3,9 +3,9 @@
     "id": "B-001",
     "boardInfo": {
       "name": "3D Ad Creator",
-      "imageUrl": "/images/boards/z_3d.jpg",
+      "imageUrl": "/assets/images/boards/z_3d.jpg",
       "description": "3D Ad Creator redefines digital advertising by enabling the creation of immersive 3D video ads with ease. Leveraging advanced AI technology, it allows both novices and professionals to craft engaging content effortlessly. This tool transforms ad creation into an intuitive and rewarding experience, ensuring your message captivates and resonates with audiences.",
-      "videoThumbUrl": "/images/boards/B-001.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-001.mp4",
       "videoUrl": "https://www.youtube.com/embed/c7jAhBZgZuI"
     }
   },
@@ -13,7 +13,7 @@
     "id": "B-003",
     "boardInfo": {
       "name": "Image Generator",
-      "imageUrl": "/images/boards/z_paint.jpg",
+      "imageUrl": "/assets/images/boards/z_paint.jpg",
       "description": "Image Generator simplifies the task of creating AI-generated visuals. Designed for developers and users of all skill levels, it offers an intuitive interface for crafting high-quality images. Utilize state-of-the-art generative AI to produce visuals ranging from practical designs to creative explorations. This tool streamlines the process of transforming your ideas into stunning visuals, ideal for projects requiring unique, AI-generated imagery.",
       "videoUrl": "https://www.youtube.com/embed/W2fnrmo0MOM"
     }
@@ -22,9 +22,9 @@
     "id": "B-007",
     "boardInfo": {
       "name": "Voice Studio",
-      "imageUrl": "/images/boards/z_soundboard.jpg",
+      "imageUrl": "/assets/images/boards/z_soundboard.jpg",
       "description": "VoiceStudio is a utility board designed to supply other boards with high-quality speech. It offers a straightforward and versatile toolset for recording and editing voiceovers, suitable for a variety of applications like narration, podcasting, and audio books. VoiceStudio's user-friendly interface makes it accessible for all skill levels, allowing for the creation of clear, engaging voiceovers without the complexity of professional audio software. It supports API-agnostic operations, seamlessly integrating with both OpenAI and ElevenLabs APIs.",
-      "videoThumbUrl": "/images/boards/B-007.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-007.mp4",
       "videoUrl": "https://www.youtube.com/embed/B2IChuPGMok"
     }
   },
@@ -32,45 +32,45 @@
     "id": "B-011",
     "boardInfo": {
       "name": "Vision Simulator",
-      "imageUrl": "/images/boards/b_2.jpg",
+      "imageUrl": "/assets/images/boards/b_2.jpg",
       "description": "Vision Pro Simulator is a cutting-edge board designed to provide users with a simulated experience of the Apple Vision Pro spatial computing headset. This advanced simulator offers a realistic environment for users to explore the features and functionalities of the Vision Pro headset without the need for physical hardware. With its immersive simulations and interactive interface, Vision Pro Simulator serves as a valuable tool for developers, designers, and enthusiasts looking to understand the capabilities of Apple's innovative spatial computing technology.\n\nExplore the potential of spatial computing through lifelike simulations and interactive scenarios. Vision Pro Simulator offers a seamless experience, allowing users to experiment with spatial mapping, gesture recognition, and immersive AR experiences. Whether you're a seasoned developer or a curious enthusiast, Vision Pro Simulator provides a unique platform to grasp the possibilities offered by the Vision Pro headset.\n\nWith over 5,000 installations and a stellar rating of 4.8, Vision Pro Simulator has garnered praise for its accuracy and user-friendly interface. Take a step into the future of spatial computing and unlock the potential of the Apple Vision Pro headset right at your fingertips!",
-      "videoThumbUrl": "/images/boards/B-011.mp4"
+      "videoThumbUrl": "/assets/images/boards/B-011.mp4"
     }
   },
   {
     "id": "B-012",
     "boardInfo": {
       "name": "Spotlight",
-      "imageUrl": "/images/boards/b_0.jpg",
+      "imageUrl": "/assets/images/boards/b_0.jpg",
       "description": "Spotlight is a powerful board that generates a 30-second 3D advertisement based on user-provided prompts. With its advanced AI-driven engine, Spotlight is capable of crafting captivating promotional content with dynamic camera movements, scripted voiceovers, and immersive visuals. This innovative tool opens up a world of creative possibilities for businesses and individuals seeking high-quality promotional material.\n\nLeverage the creative potential of Spotlight to bring your ideas to life. Whether it's for product launches, marketing campaigns, or social media promotions, Spotlight offers a seamless solution for generating engaging 3D advertisements. From vibrant visuals to compelling narratives, the 30-second ad produced by Spotlight is tailor-made to captivate audiences and drive engagement.\n\nEmpower your promotional efforts with Spotlight's intuitive interface and customizable options. Witness your vision come to life as Spotlight crafts a stunning 3D advertisement that reflects your unique brand identity and messaging. Release the power of compelling 3D ads and elevate your promotional strategies with the unparalleled capabilities of Spotlight!",
-      "videoThumbUrl": "/images/boards/B-012.mp4"
+      "videoThumbUrl": "/assets/images/boards/B-012.mp4"
     }
   },
   {
     "id": "B-013",
     "boardInfo": {
       "name": "GDI Tube",
-      "imageUrl": "/images/boards/c0.jpg",
+      "imageUrl": "/assets/images/boards/c0.jpg",
       "description": "GDI Tube is a board where you can experience real-time generated videos crafted with AI-powered assets. Explore a diverse range of videos powered by the BabylonJS 3d Engine, offering captivating and engaging content for viewers of all interests. From educational animations to visually stunning art pieces, GDITube offers an unparalleled viewing experience like never before.\n\nWith its user-friendly interface and intuitive functionality, GDITube ensures an immersive and seamless experience for both content creators and viewers. Whether you are looking for educational content or entertainment, GDITube has something for everyone. Boasting over 100,000 video uploads and a stellar rating of 4.8, GDITube has become a trusted platform for AI-generated content, providing flawless support for multiple resolutions. Experience the future of video content creation and consumption with GDITube!",
-      "videoThumbUrl": "/images/boards/B-013.mp4"
+      "videoThumbUrl": "/assets/images/boards/B-013.mp4"
     }
   },
   {
     "id": "B-015",
     "boardInfo": {
       "name": "Claire",
-      "imageUrl": "/images/boards/c1.jpg",
+      "imageUrl": "/assets/images/boards/c1.jpg",
       "description": "Claire is your personal AI assistant designed to control IoT devices in your apartment and provide real-time sensor information from IoT sensors located throughout the living space. Whether you want to adjust the smart thermostat, dim the lights, or receive updates on environmental conditions, Claire offers a convenient and efficient solution for managing your home environment.\n\nWith its user-friendly interface and intuitive functionality, Claire ensures seamless control and access to sensor data, empowering you to create a comfortable and personalized living space. Interact with Claire to monitor and optimize your home environment for sustainability, comfort, and security. With support for a wide range of IoT devices and sensors, Claire is the ultimate assistant for modern, connected living.",
-      "videoThumbUrl": "/images/boards/B-015.mp4"
+      "videoThumbUrl": "/assets/images/boards/B-015.mp4"
     }
   },
   {
     "id": "B-020",
     "boardInfo": {
       "name": "TDD Studio",
-      "imageUrl": "/images/boards/d_tdd.jpg",
+      "imageUrl": "/assets/images/boards/d_tdd.jpg",
       "description": "Improve your Test-Driven Development (TDD) skills with the TDD Studio board. Streamline the process of writing simple input-output algorithms by constructing pure functions and validating their accuracy through test-case evaluation. Master TDD by efficiently composing tests, providing input-output pairs, and iteratively refining implementations for optimal outcomes.",
-      "videoThumbUrl": "/images/boards/B-020.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-020.mp4",
       "videoUrl": ""
     }
   },
@@ -78,9 +78,9 @@
     "id": "B-021",
     "boardInfo": {
       "name": "Periscope",
-      "imageUrl": "/images/boards/d3.jpg",
+      "imageUrl": "/assets/images/boards/d3.jpg",
       "description": "Gain comprehensive insights with Periscope. Explore diverse perspectives, uncover information, and find varying opinions on a particular focus. Seamlessly shift through different angles and narratives to gain a multifaceted understanding of the subject, supported by varied sources, videos, and imagery.",
-      "videoThumbUrl": "/images/boards/B-021.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-021.mp4",
       "videoUrl": ""
     }
   },
@@ -88,9 +88,9 @@
     "id": "B-022",
     "boardInfo": {
       "name": "Debater's Workshop",
-      "imageUrl": "/images/boards/d0.jpg",
+      "imageUrl": "/assets/images/boards/d0.jpg",
       "description": "Develop your critical thinking skills with education centered on logical fallacies, rhetoric, and information analysis. Learn through practical examples and diverse methods that empower you to recognize, evaluate, and respond to different forms of reasoning and argumentation in an informed and analytical manner.",
-      "videoThumbUrl": "/images/boards/B-022.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-022.mp4",
       "videoUrl": ""
     }
   },
@@ -98,9 +98,9 @@
     "id": "{boardId}",
     "boardInfo": {
       "name": "Books",
-      "imageUrl": "/images/boards/i_books.jpg",
+      "imageUrl": "/assets/images/boards/i_books.jpg",
       "description": "Discover, track, and recommend books with the Books. This platform offers personalized book tracking, reading progress monitoring, and intelligent book recommendations based on your preferences. Whether you're an avid reader or looking for your next great read, Books enriches your reading experience and fosters a vibrant community of book enthusiasts.",
-      "videoThumbUrl": "/images/boards/{boardId}.mp4",
+      "videoThumbUrl": "/assets/images/boards/{boardId}.mp4",
       "videoUrl": ""
     }
   },
@@ -108,9 +108,9 @@
     "id": "B-024",
     "boardInfo": {
       "name": "Contacts",
-      "imageUrl": "/images/boards/i_contacts.jpg",
+      "imageUrl": "/assets/images/boards/i_contacts.jpg",
       "description": "Efficiently organize and manage your contacts with Contacts. This versatile tool is designed to streamline the process of storing, accessing, and updating contact information. From personal connections to professional networks, Contacts simplifies contact management for enhanced productivity and connectivity.",
-      "videoThumbUrl": "/images/boards/B-024.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-024.mp4",
       "videoUrl": ""
     }
   },
@@ -118,9 +118,9 @@
     "id": "B-025",
     "boardInfo": {
       "name": "Express Debugger",
-      "imageUrl": "/images/boards/i_debugger.jpg",
+      "imageUrl": "/assets/images/boards/i_debugger.jpg",
       "description": "Visualize the architecture and request flow of your Express.js application. Gain insights into the application's structure and request handling process.",
-      "videoThumbUrl": "/images/boards/B-025.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-025.mp4",
       "videoUrl": ""
     }
   },
@@ -128,9 +128,9 @@
     "id": "B-026",
     "boardInfo": {
       "name": "Documents",
-      "imageUrl": "/images/boards/i_docs.jpg",
+      "imageUrl": "/assets/images/boards/i_docs.jpg",
       "description": "Empower collaboration and productivity with Documents. This versatile tool revolutionizes document creation and editing, offering a user-friendly interface, real-time collaborative features, and seamless integration with cloud storage. Whether it's drafting reports, creating presentations, or editing spreadsheets, Documents enhances workflow efficiency for individuals and teams.",
-      "videoThumbUrl": "/images/boards/B-026.mp4",
+      "videoThumbUrl": "/assets/images/boards/B-026.mp4",
       "videoUrl": ""
     }
   }

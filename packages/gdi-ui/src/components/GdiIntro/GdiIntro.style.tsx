@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 24rem;
-  max-width: 585rem;
+  max-width: 785rem;
   padding: 0 10rem;
 
   @media (max-width: 800px) {
@@ -17,8 +17,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.div`
-  height: 260px;
-  width: 585rem;
+  height: 400px;
+  width: 785rem;
   display: flex;
 
   @media (max-width: 800px) {

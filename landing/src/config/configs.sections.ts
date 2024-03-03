@@ -4,7 +4,7 @@ export const sections = [
     type: 'event',
   },
   {
-    id: 'gpt',
+    id: 'realm',
     type: 'twoLines',
   },
   {
@@ -12,7 +12,7 @@ export const sections = [
     type: 'screenshot',
   },
   {
-    id: 'realm',
+    id: 'gpt',
     type: 'twoLines',
   },
   {

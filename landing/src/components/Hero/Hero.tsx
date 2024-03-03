@@ -1,14 +1,27 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Json } from '../../types';
 import { Comet, Cta, Explain, Noun, Title1, Title2, Versions, Wrapper } from './Hero.style';
 import classnames from 'classnames';
-import { useMount } from 'react-use';
+import { useMount, useWindowScroll } from 'react-use';
 
-export type HeroProps = {};
+export type HeroProps = {
+  data: {
+    title: string;
+    explain1: string;
+    explain2: string;
+    cta: string;
+  };
+};
 
 const nouns = ['AI', 'Thought', 'Light'];
 
-export function Hero(_props: HeroProps) {
+export function Hero(props: HeroProps) {
+  const { data } = props;
+  const { title, explain1, explain2, cta } = data;
+  const { y } = useWindowScroll();
+
+  const hideComet = y > window.innerHeight * 0.5;
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useMount(() => {
@@ -18,6 +31,10 @@ export function Hero(_props: HeroProps) {
 
     return () => clearInterval(interval);
   });
+
+  function onCta() {
+    document.location = '/';
+  }
 
   function renderNoun(noun: string, index: number) {
     const className = classnames({
@@ -39,7 +56,7 @@ export function Hero(_props: HeroProps) {
 
   return (
     <Wrapper className='Hero-wrapper' data-testid='Hero-wrapper'>
-      <Title1>Work at the speed</Title1>
+      <Title1>{title}</Title1>
       <Title2>
         of
         <Noun className={className}>
@@ -48,11 +65,13 @@ export function Hero(_props: HeroProps) {
         </Noun>
       </Title2>
       <Explain>
-        GDI adds contextual UIs to your ChatGPT experience.
+        {explain1}
         <br />
-        It explores the power of interfaces built bottom-up for AI.
+        {explain2}
       </Explain>
-      <Cta className='cta medium'>Start Here</Cta>
+      <Cta className='cta medium' onClick={onCta}>
+        {cta}
+      </Cta>
       <Versions>
         <span>v0.9.25</span>
         <a href='https://github.com/dht/gdi' target='_blank'>
@@ -60,12 +79,14 @@ export function Hero(_props: HeroProps) {
         </a>
       </Versions>
 
-      <Comet autoPlay loop playsInline muted>
-        <source
-          src='https://raw.githubusercontent.com/dht/gdi-assets/main/public/videos/comet.webm'
-          type='video/webm'
-        />
-      </Comet>
+      {!hideComet && (
+        <Comet autoPlay loop playsInline muted>
+          <source
+            src='https://raw.githubusercontent.com/dht/gdi-assets/main/assets/videos/comet.webm'
+            type='video/webm'
+          />
+        </Comet>
+      )}
     </Wrapper>
   );
 }
