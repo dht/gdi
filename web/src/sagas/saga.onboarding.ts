@@ -12,7 +12,7 @@ export function* showLandingPage() {
 
   yield delay(100);
 
-  invokeEvent('nav', { path: '/landing' });
+  document.location = '/landing';
   setBoolean('landingPageSeen', true);
 }
 
@@ -31,19 +31,9 @@ export function* showOnboarding() {
   setBoolean('onBoardingSeen', true);
 
   yield prompt.custom({
-    title: 'GDI Intro',
+    title: 'Welcome to GDI',
     component: GdiIntro,
     componentProps: {},
-  });
-
-  yield delay(200);
-
-  yield prompt.custom({
-    title: 'Welcome to GDI',
-    component: OnBoarding,
-    componentProps: {
-      rootUrl: docsRootUrl + '/on-boarding',
-    },
   });
 }
 

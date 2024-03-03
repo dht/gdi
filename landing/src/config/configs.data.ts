@@ -3,10 +3,17 @@ import allBoards from './allBoards.json';
 import allFeatures from './allFeatures.json';
 
 export const allData: any = {
+  hero: {
+    id: 'hero',
+    title: 'Work at the speed',
+    explain1: 'GDI adds contextual tools to your ChatGPT experience.',
+    explain2: 'Command your digital realm with a unified AI-powered workspace.',
+    cta: 'Start Here',
+  },
   workshop: {
-    title: 'Join Our First GDI Workshop | March 5th',
+    title: 'Join Our 2nd GDI Workshop | March 15th',
     description:
-      'Book your spot for our first workshop on March 5th. We will cover the basics of using GDI to supercharge your digital realm.',
+      'Book your spot for our 2nd workshop on March 15th. We will cover the basics of using GDI to supercharge your digital realm.',
     cta: 'Save a Seat →',
     ctaUrl: 'https://forms.gle/1JDWakSjCP1zrfrY6',
   },
@@ -32,13 +39,13 @@ export const allData: any = {
     id: 'realm',
     title: 'Your New *Digital Realm*',
     description:
-      "GDI is more than a tool; it's your command center for the digital age. Generate tutorials, animations, analyze data, write TDD tests, and more. With GDI, task management, content creation, and knowledge acquisition are not just simplified—they're amplified. Our platform redefines human-AI collaboration, propelling your productivity to new heights.",
+      "GDI is more than a tool; it's your command center for the AI age. Generate tutorials, animations, analyze data, write TDD tests, and more. With GDI, task management, content creation, and knowledge acquisition are not just simplified—they're amplified. Our platform redefines human-AI collaboration, propelling your productivity to new heights.",
   },
   gpt: {
     id: 'gpt',
-    title: 'Elevate Your *ChatGPT Experience*',
+    title: 'The New *Super-User* Class',
     description:
-      "Be at the center of 21st-century mission control working for you. It's not just about working alongside AI; it's about a collaborative flow where sometimes you are the driver and AI is the passenger, and at other times, it's vice versa.",
+      "A new class of super-users is emerging, AI-empowered individuals that leverage AI to do things they couldn't do before. GDI is a toolkit built for them and by them. It's not just about working alongside AI; it's about a collaborative flow where sometimes you are the driver and AI is the passenger, and at other times, it's vice versa.",
   },
   data: {
     id: 'data',

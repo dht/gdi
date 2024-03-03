@@ -3,7 +3,7 @@ export const items = [
     id: 'boards',
     text: 'Boards',
     groupId: 'menu',
-    url: '/browse',
+    url: '/capabilities#boards',
   },
   {
     id: 'docs',
