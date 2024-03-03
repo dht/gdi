@@ -5,14 +5,11 @@ export const Wrapper = styled.div`
   width: 340px;
   padding: 40px 30px;
   border-radius: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: white;
-  box-shadow: 0 0 100px 5px rgba(255, 255, 255, 0.4);
-  border: 1px solid #333;
+  color: #333;
 
   @media (max-width: 800px) {
     width: calc(100vw - 70px);
@@ -57,12 +54,13 @@ export const GoogleTitle = styled.div`
 
 export const Email = styled.input``;
 
-export const Paragraph = styled.p`
-  margin: 20px 0;
+export const Paragraph = styled.div`
+  margin: 5px 0 20px;
   font-size: 16px;
   color: #999;
   margin-bottom: 30px;
   line-height: 1.5;
+  text-align: center;
 `;
 
 export const PasswordlessExplainer = styled.p``;

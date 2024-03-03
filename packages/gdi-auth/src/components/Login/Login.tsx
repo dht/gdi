@@ -36,9 +36,9 @@ export function Login(_props: LoginProps) {
     <Wrapper className='Login-wrapper' data-testid='Login-wrapper'>
       <H1>Welcome to GDI</H1>
       <Paragraph>
-        Powerful, Fusion interfaces for the AI Era.
+        AI-powered workspace for super users.
         <br />
-        Lets build the future together.
+        Work at the speed of AI.
       </Paragraph>
       <Google onClick={onGoogleClick}>
         <GoogleLogo src='/google.svg' />

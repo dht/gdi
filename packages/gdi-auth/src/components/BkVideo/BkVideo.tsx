@@ -36,6 +36,7 @@ export function BkVideo(props: BkVideoProps) {
     <Wrapper className='BkVideo-wrapper' data-testid='BkVideo-wrapper'>
       <iframe
         allowFullScreen
+        frameBorder={0}
         style={style}
         src={`https://player.vimeo.com/video/${ids[index]}?title=0&background=1&portrait=0&byline=0&autoplay=1&muted=true&loop=1`}
       ></iframe>
