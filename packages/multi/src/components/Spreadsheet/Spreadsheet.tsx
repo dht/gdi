@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useArrows } from './Spreadsheet.hooks';
 import { Wrapper } from './Spreadsheet.style';
-import { ISheetCell } from './Spreadsheet.types';
+import { ISheetCell } from '../../types';
 import { Cell } from './_parts/Cell/Cell';
 import { SelectCell } from './_parts/SelectCell/SelectCell';
 import classnames from 'classnames';

@@ -1,5 +1,5 @@
 import { createContext, createProvider } from '../../utils/context';
-import { ISpreadsheetCallbacks, ISpreadsheetState } from './Spreadsheet.types';
+import { ISpreadsheetCallbacks, ISpreadsheetState } from '../../types';
 
 const initialState: ISpreadsheetState = {
   sortDirection: '',

@@ -1,5 +1,5 @@
 import { createContext, createProvider } from '../../utils/context';
-import { ITableCallbacks, ITableState } from './Table.types';
+import { ITableCallbacks, ITableState } from '../../types';
 
 const initialState: ITableState = {
   sortDirection: '',

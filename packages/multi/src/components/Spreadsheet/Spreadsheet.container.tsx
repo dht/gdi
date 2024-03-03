@@ -3,7 +3,7 @@ import { Json } from '../../types';
 import Spreadsheet from './Spreadsheet';
 import { SpreadsheetProvider } from './Spreadsheet.context';
 import { cells } from './Spreadsheet.data';
-import { ISpreadsheetCallbacks, ISpreadsheetConfig } from './Spreadsheet.types';
+import { ISpreadsheetCallbacks, ISpreadsheetConfig } from '../../types';
 
 export type SpreadsheetContainerProps = {
   config?: ISpreadsheetConfig;

@@ -1,5 +1,5 @@
 import { createContext, createProvider } from '../../utils/context';
-import { IJsonEditorCallbacks, IJsonEditorState } from './JsonEditor.types';
+import { IJsonEditorCallbacks, IJsonEditorState } from '../../types';
 
 const initialState: IJsonEditorState = {
   sortDirection: '',

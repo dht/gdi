@@ -1,6 +1,6 @@
 import { ActionParams, ItemActionParams } from '../../types';
 import { createContext, createProvider } from '../../utils/context';
-import { IMultiCallbacks, IMultiState } from './Multi.types';
+import { IMultiCallbacks, IMultiState } from '../../types';
 
 const initialState: IMultiState = {
   config: {},

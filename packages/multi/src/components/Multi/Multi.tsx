@@ -7,6 +7,7 @@ import Tabs from '../Tabs/Tabs.container';
 import Trello from '../Trello/Trello.container';
 import { MultiContext } from './Multi.context';
 import { Content, Wrapper } from './Multi.style';
+import Calendar from '../calendar/Calendar.container';
 
 export type MultiProps = {};
 
@@ -16,6 +17,7 @@ const component = {
   sheet: Spreadsheet,
   table: Table,
   lanes: Trello,
+  calendar: Calendar,
 };
 
 export function Multi(_props: MultiProps) {

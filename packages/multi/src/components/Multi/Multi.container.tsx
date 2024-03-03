@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { Json } from '../../types';
 import { Multi } from './Multi';
 import { MultiProvider } from './Multi.context';
-import { IMultiCallbacks, IMultiConfig, IMultiView } from './Multi.types';
+import { IMultiCallbacks, IMultiConfig, IMultiView } from '../../types';
 import { addListener } from 'shared-base';
 
 export type MultiContainerProps = {

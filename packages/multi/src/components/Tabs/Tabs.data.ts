@@ -1,5 +1,5 @@
 import { Json } from '../../types';
-import { ITab } from './Tabs.types';
+import { ITab } from '../../types';
 
 export const tabNames: Json = {
   jsonEditor: 'Json',
@@ -7,6 +7,7 @@ export const tabNames: Json = {
   sheet: 'Sheet',
   table: 'Table',
   lanes: 'Lanes',
+  calendar: 'Calendar',
 };
 
 export const getTabs = (tabIds: string[] = []) => {

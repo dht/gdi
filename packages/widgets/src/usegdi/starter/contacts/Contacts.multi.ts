@@ -2,7 +2,7 @@ import { IMultiView, IMultiConfig } from 'multi';
 
 export const initialView: IMultiView = 'sheet';
 
-export const views: IMultiView[] = ['sheet', 'lanes', 'table', 'masonry', 'jsonEditor'];
+export const views: IMultiView[] = ['sheet', 'table', 'masonry', 'jsonEditor', 'calendar', 'lanes'];
 
 export const config: IMultiConfig = {
   lanes: {

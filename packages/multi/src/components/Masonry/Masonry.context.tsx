@@ -1,7 +1,7 @@
 import { invokeEvent } from 'shared-base';
 import { IItem } from '../../types';
 import { createContext, createProvider } from '../../utils/context';
-import { IMasonryCallbacks, IMasonryState } from './Masonry.types';
+import { IMasonryCallbacks, IMasonryState } from '../../types';
 
 const initialState: IMasonryState = {
   sortDirection: '',

@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   position: relative;
   width: 766px;
+  max-width: calc(100% - 180px);
 `;
 
 export const Input = styled.textarea`
@@ -18,7 +19,7 @@ export const Input = styled.textarea`
   padding: 16px 48px 12px 16px;
   overflow-y: hidden;
   border-radius: 15px;
-  width: 766px;
+  width: 100%;
   box-sizing: border-box;
   resize: none;
   outline: none;

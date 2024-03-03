@@ -1,5 +1,5 @@
 import { useKey } from 'react-use';
-import { ICoord } from './Spreadsheet.types';
+import { ICoord } from '../../types';
 import { useState } from 'react';
 
 export function useArrows(initialCoord: ICoord) {
