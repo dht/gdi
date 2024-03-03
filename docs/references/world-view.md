@@ -18,4 +18,4 @@ GDI's foundational beliefs shape our approach to AI and its integration into hum
 
 8. **Ease of Sharing in Real-Time**: In the current digital landscape, sharing content typically involves converting it into a fixed format and uploading it to a cloud provider. GDI envisions a more dynamic approach, where content is both schema-based and real-time. This would allow for instant sharing akin to collaborative platforms like Figma, where content can be shared through URLs without the need for a 'baking' process. This shift towards real-time sharing enhances collaboration and accessibility, making the exchange of ideas and content more fluid and immediate.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/9.png" width="500px"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/9.png" width="500px"/>

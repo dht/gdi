@@ -21,4 +21,4 @@ Agents are a powerful concept in LLM that enable the creation of complex AI-driv
 
 GPT-4's remarkable reasoning abilities position it as a powerful intermediary between different APIs. It can dynamically direct the course of a flow run by assessing the current state and determining subsequent actions. This capability is particularly useful in creating complex agents and projects like [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT).
 
-![Flow Run Visualization](https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/gpt4-reasoning.jpeg)
+![Flow Run Visualization](https://raw.githubusercontent.com/dht/gdi-assets/main/assets/images/docs/gpt4-reasoning.jpeg)

@@ -36,7 +36,7 @@ export const board: IBoard = {
     reviewsCount: 0,
     reviews: {},
   },
-  sourceUrl: 'https://github.com/dht/gdi/tree/staging/web/public/boards/B-001',
+  sourceUrl: 'https://github.com/dht/gdi/tree/main/web/public/boards/B-001',
   npmUrl: 'https://www.npmjs.com/package/@gdi/widgets-starter',
   vscodeUrl: 'https://vscode.dev/github/dht/gdi',
   defaults: {},
