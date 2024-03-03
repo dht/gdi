@@ -10,8 +10,8 @@ export const Wrapper = styled.div`
   --instanceBorder: #ddd;
 
   &.dark {
-    --background: #232332;
-    --grid: rgba(255, 255, 255, 0.05);
+    --background: #111115;
+    --grid: rgba(255, 255, 255, 0.02);
     --gridEdit: rgba(255, 255, 255, 0.1);
     --instance: rgba(21, 21, 32, 0.8);
     --instanceBorder: #223;

@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { ITableField } from './Table.types';
+import { ITableField } from '../../types';
 
 dayjs.extend(relativeTime);
 

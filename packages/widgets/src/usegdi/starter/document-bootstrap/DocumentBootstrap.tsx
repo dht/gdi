@@ -60,6 +60,7 @@ export function DocumentBootstrap(props: DocumentBootstrapProps) {
           isMulti={false}
           placeholder={placeholder}
           onChange={onChange(id)}
+          darkMode
         />
       </Li>
     );
@@ -78,9 +79,7 @@ export function DocumentBootstrap(props: DocumentBootstrapProps) {
         onChange={onChangeTopicAndInstructions}
         onKeyDown={onKeyDown}
       />
-      <Cta onClick={onBootstrap} className='inverse'>
-        Bootstrap Document
-      </Cta>
+      <Cta onClick={onBootstrap}>Bootstrap Document</Cta>
     </Wrapper>
   );
 }

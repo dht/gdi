@@ -16,7 +16,6 @@ import { saga as sagaTranscript } from './saga.transcript';
 
 import { sagas as allSagasRoot } from '@gdi/app-root';
 import { sagas as allSagasBoards } from '@gdi/app-boards';
-import { sagas as allSagasHome } from '@gdi/app-home';
 import { sagas as allSagasAuth } from '@gdi/auth';
 import { sagas as allSagasWidgets } from '@gdi/widgets-starter';
 
@@ -39,7 +38,6 @@ export const allSagas = {
 
   ...allSagasRoot,
   ...allSagasBoards,
-  ...allSagasHome,
   ...allSagasAuth,
   ...allSagasWidgets,
 };

@@ -10,7 +10,7 @@ import { customEvenChannel } from './channels/channel.customEvent';
 import { onFlowMobileEnd, onFlowMobileStart } from './helpers/saga.mobile';
 import { postActions } from './helpers/saga.postFlow';
 import { getPromptPlaceholder } from './helpers/utils';
-import { boardGuard, guestGuard } from './saga.gdi';
+import { guestGuard } from './saga.gdi';
 
 export function* startFlow(action: any) {
   try {
@@ -26,11 +26,6 @@ export function* startFlow(action: any) {
     let shouldContinue = yield* call(guestGuard);
     if (!shouldContinue) {
       ga('startFlow.guest', { boardId });
-      return;
-    }
-
-    shouldContinue = yield* call(boardGuard);
-    if (!shouldContinue) {
       return;
     }
 

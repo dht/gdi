@@ -1,31 +1,34 @@
 import { IMessage } from '@gdi/store-base';
-import { Content, Overlay, Wrapper } from './Mux.style';
-import MuxInput from './_parts/MuxInput/MuxInput';
-import MuxMessages from './_parts/MuxMessages/MuxMessages';
+import { useCustomEvent, useMeasureOnce } from '@gdi/ui';
 import { useRef, useState } from 'react';
-import { useCustomEvent } from '@gdi/ui';
+import { Bottom, Column, Inner, Wrapper } from './Mux.style';
 import MuxEmpty from './_parts/MuxEmpty/MuxEmpty';
+import MuxInput from './_parts/MuxInput/MuxInput';
+import MuxInputGuidanceContainer from './_parts/MuxInputGuidance/MuxInputGuidance.container';
+import MuxMessages from './_parts/MuxMessages/MuxMessages';
 
 export type MuxProps = {
   messages: IMessage[];
   callbacks: {
     onSubmit: (prompt: string) => void;
   };
-  children?: React.ReactNode;
+  children: React.ReactNode;
 };
 
 export function Mux(props: MuxProps) {
   const { messages, callbacks } = props;
   const [message, setMessage] = useState('');
-  const refContent = useRef<HTMLDivElement>(null);
+  const refInner = useRef<HTMLDivElement>(null);
+  const [refContent, { height }] = useMeasureOnce();
 
   useCustomEvent('mux/content', (data: Json) => {
     const { content } = data;
+
     setMessage(content);
 
-    if (!refContent.current) return;
+    if (!refInner.current) return;
     // scroll to bottom
-    refContent.current.scrollTop = refContent.current.scrollHeight;
+    refInner.current.scrollTop = refInner.current.scrollHeight;
   });
 
   function renderInner() {
@@ -36,12 +39,22 @@ export function Mux(props: MuxProps) {
     return <MuxMessages messages={messages} message={message} />;
   }
 
+  const style = {
+    maxHeight: height - 120 + 'px',
+  };
+
   return (
     <Wrapper className='Mux-wrapper' data-testid='Mux-wrapper'>
-      <Content ref={refContent}>{renderInner()}</Content>
-      <MuxInput callbacks={callbacks} />
-      {props.children}
-      <Overlay />
+      <Column ref={refContent}>
+        <Inner ref={refInner} style={style}>
+          {renderInner()}
+        </Inner>
+        <Bottom>
+          <MuxInputGuidanceContainer />
+          <MuxInput callbacks={callbacks} />
+        </Bottom>
+      </Column>
+      <Column>{props.children}</Column>
     </Wrapper>
   );
 }

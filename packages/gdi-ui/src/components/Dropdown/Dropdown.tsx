@@ -1,6 +1,7 @@
 import React from 'react';
 import { Wrapper, Select } from './Dropdown.style';
 import { IOption } from '../../types';
+import classnames from 'classnames';
 
 export type DropdownProps = {
   value: string;
@@ -9,11 +10,21 @@ export type DropdownProps = {
   placeholder?: string;
   isDisabled?: boolean;
   isError?: boolean;
+  darkMode?: boolean;
   height?: number;
 };
 
 export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
-  const { options = [], placeholder, isDisabled, isError, height, value, ...rest } = props;
+  const {
+    options = [],
+    placeholder,
+    isDisabled,
+    isError,
+    height,
+    value,
+    darkMode,
+    ...rest
+  } = props;
 
   function renderOption(option: IOption) {
     return (
@@ -37,8 +48,12 @@ export const Dropdown = React.forwardRef((props: DropdownProps, ref: any) => {
     return <>{option.text}</>;
   }
 
+  const className = classnames('Dropdown-wrapper', {
+    dark: darkMode,
+  });
+
   return (
-    <Wrapper className='Dropdown-wrapper' data-testid='Dropdown-wrapper'>
+    <Wrapper className={className} data-testid='Dropdown-wrapper'>
       <Select ref={ref} value={value || ''} {...rest} disabled={isDisabled}>
         {renderOptions()}
       </Select>

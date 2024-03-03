@@ -14,3 +14,17 @@ export const Canvas = styled.div`
   flex: 1;
   display: flex;
 `;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+
+  > div,
+  > button {
+    pointer-events: auto;
+  }
+`;

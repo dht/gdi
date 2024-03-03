@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { Container as ContainerBase } from '../base.style';
 
 export const Wrapper = styled.div`
-  flex: 1;
   display: flex;
   font-size: 14px;
-  margin-bottom: 20vh;
-  min-height: 100vh;
+  flex: 1;
+  background-color: white;
+  color: #334;
 
   &.modal {
     margin-bottom: 0;
@@ -25,8 +25,6 @@ export const Wrapper = styled.div`
 
     .right {
       margin-left: 200px;
-      max-height: 100%;
-      overflow-y: auto;
     }
 
     @media (max-width: 800px) {
@@ -44,7 +42,7 @@ export const Wrapper = styled.div`
 export const Container = styled(ContainerBase)`
   flex: 1;
   align-items: stretch;
-  padding-top: 80px;
+  padding-top: 40px;
 
   @media (max-width: 800px) {
     padding-top: 30px;
@@ -54,7 +52,7 @@ export const Container = styled(ContainerBase)`
 
 export const Left = styled.div`
   width: 300px;
-  position: fixed;
+  position: absolute;
 
   @media (max-width: 800px) {
     position: relative;
@@ -63,7 +61,6 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
-  flex: 1;
   margin-left: 300px;
 
   @media (max-width: 800px) {

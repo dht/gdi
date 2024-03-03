@@ -39,7 +39,7 @@ export function AssetNew(props: AssetNewProps) {
         </Tags>
       </Drop>
       <Actions>
-        <Cta iconName='upload' className='inverse' onClick={callbacks.onUpload}>
+        <Cta iconName='upload' onClick={callbacks.onUpload}>
           New Asset
         </Cta>
       </Actions>

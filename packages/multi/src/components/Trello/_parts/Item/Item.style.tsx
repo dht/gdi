@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  --bk: #1e1e2e;
+
   flex: 1;
-  background-color: #112;
+  background-color: var(--bk);
+  border: 1px solid #333;
   border-left: 7px solid transparent;
   border-radius: 3px;
   position: relative;

@@ -32,6 +32,9 @@ export const $rawDocument = createSelector($i, (state: IGdiStore) => state.docum
 export const $rawDocumentSuggestions = createSelector($i, (state: IGdiStore) => state.documentSuggestions); // prettier-ignore
 export const $rawSagas = createSelector($i, (state: IGdiStore) => state.sagas); // prettier-ignore
 export const $rawRemoteItems = createSelector($i, (state: IGdiStore) => state.remoteItems); // prettier-ignore
+export const $rawApiProviders = createSelector($i, (state: IGdiStore) => state.apiProviders); // prettier-ignore
+export const $rawCapabilities = createSelector($i, (state: IGdiStore) => state.capabilities); // prettier-ignore
+export const $rawMuxTabs = createSelector($i, (state: IGdiStore) => state.muxTabs); // prettier-ignore
 export const $rawVoices = createSelector($i, (state: IGdiStore) => voices); // prettier-ignore
 
 // transient

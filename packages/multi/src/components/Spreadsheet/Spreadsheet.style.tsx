@@ -4,6 +4,14 @@ export const Wrapper = styled.div`
   flex: 1;
 
   --grid: rgba(0, 0, 0, 0.15);
+  --bk: white;
+  --border: #000;
+
+  &.dark {
+    --grid: rgba(255, 255, 255, 0.15);
+    --bk: #1e1e2e;
+    --border: #aaa;
+  }
 
   // cells
   background-image: linear-gradient(var(--grid) 1px, transparent 1px),
@@ -12,5 +20,5 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
   grid-template-rows: repeat(auto-fill, 30px);
-  background-color: white;
+  background-color: var(--bk);
 `;

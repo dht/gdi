@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   padding: 0 5px;
 
   &.model {
-    background-color: #f5f5f5;
+    background-color: var(--bk);
     font-weight: 500;
     text-align: center;
   }
@@ -20,12 +20,12 @@ export const Wrapper = styled.div`
   }
 
   &.maxTokens {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--border);
     text-align: center;
   }
 
   &.firstCol {
-    background-color: #f5f5f5;
+    background-color: var(--bk);
     text-align: center;
   }
 

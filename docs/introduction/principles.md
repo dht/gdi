@@ -30,4 +30,4 @@ As a dynamic and forward-thinking project, GDI recognizes that its principles an
 
 We warmly invite new collaborators to join our journey. Whether you're a developer, designer, researcher, or enthusiast, your insights and contributions are valuable to us. GDI thrives on diverse perspectives and skills, and we believe that collective creativity is the key to pioneering the future of AI-driven user interfaces.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/docs/10.png" width="500"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/10.png" width="500"/>

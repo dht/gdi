@@ -1,18 +1,14 @@
 import styled from 'styled-components';
 
-const totalWidth = Math.min(1700, window.innerWidth);
-const center = window.innerWidth / 2;
-const right = center + totalWidth / 2;
-
 export const Wrapper = styled.button`
-  position: fixed;
+  position: absolute;
   z-index: 4;
   bottom: 260px;
   background-color: #121;
   padding: 10px;
   border-radius: 15px;
   color: #676;
-  left: ${right - 170}px;
+  right: 15px;
   font-size: 20px;
   border-top: 2px solid #232;
   border-right: 2px solid #232;

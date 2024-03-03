@@ -6,10 +6,17 @@
 
 @import '/fonts/style.css';
 
+:root {
+  --color-primary: #16161c;
+  --color-bk: #111115;
+  --color-text: #ccc;
+  --color-border: rgba(245, 245, 255, 0.1);
+  --color-button: #222227;
+}
+
 html {
   min-height: 100vh;
   display: flex;
-  border-right: 3px solid rgba(255, 255, 255, 0.1);
 }
 
 body,
@@ -20,14 +27,8 @@ body,
   font-family: sans-serif;
 }
 
-#root {
-  max-width: 1700px;
-  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.05);
-  margin: 0 auto;
-}
-
 body {
-  background-color: #f1f1f1;
+  background-color: #000;
 
   &.lines {
     // background-image: linear-gradient(to bottom, #eee, #ffffff); /* Define your color stops */
@@ -170,4 +171,8 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
+}
+
+.firebase-emulator-warning {
+  display: none;
 }

@@ -1,11 +1,11 @@
+import { get, mapValues } from 'lodash';
 import { createSelector } from 'reselect';
+import { sortBy } from 'shared-base';
+import { FlowType } from '../types';
 import { transformNodesToGraph } from '../utils/flows';
 import { charactersMaps } from '../utils/phonetics';
 import { getSpeechUrl } from '../utils/speech';
 import * as raw from './selectors.raw';
-import { FlowType, Json } from '../types';
-import { sortBy } from 'shared-base';
-import { get, mapValues } from 'lodash';
 
 export const $logs = createSelector(raw.$rawLogs, (logs) => {
   return Object.values(logs).sort(sortBy('timestamp'));
@@ -259,3 +259,47 @@ export const $root = createSelector(raw.$rawSettings, raw.$rawAppState, (setting
 
   return {};
 });
+
+export const $capabilities = createSelector(
+  raw.$rawAppState,
+  raw.$rawCapabilities,
+  (appState, capabilities) => {
+    const { assetsRootUrl } = appState;
+
+    return Object.values(capabilities).map((capability) => {
+      const { imageUrl, pilar, verb } = capability;
+
+      const meta = { pilar, verb };
+
+      return {
+        ...capability,
+        imageUrl: `${assetsRootUrl}${imageUrl}`,
+        meta,
+        isOk: true,
+      };
+    });
+  }
+);
+
+export const $apiProviders = createSelector(
+  raw.$rawAppState,
+  raw.$rawApiProviders,
+  (appState, apiProviders) => {
+    const { assetsRootUrl } = appState;
+
+    return Object.values(apiProviders).map((apiProvider) => {
+      const { imageUrl, models, providerType } = apiProvider;
+
+      const modelsCount = Object.keys(models).length;
+
+      const meta = { providerType, models: modelsCount };
+
+      return {
+        ...apiProvider,
+        imageUrl: `${assetsRootUrl}${imageUrl}`,
+        meta,
+        isOk: true,
+      };
+    });
+  }
+);

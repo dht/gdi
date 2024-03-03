@@ -52,6 +52,8 @@ export const config = {
       'transcriptAudios',
       'transcriptLines',
       'user',
+      'apiProviders',
+      'capabilities',
     ],
     optimisticNodes: [
       'sceneBits', //

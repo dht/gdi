@@ -9,7 +9,7 @@ export type MuxMessageProps = {
 
 export function MuxMessage(props: MuxMessageProps) {
   const { message } = props;
-  const { content, role } = message;
+  const { content = '', role } = message;
 
   const lines = content.split(/\n/g);
 

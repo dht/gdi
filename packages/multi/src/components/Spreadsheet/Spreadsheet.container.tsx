@@ -3,15 +3,16 @@ import { Json } from '../../types';
 import Spreadsheet from './Spreadsheet';
 import { SpreadsheetProvider } from './Spreadsheet.context';
 import { cells } from './Spreadsheet.data';
-import { ISpreadsheetCallbacks, ISpreadsheetConfig } from './Spreadsheet.types';
+import { ISpreadsheetCallbacks, ISpreadsheetConfig } from '../../types';
 
 export type SpreadsheetContainerProps = {
   config?: ISpreadsheetConfig;
   callbacks: ISpreadsheetCallbacks;
+  darkMode?: boolean;
 };
 
 export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
-  const { config } = props;
+  const { config, darkMode } = props;
 
   const initialState = useMemo(
     () => ({
@@ -30,7 +31,7 @@ export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
 
   return (
     <SpreadsheetProvider callbacks={callbacks} state={initialState}>
-      <Spreadsheet cells={cells} onSelect={() => {}} onChange={() => {}} />
+      <Spreadsheet cells={cells} onSelect={() => {}} onChange={() => {}} darkMode={darkMode} />
     </SpreadsheetProvider>
   );
 }

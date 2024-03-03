@@ -9,13 +9,18 @@ export type BoardProps = {
   board: IBoard;
   flavour: string;
   columnIndex: number;
+  darkMode?: boolean;
   callbacks: {
     onColumnChange?: (columnIndex: number) => void;
   };
 };
 
 export function Board(props: BoardProps) {
-  const { board, flavour, columnIndex, callbacks } = props;
+  const { board, darkMode, flavour, columnIndex, callbacks } = props;
+
+  const config = {
+    darkMode,
+  };
 
   const name = get(board, 'boardInfo.name');
   const logoColor = get(board, 'boardInfo.logoColor');
@@ -33,6 +38,7 @@ export function Board(props: BoardProps) {
         id='main'
         flavour={flavour}
         widgets={allWidgets}
+        config={config}
         elements={board?.elements ?? []}
         hideArrows={board?.mobile?.hideArrows}
         columns={board?.mobile?.columns}

@@ -1,4 +1,4 @@
-import { ISheetCell } from './Spreadsheet.types';
+import { ISheetCell } from '../../types';
 
 export const cells: ISheetCell[] = [
   {

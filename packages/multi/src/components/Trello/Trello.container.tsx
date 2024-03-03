@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Json } from '../../types';
 import Trello from './Trello';
 import { TrelloProvider } from './Trello.context';
-import { ITrelloCallbacks, ITrelloConfig } from './Trello.types';
+import { ITrelloCallbacks, ITrelloConfig } from '../../types';
 
 export type TrelloContainerProps = {
   config?: ITrelloConfig;

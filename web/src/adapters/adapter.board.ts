@@ -33,7 +33,9 @@ export class BoardAdapter implements IBoardAdapter {
 
   fetchBoard() {
     const boardId = this.boardId;
+
     const filePath = `/${boardId.toUpperCase()}/${boardId.toUpperCase()}.json`;
+
     return this.fetchResource(filePath);
   }
 
@@ -192,9 +194,7 @@ export class BoardAdapter implements IBoardAdapter {
 
     try {
       const board = await this.fetchBoard();
-      console.time('prepareBoard');
       const boardAndDb = await this.prepareBoard(board, isGuest);
-      console.timeEnd('prepareBoard');
 
       await this.seedDb(boardAndDb.db);
       this.dispatch(actions.appState.patch({ flavour, flavourColumnIndex }));

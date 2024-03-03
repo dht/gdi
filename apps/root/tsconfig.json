@@ -20,7 +20,8 @@
       "igrid": ["packages/igrid"],
       "shared-base": ["packages/shared-base"],
       "isokit2": ["packages/isokit2"],
-      "widgets": ["packages/widgets"]
+      "widgets": ["packages/widgets"],
+      "@gdi/app-boards": ["apps/boards"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

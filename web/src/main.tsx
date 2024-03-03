@@ -2,11 +2,12 @@ import { LoginProvider } from '@gdi/firebase';
 import { GdiProvider } from '@gdi/store-base';
 import { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { getBoolean, setBoolean } from 'shared-base';
 import { App } from './bootstrap/App';
 import { store } from './main.config';
 import './main.scss';
+import { pages as pagesAuth } from '@gdi/auth';
 
 const container = document.getElementById('root') ?? document.body;
 
@@ -21,7 +22,11 @@ root.render(
     <Suspense fallback={<div />}>
       <Router>
         <LoginProvider>
-          <App />
+          <Routes>
+            <Route path='/login' element={<pagesAuth.login />} />
+            <Route path='/logout' element={<pagesAuth.logout />} />
+            <Route path='/*' element={<App />} />
+          </Routes>
         </LoginProvider>
       </Router>
     </Suspense>

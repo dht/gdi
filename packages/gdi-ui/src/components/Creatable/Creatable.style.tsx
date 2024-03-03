@@ -5,16 +5,20 @@ export const Wrapper = styled.div`
   color: #333;
 
   &.dark {
-    --bg-secondary: #112;
+    --bg-secondary: #111115;
     --bg-primary: #fff;
-    --border-color: #888;
+    --border-color: #445;
     --text-primary: #eee;
     color: inherit;
 
     .creatable__control {
       background-color: var(--bg-secondary);
       border-color: var(--border-color);
+      color: var(--text-primary);
       transition: none;
+
+      input {
+      }
 
       &:hover {
         border-color: var(--border-color);
@@ -25,17 +29,28 @@ export const Wrapper = styled.div`
       background-color: var(--bg-secondary);
       border: 1px solid var(--border-color);
     }
+    .creatable__option--is-focused {
+      color: #333;
+    }
 
     .creatable__option {
-      background-color: var(--bg-secondary);
-
       &:hover {
         background-color: var(--bg-primary);
+        color: #333;
+        font-weight: bold;
+      }
+
+      &.is-focused {
+        background-color: var(--bg-secondary);
       }
     }
 
     .creatable__indicator-separator {
       background-color: var(--border-color);
+    }
+
+    .creatable__input-container {
+      color: var(--text-primary);
     }
 
     .creatable__placeholder,

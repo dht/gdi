@@ -29,12 +29,16 @@ export type IGdiStore = {
   sagas: ISagas;
   voices: IVoices;
   remoteItems: IRemoteItems;
+  apiProviders: IApiProviders;
+  capabilities: ICapabilities;
+  muxTabs: IMuxTabs;
   _lastAction: Action;
 } & IIsoStore &
   IFlow;
 
 export type IAppState = {
   version: string;
+  credits: number;
   assetsRootUrl: string;
   boardsRootUrl: string;
   docsRootUrl: string;
@@ -78,6 +82,8 @@ export type IAppState = {
   source: ContentSource;
   root: Root;
   showRoot?: boolean;
+  isFullScreen?: boolean;
+  tsStart: number;
 };
 
 export type Root = 'mux' | 'village' | 'apps';
@@ -108,10 +114,12 @@ export type ICurrentIds = {
   rightId: string;
   modalId: string;
   tabId: string;
+  muxTabId: string;
   editId: string;
   itemId: string;
   personId: string;
   remoteItemId: string;
+  capabilityId: string;
 };
 
 export type ISettings = {
@@ -253,10 +261,8 @@ export type IRemoteItem = {
 
 export type IRemoteItems = Record<string, IRemoteItem>;
 
-export type ModelType = 'openAI';
-
 export type IModel = {
-  modelType: ModelType;
+  modelType: 'openAI';
   modelName: string;
   temperature?: number;
   maxTokens?: number;
@@ -270,6 +276,8 @@ export type IApi = {
   formatInput: ApiFormatInput;
   purpose?: string;
 };
+
+export type IApis = Record<string, IApi>;
 
 export type IFlowEdge = {
   id: string;
@@ -533,7 +541,6 @@ export type IBoardInfo = {
   header: string;
   fields: InfoField[];
   tags: string[];
-  order: number;
   supportedResolutions: Json;
   tsVersion: number;
 };
@@ -626,3 +633,70 @@ export type ITodo = {
 export type ITodos = Record<string, ITodo>;
 
 export type IScene = {};
+
+export type ICapabilityIngredient = {
+  id: string;
+  name: string;
+  description?: string;
+};
+
+export type ICapabilityInstruction = {
+  id: string;
+  name: string;
+  description?: string;
+  boardId: string;
+  isSilent?: boolean;
+};
+
+export type ProviderType = 'AI' | 'NON-AI';
+
+export type ModelType =
+  | 'text-generation'
+  | 'text-to-speech'
+  | 'text-to-audio'
+  | 'text-to-image'
+  | 'text-to-3D'
+  | 'text-to-video'
+  | 'speech-to-text'
+  | 'speech-to-speech'
+  | 'other';
+
+export type IApiProvider = {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  providerType: ProviderType;
+  models: ModelType[];
+  isApiKeyValid?: boolean;
+};
+
+export type IApiProviders = Record<string, IApiProvider>;
+
+export type IMuxTab = {
+  id: string;
+  name: string;
+  description: string;
+  iconName?: string;
+  boardId?: string;
+};
+
+export type IMuxTabs = Record<string, IMuxTab>;
+
+export type CapabilityPilar = 'none' | 'knowledge' | 'productivity' | 'content';
+export type CapabilityVerb = 'create' | 'manage' | 'analyze' | 'other';
+
+export type ICapability = {
+  id: string;
+  identifier: string;
+  name: string;
+  description: string;
+  pilar: CapabilityPilar;
+  verb: CapabilityVerb;
+  iconName: string;
+  imageUrl?: string;
+  ingredients: ICapabilityIngredient[];
+  instructions: ICapabilityInstruction[];
+};
+
+export type ICapabilities = Record<string, ICapability>;

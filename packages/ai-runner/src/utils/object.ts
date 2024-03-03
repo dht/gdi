@@ -32,3 +32,17 @@ export const cleanObject = (obj: Json) => {
 
   return output;
 };
+
+export const normalizeJson = (json: Json): string[] => {
+  const output: string[] = [];
+
+  Object.values(json).forEach((value) => {
+    if (typeof value === 'string') {
+      output.push(value);
+    } else if (typeof value === 'object') {
+      output.push(...normalizeJson(value));
+    }
+  });
+
+  return output;
+};

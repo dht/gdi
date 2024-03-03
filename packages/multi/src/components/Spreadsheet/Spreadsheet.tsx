@@ -1,18 +1,20 @@
 import { useEffect, useRef } from 'react';
 import { useArrows } from './Spreadsheet.hooks';
 import { Wrapper } from './Spreadsheet.style';
-import { ISheetCell } from './Spreadsheet.types';
+import { ISheetCell } from '../../types';
 import { Cell } from './_parts/Cell/Cell';
 import { SelectCell } from './_parts/SelectCell/SelectCell';
+import classnames from 'classnames';
 
 export type SpreadsheetProps = {
   cells: ISheetCell[];
   onSelect: (x: number, y: number) => void;
   onChange: (x: number, y: number, value: string) => void;
+  darkMode?: boolean;
 };
 
 export function Spreadsheet(props: SpreadsheetProps) {
-  const { cells } = props;
+  const { cells, darkMode } = props;
   const ref = useRef<HTMLDivElement>(null);
   const [coord, setCoord] = useArrows({ x: 0, y: 0 });
 
@@ -70,10 +72,14 @@ export function Spreadsheet(props: SpreadsheetProps) {
     );
   }
 
+  const className = classnames('Spreadsheet-wrapper', {
+    dark: darkMode,
+  });
+
   return (
     <Wrapper
       ref={ref}
-      className='Spreadsheet-wrapper'
+      className={className}
       data-testid='Spreadsheet-wrapper'
       onMouseDown={onClick}
     >

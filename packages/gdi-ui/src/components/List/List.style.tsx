@@ -4,22 +4,50 @@ export const Wrapper = styled.div`
   flex: 1;
   font-size: 14px;
   color: #223;
-  background-color: #eee;
   position: relative;
   max-height: calc(100vh - 200px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  --color: #222;
+  --bk: #eee;
+  --scroll-bk: #ddd;
+  --scroll-thumb: #aaa;
+  --cursor-bk: gold;
+  --cursor-color: #111;
+  --header-bk: white;
+  --hover-bk: #61616138;
+  --path: #eef;
+  --odd-bk: rgba(0, 0, 0, 0.4);
+
+  &.dark {
+    --color: #ccc;
+    --bk: #111115;
+    --scroll-bk: #222227;
+    --scroll-thumb: rgba(255, 255, 255, 0.05);
+    --cursor-bk: #429292;
+    --cursor-color: #fff;
+    --header-bk: rgba(255, 255, 255, 0.1);
+    --hover-bk: #61616138;
+    --odd-bk: rgba(255, 255, 255, 0.03);
+    --path: goldenrod;
+  }
+
+  background-color: var(--bk);
+  color: var(--color);
 
   ::-webkit-scrollbar-track {
-    background: #ddd;
+    background: var(--scroll-bk);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #aaa;
+    background: var(--scroll-thumb);
   }
 
   &.focused {
     .item {
       &.focused {
-        background-color: gold;
+        color: var(--cursor-color);
+        background-color: var(--cursor-bk);
       }
     }
   }
@@ -33,7 +61,7 @@ export const Top = styled.div`
   justify-content: flex-end;
   padding: 0 15px;
   background-color: rgba(0, 0, 0, 0.4);
-  color: #eef;
+  color: var(--path);
   font-size: 18px;
 `;
 
@@ -48,15 +76,15 @@ export const Item = styled.div`
 
   &.header {
     padding-right: 5px;
-    background-color: white;
+    background-color: var(--header-bk);
   }
 
   &.odd {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: var(--odd-bk);
   }
 
   &.focused {
-    background-color: #61616138;
+    background-color: var(--hover-bk);
   }
 `;
 
@@ -82,10 +110,10 @@ export const Cell = styled.div`
 
 export const Q = styled.div`
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: white;
+  background-color: var(--bk);
   padding: 5px 12px;
   border-radius: 10px;
 

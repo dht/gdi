@@ -59,7 +59,7 @@ export const Wrapper = styled.div`
 
 export const Image = styled.div`
   width: 100%;
-  height: 286px;
+  height: 186px;
   border-radius: 20px 2px 20px 20px;
   background-color: #ccc;
   background-size: cover;
@@ -75,7 +75,7 @@ export const Image = styled.div`
 
 export const Video = styled.video`
   width: 100%;
-  height: 283px;
+  height: 183px;
   background-size: cover;
   background-position: center;
   border-radius: 20px 2px 20px 20px;
@@ -141,9 +141,9 @@ export const Soon = styled.div`
   //gradient
   background-image: linear-gradient(45deg, #ffffff 0%, #eee 100%);
   position: absolute;
-  top: 235px;
+  top: 145px;
   right: 0;
-  padding: 8px 20px;
+  padding: 5px 10px;
   font-size: 14px;
   transition: all 0.2s ease-in-out;
   opacity: 0.6;

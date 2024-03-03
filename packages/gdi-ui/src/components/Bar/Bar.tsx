@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 import { addListener, invokeEvent } from 'shared-base';
 import { MicrophoneContainer } from '../Microphone/Microphone.container';
 import { IBarItem } from '../../types';
-import { useTime } from './Bar.hooks';
 import { BarItems, Emoji, Input, Item, Modifier, Sign, Wrapper } from './Bar.style';
 import classnames from 'classnames';
 import { isMobile } from '../../utils/mobile';
 import BarMobile from '../BarMobile/BarMobile';
+import { useTime } from '../../hooks/useTime';
 
 export type BarProps = {
   prompt: string;

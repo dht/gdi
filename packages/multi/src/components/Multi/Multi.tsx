@@ -7,34 +7,42 @@ import Tabs from '../Tabs/Tabs.container';
 import Trello from '../Trello/Trello.container';
 import { MultiContext } from './Multi.context';
 import { Content, Wrapper } from './Multi.style';
+import Calendar from '../calendar/Calendar.container';
 
 export type MultiProps = {};
 
+const component = {
+  jsonEditor: JsonEditor,
+  masonry: Masonry,
+  sheet: Spreadsheet,
+  table: Table,
+  lanes: Trello,
+  calendar: Calendar,
+};
+
 export function Multi(_props: MultiProps) {
   const { state, callbacks } = useContext(MultiContext);
-  const { activeView, config, isReady } = state;
+  const { activeView, config, darkMode, isReady } = state;
 
   if (!isReady) {
     return null;
   }
 
   function renderInner() {
-    switch (activeView) {
-      case 'jsonEditor':
-        return (
-          <JsonEditor config={config.jsonEditor} data={state.data} callbacks={callbacks as any} />
-        );
-      case 'masonry':
-        return <Masonry config={config.masonry} data={state.data} callbacks={callbacks as any} />;
-      case 'spreadsheet':
-        return (
-          <Spreadsheet config={config.spreadsheet} data={state.data} callbacks={callbacks as any} />
-        );
-      case 'table':
-        return <Table config={config.table} data={state.data} callbacks={callbacks as any} />;
-      case 'board':
-        return <Trello config={config.board} data={state.data} callbacks={callbacks as any} />;
+    const Cmp: any = component[activeView];
+
+    if (!Cmp) {
+      return null;
     }
+
+    return (
+      <Cmp
+        config={config[activeView]}
+        data={state.data}
+        callbacks={callbacks as any}
+        darkMode={darkMode}
+      />
+    );
   }
 
   return (

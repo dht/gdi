@@ -1,11 +1,12 @@
 import { Icon, useMount } from '@gdi/ui';
 import { useCallback, useRef, useState } from 'react';
 import { useKey } from 'react-use';
-import { Input, Send, Wrapper } from './MuxInput.style';
+import { Clear, Input, Send, Wrapper } from './MuxInput.style';
 
 export type MuxInputProps = {
   callbacks: {
     onSubmit: (prompt: string) => void;
+    onClear: () => void;
   };
 };
 
@@ -27,6 +28,7 @@ export function MuxInput(props: MuxInputProps) {
 
   const onEnter = useCallback(
     (ev: any) => {
+      if (ev.metaKey) return;
       ev.preventDefault();
       onSubmit();
     },
@@ -41,6 +43,7 @@ export function MuxInput(props: MuxInputProps) {
 
   return (
     <Wrapper className='MuxInput-wrapper' data-testid='MuxInput-wrapper'>
+      <Clear onClick={callbacks.onClear}>Clear</Clear>
       <Input
         ref={refInput}
         placeholder='Message ChatGPT...'

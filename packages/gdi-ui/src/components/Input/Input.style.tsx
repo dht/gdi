@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.input`
   flex: 1;
   padding: 10rem 10rem;
-  border: 1px solid #1a1a1a;
+  border: 1px solid var(--border-color);
   border-radius: 5rem;
   color: #334;
   font-family: 'Roboto Flex', monospace;
@@ -13,8 +13,9 @@ export const Wrapper = styled.input`
   }
 
   &.dark {
-    background-color: #1a1a1a;
-    color: #fff;
+    background-color: #111115;
+    color: #ccc;
     outline: none;
+    border: 1px solid #445;
   }
 `;

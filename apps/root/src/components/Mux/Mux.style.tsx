@@ -1,24 +1,47 @@
 import styled from 'styled-components';
+import { Container } from '@gdi/ui';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(Container)`
   flex: 1;
   display: flex;
   color: white;
   font-size: 14px;
   flex-direction: column;
-  background-color: #111;
+  background-color: var(--color-bk);
   position: relative;
-  padding-bottom: 110px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 `;
 
-export const Content = styled.div`
+export const Column = styled.div`
+  flex: 1;
+  display: flex;
+  position: relative;
+
+  &:last-child {
+    max-width: 300px;
+  }
+`;
+
+export const Inner = styled.div`
+  padding: 20px;
+  flex: 1;
   overflow-y: auto;
+  padding-bottom: 83px;
+  max-height: 0;
 `;
 
-export const Overlay = styled.div`
+export const Bottom = styled.div`
   position: absolute;
-  height: 40px;
-  width: 1000px;
-  bottom: -40px;
-  background-color: #111;
+  bottom: 0;
+  left: 0;
+  right: 10px;
+  background-color: #111115;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
 `;

@@ -1,0 +1,14 @@
+- Capabilities
+  - API
+    - OpenAI
+      - Turbo-3.5
+      - Whisper
+      - dall-e
+      - Sora
+    - ElevenLabs
+      - text-to-speech
+      - speech-to-speech
+    - Storyblocks
+    - Google Calendar
+    - Twitter
+    - Whatsapp

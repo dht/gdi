@@ -44,7 +44,11 @@ export function SpeechParams(props: SpeechParamsProps) {
         <Cta onClick={callbacks.onClear}>Clear</Cta>
       </Top>
       <Content>
-        <TextArea value={value} onChange={callbacks.onChange} />
+        <TextArea
+          value={value}
+          onChange={callbacks.onChange}
+          placeholder='Load a document or type your text here, then select a portion of the text to start.'
+        />
       </Content>
     </Wrapper>
   );

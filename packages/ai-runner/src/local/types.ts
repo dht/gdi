@@ -16,6 +16,8 @@ export interface DBAdapter {
   deleteItem: (path: string) => Promise<void>;
   getKeys: (req: any) => Promise<Json>;
   patchKeys: (req: any, json: Json) => Promise<void>;
+  getCredits: (req: any) => Promise<number>;
+  patchCredits: (req: any, value: number) => Promise<void>;
   addLog: (req: any, json: Json) => Promise<void>;
 }
 

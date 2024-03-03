@@ -1,9 +1,9 @@
 import * as express from 'express';
 import db from '../db';
-import { cleanUndefined } from '../utils/object';
-import { Json, User } from '../types';
 import { midKeys } from '../middlewares/midKeys';
+import { User } from '../types';
 import { dbAdapter } from '../utils/globals';
+import { cleanUndefined } from '../utils/object';
 
 export const router = express.Router();
 
@@ -102,4 +102,5 @@ export const onNewUser = async (snapshot: any, context: any) => {
   const req = { user: { uid } };
 
   await db.tags.create(req, 'project-tutorial');
+  await db.credits.bootstrap(req);
 };

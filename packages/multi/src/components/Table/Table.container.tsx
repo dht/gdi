@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Json } from '../../types';
 import Table from './Table';
 import { TableProvider } from './Table.context';
-import { ITableCallbacks, ITableConfig } from './Table.types';
+import { ITableCallbacks, ITableConfig } from '../../types';
 
 export type TableProps = {
   config?: ITableConfig;

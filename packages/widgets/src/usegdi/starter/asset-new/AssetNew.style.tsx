@@ -19,13 +19,13 @@ export const Drop = styled.div`
   transition: all 150ms ease-in-out;
 
   &:hover {
-    border: 2px solid #dde;
-    background-color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
   }
 
   &.active {
-    background-color: #fffae8;
-    border: 2px dashed #ababab;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px dashed rgba(255, 255, 255, 0.05);
     color: #99a;
   }
 `;

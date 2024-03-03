@@ -4,7 +4,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   display: flex;
-  background-color: #223;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-border);
   overflow-y: auto;
   flex-direction: column;
 `;
@@ -28,7 +29,7 @@ export const Top = styled.div`
   height: 50px;
   border-bottom: 1px solid #334;
   padding: 0 10px 0 20px;
-  background-color: #001;
+  background-color: #000;
 `;
 
 export const Cta = styled(Button)`

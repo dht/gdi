@@ -56,6 +56,14 @@ export class FsDbAdapter implements DBAdapter {
     return Promise.resolve();
   }
 
+  getCredits(_req: any) {
+    return Promise.resolve(100);
+  }
+
+  patchCredits(_req: any, value: number) {
+    return Promise.resolve();
+  }
+
   async addLog(_req: any, json: Json = {}) {
     const id = guid4();
 

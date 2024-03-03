@@ -103,40 +103,43 @@ export const sagas: ISagas = {
     id: 'boards.api',
     type: 'api',
   },
-  'home.api': {
-    id: 'home.api',
-    type: 'api',
-  },
-  'home.keys': {
-    id: 'home.keys',
+  'root.keys': {
+    id: 'root.keys',
     type: 'customEvent',
     trigger: {
       eventNames: ['saveKeys'],
     },
   },
-  'home.home': {
-    id: 'home.home',
+  'root.home': {
+    id: 'root.home',
     type: 'entity',
     trigger: {
       actionTypes: ['HOME'],
     },
   },
-  'home.issues': {
-    id: 'home.issues',
+  'root.tabs': {
+    id: 'root.tabs',
+    type: 'entity',
+    trigger: {
+      actionTypes: ['TABS'],
+    },
+  },
+  'root.issues': {
+    id: 'root.issues',
     type: 'customEvent',
     trigger: {
       eventNames: ['report/issue'],
     },
   },
-  'home.newBoard': {
-    id: 'home.newBoard',
+  'root.newBoard': {
+    id: 'root.newBoard',
     type: 'customEvent',
     trigger: {
       eventNames: ['saveBoard'],
     },
   },
-  'home.settings': {
-    id: 'home.settings',
+  'root.settings': {
+    id: 'root.settings',
     type: 'customEvent',
     trigger: {
       eventNames: ['saveSettings'],

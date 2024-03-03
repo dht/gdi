@@ -7,11 +7,11 @@ export const Container = styled.div`
   border-top: 1px solid #445;
   padding-bottom: 20px;
   --height: 28px;
-  --color: #ccd;
-  --bk-color: #334;
-  --border-color: #556;
-  background-color: #232332;
-  --grid: rgba(255, 255, 255, 0.05);
+  --color: #ddd;
+  --bk-color: #111;
+  --border-color: #333;
+  background-color: #111;
+  --grid: rgba(255, 255, 255, 0.03);
   background-size: 25px 25px;
   background-image: linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);

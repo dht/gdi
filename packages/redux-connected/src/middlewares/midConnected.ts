@@ -1,8 +1,8 @@
+import { get } from 'lodash';
 import { getProvider } from '../providers';
 import { config } from '../store/store';
 import { Action } from '../types';
 import { analyzeAction } from '../utils/connected';
-import { get, merge } from 'lodash';
 
 export const midConnected =
   (store: any) => (next: any) => async (action: Action) => {

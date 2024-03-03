@@ -1,5 +1,5 @@
 import { createContext, createProvider } from '../../utils/context';
-import { ITrelloCallbacks, ITrelloState } from './Trello.types';
+import { ITrelloCallbacks, ITrelloState } from '../../types';
 
 const initialState: ITrelloState = {
   sortDirection: '',

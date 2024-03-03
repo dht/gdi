@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { Json } from '../../types';
 import JsonEditor from './JsonEditor';
 import { JsonEditorProvider } from './JsonEditor.context';
-import { IJsonEditorCallbacks, IJsonEditorConfig } from './JsonEditor.types';
+import { IJsonEditorCallbacks, IJsonEditorConfig } from '../../types';
 
 export type JsonEditorContainerProps = {
   config?: IJsonEditorConfig;

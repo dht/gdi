@@ -14,3 +14,10 @@ export const $assistant = createSelector(
     return assistants[assistantId];
   }
 );
+
+export const $capability = createSelector(
+  [raw.$rawCapabilities, (_state, id) => id],
+  (capabilities, id) => {
+    return capabilities[id];
+  }
+);

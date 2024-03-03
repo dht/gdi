@@ -2,6 +2,7 @@ const axios = require('axios');
 const fs = require('fs-extra');
 const sharp = require('sharp');
 const { guid4 } = require('shared-base');
+const json = require('./downloadImages.json');
 
 const downloadImage = async (url, filename) => {
   const response = await axios({
@@ -121,27 +122,27 @@ const appScreenshot = async () => {
   fs.copySync(outputPath, `../web/public/images/${imageName}.jpg`);
 };
 const run = async () => {
-  const files = fs
-    .readdirSync('./raw')
-    // .filter((file) => file.startsWith(''))
-    .map((file, index) => {
-      const inputPath = `raw/${file}`;
-      const outputPath = `processed/i_${guid4()}.jpg`;
+  for (let file of Object.keys(json)) {
+    const fileName = `z_${file}.jpg`;
 
-      return (
-        sharp(inputPath)
-          // Crop the image to a specific region (e.g., x=20, y=20, width=100, height=100)
-          // Resize the image to a specific width and height
-          .resize(30, 30)
-          // background color white
-          .flatten({ background: '#ffffff' })
-          // Reduce the quality to 80 (for JPEGs)
-          // Reduce the quality to 80 (for JPEGs)
-          .jpeg({ quality: 80, progressive: true })
-          /// progressive (for JPEGs and PNGs)
-          .toFile(outputPath)
-      );
-    });
+    if (json[file].startsWith('https')) {
+      const inputUrl = json[file];
+      await downloadImage(inputUrl, fileName); // Assuming the images are in jpg format
+    }
+
+    const outputPath = `processed/${fileName}`;
+
+    sharp('./raw/' + fileName)
+      // Crop the image to a specific region (e.g., x=20, y=20, width=100, height=100)
+      // Resize the image to a specific width and height
+      .resize(300, 300)
+      // background color white
+      // Reduce the quality to 80 (for JPEGs)
+      // Reduce the quality to 80 (for JPEGs)
+      .jpeg({ quality: 80, progressive: true })
+      /// progressive (for JPEGs and PNGs)
+      .toFile(outputPath);
+  }
 };
 
 run();

@@ -1,6 +1,6 @@
 import { Tab, Wrapper } from './Tabs.style';
 import classnames from 'classnames';
-import { ITab } from './Tabs.types';
+import { ITab } from '../../types';
 
 export type TabsProps = {
   tabs: ITab[];
@@ -23,7 +23,7 @@ export function Tabs(props: TabsProps) {
     });
 
     return (
-      <Tab key={tab.id} className={className} onClick={() => props.onChange(tab.id)}>
+      <Tab key={tab.id} className={className} onMouseDown={() => props.onChange(tab.id)}>
         {tab.title}
       </Tab>
     );

@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  flex: 1;
-  font-size: 20px;
+  font-size: 16px;
   background-color: #000;
   color: white;
   display: flex;
   position: relative;
+  height: 50px;
+  user-select: none;
 `;
 
 export const Rect = styled.div`
@@ -47,6 +48,7 @@ export const Tabs = styled.div`
 export const Tab = styled.div`
   padding: 10px 20px;
   cursor: pointer;
+  white-space: nowrap;
 
   &:hover {
     background-color: #ffffff22;

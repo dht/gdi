@@ -2,69 +2,6 @@ import { IFlow } from '@gdi/store-base';
 // ====================== IBoard ======================//
 // source: igrid
 
-export interface IBoard {
-  id: string; // internal id => B-001
-  identifier: string; // external id => com.usegdi.chit-chat
-  boardInfo: IBoardInfo;
-  flowUrl?: string;
-  flow?: IFlow;
-  examplesUrl?: string;
-  examples?: IExamples;
-  defaults: {
-    exampleId?: string;
-    setupId?: string;
-  };
-  dependencies: Json;
-  elements: {
-    default: {
-      [key: string]: IElement;
-    };
-    mobile?: {
-      [key: string]: IElement;
-    };
-    tablet?: {
-      [key: string]: IElement;
-    };
-    '720p'?: {
-      [key: string]: IElement;
-    };
-    HD?: {
-      [key: string]: IElement;
-    };
-    'HD+'?: {
-      [key: string]: IElement;
-    };
-    '1080p'?: {
-      [key: string]: IElement;
-    };
-    '2k'?: {
-      [key: string]: IElement;
-    };
-    '4k'?: {
-      [key: string]: IElement;
-    };
-    '8k'?: {
-      [key: string]: IElement;
-    };
-  };
-}
-
-export interface IBoardInfo {
-  name: string;
-  imageUrl: string;
-  description: string;
-  header: string;
-  fields: InfoField[];
-  isPlayback: boolean;
-  showIntro: boolean;
-  sourceUrl?: string;
-}
-
-export interface InfoField {
-  label: string;
-  content: string;
-}
-
 export interface IElement {
   id: string;
   widgetId: string;

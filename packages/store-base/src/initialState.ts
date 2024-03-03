@@ -9,10 +9,14 @@ import { IGdiStore } from './types';
 import { removeId } from './utils/id';
 import { sagas } from './initialState.sagas';
 import { voices } from './initialState.voices';
+import { apiProviders } from './initialState.apiProviders';
+import { capabilities } from './initialState.capabilities';
+import { getBoolean } from 'shared-base';
 
 export const initialState: IGdiStore = {
   appState: {
     version: '0.0.0',
+    credits: 0,
     assetsRootUrl: '/',
     boardsRootUrl: '/boards',
     docsRootUrl: '/',
@@ -55,6 +59,8 @@ export const initialState: IGdiStore = {
     tags: ['project-tutorial'],
     root: 'mux',
     showRoot: false,
+    tsStart: Date.now(),
+    isFullScreen: getBoolean('fullscreen'),
   },
   currentIds: {
     boardId: '',
@@ -65,11 +71,13 @@ export const initialState: IGdiStore = {
     leftId: '',
     rightId: '',
     modalId: '',
+    muxTabId: 'home',
     editId: '',
     tabId: '',
     remoteItemId: '',
     personId: 'Albert.Einstein',
     assistantId: 'assistant-vanilla',
+    capabilityId: '',
   },
   user: {
     displayName: '',
@@ -199,6 +207,15 @@ export const initialState: IGdiStore = {
     dbAdapter: {
       id: 'dbAdapter',
       providerType: 'fireStore',
+    },
+  },
+  apiProviders,
+  capabilities,
+  muxTabs: {
+    home: {
+      id: 'home',
+      name: 'Home',
+      description: 'Welcome to Mux',
     },
   },
 };

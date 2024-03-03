@@ -46,7 +46,11 @@ export const parseHash = (hash: string): IHashInfo => {
     dbType: 'none',
   };
 
-  const boardDbPath = hash.replace(/^#/, '');
+  let boardDbPath = hash.replace(/^#/, '');
+
+  if (!boardDbPath.includes('.json')) {
+    boardDbPath = '';
+  }
 
   if (!boardDbPath) {
     return output;

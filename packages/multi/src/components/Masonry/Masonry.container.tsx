@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { IImage, Json } from '../../types';
 import Masonry from './Masonry';
 import { MasonryProvider } from './Masonry.context';
-import { IMasonryCallbacks, IMasonryConfig } from './Masonry.types';
+import { IMasonryCallbacks, IMasonryConfig } from '../../types';
 
 export type MasonryContainerProps = {
   data: IImage[];

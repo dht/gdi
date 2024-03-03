@@ -8,6 +8,7 @@
     "start:prod": "vite --mode production",
     "dev": "vite --config ./dev/vite.config.js",
     "build": "vite build --config ./vite.config.js",
+    "build:staging": "vite build --mode staging --config ./vite.config.js",
     "preview": "vite preview --port 3000",
     "test": "jest",
     "coverage": "jest --coverage=true",

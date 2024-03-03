@@ -75,6 +75,7 @@ export function Speech(props: SpeechProps) {
             value={value}
             onChange={callbacks.onChange}
             onKeyDown={onKeyDown}
+            placeholder='Type your text here or highlight part of the text in the document panel.'
           />
         </Transcript>
         <Cta onClick={callbacks.onGenerate} disabled={disabledGenerate}>

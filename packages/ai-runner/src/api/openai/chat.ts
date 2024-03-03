@@ -1,5 +1,6 @@
 import { get } from 'lodash';
 import { openai } from './_init';
+import { mergeToolCalls, parseToolCalls } from '../../utils/stream';
 
 type Flavour = 'turbo4' | 'turbo3';
 
@@ -31,7 +32,12 @@ export const chat = async (prompt: string, flavour: Flavour = 'turbo3') => {
   }
 };
 
-export const stream = (messages: any[], callback: any, flavour: Flavour = 'turbo3') => {
+export const stream = (
+  messages: any[],
+  tools: any[],
+  callback: any,
+  flavour: Flavour = 'turbo3'
+) => {
   return new Promise(async (resolve) => {
     const tsStart = Date.now();
 
@@ -46,21 +52,31 @@ export const stream = (messages: any[], callback: any, flavour: Flavour = 'turbo
         response_format: {
           type: 'text',
         },
+        tools,
       });
 
       let allContent = '',
-        finishReason = '';
+        finishReason = '',
+        toolCalls: any = [];
 
       for await (const item of res.iterator()) {
         const content = get(item, 'choices[0].delta.content', '');
+        const tool_calls = get(item, 'choices[0].delta.tool_calls', '');
         finishReason = get(item, 'choices[0].finish_reason');
 
         allContent += content;
-        callback(allContent);
+
+        if (allContent) {
+          callback(allContent);
+        }
+
+        mergeToolCalls(toolCalls, tool_calls);
       }
 
       const tsEnd = Date.now();
       const duration = (tsEnd - tsStart) / 1000;
+
+      toolCalls = parseToolCalls(toolCalls);
 
       resolve({
         success: true,
@@ -69,6 +85,7 @@ export const stream = (messages: any[], callback: any, flavour: Flavour = 'turbo
         duration,
         tsStart,
         tsEnd,
+        toolCalls,
       });
     } catch (err: any) {
       console.error('An error occurred:', err);

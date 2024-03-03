@@ -9,17 +9,18 @@ export type AvatarProps = {
   initials: string;
   imageUrl: string;
   randomColor?: boolean;
+  darkMode?: boolean;
 };
 
 export function Avatar(props: AvatarProps) {
-  const { initials, isAnonymous, imageUrl, badge, randomColor } = props;
+  const { initials, isAnonymous, imageUrl, badge, randomColor, darkMode } = props;
 
   const style: React.CSSProperties = {
     backgroundImage: `url(${imageUrl})`,
   };
 
   if (randomColor) {
-    style.backgroundImage = randomLinearGradient();
+    style.backgroundImage = randomLinearGradient(darkMode);
   }
 
   function renderInner() {

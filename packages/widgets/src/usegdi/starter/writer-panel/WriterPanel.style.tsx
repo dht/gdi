@@ -3,9 +3,9 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
-  background-color: #334;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-border);
   font-size: 20px;
-  color: #dde;
 `;
 
 export const Cta = styled(Button)``;

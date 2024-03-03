@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.button`
   font-size: 18rem;
-  border: 2px solid #222;
+  border: 2px solid var(--color-border);
   font-family: sans-serif;
-  background-color: #222;
-  color: white;
+  background-color: var(--color-button);
+  color: var(--color-text);
   padding: 10px 20px;
   border-radius: 20px;
   opacity: 0.9;
-  position: relative;
   cursor: pointer;
   border: none;
   box-sizing: border-box;
@@ -19,7 +18,7 @@ export const Wrapper = styled.button`
   justify-content: center;
 
   &:hover {
-    background-color: #222;
+    // darker
     opacity: 1;
   }
 
@@ -34,8 +33,7 @@ export const Wrapper = styled.button`
   }
 
   &:active {
-    top: 1px;
-    left: 1px;
+    transform: scale(0.95);
   }
 
   &:disabled {
@@ -45,7 +43,7 @@ export const Wrapper = styled.button`
 
   &.primary {
     background-color: #222;
-    color: white;
+    color: var(--color-text);
   }
 
   &.secondary {

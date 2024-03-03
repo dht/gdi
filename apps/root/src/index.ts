@@ -1,2 +1,3 @@
+export { pages } from './pages';
 export { sagas } from './sagas';
-export { RootContainer } from './components/Root/Root.container';
+export { RootPage as Root } from './bootstrap/RootPage';

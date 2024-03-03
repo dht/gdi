@@ -58,7 +58,7 @@ export function* configureFlowAdapter(_action: Action, board: IBoard) {
 export function* navigateToAssets(_action: Action, board: IBoard) {
   yield put({
     type: 'NAVIGATE',
-    to: '/boards/B-009',
+    to: '/assets#assets',
   });
 }
 

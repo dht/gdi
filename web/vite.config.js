@@ -61,7 +61,6 @@ export default defineConfig(() => {
         '@gdi/store-iso': `${cwd}/packages/store-iso/src`,
         '@gdi/app-root': `${cwd}/apps/root/src`,
         '@gdi/app-boards': `${cwd}/apps/boards/src`,
-        '@gdi/app-home': `${cwd}/apps/home/src`,
         'redux-connected': `${cwd}/packages/redux-connected/src`,
         'redux-store-generator': `${cwd}/packages/redux-store-generator/src`,
         igrid: `${cwd}/packages/igrid/src`,

@@ -3,25 +3,28 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 32px;
-  background-color: #fff;
+  background-color: var(--bk);
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+  bottom: 2px;
 `;
 
 export const Command = styled.div`
   outline: none;
-  background-color: white;
+  background-color: var(--bk);
   padding: 10px 20px;
-  box-shadow: inset 0 0 0 1px #ddd;
+  box-shadow: inset 0 0 0 1px var(--scroll-bk);
+  color: var(--color);
   cursor: pointer;
 
   &:hover {
-    background-color: #f8f8f8;
+    background-color: var(--hover-bk);
   }
 
   &:active {
-    background-color: #eee;
+    background-color: var(--scroll-bk);
   }
 
   @media (max-width: 800px) {

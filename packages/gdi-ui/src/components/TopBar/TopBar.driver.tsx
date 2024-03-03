@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { TopBar, TopBarProps } from './TopBar';
+import { MuxTopBar, MuxTopBarProps } from './TopBar';
 import { BaseComponentDriver } from 'testing-base';
 
-export class TopBarDriver extends BaseComponentDriver {
-  private props: Partial<TopBarProps> = {};
+export class MuxTopBarDriver extends BaseComponentDriver {
+  private props: Partial<MuxTopBarProps> = {};
 
   constructor() {
-    super('TopBar');
+    super('MuxTopBar');
   }
 
   when: any = {
     rendered: () => {
-      render(<TopBar {...(this.props as TopBarProps)} />);
+      render(<MuxTopBar {...(this.props as MuxTopBarProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class TopBarDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<TopBar {...(this.props as TopBarProps)} />);
+      return this.snapshot(<MuxTopBar {...(this.props as MuxTopBarProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<TopBarProps>) => {
+    props: (props: Partial<MuxTopBarProps>) => {
       this.props = props;
       return this;
     },

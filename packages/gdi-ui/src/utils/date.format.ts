@@ -38,6 +38,9 @@ export const date = {
   timeAgo: (date: string | number | Date, withoutAgo?: boolean) => {
     return dayjs(date).fromNow(withoutAgo);
   },
+  day: (date: string | number | Date) => {
+    return dayjs(date).format('dddd');
+  },
   stopwatch: (date: string | number | Date) => {
     return dayjs(date).format('mm:ss');
   },

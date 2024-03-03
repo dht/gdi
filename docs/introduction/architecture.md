@@ -21,4 +21,4 @@ As mentioned, a key principle of GDI is its reliance on schema-based entities, p
 - **Extensibility**: The flexibility to extend functionalities as requirements evolve.
 - **Unified Interface**: Facilitating a common interface across different entities for consistency and ease of use.
 
-<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/docs/architecture.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/dht/gdi-assets/main/images/docs/architecture.png" width="100%"/>

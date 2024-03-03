@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const Details = styled.div`
   flex: 1;
-  padding: 15rem 15rem;
+  padding: 15rem 15px;
   background-color: #223;
   color: #bbb;
-  height: 135rem;
+  height: 135px;
   display: flex;
   flex-direction: column;
 `;
 
 export const Title = styled.a`
-  font-size: 20rem;
+  font-size: 20px;
   font-weight: 500;
   cursor: pointer;
   color: white;
@@ -26,15 +26,15 @@ export const Author = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 14rem;
-  margin-top: 4rem;
+  font-size: 14px;
+  margin-top: 4px;
   text-transform: uppercase;
   font-variation-settings: 'wdth' 75, 'wght' 450;
 `;
 
 export const AuthorName = styled.div`
   color: #d2126b;
-  margin-left: 5rem;
+  margin-left: 5px;
   cursor: pointer;
 
   &:hover {
@@ -44,8 +44,8 @@ export const AuthorName = styled.div`
 
 export const Description = styled.div`
   flex: 1;
-  font-size: 20rem;
-  line-height: 30rem;
-  min-height: 60rem;
-  margin-top: 5rem;
+  font-size: 20px;
+  line-height: 30px;
+  min-height: 60px;
+  margin-top: 5px;
 `;

@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { Json } from '../../types';
 import { Multi } from './Multi';
 import { MultiProvider } from './Multi.context';
-import { IMultiCallbacks, IMultiConfig, IMultiView } from './Multi.types';
+import { IMultiCallbacks, IMultiConfig, IMultiView } from '../../types';
 import { addListener } from 'shared-base';
 
 export type MultiContainerProps = {
@@ -11,10 +11,11 @@ export type MultiContainerProps = {
   config: IMultiConfig;
   callbacks: IMultiCallbacks;
   data: Json[];
+  darkMode?: boolean;
 };
 
 export function MultiContainer(props: MultiContainerProps) {
-  const { callbacks, config, views, initialView, data } = props;
+  const { callbacks, config, views, initialView, data, darkMode } = props;
 
   const initialState = useMemo(
     () => ({
@@ -22,6 +23,7 @@ export function MultiContainer(props: MultiContainerProps) {
       views,
       activeView: initialView,
       data,
+      darkMode,
     }),
     []
   );

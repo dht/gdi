@@ -3,10 +3,9 @@ import { useBlackBk, useNoScroll } from '@gdi/ui';
 import { useMemo } from 'react';
 import { invokeEvent } from 'shared-base';
 import { Mux } from './Mux';
+import ContextBarContainer from '../ContextBar/ContextBar.container';
 
-export type MuxContainerProps = {
-  children?: React.ReactNode;
-};
+export type MuxContainerProps = {};
 
 export function MuxContainer(props: MuxContainerProps) {
   const dispatch = useDispatch();
@@ -21,13 +20,16 @@ export function MuxContainer(props: MuxContainerProps) {
       onSubmit: (prompt: string) => {
         invokeEvent('MUX/PROMPT', { prompt });
       },
+      onClear: () => {
+        invokeEvent('MUX/CLEAR');
+      },
     }),
     []
   );
 
   return (
     <Mux messages={messages} callbacks={callbacks}>
-      {props.children}
+      <ContextBarContainer />
     </Mux>
   );
 }

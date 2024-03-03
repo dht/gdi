@@ -10,7 +10,7 @@ export const Wrapper = styled(Container)`
   justify-content: center;
 
   @media (max-width: 768px) {
-    min-height: 600px;
+    min-height: 80vh;
   }
 `;
 
