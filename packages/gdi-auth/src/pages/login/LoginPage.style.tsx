@@ -5,18 +5,28 @@ export const Wrapper = styled.div`
   font-size: 14px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: #000;
+`;
+
+export const Content = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 999;
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Logo = styled.img`
   position: fixed;
   top: 50px;
   left: 50px;
-  width: 100px;
+  width: 80px;
   height: 50px;
   cursor: pointer;
 

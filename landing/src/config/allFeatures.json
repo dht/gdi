@@ -3,7 +3,7 @@
     "id": "1",
     "boardInfo": {
       "name": "Knowledge",
-      "imageUrl": "/docs/5.png",
+      "imageUrl": "/assets/docs/5.png",
       "description": "Knowledge is about acquiring and managing information. Whether it's your contacts or your documents, GDI helps you turn information into knowledge."
     }
   },
@@ -11,7 +11,7 @@
     "id": "2",
     "boardInfo": {
       "name": "Productivity",
-      "imageUrl": "/docs/12.png",
+      "imageUrl": "/assets/docs/12.png",
       "description": "Productivity is about managing tasks and workflows.  To efficiently use AI, you need access to the right tools and information at the right time."
     }
   },
@@ -19,7 +19,7 @@
     "id": "3",
     "boardInfo": {
       "name": "Content",
-      "imageUrl": "/docs/21.png",
+      "imageUrl": "/assets/docs/21.png",
       "description": "Content is about generating new content. Whether it's writing a blog post, creating a tutorial, or generating an animation, GDI helps you create content with AI."
     }
   }

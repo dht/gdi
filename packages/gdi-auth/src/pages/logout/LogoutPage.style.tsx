@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  --grid: rgba(255, 255, 255, 0.1);
   flex: 1;
   font-size: 14px;
   background-color: #000;
@@ -9,9 +8,6 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 25px 25px;
 `;
 
 export const Logo = styled.img`
