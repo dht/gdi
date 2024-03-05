@@ -5,8 +5,8 @@ import { getTabs } from './Tabs.data';
 
 export type TabsContainerProps = {};
 
-export function TabsContainer(_props: TabsContainerProps) {
-  const { state, callbacks, patchState } = useContext(MultiContext);
+export function TabsContainer(props: TabsContainerProps) {
+  const { state, patchState } = useContext(MultiContext);
 
   const tabs = useMemo(() => {
     return getTabs(state.views);

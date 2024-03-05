@@ -1,3 +1,4 @@
+import { pages as pagesAuth } from '@gdi/auth';
 import { LoginProvider } from '@gdi/firebase';
 import { GdiProvider } from '@gdi/store-base';
 import { Suspense } from 'react';
@@ -7,7 +8,7 @@ import { getBoolean, setBoolean } from 'shared-base';
 import { App } from './bootstrap/App';
 import { store } from './main.config';
 import './main.scss';
-import { pages as pagesAuth } from '@gdi/auth';
+import { Nav } from './sagas/saga.navigation';
 
 const container = document.getElementById('root') ?? document.body;
 
@@ -21,6 +22,7 @@ root.render(
   <GdiProvider store={store}>
     <Suspense fallback={<div />}>
       <Router>
+        <Nav />
         <LoginProvider>
           <Routes>
             <Route path='/login' element={<pagesAuth.login />} />

@@ -5,22 +5,25 @@ import classnames from 'classnames';
 
 export type NoteProps = {
   title?: string;
-  iconName: string;
+  iconName?: string;
   color?: string;
   children: React.ReactNode;
+  darkMode?: boolean;
 };
 
 export function Note(props: NoteProps) {
-  const { title, iconName, color = 'yellow' } = props;
+  const { title, iconName, color = 'yellow', darkMode } = props;
 
-  const className = classnames('Note-wrapper', color, {});
+  const className = classnames('Note-wrapper', color, {
+    dark: darkMode,
+  });
 
   function renderHeader() {
     if (!title) return null;
 
     return (
       <H3>
-        <Icon className='icon' name={iconName} />
+        {iconName && <Icon className='icon' name={iconName} />}
         {title}
       </H3>
     );

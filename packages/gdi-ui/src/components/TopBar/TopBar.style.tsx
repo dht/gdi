@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   align-items: center;
   box-sizing: border-box;
   position: relative;
+  background-color: #000;
+  user-select: none;
 `;
 
 export const Actions = styled.div`
@@ -14,6 +16,8 @@ export const Actions = styled.div`
   align-items: center;
   background-color: #000;
   padding-right: 10px;
+  width: 277px;
+  justify-content: space-between;
 `;
 
 export const Action = styled.div`

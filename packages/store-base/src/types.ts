@@ -1,6 +1,7 @@
 import { IElementsPerResolution } from 'igrid';
 import { NoId } from './utils/id';
 import type { IIsoStore } from '@gdi/store-iso';
+import { IMyData } from './types.md';
 
 export type Json = Record<string, any>;
 
@@ -25,7 +26,6 @@ export type IGdiStore = {
   assets: IAssets;
   document: IDocument;
   documentSuggestions: IDocumentSuggestions;
-  todos: ITodos;
   sagas: ISagas;
   voices: IVoices;
   remoteItems: IRemoteItems;
@@ -34,6 +34,7 @@ export type IGdiStore = {
   muxTabs: IMuxTabs;
   _lastAction: Action;
 } & IIsoStore &
+  IMyData &
   IFlow;
 
 export type IAppState = {
@@ -623,14 +624,6 @@ export type Cost = {
   outputRate?: number;
   total: number;
 };
-
-export type ITodo = {
-  id: string;
-  title: string;
-  completed: boolean;
-};
-
-export type ITodos = Record<string, ITodo>;
 
 export type IScene = {};
 

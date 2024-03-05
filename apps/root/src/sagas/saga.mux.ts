@@ -6,6 +6,7 @@ import { guid4, invokeEvent, setBoolean } from 'shared-base';
 import { customEvenChannel } from './channels/channel.customEvent';
 import { firestoreFlowChannel } from './channels/channel.firebase';
 import { parseResponse } from './saga.mux.response';
+import { keysGuard } from './helpers/guards';
 
 let streamChannel: any;
 
@@ -20,6 +21,11 @@ export function* clear() {
 export function* mux(ev: any) {
   const { data } = ev;
   const { prompt } = data;
+
+  let shouldContinue = yield* call(keysGuard, true);
+  if (!shouldContinue) {
+    return;
+  }
 
   if (prompt === 'clear') {
     yield* clear();

@@ -12,7 +12,7 @@ export const initMaterialColor = (material: IMaterial) => {
   const output = new StandardMaterial(id!, scene as any);
 
   if (ambient)  { output.ambientColor = color3(ambient) } // prettier-ignore
-  if (specular) { output.ambientColor = color3(specular) } // prettier-ignore
+  if (specular) { output.specularColor = color3(specular) } // prettier-ignore
   if (diffuse)  { output.diffuseColor = color3(diffuse) } // prettier-ignore
   if (emissive) { output.emissiveColor = color3(emissive) } // prettier-ignore
 

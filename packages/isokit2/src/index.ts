@@ -14,6 +14,14 @@ export { effectIds, effects } from './effects';
 export { useGlbReady } from './hooks/useGlbReady';
 export { animateItem, createAnimation, stopAllAnimations } from './iso.animations';
 export { moveArc, setActiveCameras, setCamera, switchCamera } from './iso.camera';
+export {
+  addConnector,
+  addConnectors,
+  removeConnector,
+  updateConnector,
+  updateConnectors,
+  clearConnectors,
+} from './iso.connectors';
 export { addCharacter, focusCornerCamera, showMouth } from './iso.characters';
 export { addDecal, setDecalPick } from './iso.decals';
 export { initDecalPaste } from './iso.decals.utils';

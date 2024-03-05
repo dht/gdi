@@ -1,6 +1,6 @@
 import { runFunction } from '@gdi/firebase';
 import { actions, selectors } from '@gdi/store-base';
-import { CreateAccount, isMobile, prompt, toast } from '@gdi/ui';
+import { UsageOptions, isMobile, prompt, toast } from '@gdi/ui';
 import { get } from 'lodash';
 import { call, delay, fork, put, select, take, trackAuth } from 'saga-ts';
 import { getJson, invokeEvent, patchJson } from 'shared-base';
@@ -121,43 +121,6 @@ export function* validateKeys() {
   const data = yield* call(runFunction, '/api/account/keys/validate');
   const { isApiKeyOk } = data ?? {};
   yield put(actions.appState.patch({ isApiKeyOk }));
-}
-
-export function* showGuestMode() {
-  const { didCancel } = yield prompt.custom({
-    title: 'Guest Mode',
-    component: CreateAccount,
-    componentProps: {},
-  });
-
-  if (didCancel) {
-    return;
-  }
-}
-
-export function* guestGuard() {
-  const isGuest = yield* select(selectors.base.$isGuest);
-
-  if (!isGuest) {
-    return true;
-  }
-
-  yield* call(showGuestMode);
-  return false;
-}
-
-export function* boardGuard() {
-  const regex = /\/boards\/B-(.*)/g;
-
-  const { pathname } = window.location;
-  const match = regex.exec(pathname);
-
-  if (!match) {
-    toast.show('Can only send prompt to boards that have flows', 'error');
-    return false;
-  }
-
-  return true;
 }
 
 export function* fetchData() {

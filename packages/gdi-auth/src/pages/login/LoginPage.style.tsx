@@ -25,7 +25,7 @@ export const Content = styled.div`
 export const Logo = styled.img`
   position: fixed;
   top: 50px;
-  left: 50px;
+  left: 40px;
   width: 80px;
   height: 50px;
   cursor: pointer;
@@ -39,3 +39,11 @@ export const Logo = styled.img`
 `;
 
 export const VideoBk = styled.div``;
+
+export const Github = styled.img`
+  width: 30px;
+  position: absolute;
+  top: 50px;
+  right: 42px;
+  cursor: pointer;
+`;

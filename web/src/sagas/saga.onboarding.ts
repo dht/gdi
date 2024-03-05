@@ -1,7 +1,7 @@
 import { selectors } from '@gdi/store-base';
-import { GdiIntro, OnBoarding, prompt } from '@gdi/ui';
+import { GdiIntro, prompt } from '@gdi/ui';
 import { delay, fork, select } from 'saga-ts';
-import { getBoolean, invokeEvent, setBoolean } from 'shared-base';
+import { getBoolean, setBoolean } from 'shared-base';
 
 export function* showLandingPage() {
   const wasLandingPageSeen = getBoolean('landingPageSeen');
@@ -20,8 +20,6 @@ export function* showOnboarding() {
   const isPlayback = document.location.hash.length > 0;
   const wasLandingPageSeen = getBoolean('landingPageSeen');
   const wasOnboardSeen = getBoolean('onBoardingSeen');
-  const appState = yield* select(selectors.raw.$rawAppState);
-  const { docsRootUrl } = appState;
 
   if (isPlayback || wasOnboardSeen || !wasLandingPageSeen) {
     return;
@@ -38,8 +36,6 @@ export function* showOnboarding() {
 }
 
 export function* root() {
-  yield delay(0);
-
   yield* fork(showLandingPage);
   yield* fork(showOnboarding);
 }

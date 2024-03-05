@@ -1,6 +1,6 @@
 <p align="center">
   <br />
-  <a href="https://usegdi.com/" target="blank"><img src="https://raw.githubusercontent.com/dht/gdi/main/public/cover.png" 
+  <a href="https://usegdi.com/" target="blank"><img src="https://raw.githubusercontent.com/dht/gdi/main/assets/cover.png" 
     width="100%"
    alt="gdi Logo" /></a>
 </p>

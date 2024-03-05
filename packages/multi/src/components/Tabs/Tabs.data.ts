@@ -1,7 +1,7 @@
 import { Json } from '../../types';
-import { ITab } from '../../types';
 
 export const tabNames: Json = {
+  summary: 'Summary',
   jsonEditor: 'Json',
   masonry: 'Gallery',
   sheet: 'Sheet',

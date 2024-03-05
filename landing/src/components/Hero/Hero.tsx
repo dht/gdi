@@ -33,7 +33,7 @@ export function Hero(props: HeroProps) {
   });
 
   function onCta() {
-    document.location = '/';
+    document.location = '/login';
   }
 
   function renderNoun(noun: string, index: number) {

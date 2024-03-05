@@ -24,6 +24,7 @@
     "gdi.gdi",
     "gdi.errors",
     "gdi.keys",
+    "gdi.setup",
     "gdi.navigation",
     "gdi.onboarding",
     "gdi.logs",

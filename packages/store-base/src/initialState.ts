@@ -12,6 +12,7 @@ import { voices } from './initialState.voices';
 import { apiProviders } from './initialState.apiProviders';
 import { capabilities } from './initialState.capabilities';
 import { getBoolean } from 'shared-base';
+import { initialStateMd } from './initialState.md';
 
 export const initialState: IGdiStore = {
   appState: {
@@ -181,6 +182,7 @@ export const initialState: IGdiStore = {
     },
   },
   ...initialStateTodos,
+  ...initialStateMd,
   remoteItems: {
     r1: {
       id: 'r1',
