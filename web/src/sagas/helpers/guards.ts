@@ -6,7 +6,7 @@ import { invokeEvent } from 'shared-base';
 export function* keysGuard(showSetup?: boolean) {
   const isApiKeyOk = yield* select(selectors.base.$isApiKeyOk);
 
-  if (!isApiKeyOk) {
+  if (isApiKeyOk) {
     return true;
   }
 
