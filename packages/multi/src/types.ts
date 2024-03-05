@@ -438,4 +438,11 @@ export type IMultiContext = IContext<IMultiState, IMultiCallbacks>;
 
 export type IMultiProps = IContextProviderProps<IMultiState, IMultiCallbacks>;
 
-export type IMultiView = 'sheet' | 'lanes' | 'table' | 'masonry' | 'jsonEditor' | 'calendar';
+export type IMultiView =
+  | 'sheet'
+  | 'lanes'
+  | 'table'
+  | 'masonry'
+  | 'jsonEditor'
+  | 'calendar'
+  | 'summary';

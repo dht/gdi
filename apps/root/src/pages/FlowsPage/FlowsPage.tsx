@@ -7,7 +7,7 @@ export type FlowsPageProps = {};
 export function FlowsPage(_props: FlowsPageProps) {
   return (
     <Wrapper className='FlowsPage-wrapper' data-testid='FlowsPage-wrapper'>
-      <Board id='B-020' darkMode />
+      <Board id='B-033' darkMode />
     </Wrapper>
   );
 }

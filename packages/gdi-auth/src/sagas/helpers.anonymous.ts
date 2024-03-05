@@ -1,10 +1,17 @@
-import { call } from 'saga-ts';
+import { call, delay } from 'saga-ts';
 import { invokeEvent } from 'shared-base';
 
+export function* navigateToLogin() {
+  yield delay(1000);
+  const { pathname } = document.location;
+
+  if (!['/landing', '/login'].includes(pathname)) {
+    document.location = '/login';
+  }
+}
+
 export function* anonymous() {
-  invokeEvent('auth/change', {
-    user: anonymousUser,
-  });
+  yield call(navigateToLogin);
 }
 
 const anonymousUser = {

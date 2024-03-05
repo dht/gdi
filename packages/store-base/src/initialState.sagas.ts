@@ -94,6 +94,13 @@ export const sagas: ISagas = {
       actionTypes: ['TRANSCRIPT_PROMPT'],
     },
   },
+  'gdi.setup': {
+    id: 'gdi.setup',
+    type: 'customEvent',
+    trigger: {
+      actionTypes: ['gdi/setup'],
+    },
+  },
   'gdi.tags': {
     id: 'gdi.tags',
     type: 'bootstrap',
@@ -198,6 +205,13 @@ export const sagas: ISagas = {
     trigger: {
       actionTypes: ['BABYLON_LOADED', 'PLAY', 'STOP'],
       eventNames: ['board/exit'],
+    },
+  },
+  'widgets.expressDebugger': {
+    id: 'widgets.expressDebugger',
+    type: 'component',
+    trigger: {
+      eventNames: ['scene/ready'],
     },
   },
   'widgets.fourthWall': {

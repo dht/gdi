@@ -15,7 +15,11 @@ export const Wrapper = styled.div`
   }
 
   &.yellow {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 243, 167, 0.623);
+
+    &.dark {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
   }
 
   a {

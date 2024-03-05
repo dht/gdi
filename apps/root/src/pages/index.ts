@@ -1,10 +1,12 @@
 import BoardContainer from '../containers/Board.container';
 import BoardDetailsPageContainer from '../containers/BoardDetailsPage.container';
-import { AccountPageContainer } from '../groups/AccountPage/AccountPage.container';
-import { AssetsPageContainer } from '../groups/AssetsPage/AssetsPage.container';
-import { CapabilitiesPageContainer } from '../groups/CapabilitiesPage/CapabilitiesPage.container';
-import { MuxPageContainer } from '../groups/MuxPage/MuxPage.container';
+import { AccountPageContainer } from './AccountPage/AccountPage.container';
+import { ApisPageContainer } from './ApisPage/ApisPage.container';
+import { AssetsPageContainer } from './AssetsPage/AssetsPage.container';
+import { BoardsPageContainer } from './BoardsPage/BoardsPage.container';
 import { BrowsePageContainer } from './BrowsePage/BrowsePage.container';
+import { CapabilitiesPageContainer } from './CapabilitiesPage/CapabilitiesPage.container';
+import { DataPageContainer } from './DataPage/DataPage.container';
 import { DocsPageContainer } from './DocsPage/DocsPage.container';
 import { FlowsPageContainer } from './FlowsPage/FlowsPage.container';
 import { HistoryPageContainer } from './HistoryPage/HistoryPage.container';
@@ -15,27 +17,29 @@ import { NewBoardPageContainer } from './NewBoardPage/NewBoardPage.container';
 import { NewReviewPageContainer } from './NewReviewPage/NewReviewPage.container';
 import { PrivacyPolicyPageContainer } from './PrivacyPolicyPage/PrivacyPolicyPage.container';
 import { ReportIssuePageContainer } from './ReportIssuePage/ReportIssuePage.container';
+import { SettingsPageContainer } from './SettingsPage/SettingsPage.container';
 import { TermsOfUsePageContainer } from './TermsOfUsePage/TermsOfUsePage.container';
 
 export const pages = {
-  // groups
-  mux: MuxPageContainer,
-  capabilities: CapabilitiesPageContainer,
   account: AccountPageContainer,
+  apis: ApisPageContainer,
   assets: AssetsPageContainer,
-  // pages
-  map: MapPageContainer,
+  boards: BoardsPageContainer,
   browse: BrowsePageContainer,
+  capabilities: CapabilitiesPageContainer,
+  data: DataPageContainer,
+  settings: SettingsPageContainer,
+  docs: DocsPageContainer,
+  flows: FlowsPageContainer,
+  history: HistoryPageContainer,
+  map: MapPageContainer,
   newBoard: NewBoardPageContainer,
   newReview: NewReviewPageContainer,
-  docs: DocsPageContainer,
   mobile: MobilePage,
   reportIssue: ReportIssuePageContainer,
   termsOfUse: TermsOfUsePageContainer,
   privacyPolicy: PrivacyPolicyPageContainer,
-  flows: FlowsPageContainer,
   logs: LogsPageContainer,
-  history: HistoryPageContainer,
   details: BoardDetailsPageContainer,
   board: BoardContainer,
 };

@@ -7,7 +7,7 @@ export async function addDynamics(dynamic: ISceneDynamic[]) {
 
   await SceneLoader.AppendAsync(
     '',
-    'https://raw.githubusercontent.com/dht/gdi-assets/main/boards/public/glb/main-big.glb'
+    'https://raw.githubusercontent.com/dht/gdi-assets/main/boards/assets/glb/main-big.glb'
   );
 
   const root: any = scene.getNodeByName('__root__');

@@ -6,10 +6,13 @@ import Table from '../Table/Table.container';
 import Tabs from '../Tabs/Tabs.container';
 import Trello from '../Trello/Trello.container';
 import { MultiContext } from './Multi.context';
-import { Content, Wrapper } from './Multi.style';
+import { Content, Summary, Wrapper } from './Multi.style';
 import Calendar from '../calendar/Calendar.container';
+import classnames from 'classnames';
 
-export type MultiProps = {};
+export type MultiProps = {
+  children?: React.ReactNode;
+};
 
 const component = {
   jsonEditor: JsonEditor,
@@ -20,7 +23,7 @@ const component = {
   calendar: Calendar,
 };
 
-export function Multi(_props: MultiProps) {
+export function Multi(props: MultiProps) {
   const { state, callbacks } = useContext(MultiContext);
   const { activeView, config, darkMode, isReady } = state;
 
@@ -29,6 +32,10 @@ export function Multi(_props: MultiProps) {
   }
 
   function renderInner() {
+    if (activeView === 'summary') {
+      return <Summary>{props.children}</Summary>;
+    }
+
     const Cmp: any = component[activeView];
 
     if (!Cmp) {
@@ -45,8 +52,12 @@ export function Multi(_props: MultiProps) {
     );
   }
 
+  const className = classnames('Multi-wrapper', {
+    dark: darkMode,
+  });
+
   return (
-    <Wrapper className='Multi-wrapper' data-testid='Multi-wrapper'>
+    <Wrapper className={className} data-testid='Multi-wrapper'>
       <Tabs />
       <Content>{renderInner()}</Content>
     </Wrapper>

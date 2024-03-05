@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import Button from '../Button/Button';
 
-export const Wrapper = styled(Button)``;
+export const Wrapper = styled(Button)`
+  zoom: 0.8;
+  position: relative;
+`;
 
 export const Badge = styled.div`
   width: 20px;

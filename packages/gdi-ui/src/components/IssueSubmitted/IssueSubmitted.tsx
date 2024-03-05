@@ -13,7 +13,7 @@ export function IssueSubmitted(props: IssueSubmittedProps) {
     <Wrapper className='IssueSubmitted-wrapper' data-testid='IssueSubmitted-wrapper'>
       <Animation>
         <Lottie
-          url='https://raw.githubusercontent.com/dht/gdi-assets/main/public/lottie/thank-you.json'
+          url='https://raw.githubusercontent.com/dht/gdi-assets/main/assets/lottie/thank-you.json'
           size={530}
         />
       </Animation>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Wrapper } from './Contacts.style';
 import { Multi } from 'multi';
 import { config, initialView, views } from './Contacts.multi';
+import ContactsSummary from './_parts/ContactsSummary/ContactsSummary';
 
 export type ContactsProps = {
   callbacks: {
@@ -23,7 +24,9 @@ export function Contacts(props: ContactsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      />
+      >
+        <ContactsSummary />
+      </Multi>
     </Wrapper>
   );
 }

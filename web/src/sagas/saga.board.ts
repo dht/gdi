@@ -6,7 +6,7 @@ import { invokeEvent } from 'shared-base';
 import { Json } from '../types';
 import { boardAdapter, flowAdapter } from '../utils/globals';
 import { l } from '../utils/logs';
-import { guestGuard } from './saga.gdi';
+import { keysGuard } from './helpers/guards';
 import { saveBoardData } from './helpers/saga.clipboard';
 import { parseHash, prepareBoardData } from '../utils/boards';
 import { predicateCurrentIds } from './predicates';
@@ -145,7 +145,7 @@ export function* saveBoard(action: Action, board: IBoard) {
 }
 
 export function* startReview(_action: Action, board: IBoard) {
-  const shouldContinue = yield* call(guestGuard);
+  const shouldContinue = yield* call(keysGuard);
 
   if (!shouldContinue) {
     return;

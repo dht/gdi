@@ -585,3 +585,11 @@ export type IPostEffect = {
   isRunning?: boolean;
   endTs?: number;
 };
+
+export type IConnector = {
+  id: string;
+  sourceId: string;
+  targetId: string;
+};
+
+export type IConnectors = Record<string, IConnector>;

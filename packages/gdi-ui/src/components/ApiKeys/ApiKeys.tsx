@@ -30,11 +30,7 @@ export function ApiKeys(props: ApiKeysProps) {
   }
 
   return (
-    <Wrapper
-      className='ApiKeys-wrapper inverse'
-      data-testid='ApiKeys-wrapper'
-      onClick={props.onClick}
-    >
+    <Wrapper className='ApiKeys-wrapper' data-testid='ApiKeys-wrapper' onClick={props.onClick}>
       API Keys
       {renderIcon()}
     </Wrapper>

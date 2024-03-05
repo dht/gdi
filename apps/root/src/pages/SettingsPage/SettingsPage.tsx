@@ -2,7 +2,7 @@ import type { ISettings } from '@gdi/store-base';
 import { Form, Container } from '@gdi/ui';
 import { formDefaults, forms } from '../../_definitions/forms';
 import { H1, Wrapper } from './SettingsPage.style';
-import { Top } from '../../groups/MuxPage/MuxPage.style';
+import { Top } from '../../groups/MuxGroup/MuxGroup.style';
 import { GenericTabsContainer } from '../../containers/GenericTab.container';
 
 export type SettingsPageProps = {

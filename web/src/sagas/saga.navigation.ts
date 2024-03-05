@@ -37,6 +37,11 @@ export function useNavigationMethod() {
   }, [nav]);
 }
 
+export function Nav() {
+  useNavigationMethod();
+  return null;
+}
+
 export function* root() {
   const channel = customEvenChannel('nav');
   yield takeEvery(channel, navEvent);

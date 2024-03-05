@@ -41,3 +41,5 @@ playground/*.wav
 playground/capability.retrieval.pdf
 playground/*.ids.json
 playground/*.log.json
+Contacts.csv
+contacts.json
