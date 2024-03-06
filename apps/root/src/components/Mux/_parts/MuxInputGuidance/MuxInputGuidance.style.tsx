@@ -3,14 +3,12 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   position: absolute;
-  top: -115px;
+  bottom: 70px;
   width: 700px;
-  height: 130px;
 
   @media (max-width: 800px) {
     width: 90vw;
-    left: 5vw;
-    top: -120px;
+    left: 5px;
   }
 `;
 

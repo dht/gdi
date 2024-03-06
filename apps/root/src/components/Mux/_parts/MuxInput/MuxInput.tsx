@@ -2,6 +2,7 @@ import { Icon, useMount } from '@gdi/ui';
 import { useCallback, useRef, useState } from 'react';
 import { useKey } from 'react-use';
 import { Clear, Input, Send, Wrapper } from './MuxInput.style';
+import MuxInputGuidanceContainer from '../MuxInputGuidance/MuxInputGuidance.container';
 
 export type MuxInputProps = {
   callbacks: {
@@ -43,6 +44,7 @@ export function MuxInput(props: MuxInputProps) {
 
   return (
     <Wrapper className='MuxInput-wrapper' data-testid='MuxInput-wrapper'>
+      <MuxInputGuidanceContainer prompt={input} />
       <Clear onClick={callbacks.onClear}>Clear</Clear>
       <Input
         ref={refInput}
