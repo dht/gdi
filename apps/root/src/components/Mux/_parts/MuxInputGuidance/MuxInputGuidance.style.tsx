@@ -6,6 +6,12 @@ export const Wrapper = styled.div`
   top: -115px;
   width: 700px;
   height: 130px;
+
+  @media (max-width: 800px) {
+    width: 90vw;
+    left: 5vw;
+    top: -120px;
+  }
 `;
 
 export const Item = styled.div`
@@ -19,6 +25,10 @@ export const Item = styled.div`
   cursor: pointer;
   user-select: none;
 
+  @media (max-width: 800px) {
+    height: 55px;
+  }
+
   &:hover {
     border-color: rgba(255, 255, 255, 0.3);
     background-color: rgba(255, 255, 255, 0.05);
@@ -27,9 +37,17 @@ export const Item = styled.div`
 
 export const Title = styled.div`
   color: rgba(255, 255, 255, 0.8);
+
+  @media (max-width: 800px) {
+    text-align: center;
+  }
 `;
 
 export const Description = styled.div`
   color: rgba(255, 255, 255, 0.4);
   margin-top: 2px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

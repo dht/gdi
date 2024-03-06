@@ -20,6 +20,10 @@ export const Content = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 800px) {
+    width: 100vw;
+  }
 `;
 
 export const Logo = styled.img`

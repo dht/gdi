@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const Top = styled.div`

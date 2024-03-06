@@ -21,6 +21,10 @@ export const Column = styled.div`
 
   &:last-child {
     max-width: 300px;
+
+    @media (max-width: 800px) {
+      display: none;
+    }
   }
 `;
 

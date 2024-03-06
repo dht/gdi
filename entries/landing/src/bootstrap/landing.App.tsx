@@ -9,20 +9,14 @@ import { isMobile } from '../utils/mobile';
 import MenuMobile from '../components/MenuMobile/MenuMobile';
 import { menuData } from '../data/data.menu';
 import { allData } from '../config/configs.data';
+import { pages } from '../pages';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 export const App = () => {
   function onSelect(item: Json) {
     const { path } = item;
 
     window.open(path, '_blank');
-  }
-
-  function renderSection(section: Json) {
-    return <Section key={section.id} section={section} />;
-  }
-
-  function renderSections() {
-    return sections.map((section: Json) => renderSection(section));
   }
 
   function renderMobileMenu() {
@@ -36,8 +30,12 @@ export const App = () => {
   return (
     <Wrapper>
       <Top />
-      <Hero data={allData.hero} />
-      {renderSections()}
+      <Router>
+        <Routes>
+          <Route path='/landing/contact-us' element={<pages.contactUs />} />
+          <Route path='/landing/*' element={<pages.landing />} />
+        </Routes>
+      </Router>
       <Footer />
       {renderMobileMenu()}
     </Wrapper>

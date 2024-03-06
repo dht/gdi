@@ -11,6 +11,10 @@ import MenuMobile from '../MenuMobile/MenuMobile';
 export type TopProps = {};
 
 export function Top(props: TopProps) {
+  function onLogoClick() {
+    window.location.href = '/landing/';
+  }
+
   function renderMenuItem(item: Json) {
     const { text, isCta, url } = item;
 
@@ -40,7 +44,7 @@ export function Top(props: TopProps) {
 
   return (
     <Wrapper className='Top-wrapper' data-testid='Top-wrapper'>
-      <Logo />
+      <Logo onClick={onLogoClick} />
       {renderMenu()}
       <GitHubButton
         href='https://github.com/dht/gdi'

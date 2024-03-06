@@ -134,8 +134,8 @@ export const Noun = styled.div`
     width: 100%;
     height: 10px;
     border-radius: 200px 0 0 0;
-    border-top: 10px solid white;
-    opacity: 0.3;
+    background-image: url(/underline.svg);
+    background-size: cover;
 
     @media (max-width: 768px) {
       left: -10px;
