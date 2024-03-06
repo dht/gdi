@@ -9,13 +9,8 @@ export function* invokeTools(toolCalls: any) {
   const toolCall = toolCalls[0];
 
   const { name } = toolCall;
-  const { taskType } = toolCall.arguments;
 
-  if (name !== 'getAppIdForTask') {
-    return;
-  }
-
-  const capability = yield* select(selectors.single.$capability, taskType);
+  const capability = yield* select(selectors.single.$capability, name);
 
   if (!capability) {
     return;

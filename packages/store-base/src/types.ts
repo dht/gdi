@@ -690,6 +690,16 @@ export type ICapability = {
   imageUrl?: string;
   ingredients: ICapabilityIngredient[];
   instructions: ICapabilityInstruction[];
+  parameters?: IFunctionParameters;
 };
+
+export type IFunctionParameter = {
+  type: string;
+  description: string;
+  enum?: string[];
+  isRequired?: boolean;
+};
+
+export type IFunctionParameters = Record<string, IFunctionParameter>;
 
 export type ICapabilities = Record<string, ICapability>;

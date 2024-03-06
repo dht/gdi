@@ -12,6 +12,7 @@ import { Json } from '../types';
 import { isLocalInstance } from '../utils/globals';
 import { midModeration } from '../middlewares/midModeration';
 import { midCredits } from '../middlewares/midCredits';
+import { capabilities } from '../data/data.capabilities';
 
 export const router = express.Router();
 
@@ -35,7 +36,7 @@ router.post('/chat', async (req: any, res) => {
 
 router.post('/chat/stream', async (req: any, res) => {
   try {
-    const { messages, tools } = req.body;
+    const { messages } = req.body;
 
     const messagesClean = messages.map((message: any) => {
       return {
@@ -44,9 +45,13 @@ router.post('/chat/stream', async (req: any, res) => {
       };
     });
 
-    const response: any = await openAI.chat.stream(messagesClean, tools, (content: string) => {
-      db.messages.adhoc(req, { content });
-    });
+    const response: any = await openAI.chat.stream(
+      messagesClean,
+      capabilities,
+      (content: string) => {
+        db.messages.adhoc(req, { content });
+      }
+    );
 
     db.messages.adhoc(req, { content: '' });
     res.status(200).json({ ...response });

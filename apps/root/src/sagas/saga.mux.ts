@@ -40,7 +40,6 @@ export function* mux(ev: any) {
   };
 
   const messages = yield* select(selectors.base.$messages);
-  const tools = yield* select(selectors.mux.$tools);
 
   yield put(actions.messages.add(message));
 
@@ -49,7 +48,6 @@ export function* mux(ev: any) {
 
   const response = yield* call(runFunction, '/api/ai/chat/stream', {
     messages: [...messages, message],
-    tools,
   });
 
   invokeEvent('mux/content', { content: '' });

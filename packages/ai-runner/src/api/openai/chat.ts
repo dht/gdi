@@ -1,6 +1,7 @@
 import { get } from 'lodash';
 import { openai } from './_init';
 import { mergeToolCalls, parseToolCalls } from '../../utils/stream';
+import { capabilities } from '../../data/data.capabilities';
 
 type Flavour = 'turbo4' | 'turbo3';
 
@@ -34,7 +35,7 @@ export const chat = async (prompt: string, flavour: Flavour = 'turbo3') => {
 
 export const stream = (
   messages: any[],
-  tools: any[],
+  tools: any[] = capabilities,
   callback: any,
   flavour: Flavour = 'turbo3'
 ) => {
@@ -48,7 +49,6 @@ export const stream = (
         messages,
         temperature: 0,
         stream: true,
-        stop: '{}',
         response_format: {
           type: 'text',
         },
