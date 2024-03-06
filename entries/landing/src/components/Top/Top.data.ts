@@ -24,6 +24,12 @@ export const items = [
     url: 'https://github.com/dht/gdi',
   },
   {
+    id: 'contact_us',
+    text: 'Contact Us',
+    groupId: 'menu',
+    url: '/landing/contact-us',
+  },
+  {
     id: 'start',
     text: 'Start Here',
     groupId: 'action',

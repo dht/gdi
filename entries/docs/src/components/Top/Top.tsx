@@ -11,7 +11,7 @@ export type TopProps = {};
 
 export function Top(_props: TopProps) {
   function onLogoClick() {
-    window.location.href = '/';
+    window.location.href = '/d/';
   }
 
   function renderMenuItem(item: Json) {

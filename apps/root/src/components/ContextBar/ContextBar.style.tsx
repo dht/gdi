@@ -5,4 +5,8 @@ export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
   margin: 10px;
   color: var(--color-text);
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

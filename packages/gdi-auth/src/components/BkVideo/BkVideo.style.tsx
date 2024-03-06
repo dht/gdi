@@ -12,4 +12,8 @@ export const Wrapper = styled.div`
     height: 100vh;
     transform: translateX(-0vw);
   }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

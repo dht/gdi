@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   position: relative;
   width: 766px;
   max-width: calc(100% - 180px);
+
+  @media (max-width: 800px) {
+    max-width: 90vw;
+  }
 `;
 
 export const Input = styled.textarea`
@@ -66,5 +70,10 @@ export const Clear = styled(Button)`
   &:active {
     position: absolute;
     top: 5px;
+  }
+
+  @media (max-width: 800px) {
+    top: -83vh;
+    right: -10px;
   }
 `;

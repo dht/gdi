@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import Container from '../Container/Container';
 
 export const Wrapper = styled(Container)`
-  flex: 1;
   display: flex;
   flex-direction: row;
   align-items: center;
+  max-height: 110px;
 
   @media (max-width: 768px) {
     max-height: 80px;
