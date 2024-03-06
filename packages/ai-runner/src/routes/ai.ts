@@ -10,14 +10,14 @@ import db from '../db';
 import { midKeys } from '../middlewares/midKeys';
 import { Json } from '../types';
 import { isLocalInstance } from '../utils/globals';
-import { midModeration } from '../middlewares/midModeration';
+// import { midModeration } from '../middlewares/midModeration';
 import { midCredits } from '../middlewares/midCredits';
 import { capabilities } from '../data/data.capabilities';
 
 export const router = express.Router();
 
 router.use(midKeys);
-router.use(midModeration);
+// router.use(midModeration);
 router.use(midCredits);
 
 router.post('/chat', async (req: any, res) => {
