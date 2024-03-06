@@ -1,0 +1,19 @@
+{
+  "name": "GDI",
+  "short_name": "GDI",
+  "description": "An open-source & extendable content management system (CMS) written in ReactJS, hosted on Firebase. Build and manage your site & business. Extend via NPM packages.",
+  "version": "1.0",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3498db",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg"
+    }
+  ],
+  "permissions": ["geolocation"],
+  "offline_enabled": true
+}

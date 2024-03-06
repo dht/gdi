@@ -9,6 +9,7 @@ import { App } from './bootstrap/App';
 import { store } from './main.config';
 import './main.scss';
 import { Nav } from './sagas/saga.navigation';
+import { pages } from './pages';
 
 const container = document.getElementById('root') ?? document.body;
 
@@ -27,6 +28,7 @@ root.render(
           <Routes>
             <Route path='/login' element={<pagesAuth.login />} />
             <Route path='/logout' element={<pagesAuth.logout />} />
+            <Route path='/b/:id' element={<pages.one />} />
             <Route path='/*' element={<App />} />
           </Routes>
         </LoginProvider>

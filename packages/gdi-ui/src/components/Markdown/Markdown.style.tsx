@@ -124,7 +124,7 @@ export const Wrapper = styled.div`
   }
 
   pre {
-    width: 650rem;
+    width: 650px;
     flex: 1;
   }
 `;

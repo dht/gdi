@@ -8,6 +8,10 @@
         "destination": "/landing/index.html"
       },
       {
+        "source": "/d/**",
+        "destination": "/d/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
