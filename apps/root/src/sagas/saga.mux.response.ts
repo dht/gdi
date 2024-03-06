@@ -19,7 +19,7 @@ export function* parseResponse(response: any) {
   if (finishReason === 'tool_calls') {
     yield call(invokeTools, toolCalls);
 
-    const capabilityId = get(toolCalls, '[0].arguments.taskType', '');
+    const capabilityId = get(toolCalls, '[0].name', '');
 
     content = `I found a capability (${capabilityId}) that can help you with that. Click on "Start workflow" on the right-side panel to get started.`;
   }
