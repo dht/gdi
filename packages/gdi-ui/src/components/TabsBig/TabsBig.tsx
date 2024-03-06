@@ -34,7 +34,7 @@ export function TabsBig(props: TabsBigProps) {
     const { title } = tab;
 
     return (
-      <Tab key={tab.id} className='tab' onClick={() => props.onChange(tab.id)}>
+      <Tab key={tab.id} className='tab' onMouseDown={() => props.onChange(tab.id)}>
         {title}
       </Tab>
     );

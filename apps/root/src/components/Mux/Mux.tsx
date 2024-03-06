@@ -4,7 +4,6 @@ import { useRef, useState } from 'react';
 import { Bottom, Column, Inner, Wrapper } from './Mux.style';
 import MuxEmpty from './_parts/MuxEmpty/MuxEmpty';
 import MuxInput from './_parts/MuxInput/MuxInput';
-import MuxInputGuidanceContainer from './_parts/MuxInputGuidance/MuxInputGuidance.container';
 import MuxMessages from './_parts/MuxMessages/MuxMessages';
 
 export type MuxProps = {

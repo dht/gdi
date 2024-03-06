@@ -12,7 +12,7 @@ const dbAdapter = new FirestoreAdapter(firestore);
 const storageAdapter = new S3Adapter(bucket);
 
 const app = initRunner({
-  allowedDomains: ['localhost:3000', 'usegdi.com'],
+  allowedDomains: ['localhost:3000', 'usegdi.com', '127.0.0.1:3000'],
   apiKeys: {},
   middlewares: [midAuthenticateByHeaders],
   dbAdapter,
