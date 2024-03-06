@@ -22,6 +22,7 @@
     "start:prod": "npm run -w web start:prod",
     "serve:docs": "./scripts/serveDocs.sh",
     "sync:forms": "ts-node ./scripts/yaml.ts",
+    "build:electron": "electron-builder",
     "build": "npm run -w web build",
     "preview": "npm run -w web preview",
     "postinstall": "husky install",
@@ -32,8 +33,11 @@
     "deploy:all": "npm run deploy:ai-runner && npm run deploy:functions && npm run deploy:web"
   },
   "devDependencies": {
-    "husky": "^8.0.1"
+    "husky": "^8.0.1",
+    "electron": "^29.1.0",
+    "electron-builder": "^24.13.3"
   },
+  "main": "./web/main.js",
   "husky": {
     "hooks": {
       "pre-commit": "sh ./scripts/pre-commit-prevent-large-files.sh"

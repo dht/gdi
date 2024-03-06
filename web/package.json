@@ -2,6 +2,10 @@
   "name": "gdi-web",
   "version": "0.9.25",
   "license": "GPL-3.0",
+  "description": "Explore GDI, an open-source project shaping user interfaces for the AI era. Discover how GDI simplifies asset management, model orchestration, data handling, cost optimization, and privacy protection. Join us in giving the AI revolution a face.",
+  "author": {
+    "name": "GDI"
+  },
   "scripts": {
     "start:dev": "vite",
     "start:staging": "vite --mode staging",
@@ -42,6 +46,7 @@
     "typed-redux-saga": "^1.5.0"
   },
   "devDependencies": {
+    "@electron/rebuild": "^3.6.0",
     "@testing-library/react": "^13.3.0",
     "@types/firebase": "^3.2.1",
     "@types/jest": "^28.1.8",
@@ -60,14 +65,5 @@
   },
   "files": [
     "dist"
-  ],
-  "main": "./dist/gdi-admin.umd.js",
-  "module": "./dist/gdi-admin.es.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/gdi-admin.es.js",
-      "require": "./dist/gdi-admin.umd.js"
-    }
-  }
+  ]
 }

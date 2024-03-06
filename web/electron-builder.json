@@ -1,0 +1,12 @@
+{
+  "appId": "com.usegdi",
+  "mac": {
+    "icon": "public/fav/light/favicon.ico"
+  },
+  "win": {
+    "icon": "public/fav/light/favicon.ico"
+  },
+  "linux": {
+    "icon": "public/fav/light/favicon.ico"
+  }
+}
