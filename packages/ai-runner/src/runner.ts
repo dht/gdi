@@ -43,10 +43,10 @@ export const initRunner = (params: Params) => {
 
   app.use(
     cors({
-      origin: true, // or http://...
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+      origin: '*',
     })
   );
+
   app.use(express.json({ limit: fileSizeLimit }));
   app.use(express.urlencoded({ limit: fileSizeLimit, extended: true }));
 
