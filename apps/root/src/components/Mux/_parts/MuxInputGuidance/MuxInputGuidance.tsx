@@ -1,12 +1,14 @@
 import React from 'react';
 import { Description, Item, Title, Wrapper } from './MuxInputGuidance.style';
-import { data } from './MuxInputGuidance.data';
 
 export type MuxInputGuidanceProps = {
+  items: Json[];
   onSelect: (item: Json) => () => void;
 };
 
 export function MuxInputGuidance(props: MuxInputGuidanceProps) {
+  const { items } = props;
+
   function renderItem(item: Json) {
     const { title, description } = item;
 
@@ -19,7 +21,7 @@ export function MuxInputGuidance(props: MuxInputGuidanceProps) {
   }
 
   function renderItems() {
-    return data.map((item: Json) => renderItem(item));
+    return items.map((item: Json) => renderItem(item));
   }
 
   return (

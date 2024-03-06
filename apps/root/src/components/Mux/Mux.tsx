@@ -50,7 +50,6 @@ export function Mux(props: MuxProps) {
           {renderInner()}
         </Inner>
         <Bottom>
-          <MuxInputGuidanceContainer />
           <MuxInput callbacks={callbacks} />
         </Bottom>
       </Column>
