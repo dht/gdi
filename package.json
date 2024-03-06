@@ -7,6 +7,7 @@
     "web",
     "packages/*",
     "tools/*",
+    "entries/*",
     "packages/*/scripts",
     "web/scripts",
     "web/functions",
@@ -27,7 +28,7 @@
     "listen:scene": "ts-node ./scripts/listen-scene.ts",
     "deploy:ai-runner": "npm run -w @gdi/ai-runner deploy",
     "deploy:functions": "npm run -w functions deploy",
-    "deploy:web": "npm run -w gdi-web deploy",
+    "deploy:web": "./scripts/deploy-web.sh",
     "deploy:all": "npm run deploy:ai-runner && npm run deploy:functions && npm run deploy:web"
   },
   "devDependencies": {

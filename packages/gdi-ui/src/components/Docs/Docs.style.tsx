@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   flex: 1;
   background-color: white;
   color: #334;
+  min-height: 80vh;
 
   &.modal {
     margin-bottom: 0;
