@@ -8,7 +8,7 @@ export const initialStateMd: IMyData = {
       content: 'This is the first document',
     },
   },
-  contact: {
+  contacts: {
     '1': {
       id: '1',
       name: 'First Contact',

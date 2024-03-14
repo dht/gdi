@@ -19,6 +19,13 @@ export function EditCell(props: EditCellProps) {
     gridArea: areaDimension(y, x, 1, 1),
   };
 
+  function onKeyDown(ev: React.KeyboardEvent<HTMLDivElement>) {
+    const isArrow = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(ev.key);
+    if (isArrow) {
+      ev.stopPropagation();
+    }
+  }
+
   useMount(() => {
     if (!ref.current) {
       return;
@@ -50,6 +57,7 @@ export function EditCell(props: EditCellProps) {
       style={style}
       contentEditable={true}
       suppressContentEditableWarning={true}
+      onKeyDown={onKeyDown}
       ref={ref}
     >
       {value}

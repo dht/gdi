@@ -22,7 +22,6 @@ export const board: IBoard = {
       'Revolutionize digital advertising with visually stunning 3D video ads, powered by cutting-edge AI technology for maximum impact and minimal effort.',
     oneLinerShort: 'Revolutionize digital ads with stunning 3D videos, powered by AI.',
     tags: ['video', 'ads', '3D', 'media', 'top_installed', 'editor_choice', 'young_professionals'],
-    order: 1,
     supportedResolutions: ['1920x1080', '1366x768'],
     tsVersion: 0,
   },

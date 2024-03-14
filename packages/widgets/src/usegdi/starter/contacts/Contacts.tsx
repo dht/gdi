@@ -1,13 +1,13 @@
 import React from 'react';
 import { Wrapper } from './Contacts.style';
 import { Multi } from 'multi';
-import { config, initialView, views } from './Contacts.multi';
+import { multi, initialView, views } from './_multi';
 import ContactsSummary from './_parts/ContactsSummary/ContactsSummary';
 
 export type ContactsProps = {
   callbacks: {
-    onAction: (params: any) => void;
-    onItemAction: (params: any) => void;
+    onAction: (verb: string, params?: Json) => void;
+    onItemAction: (id: string, verb: string, params?: Json) => void;
   };
   data: Json[];
 };
@@ -20,7 +20,7 @@ export function Contacts(props: ContactsProps) {
       <Multi //
         initialView={initialView}
         views={views}
-        config={config}
+        config={multi}
         data={data}
         callbacks={callbacks}
         darkMode

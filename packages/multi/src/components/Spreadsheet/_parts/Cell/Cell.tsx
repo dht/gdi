@@ -1,37 +1,52 @@
-import { areaDimension } from '../../Spreadsheet.utils';
-import { ISheetCell } from '../../Spreadsheet.types';
-import { Wrapper } from './Cell.style';
 import classnames from 'classnames';
+import { CSSProperties } from 'styled-components';
+import { ICoord, ITableField, Json } from '../../../../types';
+import { Wrapper } from './Cell.style';
+import SelectCell from '../SelectCell/SelectCell';
 
 export type CellProps = {
-  data: ISheetCell;
+  style: CSSProperties;
+  columnIndex: number;
+  rowIndex: number;
+  data: Json;
+  coord: ICoord;
+  fields: ITableField[];
+  isSelected: boolean;
+  onClick: (rowIndex: number, columnIndex: number) => void;
+  onChange: (id: string, change: Json) => void;
 };
 
 export function Cell(props: CellProps) {
-  const { data } = props;
-  const { x, y, value, cellType, isLoading } = data;
+  const { style, columnIndex, rowIndex, data, fields, isSelected } = props;
+  const itemData = data[rowIndex];
+  const field = fields[columnIndex];
+  const { id } = field;
 
-  const style: React.CSSProperties = {
-    gridArea: areaDimension(y, x, 1, 1),
-  };
+  function onChange(value: string) {
+    const change = { [id]: value };
+    props.onChange(itemData.id, change);
+  }
 
-  const className = classnames('Cell-wrapper', cellType, {
-    firstCol: x === 1,
-    loading: isLoading,
-    empty: value === '-',
+  function onClick() {
+    props.onClick(rowIndex, columnIndex);
+  }
+
+  const value = itemData[id];
+
+  const className = classnames({
+    first: columnIndex === 0,
   });
 
-  function renderInner() {
-    if (isLoading) {
-      return <></>;
-    }
+  function renderSelect() {
+    if (!isSelected) return;
 
-    return value;
+    return <SelectCell {...props} onChange={onChange} value={value} />;
   }
 
   return (
-    <Wrapper className={className} data-testid='Cell-wrapper' style={style}>
-      {renderInner()}
+    <Wrapper style={style} className={className} data-testid='Cell-wrapper' onMouseDown={onClick}>
+      {value}
+      {renderSelect()}
     </Wrapper>
   );
 }

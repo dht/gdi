@@ -3,29 +3,26 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   line-height: 30px;
-  padding: 0 5px;
+  border-bottom: 1px solid var(--grid);
+  border-right: 1px solid var(--grid);
+  display: flex;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px;
+  white-space: nowrap;
 
-  &.model {
-    background-color: var(--bk);
+  &.first {
+    background-color: #111;
+  }
+
+  &.header {
     font-weight: 500;
-    text-align: center;
-  }
-
-  &.temperature {
-    text-align: center;
-  }
-
-  &.topP {
-    text-align: center;
-  }
-
-  &.maxTokens {
-    border-bottom: 1px solid var(--border);
-    text-align: center;
+    background-color: #112;
   }
 
   &.firstCol {
-    background-color: var(--bk);
+    background-color: #112;
     text-align: center;
   }
 
@@ -35,13 +32,6 @@ export const Wrapper = styled.div`
   }
 
   &.value {
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  &.prompt {
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;

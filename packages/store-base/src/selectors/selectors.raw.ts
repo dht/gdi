@@ -37,5 +37,16 @@ export const $rawCapabilities = createSelector($i, (state: IGdiStore) => state.c
 export const $rawMuxTabs = createSelector($i, (state: IGdiStore) => state.muxTabs); // prettier-ignore
 export const $rawVoices = createSelector($i, (state: IGdiStore) => voices); // prettier-ignore
 
-// transient
-export const $rawTodos = createSelector($i, (state: IGdiStore) =>state.todos); // prettier-ignore
+export const $rawDocs = createSelector($i, (state: IGdiStore) => state.docs); // prettier-ignore
+export const $rawContacts = createSelector($i, (state: IGdiStore) => state.contacts); // prettier-ignore
+export const $rawTodos = createSelector($i, (state: IGdiStore) => state.todos); // prettier-ignore
+export const $rawFinanceLines = createSelector($i, (state: IGdiStore) => state.financeLines); // prettier-ignore
+export const $rawLists = createSelector($i, (state: IGdiStore) => state.lists); // prettier-ignore
+export const $rawListItem = createSelector($i, (state: IGdiStore) => state.listItem); // prettier-ignore
+export const $rawEvents = createSelector($i, (state: IGdiStore) => state.events); // prettier-ignore
+export const $rawExternalEvents = createSelector($i, (state: IGdiStore) => state.externalEvents); // prettier-ignore
+export const $rawLocations = createSelector($i, (state: IGdiStore) => state.locations); // prettier-ignore
+export const $rawBooks = createSelector($i, (state: IGdiStore) => state.books); // prettier-ignore
+export const $rawSales = createSelector($i, (state: IGdiStore) => state.sales); // prettier-ignore
+export const $rawReminders = createSelector($i, (state: IGdiStore) => state.reminders); // prettier-ignore
+export const $rawThings = createSelector($i, (state: IGdiStore) => state.things); // prettier-ignore

@@ -303,3 +303,7 @@ export const $apiProviders = createSelector(
     });
   }
 );
+
+export const $contacts = createSelector(raw.$rawContacts, (contacts) => {
+  return Object.values(contacts).sort(sortBy('firstName', 'desc'));
+});
