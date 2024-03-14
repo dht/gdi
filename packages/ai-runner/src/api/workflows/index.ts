@@ -4,6 +4,7 @@ import { oneShot } from './workflow.llm';
 import { basic } from './workflow.voice';
 import { get } from 'lodash';
 import { Json } from '../../types';
+import { main } from './workflow.mux';
 
 export const workflows: any = {
   llm: {
@@ -16,9 +17,12 @@ export const workflows: any = {
   image: {
     basic: imageBasic,
   },
+  mux: {
+    main,
+  },
 };
 
-export const runWorkflow = (req: any, api: Json, variables: Json) => {
+export const runWorkflow = (req: any, api: Json, variables: Json, streamCallback?: any) => {
   const { endpoint } = api;
 
   const workflow = get(workflows, endpoint);
@@ -27,5 +31,5 @@ export const runWorkflow = (req: any, api: Json, variables: Json) => {
     throw new Error(`workflow not found for xpath "${endpoint}"`);
   }
 
-  return workflow(req, api, variables);
+  return workflow(req, api, variables, streamCallback);
 };

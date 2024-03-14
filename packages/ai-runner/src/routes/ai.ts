@@ -13,6 +13,7 @@ import { isLocalInstance } from '../utils/globals';
 // import { midModeration } from '../middlewares/midModeration';
 import { midCredits } from '../middlewares/midCredits';
 import { capabilities } from '../data/data.capabilities';
+import { runWorkflow } from '../api/workflows';
 
 export const router = express.Router();
 
@@ -49,6 +50,33 @@ router.post('/chat/stream', async (req: any, res) => {
       messagesClean,
       capabilities,
       (content: string) => {
+        db.messages.adhoc(req, { content });
+      }
+    );
+
+    db.messages.adhoc(req, { content: '' });
+    res.status(200).json({ ...response });
+  } catch (error) {
+    console.error('Error generating text:', error);
+    res.status(500).send('Error generating text');
+  }
+});
+
+router.post('/assistant/stream', async (req: any, res) => {
+  try {
+    const { prompt } = req.body;
+
+    const response: any = await runWorkflow(
+      req,
+      {
+        endpoint: 'mux.main',
+      },
+      {
+        content: prompt,
+      },
+      (content: string) => {
+        console.log('content ->', content);
+
         db.messages.adhoc(req, { content });
       }
     );
