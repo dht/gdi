@@ -72,6 +72,7 @@ export const deleteCollectionItem = async (
   const { nodeName } = info;
 
   const xpath = `${nodeName}/${id}`;
+
   const response = await axios.run('delete', xpath);
 
   if (response.isSuccess) {

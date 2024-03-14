@@ -1,4 +1,4 @@
-import { ITodos } from './types';
+import { ITodos } from './types.md';
 
 type ITodosStore = {
   todos: ITodos;

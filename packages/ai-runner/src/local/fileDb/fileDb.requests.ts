@@ -8,6 +8,8 @@ export const handleRequest = (req: any, res: any) => {
       return handlePost(req, res);
     case 'PATCH':
       return handlePatch(req, res);
+    case 'DELETE':
+      return handleDelete(req, res);
     default:
   }
 };

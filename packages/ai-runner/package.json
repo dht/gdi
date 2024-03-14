@@ -11,6 +11,7 @@
     "deploy": "npm version patch && npm run build && npm publish"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.17.1",
     "@gdi/store-base": "^1.0.0",
     "adm-zip": "^0.5.10",
     "axios": "^1.6.2",

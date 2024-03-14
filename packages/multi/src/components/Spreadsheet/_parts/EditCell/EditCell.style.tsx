@@ -7,4 +7,9 @@ export const Wrapper = styled.div`
   line-height: 30px;
   padding-left: 1px;
   outline: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 `;

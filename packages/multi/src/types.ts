@@ -44,7 +44,9 @@ export type IMasonryProps = IContextProviderProps<IMasonryState, IMasonryCallbac
 
 // ------ Spreadsheet ------
 
-export type ISpreadsheetConfig = {};
+export type ISpreadsheetConfig = {
+  fields: ITableField[];
+};
 
 export type ISpreadsheetState = {
   sortDirection: string;
@@ -62,7 +64,7 @@ export type ISpreadsheetProps = IContextProviderProps<ISpreadsheetState, ISpread
 export type ISheetCell = {
   id: string;
   value: string;
-  cellType: 'model' | 'topP' | 'temperature' | 'maxTokens' | 'prompt' | 'value' | 'label';
+  cellType: 'header' | 'id' | 'value';
 
   // transient
   x?: number;
@@ -292,11 +294,12 @@ export type IContextProviderProps<S extends IContextState, C extends IContextCal
   callbacks: C;
   state?: Partial<S>;
   children: React.ReactNode;
+  data: Json[];
 };
 
 export type IContextCallbacks = {
-  onAction: (params: ActionParams) => void;
-  onItemAction: (params: ItemActionParams) => void;
+  onAction: (verb: string, params?: Json) => void;
+  onItemAction: (id: string, verb: string, params?: Json) => void;
 };
 
 export type IContextState = {
@@ -305,21 +308,12 @@ export type IContextState = {
 
 export type IContext<S extends IContextState, C extends IContextCallbacks> = {
   state: S;
+  data: Json[];
   callbacks: Partial<C>;
   patchState: (change: Partial<S>) => void;
 };
 
 export type Verb = '';
-
-export type ActionParams = {
-  verb: string;
-  params?: Json;
-};
-
-export type ItemActionParams = ActionParams & {
-  id: string;
-  item: IItem;
-};
 
 // =============== Galleries ===============
 export type IImage = {
@@ -430,6 +424,7 @@ export type IMultiState = {
   isReady?: boolean;
   data: Json[];
   darkMode?: boolean;
+  q?: string;
 };
 
 export type IMultiCallbacks = IContextCallbacks & {};

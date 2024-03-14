@@ -1,6 +1,5 @@
-import { ActionParams, ItemActionParams } from '../../types';
-import { createContext, createProvider } from '../../utils/context';
 import { IMultiCallbacks, IMultiState } from '../../types';
+import { createContext, createProvider } from '../../utils/context';
 
 const initialState: IMultiState = {
   config: {},
@@ -8,12 +7,10 @@ const initialState: IMultiState = {
   activeView: 'masonry',
   data: [],
   darkMode: true,
+  q: '',
 };
 
-const callbacks = {
-  onAction: (_params: ActionParams) => {},
-  onItemAction: (_params: ItemActionParams) => {},
-};
+const callbacks = {};
 
 export const MultiContext = createContext<IMultiState, IMultiCallbacks>(initialState, callbacks);
 

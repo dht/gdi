@@ -6,9 +6,12 @@ import Table from '../Table/Table.container';
 import Tabs from '../Tabs/Tabs.container';
 import Trello from '../Trello/Trello.container';
 import { MultiContext } from './Multi.context';
-import { Content, Summary, Wrapper } from './Multi.style';
+import { Content, Row, Summary, Wrapper } from './Multi.style';
 import Calendar from '../calendar/Calendar.container';
 import classnames from 'classnames';
+import Stats from '../Stats/Stats';
+import StatsContainer from '../Stats/Stats.container';
+import MultiActionsContainer from '../MultiActions/MultiActions.container';
 
 export type MultiProps = {
   children?: React.ReactNode;
@@ -24,7 +27,7 @@ const component = {
 };
 
 export function Multi(props: MultiProps) {
-  const { state, callbacks } = useContext(MultiContext);
+  const { state, data, callbacks } = useContext(MultiContext);
   const { activeView, config, darkMode, isReady } = state;
 
   if (!isReady) {
@@ -45,7 +48,7 @@ export function Multi(props: MultiProps) {
     return (
       <Cmp
         config={config[activeView]}
-        data={state.data}
+        data={data}
         callbacks={callbacks as any}
         darkMode={darkMode}
       />
@@ -58,7 +61,11 @@ export function Multi(props: MultiProps) {
 
   return (
     <Wrapper className={className} data-testid='Multi-wrapper'>
-      <Tabs />
+      <Row>
+        <Tabs />
+        <StatsContainer data={state.data} />
+        <MultiActionsContainer />
+      </Row>
       <Content>{renderInner()}</Content>
     </Wrapper>
   );
