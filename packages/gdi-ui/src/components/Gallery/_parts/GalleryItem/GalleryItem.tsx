@@ -7,6 +7,7 @@ import {
   Details,
   Identifier,
   Image,
+  Media,
   Name,
   Row,
   Soon,
@@ -67,7 +68,7 @@ export function GalleryItem(props: GalleryItemProps) {
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
     >
-      {renderImage()}
+      <Media>{renderImage()}</Media>
       <Soon className='soon'>Soon</Soon>
       <Wip className='wip'>Work in progress</Wip>
       <Details>

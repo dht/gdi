@@ -23,10 +23,28 @@ fields:
     label: ElevenLabs
     groupId: keys
     params: { maxChars: 60 }
-  - id: envato
+  - id: anthropic
     fieldType: password
     placeholder: Encrypted with aes256 and available only to you
-    label: Envato
+    label: Anthropic
+    groupId: keys
+    params: { maxChars: 32 }
+  - id: whatsapp
+    fieldType: password
+    placeholder: Encrypted with aes256 and available only to you
+    label: Whatsapp
+    groupId: keys
+    params: { maxChars: 32 }
+  - id: x
+    fieldType: password
+    placeholder: Encrypted with aes256 and available only to you
+    label: X
+    groupId: keys
+    params: { maxChars: 32 }
+  - id: storyblocks
+    fieldType: password
+    placeholder: Encrypted with aes256 and available only to you
+    label: Storyblocks
     groupId: keys
     params: { maxChars: 32 }
 submit:

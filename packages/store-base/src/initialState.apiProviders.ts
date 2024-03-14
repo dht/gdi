@@ -20,8 +20,8 @@ export const apiProviders: IApiProviders = {
     id: 'elevenLabs',
     name: 'ElevenLabs',
     description: 'ElevenLabs  specializes in Speech and Audio AI models and APIs.',
-    providerType: 'AI',
-    imageUrl: '/docs/21.png',
+    providerType: 'NON-AI',
+    imageUrl: '/docs/19.png',
     models: ['text-to-speech', 'text-to-audio', 'speech-to-text', 'speech-to-speech'],
   },
 };
