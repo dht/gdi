@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   flex: 1;
   width: 302px;
-  height: 386px;
+  height: 326px;
   width: var(--item-width);
   cursor: pointer;
   position: relative;
@@ -57,6 +57,11 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const Media = styled.div`
+  overflow: hidden;
+  max-height: 186px;
+`;
+
 export const Image = styled.div`
   width: 100%;
   height: 186px;
@@ -75,7 +80,9 @@ export const Image = styled.div`
 
 export const Video = styled.video`
   width: 100%;
-  height: 183px;
+  height: 226px;
+  position: relative;
+  top: -20px;
   background-size: cover;
   background-position: center;
   border-radius: 20px 2px 20px 20px;

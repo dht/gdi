@@ -20,7 +20,7 @@ export function Gallery(props: GalleryProps) {
 
   const columnCount = 5;
   const columnWidth = (width - 10) / columnCount;
-  const rowHeight = columnWidth * 1.6;
+  const rowHeight = Math.min(columnWidth * 1.6, 326);
   const rowCount = Math.ceil(items.length / columnCount);
 
   function renderExtra() {
