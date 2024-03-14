@@ -5,6 +5,8 @@ import { saga as sagaExpressDebugger } from './usegdi/starter/express-debugger/s
 import { saga as sagaFlow } from './usegdi/starter/flow/sagas.Flow';
 import { saga as sagaFourthWall } from './usegdi/starter/fourth-wall/sagas.FourthWall';
 import { saga as sagaMusicList } from './usegdi/starter/music-list/sagas.MusicList';
+import { saga as sagaContacts } from './usegdi/starter/contacts/sagas.Contacts';
+import { saga as sagaContact } from './usegdi/starter/contacts/sagas.Contact';
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
 import { saga as sagaProductTour } from './usegdi/starter/product-tour/sagas.ProductTour';
 import { sagas as sagasScene } from './usegdi/starter/scene/sagas';
@@ -17,6 +19,8 @@ import { saga as sagaVisionSimulator } from './usegdi/starter/vision-simulator/s
 export const sagas: any = {
   'widgets.assetsList': sagaAssets,
   'widgets.babylon': sagaBabylon,
+  'widgets.contact': sagaContact,
+  'widgets.contacts': sagaContacts,
   'widgets.document': sagaDocument,
   'widgets.expressDebugger': sagaExpressDebugger,
   'widgets.flow': sagaFlow,

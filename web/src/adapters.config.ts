@@ -46,6 +46,7 @@ export const config = {
       'sceneCurrentIds',
       'sceneConfig',
       'settings',
+      'muxTabs',
       'soundState',
       'sagas',
       'tags',
@@ -60,6 +61,7 @@ export const config = {
       'sceneDots',
       'sceneAudios',
       'sceneEffects',
+      'contacts',
     ],
     optimisticVerbs: [
       'add', //

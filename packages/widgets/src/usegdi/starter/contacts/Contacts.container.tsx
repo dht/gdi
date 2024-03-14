@@ -2,6 +2,7 @@ import { selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useMemo } from 'react';
 import { Contacts } from './Contacts';
 import { data } from './Contacts.multi';
+import { useSagas } from '../../../helpers/useSaga';
 
 export type ContactsContainerProps = {
   data: any;
@@ -9,26 +10,35 @@ export type ContactsContainerProps = {
 
 export function ContactsContainer(props: ContactsContainerProps) {
   const dispatch = useDispatch();
-  const appState = useSelector(selectors.raw.$rawAppState);
+  const contacts = useSelector(selectors.base.$contacts);
+
+  useSagas([
+    'widgets.contacts', //
+    'widgets.contact',
+  ]);
 
   const callbacks = useMemo(
     () => ({
-      onAction: (params: any) => {},
-      onItemAction: (params: any) => {
-        const { verb, item } = params;
-        const { url } = item;
-
-        switch (verb) {
-          case 'click':
-            dispatch({ type: 'NAVIGATE', to: url });
-            break;
-        }
+      onAction: (verb: string, params?: Json) => {
+        dispatch({
+          type: 'CONTACTS',
+          verb,
+          payload: params,
+        });
+      },
+      onItemAction: (id: string, verb: string, payload?: Json) => {
+        dispatch({
+          type: 'CONTACT',
+          verb,
+          id,
+          payload,
+        });
       },
     }),
     []
   );
 
-  return <Contacts data={data} callbacks={callbacks} />;
+  return <Contacts data={contacts} callbacks={callbacks} />;
 }
 
 export default ContactsContainer;

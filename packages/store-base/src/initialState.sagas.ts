@@ -59,6 +59,11 @@ export const sagas: ISagas = {
     type: 'customEvent',
     trigger: {},
   },
+  'gdi.md': {
+    id: 'gdi.md',
+    type: 'bootstrap',
+    trigger: {},
+  },
   'gdi.navigation': {
     id: 'gdi.navigation',
     type: 'customEvent',
@@ -205,6 +210,20 @@ export const sagas: ISagas = {
     trigger: {
       actionTypes: ['BABYLON_LOADED', 'PLAY', 'STOP'],
       eventNames: ['board/exit'],
+    },
+  },
+  'widgets.contact': {
+    id: 'widgets.contact',
+    type: 'component',
+    trigger: {
+      actionTypes: ['CONTACT'],
+    },
+  },
+  'widgets.contacts': {
+    id: 'widgets.contacts',
+    type: 'component',
+    trigger: {
+      actionTypes: ['CONTACTS'],
     },
   },
   'widgets.expressDebugger': {

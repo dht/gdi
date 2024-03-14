@@ -39,6 +39,7 @@ export const midConnected =
     }
 
     const state = store.getState();
+
     const response = await provider(action, info, state);
 
     const { nextAction } = response;

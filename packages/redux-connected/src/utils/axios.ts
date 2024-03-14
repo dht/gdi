@@ -26,7 +26,7 @@ export class Axios {
       };
 
       return this.instance({
-        method: method,
+        method: method.toUpperCase(),
         url: path,
         data,
         headers: {
