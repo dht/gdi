@@ -86,9 +86,9 @@ export const createStreamedRun = async (threadId: string, assistantId: string, c
       });
 
     const result = await run;
-    console.log('result ->', result);
+    // console.log('result ->', result);
   } catch (err: any) {
-    console.log('err.data ->', err.data);
+    // console.log('err.data ->', err.data);
   }
 
   return run;

@@ -75,8 +75,6 @@ router.post('/assistant/stream', async (req: any, res) => {
         content: prompt,
       },
       (content: string) => {
-        console.log('content ->', content);
-
         db.messages.adhoc(req, { content });
       }
     );

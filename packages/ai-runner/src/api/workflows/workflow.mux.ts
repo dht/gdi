@@ -27,11 +27,8 @@ export const main = async (req: any, _api: Json, params: Json, streamCallback?: 
     await db.ids.patch(req, ids);
   }
 
-  console.log('ids ->', ids);
-
   let response: any;
   response = await api.threads.addMessage(ids.muxThreadId, content);
-  console.log('response.data ->', response.data);
 
   response = await api.threads.createStreamedRun(
     ids.muxThreadId,
