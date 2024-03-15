@@ -1,5 +1,6 @@
 import { Json, ThreadCreateParams } from '../../types';
 import { AIResponseBuilder } from '../../utils/response';
+import { mergeToolCalls, parseToolCall, parseToolCalls } from '../../utils/stream';
 import { openai } from './_init';
 import { calculateAssistantCosts } from './_utils';
 
@@ -47,51 +48,81 @@ export const createRun = async (threadId: string, assistantId: string) => {
   return run;
 };
 
-export const createStreamedRun = async (threadId: string, assistantId: string, callback: any) => {
+export const createStreamedRun = (threadId: string, assistantId: string, callback: any) => {
   let run;
 
-  try {
-    let allContent = '';
+  return new Promise((resolve) => {
+    const tsStart = Date.now();
 
-    run = openai.beta.threads.runs
-      .createAndStream(threadId, {
-        assistant_id: assistantId,
-      })
-      .on('textCreated', (text) => {
-        allContent = '';
-      })
-      .on('textDelta', (textDelta, snapshot) => {
-        allContent += textDelta.value;
-        callback(allContent);
-      })
-      .on('toolCallCreated', (toolCall) => {
-        console.log('toolCall ->', toolCall);
-      })
-      .on('toolCallDelta', (toolCallDelta, snapshot) => {
-        console.log('toolCallDelta ->', toolCallDelta);
+    try {
+      let allContent = '',
+        finishReason = '',
+        toolCalls: any = [],
+        runId: string = '';
 
-        if (toolCallDelta.type === 'code_interpreter') {
-          if (toolCallDelta.code_interpreter?.input) {
-            console.log('toolCallDelta ->', toolCallDelta);
+      run = openai.beta.threads.runs
+        .createAndStream(threadId, {
+          assistant_id: assistantId,
+        })
+        .on('textCreated', () => {
+          allContent = '';
+        })
+        .on('event', (params: any) => {
+          const { event, data } = params;
+
+          if (event === 'thread.run.created') {
+            const { id } = data;
+            runId = id;
           }
-          if (toolCallDelta.code_interpreter?.outputs) {
-            process.stdout.write('\noutput >\n');
-            toolCallDelta.code_interpreter.outputs.forEach((output) => {
-              if (output.type === 'logs') {
-                console.log('output.logs ->', output.logs);
-              }
-            });
-          }
-        }
+        })
+        .on('textDelta', (textDelta, _snapshot) => {
+          allContent += textDelta.value;
+          callback(allContent);
+        })
+        .on('toolCallCreated', (toolCall) => {
+          toolCalls.push(toolCall);
+          finishReason = 'tool_calls';
+        })
+        .on('toolCallDelta', (toolCallDelta, _snapshot) => {
+          const { type } = toolCallDelta;
+
+          if (type !== 'function') return;
+
+          mergeToolCalls(toolCalls, toolCallDelta);
+        })
+        .on('error', (err) => {
+          resolve({
+            success: false,
+            error: err.message,
+          });
+        })
+        .on('end', async () => {
+          const tsEnd = Date.now();
+          const duration = (tsEnd - tsStart) / 1000;
+
+          resolve({
+            success: true,
+            content: allContent,
+            finishReason,
+            duration,
+            tsStart,
+            tsEnd,
+            toolCalls: parseToolCalls(toolCalls),
+            threadId,
+            runId,
+          });
+        });
+    } catch (err: any) {
+      resolve({
+        success: false,
+        error: err.message,
       });
+    }
+  });
+};
 
-    const result = await run;
-    // console.log('result ->', result);
-  } catch (err: any) {
-    // console.log('err.data ->', err.data);
-  }
-
-  return run;
+export const closeRun = async (threadId: string, runId: string) => {
+  await openai.beta.threads.runs.cancel(threadId, runId);
 };
 
 export const getRun = async (threadId: string, runId: string) => {

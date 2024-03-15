@@ -62,6 +62,7 @@ export const listenToDocumentPath = (docPath: string, callback: Callback) => {
 
   return () => {
     // removeListener is a reserved socket.io event
+
     client.emit('rmListener', { docPath });
     delete callbacks[docPath];
   };

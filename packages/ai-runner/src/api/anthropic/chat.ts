@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 import { instance } from './_init';
-import { mergeToolCalls, parseToolCalls } from '../../utils/stream';
+import { mergeToolCallsArr, parseToolCalls } from '../../utils/stream';
 import { capabilities } from '../../data/data.capabilities';
 
 type Flavour = 'haiku' | 'opus' | 'sonnet';
@@ -56,8 +56,6 @@ export const stream = (
         toolCalls: any = [];
 
       for await (const item of res.iterator()) {
-        console.log('item ->', item);
-
         const content = get(item, 'choices[0].delta.content', '');
         const tool_calls = get(item, 'choices[0].delta.tool_calls', '');
         finishReason = get(item, 'choices[0].finish_reason');
@@ -68,7 +66,7 @@ export const stream = (
           callback(allContent);
         }
 
-        mergeToolCalls(toolCalls, tool_calls);
+        mergeToolCallsArr(toolCalls, tool_calls);
       }
 
       const tsEnd = Date.now();

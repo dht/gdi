@@ -7,10 +7,8 @@ import * as api from '../openai';
 export const main = async (req: any, _api: Json, params: Json, streamCallback?: any) => {
   const { content } = params;
 
-  console.time('getIds');
   const ids = (await db.ids.get(req)) ?? {};
   const { muxAssistantId, muxThreadId } = ids;
-  console.timeEnd('getIds');
 
   if (!muxAssistantId) {
     const definition = createMuxAssistant(capabilities);
@@ -35,5 +33,6 @@ export const main = async (req: any, _api: Json, params: Json, streamCallback?: 
     ids.muxAssistantId,
     streamCallback
   );
-  console.log('response.data ->', response.data);
+
+  return response;
 };

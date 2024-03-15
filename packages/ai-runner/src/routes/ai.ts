@@ -14,6 +14,7 @@ import { isLocalInstance } from '../utils/globals';
 import { midCredits } from '../middlewares/midCredits';
 import { capabilities } from '../data/data.capabilities';
 import { runWorkflow } from '../api/workflows';
+import { api } from '../api';
 
 export const router = express.Router();
 
@@ -80,6 +81,13 @@ router.post('/assistant/stream', async (req: any, res) => {
     );
 
     db.messages.adhoc(req, { content: '' });
+
+    const { finishReason, threadId, runId } = response;
+
+    if (finishReason === 'tool_calls') {
+      await api.openAI.threads.closeRun(threadId, runId);
+    }
+
     res.status(200).json({ ...response });
   } catch (error) {
     console.error('Error generating text:', error);

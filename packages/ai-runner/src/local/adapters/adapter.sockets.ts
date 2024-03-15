@@ -42,8 +42,6 @@ export class FsSocketsAdapter implements SocketsAdapter {
     const unscoped = unScopePath(docPath);
     const { path } = unscoped;
 
-    console.log('docPath ->', docPath);
-
     this.listeners[path] = {
       docPath,
       path,
@@ -53,15 +51,11 @@ export class FsSocketsAdapter implements SocketsAdapter {
   invokeListeners = (path: string, data: any) => {
     const match = this.listeners[path];
 
-    console.log('path ->', path);
-
     if (!match) {
       return;
     }
 
     const { docPath } = match;
-
-    console.log('docPath ->', docPath);
 
     this.sendMessageToAll('data/change', {
       docPath,
