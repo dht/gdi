@@ -46,9 +46,11 @@ export function* mux(ev: any) {
   streamChannel = firestoreFlowChannel();
   yield takeEvery(streamChannel, onStream);
 
-  const response = yield* call(runFunction, '/api/ai/chat/stream', {
-    messages: [...messages, message],
+  console.time('stream');
+  const response = yield* call(runFunction, '/api/ai/assistant/stream', {
+    prompt,
   });
+  console.timeEnd('stream');
 
   invokeEvent('mux/content', { content: '' });
 
@@ -59,6 +61,7 @@ export function* mux(ev: any) {
 
 export function* onStream(ev: any) {
   const { data } = ev;
+
   const { content } = data ?? {};
 
   if (content === 'null') {

@@ -43,7 +43,7 @@ const generateFunction = (capability) => {
   };
 
   if (!isEmpty(parameters)) {
-    output.parameters = generateParameters(parameters);
+    output.function.parameters = generateParameters(parameters);
   }
 
   return output;
