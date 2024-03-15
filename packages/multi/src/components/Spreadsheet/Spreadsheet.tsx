@@ -14,15 +14,18 @@ export type SpreadsheetProps = {
   data: Json;
   onChange: (x: number, y: number, value: string) => void;
   darkMode?: boolean;
+  rowHeight?: number;
+  columnWidth?: number;
 };
 
 export function Spreadsheet(props: SpreadsheetProps) {
-  const { data, darkMode } = props;
+  const { data, darkMode, rowHeight = 30, columnWidth = 150 } = props;
   const { state, callbacks } = useContext(SpreadsheetContext);
   const { config } = state;
   const { fields = [] } = config;
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
-  const [coord, setCoord] = useArrows({ x: 0, y: 0 });
+  const rowsPerPage = Math.floor(height / rowHeight);
+  const [coord, setCoord] = useArrows({ x: 0, y: 0 }, { rowsPerPage });
 
   useEffect(() => {}, [coord]);
 
@@ -61,8 +64,8 @@ export function Spreadsheet(props: SpreadsheetProps) {
       <Header fields={fields} />
       <Content ref={ref}>
         <FixedSizeGrid
-          columnWidth={150}
-          rowHeight={30}
+          columnWidth={columnWidth}
+          rowHeight={rowHeight}
           rowCount={data.length}
           columnCount={fields.length}
           height={height - 50}
