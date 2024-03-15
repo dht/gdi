@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { Icon, Input, Wrapper } from './MultiActions.style';
 import { MultiContext } from '../Multi/Multi.context';
 
-export type MultiActionsProps = {};
+export type MultiActionsProps = {
+  children?: React.ReactNode;
+};
 
-export function MultiActions(_props: MultiActionsProps) {
+export function MultiActions(props: MultiActionsProps) {
   const { state, callbacks } = useContext(MultiContext);
   const { q } = state;
 
@@ -20,6 +22,7 @@ export function MultiActions(_props: MultiActionsProps) {
 
   return (
     <Wrapper className='MultiActions-wrapper' data-testid='MultiActions-wrapper'>
+      {props.children}
       <Icon className='material-symbols-outlined'>sort</Icon>
       <Input onChange={onChange} onKeyDown={onKeyDown} placeholder='Search...' />
     </Wrapper>

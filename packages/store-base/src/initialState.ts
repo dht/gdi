@@ -52,6 +52,7 @@ export const initialState: IGdiStore = {
     isFocusLeft: true,
     isLoadingMyBoards: true,
     boardHeader: '',
+    focusTier: 'all',
     q: '',
     filter: '',
     firstDayOfWeek: 0,

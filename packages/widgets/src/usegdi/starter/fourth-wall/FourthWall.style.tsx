@@ -16,7 +16,7 @@ export const Wrapper = styled(Colors)`
 
 export const Canvas = styled.div`
   flex: 1;
-  background-image: url(/boards/assets/bk.png);
+  background-image: url(/boards/static/assets/bk.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

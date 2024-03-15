@@ -64,6 +64,7 @@ export type IAppState = {
   cmdKey: string;
   screenWidth: number;
   screenHeight: number;
+  focusTier: string;
   imageUrl: string;
   voiceUrl: string;
   isDataReady: boolean;
