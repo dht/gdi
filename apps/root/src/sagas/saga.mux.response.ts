@@ -2,7 +2,7 @@ import { actions } from '@gdi/store-base';
 import { call, put } from 'saga-ts';
 import { guid4 } from 'shared-base';
 import { invokeTools } from './saga.mux.tools';
-import { get } from 'lodash';
+import { get, isEmpty } from 'lodash';
 import { toast } from '@gdi/ui';
 
 export function* parseResponse(response: any) {
@@ -20,8 +20,13 @@ export function* parseResponse(response: any) {
     yield call(invokeTools, toolCalls);
 
     const capabilityId = get(toolCalls, '[0].name', '');
+    const args = get(toolCalls, '[0].arguments', '');
 
     content = `I found a capability (${capabilityId}) that can help you with that. Click on "Start workflow" on the right-side panel to get started.`;
+
+    if (args && !isEmpty(args)) {
+      content += ` Here are the params: ${JSON.stringify(args)}.`;
+    }
   }
 
   yield put(

@@ -23,7 +23,7 @@
     "fs-extra": "^11.2.0",
     "kleur": "^4.1.5",
     "lodash": "^4.17.21",
-    "openai": "^4.19.0",
+    "openai": "^4.29.0",
     "shared-base": "^1.0.0",
     "socket.io": "^4.7.4",
     "socket.io-client": "^4.7.4",

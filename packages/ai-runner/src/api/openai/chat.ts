@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 import { openai } from './_init';
-import { mergeToolCalls, parseToolCalls } from '../../utils/stream';
+import { mergeToolCallsArr, parseToolCalls } from '../../utils/stream';
 import { capabilities } from '../../data/data.capabilities';
 
 type Flavour = 'turbo4' | 'turbo3';
@@ -70,7 +70,7 @@ export const stream = (
           callback(allContent);
         }
 
-        mergeToolCalls(toolCalls, tool_calls);
+        mergeToolCallsArr(toolCalls, tool_calls);
       }
 
       const tsEnd = Date.now();
