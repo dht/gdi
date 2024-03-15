@@ -3,6 +3,7 @@ import { useKey, useMount } from 'react-use';
 import { ICoord } from '../../Spreadsheet.types';
 import { areaDimension } from '../../Spreadsheet.utils';
 import { Wrapper } from './EditCell.style';
+import { invokeEvent } from 'shared-base';
 
 export type EditCellProps = {
   value: string;
@@ -48,6 +49,7 @@ export function EditCell(props: EditCellProps) {
 
     ref.current.blur();
     props.onChange(ref.current.innerText);
+    invokeEvent('sheet/move/down');
   });
 
   return (

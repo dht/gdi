@@ -304,6 +304,16 @@ export const $apiProviders = createSelector(
   }
 );
 
-export const $contacts = createSelector(raw.$rawContacts, (contacts) => {
-  return Object.values(contacts).sort(sortBy('firstName', 'desc'));
-});
+export const $contacts = createSelector(
+  raw.$rawContacts,
+  raw.$rawAppState,
+  (contacts, appState) => {
+    const { focusTier } = appState;
+    return Object.values(contacts)
+      .filter((contact) => {
+        const { tier } = contact;
+        return tier === focusTier || focusTier === 'all' || (!tier && focusTier === 'none');
+      })
+      .sort(sortBy('firstName', 'desc'));
+  }
+);
