@@ -10,6 +10,7 @@ export type TierProps = {
 
 export function Tier(props: TierProps) {
   const { value } = props;
+
   function renderTier(tier: Json) {
     const { name } = tier;
 

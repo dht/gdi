@@ -14,6 +14,35 @@ export function downloadJson(filename: string, data: Json) {
     return downloadText(filename, text, 'application/json');
 }
 
+export const sanitizeValueForCsv = (value: string) => {
+    let output = value;
+
+    if (output.includes(',')) {
+        output = `"${output}"`;
+    }
+
+    return output;
+};
+
+export function downloadCsv(
+    filename: string,
+    fieldMap: Record<string, string>,
+    data: Json
+) {
+    const header = Object.values(fieldMap).join(',');
+    const rows = data.map((row: Json) => {
+        return Object.keys(fieldMap)
+            .map((field) => {
+                return sanitizeValueForCsv(row[field]);
+            })
+            .join(',');
+    });
+
+    const text = [header, ...rows].join('\n');
+
+    return downloadText(filename, text, 'application/csv');
+}
+
 export function downloadHtml(filename: string, html: string) {
     return downloadText(filename, html, 'application/html');
 }

@@ -21,6 +21,6 @@ export const tiers = [
   },
   {
     id: 'all',
-    name: 'All',
+    name: 'All Tiers',
   },
 ];

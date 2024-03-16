@@ -1,3 +1,8 @@
+import dayjs from 'dayjs';
+import week from 'dayjs/plugin/weekOfYear';
+
+dayjs.extend(week);
+
 const getDaySuffix = (day: number) => {
   if (day > 3 && day < 21) return 'th';
 
@@ -51,3 +56,7 @@ export function convertToReadableDays(dateToParse?: number | string | null) {
   if (result < 0) return 0;
   return result;
 }
+
+export const getCurrentWeek = () => {
+  return dayjs().week();
+};

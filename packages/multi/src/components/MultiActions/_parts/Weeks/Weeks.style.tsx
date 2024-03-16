@@ -19,6 +19,10 @@ export const Item = styled.button`
     color: #fff;
   }
 
+  &.current {
+    color: cyan;
+  }
+
   &.selected {
     background-color: #333;
     color: gold;

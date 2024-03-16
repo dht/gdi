@@ -6,6 +6,7 @@ import { transformNodesToGraph } from '../utils/flows';
 import { charactersMaps } from '../utils/phonetics';
 import { getSpeechUrl } from '../utils/speech';
 import * as raw from './selectors.raw';
+import { getCurrentWeek } from '../utils/date';
 
 export const $logs = createSelector(raw.$rawLogs, (logs) => {
   return Object.values(logs).sort(sortBy('timestamp'));
@@ -307,13 +308,51 @@ export const $apiProviders = createSelector(
 export const $contacts = createSelector(
   raw.$rawContacts,
   raw.$rawAppState,
-  (contacts, appState) => {
+  raw.$rawCurrentIds,
+  (contacts, appState, currentIds) => {
     const { focusTier } = appState;
+    const { weekId } = currentIds;
+
     return Object.values(contacts)
       .filter((contact) => {
-        const { tier } = contact;
-        return tier === focusTier || focusTier === 'all' || (!tier && focusTier === 'none');
+        const { tier, week } = contact;
+
+        // keep weak comparison (==) rather than strict (===)
+        const tierOk = tier == focusTier || focusTier === 'all' || (!tier && focusTier === 'none');
+        const weekOk = weekId == week || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
       })
       .sort(sortBy('firstName', 'desc'));
   }
 );
+
+export const $weeks = createSelector(raw.$rawCurrentIds, (currentIds) => {
+  const { weekId } = currentIds;
+
+  let w = parseInt(weekId, 10);
+
+  if (isNaN(w)) {
+    w = getCurrentWeek();
+  }
+
+  const weeks = [w - 1, w + 0, w + 1, w + 2].map((id) => {
+    return {
+      id: id.toString(),
+      name: id,
+      isCurrent: id === w,
+    };
+  });
+
+  return [
+    {
+      id: 'none',
+      name: 'None',
+    },
+    ...weeks,
+    {
+      id: 'all',
+      name: 'All Weeks',
+    },
+  ];
+});

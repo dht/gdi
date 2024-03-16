@@ -53,6 +53,14 @@ export const fields: ITableField[] = [
     },
   },
   {
+    id: 'week',
+    title: 'Week',
+    cellType: 'number',
+    params: {
+      width: 60,
+    },
+  },
+  {
     id: 'tags',
     title: 'Tags',
     cellType: 'tags',
