@@ -3,6 +3,8 @@ import { useContext } from 'react';
 import JsonEditor from '../JsonEditor/JsonEditor.container';
 import Masonry from '../Masonry/Masonry.container';
 import MultiActionsContainer from '../MultiActions/MultiActions.container';
+import TierContainer from '../MultiActions/_parts/Tier/Tier.container';
+import WeeksContainer from '../MultiActions/_parts/Weeks/Weeks.container';
 import Spreadsheet from '../Spreadsheet/Spreadsheet.container';
 import StatsContainer from '../Stats/Stats.container';
 import Table from '../Table/Table.container';
@@ -10,7 +12,7 @@ import Tabs from '../Tabs/Tabs.container';
 import Trello from '../Trello/Trello.container';
 import Calendar from '../calendar/Calendar.container';
 import { MultiContext } from './Multi.context';
-import { Content, Row, Summary, Wrapper } from './Multi.style';
+import { Content, Footer, Row, Summary, Wrapper } from './Multi.style';
 
 export type MultiProps = {
   children?: React.ReactNode;
@@ -66,6 +68,10 @@ export function Multi(props: MultiProps) {
         <MultiActionsContainer />
       </Row>
       <Content>{renderInner()}</Content>
+      <Footer>
+        <WeeksContainer />
+        <TierContainer />
+      </Footer>
     </Wrapper>
   );
 }

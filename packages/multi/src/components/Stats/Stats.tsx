@@ -8,7 +8,7 @@ export type StatsProps = {
 
 export function Stats(props: StatsProps) {
   const { stats } = props;
-  const { total } = stats;
+  const { total, week } = stats;
 
   return (
     <Wrapper className='Stats-wrapper' data-testid='Stats-wrapper'>

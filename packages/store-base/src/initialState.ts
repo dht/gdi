@@ -70,6 +70,7 @@ export const initialState: IGdiStore = {
     requestId: '',
     voiceId: 'alloy',
     assetId: '',
+    weekId: 'all',
     leftId: '',
     rightId: '',
     modalId: '',

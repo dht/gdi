@@ -1,6 +1,7 @@
 import { selectors, IContact, actions } from '@gdi/store-base';
 import { put } from 'redux-saga/effects';
 import { fork, select, takeEvery } from 'saga-ts';
+import { parseContactChange } from './Contacts.utils';
 
 type Verb =
   | 'add' //
@@ -27,7 +28,9 @@ export function* addContact(action: Action, item: IContact) {
 export function* editContact(action: Action, item: IContact) {
   const { id, payload } = action;
 
-  yield put(actions.contacts.patch(id, payload));
+  const change = parseContactChange(payload);
+
+  yield put(actions.contacts.patch(id, change));
 }
 
 export function* deleteContact(action: Action, item: IContact) {

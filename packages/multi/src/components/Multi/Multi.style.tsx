@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   --grid: rgba(0, 0, 0, 0.15);
   --bk: white;
@@ -35,4 +36,12 @@ export const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+`;
+
+export const Footer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px;
 `;

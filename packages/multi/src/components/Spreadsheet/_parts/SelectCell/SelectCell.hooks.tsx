@@ -7,9 +7,10 @@ export function useAlphaNumericKey(callback: (event: KeyboardEvent) => void, dep
       const isNumber = !isNaN(Number(key));
       const isLetter = key.length === 1 && key.match(/[a-z]/i) !== null;
       const isDash = ['-', ' '].includes(key);
+      const isPlus = ['+'].includes(key);
       const noSpecialKeys = ev.altKey === false && ev.ctrlKey === false && ev.metaKey === false;
 
-      return (isNumber || isLetter || isDash) && noSpecialKeys;
+      return (isNumber || isLetter || isPlus || isDash) && noSpecialKeys;
     },
     (ev) => {
       callback(ev);

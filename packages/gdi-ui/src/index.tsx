@@ -119,6 +119,7 @@ export { useNoScroll } from './hooks/useNoScroll';
 export { useTime } from './hooks/useTime';
 export * from './types';
 export { format } from './utils';
+export { getCurrentWeek } from './utils/date';
 export {
   cacheAmbience,
   cacheSound,
