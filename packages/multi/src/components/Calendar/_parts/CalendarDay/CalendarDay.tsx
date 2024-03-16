@@ -1,17 +1,17 @@
 import React from 'react';
-import { Wrapper } from './CalenderDay.style';
+import { Wrapper } from './CalendarDay.style';
 import { IDayDefinition } from '../../Calendar.type';
 import classnames from 'classnames';
 
-export type CalenderDayProps = {
+export type CalendarDayProps = {
   day: IDayDefinition;
 };
 
-export function CalenderDay(props: CalenderDayProps) {
+export function CalendarDay(props: CalendarDayProps) {
   const { day } = props;
   const { date, isToday, isWeekend, isInMonth } = day;
 
-  const className = classnames('CalenderDay-wrapper', {
+  const className = classnames('CalendarDay-wrapper', {
     today: isToday,
     weekend: isWeekend,
     notInMonth: !isInMonth,
@@ -20,10 +20,10 @@ export function CalenderDay(props: CalenderDayProps) {
   const dayName = date.getDate();
 
   return (
-    <Wrapper className={className} data-testid='CalenderDay-wrapper'>
+    <Wrapper className={className} data-testid='CalendarDay-wrapper'>
       {dayName}
     </Wrapper>
   );
 }
 
-export default CalenderDay;
+export default CalendarDay;

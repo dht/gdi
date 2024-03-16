@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Calendar, CalendarProps } from './Calendar';
+import { CalendarDay, CalendarDayProps } from './CalendarDay';
 import { BaseComponentDriver } from 'testing-base';
 
-export class CalendarDriver extends BaseComponentDriver {
-  private props: Partial<CalendarProps> = {};
+export class CalendarDayDriver extends BaseComponentDriver {
+  private props: Partial<CalendarDayProps> = {};
 
   constructor() {
-    super('Calendar');
+    super('CalendarDay');
   }
 
   when: any = {
     rendered: () => {
-      render(<Calendar {...(this.props as CalendarProps)} />);
+      render(<CalendarDay {...(this.props as CalendarDayProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class CalendarDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<Calendar {...(this.props as CalendarProps)} />);
+      return this.snapshot(<CalendarDay {...(this.props as CalendarDayProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<CalendarProps>) => {
+    props: (props: Partial<CalendarDayProps>) => {
       this.props = props;
       return this;
     },

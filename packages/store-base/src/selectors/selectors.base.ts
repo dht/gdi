@@ -323,7 +323,29 @@ export const $contacts = createSelector(
 
         return tierOk && weekOk;
       })
-      .sort(sortBy('firstName', 'desc'));
+      .sort(sortBy('firstName', 'asc'));
+  }
+);
+
+export const $events = createSelector(
+  raw.$rawEvents,
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (events, appState, currentIds) => {
+    const { focusTier } = appState;
+    const { weekId } = currentIds;
+
+    return Object.values(events)
+      .filter((event) => {
+        const { tier, week, date, startTime, endTime } = event;
+
+        // keep weak comparison (==) rather than strict (===)
+        const tierOk = tier == focusTier || focusTier === 'all' || (!tier && focusTier === 'none');
+        const weekOk = weekId == week || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
+      })
+      .sort(sortBy('title', 'desc'));
   }
 );
 

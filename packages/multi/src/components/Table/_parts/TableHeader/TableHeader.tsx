@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { ITableConfig, ITableField } from '../../Table.types';
+import { ITableConfig, ITableField } from '../../../../types';
 import { Wrapper, Th, ThActions } from './TableHeader.style';
 import { useMount } from 'react-use';
 import { TableContext } from '../../Table.context';
@@ -30,11 +30,12 @@ export function TableHeader(props: TableHeaderProps) {
   });
 
   function renderTh(field: ITableField) {
-    const { title, flex = 0 } = field;
+    const { title, flex = 0, params = {} } = field;
+    const { width = 70 } = params;
 
     const style = {
       flex,
-      minWidth: '70px',
+      minWidth: `${width}px`,
     };
 
     return (

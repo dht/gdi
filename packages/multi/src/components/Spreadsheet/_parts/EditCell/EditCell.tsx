@@ -52,6 +52,16 @@ export function EditCell(props: EditCellProps) {
     invokeEvent('sheet/move/down');
   });
 
+  useKey('Tab', () => {
+    if (!ref.current) {
+      return;
+    }
+
+    ref.current.blur();
+    props.onChange(ref.current.innerText);
+    invokeEvent('sheet/move/right');
+  });
+
   return (
     <Wrapper
       className='EditCell-wrapper'

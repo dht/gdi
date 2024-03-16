@@ -1,28 +1,43 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Calendar } from './Calendar';
-import { CalendarBuilder } from './Calendar.utils';
+import { useSagas } from '../../../helpers/useSaga';
 
-export type CalendarContainerProps = {};
+export type CalendarContainerProps = {
+  data: any;
+};
 
-export function CalendarContainer(_props: CalendarContainerProps) {
+export function CalendarContainer(props: CalendarContainerProps) {
   const dispatch = useDispatch();
-  const appState = useSelector(selectors.raw.$rawAppState);
-  const firstDayOfWeek = appState.firstDayOfWeek;
+  const events = useSelector(selectors.base.$events);
 
-  const calendar = useMemo(() => {
-    const calendarBuilder = new CalendarBuilder(firstDayOfWeek);
-    return calendarBuilder.build();
-  }, []);
+  useSagas([
+    'widgets.calendarEvents', //
+    'widgets.calendarEvent',
+  ]);
 
   const callbacks = useMemo(
     () => ({
-      onClick: () => {},
+      onAction: (verb: string, params?: Json) => {
+        dispatch({
+          type: 'CALENDAR_EVENT',
+          verb,
+          payload: params,
+        });
+      },
+      onItemAction: (id: string, verb: string, payload?: Json) => {
+        dispatch({
+          type: 'CALENDAR_EVENT',
+          verb,
+          id,
+          payload,
+        });
+      },
     }),
     []
   );
 
-  return <Calendar definition={calendar} firstDayOfWeek={firstDayOfWeek} />;
+  return <Calendar data={events} callbacks={callbacks} />;
 }
 
 export default CalendarContainer;

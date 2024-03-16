@@ -1,6 +1,6 @@
 import React from 'react';
 import { MonthHeader, WeekDay, WeekDays, Wrapper } from './CalendarMonth.style';
-import { MonthDefinition, WeekDefinition } from '../../Calendar.type';
+import { MonthDefinition, WeekDefinition } from '../CalendarSummary/CalendarSummary.type';
 import CalendarWeek from '../CalendarWeek/CalendarWeek';
 import dayjs from 'dayjs';
 import { weekNumbers } from './CalendarMonth.utils';

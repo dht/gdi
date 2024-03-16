@@ -212,6 +212,20 @@ export const sagas: ISagas = {
       eventNames: ['board/exit'],
     },
   },
+  'widgets.calendarEvent': {
+    id: 'widgets.calendarEvent',
+    type: 'component',
+    trigger: {
+      actionTypes: ['CALENDAR_EVENT'],
+    },
+  },
+  'widgets.calendarEvents': {
+    id: 'widgets.calendarEvents',
+    type: 'component',
+    trigger: {
+      actionTypes: ['CALENDAR_EVENTS'],
+    },
+  },
   'widgets.contact': {
     id: 'widgets.contact',
     type: 'component',

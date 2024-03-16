@@ -5,62 +5,70 @@ export const fields: ITableField[] = [
     id: 'id',
     title: 'Id',
     cellType: 'id',
+    flex: 1,
     params: {
-      width: 70,
+      width: 40,
     },
   },
   {
-    id: 'firstName',
-    title: 'First Name',
+    id: 'title',
+    title: 'Title',
     cellType: 'text',
-    params: {
-      width: 110,
-    },
-  },
-  {
-    id: 'lastName',
-    title: 'Last Name',
-    cellType: 'text',
-    params: {
-      width: 140,
-    },
-  },
-  {
-    id: 'phone',
-    title: 'Phone',
-    cellType: 'text',
-    params: {
-      width: 160,
-    },
-  },
-  {
-    id: 'context',
-    title: 'Context',
-    cellType: 'text',
+    flex: 1,
     params: {
       width: 150,
     },
   },
   {
+    id: 'date',
+    title: 'Date',
+    cellType: 'date',
+    flex: 1,
+    params: {
+      width: 110,
+    },
+  },
+  {
+    id: 'startTime',
+    title: 'Start time',
+    cellType: 'time',
+    flex: 1,
+    params: {
+      width: 70,
+    },
+  },
+  {
+    id: 'endTime',
+    title: 'End time',
+    cellType: 'time',
+    flex: 1,
+    params: {
+      width: 70,
+    },
+  },
+  {
     id: 'tier',
     title: 'Tier',
-    cellType: 'text',
+    cellType: 'number',
+    flex: 1,
     params: {
-      width: 80,
+      width: 60,
     },
   },
   {
     id: 'week',
     title: 'Week',
-    cellType: 'text',
+    cellType: 'number',
+    flex: 1,
     params: {
-      width: 80,
+      width: 60,
     },
   },
   {
     id: 'tags',
     title: 'Tags',
     cellType: 'tags',
+    flex: 1,
     params: {
       width: 150,
     },
@@ -69,8 +77,7 @@ export const fields: ITableField[] = [
     id: 'imageUrl',
     title: 'ImageUrl',
     cellType: 'image',
-    params: {
-      width: 60,
-    },
+    flex: 1,
+    params: {},
   },
 ];
