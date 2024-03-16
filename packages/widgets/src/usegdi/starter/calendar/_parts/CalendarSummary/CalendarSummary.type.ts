@@ -1,4 +1,4 @@
-export type CalendarDefinition = {
+export type CalendarSummaryDefinition = {
   startingMonth: number;
   months: MonthDefinition[];
 };

@@ -1,29 +1,32 @@
 import React from 'react';
-import { H1, Months, Wrapper } from './Calendar.style';
-import { CalendarDefinition, MonthDefinition } from './Calendar.type';
-import CalendarMonth from './_parts/CalendarMonth/CalendarMonth';
+import { Wrapper } from './Calendar.style';
+import { Multi } from 'multi';
+import { multi, initialView, views } from './_multi';
+import CalendarSummary from './_parts/CalendarSummary/CalendarSummary.container';
 
 export type CalendarProps = {
-  definition: CalendarDefinition;
-  firstDayOfWeek: number;
+  callbacks: {
+    onAction: (verb: string, params?: Json) => void;
+    onItemAction: (id: string, verb: string, params?: Json) => void;
+  };
+  data: Json[];
 };
 
 export function Calendar(props: CalendarProps) {
-  const { definition, firstDayOfWeek } = props;
-  const { months } = definition;
-
-  function renderMonth(month: MonthDefinition) {
-    return <CalendarMonth key={month.id} month={month} firstDayOfWeek={firstDayOfWeek} />;
-  }
-
-  function renderMonths() {
-    return months.map((month: MonthDefinition) => renderMonth(month));
-  }
+  const { data, callbacks } = props;
 
   return (
     <Wrapper className='Calendar-wrapper' data-testid='Calendar-wrapper'>
-      <H1>2024</H1>
-      <Months>{renderMonths()}</Months>
+      <Multi //
+        initialView={initialView}
+        views={views}
+        config={multi}
+        data={data}
+        callbacks={callbacks}
+        darkMode
+      >
+        <CalendarSummary />
+      </Multi>
     </Wrapper>
   );
 }

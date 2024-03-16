@@ -148,7 +148,8 @@ export function TableCellTags(props: TableCellProps) {
   }
 
   function renderTags() {
-    return value.map((tag: string) => renderTag(tag));
+    const arr = Array.isArray(value) ? value : value.split(',');
+    return arr.map((tag: string) => renderTag(tag));
   }
 
   return <Tags>{renderTags()}</Tags>;
@@ -261,6 +262,7 @@ const map: Record<CellType, FC<TableCellProps>> = {
   text: TableCellText,
   tags: TableCellTags,
   date: TableCellDate,
+  time: TableCellTime,
   social: TableCellSocial,
   timeAgo: TableCellTimeAgo,
   id: TableCellId,

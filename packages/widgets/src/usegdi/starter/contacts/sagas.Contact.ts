@@ -1,7 +1,8 @@
 import { selectors, IContact, actions } from '@gdi/store-base';
-import { put } from 'redux-saga/effects';
-import { fork, select, takeEvery } from 'saga-ts';
+import { put, fork, select, takeEvery } from 'saga-ts';
 import { parseContactChange } from './Contacts.utils';
+import { isEmpty } from 'lodash';
+import { guid4, invokeEvent } from 'shared-base';
 
 type Verb =
   | 'add' //
@@ -21,8 +22,22 @@ const map: Record<Verb, any> = {
   delete: deleteContact,
 };
 
-export function* addContact(action: Action, item: IContact) {
+export function* addContact(action: Action, _item: IContact) {
   const { payload } = action;
+  const { data } = payload;
+
+  const isValid = Object.values(data).filter((i) => i).length > 0;
+
+  if (!isValid) {
+    return;
+  }
+
+  yield* put(
+    actions.contacts.add({
+      id: guid4(),
+      ...data,
+    })
+  );
 }
 
 export function* editContact(action: Action, item: IContact) {

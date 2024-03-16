@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper } from './CalendarWeek.style';
 import { IDayDefinition, IWeekDefinition } from '../../Calendar.type';
-import CalenderDay from '../CalenderDay/CalenderDay';
+import CalendarDay from '../CalendarDay/CalendarDay';
 import classnames from 'classnames';
 
 export type CalendarWeekProps = {
@@ -13,7 +13,7 @@ export function CalendarWeek(props: CalendarWeekProps) {
   const { days, isInMonth } = week;
 
   function renderDay(day: IDayDefinition) {
-    return <CalenderDay key={day.id} day={day} />;
+    return <CalendarDay key={day.id} day={day} />;
   }
 
   function renderDays() {

@@ -62,6 +62,7 @@ export const config = {
       'sceneAudios',
       'sceneEffects',
       'contacts',
+      'events',
     ],
     optimisticVerbs: [
       'add', //

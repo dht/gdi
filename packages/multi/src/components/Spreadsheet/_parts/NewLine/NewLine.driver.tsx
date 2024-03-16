@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { CalenderDay, CalenderDayProps } from './CalenderDay';
+import { NewLine, NewLineProps } from './NewLine';
 import { BaseComponentDriver } from 'testing-base';
 
-export class CalenderDayDriver extends BaseComponentDriver {
-    private props: Partial<CalenderDayProps> = {};
+export class NewLineDriver extends BaseComponentDriver {
+    private props: Partial<NewLineProps> = {};
 
     constructor() {
-        super('CalenderDay');
+        super('NewLine');
     }
 
     when: any = {
         rendered: () => {
-            render(<CalenderDay {...(this.props as CalenderDayProps)} />);
+            render(<NewLine {...(this.props as NewLineProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,12 +20,12 @@ export class CalenderDayDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<CalenderDay {...(this.props as CalenderDayProps)} />);
+            return this.snapshot(<NewLine {...(this.props as NewLineProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<CalenderDayProps>) => {
+        props: (props: Partial<NewLineProps>) => {
             this.props = props;
             return this;
         },

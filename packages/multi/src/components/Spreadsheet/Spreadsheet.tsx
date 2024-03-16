@@ -9,6 +9,7 @@ import { Content, Wrapper } from './Spreadsheet.style';
 import Cell from './_parts/Cell/Cell';
 import { get } from 'lodash';
 import Header from './_parts/Header/Header';
+import NewLine from './_parts/NewLine/NewLine';
 
 export type SpreadsheetProps = {
   data: Json;
@@ -62,6 +63,7 @@ export function Spreadsheet(props: SpreadsheetProps) {
   return (
     <Wrapper className={className} data-testid='Spreadsheet-wrapper'>
       <Header fields={fields} />
+      <NewLine fields={fields} />
       <Content ref={ref}>
         <FixedSizeGrid
           columnWidth={columnWidth}

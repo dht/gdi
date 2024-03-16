@@ -1,13 +1,13 @@
-import { CalendarDriver } from './Calendar.driver';
+import { CalendarSummaryDriver } from './CalendarSummary.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Calendar', () => {
-  let driver: CalendarDriver;
+describe('CalendarSummary', () => {
+  let driver: CalendarSummaryDriver;
 
   beforeAll(() => {
-    driver = new CalendarDriver();
+    driver = new CalendarSummaryDriver();
   });
 
   it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Calendar', () => {
     const wrapperClassName = element.get.wrapperClassName();
     const innerText = element.get.label();
 
-    expect(wrapperClassName).toContain('Calendar-wrapper');
+    expect(wrapperClassName).toContain('CalendarSummary-wrapper');
     expect(innerText).toBe(label);
   });
 
@@ -40,11 +40,11 @@ describe('Calendar', () => {
   });
 });
 
-describe('Calendar snapshots', () => {
-  let driver: CalendarDriver;
+describe('CalendarSummary snapshots', () => {
+  let driver: CalendarSummaryDriver;
 
   beforeAll(() => {
-    driver = new CalendarDriver();
+    driver = new CalendarSummaryDriver();
   });
 
   it('should match snapshot', () => {

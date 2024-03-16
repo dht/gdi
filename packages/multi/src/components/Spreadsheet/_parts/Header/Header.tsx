@@ -22,6 +22,7 @@ export function Header(props: HeaderProps) {
   function renderFields() {
     return fields.map((field: ITableField) => renderField(field));
   }
+
   return (
     <Wrapper className='Header-wrapper' data-testid='Header-wrapper'>
       {renderFields()}
