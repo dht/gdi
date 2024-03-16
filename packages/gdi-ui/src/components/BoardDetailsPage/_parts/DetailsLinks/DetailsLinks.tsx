@@ -1,6 +1,4 @@
-import { Icon } from '@gdi/ui';
 import classnames from 'classnames';
-import { ActionHome } from '../../sagas/saga.home';
 import { links } from './DetailsLinks.data';
 import {
   Link,
@@ -11,10 +9,11 @@ import {
   Wrapper,
 } from './DetailsLinks.style';
 import { IBoard } from '@gdi/store-base';
+import Icon from '../../../Icon/Icon';
 
 export type DetailsLinksProps = {
   board: IBoard;
-  onAction: (action: ActionHome) => void;
+  onAction: (action: any) => void;
 };
 
 export function DetailsLinks(props: DetailsLinksProps) {
@@ -56,10 +55,7 @@ export function DetailsLinks(props: DetailsLinksProps) {
   }
 
   return (
-    <Wrapper
-      className='DetailsLinks-wrapper'
-      data-testid='DetailsLinks-wrapper'
-    >
+    <Wrapper className='DetailsLinks-wrapper' data-testid='DetailsLinks-wrapper'>
       {renderLinks()}
     </Wrapper>
   );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '@gdi/ui';
+import Button from '../../../Button/Button';
 
 export const Wrapper = styled.div`
   flex: 1;

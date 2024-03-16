@@ -1,4 +1,3 @@
-import { Icon } from '@gdi/ui';
 import { Gap, Slogan, Top, Wrapper } from './SideBar.style';
 import Logo from './_parts/Logo/Logo';
 import { CommandPalette } from './_parts/CommandPalette/CommandPalette';

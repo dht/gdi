@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cta, Input, Wrapper } from './Search.style';
-import { Icon } from '@gdi/ui';
+import Icon from '../Icon/Icon';
 
 export type SearchProps = {
   value?: string;
@@ -16,11 +16,7 @@ export function Search(props: SearchProps) {
 
   return (
     <Wrapper className='Search-wrapper' data-testid='Search-wrapper'>
-      <Input
-        placeholder='Search a board...'
-        value={value}
-        onChange={onChange}
-      />
+      <Input placeholder='Search a board...' value={value} onChange={onChange} />
       <Cta>
         <Icon name='Search' size={16} color='white' />
       </Cta>

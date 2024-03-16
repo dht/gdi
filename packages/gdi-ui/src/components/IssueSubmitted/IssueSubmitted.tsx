@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animation, Id, P, Wrapper } from './IssueSubmitted.style';
-import { Lottie } from '@gdi/ui';
+import Lottie from '../Lottie/Lottie';
 
 export type IssueSubmittedProps = {
   id: string;

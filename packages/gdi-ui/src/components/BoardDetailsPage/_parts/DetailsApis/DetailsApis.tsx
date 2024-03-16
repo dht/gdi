@@ -1,4 +1,4 @@
-import { format } from '@gdi/ui';
+import { format } from '../../../../utils';
 import { JsonMap } from './DetailsApis.components';
 import { Cell, Row, Value, Wrapper } from './DetailsApis.style';
 

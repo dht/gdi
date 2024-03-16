@@ -120,6 +120,7 @@ export type IGridState = {
   columnIndex?: number;
   columns?: number;
   hideArrows?: boolean;
+  darkMode?: boolean;
 };
 
 export type IGridContext = {

@@ -1,4 +1,3 @@
-import { Icon, Ratings } from '@gdi/ui';
 import React from 'react';
 import {
   Action,
@@ -16,12 +15,13 @@ import {
   Row,
   Wrapper,
 } from './DetailsHeader.style';
-import { ActionHome } from '../../sagas/saga.home';
 import { IBoard } from '@gdi/store-base';
+import Ratings from '../../../Ratings/Ratings';
+import Icon from '../../../Icon/Icon';
 
 export type DetailsHeaderProps = {
   board: IBoard;
-  onAction: (action: ActionHome) => void;
+  onAction: (action: any) => void;
 };
 
 export function DetailsHeader(props: DetailsHeaderProps) {
@@ -54,10 +54,7 @@ export function DetailsHeader(props: DetailsHeaderProps) {
   }
 
   return (
-    <Wrapper
-      className='DetailsHeader-wrapper'
-      data-testid='DetailsHeader-wrapper'
-    >
+    <Wrapper className='DetailsHeader-wrapper' data-testid='DetailsHeader-wrapper'>
       <Left>
         <Image style={style} />
       </Left>

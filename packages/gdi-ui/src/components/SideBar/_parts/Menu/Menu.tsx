@@ -1,10 +1,10 @@
 import React from 'react';
 import { Item, Title, Wrapper } from './Menu.style';
-import { Icon } from '@gdi/ui';
 import { items } from './Menu.data';
 import { invokeEvent } from 'shared-base';
 import classnames from 'classnames';
 import { getSelectedIndex } from './Menu.utils';
+import Icon from '../../../Icon/Icon';
 
 export type MenuProps = {
   minimal?: boolean;

@@ -1,12 +1,12 @@
 import { IBoard } from '@gdi/store-base';
-import { Shape, isMobile } from '@gdi/ui';
 import React from 'react';
-import { ActionHome } from '../../sagas/saga.home';
 import { Image, Left, Right, Video, Wrapper } from './DetailsImages.style';
+import { isMobile } from '../../../../utils/mobile';
+import Shape from '../../../Shape/Shape';
 
 export type DetailsImagesProps = {
   board: IBoard;
-  onAction: (action: ActionHome) => void;
+  onAction: (action: any) => void;
 };
 
 export function DetailsImages(props: DetailsImagesProps) {
@@ -41,10 +41,7 @@ export function DetailsImages(props: DetailsImagesProps) {
   }
 
   return (
-    <Wrapper
-      className='DetailsImages-wrapper'
-      data-testid='DetailsImages-wrapper'
-    >
+    <Wrapper className='DetailsImages-wrapper' data-testid='DetailsImages-wrapper'>
       <Left>
         <Image style={style} className='image'>
           <Shape shape={boardType} />

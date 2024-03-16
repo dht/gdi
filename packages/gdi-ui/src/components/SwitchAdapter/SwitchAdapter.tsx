@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Actions,
-  Cancel,
-  Content,
-  Cta,
-  Input,
-  P,
-  Wrapper,
-} from './SwitchAdapter.style';
-import { Note } from '@gdi/ui';
+import { Actions, Cancel, Content, Cta, Input, P, Wrapper } from './SwitchAdapter.style';
 
 export type SwitchAdapterProps = {
   isLocalInstance: boolean;
@@ -33,10 +24,7 @@ export function SwitchAdapter(props: SwitchAdapterProps) {
   }
 
   return (
-    <Wrapper
-      className='SwitchAdapter-wrapper'
-      data-testid='SwitchAdapter-wrapper'
-    >
+    <Wrapper className='SwitchAdapter-wrapper' data-testid='SwitchAdapter-wrapper'>
       <Content>
         {renderUrl()}
         <Cta onClick={onCta}>Switch to {name} instance</Cta>
