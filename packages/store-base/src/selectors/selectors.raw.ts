@@ -42,7 +42,7 @@ export const $rawContacts = createSelector($i, (state: IGdiStore) => state.conta
 export const $rawTodos = createSelector($i, (state: IGdiStore) => state.todos); // prettier-ignore
 export const $rawFinanceLines = createSelector($i, (state: IGdiStore) => state.financeLines); // prettier-ignore
 export const $rawLists = createSelector($i, (state: IGdiStore) => state.lists); // prettier-ignore
-export const $rawListItem = createSelector($i, (state: IGdiStore) => state.listItem); // prettier-ignore
+export const $rawListItems = createSelector($i, (state: IGdiStore) => state.listItems); // prettier-ignore
 export const $rawEvents = createSelector($i, (state: IGdiStore) => state.events); // prettier-ignore
 export const $rawExternalEvents = createSelector($i, (state: IGdiStore) => state.externalEvents); // prettier-ignore
 export const $rawLocations = createSelector($i, (state: IGdiStore) => state.locations); // prettier-ignore

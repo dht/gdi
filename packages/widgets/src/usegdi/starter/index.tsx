@@ -29,6 +29,7 @@ import imageSuggestion from './image-suggestion';
 import imageViewer from './image-viewer';
 import instagram from './instagram';
 import kayak from './kayak';
+import lists from './lists';
 import locations from './locations';
 import logger from './logger';
 import logo from './logo';
@@ -120,6 +121,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.locations': locations,
   'com.usegdi.starter.logger': logger,
   'com.usegdi.starter.logo': logo,
+  'com.usegdi.starter.lists': lists,
   'com.usegdi.starter.midi': midi,
   'com.usegdi.starter.mindfulness': mindfulness,
   'com.usegdi.starter.mode': mode,

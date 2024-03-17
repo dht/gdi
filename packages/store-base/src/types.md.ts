@@ -9,7 +9,7 @@ export type IMyData = {
   todos: ITodos;
   financeLines: IFinanceLines;
   lists: ILists;
-  listItem: IListItems;
+  listItems: IListItems;
   events: IEvents;
   externalEvents: IEvents;
   locations: ILocations;
