@@ -15,6 +15,7 @@ export type IMyData = {
   locations: ILocations;
   books: IBooks;
   reads: IReads;
+  posts: IPosts;
   sales: ISales;
   reminders: IReminders;
   things: IThings;
@@ -50,6 +51,8 @@ export type ILocations = Record<string, IItem>;
 export type IBooks = Record<string, IItem>;
 
 export type IReads = Record<string, IItem>;
+
+export type IPosts = Record<string, IItem>;
 
 export type ISales = Record<string, IItem>;
 

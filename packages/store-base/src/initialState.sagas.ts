@@ -321,7 +321,21 @@ export const sagas: ISagas = {
     id: 'widgets.documents',
     type: 'component',
     trigger: {
-      actionTypes: ['documents'],
+      actionTypes: ['DOCUMENTS'],
+    },
+  },
+  'widgets.post': {
+    id: 'widgets.post',
+    type: 'component',
+    trigger: {
+      actionTypes: ['POST'],
+    },
+  },
+  'widgets.posts': {
+    id: 'widgets.posts',
+    type: 'component',
+    trigger: {
+      actionTypes: ['POSTS'],
     },
   },
   'widgets.expressDebugger': {

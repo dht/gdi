@@ -62,8 +62,8 @@ export const icons = [
     order: 8,
   },
   {
-    id: 'post',
-    name: 'Post',
+    id: 'posts',
+    name: 'Posts',
     iconName: 'post_add',
     boardId: 'B-022',
     order: 9,
