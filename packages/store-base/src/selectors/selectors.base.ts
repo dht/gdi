@@ -317,7 +317,7 @@ export const $contacts = createSelector(
       .filter((contact) => {
         const { tier, week } = contact;
 
-        const tierOk = focusTiers.includes(String(tier));
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
 
         return tierOk && weekOk;
@@ -346,7 +346,7 @@ export const $events = createSelector(
       .filter((event) => {
         const { tier, week } = event;
 
-        const tierOk = focusTiers.includes(String(tier));
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
 
         return tierOk && weekOk;
@@ -384,3 +384,24 @@ export const $weeks = createSelector(raw.$rawCurrentIds, (currentIds) => {
     },
   ];
 });
+
+export const $externalEvents = createSelector(
+  raw.$rawExternalEvents,
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (events, appState, currentIds) => {
+    const { focusTiers } = appState;
+    const { weekId } = currentIds;
+
+    return Object.values(events)
+      .filter((event) => {
+        const { tier, week } = event;
+
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
+      })
+      .sort(sortBy('title', 'desc'));
+  }
+);

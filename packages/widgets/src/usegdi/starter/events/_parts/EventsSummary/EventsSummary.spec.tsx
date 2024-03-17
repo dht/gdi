@@ -1,13 +1,13 @@
-import { EventsDriver } from './Events.driver';
+import { EventsSummaryDriver } from './EventsSummary.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Events', () => {
-  let driver: EventsDriver;
+describe('EventsSummary', () => {
+  let driver: EventsSummaryDriver;
 
   beforeAll(() => {
-    driver = new EventsDriver();
+    driver = new EventsSummaryDriver();
   });
 
   it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Events', () => {
     const wrapperClassName = element.get.wrapperClassName();
     const innerText = element.get.label();
 
-    expect(wrapperClassName).toContain('Events-wrapper');
+    expect(wrapperClassName).toContain('EventsSummary-wrapper');
     expect(innerText).toBe(label);
   });
 
@@ -40,11 +40,11 @@ describe('Events', () => {
   });
 });
 
-describe('Events snapshots', () => {
-  let driver: EventsDriver;
+describe('EventsSummary snapshots', () => {
+  let driver: EventsSummaryDriver;
 
   beforeAll(() => {
-    driver = new EventsDriver();
+    driver = new EventsSummaryDriver();
   });
 
   it('should match snapshot', () => {

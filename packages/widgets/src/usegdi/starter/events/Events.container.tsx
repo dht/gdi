@@ -1,21 +1,43 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useMemo } from 'react';
 import { Events } from './Events';
+import { useSagas } from '../../../helpers/useSaga';
 
-export type EventsContainerProps = {};
+export type EventsContainerProps = {
+  data: any;
+};
 
-export function EventsContainer(_props: EventsContainerProps) {
-    const dispatch = useDispatch();
-    const appState = useSelector(selectors.raw.$rawAppState);
+export function EventsContainer(props: EventsContainerProps) {
+  const dispatch = useDispatch();
+  const events = useSelector(selectors.base.$externalEvents);
 
-    const callbacks = useMemo(
-        () => ({
-            onClick: () => {},
-        }),
-        []
-    );
+  useSagas([
+    'widgets.externalEvents', //
+    'widgets.externalEvent',
+  ]);
 
-    return <Events />;
+  const callbacks = useMemo(
+    () => ({
+      onAction: (verb: string, params?: Json) => {
+        dispatch({
+          type: 'EXTERNAL_EVENT',
+          verb,
+          payload: params,
+        });
+      },
+      onItemAction: (id: string, verb: string, payload?: Json) => {
+        dispatch({
+          type: 'EXTERNAL_EVENT',
+          verb,
+          id,
+          payload,
+        });
+      },
+    }),
+    []
+  );
+
+  return <Events data={events} callbacks={callbacks} />;
 }
 
 export default EventsContainer;
