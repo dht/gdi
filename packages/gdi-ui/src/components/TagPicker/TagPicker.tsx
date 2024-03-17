@@ -6,11 +6,12 @@ export type TagPickerProps = {
   options: Json[];
   onChange: (value: string[]) => void;
   isMulti?: boolean;
+  autoFocus?: boolean;
   placeholder?: string;
 };
 
 export function TagPicker(props: TagPickerProps) {
-  const { value, options, isMulti, placeholder } = props;
+  const { value, options, isMulti, placeholder, autoFocus } = props;
 
   function onChange(value: string[]) {
     const newValue = isMulti ? value : [value.pop()].filter((i) => i);
@@ -29,6 +30,7 @@ export function TagPicker(props: TagPickerProps) {
         isMulti={true}
         placeholder={placeholder}
         onChange={onChange}
+        autoFocus={autoFocus}
       />
     </Wrapper>
   );

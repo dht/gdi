@@ -21,8 +21,12 @@ export type IMyData = {
   things: IThings;
 };
 
-type IItem = {
+export type IItem = {
   id: string;
+  week: string;
+  tier: string;
+  project: string;
+  tags?: string[];
   [key: string]: any;
 };
 

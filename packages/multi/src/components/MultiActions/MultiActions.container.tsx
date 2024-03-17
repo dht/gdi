@@ -1,8 +1,8 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useMemo } from 'react';
 import { MultiActions } from './MultiActions';
-import TierContainer from './_parts/Tier/Tier.container';
-import WeeksContainer from './_parts/Weeks/Weeks.container';
+import FilterByTierContainer from './_parts/FilterByTier.container';
+import FilterByWeekContainer from './_parts/FilterByWeek.container';
 
 export type MultiActionsContainerProps = {};
 

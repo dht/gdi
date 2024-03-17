@@ -1,6 +1,6 @@
 import { selectors, IDocuments, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseDocumentsChange } from './Documents.utils';
+import { parseChange } from './Documents.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addDocument(action: Action, item: IDocuments) {
 export function* editDocument(action: Action, item: IDocuments) {
   const { id, payload } = action;
 
-  const change = parseDocumentsChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.docs.patch(id, change));
 }

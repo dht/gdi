@@ -1,13 +1,13 @@
-import { TierDriver } from './Tier.driver';
+import { RadioFilterDriver } from './RadioFilter.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Tier', () => {
-    let driver: TierDriver;
+describe('RadioFilter', () => {
+    let driver: RadioFilterDriver;
 
     beforeAll(() => {
-        driver = new TierDriver();
+        driver = new RadioFilterDriver();
     });
 
     it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Tier', () => {
         const wrapperClassName = element.get.wrapperClassName();
         const innerText = element.get.label();
 
-        expect(wrapperClassName).toContain('Tier-wrapper');
+        expect(wrapperClassName).toContain('RadioFilter-wrapper');
         expect(innerText).toBe(label);
     });
 
@@ -40,11 +40,11 @@ describe('Tier', () => {
     });
 });
 
-describe('Tier snapshots', () => {
-    let driver: TierDriver;
+describe('RadioFilter snapshots', () => {
+    let driver: RadioFilterDriver;
 
     beforeAll(() => {
-        driver = new TierDriver();
+        driver = new RadioFilterDriver();
     });
 
     it('should match snapshot', () => {

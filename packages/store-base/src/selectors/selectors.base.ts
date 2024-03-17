@@ -1,12 +1,13 @@
 import { get, mapValues } from 'lodash';
 import { createSelector } from 'reselect';
 import { sortBy } from 'shared-base';
-import { FlowType } from '../types';
+import { FilterParams, FlowType } from '../types';
 import { transformNodesToGraph } from '../utils/flows';
 import { charactersMaps } from '../utils/phonetics';
 import { getSpeechUrl } from '../utils/speech';
 import * as raw from './selectors.raw';
 import { getCurrentWeek } from '../utils/date';
+import { filterItems } from '../utils/filter';
 
 export const $logs = createSelector(raw.$rawLogs, (logs) => {
   return Object.values(logs).sort(sortBy('timestamp'));
@@ -305,57 +306,7 @@ export const $apiProviders = createSelector(
   }
 );
 
-export const $contacts = createSelector(
-  raw.$rawContacts,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (contacts, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
-
-    return Object.values(contacts)
-      .filter((contact) => {
-        const { tier, week } = contact;
-
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
-
-        return tierOk && weekOk;
-      })
-      .map((contact) => {
-        const { firstName, email } = contact;
-
-        return {
-          ...contact,
-          firstName: firstName || email,
-        };
-      })
-      .sort(sortBy('firstName', 'asc'));
-  }
-);
-
-export const $events = createSelector(
-  raw.$rawEvents,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
-
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
-
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
-
-        return tierOk && weekOk;
-      })
-      .sort(sortBy('title', 'desc'));
-  }
-);
-
-export const $weeks = createSelector(raw.$rawCurrentIds, (currentIds) => {
+export const $filterByWeek = createSelector(raw.$rawCurrentIds, (currentIds) => {
   const { weekId } = currentIds;
 
   let w = parseInt(weekId, 10);
@@ -385,149 +336,139 @@ export const $weeks = createSelector(raw.$rawCurrentIds, (currentIds) => {
   ];
 });
 
-export const $externalEvents = createSelector(
-  raw.$rawExternalEvents,
+export const $filterByTier = createSelector(raw.$i, () => {
+  return [
+    { id: 'none', name: 'None' },
+    { id: '1', name: '1' },
+    { id: '2', name: '2' },
+    { id: '3', name: '3' },
+    { id: '4', name: '4' },
+    { id: 'all', name: 'All Tiers' },
+  ];
+});
+
+export const $filterByProject = createSelector(raw.$i, () => {
+  return [
+    { id: 'none', name: 'None' },
+    { id: 'current', name: 'Current project' },
+    { id: 'all', name: 'All' },
+  ];
+});
+
+export const $filterByTags = createSelector(raw.$i, () => {
+  return [
+    { id: 'none', name: 'None' },
+    { id: 'current', name: 'Current tags' },
+    { id: 'all', name: 'All' },
+  ];
+});
+
+export const $filterParams = createSelector(
   raw.$rawAppState,
   raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
+  (appState, currentIds) => {
+    const { focusProject, focusTags, focusTiers, tags } = appState;
+    const { weekId, projectId } = currentIds;
 
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
+    const output: FilterParams = {
+      focusTiers,
+      focusProject,
+      focusTags,
+      projectId,
+      globalTags: tags,
+      weekId,
+    };
 
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+    return output;
+  }
+);
 
-        return tierOk && weekOk;
-      })
+export const $externalEvents = createSelector(
+  raw.$rawExternalEvents,
+  $filterParams,
+  (items, filterParams) => {
+    const arr = Object.values(items);
+    return filterItems(arr, filterParams) //
       .sort(sortBy('title', 'desc'));
   }
 );
 
 export const $reminders = createSelector(
   raw.$rawReminders,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
+  $filterParams,
+  (items, filterParams) => {
+    const arr = Object.values(items);
 
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
-
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
-
-        return tierOk && weekOk;
-      })
+    return filterItems(arr, filterParams) //
       .sort(sortBy('title', 'desc'));
   }
 );
 
-export const $reads = createSelector(
-  raw.$rawReads,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
+export const $reads = createSelector(raw.$rawReads, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
 
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
+  return filterItems(arr, filterParams) //
+    .sort(sortBy('title', 'desc'));
+});
 
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+export const $todos = createSelector(raw.$rawTodos, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
 
-        return tierOk && weekOk;
-      })
-      .sort(sortBy('title', 'desc'));
-  }
-);
-
-export const $todos = createSelector(
-  raw.$rawTodos,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
-
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
-
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
-
-        return tierOk && weekOk;
-      })
-      .sort(sortBy('title', 'desc'));
-  }
-);
+  return filterItems(arr, filterParams) //
+    .sort(sortBy('title', 'desc'));
+});
 
 export const $listItems = createSelector(
   raw.$rawListItems,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
+  $filterParams,
+  (items, filterParams) => {
+    const arr = Object.values(items);
 
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
-
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
-
-        return tierOk && weekOk;
-      })
+    return filterItems(arr, filterParams) //
       .sort(sortBy('title', 'desc'));
   }
 );
 
-export const $documents = createSelector(
-  raw.$rawDocs,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
+export const $documents = createSelector(raw.$rawDocs, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
 
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
+  return filterItems(arr, filterParams) //
+    .sort(sortBy('title', 'desc'));
+});
 
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+export const $posts = createSelector(raw.$rawPosts, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
 
-        return tierOk && weekOk;
-      })
-      .sort(sortBy('title', 'desc'));
-  }
-);
+  return filterItems(arr, filterParams) //
+    .sort(sortBy('title', 'desc'));
+});
 
-export const $posts = createSelector(
-  raw.$rawPosts,
-  raw.$rawAppState,
-  raw.$rawCurrentIds,
-  (items, appState, currentIds) => {
-    const { focusTiers } = appState;
-    const { weekId } = currentIds;
+export const $contacts = createSelector(raw.$rawContacts, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
 
-    return Object.values(items)
-      .filter((item) => {
-        const { tier, week } = item;
+  return filterItems(arr, filterParams) //
+    .map((contact) => {
+      const { firstName, email } = contact;
 
-        const tierOk = focusTiers.includes(String(tier)) || !tier;
-        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+      return {
+        ...contact,
+        firstName: firstName || email,
+      };
+    })
+    .sort(sortBy('firstName', 'asc'));
+});
 
-        return tierOk && weekOk;
-      })
-      .sort(sortBy('title', 'desc'));
-  }
-);
+export const $events = createSelector(raw.$rawEvents, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
+
+  return filterItems(arr, filterParams) //
+    .map((contact) => {
+      const { firstName, email } = contact;
+
+      return {
+        ...contact,
+        firstName: firstName || email,
+      };
+    })
+    .sort(sortBy('title', 'desc'));
+});

@@ -39,7 +39,7 @@ export const $barItemsVariables = createSelector(
 
 export const $barItems = createSelector($barItemsVariables, (variables) => {
   return Object.values(barItems).map((barItem) => {
-    const { id, value, emoji, modifier, addClassName } = barItem;
+    const { id, value, emoji, modifier, addClassName, shortKey } = barItem;
 
     const parsedValue = value in variables ? variables[value] : value;
 
@@ -50,6 +50,7 @@ export const $barItems = createSelector($barItemsVariables, (variables) => {
       modifier,
       addClassName,
       isHidden: parsedValue === '',
+      shortKey,
     };
   });
 });

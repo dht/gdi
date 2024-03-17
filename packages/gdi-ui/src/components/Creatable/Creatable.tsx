@@ -2,6 +2,8 @@ import classnames from 'classnames';
 import CreatableSelect from 'react-select/creatable';
 import { useOptions, useValues } from './Creatable.hooks';
 import { Wrapper, colorStyles } from './Creatable.style';
+import { useMount } from 'react-use';
+import { useRef } from 'react';
 
 export type CreatableProps = {
   value: string[];
@@ -13,12 +15,20 @@ export type CreatableProps = {
   onChange: (values: string[]) => void;
   groupFieldId?: string;
   darkMode?: boolean;
+  autoFocus?: boolean;
 };
 
 export function Creatable(props: CreatableProps) {
-  const { value, options, placeholder, isMulti, darkMode } = props;
+  const { value, options, placeholder, isMulti, darkMode, autoFocus } = props;
   const mappedValues = useValues(value, options);
   const mappedOptions = useOptions(options);
+  const ref = useRef(null);
+
+  useMount(() => {
+    if (!ref.current) return;
+
+    ref.current.focus();
+  });
 
   function onChange(items: Json | Json[]) {
     if (Array.isArray(items)) {
@@ -56,6 +66,7 @@ export function Creatable(props: CreatableProps) {
         placeholder={placeholder}
         classNamePrefix='creatable'
         onKeyDown={onKeyDown}
+        ref={ref}
       />
     </Wrapper>
   );

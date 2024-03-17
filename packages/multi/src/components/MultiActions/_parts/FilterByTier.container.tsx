@@ -1,13 +1,14 @@
 import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
-import React, { useMemo } from 'react';
-import { Tier } from './Tier';
-import { calcNextValue, parseTier } from './Tier.utils';
+import { RadioFilter } from '@gdi/ui';
+import { useMemo } from 'react';
+import { calcNextValue } from './FilterByTier.utils';
 
-export type TierContainerProps = {};
+export type FilterByTierContainerProps = {};
 
-export function TierContainer(_props: TierContainerProps) {
+export function FilterByTierContainer(_props: FilterByTierContainerProps) {
   const dispatch = useDispatch();
   const appState = useSelector(selectors.raw.$rawAppState);
+  const options = useSelector(selectors.base.$filterByTier);
   const { focusTiers } = appState;
 
   const callbacks = useMemo(
@@ -20,7 +21,7 @@ export function TierContainer(_props: TierContainerProps) {
     [focusTiers]
   );
 
-  return <Tier value={focusTiers} onChange={callbacks.onChange} />;
+  return <RadioFilter options={options} value={focusTiers} onChange={callbacks.onChange} />;
 }
 
-export default TierContainer;
+export default FilterByTierContainer;

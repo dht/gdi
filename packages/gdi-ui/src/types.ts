@@ -1,3 +1,7 @@
+type Action = any;
+type ICustomEvent = any;
+type IOptions = Record<string, IOption>;
+
 export type IBarItem = {
   id: string;
   value: string;
@@ -7,6 +11,7 @@ export type IBarItem = {
   eventId?: string;
   isHidden?: boolean;
   addClassName?: boolean;
+  shortKey: IShortKey;
 };
 
 export type ToastFlavour = 'error' | 'success' | 'warning' | 'info' | 'custom' | 'promise';
@@ -38,6 +43,9 @@ export type IShortKey = {
   withShift?: boolean;
   withCtrl?: boolean;
   description?: string;
+  ev: KeyboardEvent;
+  preventDefault?: boolean;
+  code?: string;
 };
 
 export type IContextBarItems = IContextBarItem[];

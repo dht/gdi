@@ -74,9 +74,9 @@ export const fields: ITableField[] = [
     },
   },
   {
-    id: 'imageUrl',
-    title: 'ImageUrl',
-    cellType: 'image',
+    id: 'project',
+    title: 'Project',
+    cellType: 'text',
     flex: 1,
     params: {},
   },

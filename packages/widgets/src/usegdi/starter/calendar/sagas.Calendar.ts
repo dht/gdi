@@ -1,6 +1,6 @@
 import { selectors, ICalendar, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseCalendarChange } from './Calendar.utils';
+import { parseChange } from './Calendar.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addEvent(action: Action, item: ICalendar) {
 export function* editEvent(action: Action, item: ICalendar) {
   const { id, payload } = action;
 
-  const change = parseCalendarChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.events.patch(id, change));
 }

@@ -1,6 +1,6 @@
 import { selectors, IPosts, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parsePostsChange } from './Posts.utils';
+import { parseChange } from './Posts.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addPost(action: Action, item: IPosts) {
 export function* editPost(action: Action, item: IPosts) {
   const { id, payload } = action;
 
-  const change = parsePostsChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.posts.patch(id, change));
 }
