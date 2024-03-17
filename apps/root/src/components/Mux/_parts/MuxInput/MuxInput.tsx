@@ -27,16 +27,15 @@ export function MuxInput(props: MuxInputProps) {
     setInput('');
   }, [input]);
 
-  const onEnter = useCallback(
+  const onKeyDown = useCallback(
     (ev: any) => {
+      if (ev.key !== 'Enter') return;
       if (ev.metaKey) return;
       ev.preventDefault();
       onSubmit();
     },
     [onSubmit]
   );
-
-  useKey('Enter', onEnter, {}, [onEnter]);
 
   useMount(() => {
     refInput.current?.focus();
@@ -51,6 +50,7 @@ export function MuxInput(props: MuxInputProps) {
         placeholder='Message ChatGPT...'
         value={input}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
       <Send disabled={!ctaEnabled} onClick={onSubmit}>
         <Icon name='arrow_upward' />

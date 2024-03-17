@@ -17,12 +17,13 @@ export function useOptions(options: Json[]) {
   return optionsMapped;
 }
 
-export function useValues(values: string[]) {
+export function useValues(values: string[], options: Json[] = []) {
   const valuesMapped = useMemo(() => {
     return values.map((value) => {
       const valueToCheck = Array.isArray(value) ? value[0] : value;
+      const option = options.find((o) => o.id === valueToCheck);
+      const { color = 'gold' } = option || {};
 
-      const color = valueToCheck.startsWith('project-') ? 'pink' : 'gold';
       const colorStyle = colors[color] || colors.neutral;
 
       return {

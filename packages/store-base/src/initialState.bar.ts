@@ -22,6 +22,10 @@ export const barItems: IBarItems = {
     value: '$flowAdapterProvider',
     emoji: '🔌',
   },
+  project: {
+    id: 'project',
+    value: '$project',
+  },
   assets: {
     id: 'assets',
     value: '$assetsCount',

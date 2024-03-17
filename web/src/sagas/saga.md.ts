@@ -21,6 +21,7 @@ export function* myData() {
       yield* put(actions.sales.get({})),
       yield* put(actions.reminders.get({})),
       yield* put(actions.things.get({})),
+      yield* put(actions.tags.get({})),
     ];
 
     console.time('Promise.all');

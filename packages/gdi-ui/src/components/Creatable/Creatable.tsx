@@ -17,7 +17,7 @@ export type CreatableProps = {
 
 export function Creatable(props: CreatableProps) {
   const { value, options, placeholder, isMulti, darkMode } = props;
-  const mappedValues = useValues(value);
+  const mappedValues = useValues(value, options);
   const mappedOptions = useOptions(options);
 
   function onChange(items: Json | Json[]) {

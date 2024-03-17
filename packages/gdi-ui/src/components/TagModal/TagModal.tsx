@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import { useKey } from 'react-use';
 import TagPicker from '../TagPicker/TagPicker';
-import { Actions, Cta, Note, P, Wrapper } from './TagModal.style';
+import { Actions, Cta, P, Wrapper } from './TagModal.style';
 
 export type TagModalProps = {
   value: string[];
   options: Json[];
   onCta: (value: string[]) => void;
   onCancel: () => void;
+  isMulti?: boolean;
+  placeholder?: string;
+  children: React.ReactNode;
 };
 
 export function TagModal(props: TagModalProps) {
-  const { value, options } = props;
+  const { value, options, isMulti, placeholder } = props;
   const [tags, setTags] = useState<string[]>([...value]);
 
   useKey(
@@ -29,18 +32,20 @@ export function TagModal(props: TagModalProps) {
 
   return (
     <Wrapper className='TagModal-wrapper' data-testid='TagModal-wrapper'>
-      <P>
-        Every time you generate &amp; save a new asset (sound, image, text, etc.), these tags will
-        be automatically applied to it:
-      </P>
-      <TagPicker value={tags} options={options} onChange={setTags} />
-      <Note>
-        <span>Note: </span>
-        Tags as 'project-website' are treated specially
-      </Note>
+      <P>{props.children}</P>
+      <TagPicker
+        value={tags}
+        options={options}
+        onChange={setTags}
+        isMulti={isMulti}
+        placeholder={placeholder}
+      />
       <Actions>
         <Cta className='link' onClick={props.onCancel}>
           Cancel
+        </Cta>
+        <Cta className='link' onClick={() => props.onCta([])}>
+          Clear
         </Cta>
         <Cta onClick={() => props.onCta(tags)}>Apply</Cta>
       </Actions>

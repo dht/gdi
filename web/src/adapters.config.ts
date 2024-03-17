@@ -48,7 +48,6 @@ export const config = {
       'muxTabs',
       'soundState',
       'sagas',
-      'tags',
       'transcriptAudios',
       'transcriptLines',
       'user',

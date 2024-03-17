@@ -4,7 +4,7 @@ import { Json } from 'redux-store-generator';
 import { call, fork, put, select, takeEvery } from 'saga-ts';
 import { invokeEvent, patchJson } from 'shared-base';
 import { l } from '../utils/logs';
-import { showTagPicker } from './saga.tags';
+import { showProjectPicker, showTagPicker } from './saga.tags';
 
 const LOCALE_STORAGE_KEY = 'locale';
 
@@ -14,6 +14,7 @@ type Verb =
   | 'resolution'
   | 'assets'
   | 'time'
+  | 'project'
   | 'tags'
   | 'commandPalette';
 
@@ -29,6 +30,7 @@ const map: Record<Verb, any> = {
   resolution: showScreenInfo,
   time: toggleTimeFormat,
   tags: showTagPicker,
+  project: showProjectPicker,
   assets: navigateToAssets,
   commandPalette: openCommandPalette,
   boardId: boardId,
