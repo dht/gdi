@@ -338,13 +338,13 @@ export const $events = createSelector(
   raw.$rawEvents,
   raw.$rawAppState,
   raw.$rawCurrentIds,
-  (events, appState, currentIds) => {
+  (items, appState, currentIds) => {
     const { focusTiers } = appState;
     const { weekId } = currentIds;
 
-    return Object.values(events)
-      .filter((event) => {
-        const { tier, week } = event;
+    return Object.values(items)
+      .filter((item) => {
+        const { tier, week } = item;
 
         const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
@@ -389,13 +389,13 @@ export const $externalEvents = createSelector(
   raw.$rawExternalEvents,
   raw.$rawAppState,
   raw.$rawCurrentIds,
-  (events, appState, currentIds) => {
+  (items, appState, currentIds) => {
     const { focusTiers } = appState;
     const { weekId } = currentIds;
 
-    return Object.values(events)
-      .filter((event) => {
-        const { tier, week } = event;
+    return Object.values(items)
+      .filter((item) => {
+        const { tier, week } = item;
 
         const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
@@ -410,13 +410,34 @@ export const $reminders = createSelector(
   raw.$rawReminders,
   raw.$rawAppState,
   raw.$rawCurrentIds,
-  (reminders, appState, currentIds) => {
+  (items, appState, currentIds) => {
     const { focusTiers } = appState;
     const { weekId } = currentIds;
 
-    return Object.values(reminders)
-      .filter((reminder) => {
-        const { tier, week } = reminder;
+    return Object.values(items)
+      .filter((item) => {
+        const { tier, week } = item;
+
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
+      })
+      .sort(sortBy('title', 'desc'));
+  }
+);
+
+export const $reads = createSelector(
+  raw.$rawReads,
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (items, appState, currentIds) => {
+    const { focusTiers } = appState;
+    const { weekId } = currentIds;
+
+    return Object.values(items)
+      .filter((item) => {
+        const { tier, week } = item;
 
         const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
@@ -431,13 +452,13 @@ export const $todos = createSelector(
   raw.$rawTodos,
   raw.$rawAppState,
   raw.$rawCurrentIds,
-  (todos, appState, currentIds) => {
+  (items, appState, currentIds) => {
     const { focusTiers } = appState;
     const { weekId } = currentIds;
 
-    return Object.values(todos)
-      .filter((todo) => {
-        const { tier, week } = todo;
+    return Object.values(items)
+      .filter((item) => {
+        const { tier, week } = item;
 
         const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');

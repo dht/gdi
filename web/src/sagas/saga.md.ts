@@ -16,7 +16,7 @@ export function* myData() {
       yield* put(actions.events.get({})),
       yield* put(actions.externalEvents.get({})),
       yield* put(actions.locations.get({})),
-      yield* put(actions.books.get({})),
+      yield* put(actions.reads.get({})),
       yield* put(actions.sales.get({})),
       yield* put(actions.reminders.get({})),
       yield* put(actions.things.get({})),

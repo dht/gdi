@@ -14,6 +14,8 @@ import { saga as sagaExternalEvents } from './usegdi/starter/events/sagas.Events
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
 import { saga as sagaProductTour } from './usegdi/starter/product-tour/sagas.ProductTour';
 import { sagas as sagasScene } from './usegdi/starter/scene/sagas';
+import { saga as sagaRead } from './usegdi/starter/reads/sagas.Read';
+import { saga as sagaReads } from './usegdi/starter/reads/sagas.Reads';
 import { saga as sagaReminder } from './usegdi/starter/reminders/sagas.Reminder';
 import { saga as sagaReminders } from './usegdi/starter/reminders/sagas.Reminders';
 import { saga as sagaSpeechParams } from './usegdi/starter/speech-params/sagas.SpeechParams';
@@ -44,6 +46,8 @@ export const sagas: any = {
   'widgets.reminder': sagaReminder,
   'widgets.reminders': sagaReminders,
   'widgets.speech': sagaSpeech,
+  'widgets.read': sagaRead,
+  'widgets.reads': sagaReads,
   'widgets.speechParams': sagaSpeechParams,
   'widgets.todo': sagaTodo,
   'widgets.todos': sagaTodos,

@@ -55,7 +55,7 @@ export const icons = [
     order: 7,
   },
   {
-    id: 'books',
+    id: 'reads',
     name: 'Reads',
     iconName: 'book',
     boardId: 'B-020',

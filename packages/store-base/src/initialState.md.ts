@@ -70,6 +70,12 @@ export const initialStateMd: IMyData = {
       title: 'First Book',
     },
   },
+  reads: {
+    '1': {
+      id: '1',
+      title: 'First Read',
+    },
+  },
   sales: {
     '1': {
       id: '1',
