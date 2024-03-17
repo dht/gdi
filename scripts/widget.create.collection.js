@@ -5,7 +5,7 @@ const _ = require('lodash');
 const ROOT = path.resolve(__dirname, '../packages/widgets/src/usegdi/starter');
 
 const input = 'events';
-const output = 'reminders';
+const output = 'reads';
 
 const cases = {
   input: {
@@ -34,7 +34,9 @@ const run = async () => {
   console.time('run');
 
   // prepare the output folder
-  fs.rmdirSync(paths.outputRoot, { recursive: true });
+  if (fs.existsSync(paths.outputRoot)) {
+    fs.rmdirSync(paths.outputRoot, { recursive: true });
+  }
 
   console.time('copy dir');
   fs.copySync(paths.inputRoot, paths.outputRoot, {

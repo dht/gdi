@@ -50,6 +50,7 @@ import pplGrid from './ppl-grid';
 import pplSwitch from './ppl-switch';
 import premiere from './premiere';
 import productTour from './product-tour';
+import reads from './reads';
 import regex from './regex';
 import regexDoc from './regex-doc';
 import reminders from './reminders';
@@ -137,6 +138,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.ppl-switch': pplSwitch,
   'com.usegdi.starter.premiere': premiere,
   'com.usegdi.starter.product-tour': productTour,
+  'com.usegdi.starter.reads': reads,
   'com.usegdi.starter.regex': regex,
   'com.usegdi.starter.regex-doc': regexDoc,
   'com.usegdi.starter.reminders': reminders,
