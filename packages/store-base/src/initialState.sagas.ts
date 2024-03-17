@@ -254,6 +254,20 @@ export const sagas: ISagas = {
       actionTypes: ['READS'],
     },
   },
+  'widgets.todo': {
+    id: 'widgets.todo',
+    type: 'component',
+    trigger: {
+      actionTypes: ['TODO'],
+    },
+  },
+  'widgets.todos': {
+    id: 'widgets.todos',
+    type: 'component',
+    trigger: {
+      actionTypes: ['TODOS'],
+    },
+  },
   'widgets.reminder': {
     id: 'widgets.reminder',
     type: 'component',

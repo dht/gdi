@@ -5,7 +5,7 @@ const _ = require('lodash');
 const ROOT = path.resolve(__dirname, '../packages/widgets/src/usegdi/starter');
 
 const input = 'events';
-const output = 'reads';
+const output = 'reminders';
 
 const cases = {
   input: {

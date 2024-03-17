@@ -1,13 +1,13 @@
-import { TodosDriver } from './Todos.driver';
+import { TodosSummaryDriver } from './TodosSummary.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Todos', () => {
-  let driver: TodosDriver;
+describe('TodosSummary', () => {
+  let driver: TodosSummaryDriver;
 
   beforeAll(() => {
-    driver = new TodosDriver();
+    driver = new TodosSummaryDriver();
   });
 
   it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Todos', () => {
     const wrapperClassName = element.get.wrapperClassName();
     const innerText = element.get.label();
 
-    expect(wrapperClassName).toContain('Todos-wrapper');
+    expect(wrapperClassName).toContain('TodosSummary-wrapper');
     expect(innerText).toBe(label);
   });
 
@@ -40,11 +40,11 @@ describe('Todos', () => {
   });
 });
 
-describe('Todos snapshots', () => {
-  let driver: TodosDriver;
+describe('TodosSummary snapshots', () => {
+  let driver: TodosSummaryDriver;
 
   beforeAll(() => {
-    driver = new TodosDriver();
+    driver = new TodosSummaryDriver();
   });
 
   it('should match snapshot', () => {
