@@ -1,7 +1,7 @@
 import { parseCalendarChange } from './Calendar.utils';
 import { getCurrentWeek } from '@gdi/ui';
 
-describe.only('parseCalendarChange', () => {
+describe('parseCalendarChange', () => {
   let output,
     w = getCurrentWeek();
 

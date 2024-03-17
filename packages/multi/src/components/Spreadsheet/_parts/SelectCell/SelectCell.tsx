@@ -1,21 +1,31 @@
 import React, { useEffect } from 'react';
-import { useKey, useToggle } from 'react-use';
+import { useKey, useMount, useToggle } from 'react-use';
 import { ICoord } from '../../Spreadsheet.types';
 import { areaDimension } from '../../Spreadsheet.utils';
 import { EditCell } from '../EditCell/EditCell';
 import { useAlphaNumericKey } from './SelectCell.hooks';
 import { Wrapper } from './SelectCell.style';
+import { Json } from '../../../../types';
 
 export type SelectCellProps = {
   value: string;
   coord: ICoord;
   onChange: (newValue: string) => void;
+  // for debugging
+  meta: Json;
 };
 
 export function SelectCell(props: SelectCellProps) {
-  const { value, coord } = props;
+  const { value, coord, meta } = props;
   const { x, y } = coord;
   const [isEditing, toggleIsEditing] = useToggle(false);
+
+  useMount(() => {
+    if (meta?.id === 'id') {
+      console.log(meta.id, meta.rowIndex);
+      console.log(meta.itemData);
+    }
+  });
 
   function onChange(newValue: string) {
     toggleIsEditing(false);

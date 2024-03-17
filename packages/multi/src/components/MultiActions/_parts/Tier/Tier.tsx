@@ -4,8 +4,8 @@ import { tiers } from './Tier.data';
 import { Item, Wrapper } from './Tier.style';
 
 export type TierProps = {
-  value: number;
-  onChange: (value: number) => void;
+  value: string[];
+  onChange: (value: string) => void;
 };
 
 export function Tier(props: TierProps) {
@@ -15,7 +15,7 @@ export function Tier(props: TierProps) {
     const { name } = tier;
 
     const className = classnames('tier', {
-      selected: value === tier.id,
+      selected: value.includes(tier.id),
     });
 
     return (

@@ -310,18 +310,25 @@ export const $contacts = createSelector(
   raw.$rawAppState,
   raw.$rawCurrentIds,
   (contacts, appState, currentIds) => {
-    const { focusTier } = appState;
+    const { focusTiers } = appState;
     const { weekId } = currentIds;
 
     return Object.values(contacts)
       .filter((contact) => {
         const { tier, week } = contact;
 
-        // keep weak comparison (==) rather than strict (===)
-        const tierOk = tier == focusTier || focusTier === 'all' || (!tier && focusTier === 'none');
-        const weekOk = weekId == week || weekId === 'all' || (!week && weekId === 'none');
+        const tierOk = focusTiers.includes(String(tier));
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
 
         return tierOk && weekOk;
+      })
+      .map((contact) => {
+        const { firstName, email } = contact;
+
+        return {
+          ...contact,
+          firstName: firstName || email,
+        };
       })
       .sort(sortBy('firstName', 'asc'));
   }
@@ -332,16 +339,15 @@ export const $events = createSelector(
   raw.$rawAppState,
   raw.$rawCurrentIds,
   (events, appState, currentIds) => {
-    const { focusTier } = appState;
+    const { focusTiers } = appState;
     const { weekId } = currentIds;
 
     return Object.values(events)
       .filter((event) => {
-        const { tier, week, date, startTime, endTime } = event;
+        const { tier, week } = event;
 
-        // keep weak comparison (==) rather than strict (===)
-        const tierOk = tier == focusTier || focusTier === 'all' || (!tier && focusTier === 'none');
-        const weekOk = weekId == week || weekId === 'all' || (!week && weekId === 'none');
+        const tierOk = focusTiers.includes(String(tier));
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
 
         return tierOk && weekOk;
       })
