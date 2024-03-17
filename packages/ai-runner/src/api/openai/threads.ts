@@ -9,6 +9,11 @@ export const create = async (params: ThreadCreateParams) => {
   return thread;
 };
 
+export const remove = async (id: string) => {
+  const response = await openai.beta.threads.del(id);
+  return response;
+};
+
 export const getMessages = async (threadId: string, context: Json) => {
   const { modelId } = context;
   const responseBuilder = new AIResponseBuilder();

@@ -22,6 +22,7 @@ export const main = async (req: any, _api: Json, params: Json, streamCallback?: 
       messages: [],
     });
     ids.muxThreadId = thread.id;
+
     await db.ids.patch(req, ids);
   }
 
