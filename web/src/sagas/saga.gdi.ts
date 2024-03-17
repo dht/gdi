@@ -12,7 +12,7 @@ import { l } from '../utils/logs';
 import { arrayToObject } from '../utils/object';
 import { bootstrapAdapters } from './helpers/saga.adapters';
 
-const LOCALE_STORAGE_KEY = 'locale';
+const LOCAL_STORAGE_KEY = 'locale';
 
 export function* os() {
   const isMac = navigator.userAgent.toLowerCase().indexOf('mac') >= 0;
@@ -60,13 +60,13 @@ export function* toggleTimeFormat(action: Action) {
     })
   );
 
-  patchJson(LOCALE_STORAGE_KEY, {
+  patchJson(LOCAL_STORAGE_KEY, {
     is24Hours: nextValue,
   });
 }
 
 export function* loadValuesFromStorage() {
-  const locale = getJson(LOCALE_STORAGE_KEY);
+  const locale = getJson(LOCAL_STORAGE_KEY);
   const { is24Hours = false } = locale ?? {};
 
   l({ message: 'Loading values from localeStorage', verb: 'bootstrap', data: { is24Hours } });
