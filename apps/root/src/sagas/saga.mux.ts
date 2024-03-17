@@ -10,12 +10,19 @@ import { keysGuard } from './helpers/guards';
 
 let streamChannel: any;
 
-export function* clear() {
+export function* clearState() {
   yield* put(actions.messages.setAll({}));
   yield* put(actions.currentIds.patch({ capabilityId: '' }));
   invokeEvent('mux/content', { content: '' });
-
   yield* put({ type: 'TABS', verb: 'clearAll' });
+}
+
+export function* clear() {
+  yield fork(clearState);
+
+  yield* call(runFunction, '/api/ai/assistant/clear', {
+    prompt,
+  });
 }
 
 export function* mux(ev: any) {
@@ -106,7 +113,7 @@ export function* root() {
 
   yield delay(100);
 
-  yield fork(clear);
+  yield fork(clearState);
 
   channel = customEvenChannel('MUX/PROMPT');
   yield takeEvery(channel, mux);

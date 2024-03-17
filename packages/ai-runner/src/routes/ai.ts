@@ -95,6 +95,25 @@ router.post('/assistant/stream', async (req: any, res) => {
   }
 });
 
+router.post('/assistant/clear', async (req: any, res) => {
+  try {
+    let response;
+
+    const ids = await db.ids.get(req);
+    const { muxThreadId } = ids;
+
+    if (muxThreadId) {
+      response = await openAI.threads.remove(muxThreadId);
+      await db.ids.patch(req, { muxThreadId: null });
+    }
+
+    res.status(200).json({});
+  } catch (error) {
+    console.error('Error generating text:', error);
+    res.status(500).send('Error generating text');
+  }
+});
+
 router.post('/image', async (req: any, res) => {
   try {
     const { prompt } = req.body;
