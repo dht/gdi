@@ -13,6 +13,7 @@ import contacts from './contacts';
 import debateWorkshop from './debate-workshop';
 import diy from './diy';
 import document from './document';
+import documents from './documents';
 import documentBootstrap from './document-bootstrap';
 import earth from './earth';
 import events from './events';
@@ -102,6 +103,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.debate-workshop': debateWorkshop,
   'com.usegdi.starter.diy': diy,
   'com.usegdi.starter.document': document,
+  'com.usegdi.starter.documents': documents,
   'com.usegdi.starter.document-bootstrap': documentBootstrap,
   'com.usegdi.starter.earth': earth,
   'com.usegdi.starter.events': events,

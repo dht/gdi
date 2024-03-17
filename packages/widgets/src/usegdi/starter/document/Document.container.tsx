@@ -14,7 +14,7 @@ export function DocumentContainer(_props: DocumentContainerProps) {
 
   const { suggestedFileName } = appState;
 
-  useSaga('widgets.document');
+  useSaga('widgets.docEdit');
 
   const callbacks = useMemo(
     () => ({

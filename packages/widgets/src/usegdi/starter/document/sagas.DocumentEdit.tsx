@@ -60,7 +60,7 @@ export function* root() {
 }
 
 export const saga = {
-  id: 'widgets.document',
+  id: 'widgets.docEdit',
   type: 'component',
   root: root,
   trigger: {

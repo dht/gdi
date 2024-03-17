@@ -489,3 +489,24 @@ export const $listItems = createSelector(
       .sort(sortBy('title', 'desc'));
   }
 );
+
+export const $documents = createSelector(
+  raw.$rawDocs,
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (items, appState, currentIds) => {
+    const { focusTiers } = appState;
+    const { weekId } = currentIds;
+
+    return Object.values(items)
+      .filter((item) => {
+        const { tier, week } = item;
+
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
+      })
+      .sort(sortBy('title', 'desc'));
+  }
+);

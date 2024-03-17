@@ -1,6 +1,6 @@
 import { saga as sagaAssets } from './usegdi/starter/asset-list/sagas.AssetsList';
 import { saga as sagaBabylon } from './usegdi/starter/babylon/sagas.Babylon';
-import { saga as sagaDocument } from './usegdi/starter/document/sagas.Document';
+import { saga as sagaDocEdit } from './usegdi/starter/document/sagas.DocumentEdit';
 import { saga as sagaExpressDebugger } from './usegdi/starter/express-debugger/sagas.ExpressDebugger';
 import { saga as sagaFlow } from './usegdi/starter/flow/sagas.Flow';
 import { saga as sagaFourthWall } from './usegdi/starter/fourth-wall/sagas.FourthWall';
@@ -9,6 +9,8 @@ import { saga as sagaCalendarEvent } from './usegdi/starter/calendar/sagas.Calen
 import { saga as sagaCalendarEvents } from './usegdi/starter/calendar/sagas.Calendars';
 import { saga as sagaContacts } from './usegdi/starter/contacts/sagas.Contacts';
 import { saga as sagaContact } from './usegdi/starter/contacts/sagas.Contact';
+import { saga as sagaDocument } from './usegdi/starter/documents/sagas.Document';
+import { saga as sagaDocuments } from './usegdi/starter/documents/sagas.Documents';
 import { saga as sagaExternalEvent } from './usegdi/starter/events/sagas.Event';
 import { saga as sagaExternalEvents } from './usegdi/starter/events/sagas.Events';
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
@@ -35,7 +37,9 @@ export const sagas: any = {
   'widgets.calendarEvents': sagaCalendarEvents,
   'widgets.contact': sagaContact,
   'widgets.contacts': sagaContacts,
+  'widgets.docEdit': sagaDocEdit,
   'widgets.document': sagaDocument,
+  'widgets.documents': sagaDocuments,
   'widgets.externalEvent': sagaExternalEvent,
   'widgets.externalEvents': sagaExternalEvents,
   'widgets.expressDebugger': sagaExpressDebugger,
