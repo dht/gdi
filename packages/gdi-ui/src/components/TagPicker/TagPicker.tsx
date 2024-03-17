@@ -5,13 +5,16 @@ export type TagPickerProps = {
   value: string[];
   options: Json[];
   onChange: (value: string[]) => void;
+  isMulti?: boolean;
+  placeholder?: string;
 };
 
 export function TagPicker(props: TagPickerProps) {
-  const { value, options } = props;
+  const { value, options, isMulti, placeholder } = props;
 
   function onChange(value: string[]) {
-    props.onChange(value);
+    const newValue = isMulti ? value : [value.pop()].filter((i) => i);
+    props.onChange(newValue);
   }
 
   function onKeyPress(ev: any) {
@@ -24,7 +27,7 @@ export function TagPicker(props: TagPickerProps) {
         options={options}
         value={value}
         isMulti={true}
-        placeholder='Choose tags'
+        placeholder={placeholder}
         onChange={onChange}
       />
     </Wrapper>

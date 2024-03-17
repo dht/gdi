@@ -116,6 +116,7 @@ export type ICurrentIds = {
   rightId: string;
   modalId: string;
   weekId: string;
+  projectId: string;
   tabId: string;
   muxTabId: string;
   editId: string;

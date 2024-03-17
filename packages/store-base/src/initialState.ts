@@ -77,6 +77,7 @@ export const initialState: IGdiStore = {
     muxTabId: 'home',
     editId: '',
     tabId: '',
+    projectId: 'tutorial',
     remoteItemId: '',
     personId: 'Albert.Einstein',
     assistantId: 'assistant-vanilla',

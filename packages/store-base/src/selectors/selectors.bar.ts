@@ -11,8 +11,10 @@ export const $barItemsVariables = createSelector(
   raw.$rawFlowState,
   assets.$assetsCurrent,
   raw.$rawAdapters,
-  (board, appState, flowState, assets, adapters) => {
+  raw.$rawCurrentIds,
+  (board, appState, flowState, assets, adapters, currentIds) => {
     const { screenWidth, tags, isLocalInstance } = appState;
+    const { projectId } = currentIds;
     const { status } = flowState;
     const { id: boardId = '' } = board;
 
@@ -30,6 +32,7 @@ export const $barItemsVariables = createSelector(
       $resolution: resolution,
       $tagsCount: tagsCount,
       $assetsCount: assetsCount,
+      $project: projectId || '[project]',
     } as any;
   }
 );

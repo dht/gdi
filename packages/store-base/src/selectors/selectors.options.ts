@@ -29,15 +29,34 @@ export const $tags = createSelector(raw.$rawTags, (tags) => {
   return Object.values(tags)
     .filter((tag) => tag.isActive)
     .map((tag) => {
-      const color = tag.id.startsWith('project-') ? 'pink' : 'gold';
+      const color = tag.isProjectTag ? 'pink' : 'gold';
 
       return {
+        ...tag,
         id: tag.id,
         text: tag.id,
         color,
       };
     })
     .sort(sortBy('text'));
+});
+
+export const $projectTags = createSelector($tags, (tags) => {
+  return tags
+    .filter((tag) => tag.isProjectTag)
+    .map((tag) => {
+      const { id, text, color } = tag;
+
+      return {
+        id: id.replace('project-', ''),
+        text: text.replace('project-', ''),
+        color,
+      };
+    });
+});
+
+export const $basicTags = createSelector($tags, (tags) => {
+  return tags.filter((tag) => !tag.isProjectTag);
 });
 
 export const $documentTypes = createSelector($o, () => {
