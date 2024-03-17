@@ -268,6 +268,20 @@ export const sagas: ISagas = {
       actionTypes: ['TODOS'],
     },
   },
+  'widgets.listItem': {
+    id: 'widgets.listItem',
+    type: 'component',
+    trigger: {
+      actionTypes: ['LIST_ITEM'],
+    },
+  },
+  'widgets.listItems': {
+    id: 'widgets.listItems',
+    type: 'component',
+    trigger: {
+      actionTypes: ['LIST_ITEMS'],
+    },
+  },
   'widgets.reminder': {
     id: 'widgets.reminder',
     type: 'component',

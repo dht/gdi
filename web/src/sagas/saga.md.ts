@@ -12,7 +12,7 @@ export function* myData() {
       yield* put(actions.todos.get({})),
       yield* put(actions.financeLines.get({})),
       yield* put(actions.lists.get({})),
-      yield* put(actions.listItem.get({})),
+      yield* put(actions.listItems.get({})),
       yield* put(actions.events.get({})),
       yield* put(actions.externalEvents.get({})),
       yield* put(actions.locations.get({})),

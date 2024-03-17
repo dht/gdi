@@ -36,7 +36,7 @@ export const initialStateMd: IMyData = {
       items: ['1'],
     },
   },
-  listItem: {
+  listItems: {
     '1': {
       id: '1',
       title: 'First List Item',
