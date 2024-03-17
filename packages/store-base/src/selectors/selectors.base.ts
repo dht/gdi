@@ -405,3 +405,24 @@ export const $externalEvents = createSelector(
       .sort(sortBy('title', 'desc'));
   }
 );
+
+export const $reminders = createSelector(
+  raw.$rawReminders,
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (events, appState, currentIds) => {
+    const { focusTiers } = appState;
+    const { weekId } = currentIds;
+
+    return Object.values(events)
+      .filter((event) => {
+        const { tier, week } = event;
+
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
+      })
+      .sort(sortBy('title', 'desc'));
+  }
+);

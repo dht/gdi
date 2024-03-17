@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireReminder } from '@testing-library/react';
-import { Reminders, RemindersProps } from './Reminders';
+import { RemindersSummary, RemindersSummaryProps } from './RemindersSummary';
 import { BaseComponentDriver } from 'testing-base';
 
-export class RemindersDriver extends BaseComponentDriver {
-  private props: Partial<RemindersProps> = {};
+export class RemindersSummaryDriver extends BaseComponentDriver {
+  private props: Partial<RemindersSummaryProps> = {};
 
   constructor() {
-    super('Reminders');
+    super('RemindersSummary');
   }
 
   when: any = {
     rendered: () => {
-      render(<Reminders {...(this.props as RemindersProps)} />);
+      render(<RemindersSummary {...(this.props as RemindersSummaryProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class RemindersDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<Reminders {...(this.props as RemindersProps)} />);
+      return this.snapshot(<RemindersSummary {...(this.props as RemindersSummaryProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<RemindersProps>) => {
+    props: (props: Partial<RemindersSummaryProps>) => {
       this.props = props;
       return this;
     },

@@ -240,6 +240,20 @@ export const sagas: ISagas = {
       actionTypes: ['EXTERNAL_EVENTS'],
     },
   },
+  'widgets.reminder': {
+    id: 'widgets.reminder',
+    type: 'component',
+    trigger: {
+      actionTypes: ['REMINDER'],
+    },
+  },
+  'widgets.reminders': {
+    id: 'widgets.reminders',
+    type: 'component',
+    trigger: {
+      actionTypes: ['REMINDERS'],
+    },
+  },
   'widgets.contact': {
     id: 'widgets.contact',
     type: 'component',

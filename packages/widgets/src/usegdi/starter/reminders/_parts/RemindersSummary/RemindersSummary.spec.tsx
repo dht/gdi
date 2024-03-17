@@ -1,13 +1,13 @@
-import { RemindersDriver } from './Reminders.driver';
+import { RemindersSummaryDriver } from './RemindersSummary.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('Reminders', () => {
-  let driver: RemindersDriver;
+describe('RemindersSummary', () => {
+  let driver: RemindersSummaryDriver;
 
   beforeAll(() => {
-    driver = new RemindersDriver();
+    driver = new RemindersSummaryDriver();
   });
 
   it('should render button', () => {
@@ -22,7 +22,7 @@ describe('Reminders', () => {
     const wrapperClassName = element.get.wrapperClassName();
     const innerText = element.get.label();
 
-    expect(wrapperClassName).toContain('Reminders-wrapper');
+    expect(wrapperClassName).toContain('RemindersSummary-wrapper');
     expect(innerText).toBe(label);
   });
 
@@ -40,11 +40,11 @@ describe('Reminders', () => {
   });
 });
 
-describe('Reminders snapshots', () => {
-  let driver: RemindersDriver;
+describe('RemindersSummary snapshots', () => {
+  let driver: RemindersSummaryDriver;
 
   beforeAll(() => {
-    driver = new RemindersDriver();
+    driver = new RemindersSummaryDriver();
   });
 
   it('should match snapshot', () => {
