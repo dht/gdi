@@ -36,7 +36,6 @@ export const config = {
       'isoState',
       'playbackState',
       'logs',
-      'todos',
       'prompts',
       'playState',
       'prompts',

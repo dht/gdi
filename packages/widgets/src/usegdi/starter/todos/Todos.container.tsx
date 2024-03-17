@@ -1,33 +1,43 @@
-import { Json } from 'igrid';
-import { useMemo } from 'react';
-import { actions, selectors, useDispatch, useSelector } from '@gdi/store-base';
-import Todos from './Todos';
+import { selectors, useDispatch, useSelector } from '@gdi/store-base';
+import React, { useMemo } from 'react';
+import { Todos } from './Todos';
+import { useSagas } from '../../../helpers/useSaga';
 
-export type TodosPageContainerProps = {};
+export type TodosContainerProps = {
+  data: any;
+};
 
-export function TodosPageContainer(props: TodosPageContainerProps) {
+export function TodosContainer(props: TodosContainerProps) {
   const dispatch = useDispatch();
-  const todos = useSelector(selectors.raw.$rawTodos);
+  const todos = useSelector(selectors.base.$todos);
+
+  useSagas([
+    'widgets.todos', //
+    'widgets.todo',
+  ]);
 
   const callbacks = useMemo(
     () => ({
-      onAddTodo: (todo: Json) => {
-        dispatch(actions.todos.add(todo));
+      onAction: (verb: string, params?: Json) => {
+        dispatch({
+          type: 'TODO',
+          verb,
+          payload: params,
+        });
       },
-      onRemoveTodo: (todo: Json) => {
-        dispatch(actions.todos.delete(todo.id));
-      },
-      onEditTodo: (todo: Json, change: Json) => {
-        dispatch(actions.todos.patch(todo.id, change));
-      },
-      onRandomTodo: () => {
-        // dispatch(actions.todos.patch(todo.id, change));
+      onItemAction: (id: string, verb: string, payload?: Json) => {
+        dispatch({
+          type: 'TODO',
+          verb,
+          id,
+          payload,
+        });
       },
     }),
-    [todos]
+    []
   );
 
-  return <Todos todos={todos} callbacks={callbacks} />;
+  return <Todos data={todos} callbacks={callbacks} />;
 }
 
-export default TodosPageContainer;
+export default TodosContainer;

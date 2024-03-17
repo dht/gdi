@@ -32,7 +32,7 @@ export type ITodo = {
   id: string;
   title: string;
   completed: boolean;
-};
+} & IItem;
 
 export type ITodos = Record<string, ITodo>;
 

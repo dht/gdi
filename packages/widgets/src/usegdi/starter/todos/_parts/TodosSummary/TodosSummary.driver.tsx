@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireTodo } from '@testing-library/react';
-import { Todos, TodosProps } from './Todos';
+import { TodosSummary, TodosSummaryProps } from './TodosSummary';
 import { BaseComponentDriver } from 'testing-base';
 
-export class TodosDriver extends BaseComponentDriver {
-  private props: Partial<TodosProps> = {};
+export class TodosSummaryDriver extends BaseComponentDriver {
+  private props: Partial<TodosSummaryProps> = {};
 
   constructor() {
-    super('Todos');
+    super('TodosSummary');
   }
 
   when: any = {
     rendered: () => {
-      render(<Todos {...(this.props as TodosProps)} />);
+      render(<TodosSummary {...(this.props as TodosSummaryProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class TodosDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<Todos {...(this.props as TodosProps)} />);
+      return this.snapshot(<TodosSummary {...(this.props as TodosSummaryProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<TodosProps>) => {
+    props: (props: Partial<TodosSummaryProps>) => {
       this.props = props;
       return this;
     },
