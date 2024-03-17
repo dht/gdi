@@ -10,6 +10,7 @@ export const initialStateTodos: ITodosStore = {
       id: '1',
       title: 'Buy food',
       completed: false,
+      project: '',
     },
   },
 };

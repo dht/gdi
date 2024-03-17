@@ -310,6 +310,13 @@ export const sagas: ISagas = {
       actionTypes: ['CONTACTS'],
     },
   },
+  'widgets.contactCtas': {
+    id: 'widgets.contactCtas',
+    type: 'component',
+    trigger: {
+      actionTypes: ['CONTACT_CTA'],
+    },
+  },
   'widgets.document': {
     id: 'widgets.document',
     type: 'component',

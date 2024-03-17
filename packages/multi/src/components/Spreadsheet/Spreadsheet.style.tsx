@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
     --border: #aaa;
   }
   max-height: 100vh;
+  user-select: none;
 
   // cells
   background-color: var(--bk);

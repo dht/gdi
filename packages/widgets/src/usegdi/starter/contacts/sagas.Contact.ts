@@ -7,7 +7,8 @@ import { guid4, invokeEvent } from 'shared-base';
 type Verb =
   | 'add' //
   | 'edit'
-  | 'delete';
+  | 'delete'
+  | 'select';
 
 type Action = {
   type: 'CONTACT';
@@ -20,6 +21,7 @@ const map: Record<Verb, any> = {
   add: addContact,
   edit: editContact,
   delete: deleteContact,
+  select: selectContact,
 };
 
 export function* addContact(action: Action, _item: IContact) {
@@ -47,6 +49,8 @@ export function* editContact(action: Action, item: IContact) {
 
   yield put(actions.contacts.patch(id, change));
 }
+
+export function* selectContact(action: Action, item: IContact) {}
 
 export function* deleteContact(action: Action, item: IContact) {
   const { id, payload } = action;

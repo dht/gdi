@@ -7,6 +7,7 @@ import { saga as sagaFourthWall } from './usegdi/starter/fourth-wall/sagas.Fourt
 import { saga as sagaMusicList } from './usegdi/starter/music-list/sagas.MusicList';
 import { saga as sagaCalendarEvent } from './usegdi/starter/calendar/sagas.Calendar';
 import { saga as sagaCalendarEvents } from './usegdi/starter/calendar/sagas.Calendars';
+import { saga as sagaContactCtas } from './usegdi/starter/contacts/sagas.ContactCtas';
 import { saga as sagaContacts } from './usegdi/starter/contacts/sagas.Contacts';
 import { saga as sagaContact } from './usegdi/starter/contacts/sagas.Contact';
 import { saga as sagaDocument } from './usegdi/starter/documents/sagas.Document';
@@ -39,6 +40,7 @@ export const sagas: any = {
   'widgets.calendarEvents': sagaCalendarEvents,
   'widgets.contact': sagaContact,
   'widgets.contacts': sagaContacts,
+  'widgets.contactCtas': sagaContactCtas,
   'widgets.docEdit': sagaDocEdit,
   'widgets.document': sagaDocument,
   'widgets.documents': sagaDocuments,

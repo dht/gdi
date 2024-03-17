@@ -25,4 +25,8 @@ export const multi = {
   sheet,
   lanes,
   table,
+  itemDisplay: {
+    title: ['title'],
+    subtitle: [],
+  },
 };

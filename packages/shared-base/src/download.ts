@@ -17,7 +17,11 @@ export function downloadJson(filename: string, data: Json) {
 export const sanitizeValueForCsv = (value: string) => {
     let output = value;
 
-    if (output && output.includes(',')) {
+    if (Array.isArray(output)) {
+        output = output.join('| ');
+    }
+
+    if (output && String(output).includes(',')) {
         output = `"${output}"`;
     }
 

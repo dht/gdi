@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
 import { ISpreadsheetCallbacks, ISpreadsheetConfig, Json } from '../../types';
-import Spreadsheet from './Spreadsheet';
+import { Spreadsheet } from './Spreadsheet';
 import { SpreadsheetProvider } from './Spreadsheet.context';
-import { useCells } from './Spreadsheet.hooks';
 
 export type SpreadsheetContainerProps = {
   config: ISpreadsheetConfig;
@@ -10,6 +9,8 @@ export type SpreadsheetContainerProps = {
   darkMode?: boolean;
   data: Json[];
 };
+
+const arr: any = [];
 
 export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
   const { config, darkMode, callbacks, data } = props;
@@ -22,7 +23,7 @@ export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
   );
 
   return (
-    <SpreadsheetProvider callbacks={callbacks} state={initialState}>
+    <SpreadsheetProvider data={arr} callbacks={callbacks} state={initialState}>
       <Spreadsheet data={data} darkMode={darkMode} />
     </SpreadsheetProvider>
   );

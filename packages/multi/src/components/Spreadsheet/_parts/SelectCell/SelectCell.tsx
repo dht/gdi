@@ -20,13 +20,6 @@ export function SelectCell(props: SelectCellProps) {
   const { x, y } = coord;
   const [isEditing, toggleIsEditing] = useToggle(false);
 
-  useMount(() => {
-    if (meta?.id === 'id') {
-      console.log(meta.id, meta.rowIndex);
-      console.log(meta.itemData);
-    }
-  });
-
   function onChange(newValue: string) {
     toggleIsEditing(false);
     props.onChange(newValue);
