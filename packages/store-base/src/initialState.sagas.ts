@@ -310,6 +310,20 @@ export const sagas: ISagas = {
       actionTypes: ['CONTACTS'],
     },
   },
+  'widgets.document': {
+    id: 'widgets.document',
+    type: 'component',
+    trigger: {
+      actionTypes: ['DOCUMENT'],
+    },
+  },
+  'widgets.documents': {
+    id: 'widgets.documents',
+    type: 'component',
+    trigger: {
+      actionTypes: ['documents'],
+    },
+  },
   'widgets.expressDebugger': {
     id: 'widgets.expressDebugger',
     type: 'component',
@@ -324,8 +338,8 @@ export const sagas: ISagas = {
       eventNames: ['scene/ready'],
     },
   },
-  'widgets.document': {
-    id: 'widgets.document',
+  'widgets.docEdit': {
+    id: 'widgets.docEdit',
     type: 'component',
     trigger: {
       actionTypes: ['DOCUMENT', 'SET_DOCUMENT'],
