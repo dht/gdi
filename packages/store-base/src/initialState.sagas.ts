@@ -226,6 +226,20 @@ export const sagas: ISagas = {
       actionTypes: ['CALENDAR_EVENTS'],
     },
   },
+  'widgets.externalEvent': {
+    id: 'widgets.externalEvent',
+    type: 'component',
+    trigger: {
+      actionTypes: ['EXTERNAL_EVENT'],
+    },
+  },
+  'widgets.externalEvents': {
+    id: 'widgets.externalEvents',
+    type: 'component',
+    trigger: {
+      actionTypes: ['EXTERNAL_EVENTS'],
+    },
+  },
   'widgets.contact': {
     id: 'widgets.contact',
     type: 'component',

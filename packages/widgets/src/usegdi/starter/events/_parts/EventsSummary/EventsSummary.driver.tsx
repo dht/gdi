@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Events, EventsProps } from './Events';
+import { EventsSummary, EventsSummaryProps } from './EventsSummary';
 import { BaseComponentDriver } from 'testing-base';
 
-export class EventsDriver extends BaseComponentDriver {
-  private props: Partial<EventsProps> = {};
+export class EventsSummaryDriver extends BaseComponentDriver {
+  private props: Partial<EventsSummaryProps> = {};
 
   constructor() {
-    super('Events');
+    super('EventsSummary');
   }
 
   when: any = {
     rendered: () => {
-      render(<Events {...(this.props as EventsProps)} />);
+      render(<EventsSummary {...(this.props as EventsSummaryProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class EventsDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<Events {...(this.props as EventsProps)} />);
+      return this.snapshot(<EventsSummary {...(this.props as EventsSummaryProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<EventsProps>) => {
+    props: (props: Partial<EventsSummaryProps>) => {
       this.props = props;
       return this;
     },
