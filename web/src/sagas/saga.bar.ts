@@ -6,7 +6,7 @@ import { invokeEvent, patchJson } from 'shared-base';
 import { l } from '../utils/logs';
 import { showProjectPicker, showTagPicker } from './saga.tags';
 
-const LOCALE_STORAGE_KEY = 'locale';
+const LOCAL_STORAGE_KEY = 'locale';
 
 type Verb =
   | 'boardId' //
@@ -89,7 +89,7 @@ export function* toggleTimeFormat(action: Action) {
     })
   );
 
-  patchJson(LOCALE_STORAGE_KEY, {
+  patchJson(LOCAL_STORAGE_KEY, {
     is24Hours: nextValue,
   });
 }

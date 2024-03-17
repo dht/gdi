@@ -1,8 +1,6 @@
 import { IDocument, actions, selectors } from '@gdi/store-base';
 import { fork, put, select, takeEvery } from 'saga-ts';
 
-const LOCALE_STORAGE_KEY = 'locale';
-
 type Verb =
   | 'bootstrap' //
   | 'tweak';

@@ -32,6 +32,11 @@ export const sagas: ISagas = {
       actionTypes: ['BOARD'],
     },
   },
+  'gdi.filters': {
+    id: 'gdi.filters',
+    type: 'predicate',
+    trigger: {},
+  },
   'gdi.gdi': {
     id: 'gdi.gdi',
     type: 'bootstrap',
