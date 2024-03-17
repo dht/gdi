@@ -3,6 +3,7 @@ import { CSSProperties } from 'styled-components';
 import { ICoord, ITableField, Json } from '../../../../types';
 import { Wrapper } from './Cell.style';
 import SelectCell from '../SelectCell/SelectCell';
+import { useMount } from 'react-use';
 
 export type CellProps = {
   style: CSSProperties;
@@ -40,7 +41,13 @@ export function Cell(props: CellProps) {
   function renderSelect() {
     if (!isSelected) return;
 
-    return <SelectCell {...props} onChange={onChange} value={value} />;
+    const meta = {
+      id,
+      rowIndex,
+      itemData,
+    };
+
+    return <SelectCell {...props} onChange={onChange} value={value} meta={meta} />;
   }
 
   return (

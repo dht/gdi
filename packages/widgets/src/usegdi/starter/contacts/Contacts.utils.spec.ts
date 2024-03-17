@@ -1,7 +1,7 @@
 import { parseContactChange } from './Contacts.utils';
 import { getCurrentWeek } from '@gdi/ui';
 
-describe.only('parseContactChange', () => {
+describe('parseContactChange', () => {
   let output,
     w = getCurrentWeek();
 

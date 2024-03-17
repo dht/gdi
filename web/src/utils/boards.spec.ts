@@ -1,7 +1,7 @@
 import { parseHash } from './boards';
 import { describe, expect, it } from '@jest/globals';
 
-describe.only('board utils', () => {
+describe('board utils', () => {
   it('parseHash', () => {
     expect(parseHash('#')).toEqual({
       boardDbPath: '',
