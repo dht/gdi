@@ -73,7 +73,7 @@ export function* root() {
 }
 
 export const saga = {
-  id: 'widgets.externalReminder',
+  id: 'widgets.reminder',
   type: 'component',
   root: root,
   trigger: {

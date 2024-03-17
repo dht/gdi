@@ -18,6 +18,8 @@ import { saga as sagaReminder } from './usegdi/starter/reminders/sagas.Reminder'
 import { saga as sagaReminders } from './usegdi/starter/reminders/sagas.Reminders';
 import { saga as sagaSpeechParams } from './usegdi/starter/speech-params/sagas.SpeechParams';
 import { saga as sagaSpeech } from './usegdi/starter/speech/sagas.Speech';
+import { saga as sagaTodos } from './usegdi/starter/todos/sagas.Todos';
+import { saga as sagaTodo } from './usegdi/starter/todos/sagas.Todo';
 import { saga as sagaTranscript } from './usegdi/starter/transcript/sagas.Transcript';
 import { saga as sagaTube } from './usegdi/starter/tube/sagas.Tube';
 import { saga as sagaVisionSimulator } from './usegdi/starter/vision-simulator/sagas.VisionSimulator';
@@ -43,6 +45,8 @@ export const sagas: any = {
   'widgets.reminders': sagaReminders,
   'widgets.speech': sagaSpeech,
   'widgets.speechParams': sagaSpeechParams,
+  'widgets.todo': sagaTodo,
+  'widgets.todos': sagaTodos,
   'widgets.tube': sagaTube,
   'widgets.visionSimulator': sagaVisionSimulator,
   ...sagasScene,

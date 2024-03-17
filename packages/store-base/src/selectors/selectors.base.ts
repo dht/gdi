@@ -410,13 +410,34 @@ export const $reminders = createSelector(
   raw.$rawReminders,
   raw.$rawAppState,
   raw.$rawCurrentIds,
-  (events, appState, currentIds) => {
+  (reminders, appState, currentIds) => {
     const { focusTiers } = appState;
     const { weekId } = currentIds;
 
-    return Object.values(events)
-      .filter((event) => {
-        const { tier, week } = event;
+    return Object.values(reminders)
+      .filter((reminder) => {
+        const { tier, week } = reminder;
+
+        const tierOk = focusTiers.includes(String(tier)) || !tier;
+        const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+
+        return tierOk && weekOk;
+      })
+      .sort(sortBy('title', 'desc'));
+  }
+);
+
+export const $todos = createSelector(
+  raw.$rawTodos,
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (todos, appState, currentIds) => {
+    const { focusTiers } = appState;
+    const { weekId } = currentIds;
+
+    return Object.values(todos)
+      .filter((todo) => {
+        const { tier, week } = todo;
 
         const tierOk = focusTiers.includes(String(tier)) || !tier;
         const weekOk = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
