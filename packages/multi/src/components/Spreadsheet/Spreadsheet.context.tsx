@@ -3,7 +3,9 @@ import { ISpreadsheetCallbacks, ISpreadsheetState } from '../../types';
 
 const initialState: ISpreadsheetState = {
   sortDirection: '',
-  config: {},
+  config: {
+    fields: [],
+  },
 };
 
 const callbacks = {

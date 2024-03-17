@@ -3,10 +3,14 @@ import { getCurrentWeek } from '@gdi/ui';
 export const parseCellChange = (change: Json) => {
   const output = { ...change };
 
-  const { id, tags, week } = output;
+  const { id, tags, tier, week } = output;
 
   if (id) {
     delete output['id'];
+  }
+
+  if (tier) {
+    output['tier'] = parseInt(tier, 10);
   }
 
   const regex = /^(\+|-)(\d+)$/;

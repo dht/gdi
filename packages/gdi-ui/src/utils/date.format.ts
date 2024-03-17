@@ -44,4 +44,7 @@ export const date = {
   stopwatch: (date: string | number | Date) => {
     return dayjs(date).format('mm:ss');
   },
+  googleCalendar: (date: string | number | Date) => {
+    return dayjs(date).format('YYYYMMDDTHHmmss');
+  },
 };

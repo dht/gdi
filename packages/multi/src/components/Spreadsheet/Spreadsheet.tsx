@@ -10,10 +10,10 @@ import Cell from './_parts/Cell/Cell';
 import { get } from 'lodash';
 import Header from './_parts/Header/Header';
 import NewLine from './_parts/NewLine/NewLine';
+import { invokeEvent } from 'shared-base';
 
 export type SpreadsheetProps = {
   data: Json;
-  onChange: (x: number, y: number, value: string) => void;
   darkMode?: boolean;
   rowHeight?: number;
   columnWidth?: number;
@@ -28,15 +28,26 @@ export function Spreadsheet(props: SpreadsheetProps) {
   const rowsPerPage = Math.floor(height / rowHeight);
   const [coord, setCoord] = useArrows({ x: 0, y: 0 }, { rowsPerPage });
 
-  useEffect(() => {}, [coord]);
+  useEffect(() => {
+    if (!callbacks.onItemAction) return;
+
+    const { y } = coord;
+    const item = data[y];
+
+    if (!item) return;
+
+    const { id } = item;
+    callbacks.onItemAction(id, 'select', item);
+    invokeEvent('multi/item/select', { id });
+  }, [coord]);
 
   function onClick(rowIndex: number, columnIndex: number) {
     setCoord({ x: columnIndex, y: rowIndex });
   }
 
   function onChange(id: string, change: Json) {
+    if (!callbacks.onItemAction) return;
     let verb = get(change, 'id') === '' ? 'delete' : 'edit';
-
     callbacks.onItemAction(id, verb, change);
   }
 

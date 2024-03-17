@@ -17,6 +17,7 @@ export type PanelProps = {
   transparent?: boolean;
   width?: number;
   height?: number;
+  className?: string;
 };
 
 export function Panel(props: PanelProps) {
@@ -36,7 +37,7 @@ export function Panel(props: PanelProps) {
     setDelta({ x, y });
   }
 
-  const className = classnames('Panel-wrapper', {
+  const className = classnames('Panel-wrapper', props.className, {
     transparent,
   });
 

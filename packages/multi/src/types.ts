@@ -306,11 +306,14 @@ export type IContextState = {
   isReady?: boolean;
 } & Json;
 
+export type PatchMethodBasic<S> = (change: Partial<S>) => void;
+export type PatchMethodCallback<S> = (method: PatchMethodBasic<S>) => Partial<S>;
+
 export type IContext<S extends IContextState, C extends IContextCallbacks> = {
   state: S;
   data: Json[];
   callbacks: Partial<C>;
-  patchState: (change: Partial<S>) => void;
+  patchState: PatchMethodBasic<S> & PatchMethodCallback<S>;
 };
 
 export type Verb = '';
@@ -415,6 +418,7 @@ export type IMultiConfig = Partial<{
   masonry: IMasonryConfig;
   jsonEditor: IJsonEditorConfig;
   calendar: ICalendarConfig;
+  itemDisplay: IMultiItemDisplay;
 }>;
 
 export type IMultiState = {
@@ -424,10 +428,14 @@ export type IMultiState = {
   isReady?: boolean;
   data: Json[];
   darkMode?: boolean;
+  showItemActions?: boolean;
   q?: string;
+  itemId?: string;
 };
 
-export type IMultiCallbacks = IContextCallbacks & {};
+export type IMultiCallbacks = IContextCallbacks & {
+  onSearch: (q: string) => void;
+};
 
 export type IMultiContext = IContext<IMultiState, IMultiCallbacks>;
 
@@ -441,3 +449,8 @@ export type IMultiView =
   | 'jsonEditor'
   | 'calendar'
   | 'summary';
+
+export type IMultiItemDisplay = {
+  title: string[];
+  subtitle: string[];
+};

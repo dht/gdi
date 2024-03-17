@@ -1,8 +1,7 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import React, { useMemo } from 'react';
-import { Contacts } from './Contacts';
-import { data } from './Contacts.multi';
+import { useMemo } from 'react';
 import { useSagas } from '../../../helpers/useSaga';
+import { Contacts } from './Contacts';
 
 export type ContactsContainerProps = {
   data: any;
@@ -15,6 +14,7 @@ export function ContactsContainer(props: ContactsContainerProps) {
   useSagas([
     'widgets.contacts', //
     'widgets.contact',
+    'widgets.contactCtas',
   ]);
 
   const callbacks = useMemo(
@@ -28,7 +28,7 @@ export function ContactsContainer(props: ContactsContainerProps) {
       },
       onItemAction: (id: string, verb: string, payload?: Json) => {
         dispatch({
-          type: 'CONTACT',
+          type: verb.startsWith('cta_') ? 'CONTACT_CTA' : 'CONTACT',
           verb,
           id,
           payload,

@@ -8,6 +8,7 @@ const initialState: IMultiState = {
   data: [],
   darkMode: true,
   q: '',
+  itemId: '',
 };
 
 const callbacks = {};

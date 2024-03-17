@@ -23,9 +23,9 @@ export type IMyData = {
 
 export type IItem = {
   id: string;
-  week: string;
-  tier: string;
-  project: string;
+  week?: string;
+  tier?: string;
+  project?: string;
   tags?: string[];
   [key: string]: any;
 };
