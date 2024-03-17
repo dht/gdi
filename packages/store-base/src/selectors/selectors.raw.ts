@@ -51,3 +51,4 @@ export const $rawSales = createSelector($i, (state: IGdiStore) => state.sales); 
 export const $rawReads = createSelector($i, (state: IGdiStore) => state.reads); // prettier-ignore
 export const $rawReminders = createSelector($i, (state: IGdiStore) => state.reminders); // prettier-ignore
 export const $rawThings = createSelector($i, (state: IGdiStore) => state.things); // prettier-ignore
+export const $rawPosts = createSelector($i, (state: IGdiStore) => state.posts); // prettier-ignore

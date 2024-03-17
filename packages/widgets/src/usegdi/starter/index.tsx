@@ -46,7 +46,7 @@ import noMobile from './no-mobile';
 import periscope from './periscope';
 import pinterest from './pinterest';
 import playback from './playback';
-import post from './post';
+import posts from './posts';
 import pplDetails from './ppl-details';
 import pplGrid from './ppl-grid';
 import pplSwitch from './ppl-switch';
@@ -136,7 +136,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.periscope': periscope,
   'com.usegdi.starter.pinterest': pinterest,
   'com.usegdi.starter.playback': playback,
-  'com.usegdi.starter.post': post,
+  'com.usegdi.starter.posts': posts,
   'com.usegdi.starter.ppl-details': pplDetails,
   'com.usegdi.starter.ppl-grid': pplGrid,
   'com.usegdi.starter.ppl-switch': pplSwitch,

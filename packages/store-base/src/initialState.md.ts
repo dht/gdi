@@ -76,6 +76,12 @@ export const initialStateMd: IMyData = {
       title: 'First Read',
     },
   },
+  posts: {
+    '1': {
+      id: '1',
+      title: 'First Post',
+    },
+  },
   sales: {
     '1': {
       id: '1',

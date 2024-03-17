@@ -13,6 +13,8 @@ import { saga as sagaDocument } from './usegdi/starter/documents/sagas.Document'
 import { saga as sagaDocuments } from './usegdi/starter/documents/sagas.Documents';
 import { saga as sagaExternalEvent } from './usegdi/starter/events/sagas.Event';
 import { saga as sagaExternalEvents } from './usegdi/starter/events/sagas.Events';
+import { saga as sagaPost } from './usegdi/starter/posts/sagas.Post';
+import { saga as sagaPosts } from './usegdi/starter/posts/sagas.Posts';
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
 import { saga as sagaProductTour } from './usegdi/starter/product-tour/sagas.ProductTour';
 import { sagas as sagasScene } from './usegdi/starter/scene/sagas';
@@ -48,6 +50,8 @@ export const sagas: any = {
   'widgets.listItem': sagaListItem,
   'widgets.listItems': sagaListItems,
   'widgets.musicList': sagaMusicList,
+  'widgets.post': sagaPost,
+  'widgets.posts': sagaPosts,
   'widgets.pplGrid': sagaPplGrid,
   'widgets.productTour': sagaProductTour,
   'widgets.transcript': sagaTranscript,
