@@ -1,6 +1,7 @@
 import { IBarItems } from './types';
 
 const isMac = navigator.userAgent.toLowerCase().indexOf('mac') >= 0;
+const isWindows = !isMac;
 
 export const barItems: IBarItems = {
   flowStatus: {
@@ -25,16 +26,31 @@ export const barItems: IBarItems = {
   project: {
     id: 'project',
     value: '$project',
+    shortKey: {
+      key: 'p',
+      withCtrl: isMac,
+      withAlt: isWindows,
+    },
   },
   assets: {
     id: 'assets',
     value: '$assetsCount',
     emoji: '🗂️',
+    shortKey: {
+      key: 'a',
+      withCtrl: isMac,
+      withAlt: isWindows,
+    },
   },
   tags: {
     id: 'tags',
     value: '$tagsCount',
     emoji: '🏷️',
+    shortKey: {
+      key: 't',
+      withCtrl: isMac,
+      withAlt: isWindows,
+    },
   },
   resolution: {
     id: 'resolution',

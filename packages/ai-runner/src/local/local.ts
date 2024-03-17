@@ -20,6 +20,9 @@ export type LocalParams = {
 export const startLocalInstance = (params: LocalParams) => {
   const { rootPath, apiKeys, allowedDomains, port } = params;
 
+  const root = path.resolve(rootPath);
+  console.log(root);
+
   const localInstanceUrl = `http://localhost:${port}`;
 
   const dbAdapter = new FsDbAdapter(rootPath, '/db', apiKeys);

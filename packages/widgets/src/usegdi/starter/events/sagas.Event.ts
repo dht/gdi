@@ -1,6 +1,6 @@
 import { selectors, IEvents, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseEventsChange } from './Events.utils';
+import { parseChange } from './Events.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addEvent(action: Action, item: IEvents) {
 export function* editEvent(action: Action, item: IEvents) {
   const { id, payload } = action;
 
-  const change = parseEventsChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.externalEvents.patch(id, change));
 }

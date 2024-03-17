@@ -1,6 +1,6 @@
 import { selectors, IReads, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseReadsChange } from './Reads.utils';
+import { parseChange } from './Reads.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addRead(action: Action, item: IReads) {
 export function* editRead(action: Action, item: IReads) {
   const { id, payload } = action;
 
-  const change = parseReadsChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.reads.patch(id, change));
 }

@@ -1,7 +1,6 @@
 import { FC, useContext, useMemo } from 'react';
-import { Json } from '../../../../types';
+import { CellType, ITableField, Json } from '../../../../types';
 import { TableContext } from '../../Table.context';
-import { CellType, ITableField } from '../../Table.types';
 import { dateDb, dateShort, time, timeAgo } from '../../Table.utils';
 import HashTags from '../HashTags/HashTags';
 import Icon from '../Icon/Icon';

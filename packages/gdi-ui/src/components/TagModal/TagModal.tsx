@@ -39,6 +39,7 @@ export function TagModal(props: TagModalProps) {
         onChange={setTags}
         isMulti={isMulti}
         placeholder={placeholder}
+        autoFocus
       />
       <Actions>
         <Cta className='link' onClick={props.onCancel}>

@@ -66,11 +66,10 @@ export const fields: ITableField[] = [
     },
   },
   {
-    id: 'imageUrl',
-    title: 'ImageUrl',
-    cellType: 'image',
-    params: {
-      width: 60,
-    },
+    id: 'project',
+    title: 'Project',
+    cellType: 'text',
+    flex: 1,
+    params: {},
   },
 ];

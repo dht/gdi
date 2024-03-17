@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { Tier, TierProps } from './Tier';
+import { RadioFilter, RadioFilterProps } from './RadioFilter';
 import { BaseComponentDriver } from 'testing-base';
 
-export class TierDriver extends BaseComponentDriver {
-    private props: Partial<TierProps> = {};
+export class RadioFilterDriver extends BaseComponentDriver {
+    private props: Partial<RadioFilterProps> = {};
 
     constructor() {
-        super('Tier');
+        super('RadioFilter');
     }
 
     when: any = {
         rendered: () => {
-            render(<Tier {...(this.props as TierProps)} />);
+            render(<RadioFilter {...(this.props as RadioFilterProps)} />);
             return this;
         },
         clicked: () => {
@@ -20,12 +20,12 @@ export class TierDriver extends BaseComponentDriver {
             return this;
         },
         snapshot: () => {
-            return this.snapshot(<Tier {...(this.props as TierProps)} />);
+            return this.snapshot(<RadioFilter {...(this.props as RadioFilterProps)} />);
         },
     };
 
     given: any = {
-        props: (props: Partial<TierProps>) => {
+        props: (props: Partial<RadioFilterProps>) => {
             this.props = props;
             return this;
         },

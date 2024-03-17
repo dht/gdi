@@ -1,6 +1,6 @@
 import { selectors, ITodos, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseTodosChange } from './Todos.utils';
+import { parseChange } from './Todos.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addTodo(action: Action, item: ITodos) {
 export function* editTodo(action: Action, item: ITodos) {
   const { id, payload } = action;
 
-  const change = parseTodosChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.todos.patch(id, change));
 }

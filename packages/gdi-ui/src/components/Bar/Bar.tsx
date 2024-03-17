@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { addListener, invokeEvent } from 'shared-base';
-import { MicrophoneContainer } from '../Microphone/Microphone.container';
+import { invokeEvent } from 'shared-base';
 import { IBarItem } from '../../types';
-import { BarItems, Emoji, Input, Item, Modifier, Sign, Wrapper } from './Bar.style';
-import classnames from 'classnames';
 import { isMobile } from '../../utils/mobile';
-import BarMobile from '../BarMobile/BarMobile';
-import { useTime } from '../../hooks/useTime';
+import { BarMobile } from '../BarMobile/BarMobile';
+import { MicrophoneContainer } from '../Microphone/Microphone.container';
+import { BarItem } from './Bar.components';
+import { BarItems, Input, Sign, Wrapper } from './Bar.style';
 
 export type BarProps = {
   prompt: string;
@@ -16,7 +15,7 @@ export type BarProps = {
   onItemClick: (barItem: IBarItem) => void;
   is24Hours: boolean;
   isDarkMode: boolean;
-  board?: IBoard;
+  board?: any;
 };
 
 export function Bar(props: BarProps) {
@@ -28,8 +27,6 @@ export function Bar(props: BarProps) {
   useEffect(() => {
     setPrompt(props.prompt);
   }, [props.prompt]);
-
-  const currentTime = useTime(is24Hours);
 
   function onKeyDown(ev: React.KeyboardEvent<HTMLInputElement>) {
     if (ev.key === 'Enter') {
@@ -43,22 +40,13 @@ export function Bar(props: BarProps) {
   }
 
   function renderBarItem(barItem: IBarItem) {
-    let { value = '', emoji, modifier, addClassName } = barItem;
-
-    const className = classnames('barItem', {
-      [value]: addClassName,
-    });
-
-    if (value.includes('$time')) {
-      value = value.replace('$time', currentTime);
-    }
-
     return (
-      <Item key={barItem.id} className={className} onClick={() => props.onItemClick(barItem)}>
-        {modifier && <Modifier>{modifier}</Modifier>}
-        {emoji && <Emoji>{emoji}</Emoji>}
-        {value}
-      </Item>
+      <BarItem
+        key={barItem.id}
+        barItem={barItem}
+        onClick={() => props.onItemClick(barItem)}
+        is24Hours={is24Hours}
+      />
     );
   }
 

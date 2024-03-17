@@ -1,6 +1,6 @@
 import { selectors, ILists, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseListsChange } from './Lists.utils';
+import { parseChange } from './Lists.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addListItem(action: Action, item: ILists) {
 export function* editListItem(action: Action, item: ILists) {
   const { id, payload } = action;
 
-  const change = parseListsChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.listItems.patch(id, change));
 }

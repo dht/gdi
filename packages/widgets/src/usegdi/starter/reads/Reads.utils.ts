@@ -1,26 +1,7 @@
-import { getCurrentWeek } from '@gdi/ui';
+import { parseCellChange } from '../../../helpers/sheet.parser';
 
-export const parseReadsChange = (change: Json) => {
-  const output = { ...change };
-
-  const { id, week } = output;
-
-  if (id) {
-    delete output['id'];
-  }
-
-  const regex = /^(\+|-)(\d+)$/;
-
-  if (week) {
-    if (week === '0') {
-      output['week'] = getCurrentWeek();
-    } else if (regex.test(week)) {
-      const [, sign, num] = week.match(regex);
-      output['week'] = getCurrentWeek() + (sign === '+' ? parseInt(num) : -parseInt(num));
-    } else {
-      output['week'] = parseInt(week, 10);
-    }
-  }
+export const parseChange = (change: Json) => {
+  const output = parseCellChange(change);
 
   return output;
 };

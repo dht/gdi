@@ -32,7 +32,7 @@ export function Cell(props: CellProps) {
     props.onClick(rowIndex, columnIndex);
   }
 
-  const value = itemData[id];
+  const value = Array.isArray(itemData[id]) ? itemData[id].join(', ') : itemData[id];
 
   const className = classnames({
     first: columnIndex === 0,

@@ -65,6 +65,8 @@ export type IAppState = {
   screenWidth: number;
   screenHeight: number;
   focusTiers: string[];
+  focusProject: string;
+  focusTags: string;
   imageUrl: string;
   voiceUrl: string;
   isDataReady: boolean;
@@ -218,6 +220,7 @@ export type IBarItem = {
   eventId?: string;
   isHidden?: boolean;
   addClassName?: boolean;
+  shortKey?: IShortKey;
 };
 
 export type IBarItems = Record<string, IBarItem>;
@@ -706,3 +709,22 @@ export type IFunctionParameter = {
 export type IFunctionParameters = Record<string, IFunctionParameter>;
 
 export type ICapabilities = Record<string, ICapability>;
+
+export type IShortKey = {
+  key: string;
+  id?: string;
+  withCommand?: boolean;
+  withAlt?: boolean;
+  withShift?: boolean;
+  withCtrl?: boolean;
+  description?: string;
+};
+
+export type FilterParams = {
+  focusTiers: string[];
+  focusProject: string;
+  focusTags: string;
+  weekId: string;
+  projectId: string;
+  globalTags: string[];
+};

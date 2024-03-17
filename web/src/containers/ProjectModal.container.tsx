@@ -10,10 +10,12 @@ export function ProjectModalContainer(props: ProjectModalContainerProps) {
   const projectId = useSelector(selectors.raw.$rawCurrentIds).projectId;
   const allTags = useSelector(selectors.options.$projectTags);
 
+  const value = projectId ? [projectId] : [];
+
   return (
     <TagModal
       options={allTags}
-      value={[projectId]}
+      value={value}
       onCta={props.onCta}
       onCancel={props.onCancel}
       placeholder='Pick or create a project...'

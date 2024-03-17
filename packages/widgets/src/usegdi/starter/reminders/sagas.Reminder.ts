@@ -1,6 +1,6 @@
 import { selectors, IReminders, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseRemindersChange } from './Reminders.utils';
+import { parseChange } from './Reminders.utils';
 import { guid4 } from 'shared-base';
 
 type Verb =
@@ -42,7 +42,7 @@ export function* addReminder(action: Action, item: IReminders) {
 export function* editReminder(action: Action, item: IReminders) {
   const { id, payload } = action;
 
-  const change = parseRemindersChange(payload);
+  const change = parseChange(payload);
 
   yield put(actions.reminders.patch(id, change));
 }
