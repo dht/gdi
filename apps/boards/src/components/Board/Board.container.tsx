@@ -39,6 +39,9 @@ export const BoardContainer = (props: BoardContainerProps) => {
       onColumnChange: (columnIndex: number) => {
         dispatch(actions.appState.patch({ flavourColumnIndex: columnIndex }));
       },
+      onAction: (action: any) => {
+        dispatch(action);
+      },
     }),
     []
   );

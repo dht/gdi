@@ -1,5 +1,5 @@
 import { IBoard } from '@gdi/store-base';
-import { isMobile } from '@gdi/ui';
+import { isMobile, useBlackBk } from '@gdi/ui';
 import { get } from 'lodash';
 import { useEffect } from 'react';
 

@@ -552,6 +552,7 @@ export type IBoardInfo = {
   tags: string[];
   supportedResolutions: Json;
   tsVersion: number;
+  forceDarkMode?: boolean;
 };
 
 export type IReviewInfo = {
