@@ -1,9 +1,9 @@
+import { BoardHeader, TutorialsWidget } from '@gdi/ui';
 import { allWidgets } from '@gdi/widgets-starter';
-import { BoardHeader } from '@gdi/ui';
 import { Grid, IBoard } from 'igrid';
-import { Wrapper } from './Board.style';
 import { get } from 'lodash';
 import { useDarkMode } from './Board.hooks';
+import { Wrapper } from './Board.style';
 
 export type BoardProps = {
   board: IBoard;
@@ -12,20 +12,35 @@ export type BoardProps = {
   darkMode?: boolean;
   callbacks: {
     onColumnChange?: (columnIndex: number) => void;
+    onAction: (action: any) => void;
   };
 };
 
 export function Board(props: BoardProps) {
   const { board, darkMode, flavour, columnIndex, callbacks } = props;
+  const { tutorialPack } = board;
+  const forceDarkMode = get(board, 'boardInfo.forceDarkMode');
 
   const config = {
-    darkMode,
+    darkMode: darkMode || forceDarkMode,
   };
 
   const name = get(board, 'boardInfo.name');
   const logoColor = get(board, 'boardInfo.logoColor');
 
   useDarkMode(board);
+
+  function renderTutorialsWidget() {
+    if (!tutorialPack) return null;
+
+    return (
+      <TutorialsWidget
+        tutorialPack={tutorialPack}
+        onAction={callbacks.onAction}
+        boardId={board.id}
+      />
+    );
+  }
 
   return (
     <Wrapper
@@ -45,6 +60,7 @@ export function Board(props: BoardProps) {
         columnIndex={columnIndex}
         callbacks={callbacks}
       />
+      {renderTutorialsWidget()}
     </Wrapper>
   );
 }
