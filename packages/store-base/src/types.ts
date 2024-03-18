@@ -119,6 +119,7 @@ export type ICurrentIds = {
   modalId: string;
   weekId: string;
   projectId: string;
+  tutorialId: string;
   tabId: string;
   muxTabId: string;
   editId: string;
@@ -466,6 +467,7 @@ export type IBoard = {
 
   // transient
   reviewInfo: IReviewInfo;
+  tutorialPack?: ITutorialPack;
   isMyBoard?: boolean;
 };
 
@@ -727,4 +729,21 @@ export type FilterParams = {
   weekId: string;
   projectId: string;
   globalTags: string[];
+};
+
+export type ITutorial = {
+  id: string;
+  date: string;
+  title: string;
+  description: string;
+  author: string;
+  tags: string[];
+  youtubeId: string;
+};
+
+export type ITutorialPack = {
+  id: string;
+  title: string;
+  description: string;
+  tutorials: ITutorial[];
 };

@@ -15,12 +15,11 @@ import {
   Row,
   Wrapper,
 } from './DetailsHeader.style';
-import { IBoard } from '@gdi/store-base';
 import Ratings from '../../../Ratings/Ratings';
 import Icon from '../../../Icon/Icon';
 
 export type DetailsHeaderProps = {
-  board: IBoard;
+  board: any;
   onAction: (action: any) => void;
 };
 

@@ -8,11 +8,10 @@ import {
   LinkTitle,
   Wrapper,
 } from './DetailsLinks.style';
-import { IBoard } from '@gdi/store-base';
 import Icon from '../../../Icon/Icon';
 
 export type DetailsLinksProps = {
-  board: IBoard;
+  board: any;
   onAction: (action: any) => void;
 };
 

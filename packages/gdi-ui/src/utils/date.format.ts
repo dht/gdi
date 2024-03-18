@@ -14,7 +14,7 @@ export const date = {
     return dayjs(date).format(format);
   },
   short: (date: string | number | Date) => {
-    return dayjs(date).format('MMM do');
+    return dayjs(date).format('MMM Do');
   },
   db: (date: string | number | Date) => {
     return dayjs(date).format('YYYY-MM-DD');

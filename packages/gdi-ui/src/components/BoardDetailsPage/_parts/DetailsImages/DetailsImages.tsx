@@ -1,11 +1,10 @@
-import { IBoard } from '@gdi/store-base';
 import React from 'react';
 import { Image, Left, Right, Video, Wrapper } from './DetailsImages.style';
 import { isMobile } from '../../../../utils/mobile';
 import Shape from '../../../Shape/Shape';
 
 export type DetailsImagesProps = {
-  board: IBoard;
+  board: any;
   onAction: (action: any) => void;
 };
 
