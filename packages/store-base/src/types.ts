@@ -723,13 +723,18 @@ export type IShortKey = {
   description?: string;
 };
 
-export type FilterParams = {
+export type IFilterParams = {
   focusTiers: string[];
   focusProject: string;
   focusTags: string;
   weekId: string;
   projectId: string;
   globalTags: string[];
+};
+
+export type IMetaParams = {
+  project: string;
+  tags: string[];
 };
 
 export type ITutorial = {

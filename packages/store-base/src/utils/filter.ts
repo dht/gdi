@@ -1,11 +1,11 @@
-import { FilterParams } from '../types';
+import { IFilterParams } from '../types';
 import { IItem } from '../types.md';
 
 const checkTags = (globalTags: string[] = [], itemTags: string[] = []) => {
   return globalTags.every((tag) => itemTags.includes(tag));
 };
 
-export const filterItem = <T extends IItem>(item: T, params: FilterParams) => {
+export const filterItem = <T extends IItem>(item: T, params: IFilterParams) => {
   const { focusTiers, weekId, projectId, globalTags, focusProject, focusTags } = params;
   const { project, tier, week, tags = [] } = item;
 
@@ -46,6 +46,6 @@ export const filterItem = <T extends IItem>(item: T, params: FilterParams) => {
   return Object.values(ok).every((v) => v);
 };
 
-export const filterItems = <T extends IItem>(items: T[], params: FilterParams) => {
+export const filterItems = <T extends IItem>(items: T[], params: IFilterParams) => {
   return items.filter((item) => filterItem(item, params));
 };

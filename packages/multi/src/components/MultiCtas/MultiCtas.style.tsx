@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
+  background-color: #223;
 `;
 
 export const Details = styled.div`

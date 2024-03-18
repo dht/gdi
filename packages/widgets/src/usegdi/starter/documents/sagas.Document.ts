@@ -2,6 +2,7 @@ import { selectors, IDocuments, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
 import { parseChange } from './Documents.utils';
 import { guid4 } from 'shared-base';
+import { toast } from '@gdi/ui';
 
 type Verb =
   | 'add' //
@@ -25,6 +26,8 @@ export function* addDocument(action: Action, item: IDocuments) {
   const { payload } = action;
   const { data } = payload;
 
+  const metaParams = yield* select(selectors.base.$metaParams);
+
   const isValid = Object.values(data).filter((i) => i).length > 0;
 
   if (!isValid) {
@@ -35,8 +38,11 @@ export function* addDocument(action: Action, item: IDocuments) {
     actions.docs.add({
       id: guid4(),
       ...data,
+      ...metaParams,
     })
   );
+
+  toast.show('Document added');
 }
 
 export function* editDocument(action: Action, item: IDocuments) {
