@@ -1,4 +1,3 @@
-import { IFlow } from '@gdi/store-base';
 // ====================== IBoard ======================//
 // source: igrid
 

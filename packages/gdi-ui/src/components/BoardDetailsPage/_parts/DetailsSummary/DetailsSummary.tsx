@@ -1,18 +1,9 @@
-import { IBoard } from '@gdi/store-base';
-import { ActionHome } from '../../sagas/saga.home';
-import {
-  Description,
-  Identifier,
-  OneLiner,
-  Row,
-  Section,
-  Wrapper,
-} from './DetailsSummary.style';
+import { Description, Identifier, OneLiner, Row, Section, Wrapper } from './DetailsSummary.style';
 
 export type DetailsSummaryProps = {
-  board: IBoard;
+  board: any;
   children: React.ReactNode;
-  onAction: (action: ActionHome) => void;
+  onAction: (action: any) => void;
 };
 
 export function DetailsSummary(props: DetailsSummaryProps) {
@@ -21,10 +12,7 @@ export function DetailsSummary(props: DetailsSummaryProps) {
   const { oneLinerShort, descriptionLong } = boardInfo;
 
   return (
-    <Wrapper
-      className='DetailsSummary-wrapper'
-      data-testid='DetailsSummary-wrapper'
-    >
+    <Wrapper className='DetailsSummary-wrapper' data-testid='DetailsSummary-wrapper'>
       <Section>
         <OneLiner>{oneLinerShort}</OneLiner>
         <Row>

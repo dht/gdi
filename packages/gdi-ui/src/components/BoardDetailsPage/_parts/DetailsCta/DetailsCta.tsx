@@ -1,11 +1,10 @@
 import React from 'react';
 import { Cta, Row, Version, Wrapper } from './DetailsCta.style';
 import classnames from 'classnames';
-import { IBoard } from '@gdi/store-base';
 import Ratings from '../../../Ratings/Ratings';
 
 export type DetailsCtaProps = {
-  board: IBoard;
+  board: any;
   children: React.ReactNode;
   onAction: (action: any) => void;
 };

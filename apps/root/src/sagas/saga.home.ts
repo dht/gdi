@@ -1,10 +1,11 @@
 import { ga, runFunction } from '@gdi/firebase';
 import { actions, selectors } from '@gdi/store-base';
-import { prompt, toast, SwitchAdapter } from '@gdi/ui';
+import { prompt, YoutubePlayer, toast, SwitchAdapter } from '@gdi/ui';
 import { call, delay, put, select, takeEvery } from 'saga-ts';
 import { setBoolean, setString } from 'shared-base';
 import quickStartBoardIds from '../data/quickStart.json';
 import { checkGuest } from './helpers/guest';
+import { get } from 'lodash';
 
 type Verb =
   | 'install'
@@ -16,6 +17,7 @@ type Verb =
   | 'share'
   | 'switchAdapter'
   | 'save'
+  | 'showTutorial'
   | 'quickStart'
   | 'navigateToDetails'
   | 'navigateToBoard';
@@ -37,6 +39,7 @@ const mapVerbToSaga: Record<Verb, any> = {
   share: share,
   save: save,
   switchAdapter: switchAdapter,
+  showTutorial: showTutorial,
   quickStart: quickStart,
   navigateToBoard: navigateToBoard,
   navigateToDetails: navigateToDetails,
@@ -99,6 +102,26 @@ function* install(action: ActionHome, board: Json, silent: boolean = false) {
       tsLastOpened: Date.now(),
     })
   );
+}
+
+function* showTutorial(action: ActionHome, board: Json) {
+  const { params } = action;
+  const { tutorialId } = params ?? {};
+
+  const tutorials = get(board, `tutorialPack.tutorials`, []);
+  const tutorial = tutorials.find((t: any) => t.id === tutorialId);
+
+  if (!tutorial) return;
+
+  const { title, youtubeId } = tutorial;
+
+  yield prompt.custom({
+    title: title,
+    component: YoutubePlayer,
+    componentProps: {
+      youtubeId,
+    },
+  });
 }
 
 function* uninstall(action: ActionHome, board: Json) {
