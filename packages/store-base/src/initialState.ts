@@ -60,7 +60,7 @@ export const initialState: IGdiStore = {
     firstDayOfWeek: 0,
     suggestedFileName: '',
     source: 'none',
-    tags: ['project-tutorial'],
+    tags: [],
     root: 'mux',
     showRoot: false,
     tsStart: Date.now(),

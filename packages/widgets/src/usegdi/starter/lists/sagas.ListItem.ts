@@ -2,6 +2,7 @@ import { selectors, ILists, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
 import { parseChange } from './Lists.utils';
 import { guid4 } from 'shared-base';
+import { toast } from '@gdi/ui';
 
 type Verb =
   | 'add' //
@@ -25,6 +26,8 @@ export function* addListItem(action: Action, item: ILists) {
   const { payload } = action;
   const { data } = payload;
 
+  const metaParams = yield* select(selectors.base.$metaParams);
+
   const isValid = Object.values(data).filter((i) => i).length > 0;
 
   if (!isValid) {
@@ -35,8 +38,11 @@ export function* addListItem(action: Action, item: ILists) {
     actions.listItems.add({
       id: guid4(),
       ...data,
+      ...metaParams,
     })
   );
+
+  toast.show('ListItem added');
 }
 
 export function* editListItem(action: Action, item: ILists) {

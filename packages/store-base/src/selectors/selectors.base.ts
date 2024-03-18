@@ -1,7 +1,7 @@
 import { get, mapValues } from 'lodash';
 import { createSelector } from 'reselect';
 import { sortBy } from 'shared-base';
-import { FilterParams, FlowType } from '../types';
+import { IFilterParams, FlowType, IMetaParams } from '../types';
 import { transformNodesToGraph } from '../utils/flows';
 import { charactersMaps } from '../utils/phonetics';
 import { getSpeechUrl } from '../utils/speech';
@@ -370,13 +370,29 @@ export const $filterParams = createSelector(
     const { focusProject, focusTags, focusTiers, tags } = appState;
     const { weekId, projectId } = currentIds;
 
-    const output: FilterParams = {
+    const output: IFilterParams = {
       focusTiers,
       focusProject,
       focusTags,
       projectId,
       globalTags: tags,
       weekId,
+    };
+
+    return output;
+  }
+);
+
+export const $metaParams = createSelector(
+  raw.$rawAppState,
+  raw.$rawCurrentIds,
+  (appState, currentIds) => {
+    const { tags } = appState;
+    const { projectId } = currentIds;
+
+    const output: IMetaParams = {
+      project: projectId,
+      tags: tags,
     };
 
     return output;
