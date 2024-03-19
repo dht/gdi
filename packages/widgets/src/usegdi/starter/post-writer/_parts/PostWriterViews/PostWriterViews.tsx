@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import { Current, Id, Item, Items, Wrapper } from './PostFocusViews.style';
-import { items } from './PostFocusViews.data';
+import { Current, Id, Item, Items, Wrapper } from './PostWriterViews.style';
+import { items } from './PostWriterViews.data';
 import { Icon } from '@gdi/ui';
-import { WritePostContext } from '../PostFocus/PostFocus.context';
+import { WritePostContext } from '../../PostWriter.context';
 import classnames from 'classnames';
 
-export type PostFocusViewsProps = {};
+export type PostWriterViewsProps = {};
 
-export function PostFocusViews(_props: PostFocusViewsProps) {
+export function PostWriterViews(_props: PostWriterViewsProps) {
   const { state, patchState } = useContext(WritePostContext);
   const { focusIndex, instructionsId1, instructionsId2, instructionsId3 } = state;
 
@@ -51,10 +51,10 @@ export function PostFocusViews(_props: PostFocusViewsProps) {
   }
 
   return (
-    <Wrapper className='PostFocusViews-wrapper' data-testid='PostFocusViews-wrapper'>
+    <Wrapper className='PostWriterViews-wrapper' data-testid='PostWriterViews-wrapper'>
       <Items>{renderItems()}</Items>
     </Wrapper>
   );
 }
 
-export default PostFocusViews;
+export default PostWriterViews;

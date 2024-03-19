@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { PostWriter, PostWriterProps } from './PostWriter';
+import { PostWriterEditor, PostWriterEditorProps } from './PostWriterEditor';
 import { BaseComponentDriver } from 'testing-base';
 
-export class PostWriterDriver extends BaseComponentDriver {
-  private props: Partial<PostWriterProps> = {};
+export class PostWriterEditorDriver extends BaseComponentDriver {
+  private props: Partial<PostWriterEditorProps> = {};
 
   constructor() {
-    super('PostWriter');
+    super('PostWriterEditor');
   }
 
   when: any = {
     rendered: () => {
-      render(<PostWriter {...(this.props as PostWriterProps)} />);
+      render(<PostWriterEditor {...(this.props as PostWriterEditorProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class PostWriterDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<PostWriter {...(this.props as PostWriterProps)} />);
+      return this.snapshot(<PostWriterEditor {...(this.props as PostWriterEditorProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<PostWriterProps>) => {
+    props: (props: Partial<PostWriterEditorProps>) => {
       this.props = props;
       return this;
     },

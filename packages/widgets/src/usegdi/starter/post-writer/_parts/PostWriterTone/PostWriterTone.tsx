@@ -1,18 +1,18 @@
 import React from 'react';
-import { Wrapper } from './PostFocusTone.style';
-import { parameters, initialState } from './PostFocusTone.data';
+import { Wrapper } from './PostWriterTone.style';
+import { parameters, initialState } from './PostWriterTone.data';
 import { BootstrapParams } from '@gdi/ui';
 
-export type PostFocusToneProps = {
+export type PostWriterToneProps = {
   options: any;
   onChange: (data: any) => void;
 };
 
-export function PostFocusTone(props: PostFocusToneProps) {
+export function PostWriterTone(props: PostWriterToneProps) {
   const { options } = props;
 
   return (
-    <Wrapper className='PostFocusTone-wrapper' data-testid='PostFocusTone-wrapper'>
+    <Wrapper className='PostWriterTone-wrapper' data-testid='PostWriterTone-wrapper'>
       <BootstrapParams
         id='post'
         options={options}
@@ -26,4 +26,4 @@ export function PostFocusTone(props: PostFocusToneProps) {
   );
 }
 
-export default PostFocusTone;
+export default PostWriterTone;

@@ -1,13 +1,13 @@
-import { PostWriterDriver } from './PostWriter.driver';
+import { PostWriterViewsDriver } from './PostWriterViews.driver';
 import Chance from 'chance';
 
 const chance = new Chance();
 
-describe('PostWriter', () => {
-  let driver: PostWriterDriver;
+describe('PostWriterViews', () => {
+  let driver: PostWriterViewsDriver;
 
   beforeAll(() => {
-    driver = new PostWriterDriver();
+    driver = new PostWriterViewsDriver();
   });
 
   it('should render button', () => {
@@ -22,7 +22,7 @@ describe('PostWriter', () => {
     const wrapperClassName = element.get.wrapperClassName();
     const innerText = element.get.label();
 
-    expect(wrapperClassName).toContain('PostWriter-wrapper');
+    expect(wrapperClassName).toContain('PostWriterViews-wrapper');
     expect(innerText).toBe(label);
   });
 
@@ -40,11 +40,11 @@ describe('PostWriter', () => {
   });
 });
 
-describe('PostWriter snapshots', () => {
-  let driver: PostWriterDriver;
+describe('PostWriterViews snapshots', () => {
+  let driver: PostWriterViewsDriver;
 
   beforeAll(() => {
-    driver = new PostWriterDriver();
+    driver = new PostWriterViewsDriver();
   });
 
   it('should match snapshot', () => {

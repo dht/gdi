@@ -1,11 +1,11 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
 import React, { useContext, useMemo } from 'react';
-import { PostFocusTone } from './PostFocusTone';
-import { WritePostContext } from '../PostFocus/PostFocus.context';
+import { PostWriterTone } from './PostWriterTone';
+import { WritePostContext } from '../../PostWriter.context';
 
-export type PostFocusToneContainerProps = {};
+export type PostWriterToneContainerProps = {};
 
-export function PostFocusToneContainer(_props: PostFocusToneContainerProps) {
+export function PostWriterToneContainer(_props: PostWriterToneContainerProps) {
   const dispatch = useDispatch();
   const appState = useSelector(selectors.raw.$rawAppState);
   const postPlatform = useSelector(selectors.options.$postPlatform);
@@ -28,7 +28,7 @@ export function PostFocusToneContainer(_props: PostFocusToneContainerProps) {
     postTone,
   };
 
-  return <PostFocusTone options={options} onChange={callbacks.onChange} />;
+  return <PostWriterTone options={options} onChange={callbacks.onChange} />;
 }
 
-export default PostFocusToneContainer;
+export default PostWriterToneContainer;

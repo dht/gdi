@@ -1,7 +1,7 @@
 import { createContext, useMemo } from 'react';
 import { getJson, invokeEvent } from 'shared-base';
-import { useLocalDb } from '../../../../../hooks/useLocalDb';
-import { IWritePostContext, IWritePostProviderProps, IWritePostState } from './PostFocus.types';
+import { useLocalDb } from '../../../hooks/useLocalDb';
+import { IWritePostContext, IWritePostProviderProps, IWritePostState } from './PostWriter.types';
 
 const ls = getJson('bootstrap_post');
 const { postPlatform = 'X', postAudience = 'developers', postTone = 'casual' } = ls ?? {};

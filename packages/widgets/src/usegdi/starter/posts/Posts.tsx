@@ -1,7 +1,7 @@
 import { Multi } from 'multi';
+import { PostWriterContainer } from '../post-writer/PostWriter.container';
 import { Wrapper } from './Posts.style';
 import { initialView, multi, views } from './_multi';
-import PostFocusContainer from './_parts/PostFocus/PostFocus.container';
 import { PostsSummaryContainer } from './_parts/PostsSummary/PostsSummary.container';
 
 export type PostsProps = {
@@ -20,7 +20,7 @@ export function Posts(props: PostsProps) {
   }
 
   function renderFocus(id: string) {
-    return <PostFocusContainer id={id} />;
+    return <PostWriterContainer id={id} />;
   }
 
   return (

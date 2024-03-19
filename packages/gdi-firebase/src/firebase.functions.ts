@@ -43,8 +43,6 @@ export const runFunction = (
   method: string = 'post',
   stream: boolean = false
 ) => {
-  console.log('data ->', data);
-
   return invokeApi(method, path, data, stream);
 };
 

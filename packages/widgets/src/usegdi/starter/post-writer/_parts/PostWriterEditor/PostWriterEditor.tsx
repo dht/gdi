@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { useContext, useEffect } from 'react';
 import { useSetState } from 'react-use';
-import { WritePostContext } from '../PostFocus/PostFocus.context';
+import { WritePostContext } from '../../PostWriter.context';
 import {
   Actions,
   Count,
@@ -13,10 +13,10 @@ import {
   Progress,
   Row,
   Wrapper,
-} from './PostFocusEditor.style';
+} from './PostWriterEditor.style';
 import { Loader } from '@gdi/ui';
 
-export type PostFocusEditorProps = {
+export type PostWriterEditorProps = {
   id: string;
   placeholder: string;
   instructionsId?: number;
@@ -26,7 +26,7 @@ export type PostFocusEditorProps = {
   isRunning?: boolean;
 };
 
-export function PostFocusEditor(props: PostFocusEditorProps) {
+export function PostWriterEditor(props: PostWriterEditorProps) {
   const { id, instructionsId, placeholder, label, isRunning } = props;
   const { state, patchState } = useContext(WritePostContext);
   const { focusIndex } = state;
@@ -110,12 +110,12 @@ export function PostFocusEditor(props: PostFocusEditorProps) {
     );
   }
 
-  const className = classnames('PostFocusEditor-wrapper', {
+  const className = classnames('PostWriterEditor-wrapper', {
     focused: focusIndex === instructionsId && instructionsId !== undefined,
   });
 
   return (
-    <Wrapper className={className} data-testid='PostFocusEditor-wrapper' onMouseDown={onMouseDown}>
+    <Wrapper className={className} data-testid='PostWriterEditor-wrapper' onMouseDown={onMouseDown}>
       {renderInstructions()}
       {renderLoader()}
       <InputWrapper>
@@ -132,4 +132,4 @@ export function PostFocusEditor(props: PostFocusEditorProps) {
   );
 }
 
-export default PostFocusEditor;
+export default PostWriterEditor;

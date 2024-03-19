@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import { PostWriter, PostWriterProps } from './PostWriter';
+import { PostWriterActions, PostWriterActionsProps } from './PostWriterActions';
 import { BaseComponentDriver } from 'testing-base';
 
-export class PostWriterDriver extends BaseComponentDriver {
-  private props: Partial<PostWriterProps> = {};
+export class PostWriterActionsDriver extends BaseComponentDriver {
+  private props: Partial<PostWriterActionsProps> = {};
 
   constructor() {
-    super('PostWriter');
+    super('PostWriterActions');
   }
 
   when: any = {
     rendered: () => {
-      render(<PostWriter {...(this.props as PostWriterProps)} />);
+      render(<PostWriterActions {...(this.props as PostWriterActionsProps)} />);
       return this;
     },
     clicked: () => {
@@ -20,12 +20,12 @@ export class PostWriterDriver extends BaseComponentDriver {
       return this;
     },
     snapshot: () => {
-      return this.snapshot(<PostWriter {...(this.props as PostWriterProps)} />);
+      return this.snapshot(<PostWriterActions {...(this.props as PostWriterActionsProps)} />);
     },
   };
 
   given: any = {
-    props: (props: Partial<PostWriterProps>) => {
+    props: (props: Partial<PostWriterActionsProps>) => {
       this.props = props;
       return this;
     },
