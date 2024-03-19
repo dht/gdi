@@ -462,11 +462,11 @@ export const $contacts = createSelector(raw.$rawContacts, $filterParams, (items,
   const arr = Object.values(items);
 
   return filterItems(arr, filterParams) //
-    .map((contact) => {
-      const { firstName, email } = contact;
+    .map((item) => {
+      const { firstName, email } = item;
 
       return {
-        ...contact,
+        ...item,
         firstName: firstName || email,
       };
     })
@@ -477,13 +477,24 @@ export const $events = createSelector(raw.$rawEvents, $filterParams, (items, fil
   const arr = Object.values(items);
 
   return filterItems(arr, filterParams) //
-    .map((contact) => {
-      const { firstName, email } = contact;
+    .map((item) => {
+      const { firstName, email } = item;
 
       return {
-        ...contact,
+        ...item,
         firstName: firstName || email,
       };
     })
     .sort(sortBy('title', 'desc'));
 });
+
+export const $financeLines = createSelector(
+  raw.$rawFinanceLines,
+  $filterParams,
+  (items, filterParams) => {
+    const arr = Object.values(items);
+
+    return filterItems(arr, filterParams) //
+      .sort(sortBy('title', 'desc'));
+  }
+);

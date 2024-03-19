@@ -14,6 +14,8 @@ import { saga as sagaDocument } from './usegdi/starter/documents/sagas.Document'
 import { saga as sagaDocuments } from './usegdi/starter/documents/sagas.Documents';
 import { saga as sagaExternalEvent } from './usegdi/starter/events/sagas.Event';
 import { saga as sagaExternalEvents } from './usegdi/starter/events/sagas.Events';
+import { saga as sagaFinanceLine } from './usegdi/starter/finances/sagas.Finance';
+import { saga as sagaFinanceLines } from './usegdi/starter/finances/sagas.Finances';
 import { saga as sagaPost } from './usegdi/starter/posts/sagas.Post';
 import { saga as sagaPosts } from './usegdi/starter/posts/sagas.Posts';
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
@@ -47,6 +49,8 @@ export const sagas: any = {
   'widgets.externalEvent': sagaExternalEvent,
   'widgets.externalEvents': sagaExternalEvents,
   'widgets.expressDebugger': sagaExpressDebugger,
+  'widgets.financeLine': sagaFinanceLine,
+  'widgets.financeLines': sagaFinanceLines,
   'widgets.flow': sagaFlow,
   'widgets.fourthWall': sagaFourthWall,
   'widgets.listItem': sagaListItem,

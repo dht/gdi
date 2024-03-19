@@ -19,6 +19,7 @@ import earth from './earth';
 import events from './events';
 import expressDebugger from './express-debugger';
 import facebook from './facebook';
+import finances from './finances';
 import flow from './flow';
 import footer from './footer';
 import fourthWall from './fourth-wall';
@@ -109,6 +110,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.events': events,
   'com.usegdi.starter.express-debugger': expressDebugger,
   'com.usegdi.starter.facebook': facebook,
+  'com.usegdi.starter.finances': finances,
   'com.usegdi.starter.flow': flow,
   'com.usegdi.starter.footer': footer,
   'com.usegdi.starter.fourth-wall': fourthWall,
