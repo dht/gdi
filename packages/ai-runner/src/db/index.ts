@@ -2,6 +2,7 @@ import { all as assets } from './db.assets';
 import { all as boards } from './db.boards';
 import { all as clip } from './db.clip';
 import { all as credits } from './db.credits';
+import { all as docs } from './db.docs';
 import { all as flow, getXPath } from './db.flow';
 import { all as ids } from './db.ids';
 import { all as issues } from './db.issues';
@@ -16,6 +17,7 @@ export default {
   ...assets,
   ...boards,
   ...credits,
+  ...docs,
   ...ids,
   ...issues,
   ...messages,

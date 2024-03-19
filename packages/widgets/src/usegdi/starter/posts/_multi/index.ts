@@ -19,6 +19,7 @@ export const views: IMultiView[] = [
 ];
 
 export const multi = {
+  id: 'posts',
   calendar,
   jsonEditor,
   masonry,

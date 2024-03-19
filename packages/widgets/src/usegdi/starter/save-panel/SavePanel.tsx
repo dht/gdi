@@ -4,7 +4,7 @@ import { FileName, Wrapper } from './SavePanel.style';
 import { nextFileName } from './SavePanel.utils';
 
 export type SavePanelProps = {
-  value?: string;
+  defaultValue?: string;
   what: string;
   autoProgress?: boolean;
   disabled?: boolean;
@@ -14,16 +14,16 @@ export type SavePanelProps = {
 };
 
 export function SavePanel(props: SavePanelProps) {
-  const { value = '', what, disabled, autoProgress, callbacks } = props;
-  const [fileName, setFileName] = useState(value);
+  const { defaultValue = '', what, disabled, autoProgress, callbacks } = props;
+  const [fileName, setFileName] = useState(defaultValue);
 
   useEffect(() => {
-    setFileName(value);
-  }, [value]);
+    setFileName(defaultValue);
+  }, [defaultValue]);
 
   function onSave() {
     if (!fileName) return;
-    callbacks.onSave(value);
+    callbacks.onSave(fileName);
 
     if (autoProgress) {
       const nextName = nextFileName(fileName);
@@ -37,7 +37,7 @@ export function SavePanel(props: SavePanelProps) {
 
   return (
     <Wrapper className='SavePanel-wrapper' data-testid='SavePanel-wrapper'>
-      <FileName darkMode value={value} onChange={onChange} />
+      <FileName darkMode value={fileName} onChange={onChange} />
       <Save what={what} disabled={disabled} onClick={onSave} />
     </Wrapper>
   );

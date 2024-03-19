@@ -66,7 +66,7 @@ const cropImage = async (inputPath, outputPath, imageIndex) => {
       .jpeg({ quality: 80, progressive: true })
       /// progressive (for JPEGs and PNGs)
       .toFile(outputPath);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error processing the image:', error);
   }
 };

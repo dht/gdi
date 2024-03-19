@@ -15,7 +15,7 @@ export const hashData = async (data: string) => {
     // Hash data
     const hashedData = await bcrypt.hash(data, saltRounds);
     return hashedData;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error('Error encoding data');
   }
 };
@@ -26,7 +26,7 @@ export const compareData = async (plainData: string, hashedData: string) => {
     // Compare hashed data with plain data
     const match = await bcrypt.compare(plainData, hashedData);
     return match;
-  } catch (error) {
+  } catch (error: any) {
     throw new Error('Error comparing data');
   }
 };

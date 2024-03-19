@@ -208,11 +208,10 @@ export const $documentStats = createSelector(raw.$rawDocument, (document) => {
   };
 });
 
-export const $projectTag = createSelector(raw.$rawAppState, (appState) => {
-  const { tags = [] } = appState;
-  const projectTag = tags.find((tag: string) => tag.startsWith('project-'));
+export const $projectTag = createSelector(raw.$rawCurrentIds, (currentIds) => {
+  const { projectId } = currentIds;
 
-  return projectTag;
+  return projectId;
 });
 
 export const $sagas = createSelector(raw.$rawSagas, (sagas) => {

@@ -117,6 +117,7 @@ export type ICurrentIds = {
   leftId: string;
   rightId: string;
   modalId: string;
+  docId: string;
   weekId: string;
   projectId: string;
   tutorialId: string;
@@ -482,7 +483,7 @@ export type IBoardMobileConfig = {
 
 export type IDocument = {
   content: string;
-  meta: IDocumentMeta;
+  meta: Partial<IDocumentMeta>;
   tsCreated: number;
 };
 
@@ -491,6 +492,12 @@ export type IDocumentMeta = {
   lengthInstructions: string;
   styleInstructions: string;
   topicAndInstructions: string;
+  title: string;
+  filePath: string;
+  fileName: string;
+  tags: string[];
+  project: string;
+  week: number;
 };
 
 export type IDocumentSuggestion = {

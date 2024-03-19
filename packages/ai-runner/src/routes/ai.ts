@@ -30,9 +30,9 @@ router.post('/chat', async (req: any, res) => {
     const response = await openAI.chat.chat(prompt);
 
     res.status(200).json({ text: response.text, uid });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating text:', error);
-    res.status(500).send('Error generating text');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -57,9 +57,9 @@ router.post('/chat/stream', async (req: any, res) => {
 
     db.messages.adhoc(req, { content: '' });
     res.status(200).json({ ...response });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating text:', error);
-    res.status(500).send('Error generating text');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -89,9 +89,9 @@ router.post('/assistant/stream', async (req: any, res) => {
     }
 
     res.status(200).json({ ...response });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating text:', error);
-    res.status(500).send('Error generating text');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -108,9 +108,9 @@ router.post('/assistant/clear', async (req: any, res) => {
     }
 
     res.status(200).json({});
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating text:', error);
-    res.status(500).send('Error generating text');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -120,9 +120,9 @@ router.post('/image', async (req: any, res) => {
 
     const response = await openAI.image.image(prompt);
     res.status(200).json({ url: response.data.url });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating image:', error);
-    res.status(500).send('Error generating image');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -134,9 +134,9 @@ router.post('/speech', async (req: any, res) => {
 
     const response: any = await elevenLabs.sockets.stream(req, text, {} as any);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating speech:', error);
-    res.status(500).send('Error generating speech');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -145,9 +145,9 @@ router.post('/vision', async (req, res) => {
     const { url } = req.body;
     const response = await openAI.vision.vision(url);
     res.status(200).json({ text: response.text });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating image:', error);
-    res.status(500).send('Error generating image');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -157,9 +157,9 @@ router.post('/eleven', async (req: any, res) => {
     req.input = prompt;
     const response = await elevenLabs.speech.speech(prompt, {});
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error generating speech:', error);
-    res.status(500).send('Error generating speech');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -179,9 +179,9 @@ router.post('/flow/prepare', async (req: any, res) => {
       id: flowMeta.id,
       success: true,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error running flow:', error);
-    res.status(500).send('Error running flow');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -206,9 +206,9 @@ router.post('/flow/prompt', async (req: any, res) => {
     }
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error running flow:', error);
-    res.status(500).send('Error running flow');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -218,9 +218,9 @@ router.post('/flow', async (req, res) => {
     await db.flow.set(req, flow);
     await resetFlowRun(req, flow);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error setting flow:', error);
-    res.status(500).send('Error setting flow');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -230,9 +230,9 @@ router.patch('/flow/dynamic', async (req, res) => {
     await db.flow.patchDynamicFlow(req, assistant);
     await db.variables.patch(req, { transcriptLines: {} });
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error setting flow:', error);
-    res.status(500).send('Error setting flow');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -264,9 +264,9 @@ router.post('/flow', async (req, res) => {
     await db.flow.set(req, flow);
     await resetFlowRun(req, flow);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error setting flow:', error);
-    res.status(500).send('Error setting flow');
+    res.status(500).json({ error: error.message });
   }
 });
 

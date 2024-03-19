@@ -10,7 +10,7 @@ import {
   IDayDefinition,
   IMonthDefinition,
   IWeekDefinition,
-} from './Calendar.type';
+} from '../../types';
 
 dayjs.extend(advancedFormat);
 dayjs.extend(relativeTime);

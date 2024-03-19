@@ -1,10 +1,8 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import React, { useContext, useMemo } from 'react';
-import { MultiActions } from './MultiActions';
-import FilterByTierContainer from '../Filters/FilterByTier.container';
-import FilterByWeekContainer from '../Filters/FilterByWeek.container';
-import { MultiContext } from '../Multi/Multi.context';
+import { useContext, useMemo } from 'react';
 import { downloadCsv } from 'shared-base';
+import { MultiContext } from '../Multi/Multi.context';
+import { MultiActions } from './MultiActions';
 import { fields } from './MultiActions.data';
 
 export type MultiActionsContainerProps = {};
@@ -13,7 +11,9 @@ export function MultiActionsContainer(_props: MultiActionsContainerProps) {
   const dispatch = useDispatch();
   const appState = useSelector(selectors.raw.$rawAppState);
   const { state, data, callbacks: cbs, patchState } = useContext(MultiContext);
-  const { q } = state;
+  const { q, views, itemId } = state;
+
+  const showFocus = views.includes('focus') && itemId;
 
   const callbacks = useMemo(
     () => ({
@@ -32,11 +32,14 @@ export function MultiActionsContainer(_props: MultiActionsContainerProps) {
         ev.stopPropagation();
         cbs.onSearch(value);
       },
+      onFocus: () => {
+        patchState({ activeView: 'focus' });
+      },
     }),
     []
   );
 
-  return <MultiActions q={q} callbacks={callbacks} />;
+  return <MultiActions q={q} callbacks={callbacks} showFocus={showFocus} />;
 }
 
 export default MultiActionsContainer;

@@ -26,7 +26,7 @@ export const Content = styled.div`
   display: flex;
 `;
 
-export const Summary = styled.div`
+export const External = styled.div`
   background-color: var(--bk);
   display: flex;
   flex: 1;

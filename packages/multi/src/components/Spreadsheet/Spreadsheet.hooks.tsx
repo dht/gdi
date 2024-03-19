@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useKey } from 'react-use';
+import { useKey, useLocalStorage } from 'react-use';
 import { ICoord, ISheetCell, ISpreadsheetConfig, ITableField, Json } from '../../types';
 import { useEffect } from 'react';
 import { addListener } from 'shared-base';
@@ -73,12 +73,13 @@ type SheetInfo = {
   rowsPerPage: number;
 };
 
-export function useArrows(initialCoord: ICoord, info: SheetInfo) {
+export function useArrows(id: string, initialCoord: ICoord, info: SheetInfo) {
   const { rowsPerPage = 30 } = info;
-  const [coord, setCoord] = useState(initialCoord);
+  const [coord, setCoord] = useLocalStorage(`spreadsheet-${id}`, initialCoord);
 
   const onNudge = (dx: number, dy: number) => {
     setCoord((prevCoord) => {
+      if (!prevCoord) return initialCoord;
       const { x, y } = prevCoord;
       const nextX = Math.max(0, x + dx);
       const nextY = Math.max(0, y + dy);
