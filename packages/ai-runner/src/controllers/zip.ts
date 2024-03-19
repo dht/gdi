@@ -3,7 +3,7 @@ import { extractZip, getFiles } from '../utils/zip';
 import { upload } from './upload';
 import { getTempFileInfo } from '../utils/files';
 
-export const uploadZip = async (req: any, fileInfo: Json, tags: string[]) => {
+export const uploadZip = async (req: any, fileInfo: Json, tags: string[], project: string) => {
   const { base64 } = fileInfo;
 
   const tempDir = extractZip(base64);
@@ -11,7 +11,7 @@ export const uploadZip = async (req: any, fileInfo: Json, tags: string[]) => {
 
   const promises = files.map((file) => {
     const fileInfo = getTempFileInfo(tempDir, file);
-    return upload(req, fileInfo, tags);
+    return upload(req, fileInfo, tags, project);
   });
 
   const assets = await Promise.all(promises);

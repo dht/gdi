@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import kleur from 'kleur';
 import os from 'os';
-import { IFile, StorageAdapter } from '../types';
+import { IFile, StorageAdapter } from '../../types';
 import { addFileToWatch, debounceWatch } from '../utils/assets';
 
 export class FsStorageAdapter implements StorageAdapter {
@@ -79,7 +79,6 @@ export class FsStorageAdapter implements StorageAdapter {
     }
 
     fs.renameSync(p1, p2);
-    return Promise.resolve(true);
   }
 }
 

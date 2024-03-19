@@ -110,7 +110,14 @@ export interface StorageAdapter {
   file: (path: string, isMeta?: boolean) => IFile;
   addListener: (file: IFile) => void;
   getFile: (file: IFile) => Promise<Buffer>;
-  renameFile: (file: IFile, newFilePath: string) => Promise<Buffer>;
+  renameFile: (file: IFile, newFilePath: string) => void;
+}
+
+export interface SocketsAdapter {
+  addListener(path: string): void;
+  invokeListeners(path: string, data: any): void;
+  removeListener(path: string): void;
+  sendMessageToAll(eventId: string, data: any): void;
 }
 
 export type IFile = {

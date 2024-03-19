@@ -15,7 +15,7 @@ router.use(midKeys);
 
 router.post('/new', async (req: any, res) => {
   try {
-    const { assetUrl, fileName, filePath = '', tags = [] } = req.body;
+    const { assetUrl, fileName, filePath = '', tags = [], project = '' } = req.body;
     const contentType = contentTypeFromFileName(fileName);
 
     const asset = await db.assets.create(req, {
@@ -26,6 +26,7 @@ router.post('/new', async (req: any, res) => {
       contentType,
       tsAdded: tsShort(),
       tags,
+      project,
     });
 
     res.status(200).json({ success: true, asset });
@@ -37,7 +38,7 @@ router.post('/new', async (req: any, res) => {
 
 router.post('/upload', async (req: any, res) => {
   try {
-    const { fileInfo, tags = [] } = req.body;
+    const { fileInfo, tags = [], project = '' } = req.body;
     const { name = '' } = fileInfo ?? {};
 
     if (name.endsWith('.zip')) {
@@ -45,7 +46,7 @@ router.post('/upload', async (req: any, res) => {
       return;
     }
 
-    const asset = await upload(req, fileInfo, tags);
+    const asset = await upload(req, fileInfo, tags, project);
 
     res.status(200).json({ success: true, asset });
   } catch (error: any) {
@@ -119,7 +120,7 @@ router.post('/fileName', async (req: any, res) => {
 
 router.post('/upload/zip', async (req: any, res) => {
   try {
-    const { fileInfo, tags = [] } = req.body;
+    const { fileInfo, tags = [], project } = req.body;
     const { name = '' } = fileInfo ?? {};
 
     if (!name.endsWith('.zip')) {
@@ -127,7 +128,7 @@ router.post('/upload/zip', async (req: any, res) => {
       return;
     }
 
-    const assets = await uploadZip(req, fileInfo, tags);
+    const assets = await uploadZip(req, fileInfo, tags, project);
 
     res.status(200).json({ success: true, assets });
   } catch (error: any) {

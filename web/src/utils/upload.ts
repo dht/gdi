@@ -18,7 +18,7 @@ export const readFile = (file: File): Promise<IFile> => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-      const base64 = reader.result;
+      const base64 = reader.result as string;
 
       resolve({
         name,
