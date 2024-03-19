@@ -20,33 +20,6 @@ export const fields: ITableField[] = [
     },
   },
   {
-    id: 'date',
-    title: 'Date',
-    cellType: 'date',
-    flex: 1,
-    params: {
-      width: 110,
-    },
-  },
-  {
-    id: 'startTime',
-    title: 'Start time',
-    cellType: 'time',
-    flex: 1,
-    params: {
-      width: 70,
-    },
-  },
-  {
-    id: 'endTime',
-    title: 'End time',
-    cellType: 'time',
-    flex: 1,
-    params: {
-      width: 70,
-    },
-  },
-  {
     id: 'tier',
     title: 'Tier',
     cellType: 'number',
@@ -76,6 +49,13 @@ export const fields: ITableField[] = [
   {
     id: 'project',
     title: 'Project',
+    cellType: 'text',
+    flex: 1,
+    params: {},
+  },
+  {
+    id: 'filePath',
+    title: 'Path',
     cellType: 'text',
     flex: 1,
     params: {},

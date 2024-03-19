@@ -89,6 +89,7 @@ export type IAsset = {
   tsModified?: number;
   size?: number;
   tags: Json;
+  project: string;
 };
 
 export interface DBAdapter {
@@ -108,6 +109,8 @@ export interface DBAdapter {
 export interface StorageAdapter {
   file: (path: string, isMeta?: boolean) => IFile;
   addListener: (file: IFile) => void;
+  getFile: (file: IFile) => Promise<Buffer>;
+  renameFile: (file: IFile, newFilePath: string) => Promise<Buffer>;
 }
 
 export type IFile = {

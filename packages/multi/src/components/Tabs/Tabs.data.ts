@@ -2,6 +2,8 @@ import { Json } from '../../types';
 
 export const tabNames: Json = {
   summary: 'Summary',
+  focus: 'Focus',
+  // standard
   jsonEditor: 'Json',
   masonry: 'Gallery',
   sheet: 'Sheet',

@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import kleur from 'kleur';
+import os from 'os';
 import { IFile, StorageAdapter } from '../types';
 import { addFileToWatch, debounceWatch } from '../utils/assets';
 
@@ -31,6 +32,54 @@ export class FsStorageAdapter implements StorageAdapter {
     if (file.isMeta) return;
 
     addFileToWatch(file);
+  }
+
+  isValid(filePathAbsolute: string) {
+    const rootAbsolutePath = path.resolve(this.rootPath);
+    const isInRoot = filePathAbsolute.startsWith(rootAbsolutePath);
+    return isInRoot;
+  }
+
+  getFile(file: IFile) {
+    const p = path.resolve(file.fullPath);
+
+    if (!this.isValid(p)) {
+      const sanitized = p.replace(os.homedir(), '~');
+      throw new Error(`Invalid file path: ${sanitized}`);
+    }
+
+    if (!fs.existsSync(p)) {
+      throw new Error(`File not found: ${p}`);
+    }
+
+    const buffer = fs.readFileSync(file.fullPath);
+    return Promise.resolve(buffer);
+  }
+
+  renameFile(file: IFile, newFilePath: string) {
+    const p1 = path.resolve(file.fullPath);
+    const p2 = path.resolve(newFilePath);
+
+    if (!this.isValid(p1)) {
+      const sanitized = p1.replace(os.homedir(), '~');
+      throw new Error(`Invalid file path: ${sanitized}`);
+    }
+
+    if (!this.isValid(p2)) {
+      const sanitized = p1.replace(os.homedir(), '~');
+      throw new Error(`Invalid file path: ${sanitized}`);
+    }
+
+    if (!fs.existsSync(p1)) {
+      throw new Error(`File not found: ${p1}`);
+    }
+
+    if (fs.existsSync(p2)) {
+      throw new Error(`Cannot overwrite: ${p2}`);
+    }
+
+    fs.renameSync(p1, p2);
+    return Promise.resolve(true);
   }
 }
 

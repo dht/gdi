@@ -13,9 +13,9 @@ router.post('/saveForLater', async (req: any, res) => {
   try {
     await db.boards.save(req, id);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving board for later:', error);
-    res.status(500).send('Error saving board for later');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -23,9 +23,9 @@ router.get('/myBoards', async (req: any, res) => {
   try {
     const data = await db.boards.getMy(req);
     res.status(200).json(data);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting my boards:', error);
-    res.status(500).send('Error getting my boards');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -35,9 +35,9 @@ router.post('/add', async (req: any, res) => {
   try {
     await db.boards.addToMy(req, id);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error adding to my boards:', error);
-    res.status(500).send('Error adding to my boards');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -47,9 +47,9 @@ router.post('/remove', async (req: any, res) => {
   try {
     await db.boards.removeFromMy(req, id);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error adding to my boards:', error);
-    res.status(500).send('Error adding to my boards');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -64,9 +64,9 @@ router.post('/new', async (req: any, res) => {
       url,
     });
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error submitting new board:', error);
-    res.status(500).send('Error submitting new board');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -85,8 +85,8 @@ router.post('/review', async (req: any, res) => {
     });
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error submitting new review:', error);
-    res.status(500).send('Error submitting new review');
+    res.status(500).json({ error: error.message });
   }
 });

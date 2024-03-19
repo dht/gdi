@@ -36,7 +36,7 @@ export const addSprite = (sprite: ISprite) => {
     }
 
     item.invertU = true;
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
   }
 };

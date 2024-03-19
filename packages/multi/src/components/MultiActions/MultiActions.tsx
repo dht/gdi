@@ -8,12 +8,14 @@ export type MultiActionsProps = {
     onExport: () => void;
     onToggleItemActions: () => void;
     onSearch: (ev: any) => void;
+    onFocus: () => void;
   };
+  showFocus?: boolean;
   children?: React.ReactNode;
 };
 
 export function MultiActions(props: MultiActionsProps) {
-  const { q, callbacks } = props;
+  const { q, callbacks, showFocus } = props;
 
   function onKeyDown(ev: any) {
     ev.stopPropagation();
@@ -22,6 +24,11 @@ export function MultiActions(props: MultiActionsProps) {
   return (
     <Wrapper className='MultiActions-wrapper' data-testid='MultiActions-wrapper'>
       {props.children}
+      {showFocus && (
+        <Icon className='material-symbols-outlined' onClick={callbacks.onFocus}>
+          filter_center_focus
+        </Icon>
+      )}
       <Icon className='material-symbols-outlined' onClick={callbacks.onToggleItemActions}>
         apps
       </Icon>

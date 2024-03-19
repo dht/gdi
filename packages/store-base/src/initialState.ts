@@ -69,6 +69,7 @@ export const initialState: IGdiStore = {
   currentIds: {
     boardId: '',
     itemId: '',
+    docId: '',
     requestId: '',
     voiceId: 'alloy',
     assetId: '',

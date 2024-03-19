@@ -1,45 +1,18 @@
-import { runFunction } from '@gdi/firebase';
-import { ITag, actions, selectors } from '@gdi/store-base';
-import { prompt, toast } from '@gdi/ui';
-import { uniq } from 'lodash';
-import { call, put, select } from 'saga-ts';
+import { selectors } from '@gdi/store-base';
+import { select, take } from 'saga-ts';
+import { invokeEvent } from 'shared-base';
 
 export function* verifyProject() {
-  const appState = yield* select(selectors.raw.$rawAppState);
-  const { tags = [] } = appState;
-
-  const projectTag = yield* select(selectors.base.$projectTag);
+  let projectTag = yield* select(selectors.base.$projectTag);
 
   if (projectTag) {
     return projectTag;
   }
 
-  const { value, didCancel } = yield prompt.input({
-    title: 'Project Name',
-    placeholder: 'Set a project name',
-    ctaButtonText: 'Set Project',
-  });
+  invokeEvent('tag/project/select');
 
-  if (didCancel || !value) {
-    return;
-  }
+  yield take('PROJECT_SELECTED');
 
-  const newTag = 'project-' + value.replace('project-', '');
-  tags.push(newTag);
-  yield put(actions.appState.patch({ tags: uniq(tags) }));
-
-  const allTags = yield* select(selectors.raw.$rawTags);
-  const tag = Object.values(allTags).find((tag: ITag) => tag.id === newTag);
-
-  if (!tag) {
-    const response = yield* call(runFunction, '/api/tags/new', {
-      tagValue: newTag,
-    });
-
-    const { tag } = response;
-
-    yield put(actions.tags.set(tag.id, tag));
-  }
-
-  return value;
+  projectTag = yield* select(selectors.base.$projectTag);
+  return projectTag;
 }

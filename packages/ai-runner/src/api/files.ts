@@ -2,6 +2,7 @@ import db from '../db';
 import { storageAdapter } from '../utils/globals';
 import { get } from 'lodash';
 import bytes from 'bytes';
+import axios from 'axios';
 
 let bucket: any;
 
@@ -61,6 +62,20 @@ export const saveFile = async (
   // `https://storage.googleapis.com/${bucket.name}/${filepath}`;
   const assetUrl = file.publicUrl();
   return assetUrl;
+};
+
+export const getFile = async (filepath: string, isMeta?: boolean) => {
+  const file = storageAdapter.file(filepath, isMeta);
+
+  const content = await storageAdapter.getFile(file);
+
+  return content;
+};
+
+export const renameFile = async (filepath: string, newFilePath: string, isMeta?: boolean) => {
+  const file = storageAdapter.file(filepath, isMeta);
+
+  await storageAdapter.renameFile(file, newFilePath);
 };
 
 export const saveMeta = async (req: any, filepath: string, meta: Json) => {

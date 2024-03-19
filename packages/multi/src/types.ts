@@ -412,6 +412,7 @@ type Style = {
 };
 
 export type IMultiConfig = Partial<{
+  id: string;
   sheet: ISpreadsheetConfig;
   lanes: ITrelloConfig;
   table: ITableConfig;
@@ -448,7 +449,8 @@ export type IMultiView =
   | 'masonry'
   | 'jsonEditor'
   | 'calendar'
-  | 'summary';
+  | 'summary'
+  | 'focus';
 
 export type IMultiItemDisplay = {
   title: string[];

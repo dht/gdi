@@ -12,14 +12,15 @@ import Tabs from '../Tabs/Tabs.container';
 import Trello from '../Trello/Trello.container';
 import Calendar from '../calendar/Calendar.container';
 import { MultiContext } from './Multi.context';
-import { Content, Footer, Row, Summary, Wrapper } from './Multi.style';
+import { Content, Footer, Row, External, Wrapper } from './Multi.style';
 import FilterByTagsContainer from '../Filters/FilterByTags.container';
 import FilterByProjectContainer from '../Filters/FilterByProject.container';
 import MultiCtasContainer from '../MultiCtas/MultiCtas.container';
 import { useCustomEvent } from '../Spreadsheet/Spreadsheet.hooks';
 
 export type MultiProps = {
-  children?: React.ReactNode;
+  renderSummary?: () => React.ReactNode;
+  renderFocus?: () => React.ReactNode;
 };
 
 const component = {
@@ -33,11 +34,16 @@ const component = {
 
 export function Multi(props: MultiProps) {
   const { state, data, callbacks, patchState } = useContext(MultiContext);
-  const { activeView, config, darkMode, isReady, showItemActions } = state;
+  const { activeView, config, darkMode, isReady, showItemActions, itemId } = state;
 
   useCustomEvent('multi/item/select', (ev: any) => {
     const { id } = ev;
     patchState({ itemId: id });
+  });
+
+  useCustomEvent('multi/item/drillDown', (ev: any) => {
+    const { id } = ev;
+    patchState({ activeView: 'focus', itemId: id });
   });
 
   if (!isReady) {
@@ -45,8 +51,13 @@ export function Multi(props: MultiProps) {
   }
 
   function renderInner() {
-    if (activeView === 'summary') {
-      return <Summary>{props.children}</Summary>;
+    switch (activeView) {
+      case 'summary':
+        if (!props.renderSummary) return;
+        return <External>{props.renderSummary()}</External>;
+      case 'focus':
+        if (!props.renderFocus) return;
+        return <External>{props.renderFocus(itemId)}</External>;
     }
 
     const Cmp: any = component[activeView];
@@ -57,6 +68,7 @@ export function Multi(props: MultiProps) {
 
     return (
       <Cmp
+        id={config.id}
         config={config[activeView]}
         data={data}
         callbacks={callbacks as any}

@@ -5,5 +5,6 @@ export { GdiProvider, useDispatch, useSelector, useStore } from './provider';
 export { selectors } from './selectors/selectors.index';
 export { initStore } from './store';
 export * from './types';
+export * from './types.md';
 export { auth } from './utils/auth';
 export { seedDb } from './utils/seed';

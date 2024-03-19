@@ -2,7 +2,10 @@ import React from 'react';
 import { Wrapper } from './Documents.style';
 import { Multi } from 'multi';
 import { multi, initialView, views } from './_multi';
-import DocumentsSummary from './_parts/DocumentsSummary/DocumentsSummary.container';
+import DocumentsSummary, {
+  DocumentsSummaryContainer,
+} from './_parts/DocumentsSummary/DocumentsSummary.container';
+import DocumentFocusContainer from './_parts/DocumentFocus/DocumentFocus.container';
 
 export type DocumentsProps = {
   callbacks: {
@@ -15,6 +18,14 @@ export type DocumentsProps = {
 export function Documents(props: DocumentsProps) {
   const { data, callbacks } = props;
 
+  function renderSummery() {
+    return <DocumentsSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <DocumentFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Documents-wrapper' data-testid='Documents-wrapper'>
       <Multi //
@@ -24,9 +35,9 @@ export function Documents(props: DocumentsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <DocumentsSummary />
-      </Multi>
+        renderSummery={renderSummery}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

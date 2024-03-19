@@ -20,8 +20,8 @@ router.post('/report', async (req: any, res) => {
     });
 
     res.status(200).json({ success: true, id });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating asset:', error);
-    res.status(500).send('Error creating asset');
+    res.status(500).json({ error: error.message });
   }
 });

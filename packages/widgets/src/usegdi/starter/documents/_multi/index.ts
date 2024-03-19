@@ -16,9 +16,11 @@ export const views: IMultiView[] = [
   'calendar',
   'lanes',
   'jsonEditor',
+  'focus',
 ];
 
 export const multi = {
+  id: 'documents',
   calendar,
   jsonEditor,
   masonry,

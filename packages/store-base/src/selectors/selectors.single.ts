@@ -21,3 +21,7 @@ export const $capability = createSelector(
     return capabilities[id];
   }
 );
+
+export const $document = createSelector([raw.$rawDocs, (_state, id) => id], (docs, id) => {
+  return docs[id];
+});

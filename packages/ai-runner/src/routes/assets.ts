@@ -29,9 +29,9 @@ router.post('/new', async (req: any, res) => {
     });
 
     res.status(200).json({ success: true, asset });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error creating asset:', error);
-    res.status(500).send('Error creating asset');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -48,9 +48,9 @@ router.post('/upload', async (req: any, res) => {
     const asset = await upload(req, fileInfo, tags);
 
     res.status(200).json({ success: true, asset });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting playback:', error);
-    res.status(500).send('Error getting playback');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -58,9 +58,9 @@ router.get('/myAssets', async (req: any, res) => {
   try {
     const assets = await db.assets.getAll(req);
     res.status(200).json({ success: true, assets });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting assets:', error);
-    res.status(500).send('Error getting assets');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -74,9 +74,9 @@ router.patch('/myAssets/:id', async (req: any, res) => {
     asset.tags = tags ?? asset.tags;
     await db.assets.set(req, id, asset);
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting assets:', error);
-    res.status(500).send('Error getting assets');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -93,9 +93,9 @@ router.post('/delete', async (req: any, res) => {
     }
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting assets:', error);
-    res.status(500).send('Error getting assets');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -111,9 +111,9 @@ router.post('/fileName', async (req: any, res) => {
     const response = await chat.chat(text);
 
     res.status(200).json({ success: true, fileName: response.text });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting assets:', error);
-    res.status(500).send('Error getting assets');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -130,8 +130,8 @@ router.post('/upload/zip', async (req: any, res) => {
     const assets = await uploadZip(req, fileInfo, tags);
 
     res.status(200).json({ success: true, assets });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error getting playback:', error);
-    res.status(500).send('Error getting playback');
+    res.status(500).json({ error: error.message });
   }
 });

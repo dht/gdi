@@ -4,6 +4,7 @@ import { router as routerAccount } from './routes/account';
 import { router as routerAi } from './routes/ai';
 import { router as routerAssets } from './routes/assets';
 import { router as routerBoards } from './routes/boards';
+import { router as routerDocs } from './routes/docs';
 import { router as routerDocument } from './routes/document';
 import { router as routerEcho } from './routes/echo';
 import { router as routerIssues } from './routes/issues';
@@ -57,6 +58,7 @@ export const initRunner = (params: Params) => {
   router.use('/assets', routerAssets);
   router.use('/account', routerAccount);
   router.use('/boards', routerBoards);
+  router.use('/docs', routerDocs);
   router.use('/document', routerDocument);
   router.use('/issues', routerIssues);
   router.use('/playbacks', routerPlaybacks);

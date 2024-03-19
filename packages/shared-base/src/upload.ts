@@ -20,7 +20,7 @@ export const readFile = (
             try {
                 const json = JSON.parse(value as string);
                 resolve(json);
-            } catch (error) {
+            } catch (error: any) {
                 reject(new Error('Failed to parse JSON'));
                 return;
             }
