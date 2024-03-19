@@ -4,6 +4,7 @@ import { ICoord, ITableField, Json } from '../../../../types';
 import { Wrapper } from './Cell.style';
 import SelectCell from '../SelectCell/SelectCell';
 import { useMount } from 'react-use';
+import { useRef } from 'react';
 
 export type CellProps = {
   style: CSSProperties;
@@ -14,8 +15,11 @@ export type CellProps = {
   fields: ITableField[];
   isSelected: boolean;
   onClick: (rowIndex: number, columnIndex: number) => void;
+  onDoubleClick: (rowIndex: number, columnIndex: number) => void;
   onChange: (id: string, change: Json) => void;
 };
+
+let lastClickTimestamp = 0;
 
 export function Cell(props: CellProps) {
   const { style, columnIndex, rowIndex, data, fields, isSelected } = props;
@@ -28,8 +32,22 @@ export function Cell(props: CellProps) {
     props.onChange(itemData.id, change);
   }
 
+  function onDoubleClick() {
+    props.onDoubleClick(rowIndex, columnIndex);
+  }
+
   function onClick() {
     props.onClick(rowIndex, columnIndex);
+
+    // manual onDoubleClick calculation
+    // native "onDoubleClick" does not work as mouseDown is captured
+    const delta = Date.now() - lastClickTimestamp;
+
+    if (delta < 200) {
+      onDoubleClick();
+    }
+
+    lastClickTimestamp = Date.now();
   }
 
   const value = Array.isArray(itemData[id]) ? itemData[id].join(', ') : itemData[id];

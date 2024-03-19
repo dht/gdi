@@ -46,6 +46,7 @@ export function* showProjectPicker(_action: any, _board: IBoard) {
   }
 
   yield fork(ensureProjectTag, newProjectId);
+  yield put({ type: 'PROJECT_SELECTED', projectId: newProjectId });
 }
 
 export function* changeProjectTag(ev: any) {
@@ -70,6 +71,9 @@ export function* root() {
 
   channel = customEvenChannel('tag/project/set');
   yield* takeEvery(channel, changeProjectTag);
+
+  channel = customEvenChannel('tag/project/select');
+  yield* takeEvery(channel, showProjectPicker as any);
 }
 
 export const saga = {

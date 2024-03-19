@@ -1,8 +1,3 @@
-import { IElementsPerResolution } from 'igrid';
-import { NoId } from './utils/id';
-import type { IIsoStore } from '@gdi/store-iso';
-import { IDocument } from './types';
-
 export type IMyData = {
   docs: IDocuments;
   contacts: IContacts;

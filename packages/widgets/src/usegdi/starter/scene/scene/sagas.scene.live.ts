@@ -20,9 +20,9 @@ export function* onAssetChange(ev: any) {
     return;
   }
 
-  const { fileName, tags = [] } = asset;
+  const { fileName, tags = [], project } = asset;
 
-  if (fileName !== 'scene-default.json' || !tags.includes(projectTag ?? '')) {
+  if (fileName !== 'scene-default.json' || project !== projectTag) {
     return;
   }
 

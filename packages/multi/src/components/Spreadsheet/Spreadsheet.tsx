@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { useMeasure } from 'react-use';
 import { FixedSizeGrid } from 'react-window';
 import { Json } from '../../types';
@@ -13,6 +13,7 @@ import NewLine from './_parts/NewLine/NewLine';
 import { invokeEvent } from 'shared-base';
 
 export type SpreadsheetProps = {
+  id: string;
   data: Json;
   darkMode?: boolean;
   rowHeight?: number;
@@ -20,29 +21,39 @@ export type SpreadsheetProps = {
 };
 
 export function Spreadsheet(props: SpreadsheetProps) {
-  const { data, darkMode, rowHeight = 30, columnWidth = 150 } = props;
+  const { id, data, darkMode, rowHeight = 30, columnWidth = 150 } = props;
   const { state, callbacks } = useContext(SpreadsheetContext);
   const { config } = state;
   const { fields = [] } = config;
   const [ref, { width, height }] = useMeasure<HTMLDivElement>();
   const rowsPerPage = Math.floor(height / rowHeight);
-  const [coord, setCoord] = useArrows({ x: 0, y: 0 }, { rowsPerPage });
+  const [coord, setCoord] = useArrows(id, { x: 0, y: 0 }, { rowsPerPage });
 
-  useEffect(() => {
-    if (!callbacks.onItemAction) return;
-
+  const item = useMemo(() => {
     const { y } = coord;
     const item = data[y];
 
     if (!item) return;
 
     const { id } = item;
-    callbacks.onItemAction(id, 'select', item);
-    invokeEvent('multi/item/select', { id });
+    return { id, item };
   }, [coord]);
+
+  useEffect(() => {
+    if (!callbacks.onItemAction || !item) return;
+    callbacks.onItemAction(item.id, 'select', item.item);
+    invokeEvent('multi/item/select', { id: item.id });
+  }, [item]);
 
   function onClick(rowIndex: number, columnIndex: number) {
     setCoord({ x: columnIndex, y: rowIndex });
+  }
+
+  function onDoubleClick(_rowIndex: number, _columnIndex: number) {
+    if (!item) return;
+    setTimeout(() => {
+      invokeEvent('multi/item/drillDown', { id: item.id });
+    }, 150);
   }
 
   function onChange(id: string, change: Json) {
@@ -66,6 +77,7 @@ export function Spreadsheet(props: SpreadsheetProps) {
         fields={fields}
         isSelected={isSelected}
         onClick={onClick}
+        onDoubleClick={onDoubleClick}
         onChange={onChange}
       />
     );

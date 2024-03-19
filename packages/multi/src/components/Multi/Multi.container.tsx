@@ -12,7 +12,8 @@ export type MultiContainerProps = {
   callbacks: IMultiCallbacks;
   data: Json[];
   darkMode?: boolean;
-  children?: React.ReactNode;
+  renderSummary?: () => React.ReactNode;
+  renderFocus?: () => React.ReactNode;
 };
 
 export function MultiContainer(props: MultiContainerProps) {
@@ -47,7 +48,7 @@ export function MultiContainer(props: MultiContainerProps) {
 
   return (
     <MultiProvider callbacks={callbacks} state={initialState} data={data}>
-      <Multi>{props.children}</Multi>
+      <Multi renderSummary={props.renderSummary} renderFocus={props.renderFocus} />
     </MultiProvider>
   );
 }

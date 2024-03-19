@@ -8,4 +8,12 @@ export class S3Adapter implements StorageAdapter {
   }
 
   addListener(_file: any) {}
+
+  getFile(file: any) {
+    return file.download();
+  }
+
+  renameFile(file: any, newFilePath: string) {
+    return file.move(newFilePath);
+  }
 }

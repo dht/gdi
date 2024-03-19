@@ -20,9 +20,9 @@ router.post('/keys', async (req, res) => {
     await dbAdapter.patchKeys(req, keys);
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving keys:', error);
-    res.status(500).send('Error saving keys');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -41,9 +41,9 @@ router.post('/login', async (req: any, res) => {
     await db.user.patch(req, user);
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving user:', error);
-    res.status(500).send('Error saving user');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -66,9 +66,9 @@ router.post('/keys/validate', async (req: any, res) => {
     const isApiKeyOk = isOpenAiOk && isElevenLabsOk && isEnvatoOk;
 
     res.status(200).json({ isApiKeyOk });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving keys:', error);
-    res.status(500).send('Error saving keys');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -79,9 +79,9 @@ router.post('/settings', async (req, res) => {
     await db.settings.patch(req, settings);
 
     res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving settings:', error);
-    res.status(500).send('Error settings keys');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -89,9 +89,9 @@ router.get('/settings', async (req, res) => {
   try {
     const settings = await db.settings.get(req);
     res.status(200).json({ settings });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error saving settings:', error);
-    res.status(500).send('Error settings keys');
+    res.status(500).json({ error: error.message });
   }
 });
 

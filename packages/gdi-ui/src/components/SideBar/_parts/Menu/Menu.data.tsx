@@ -37,8 +37,8 @@ export const items = [
     path: '/account',
   },
   {
-    id: 'documentation',
-    title: 'Docs',
+    id: 'guides',
+    title: 'Guides',
     icon: 'description',
     path: '/docs',
   },

@@ -13,9 +13,9 @@ router.post('/search', async (req: any, res) => {
     const { q } = req.body;
     const response = await envato.search.music(q);
     res.status(200).json(response);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error search music:', error);
-    res.status(500).send('Error search music');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -23,9 +23,9 @@ router.post('/purchases', async (_req: any, res) => {
   try {
     const response = await envato.search.getPurchases();
     res.status(200).json(response);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error search music:', error);
-    res.status(500).send('Error search music');
+    res.status(500).json({ error: error.message });
   }
 });
 
@@ -35,8 +35,8 @@ router.post('/import/:id', async (req: any, res) => {
     const response = await envato.search.getDownloadLink(id);
 
     res.status(200).json(response);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error search music:', error);
-    res.status(500).send('Error search music');
+    res.status(500).json({ error: error.message });
   }
 });

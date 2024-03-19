@@ -36,7 +36,7 @@ export const fetchWithProgress = async (fileUrl: string) => {
         percent,
       });
     }
-  } catch (error) {
+  } catch (error: any) {
     return {
       success: false,
       url: fileUrl,

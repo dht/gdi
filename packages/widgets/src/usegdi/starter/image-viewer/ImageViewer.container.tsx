@@ -17,7 +17,7 @@ export function ImageViewerContainer(_props: ImageViewerContainerProps) {
     }
     return (
       <SavePanelContainer
-        value={suggestedFileName}
+        defaultValue={suggestedFileName}
         what='image'
         verb='saveImage'
         disabled={disabled}

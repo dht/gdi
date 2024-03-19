@@ -71,4 +71,11 @@ export const fields: ITableField[] = [
     flex: 1,
     params: {},
   },
+  {
+    id: 'filePath',
+    title: 'Path',
+    cellType: 'text',
+    flex: 1,
+    params: {},
+  },
 ];
