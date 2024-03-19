@@ -1,7 +1,7 @@
 import * as fdb from '../fileDb';
 import kleur from 'kleur';
 import fs from 'fs-extra';
-import { DBAdapter } from '../types';
+import { DBAdapter } from '../../types';
 import { guid4 } from 'shared-base';
 
 export class FsDbAdapter implements DBAdapter {

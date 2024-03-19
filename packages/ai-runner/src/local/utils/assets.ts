@@ -1,6 +1,6 @@
 import * as chokidar from 'chokidar';
 import * as fs from 'fs-extra';
-import { IFile } from '../types';
+import { IFile } from '../../types';
 import { socketsAdapter } from './globals';
 import { isInDelta, ts } from './date';
 

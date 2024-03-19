@@ -42,12 +42,6 @@ export const initialStateMd: IMyData = {
       title: 'First List Item',
     },
   },
-  financeLines: {
-    '1': {
-      id: '1',
-      title: 'First Finance Line',
-    },
-  },
   events: {
     '1': {
       id: '1',

@@ -28,7 +28,13 @@ export const getSceneAsset = async (req: any, projectId: string) => {
   return scene;
 };
 
-export const createSceneAsset = async (req: any, id: string, url: string, tags: string[] = []) => {
+export const createSceneAsset = async (
+  req: any,
+  id: string,
+  url: string,
+  tags: string[] = [],
+  project: string
+) => {
   const asset = await createAsset(req, {
     id,
     fileName: 'scene-default.json',
@@ -37,13 +43,14 @@ export const createSceneAsset = async (req: any, id: string, url: string, tags: 
     contentType: 'scene',
     tsAdded: tsShort(),
     tags,
+    project,
   });
 
   return asset;
 };
 
 export const saveOrCreateSceneAsset = async (req: any, projectId: string) => {
-  const tags = [projectId];
+  const tags: string[] = [];
   const scene = await getScene(req);
   const json = JSON.stringify(scene, null, 2);
   let asset = await getSceneAsset(req, projectId);
@@ -57,7 +64,7 @@ export const saveOrCreateSceneAsset = async (req: any, projectId: string) => {
 
   if (!asset) {
     const url = await saveToBucket(req, filePath, json, 'application/json', meta, true);
-    asset = await createSceneAsset(req, id, url, tags);
+    asset = await createSceneAsset(req, id, url, tags, projectId);
   } else {
     const url = await saveToBucket(req, filePath, json, 'application/json', meta);
 

@@ -4,7 +4,7 @@ import db from '../db';
 import { contentTypeFromFileName } from '../utils/contentType';
 import { tsShort } from '../utils/time';
 
-export const upload = async (req: any, fileInfo: Json, tags: string[]) => {
+export const upload = async (req: any, fileInfo: Json, tags: string[], project: string) => {
   const { name: fileName, size, type, text, base64, forceContentType } = fileInfo;
 
   const ext = fileName.split('.').pop();
@@ -36,6 +36,7 @@ export const upload = async (req: any, fileInfo: Json, tags: string[]) => {
     tsAdded: tsShort(),
     tags,
     size,
+    project,
   });
 
   return asset;

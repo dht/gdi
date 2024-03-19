@@ -1,5 +1,5 @@
 import { guid4 } from 'shared-base';
-import { SocketsAdapter } from '../types';
+import { SocketsAdapter } from '../../types';
 import { unScopePath } from '../utils/xpath';
 
 type Listener = {

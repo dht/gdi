@@ -21,7 +21,13 @@ export const getClipAsset = async (req: any) => {
   return scene;
 };
 
-export const createClipAsset = async (req: any, id: string, url: string, tags: string[] = []) => {
+export const createClipAsset = async (
+  req: any,
+  id: string,
+  url: string,
+  tags: string[] = [],
+  project: string
+) => {
   const asset = await createAsset(req, {
     id,
     fileName: 'clip-default.json',
@@ -30,13 +36,14 @@ export const createClipAsset = async (req: any, id: string, url: string, tags: s
     contentType: 'clip',
     tsAdded: tsShort(),
     tags,
+    project,
   });
 
   return asset;
 };
 
 export const saveOrCreateSceneAsset = async (req: any, projectId: string) => {
-  const tags = [projectId];
+  const tags: string[] = [];
   const scene = await getClip(req);
   const json = JSON.stringify(scene, null, 2);
   let asset = await getClipAsset(req);
@@ -50,7 +57,7 @@ export const saveOrCreateSceneAsset = async (req: any, projectId: string) => {
 
   if (!asset) {
     const url = await saveToBucket(req, filePath, json, 'application/json', meta);
-    asset = await createClipAsset(req, id, url, tags);
+    asset = await createClipAsset(req, id, url, tags, projectId);
   } else {
     const url = await saveToBucket(req, filePath, json, 'application/json', meta);
 
