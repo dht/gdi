@@ -5,7 +5,7 @@ const _ = require('lodash');
 const ROOT = path.resolve(__dirname, '../packages/widgets/src/usegdi/starter');
 
 const input = 'reminders';
-const output = 'posts';
+const output = 'finances';
 
 const cases = {
   input: {

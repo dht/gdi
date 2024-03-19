@@ -301,6 +301,20 @@ export const sagas: ISagas = {
       actionTypes: ['REMINDERS'],
     },
   },
+  'widgets.financeLines': {
+    id: 'widgets.financeLines',
+    type: 'component',
+    trigger: {
+      actionTypes: ['FINANCE_LINES'],
+    },
+  },
+  'widgets.financeLine': {
+    id: 'widgets.financeLine',
+    type: 'component',
+    trigger: {
+      actionTypes: ['FINANCE_LINE'],
+    },
+  },
   'widgets.contact': {
     id: 'widgets.contact',
     type: 'component',

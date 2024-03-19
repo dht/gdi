@@ -68,4 +68,11 @@ export const icons = [
     boardId: 'B-022',
     order: 9,
   },
+  {
+    id: 'finances',
+    name: 'Finances',
+    iconName: 'credit_card',
+    boardId: 'B-011',
+    order: 10,
+  },
 ];

@@ -20,21 +20,21 @@ export const fields: ITableField[] = [
     },
   },
   {
+    id: 'amount',
+    title: 'Amount',
+    cellType: 'number',
+    flex: 1,
+    params: {
+      width: 150,
+    },
+  },
+  {
     id: 'date',
     title: 'Date',
     cellType: 'date',
     flex: 1,
     params: {
       width: 110,
-    },
-  },
-  {
-    id: 'fileType',
-    title: 'File type',
-    cellType: 'text',
-    flex: 1,
-    params: {
-      width: 70,
     },
   },
   {
