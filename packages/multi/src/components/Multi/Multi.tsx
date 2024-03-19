@@ -20,7 +20,7 @@ import { useCustomEvent } from '../Spreadsheet/Spreadsheet.hooks';
 
 export type MultiProps = {
   renderSummary?: () => React.ReactNode;
-  renderFocus?: () => React.ReactNode;
+  renderFocus?: (itemId?: string) => React.ReactNode;
 };
 
 const component = {

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Finances.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import FinancesSummary from './_parts/FinancesSummary/FinancesSummary.container';
+import DocumentFocusContainer from '../documents/_parts/DocumentFocus/DocumentFocus.container';
+import { Wrapper } from './Finances.style';
+import { initialView, multi, views } from './_multi';
+import { FinancesSummaryContainer } from './_parts/FinancesSummary/FinancesSummary.container';
 
 export type FinancesProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type FinancesProps = {
 export function Finances(props: FinancesProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <FinancesSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <DocumentFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Finances-wrapper' data-testid='Finances-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Finances(props: FinancesProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <FinancesSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

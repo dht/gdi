@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Reminders.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import RemindersSummary from './_parts/RemindersSummary/RemindersSummary.container';
+import { Wrapper } from './Reminders.style';
+import { initialView, multi, views } from './_multi';
+import ReminderFocusContainer from './_parts/ReminderFocus/ReminderFocus.container';
+import { RemindersSummaryContainer } from './_parts/RemindersSummary/RemindersSummary.container';
 
 export type RemindersProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type RemindersProps = {
 export function Reminders(props: RemindersProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <RemindersSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <ReminderFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Reminders-wrapper' data-testid='Reminders-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Reminders(props: RemindersProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <RemindersSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Contacts.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import ContactsSummary from './_parts/ContactsSummary/ContactsSummary';
+import { Wrapper } from './Contacts.style';
+import { initialView, multi, views } from './_multi';
+import ContactFocusContainer from './_parts/ContactFocus/ContactFocus.container';
+import ContactsSummaryContainer from './_parts/ContactsSummary/ContactsSummary.container';
 
 export type ContactsProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type ContactsProps = {
 export function Contacts(props: ContactsProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <ContactsSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <ContactFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Contacts-wrapper' data-testid='Contacts-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Contacts(props: ContactsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <ContactsSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

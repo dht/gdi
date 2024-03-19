@@ -6,6 +6,7 @@ export { Bar } from './components/Bar/Bar';
 export { BoardDetailsPage } from './components/BoardDetailsPage/BoardDetailsPage';
 export { BoardHeader } from './components/BoardHeader/BoardHeader';
 export { BoardIntro } from './components/BoardIntro/BoardIntro';
+export { BootstrapParams } from './components/BootstrapParams/BootstrapParams';
 export { Button } from './components/Button/Button';
 export { CardBrowse } from './components/CardBrowse/CardBrowse';
 export { ChartDoughnut } from './components/ChartDoughnut/ChartDoughnut';

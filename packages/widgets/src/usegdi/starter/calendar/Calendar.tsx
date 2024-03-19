@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Calendar.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import CalendarSummary from './_parts/CalendarSummary/CalendarSummary.container';
+import { Wrapper } from './Calendar.style';
+import { initialView, multi, views } from './_multi';
+import CalendarFocusContainer from './_parts/CalendarFocus/CalendarFocus.container';
+import { CalendarSummaryContainer } from './_parts/CalendarSummary/CalendarSummary.container';
 
 export type CalendarProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type CalendarProps = {
 export function Calendar(props: CalendarProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <CalendarSummaryContainer />;
+  }
+
+  function renderFocus() {
+    return <CalendarFocusContainer />;
+  }
+
   return (
     <Wrapper className='Calendar-wrapper' data-testid='Calendar-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Calendar(props: CalendarProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <CalendarSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

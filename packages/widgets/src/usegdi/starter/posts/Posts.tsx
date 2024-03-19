@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Posts.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import PostsSummary from './_parts/PostsSummary/PostsSummary.container';
+import { PostWriterContainer } from '../post-writer/PostWriter.container';
+import { Wrapper } from './Posts.style';
+import { initialView, multi, views } from './_multi';
+import { PostsSummaryContainer } from './_parts/PostsSummary/PostsSummary.container';
 
 export type PostsProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type PostsProps = {
 export function Posts(props: PostsProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <PostsSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <PostWriterContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Posts-wrapper' data-testid='Posts-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Posts(props: PostsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <PostsSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

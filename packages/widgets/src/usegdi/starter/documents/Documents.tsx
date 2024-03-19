@@ -1,11 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Documents.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import DocumentsSummary, {
-  DocumentsSummaryContainer,
-} from './_parts/DocumentsSummary/DocumentsSummary.container';
+import { Wrapper } from './Documents.style';
+import { initialView, multi, views } from './_multi';
 import DocumentFocusContainer from './_parts/DocumentFocus/DocumentFocus.container';
+import { DocumentsSummaryContainer } from './_parts/DocumentsSummary/DocumentsSummary.container';
 
 export type DocumentsProps = {
   callbacks: {
@@ -18,7 +15,7 @@ export type DocumentsProps = {
 export function Documents(props: DocumentsProps) {
   const { data, callbacks } = props;
 
-  function renderSummery() {
+  function renderSummary() {
     return <DocumentsSummaryContainer />;
   }
 
@@ -35,7 +32,7 @@ export function Documents(props: DocumentsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-        renderSummery={renderSummery}
+        renderSummary={renderSummary}
         renderFocus={renderFocus}
       />
     </Wrapper>

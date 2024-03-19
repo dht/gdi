@@ -52,3 +52,24 @@ export const optionsRootPanel = [
   'mux',
   'village',
 ];
+
+export const optionsTone = [
+  'casual',
+  'humorous',
+  'serious',
+  'informative',
+  'inspiring',
+  'motivational',
+];
+
+export const optionsAudience = [
+  'developers',
+  'designers',
+  'writers',
+  'artists',
+  'musicians',
+  'students',
+  'teachers',
+];
+
+export const optionsPlatform = ['X', 'linkedin', 'facebook', 'instagram'];
