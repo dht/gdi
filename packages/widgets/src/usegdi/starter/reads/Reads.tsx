@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Reads.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import ReadsSummary from './_parts/ReadsSummary/ReadsSummary.container';
+import { Wrapper } from './Reads.style';
+import { initialView, multi, views } from './_multi';
+import ReadFocusContainer from './_parts/ReadFocus/ReadFocus.container';
+import { ReadsSummaryContainer } from './_parts/ReadsSummary/ReadsSummary.container';
 
 export type ReadsProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type ReadsProps = {
 export function Reads(props: ReadsProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <ReadsSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <ReadFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Reads-wrapper' data-testid='Reads-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Reads(props: ReadsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <ReadsSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

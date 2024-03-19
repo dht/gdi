@@ -18,6 +18,7 @@ import { saga as sagaFinanceLine } from './usegdi/starter/finances/sagas.Finance
 import { saga as sagaFinanceLines } from './usegdi/starter/finances/sagas.Finances';
 import { saga as sagaPost } from './usegdi/starter/posts/sagas.Post';
 import { saga as sagaPosts } from './usegdi/starter/posts/sagas.Posts';
+import { saga as sagaPostWriter } from './usegdi/starter/posts/sagas.PostWriter';
 import { saga as sagaPplGrid } from './usegdi/starter/ppl-grid/sagas.PplGrid';
 import { saga as sagaProductTour } from './usegdi/starter/product-tour/sagas.ProductTour';
 import { sagas as sagasScene } from './usegdi/starter/scene/sagas';
@@ -58,6 +59,7 @@ export const sagas: any = {
   'widgets.musicList': sagaMusicList,
   'widgets.post': sagaPost,
   'widgets.posts': sagaPosts,
+  'widgets.postWriter': sagaPostWriter,
   'widgets.pplGrid': sagaPplGrid,
   'widgets.productTour': sagaProductTour,
   'widgets.transcript': sagaTranscript,

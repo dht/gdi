@@ -364,6 +364,13 @@ export const sagas: ISagas = {
       actionTypes: ['POSTS'],
     },
   },
+  'widgets.postWriter': {
+    id: 'widgets.postWriter',
+    type: 'component',
+    trigger: {
+      actionTypes: ['POST_WRITER'],
+    },
+  },
   'widgets.expressDebugger': {
     id: 'widgets.expressDebugger',
     type: 'component',

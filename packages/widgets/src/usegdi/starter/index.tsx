@@ -51,6 +51,7 @@ import posts from './posts';
 import pplDetails from './ppl-details';
 import pplGrid from './ppl-grid';
 import pplSwitch from './ppl-switch';
+import postWriter from './post-writer';
 import premiere from './premiere';
 import productTour from './product-tour';
 import reads from './reads';
@@ -139,6 +140,7 @@ export const starter: IWidgets = {
   'com.usegdi.starter.pinterest': pinterest,
   'com.usegdi.starter.playback': playback,
   'com.usegdi.starter.posts': posts,
+  'com.usegdi.starter.post-writer': postWriter,
   'com.usegdi.starter.ppl-details': pplDetails,
   'com.usegdi.starter.ppl-grid': pplGrid,
   'com.usegdi.starter.ppl-switch': pplSwitch,

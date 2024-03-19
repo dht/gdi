@@ -15,3 +15,10 @@ export const parameters = [
     placeholder: 'document style',
   },
 ];
+
+export const initialState = {
+  documentType: 'email',
+  documentLength: '3 paragraphs',
+  documentStyle: 'casually',
+  topicAndInstructions: '',
+};

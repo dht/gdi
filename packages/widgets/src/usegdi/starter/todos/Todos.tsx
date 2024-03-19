@@ -1,8 +1,8 @@
-import React from 'react';
-import { Wrapper } from './Todos.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import TodosSummary from './_parts/TodosSummary/TodosSummary.container';
+import { Wrapper } from './Todos.style';
+import { initialView, multi, views } from './_multi';
+import TodoFocusContainer from './_parts/TodoFocus/TodoFocus.container';
+import { TodosSummaryContainer } from './_parts/TodosSummary/TodosSummary.container';
 
 export type TodosProps = {
   callbacks: {
@@ -15,6 +15,14 @@ export type TodosProps = {
 export function Todos(props: TodosProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <TodosSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <TodoFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Todos-wrapper' data-testid='Todos-wrapper'>
       <Multi //
@@ -24,9 +32,9 @@ export function Todos(props: TodosProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <TodosSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

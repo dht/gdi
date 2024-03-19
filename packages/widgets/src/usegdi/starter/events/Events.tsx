@@ -1,8 +1,10 @@
-import React from 'react';
-import { Wrapper } from './Events.style';
 import { Multi } from 'multi';
-import { multi, initialView, views } from './_multi';
-import EventsSummary from './_parts/EventsSummary/EventsSummary.container';
+import { Wrapper } from './Events.style';
+import { initialView, multi, views } from './_multi';
+import EventsSummary, {
+  EventsSummaryContainer,
+} from './_parts/EventsSummary/EventsSummary.container';
+import EventFocusContainer from './_parts/EventFocus/EventFocus.container';
 
 export type EventsProps = {
   callbacks: {
@@ -15,6 +17,14 @@ export type EventsProps = {
 export function Events(props: EventsProps) {
   const { data, callbacks } = props;
 
+  function renderSummary() {
+    return <EventsSummaryContainer />;
+  }
+
+  function renderFocus(id: string) {
+    return <EventFocusContainer id={id} />;
+  }
+
   return (
     <Wrapper className='Events-wrapper' data-testid='Events-wrapper'>
       <Multi //
@@ -24,9 +34,9 @@ export function Events(props: EventsProps) {
         data={data}
         callbacks={callbacks}
         darkMode
-      >
-        <EventsSummary />
-      </Multi>
+        renderSummary={renderSummary}
+        renderFocus={renderFocus}
+      />
     </Wrapper>
   );
 }

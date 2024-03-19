@@ -3,11 +3,14 @@ import * as raw from './selectors.raw';
 import { sortBy } from 'shared-base';
 import { createOptions } from '../utils/options';
 import {
+  optionsAudience,
   optionsImageQuality,
   optionsImageSize,
   optionsLength,
+  optionsPlatform,
   optionsRootPanel,
   optionsStyle,
+  optionsTone,
   optionsType,
 } from '../data/data.document';
 import { IGdiStore } from '../types';
@@ -69,6 +72,18 @@ export const $documentLength = createSelector($o, () => {
 
 export const $documentStyle = createSelector($o, () => {
   return createOptions(optionsStyle);
+});
+
+export const $postAudience = createSelector($o, () => {
+  return createOptions(optionsAudience);
+});
+
+export const $postPlatform = createSelector($o, () => {
+  return createOptions(optionsPlatform);
+});
+
+export const $postTone = createSelector($o, () => {
+  return createOptions(optionsTone);
 });
 
 export const $imageSize = createSelector($o, () => {
