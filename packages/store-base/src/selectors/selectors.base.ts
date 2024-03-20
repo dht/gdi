@@ -433,11 +433,21 @@ export const $todos = createSelector(raw.$rawTodos, $filterParams, (items, filte
     .sort(sortBy('title', 'desc'));
 });
 
+export const $lists = createSelector(raw.$rawLists, $filterParams, (items, filterParams) => {
+  const arr = Object.values(items);
+
+  return filterItems(arr, filterParams) //
+    .sort(sortBy('title', 'desc'));
+});
+
 export const $listItems = createSelector(
+  raw.$rawCurrentIds,
   raw.$rawListItems,
   $filterParams,
-  (items, filterParams) => {
-    const arr = Object.values(items);
+  (currentIds, items, filterParams) => {
+    const { listId } = currentIds;
+
+    const arr = Object.values(items).filter((item) => item.listId === listId);
 
     return filterItems(arr, filterParams) //
       .sort(sortBy('title', 'desc'));

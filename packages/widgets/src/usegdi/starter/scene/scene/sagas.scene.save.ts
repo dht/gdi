@@ -32,7 +32,7 @@ export function* root() {
 
 export const saga = {
   id: 'widgets.scene.save',
-  type: 'action',
+  type: 'customAction',
   root: root,
   trigger: {
     actionTypes: ['SCENE_SAVE'],

@@ -1,33 +1,24 @@
-import { IMultiView } from 'multi';
-import { calendar } from './lists.multi.calendar';
-import { jsonEditor } from './lists.multi.json';
-import { lanes } from './lists.multi.lanes';
-import { masonry } from './lists.multi.masonry';
-import { sheet } from './lists.multi.sheet';
-import { table } from './lists.multi.table';
-
-export const initialView: IMultiView = 'sheet';
-
-export const views: IMultiView[] = [
-  // 'summary',
-  'sheet',
-  'table',
-  'masonry',
-  'calendar',
-  'lanes',
-  'jsonEditor',
-];
+import { calendar as calendarLists } from './lists.multi.calendar';
+import { jsonEditor as jsonEditorLists } from './lists.multi.json';
+import { lanes as lanesLists } from './lists.multi.lanes';
+import { masonry as masonryLists } from './lists.multi.masonry';
+import { sheet as sheetLists } from './lists.multi.sheet';
+import { table as tableLists } from './lists.multi.table';
 
 export const multi = {
-  id: 'lists',
-  calendar,
-  jsonEditor,
-  masonry,
-  sheet,
-  lanes,
-  table,
-  itemDisplay: {
-    title: ['title'],
-    subtitle: [],
+  initialView: 'sheet',
+  views: ['sheet', 'table', 'masonry', 'calendar', 'lanes', 'jsonEditor'],
+  config: {
+    id: 'lists',
+    calendar: calendarLists,
+    jsonEditor: jsonEditorLists,
+    masonry: masonryLists,
+    sheet: sheetLists,
+    lanes: lanesLists,
+    table: tableLists,
+    itemDisplay: {
+      title: ['title'],
+      subtitle: [],
+    },
   },
 };

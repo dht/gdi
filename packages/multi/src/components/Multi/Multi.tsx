@@ -34,7 +34,7 @@ const component = {
 
 export function Multi(props: MultiProps) {
   const { state, data, callbacks, patchState } = useContext(MultiContext);
-  const { activeView, config, darkMode, isReady, showItemActions, itemId } = state;
+  const { activeView, views, config, darkMode, isReady, showItemActions, itemId } = state;
 
   useCustomEvent('multi/item/select', (ev: any) => {
     const { id } = ev;
@@ -43,6 +43,7 @@ export function Multi(props: MultiProps) {
 
   useCustomEvent('multi/item/drillDown', (ev: any) => {
     const { id } = ev;
+    if (!views.includes('focus')) return;
     patchState({ activeView: 'focus', itemId: id });
   });
 

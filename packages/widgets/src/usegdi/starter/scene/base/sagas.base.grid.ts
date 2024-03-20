@@ -30,6 +30,6 @@ export const saga = {
   type: 'predicate',
   root: root,
   trigger: {
-    xpath: ['sceneState.hideGrid'],
+    xpaths: ['sceneState.hideGrid'],
   },
 };

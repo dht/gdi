@@ -16,7 +16,7 @@ export function createContext<S extends IContextState, C extends IContextCallbac
       onSearch: (q: string) => {},
       ...extraCallbacks,
     },
-    patchState: (change: Partial<S>) => {},
+    patchState: (change: Partial<S>) => ({} as S),
     data: [],
   });
 }

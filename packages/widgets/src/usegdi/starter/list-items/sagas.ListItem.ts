@@ -1,6 +1,6 @@
-import { selectors, ILists, actions } from '@gdi/store-base';
+import { selectors, IListItems, actions } from '@gdi/store-base';
 import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseChange } from './Lists.utils';
+import { parseChange } from './ListItems.utils';
 import { guid4 } from 'shared-base';
 import { toast } from '@gdi/ui';
 
@@ -22,9 +22,12 @@ const map: Record<Verb, any> = {
   delete: deleteListItem,
 };
 
-export function* addListItem(action: Action, item: ILists) {
+export function* addListItem(action: Action, item: IListItems) {
   const { payload } = action;
   const { data } = payload;
+
+  const currentIds = yield* select(selectors.raw.$rawCurrentIds);
+  const { listId } = currentIds;
 
   const metaParams = yield* select(selectors.base.$metaParams);
 
@@ -34,18 +37,24 @@ export function* addListItem(action: Action, item: ILists) {
     return;
   }
 
+  if (!listId) {
+    toast.show('List not selected', 'error');
+    return;
+  }
+
   yield* put(
     actions.listItems.add({
       id: guid4(),
       ...data,
       ...metaParams,
+      listId,
     })
   );
 
   toast.show('ListItem added');
 }
 
-export function* editListItem(action: Action, item: ILists) {
+export function* editListItem(action: Action, item: IListItems) {
   const { id, payload } = action;
 
   const change = parseChange(payload);
@@ -53,13 +62,13 @@ export function* editListItem(action: Action, item: ILists) {
   yield put(actions.listItems.patch(id, change));
 }
 
-export function* deleteListItem(action: Action, item: ILists) {
+export function* deleteListItem(action: Action, item: IListItems) {
   const { id, payload } = action;
 
   yield put(actions.listItems.delete(id));
 }
 
-export function* list(action: any) {
+export function* listItem(action: any) {
   const { verb, id } = action;
 
   const saga = (map as any)[verb];
@@ -68,14 +77,14 @@ export function* list(action: any) {
     return;
   }
 
-  const lists = yield* select(selectors.raw.$rawLists);
-  const item = lists[id];
+  const listItems = yield* select(selectors.raw.$rawListItems);
+  const item = listItems[id];
 
   yield* fork(saga, action, item);
 }
 
 export function* root() {
-  yield takeEvery('LIST_ITEM', list);
+  yield takeEvery('LIST_ITEM', listItem);
 }
 
 export const saga = {

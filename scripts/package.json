@@ -29,6 +29,7 @@
     "cors": "^2.8.5",
     "glob": "^10.3.10",
     "js-yaml": "^4.1.0",
-    "json-server": "^0.17.4"
+    "json-server": "^0.17.4",
+    "prettier": "^3.2.5"
   }
 }

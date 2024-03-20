@@ -75,6 +75,7 @@ export const initialState: IGdiStore = {
     assetId: '',
     weekId: 'all',
     leftId: '',
+    listId: '',
     rightId: '',
     modalId: '',
     muxTabId: 'home',

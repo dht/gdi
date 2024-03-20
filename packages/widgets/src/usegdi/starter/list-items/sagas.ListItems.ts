@@ -1,4 +1,4 @@
-import { selectors, ILists } from '@gdi/store-base';
+import { selectors, IListItems } from '@gdi/store-base';
 import { fork, select, takeEvery } from 'saga-ts';
 
 type Verb = '';
@@ -11,7 +11,7 @@ type Action = {
 
 const map: Record<Verb, any> = {};
 
-export function* lists(action: any) {
+export function* listItems(action: any) {
   const { verb, id } = action;
 
   const saga = (map as any)[verb];
@@ -20,14 +20,14 @@ export function* lists(action: any) {
     return;
   }
 
-  const lists = yield* select(selectors.raw.$rawLists);
-  const item = lists[id];
+  const listItems = yield* select(selectors.raw.$rawListItems);
+  const item = listItems[id];
 
   yield* fork(saga, action, item);
 }
 
 export function* root() {
-  yield takeEvery('LIST_ITEMS', lists);
+  yield takeEvery('LIST_ITEMS', listItems);
 }
 
 export const saga = {
