@@ -41,11 +41,15 @@ export function Multi(props: MultiProps) {
     patchState({ itemId: id });
   });
 
-  useCustomEvent('multi/item/drillDown', (ev: any) => {
-    const { id } = ev;
-    if (!views.includes('focus')) return;
-    patchState({ activeView: 'focus', itemId: id });
-  });
+  useCustomEvent(
+    'multi/item/drillDown',
+    (ev: any) => {
+      const { id } = ev;
+      if (!views.includes('focus')) return;
+      patchState({ activeView: 'focus', itemId: id });
+    },
+    [views]
+  );
 
   if (!isReady) {
     return null;
