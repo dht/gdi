@@ -6,7 +6,6 @@ export const Wrapper = styled.input`
   border: 1px solid var(--border-color);
   border-radius: 5rem;
   color: #334;
-  font-family: 'Roboto Flex', monospace;
   width: calc(100% - 37rem);
 
   @media (max-width: 768px) {

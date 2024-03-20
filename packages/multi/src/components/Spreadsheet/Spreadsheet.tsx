@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import { useContext, useEffect, useMemo } from 'react';
 import { useMeasure } from 'react-use';
-import { FixedSizeGrid } from 'react-window';
+import { VariableSizeGrid } from 'react-window';
 import { Json } from '../../types';
 import { SpreadsheetContext } from './Spreadsheet.context';
 import { useArrows } from './Spreadsheet.hooks';
@@ -11,6 +11,7 @@ import { get } from 'lodash';
 import Header from './_parts/Header/Header';
 import NewLine from './_parts/NewLine/NewLine';
 import { invokeEvent } from 'shared-base';
+import { useMeasureOnce } from '../../hooks/useMeasureOnce';
 
 export type SpreadsheetProps = {
   id: string;
@@ -18,20 +19,21 @@ export type SpreadsheetProps = {
   darkMode?: boolean;
   rowHeight?: number;
   columnWidth?: number;
+  width: number;
+  height: number;
 };
 
 export function Spreadsheet(props: SpreadsheetProps) {
-  const { id, data, darkMode, rowHeight = 30, columnWidth = 150 } = props;
+  const { id, data, darkMode, rowHeight = 30, columnWidth = 150, width = 0, height = 0 } = props;
   const { state, callbacks } = useContext(SpreadsheetContext);
   const { config } = state;
   const { fields = [] } = config;
-  const [ref, { width, height }] = useMeasure<HTMLDivElement>();
   const rowsPerPage = Math.floor(height / rowHeight);
-  const [coord, setCoord] = useArrows(id, { x: 0, y: 0 }, { rowsPerPage });
+  const [coord, setCoord] = useArrows(id, { x: 0, y: 0 }, { rowsPerPage, count: data.length });
 
   const item = useMemo(() => {
     const { y } = coord;
-    const item = data[y];
+    const item = data[y - 2];
 
     if (!item) return;
 
@@ -67,12 +69,22 @@ export function Spreadsheet(props: SpreadsheetProps) {
   });
 
   function renderCell(cellProps: any) {
-    const { columnIndex, rowIndex } = cellProps;
+    const { columnIndex, rowIndex, style } = cellProps;
     const isSelected = columnIndex === coord.x && rowIndex === coord.y;
+    const field = fields[columnIndex];
+
+    if (rowIndex === 0) {
+      return <Header field={field} style={style} />;
+    }
+
+    if (rowIndex === 1) {
+      return <NewLine field={field} style={style} />;
+    }
 
     return (
       <Cell
         {...cellProps}
+        rowIndex={rowIndex - 2}
         coord={coord}
         fields={fields}
         isSelected={isSelected}
@@ -85,21 +97,17 @@ export function Spreadsheet(props: SpreadsheetProps) {
 
   return (
     <Wrapper className={className} data-testid='Spreadsheet-wrapper'>
-      <Header fields={fields} />
-      <NewLine fields={fields} />
-      <Content ref={ref}>
-        <FixedSizeGrid
-          columnWidth={columnWidth}
-          rowHeight={rowHeight}
-          rowCount={data.length}
-          columnCount={fields.length}
-          height={height - 50}
-          width={width}
-          itemData={data}
-        >
-          {renderCell}
-        </FixedSizeGrid>
-      </Content>
+      <VariableSizeGrid
+        columnWidth={(index: number) => get(fields, `[${index}].params.width`, columnWidth)}
+        rowHeight={() => rowHeight}
+        rowCount={data.length + 2}
+        columnCount={fields.length}
+        height={height}
+        width={width}
+        itemData={data}
+      >
+        {renderCell}
+      </VariableSizeGrid>
     </Wrapper>
   );
 }

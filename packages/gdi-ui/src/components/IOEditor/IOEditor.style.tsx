@@ -43,7 +43,6 @@ export const Top = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

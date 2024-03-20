@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Th = styled.div`
-  font-size: 18px;
+  font-size: 14px;
   opacity: 0.4;
   height: 40px;
   line-height: 30px;

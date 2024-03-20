@@ -1,41 +1,52 @@
-import React, { useContext } from 'react';
-import { Wrapper, Field } from './NewLine.style';
-import { ITableField, Json } from '../../../../types';
-import { NewLineField } from './NewLine.components';
+import { useContext } from 'react';
+import { ITableField } from '../../../../types';
 import { SpreadsheetContext } from '../../Spreadsheet.context';
+import { Wrapper } from './NewLine.style';
 
 export type NewLineProps = {
-  fields: ITableField[];
+  field: ITableField;
+  style?: React.CSSProperties;
 };
 
 export function NewLine(props: NewLineProps) {
-  const { fields } = props;
+  const { field, style } = props;
   const { callbacks } = useContext(SpreadsheetContext);
+  const { id } = field;
 
-  function onNew(data: Json) {
+  function onNew(ev: React.KeyboardEvent<HTMLDivElement>) {
     if (!callbacks.onItemAction) return;
+    const value = ev.currentTarget.textContent;
 
-    callbacks.onItemAction('', 'add', { data });
+    callbacks.onItemAction('', 'add', { data: { [id]: value } });
+
+    ev.currentTarget.textContent = '';
   }
 
-  function renderField(field: ITableField) {
-    const { id } = field;
+  function onKeyDown(ev: React.KeyboardEvent<HTMLDivElement>) {
+    ev.stopPropagation();
 
-    if (id === 'id') {
-      return <Field key={id}>+</Field>;
+    if (ev.key === 'Tab' || ev.key === 'Enter') {
+      ev.preventDefault();
     }
 
-    return <NewLineField key={id} field={field} onNew={onNew} />;
+    if (ev.key !== 'Enter') return;
+
+    onNew(ev);
   }
 
-  function renderFields() {
-    return fields.map((field: ITableField) => renderField(field));
+  if (id === 'id') {
+    return <Wrapper style={style}>+</Wrapper>;
   }
 
   return (
-    <Wrapper className='NewLine-wrapper' data-testid='NewLine-wrapper'>
-      {renderFields()}
-    </Wrapper>
+    <Wrapper
+      style={style}
+      className='field'
+      contentEditable={true}
+      suppressContentEditableWarning={true}
+      onKeyDown={onKeyDown}
+      onBlur={onNew}
+    />
   );
 }
 

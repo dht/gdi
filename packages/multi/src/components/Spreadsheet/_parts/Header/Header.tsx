@@ -1,31 +1,19 @@
 import React from 'react';
-import { Field, Wrapper } from './Header.style';
+import { Wrapper } from './Header.style';
 import { ITableField } from '../../../../types';
 
 export type HeaderProps = {
-  fields: ITableField[];
+  field: ITableField;
+  style?: React.CSSProperties;
 };
 
 export function Header(props: HeaderProps) {
-  const { fields } = props;
-
-  function renderField(field: ITableField) {
-    const { title } = field;
-
-    return (
-      <Field key={field.id} className='field'>
-        {title}
-      </Field>
-    );
-  }
-
-  function renderFields() {
-    return fields.map((field: ITableField) => renderField(field));
-  }
+  const { field, style } = props;
+  const { title } = field;
 
   return (
-    <Wrapper className='Header-wrapper' data-testid='Header-wrapper'>
-      {renderFields()}
+    <Wrapper style={style} className='field'>
+      {title}
     </Wrapper>
   );
 }

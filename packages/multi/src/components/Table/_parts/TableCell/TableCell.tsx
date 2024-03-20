@@ -241,17 +241,9 @@ export function TableCellNotification(props: TableCellProps) {
 
 export function TableCellTime(props: TableCellProps) {
   const { data } = props;
-  const { value, color } = data;
+  const { value = '', color } = data;
 
-  const timeText = time(value);
-  const parts = timeText.split(' ');
-
-  return (
-    <Time className='time'>
-      {parts[0]}
-      <span>{parts[1]}</span>
-    </Time>
-  );
+  return <Time className='time'>{value}</Time>;
 }
 
 const map: Record<CellType, FC<TableCellProps>> = {

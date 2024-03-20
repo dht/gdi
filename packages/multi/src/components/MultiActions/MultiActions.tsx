@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Icon, Input, Wrapper } from './MultiActions.style';
 import { MultiContext } from '../Multi/Multi.context';
+import { useKey } from 'react-use';
 
 export type MultiActionsProps = {
   q?: string;
@@ -16,10 +17,22 @@ export type MultiActionsProps = {
 
 export function MultiActions(props: MultiActionsProps) {
   const { q, callbacks, showFocus } = props;
+  const ref = useRef<HTMLInputElement>(null);
 
   function onKeyDown(ev: any) {
     ev.stopPropagation();
   }
+
+  useKey(
+    'f',
+    (ev) => {
+      if (!ref.current || !ev.metaKey) return;
+      ev.preventDefault();
+      ref.current.focus();
+    },
+    {},
+    [ref]
+  );
 
   return (
     <Wrapper className='MultiActions-wrapper' data-testid='MultiActions-wrapper'>
@@ -37,6 +50,7 @@ export function MultiActions(props: MultiActionsProps) {
       </Icon>
       <Icon className='material-symbols-outlined'>sort</Icon>
       <Input
+        ref={ref}
         onChange={callbacks.onSearch}
         value={q}
         onKeyDown={onKeyDown}

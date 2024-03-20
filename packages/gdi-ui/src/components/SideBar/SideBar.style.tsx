@@ -34,7 +34,6 @@ export const Gap = styled.div`
 
 export const Slogan = styled.div`
   opacity: 0.4;
-  width: 60px;
   position: relative;
   font-size: 11px;
   top: -1.5px;

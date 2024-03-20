@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
   height: 44rem;
   background-color: #000;
   color: #eef;
-  font-size: 22rem;
-  font-family: monospace;
+  font-size: 21rem;
   padding: 0 10rem;
   box-sizing: border-box;
   display: flex;
@@ -19,6 +18,7 @@ export const Wrapper = styled.div`
   user-select: none;
   z-index: 999;
   border-top: 1px solid #334;
+  font-family: monospace;
 `;
 
 export const Sign = styled.div`

@@ -36,11 +36,9 @@ export function* runMain(action: Action, _item: IPosts) {
     isRunningMain: true,
   });
 
-  console.time('chat');
   const response = yield* call(runFunction, '/api/ai/chat', {
     prompt,
   });
-  console.timeEnd('chat');
 
   const { text = '' } = response;
 
@@ -60,11 +58,9 @@ export function* runSingle(action: Action, _item: IPosts) {
     [`isRunning${index}`]: true,
   });
 
-  console.time('chat');
   const response = yield* call(runFunction, '/api/ai/chat', {
     prompt,
   });
-  console.timeEnd('chat');
 
   const { text = '' } = response;
 

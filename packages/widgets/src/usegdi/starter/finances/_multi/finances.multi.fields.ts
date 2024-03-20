@@ -7,7 +7,7 @@ export const fields: ITableField[] = [
     cellType: 'id',
     flex: 1,
     params: {
-      width: 40,
+      width: 50,
     },
   },
   {
@@ -17,6 +17,16 @@ export const fields: ITableField[] = [
     flex: 1,
     params: {
       width: 150,
+    },
+  },
+
+  {
+    id: 'date',
+    title: 'Date',
+    cellType: 'date',
+    flex: 1,
+    params: {
+      width: 110,
     },
   },
   {
@@ -29,12 +39,30 @@ export const fields: ITableField[] = [
     },
   },
   {
-    id: 'date',
-    title: 'Date',
-    cellType: 'date',
+    id: 'balance',
+    title: 'Balance',
+    cellType: 'number',
     flex: 1,
     params: {
-      width: 110,
+      width: 150,
+    },
+  },
+  {
+    id: 'notes',
+    title: 'Notes',
+    cellType: 'text',
+    flex: 1,
+    params: {
+      width: 140,
+    },
+  },
+  {
+    id: 'repeat',
+    title: 'Repeat',
+    cellType: 'text',
+    flex: 1,
+    params: {
+      width: 50,
     },
   },
   {

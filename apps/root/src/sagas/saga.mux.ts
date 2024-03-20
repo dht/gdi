@@ -113,8 +113,6 @@ export function* root() {
 
   yield delay(100);
 
-  yield fork(clearState);
-
   channel = customEvenChannel('MUX/PROMPT');
   yield takeEvery(channel, mux);
 

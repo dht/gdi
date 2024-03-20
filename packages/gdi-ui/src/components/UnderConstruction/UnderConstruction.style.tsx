@@ -57,7 +57,6 @@ export const Line = styled.div`
 export const Text = styled.span`
   font-size: 50px;
   color: #333;
-  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   margin-left: 50px;
   text-transform: uppercase;

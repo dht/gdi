@@ -16,6 +16,11 @@ export const Wrapper = styled.div`
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  &.virtual {
+    opacity: 0.64;
+    color: pink;
+  }
+
   &:hover {
     .TableRowActions-wrapper {
       opacity: 1;

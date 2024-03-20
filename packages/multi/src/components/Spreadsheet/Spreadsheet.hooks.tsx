@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { useKey, useLocalStorage } from 'react-use';
+import { useKey, useLocalStorage, useMount, useSetState } from 'react-use';
 import { ICoord, ISheetCell, ISpreadsheetConfig, ITableField, Json } from '../../types';
 import { useEffect } from 'react';
-import { addListener } from 'shared-base';
+import { addListener, getJson, setJson } from 'shared-base';
 
 export function useCustomEvent(
   eventName: string | undefined,
@@ -71,18 +71,32 @@ export function useCells(config: ISpreadsheetConfig, data: Json[]) {
 
 type SheetInfo = {
   rowsPerPage: number;
+  count: number;
 };
 
 export function useArrows(id: string, initialCoord: ICoord, info: SheetInfo) {
-  const { rowsPerPage = 30 } = info;
-  const [coord, setCoord] = useLocalStorage(`spreadsheet-${id}`, initialCoord);
+  const { rowsPerPage = 30, count } = info;
+  const [coord, setCoord] = useSetState(initialCoord);
+
+  useEffect(() => {
+    if (coord.x === 0 && coord.y === 0) return;
+    setJson(`sheet-${id}-coord`, coord);
+  }, [coord]);
+
+  useMount(() => {
+    const savedCoord = getJson(`sheet-${id}-coord`);
+    if (!savedCoord) return;
+    setCoord(savedCoord);
+  });
 
   const onNudge = (dx: number, dy: number) => {
     setCoord((prevCoord) => {
       if (!prevCoord) return initialCoord;
       const { x, y } = prevCoord;
       const nextX = Math.max(0, x + dx);
-      const nextY = Math.max(0, y + dy);
+      let nextY = Math.max(2, y + dy);
+      nextY = Math.min(nextY, count + 1);
+
       return { x: nextX, y: nextY };
     });
   };

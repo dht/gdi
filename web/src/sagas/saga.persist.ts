@@ -1,13 +1,16 @@
 import { ISaga, actions, selectors } from '@gdi/store-base';
-import { fork, put, select } from 'saga-ts';
-import { getJson, setJson } from 'shared-base';
+import { delay, fork, put, select } from 'saga-ts';
+import { getJson, invokeEvent, setJson } from 'shared-base';
 import { takeEvery } from 'typed-redux-saga';
 import { predicateAppState, predicateCurrentIds } from './predicates';
+import { isEmpty } from 'lodash';
 
-const LOCAL_STORAGE_KEY = 'filterParams';
+const FILTER_STORAGE_KEY = 'filterParams';
+const TABS_STORAGE_KEY = 'muxTabs';
+const TAGS_STORAGE_KEY = 'tags';
 
-export function* bootstrap() {
-  const filters = getJson(LOCAL_STORAGE_KEY);
+export function* bootstrapFilters() {
+  const filters = getJson(FILTER_STORAGE_KEY);
 
   if (!filters) return;
 
@@ -45,18 +48,56 @@ export function* bootstrap() {
 
 export function* onChange(action: any) {
   const filterParams = yield* select(selectors.base.$filterParams);
-  setJson(LOCAL_STORAGE_KEY, filterParams);
+  setJson(FILTER_STORAGE_KEY, filterParams);
+}
+
+export function* bootstrapTabs() {
+  const tabs = getJson(TABS_STORAGE_KEY);
+
+  if (!tabs) return;
+
+  yield put(actions.muxTabs.setAll(tabs));
+}
+
+export function* onMuxTabs(_action: any) {
+  const tabs = yield* select(selectors.raw.$rawMuxTabs);
+  setJson(TABS_STORAGE_KEY, tabs);
+
+  if (isEmpty(tabs)) {
+    invokeEvent('MUX/CLEAR');
+  }
+}
+
+export function* onTags(action: any) {
+  const { payload } = action;
+  const { tags } = payload;
+
+  setJson(TAGS_STORAGE_KEY, tags);
+}
+
+export function* bootstrapTags() {
+  const tags = getJson(TAGS_STORAGE_KEY);
+
+  if (!tags) return;
+
+  yield put(actions.appState.patch({ tags }));
 }
 
 export function* root() {
-  yield fork(bootstrap);
+  yield delay(100);
+  yield* fork(bootstrapFilters);
+  yield* fork(bootstrapTabs);
+  yield* fork(bootstrapTags);
 
   yield *takeEvery(predicateCurrentIds(['weekId', 'projectId']), onChange); // prettier-ignore
   yield *takeEvery(predicateAppState(['focusProject', 'focusTags', 'focusTiers']), onChange); // prettier-ignore
+  yield *takeEvery(predicateAppState(['tags']), onTags); // prettier-ignore
+
+  yield* takeEvery(['SET_MUXTABS', 'SET_MUXTAB', 'DELETE_MUXTAB'], onMuxTabs);
 }
 
 export const saga: ISaga = {
-  id: 'gdi.filters',
+  id: 'gdi.persist',
   type: 'predicate',
   root: root,
   trigger: {},

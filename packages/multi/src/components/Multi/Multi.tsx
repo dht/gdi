@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import JsonEditor from '../JsonEditor/JsonEditor.container';
 import Masonry from '../Masonry/Masonry.container';
 import MultiActionsContainer from '../MultiActions/MultiActions.container';
@@ -17,10 +17,12 @@ import FilterByTagsContainer from '../Filters/FilterByTags.container';
 import FilterByProjectContainer from '../Filters/FilterByProject.container';
 import MultiCtasContainer from '../MultiCtas/MultiCtas.container';
 import { useCustomEvent } from '../Spreadsheet/Spreadsheet.hooks';
+import { useMeasure } from 'react-use';
 
 export type MultiProps = {
   renderSummary?: () => React.ReactNode;
   renderFocus?: (itemId?: string) => React.ReactNode;
+  renderTools?: (itemId?: string) => React.ReactNode;
 };
 
 const component = {
@@ -35,6 +37,7 @@ const component = {
 export function Multi(props: MultiProps) {
   const { state, data, callbacks, patchState } = useContext(MultiContext);
   const { activeView, views, config, darkMode, isReady, showItemActions, itemId } = state;
+  const [ref, { width, height }] = useMeasure<HTMLDivElement>();
 
   useCustomEvent('multi/item/select', (ev: any) => {
     const { id } = ev;
@@ -67,7 +70,7 @@ export function Multi(props: MultiProps) {
 
     const Cmp: any = component[activeView];
 
-    if (!Cmp) {
+    if (!Cmp || !height) {
       return null;
     }
 
@@ -78,6 +81,8 @@ export function Multi(props: MultiProps) {
         data={data}
         callbacks={callbacks as any}
         darkMode={darkMode}
+        width={width}
+        height={height}
       />
     );
   }
@@ -86,6 +91,12 @@ export function Multi(props: MultiProps) {
     if (!showItemActions) return;
 
     return <MultiCtasContainer />;
+  }
+
+  function renderTools() {
+    if (!props.renderTools) return;
+
+    return props.renderTools(itemId);
   }
 
   const className = classnames('Multi-wrapper', {
@@ -97,10 +108,10 @@ export function Multi(props: MultiProps) {
       <Row>
         <Tabs />
         <StatsContainer data={data} />
-        <MultiActionsContainer />
+        <MultiActionsContainer>{renderTools()}</MultiActionsContainer>
       </Row>
       {renderItemCtas()}
-      <Content>{renderInner()}</Content>
+      <Content ref={ref}>{renderInner()}</Content>
       <Footer>
         <FilterByTagsContainer />
         <FilterByProjectContainer />

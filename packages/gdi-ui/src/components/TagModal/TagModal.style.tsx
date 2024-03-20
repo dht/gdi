@@ -8,8 +8,9 @@ export const Wrapper = styled.div`
 
 export const P = styled.p`
   max-width: 440px;
-  line-height: 1.3;
+  line-height: 1.4;
   color: #556;
+  font-size: 13px;
 `;
 
 export const Actions = styled.div`

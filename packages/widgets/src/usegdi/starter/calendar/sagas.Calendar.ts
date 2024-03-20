@@ -26,7 +26,7 @@ export function* addEvent(action: Action, item: ICalendar) {
   const { payload } = action;
   const { data } = payload;
 
-  const metaParams = yield* select(selectors.base.$metaParams);
+  const metaParams = yield* select(selectors.base.$metaParamsWithWeek);
 
   const isValid = Object.values(data).filter((i) => i).length > 0;
 

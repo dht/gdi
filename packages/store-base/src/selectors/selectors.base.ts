@@ -8,6 +8,8 @@ import { getSpeechUrl } from '../utils/speech';
 import * as raw from './selectors.raw';
 import { getCurrentWeek } from '../utils/date';
 import { filterItems } from '../utils/filter';
+import { parseItemsRepeat } from '../utils/repeat';
+import { parseItemsBalance } from '../utils/balance';
 
 export const $logs = createSelector(raw.$rawLogs, (logs) => {
   return Object.values(logs).sort(sortBy('timestamp'));
@@ -398,6 +400,13 @@ export const $metaParams = createSelector(
   }
 );
 
+export const $metaParamsWithWeek = createSelector($metaParams, (metaParams) => {
+  return {
+    ...metaParams,
+    week: getCurrentWeek(),
+  };
+});
+
 export const $externalEvents = createSelector(
   raw.$rawExternalEvents,
   $filterParams,
@@ -484,27 +493,32 @@ export const $contacts = createSelector(raw.$rawContacts, $filterParams, (items,
 });
 
 export const $events = createSelector(raw.$rawEvents, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
+  const arr = parseItemsRepeat(Object.values(items) as any) as any;
 
   return filterItems(arr, filterParams) //
     .map((item) => {
-      const { firstName, email } = item;
+      const { firstName, email, date, startTime = '00:00' } = item;
+
+      const dateFull = `${date} ${startTime}`;
 
       return {
         ...item,
         firstName: firstName || email,
+        dateFull,
       };
     })
-    .sort(sortBy('title', 'desc'));
+    .sort(sortBy('dateFull', 'asc'));
 });
 
 export const $financeLines = createSelector(
   raw.$rawFinanceLines,
   $filterParams,
   (items, filterParams) => {
-    const arr = Object.values(items);
+    let arr: any = Object.values(items);
+    arr = filterItems(arr, filterParams);
+    arr = parseItemsRepeat(arr).sort(sortBy(['date']));
+    arr = parseItemsBalance(arr);
 
-    return filterItems(arr, filterParams) //
-      .sort(sortBy('title', 'desc'));
+    return arr;
   }
 );
