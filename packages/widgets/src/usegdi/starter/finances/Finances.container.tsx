@@ -1,7 +1,7 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import React, { useMemo } from 'react';
-import { Finances } from './Finances';
+import { useMemo } from 'react';
 import { useSagas } from '../../../helpers/useSaga';
+import { Finances } from './Finances';
 
 export type FinancesContainerProps = {
   data: any;

@@ -25,6 +25,8 @@ export function* addTodo(action: Action, item: ITodos) {
   const { payload } = action;
   const { data } = payload;
 
+  const metaParams = yield* select(selectors.base.$metaParamsWithWeek);
+
   const isValid = Object.values(data).filter((i) => i).length > 0;
 
   if (!isValid) {
@@ -35,6 +37,7 @@ export function* addTodo(action: Action, item: ITodos) {
     actions.todos.add({
       id: guid4(),
       ...data,
+      ...metaParams,
     })
   );
 }

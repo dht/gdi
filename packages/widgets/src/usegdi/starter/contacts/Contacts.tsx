@@ -1,5 +1,5 @@
 import { Multi } from 'multi';
-import { Wrapper } from './Contacts.style';
+import { Wrapper, Icon } from './Contacts.style';
 import { initialView, multi, views } from './_multi';
 import ContactFocusContainer from './_parts/ContactFocus/ContactFocus.container';
 import ContactsSummaryContainer from './_parts/ContactsSummary/ContactsSummary.container';
@@ -23,6 +23,19 @@ export function Contacts(props: ContactsProps) {
     return <ContactFocusContainer id={id} />;
   }
 
+  function renderTools(id: string) {
+    return (
+      <>
+        <Icon
+          className='material-symbols-outlined'
+          onClick={() => callbacks.onItemAction(id, 'merge')}
+        >
+          merge
+        </Icon>
+      </>
+    );
+  }
+
   return (
     <Wrapper className='Contacts-wrapper' data-testid='Contacts-wrapper'>
       <Multi //
@@ -34,6 +47,7 @@ export function Contacts(props: ContactsProps) {
         darkMode
         renderSummary={renderSummary}
         renderFocus={renderFocus}
+        renderTools={renderTools}
       />
     </Wrapper>
   );

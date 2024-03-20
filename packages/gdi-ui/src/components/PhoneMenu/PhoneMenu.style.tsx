@@ -148,8 +148,9 @@ export const Item = styled.div`
 
   .title {
     font-size: 13px;
-    font-family: 'Encode Sans', Courier, monospace;
-    font-variation-settings: 'wdth' 100, 'wght' 450;
+    font-variation-settings:
+      'wdth' 100,
+      'wght' 450;
   }
 
   &.selected {
@@ -284,8 +285,9 @@ export const WrapperBadge = styled.div`
   top: 5px;
   right: 5px;
   padding: 1px 4px;
-  font-family: 'Encode Sans', Courier, monospace;
-  font-variation-settings: 'wdth' 100, 'wght' 450;
+  font-variation-settings:
+    'wdth' 100,
+    'wght' 450;
   font-size: 10px;
   min-width: 20px;
   text-align: center;

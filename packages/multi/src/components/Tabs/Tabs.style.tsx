@@ -16,13 +16,13 @@ export const Wrapper = styled.div`
 
 export const Tab = styled.div`
   padding: 10px;
-  font-size: 16px;
+  font-size: 13px;
   border: 1px solid #333;
   border-right-color: #333;
   user-select: none;
   cursor: pointer;
   position: relative;
-  height: 18px;
+  height: 14px;
   top: 1px;
   background-color: #000;
   box-shadow: inset 2rem 2rem 0 2rem rgba(0, 0, 0, 0.1);

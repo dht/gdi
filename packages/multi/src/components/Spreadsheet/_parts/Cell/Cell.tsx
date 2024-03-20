@@ -25,7 +25,8 @@ export function Cell(props: CellProps) {
   const { style, columnIndex, rowIndex, data, fields, isSelected } = props;
   const itemData = data[rowIndex];
   const field = fields[columnIndex];
-  const { id } = field;
+  const { id, cellType } = field;
+  const { isVirtual } = itemData;
 
   function onChange(value: string) {
     const change = { [id]: value };
@@ -33,11 +34,11 @@ export function Cell(props: CellProps) {
   }
 
   function onDoubleClick() {
-    props.onDoubleClick(rowIndex, columnIndex);
+    props.onDoubleClick(rowIndex + 2, columnIndex);
   }
 
   function onClick() {
-    props.onClick(rowIndex, columnIndex);
+    props.onClick(rowIndex + 2, columnIndex);
 
     // manual onDoubleClick calculation
     // native "onDoubleClick" does not work as mouseDown is captured
@@ -50,10 +51,18 @@ export function Cell(props: CellProps) {
     lastClickTimestamp = Date.now();
   }
 
-  const value = Array.isArray(itemData[id]) ? itemData[id].join(', ') : itemData[id];
+  let value = Array.isArray(itemData[id]) ? itemData[id].join(', ') : itemData[id];
 
-  const className = classnames({
+  switch (cellType) {
+    case 'number':
+      value = Number(value).toLocaleString();
+      if (value === 'NaN') value = '';
+      break;
+  }
+
+  const className = classnames(cellType, {
     first: columnIndex === 0,
+    virtual: isVirtual,
   });
 
   function renderSelect() {
@@ -65,7 +74,16 @@ export function Cell(props: CellProps) {
       itemData,
     };
 
-    return <SelectCell {...props} onChange={onChange} value={value} meta={meta} />;
+    return (
+      <SelectCell
+        {...props}
+        onChange={onChange}
+        value={value}
+        meta={meta}
+        cellType={cellType}
+        isVirtual={isVirtual}
+      />
+    );
   }
 
   return (

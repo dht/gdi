@@ -73,11 +73,6 @@ export const sagas: ISagas = {
       eventNames: ['function/error'],
     },
   },
-  'gdi.filters': {
-    id: 'gdi.filters',
-    type: 'predicate',
-    trigger: {},
-  },
   'gdi.gdi': {
     id: 'gdi.gdi',
     type: 'bootstrap',
@@ -111,6 +106,11 @@ export const sagas: ISagas = {
   'gdi.onboarding': {
     id: 'gdi.onboarding',
     type: 'bootstrap',
+    trigger: {},
+  },
+  'gdi.persist': {
+    id: 'gdi.persist',
+    type: 'predicate',
     trigger: {},
   },
   'gdi.predicates': {

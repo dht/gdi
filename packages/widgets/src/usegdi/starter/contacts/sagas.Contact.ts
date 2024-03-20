@@ -1,14 +1,16 @@
-import { selectors, IContact, actions } from '@gdi/store-base';
-import { put, fork, select, takeEvery } from 'saga-ts';
-import { parseChange } from './Contacts.utils';
+import { IContact, actions, selectors } from '@gdi/store-base';
+import { prompt, toast } from '@gdi/ui';
 import { isEmpty } from 'lodash';
-import { guid4, invokeEvent } from 'shared-base';
-import { toast } from '@gdi/ui';
+import { fork, put, select, takeEvery } from 'saga-ts';
+import { guid4 } from 'shared-base';
+import ContactMerge from './_parts/ContactMerge/ContactMerge';
+import { parseChange, smartMerge } from './Contacts.utils';
 
 type Verb =
   | 'add' //
   | 'edit'
   | 'delete'
+  | 'merge'
   | 'select';
 
 type Action = {
@@ -21,9 +23,56 @@ type Action = {
 const map: Record<Verb, any> = {
   add: addContact,
   edit: editContact,
+  merge: mergeContact,
   delete: deleteContact,
   select: selectContact,
 };
+
+export function* mergeContact(action: Action, item: IContact) {
+  const { id, firstName, lastName } = item;
+
+  const contacts = yield* select(selectors.raw.$rawContacts);
+  const matches = Object.values(contacts).filter(
+    (i) => i.firstName === firstName && i.lastName === lastName && i.id !== id
+  );
+
+  if (isEmpty(matches)) {
+    toast.show('No matches found');
+    return;
+  }
+
+  const merged = smartMerge(item, matches);
+
+  const { value, didCancel } = yield prompt.custom({
+    title: `Merge ${firstName} ${lastName}`,
+    component: ContactMerge,
+    componentProps: {
+      items: [merged, ...matches],
+    },
+  });
+
+  if (didCancel) {
+    return;
+  }
+
+  const { state, del1, del2, del3 } = value;
+
+  const mainItemChange = state[0];
+
+  yield put(actions.contacts.patch(id, mainItemChange));
+
+  if (del1 && matches[0]) {
+    yield put(actions.contacts.delete(matches[0].id));
+  }
+
+  if (del2 && matches[1]) {
+    yield put(actions.contacts.delete(matches[1].id));
+  }
+
+  if (del3 && matches[2]) {
+    yield put(actions.contacts.delete(matches[2].id));
+  }
+}
 
 export function* addContact(action: Action, _item: IContact) {
   const { payload } = action;

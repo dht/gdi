@@ -26,7 +26,7 @@ export function* addPost(action: Action, item: IPosts) {
   const { payload } = action;
   const { data } = payload;
 
-  const metaParams = yield* select(selectors.base.$metaParams);
+  const metaParams = yield* select(selectors.base.$metaParamsWithWeek);
 
   const isValid = Object.values(data).filter((i) => i).length > 0;
 

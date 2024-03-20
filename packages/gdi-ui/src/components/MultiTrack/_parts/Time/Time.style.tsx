@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  font-family: 'Space Mono', sans-serif;
   font-size: 20px;
   font-weight: 200;
   text-align: center;

@@ -9,12 +9,14 @@ export type SpreadsheetContainerProps = {
   callbacks: ISpreadsheetCallbacks;
   darkMode?: boolean;
   data: Json[];
+  height: number;
+  width: number;
 };
 
 const arr: any = [];
 
 export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
-  const { id, config, darkMode, callbacks, data } = props;
+  const { id, config, darkMode, callbacks, data, width, height } = props;
 
   const initialState = useMemo(
     () => ({
@@ -25,7 +27,7 @@ export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
 
   return (
     <SpreadsheetProvider data={arr} callbacks={callbacks} state={initialState}>
-      <Spreadsheet id={id} data={data} darkMode={darkMode} />
+      <Spreadsheet id={id} data={data} darkMode={darkMode} width={width} height={height} />
     </SpreadsheetProvider>
   );
 }

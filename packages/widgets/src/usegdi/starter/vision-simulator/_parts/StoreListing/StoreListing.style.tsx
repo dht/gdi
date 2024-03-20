@@ -43,7 +43,9 @@ export const Cta = styled.button`
   padding: 10px 20px;
   font-weight: bold;
   border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.2),
+    inset 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   font-size: 17px;
   margin-top: 10px;
@@ -85,7 +87,6 @@ export const Description = styled.div`
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   line-height: 1.3;
-  font-family: 'Space Mono', sans-serif;
   margin-bottom: 30px;
 `;
 

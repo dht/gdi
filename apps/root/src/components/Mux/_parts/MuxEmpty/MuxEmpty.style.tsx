@@ -14,5 +14,4 @@ export const Text = styled.div`
   text-transform: uppercase;
   font-weight: 100;
   opacity: 0.1;
-  font-family: 'Roboto Flex', monospace;
 `;

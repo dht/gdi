@@ -19,6 +19,18 @@ export const Wrapper = styled.div`
   ::-webkit-scrollbar {
     width: 10px;
   }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const Content = styled.div`

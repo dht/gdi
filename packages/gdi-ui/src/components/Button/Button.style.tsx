@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Wrapper = styled.button`
   font-size: 18rem;
   border: 2px solid var(--color-border);
-  font-family: sans-serif;
   background-color: var(--color-button);
   color: var(--color-text);
   padding: 10px 20px;

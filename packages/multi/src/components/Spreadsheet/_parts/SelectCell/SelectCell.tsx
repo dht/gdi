@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import { useKey, useMount, useToggle } from 'react-use';
-import { ICoord } from '../../Spreadsheet.types';
+import { useKey, useToggle } from 'react-use';
+import { ICoord, Json } from '../../../../types';
 import { areaDimension } from '../../Spreadsheet.utils';
 import { EditCell } from '../EditCell/EditCell';
 import { useAlphaNumericKey } from './SelectCell.hooks';
 import { Wrapper } from './SelectCell.style';
-import { Json } from '../../../../types';
 
 export type SelectCellProps = {
   value: string;
@@ -13,10 +12,12 @@ export type SelectCellProps = {
   onChange: (newValue: string) => void;
   // for debugging
   meta: Json;
+  cellType: string;
+  isVirtual?: boolean;
 };
 
 export function SelectCell(props: SelectCellProps) {
-  const { value, coord, meta } = props;
+  const { value, coord, meta, cellType, isVirtual } = props;
   const { x, y } = coord;
   const [isEditing, toggleIsEditing] = useToggle(false);
 
@@ -49,7 +50,7 @@ export function SelectCell(props: SelectCellProps) {
   );
 
   if (isEditing) {
-    return <EditCell value={value} coord={coord} onChange={onChange} />;
+    return <EditCell value={value} coord={coord} onChange={onChange} cellType={cellType} />;
   }
 
   return <Wrapper className='SelectCell-wrapper' data-testid='SelectCell-wrapper' style={style} />;

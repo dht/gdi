@@ -5,6 +5,11 @@ const parts = date.parts(Date.now());
 describe('format date', () => {
   let output;
 
+  it('fromParts today', () => {
+    output = date.fromParts('0');
+    expect(output).toBe(`${parts.yearLz}-${parts.monthLz}-${parts.dayLz}`);
+  });
+
   it('fromParts single day', () => {
     output = date.fromParts('1');
     expect(output).toBe(`${parts.yearLz}-${parts.monthLz}-01`);

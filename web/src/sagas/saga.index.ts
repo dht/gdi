@@ -4,7 +4,7 @@ import { saga as sagaBar } from './saga.bar';
 import { saga as sagaBoard } from './saga.board';
 import { saga as sagaGdi } from './saga.gdi';
 import { saga as sagaErrors } from './saga.errors';
-import { saga as sagaFilters } from './saga.filters';
+import { saga as sagaPersist } from './saga.persist';
 import { saga as sagaKeys } from './saga.keys';
 import { saga as sagaLogs } from './saga.logs';
 import { saga as sagaMd } from './saga.md';
@@ -27,7 +27,7 @@ export const allSagas = {
   'gdi.assets': sagaAssets,
   'gdi.bar': sagaBar,
   'gdi.board': sagaBoard,
-  'gdi.filters': sagaFilters,
+  'gdi.persist': sagaPersist,
   'gdi.gdi': sagaGdi,
   'gdi.errors': sagaErrors,
   'gdi.keys': sagaKeys,

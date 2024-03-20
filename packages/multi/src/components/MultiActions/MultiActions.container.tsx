@@ -1,13 +1,15 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import { useContext, useMemo } from 'react';
+import { Children, useContext, useMemo } from 'react';
 import { downloadCsv } from 'shared-base';
 import { MultiContext } from '../Multi/Multi.context';
 import { MultiActions } from './MultiActions';
 import { fields } from './MultiActions.data';
 
-export type MultiActionsContainerProps = {};
+export type MultiActionsContainerProps = {
+  children?: React.ReactNode;
+};
 
-export function MultiActionsContainer(_props: MultiActionsContainerProps) {
+export function MultiActionsContainer(props: MultiActionsContainerProps) {
   const dispatch = useDispatch();
   const appState = useSelector(selectors.raw.$rawAppState);
   const { state, data, callbacks: cbs, patchState } = useContext(MultiContext);
@@ -39,7 +41,11 @@ export function MultiActionsContainer(_props: MultiActionsContainerProps) {
     []
   );
 
-  return <MultiActions q={q} callbacks={callbacks} showFocus={showFocus} />;
+  return (
+    <MultiActions q={q} callbacks={callbacks} showFocus={showFocus}>
+      {props.children}
+    </MultiActions>
+  );
 }
 
 export default MultiActionsContainer;

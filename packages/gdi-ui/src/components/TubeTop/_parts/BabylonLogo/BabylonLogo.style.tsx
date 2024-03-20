@@ -27,7 +27,6 @@ export const Text = styled.div`
   font-weight: bold;
   font-size: 40px;
   letter-spacing: -2px;
-  font-family: 'Roboto Flex', monospace;
 `;
 
 export const Subtitle = styled.div`

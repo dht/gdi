@@ -8,15 +8,7 @@ import { table } from './finances.multi.table';
 
 export const initialView: IMultiView = 'sheet';
 
-export const views: IMultiView[] = [
-  // 'summary',
-  'sheet',
-  'table',
-  'masonry',
-  'calendar',
-  'lanes',
-  'jsonEditor',
-];
+export const views: IMultiView[] = ['summary', 'sheet', 'table', 'calendar', 'lanes', 'jsonEditor'];
 
 export const multi = {
   calendar,

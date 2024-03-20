@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
     --bk: #1e1e2e;
     --border: #aaa;
   }
-  max-height: 100vh;
   user-select: none;
 
   // cells
@@ -20,9 +19,4 @@ export const Wrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-`;
-
-export const Content = styled.div`
-  flex: 1;
-  max-height: 100vh;
 `;

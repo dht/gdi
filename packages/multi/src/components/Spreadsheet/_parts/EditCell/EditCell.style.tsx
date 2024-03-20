@@ -12,4 +12,13 @@ export const Wrapper = styled.div`
   right: 0;
   bottom: 0;
   top: 0;
+  padding: 0 7px;
+
+  &.number {
+    text-align: right;
+  }
+
+  &.date {
+    text-align: center;
+  }
 `;

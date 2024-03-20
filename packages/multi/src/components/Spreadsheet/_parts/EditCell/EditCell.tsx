@@ -1,18 +1,20 @@
+import classnames from 'classnames';
 import React, { useRef } from 'react';
 import { useKey, useMount } from 'react-use';
-import { ICoord } from '../../Spreadsheet.types';
+import { invokeEvent } from 'shared-base';
+import { ICoord } from '../../../../types';
 import { areaDimension } from '../../Spreadsheet.utils';
 import { Wrapper } from './EditCell.style';
-import { invokeEvent } from 'shared-base';
 
 export type EditCellProps = {
   value: string;
   coord: ICoord;
   onChange: (value: string) => void;
+  cellType: string;
 };
 
 export function EditCell(props: EditCellProps) {
-  const { value, coord } = props;
+  const { value, coord, cellType } = props;
   const { x, y } = coord;
   const ref = useRef<HTMLDivElement>(null);
 
@@ -62,9 +64,11 @@ export function EditCell(props: EditCellProps) {
     invokeEvent('sheet/move/right');
   });
 
+  const className = classnames('EditCell-wrapper', cellType, {});
+
   return (
     <Wrapper
-      className='EditCell-wrapper'
+      className={className}
       data-testid='EditCell-wrapper'
       style={style}
       contentEditable={true}

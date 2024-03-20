@@ -17,9 +17,11 @@ export type TableRowProps = {
 
 export function TableRow(props: TableRowProps) {
   const { item, fields = [], rowActions = [], isSelected } = props;
+  const { isVirtual } = item;
 
   const className = classnames('TableRow-wrapper', {
     selected: isSelected,
+    virtual: isVirtual,
   });
 
   function renderField(field: ITableField, dataRow: Json, index: number) {

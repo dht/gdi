@@ -25,5 +25,5 @@ export const Item = styled.div`
 
 export const Title = styled.div`
   margin-left: 3px;
-  font-size: 18px;
+  font-size: 16px;
 `;

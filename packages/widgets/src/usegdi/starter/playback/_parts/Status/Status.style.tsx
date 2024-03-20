@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   justify-content: center;
   background-color: #334;
   margin-top: 2rem;
-  font-family: monospace;
   position: relative;
 `;
 

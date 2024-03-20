@@ -11,9 +11,23 @@ export const Wrapper = styled.div`
   overflow: hidden;
   max-width: 200px;
   white-space: nowrap;
+  padding: 0 7px;
+
+  &.virtual {
+    opacity: 0.64;
+    color: pink;
+  }
 
   &.first {
     background-color: #111;
+  }
+
+  &.number {
+    flex-direction: row-reverse;
+  }
+
+  &.date {
+    justify-content: center;
   }
 
   &.header {

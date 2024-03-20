@@ -1,13 +1,4 @@
-import dayjs from 'dayjs';
-import advancedFormat from 'dayjs/plugin/advancedFormat';
-import relativeTime from 'dayjs/plugin/relativeTime';
-import duration from 'dayjs/plugin/duration';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-
-dayjs.extend(advancedFormat);
-dayjs.extend(relativeTime);
-dayjs.extend(duration);
-dayjs.extend(weekOfYear);
+import { dayjs } from './_base';
 
 const DEFAULT_DATE_FORMAT = 'MMM Do, YYYY';
 
@@ -51,7 +42,7 @@ export const date = {
   },
   parts: (date: string | number | Date) => {
     const year = dayjs(date).year();
-    const month = dayjs(date).month();
+    const month = dayjs(date).month() + 1;
     const day = dayjs(date).date();
 
     return {
@@ -69,19 +60,29 @@ export const date = {
       const parts = str.split('-');
       const partsInt = parts.map((i) => parseInt(i, 10));
 
-      switch (parts.length) {
-        case 1:
-          if (parts[0].startsWith('0')) {
-            return `${current.yearLz}-${lz(partsInt[0])}-01`;
-          } else {
-            return `${current.yearLz}-${current.monthLz}-${lz(partsInt[0])}`;
-          }
-        case 2:
-          return `${current.yearLz}-${lz(partsInt[0])}-${lz(partsInt[1])}`;
-        default:
-          let year = partsInt[0] < 2000 ? 2000 + partsInt[0] : partsInt[0];
-          return `${year}-${lz(partsInt[1])}-${lz(partsInt[2])}`;
+      // 2025-05-01 => 2025-05-01
+      if (parts.length >= 3) {
+        let year = partsInt[0] < 2000 ? 2000 + partsInt[0] : partsInt[0];
+        return `${year}-${lz(partsInt[1])}-${lz(partsInt[2])}`;
       }
+
+      // 05-10 => 2025-05-10
+      if (parts.length === 2) {
+        return `${current.yearLz}-${lz(partsInt[0])}-${lz(partsInt[1])}`;
+      }
+
+      // 0 => today
+      if (parts[0] === '0') {
+        return `${current.yearLz}-${current.monthLz}-${current.dayLz}`;
+      }
+
+      // 1 => first day of month
+      if (parts[0].startsWith('0')) {
+        return `${current.yearLz}-${lz(partsInt[0])}-01`;
+      }
+
+      // 14 => 2025-03-14
+      return `${current.yearLz}-${current.monthLz}-${lz(partsInt[0])}`;
     } catch (e) {
       return str;
     }

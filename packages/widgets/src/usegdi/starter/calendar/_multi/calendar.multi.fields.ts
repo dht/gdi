@@ -7,7 +7,7 @@ export const fields: ITableField[] = [
     cellType: 'id',
     flex: 1,
     params: {
-      width: 40,
+      width: 60,
     },
   },
   {
@@ -28,6 +28,7 @@ export const fields: ITableField[] = [
       width: 110,
     },
   },
+
   {
     id: 'startTime',
     title: 'Start time',
@@ -44,6 +45,15 @@ export const fields: ITableField[] = [
     flex: 1,
     params: {
       width: 70,
+    },
+  },
+  {
+    id: 'repeat',
+    title: 'Repeat',
+    cellType: 'text',
+    flex: 1,
+    params: {
+      width: 50,
     },
   },
   {
