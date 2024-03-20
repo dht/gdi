@@ -115,6 +115,7 @@ export type ICurrentIds = {
   voiceId: string;
   assetId: string;
   leftId: string;
+  listId: string;
   rightId: string;
   modalId: string;
   docId: string;
@@ -596,6 +597,7 @@ export type SagaType =
   | 'api'
   | 'entity'
   | 'customEvent'
+  | 'customAction'
   | 'bootstrap'
   | 'component'
   | 'predicate'

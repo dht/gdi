@@ -1,167 +1,6 @@
 import { ISagas } from './types';
 
 export const sagas: ISagas = {
-  'root.api': {
-    id: 'root.api',
-    type: 'api',
-    trigger: {},
-  },
-  'gdi.api': {
-    id: 'gdi.api',
-    type: 'api',
-    trigger: {},
-  },
-  'gdi.assets': {
-    id: 'gdi.assets',
-    type: 'entity',
-    trigger: {
-      actionTypes: ['ASSET'],
-    },
-  },
-  'gdi.bar': {
-    id: 'gdi.bar',
-    type: 'entity',
-    trigger: {
-      actionTypes: ['BAR'],
-    },
-  },
-  'gdi.board': {
-    id: 'gdi.board',
-    type: 'entity',
-    trigger: {
-      actionTypes: ['BOARD'],
-    },
-  },
-  'gdi.filters': {
-    id: 'gdi.filters',
-    type: 'predicate',
-    trigger: {},
-  },
-  'gdi.gdi': {
-    id: 'gdi.gdi',
-    type: 'bootstrap',
-    trigger: {},
-  },
-  'gdi.logs': {
-    id: 'gdi.logs',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['gdi/log'],
-    },
-  },
-  'gdi.onboarding': {
-    id: 'gdi.onboarding',
-    type: 'bootstrap',
-    trigger: {},
-  },
-  'gdi.keys': {
-    id: 'gdi.keys',
-    type: 'keys',
-    trigger: {},
-  },
-  'gdi.root': {
-    id: 'gdi.root',
-    type: 'customEvent',
-    trigger: {},
-  },
-  'gdi.md': {
-    id: 'gdi.md',
-    type: 'bootstrap',
-    trigger: {},
-  },
-  'gdi.navigation': {
-    id: 'gdi.navigation',
-    type: 'customEvent',
-    trigger: {
-      actionTypes: ['NAVIGATE'],
-      eventNames: ['nav'],
-    },
-  },
-  'gdi.errors': {
-    id: 'gdi.errors',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['function/error'],
-    },
-  },
-  'gdi.prompt': {
-    id: 'gdi.prompt',
-    type: 'customEvent',
-    trigger: {
-      actionTypes: ['PROMPT', 'BOOTSTRAP_FLOW', 'FLOW_CHANGES_ASSISTANT'],
-      eventNames: ['flow/completed'],
-    },
-  },
-  'gdi.predicates': {
-    id: 'gdi.predicates',
-    type: 'predicate',
-    trigger: {},
-  },
-  'gdi.transcript': {
-    id: 'gdi.transcript',
-    type: 'component',
-    trigger: {
-      actionTypes: ['TRANSCRIPT_PROMPT'],
-    },
-  },
-  'gdi.setup': {
-    id: 'gdi.setup',
-    type: 'customEvent',
-    trigger: {
-      actionTypes: ['gdi/setup'],
-    },
-  },
-  'gdi.tags': {
-    id: 'gdi.tags',
-    type: 'bootstrap',
-    trigger: {},
-  },
-  'boards.api': {
-    id: 'boards.api',
-    type: 'api',
-  },
-  'root.keys': {
-    id: 'root.keys',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['saveKeys'],
-    },
-  },
-  'root.home': {
-    id: 'root.home',
-    type: 'entity',
-    trigger: {
-      actionTypes: ['HOME'],
-    },
-  },
-  'root.tabs': {
-    id: 'root.tabs',
-    type: 'entity',
-    trigger: {
-      actionTypes: ['TABS'],
-    },
-  },
-  'root.issues': {
-    id: 'root.issues',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['report/issue'],
-    },
-  },
-  'root.newBoard': {
-    id: 'root.newBoard',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['saveBoard'],
-    },
-  },
-  'root.settings': {
-    id: 'root.settings',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['saveSettings'],
-    },
-  },
   'auth.analytics': {
     id: 'auth.analytics',
     type: 'customEvent',
@@ -201,6 +40,151 @@ export const sagas: ISagas = {
       eventNames: ['auth/change'],
     },
   },
+  'gdi.api': {
+    id: 'gdi.api',
+    type: 'api',
+    trigger: {},
+  },
+  'gdi.assets': {
+    id: 'gdi.assets',
+    type: 'entity',
+    trigger: {
+      actionTypes: ['ASSET'],
+    },
+  },
+  'gdi.bar': {
+    id: 'gdi.bar',
+    type: 'entity',
+    trigger: {
+      actionTypes: ['BAR'],
+    },
+  },
+  'gdi.board': {
+    id: 'gdi.board',
+    type: 'entity',
+    trigger: {
+      actionTypes: ['BOARD'],
+    },
+  },
+  'gdi.errors': {
+    id: 'gdi.errors',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['function/error'],
+    },
+  },
+  'gdi.filters': {
+    id: 'gdi.filters',
+    type: 'predicate',
+    trigger: {},
+  },
+  'gdi.gdi': {
+    id: 'gdi.gdi',
+    type: 'bootstrap',
+    trigger: {},
+  },
+  'gdi.keys': {
+    id: 'gdi.keys',
+    type: 'keys',
+    trigger: {},
+  },
+  'gdi.logs': {
+    id: 'gdi.logs',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['gdi/log'],
+    },
+  },
+  'gdi.md': {
+    id: 'gdi.md',
+    type: 'bootstrap',
+    trigger: {},
+  },
+  'gdi.navigation': {
+    id: 'gdi.navigation',
+    type: 'customEvent',
+    trigger: {
+      actionTypes: ['NAVIGATE'],
+      eventNames: ['nav'],
+    },
+  },
+  'gdi.onboarding': {
+    id: 'gdi.onboarding',
+    type: 'bootstrap',
+    trigger: {},
+  },
+  'gdi.predicates': {
+    id: 'gdi.predicates',
+    type: 'predicate',
+    trigger: {},
+  },
+  'gdi.prompt': {
+    id: 'gdi.prompt',
+    type: 'customEvent',
+    trigger: {
+      actionTypes: ['PROMPT', 'BOOTSTRAP_FLOW', 'FLOW_CHANGES_ASSISTANT'],
+      eventNames: ['flow/completed'],
+    },
+  },
+  'gdi.root': {
+    id: 'gdi.root',
+    type: 'customEvent',
+    trigger: {},
+  },
+  'gdi.setup': {
+    id: 'gdi.setup',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['gdi/setup'],
+    },
+  },
+  'gdi.tags': {
+    id: 'gdi.tags',
+    type: 'bootstrap',
+    trigger: {},
+  },
+  'gdi.transcript': {
+    id: 'gdi.transcript',
+    type: 'component',
+    trigger: {
+      actionTypes: ['TRANSCRIPT_PROMPT'],
+    },
+  },
+  'widgets.3d.bootstrap': {
+    id: 'widgets.3d.bootstrap',
+    type: 'customEvent',
+    trigger: {
+      actionTypes: ['scene/ready'],
+    },
+  },
+  'widgets.3d.grid': {
+    id: 'widgets.3d.grid',
+    type: 'predicate',
+    trigger: {
+      xpaths: ['sceneState.hideGrid'],
+    },
+  },
+  'widgets.3d.manual': {
+    id: 'widgets.3d.manual',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['set/pos'],
+    },
+  },
+  'widgets.3d.selection': {
+    id: 'widgets.3d.selection',
+    type: 'customEvent',
+    trigger: {
+      actionTypes: ['mesh/select'],
+    },
+  },
+  'widgets.3d.toolbox': {
+    id: 'widgets.3d.toolbox',
+    type: 'entity',
+    trigger: {
+      actionTypes: ['TOOLBOX'],
+    },
+  },
   'widgets.assetsList': {
     id: 'widgets.assetsList',
     type: 'component',
@@ -229,222 +213,6 @@ export const sagas: ISagas = {
     type: 'component',
     trigger: {
       actionTypes: ['CALENDAR_EVENTS'],
-    },
-  },
-  'widgets.externalEvent': {
-    id: 'widgets.externalEvent',
-    type: 'component',
-    trigger: {
-      actionTypes: ['EXTERNAL_EVENT'],
-    },
-  },
-  'widgets.externalEvents': {
-    id: 'widgets.externalEvents',
-    type: 'component',
-    trigger: {
-      actionTypes: ['EXTERNAL_EVENTS'],
-    },
-  },
-  'widgets.read': {
-    id: 'widgets.read',
-    type: 'component',
-    trigger: {
-      actionTypes: ['READ'],
-    },
-  },
-  'widgets.reads': {
-    id: 'widgets.reads',
-    type: 'component',
-    trigger: {
-      actionTypes: ['READS'],
-    },
-  },
-  'widgets.todo': {
-    id: 'widgets.todo',
-    type: 'component',
-    trigger: {
-      actionTypes: ['TODO'],
-    },
-  },
-  'widgets.todos': {
-    id: 'widgets.todos',
-    type: 'component',
-    trigger: {
-      actionTypes: ['TODOS'],
-    },
-  },
-  'widgets.listItem': {
-    id: 'widgets.listItem',
-    type: 'component',
-    trigger: {
-      actionTypes: ['LIST_ITEM'],
-    },
-  },
-  'widgets.listItems': {
-    id: 'widgets.listItems',
-    type: 'component',
-    trigger: {
-      actionTypes: ['LIST_ITEMS'],
-    },
-  },
-  'widgets.reminder': {
-    id: 'widgets.reminder',
-    type: 'component',
-    trigger: {
-      actionTypes: ['REMINDER'],
-    },
-  },
-  'widgets.reminders': {
-    id: 'widgets.reminders',
-    type: 'component',
-    trigger: {
-      actionTypes: ['REMINDERS'],
-    },
-  },
-  'widgets.financeLines': {
-    id: 'widgets.financeLines',
-    type: 'component',
-    trigger: {
-      actionTypes: ['FINANCE_LINES'],
-    },
-  },
-  'widgets.financeLine': {
-    id: 'widgets.financeLine',
-    type: 'component',
-    trigger: {
-      actionTypes: ['FINANCE_LINE'],
-    },
-  },
-  'widgets.contact': {
-    id: 'widgets.contact',
-    type: 'component',
-    trigger: {
-      actionTypes: ['CONTACT'],
-    },
-  },
-  'widgets.contacts': {
-    id: 'widgets.contacts',
-    type: 'component',
-    trigger: {
-      actionTypes: ['CONTACTS'],
-    },
-  },
-  'widgets.contactCtas': {
-    id: 'widgets.contactCtas',
-    type: 'component',
-    trigger: {
-      actionTypes: ['CONTACT_CTA'],
-    },
-  },
-  'widgets.document': {
-    id: 'widgets.document',
-    type: 'component',
-    trigger: {
-      actionTypes: ['DOCUMENT'],
-    },
-  },
-  'widgets.documents': {
-    id: 'widgets.documents',
-    type: 'component',
-    trigger: {
-      actionTypes: ['DOCUMENTS'],
-    },
-  },
-  'widgets.post': {
-    id: 'widgets.post',
-    type: 'component',
-    trigger: {
-      actionTypes: ['POST'],
-    },
-  },
-  'widgets.posts': {
-    id: 'widgets.posts',
-    type: 'component',
-    trigger: {
-      actionTypes: ['POSTS'],
-    },
-  },
-  'widgets.postWriter': {
-    id: 'widgets.postWriter',
-    type: 'component',
-    trigger: {
-      actionTypes: ['POST_WRITER'],
-    },
-  },
-  'widgets.expressDebugger': {
-    id: 'widgets.expressDebugger',
-    type: 'component',
-    trigger: {
-      eventNames: ['scene/ready'],
-    },
-  },
-  'widgets.fourthWall': {
-    id: 'widgets.fourthWall',
-    type: 'component',
-    trigger: {
-      eventNames: ['scene/ready'],
-    },
-  },
-  'widgets.docEdit': {
-    id: 'widgets.docEdit',
-    type: 'component',
-    trigger: {
-      actionTypes: ['DOCUMENT', 'SET_DOCUMENT'],
-    },
-  },
-  'widgets.musicList': {
-    id: 'widgets.musicList',
-    type: 'component',
-    trigger: {},
-  },
-  'widgets.flow': {
-    id: 'widgets.flow',
-    type: 'component',
-    trigger: {
-      eventNames: ['flow'],
-    },
-  },
-  'widgets.pplGrid': {
-    id: 'widgets.PplGrid',
-    type: 'component',
-    trigger: {
-      eventNames: ['ppl/change', 'ppl/flavour'],
-    },
-  },
-  'widgets.tube': {
-    id: 'widgets.tube',
-    type: 'component',
-    trigger: {
-      eventNames: [],
-    },
-  },
-  'widgets.productTour': {
-    id: 'widgets.productTour',
-    type: 'component',
-    trigger: {
-      actionTypes: ['PRODUCT_TOUR_LOADED', 'PLAY_TOUR', 'STOP'],
-    },
-  },
-  'widgets.transcript': {
-    id: 'widgets.transcript',
-    type: 'component',
-    trigger: {
-      actionTypes: ['BOOTSTRAP_TRANSCRIPT'],
-      eventNames: ['youtube/time'],
-    },
-  },
-  'widgets.speech': {
-    id: 'widgets.speech',
-    type: 'component',
-    trigger: {
-      eventNames: ['board/loaded'],
-    },
-  },
-  'widgets.speechParams': {
-    id: 'widgets.speechParams',
-    type: 'component',
-    trigger: {
-      actionTypes: ['GET_ASSET'],
     },
   },
   'widgets.clip.audio': {
@@ -489,11 +257,11 @@ export const sagas: ISagas = {
       eventNames: ['SCENE_ELEMENT'],
     },
   },
-  'widgets.clip.live': {
-    id: 'widgets.clip.live',
-    type: 'socket',
+  'widgets.clip.keyframes': {
+    id: 'widgets.clip.keyframes',
+    type: 'customEvent',
     trigger: {
-      eventNames: ['clip/live'],
+      eventNames: ['keyframe/createOrUpdate'],
     },
   },
   'widgets.clip.keys': {
@@ -503,11 +271,11 @@ export const sagas: ISagas = {
       keyNames: ['a', 's', 'd', 'w', 'c'],
     },
   },
-  'widgets.clip.keyframes': {
-    id: 'widgets.clip.keyframes',
-    type: 'customEvent',
+  'widgets.clip.live': {
+    id: 'widgets.clip.live',
+    type: 'socket',
     trigger: {
-      eventNames: ['keyframe/createOrUpdate'],
+      eventNames: ['clip/live'],
     },
   },
   'widgets.clip.position.camera': {
@@ -521,7 +289,7 @@ export const sagas: ISagas = {
     id: 'widgets.clip.position.mesh',
     type: 'customEvent',
     trigger: {
-      actionTypes: ['mesh/move'],
+      eventNames: ['mesh/move'],
     },
   },
   'widgets.clip.save': {
@@ -531,32 +299,109 @@ export const sagas: ISagas = {
       actionTypes: ['clip/save'],
     },
   },
-  'widgets.3d.selection': {
-    id: 'widgets.3d.selection',
-    type: 'customEvent',
+  'widgets.contactCtas': {
+    id: 'widgets.contactCtas',
+    type: 'component',
     trigger: {
-      eventNames: ['mesh/select'],
+      actionTypes: ['CONTACT_CTA'],
     },
   },
-  'widgets.3d.grid': {
-    id: 'widgets.3d.grid',
-    type: 'predicate',
+  'widgets.contacts': {
+    id: 'widgets.contacts',
+    type: 'component',
     trigger: {
-      xpaths: ['sceneState.hideGrid'],
+      actionTypes: ['CONTACT'],
     },
   },
-  'widgets.3d.manual': {
-    id: 'widgets.3d.manual',
-    type: 'customEvent',
+  'widgets.contacts.multi': {
+    id: 'widgets.contacts.multi',
+    type: 'component',
     trigger: {
-      eventNames: ['set/pos'],
+      actionTypes: ['DOCUMENT', 'SET_DOCUMENT'],
     },
   },
-  'widgets.3d.toolbox': {
-    id: 'widgets.3d.toolbox',
-    type: 'entity',
+  'widgets.document': {
+    id: 'widgets.document',
+    type: 'component',
     trigger: {
-      actionTypes: ['TOOLBOX'],
+      actionTypes: ['DOCUMENT'],
+    },
+  },
+  'widgets.documents': {
+    id: 'widgets.documents',
+    type: 'component',
+    trigger: {
+      actionTypes: ['DOCUMENTS'],
+    },
+  },
+  'widgets.externalEvent': {
+    id: 'widgets.externalEvent',
+    type: 'component',
+    trigger: {
+      actionTypes: ['EXTERNAL_EVENT'],
+    },
+  },
+  'widgets.externalEvents': {
+    id: 'widgets.externalEvents',
+    type: 'component',
+    trigger: {
+      actionTypes: ['EXTERNAL_EVENTS'],
+    },
+  },
+  'widgets.finance': {
+    id: 'widgets.finance',
+    type: 'component',
+    trigger: {
+      actionTypes: ['FINANCE_LINE'],
+    },
+  },
+  'widgets.finances': {
+    id: 'widgets.finances',
+    type: 'component',
+    trigger: {
+      actionTypes: ['FINANCE_LINES'],
+    },
+  },
+  'widgets.flow': {
+    id: 'widgets.flow',
+    type: 'component',
+    trigger: {
+      eventNames: ['flow'],
+    },
+  },
+  'widgets.fourthWall': {
+    id: 'widgets.fourthWall',
+    type: 'component',
+    trigger: {
+      eventNames: ['scene/ready'],
+    },
+  },
+  'widgets.list': {
+    id: 'widgets.list',
+    type: 'component',
+    trigger: {
+      actionTypes: ['LIST'],
+    },
+  },
+  'widgets.listItem': {
+    id: 'widgets.listItem',
+    type: 'component',
+    trigger: {
+      actionTypes: ['LIST_ITEM'],
+    },
+  },
+  'widgets.listItems': {
+    id: 'widgets.listItems',
+    type: 'component',
+    trigger: {
+      actionTypes: ['LIST_ITEMS'],
+    },
+  },
+  'widgets.lists': {
+    id: 'widgets.lists',
+    type: 'component',
+    trigger: {
+      actionTypes: ['LISTS'],
     },
   },
   'widgets.player.animation': {
@@ -594,18 +439,18 @@ export const sagas: ISagas = {
       eventNames: ['clip/speech'],
     },
   },
-  'widgets.player.loader': {
-    id: 'widgets.player.loader',
-    type: 'customEvent',
-    trigger: {
-      eventNames: ['scene/assets/preload'],
-    },
-  },
   'widgets.player.effects': {
     id: 'widgets.player.effects',
     type: 'customEvent',
     trigger: {
       eventNames: ['waveform/timeupdate'],
+    },
+  },
+  'widgets.player.loader': {
+    id: 'widgets.player.loader',
+    type: 'customEvent',
+    trigger: {
+      eventNames: ['scene/assets/preload'],
     },
   },
   'widgets.player.playback': {
@@ -619,7 +464,7 @@ export const sagas: ISagas = {
     id: 'widgets.player.preloadImages',
     type: 'customEvent',
     trigger: {
-      eventNames: ['waveform/play'],
+      eventNames: ['waveform/timeupdate'],
     },
   },
   'widgets.player.setPiece': {
@@ -643,6 +488,62 @@ export const sagas: ISagas = {
       eventNames: ['waveform/ready', 'waveform/timeupdate'],
     },
   },
+  'widgets.post': {
+    id: 'widgets.post',
+    type: 'component',
+    trigger: {
+      actionTypes: ['POST'],
+    },
+  },
+  'widgets.postWriter': {
+    id: 'widgets.postWriter',
+    type: 'component',
+    trigger: {
+      actionTypes: ['POST_WRITER'],
+    },
+  },
+  'widgets.posts': {
+    id: 'widgets.posts',
+    type: 'component',
+    trigger: {
+      actionTypes: ['POSTS'],
+    },
+  },
+  'widgets.productTour': {
+    id: 'widgets.productTour',
+    type: 'component',
+    trigger: {
+      actionTypes: ['PRODUCT_TOUR_LOADED', 'PLAY_TOUR', 'STOP'],
+    },
+  },
+  'widgets.read': {
+    id: 'widgets.read',
+    type: 'component',
+    trigger: {
+      actionTypes: ['READ'],
+    },
+  },
+  'widgets.reads': {
+    id: 'widgets.reads',
+    type: 'component',
+    trigger: {
+      actionTypes: ['READS'],
+    },
+  },
+  'widgets.reminder': {
+    id: 'widgets.reminder',
+    type: 'component',
+    trigger: {
+      actionTypes: ['REMINDER'],
+    },
+  },
+  'widgets.reminders': {
+    id: 'widgets.reminders',
+    type: 'component',
+    trigger: {
+      actionTypes: ['REMINDERS'],
+    },
+  },
   'widgets.scene.bootstrap': {
     id: 'widgets.scene.bootstrap',
     type: 'customEvent',
@@ -652,9 +553,9 @@ export const sagas: ISagas = {
   },
   'widgets.scene.elements': {
     id: 'widgets.scene.elements',
-    type: 'customEvent',
+    type: 'entity',
     trigger: {
-      eventNames: ['scene/elements'],
+      eventNames: ['SCENE_ELEMENT'],
     },
   },
   'widgets.scene.keys': {
@@ -701,9 +602,44 @@ export const sagas: ISagas = {
   },
   'widgets.scene.save': {
     id: 'widgets.scene.save',
-    type: 'entity',
+    type: 'customAction',
     trigger: {
       actionTypes: ['SCENE_SAVE'],
+    },
+  },
+  'widgets.speech': {
+    id: 'widgets.speech',
+    type: 'component',
+    trigger: {
+      eventNames: ['board/loaded'],
+    },
+  },
+  'widgets.speechParams': {
+    id: 'widgets.speechParams',
+    type: 'component',
+    trigger: {
+      actionTypes: ['GET_ASSET'],
+    },
+  },
+  'widgets.todo': {
+    id: 'widgets.todo',
+    type: 'component',
+    trigger: {
+      actionTypes: ['TODO'],
+    },
+  },
+  'widgets.todos': {
+    id: 'widgets.todos',
+    type: 'component',
+    trigger: {
+      actionTypes: ['TODOS'],
+    },
+  },
+  'widgets.tube': {
+    id: 'widgets.tube',
+    type: 'component',
+    trigger: {
+      eventNames: [],
     },
   },
   'widgets.visionSimulator': {

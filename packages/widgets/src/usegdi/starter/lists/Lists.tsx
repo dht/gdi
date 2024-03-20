@@ -1,7 +1,6 @@
 import { Multi } from 'multi';
 import { Wrapper } from './Lists.style';
-import { initialView, multi, views } from './_multi';
-import ListFocusContainer from './_parts/ListFocus/ListFocus.container';
+import { ListFocusContainer } from './_parts/ListFocus/ListFocus.container';
 import { ListsSummaryContainer } from './_parts/ListsSummary/ListsSummary.container';
 
 export type ListsProps = {
@@ -10,10 +9,12 @@ export type ListsProps = {
     onItemAction: (id: string, verb: string, params?: Json) => void;
   };
   data: Json[];
+  multi: any;
+  listId?: string;
 };
 
 export function Lists(props: ListsProps) {
-  const { data, callbacks } = props;
+  const { data, multi, listId, callbacks } = props;
 
   function renderSummary() {
     return <ListsSummaryContainer />;
@@ -26,9 +27,9 @@ export function Lists(props: ListsProps) {
   return (
     <Wrapper className='Lists-wrapper' data-testid='Lists-wrapper'>
       <Multi //
-        initialView={initialView}
-        views={views}
-        config={multi}
+        initialView={multi.initialView}
+        views={multi.views}
+        config={multi.config}
         data={data}
         callbacks={callbacks}
         darkMode

@@ -26,8 +26,10 @@ import { saga as sagaRead } from './usegdi/starter/reads/sagas.Read';
 import { saga as sagaReads } from './usegdi/starter/reads/sagas.Reads';
 import { saga as sagaReminder } from './usegdi/starter/reminders/sagas.Reminder';
 import { saga as sagaReminders } from './usegdi/starter/reminders/sagas.Reminders';
-import { saga as sagaListItem } from './usegdi/starter/lists/sagas.ListItem';
-import { saga as sagaListItems } from './usegdi/starter/lists/sagas.ListItems';
+import { saga as sagaList } from './usegdi/starter/lists/sagas.List';
+import { saga as sagaLists } from './usegdi/starter/lists/sagas.Lists';
+import { saga as sagaListItem } from './usegdi/starter/list-items/sagas.ListItem';
+import { saga as sagaListItems } from './usegdi/starter/list-items/sagas.ListItems';
 import { saga as sagaSpeechParams } from './usegdi/starter/speech-params/sagas.SpeechParams';
 import { saga as sagaSpeech } from './usegdi/starter/speech/sagas.Speech';
 import { saga as sagaTodos } from './usegdi/starter/todos/sagas.Todos';
@@ -54,6 +56,8 @@ export const sagas: any = {
   'widgets.financeLines': sagaFinanceLines,
   'widgets.flow': sagaFlow,
   'widgets.fourthWall': sagaFourthWall,
+  'widgets.list': sagaList,
+  'widgets.lists': sagaLists,
   'widgets.listItem': sagaListItem,
   'widgets.listItems': sagaListItems,
   'widgets.musicList': sagaMusicList,
