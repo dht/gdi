@@ -317,7 +317,7 @@ export const $filterByWeek = createSelector(raw.$rawCurrentIds, (currentIds) => 
     return {
       id: id.toString(),
       name: id,
-      isCurrent: id === w,
+      isCurrent: id === getCurrentWeek(),
     };
   });
 
