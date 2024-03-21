@@ -28,7 +28,7 @@ export function* bootstrapFilters() {
   }
 
   if (todayId) {
-    currentIdsChanges.weekId = todayId;
+    currentIdsChanges.todayId = todayId;
   }
 
   if (focusProject) {
