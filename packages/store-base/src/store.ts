@@ -26,7 +26,7 @@ export const initStore = (
     useLocalInstance,
   });
 
-  storeBuilder.withAutoClear();
+  storeBuilder.withAutoClear(['multis']);
 
   return storeBuilder;
 };

@@ -30,6 +30,7 @@ export class StoreBuilder implements IStoreBuilder {
   private preBuildHooks: HookCallback[] = [];
   private postBuildHooks: HookCallback[] = [];
   private autoClear: boolean = false;
+  private autoClearStickyNodes: string[] = [];
 
   constructor(name: string) {
     this.definition.name = name;
@@ -124,8 +125,9 @@ export class StoreBuilder implements IStoreBuilder {
     return this;
   }
 
-  withAutoClear() {
+  withAutoClear(stickyNodes: string[] = []) {
     this.autoClear = true;
+    this.autoClearStickyNodes = stickyNodes;
     return this;
   }
 
@@ -134,7 +136,7 @@ export class StoreBuilder implements IStoreBuilder {
   }
 
   clear(store: any) {
-    clearStore(store);
+    clearStore(store, this.autoClearStickyNodes);
   }
 
   build<T = any>(): T {

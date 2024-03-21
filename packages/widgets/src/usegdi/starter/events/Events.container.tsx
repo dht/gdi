@@ -1,7 +1,7 @@
 import { selectors, useDispatch, useSelector } from '@gdi/store-base';
-import React, { useMemo } from 'react';
-import { Events } from './Events';
+import { useMemo } from 'react';
 import { useSagas } from '../../../helpers/useSaga';
+import { Events } from './Events';
 
 export type EventsContainerProps = {
   data: any;
@@ -9,7 +9,7 @@ export type EventsContainerProps = {
 
 export function EventsContainer(props: EventsContainerProps) {
   const dispatch = useDispatch();
-  const events = useSelector(selectors.base.$externalEvents);
+  const events = useSelector(selectors.md.$externalEvents);
 
   useSagas([
     'widgets.externalEvents', //

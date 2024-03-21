@@ -33,11 +33,9 @@ export function MultiContainer(props: MultiContainerProps) {
 
   useEffect(() => {
     const unListen1 = addListener('multi/item', (ev: any) => {
-      console.log('ev ->', ev);
       // callbacks.onItemAction('id', 'verb', {});
     });
     const unListen2 = addListener('multi', (ev) => {
-      console.log('ev ->', ev);
       // callbacks.onAction( 'verb', {});
     });
 

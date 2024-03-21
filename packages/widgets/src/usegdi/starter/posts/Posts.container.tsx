@@ -9,7 +9,7 @@ export type PostsContainerProps = {
 
 export function PostsContainer(props: PostsContainerProps) {
   const dispatch = useDispatch();
-  const posts = useSelector(selectors.base.$posts);
+  const posts = useSelector(selectors.md.$posts);
 
   useSagas([
     'widgets.posts', //

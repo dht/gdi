@@ -125,6 +125,7 @@ export type ICurrentIds = {
   tutorialId: string;
   tabId: string;
   muxTabId: string;
+  newItemId: string;
   editId: string;
   itemId: string;
   personId: string;
@@ -741,6 +742,7 @@ export type IFilterParams = {
   todayId: string;
   projectId: string;
   globalTags: string[];
+  newItemId?: string;
 };
 
 export type IMetaParams = {

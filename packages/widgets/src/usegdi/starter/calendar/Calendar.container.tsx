@@ -9,7 +9,7 @@ export type CalendarContainerProps = {
 
 export function CalendarContainer(props: CalendarContainerProps) {
   const dispatch = useDispatch();
-  const events = useSelector(selectors.base.$events);
+  const events = useSelector(selectors.md.$events);
 
   useSagas([
     'widgets.calendarEvents', //

@@ -9,7 +9,7 @@ export type ReadsContainerProps = {
 
 export function ReadsContainer(props: ReadsContainerProps) {
   const dispatch = useDispatch();
-  const reads = useSelector(selectors.base.$reads);
+  const reads = useSelector(selectors.md.$reads);
 
   useSagas([
     'widgets.reads', //

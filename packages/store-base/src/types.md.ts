@@ -14,6 +14,7 @@ export type IMyData = {
   sales: ISales;
   reminders: IReminders;
   things: IThings;
+  multis: IMultis;
 };
 
 export type IItem = {
@@ -22,6 +23,7 @@ export type IItem = {
   tier?: string;
   project?: string;
   tags?: string[];
+  dataTags?: string[];
   [key: string]: any;
 };
 
@@ -34,6 +36,14 @@ export type ITodo = {
   title: string;
   completed: boolean;
 } & IItem;
+
+export type IMulti = {
+  id: string;
+  name: string;
+  iconName: string;
+  boardId: string;
+  order: number;
+};
 
 export type ITodos = Record<string, ITodo>;
 
@@ -58,3 +68,5 @@ export type ISales = Record<string, IItem>;
 export type IReminders = Record<string, IItem>;
 
 export type IThings = Record<string, IItem>;
+
+export type IMultis = Record<string, IMulti>;

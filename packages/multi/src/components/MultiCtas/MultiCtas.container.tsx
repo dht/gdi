@@ -13,7 +13,7 @@ export function MultiCtasContainer(_props: MultiCtasContainerProps) {
   const appState = useSelector(selectors.raw.$rawAppState);
   const { patchState, state, data, callbacks: inCallbacks } = useContext(MultiContext);
   const { itemId, config } = state;
-  const { itemDisplay } = config;
+  const { id = '', itemDisplay } = config;
 
   const item = useMemo(() => {
     return data.find((i) => i.id === itemId);
@@ -25,10 +25,19 @@ export function MultiCtasContainer(_props: MultiCtasContainerProps) {
 
   const callbacks = useMemo(
     () => ({
-      onIconClick: (item: Json) => {
+      onIconClick: (icon: Json) => {
         if (!inCallbacks.onItemAction || !itemId) return;
-        const { id } = item;
-        inCallbacks.onItemAction(itemId, id, {});
+        inCallbacks.onItemAction(itemId, icon.id, {});
+
+        const idSingle = id.replace(/e?s$/, '');
+
+        dispatch({
+          type: 'CROSS_POLLINATE',
+          source: idSingle,
+          cta: icon.id,
+          id: itemId,
+          item,
+        });
       },
       onClose: () => {
         patchState({ showItemActions: false });

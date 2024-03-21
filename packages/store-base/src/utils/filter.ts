@@ -52,5 +52,10 @@ export const filterItem = <T extends IItem>(item: T, params: IFilterParams) => {
 };
 
 export const filterItems = <T extends IItem>(items: T[], params: IFilterParams) => {
-  return items.filter((item) => filterItem(item, params));
+  const newItem = items.find((item) => item.id === params.newItemId);
+  const output = items.filter((item) => filterItem(item, params));
+
+  if (newItem) return [newItem, ...output];
+
+  return output;
 };

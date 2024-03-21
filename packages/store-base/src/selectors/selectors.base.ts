@@ -1,15 +1,12 @@
 import { get, mapValues } from 'lodash';
 import { createSelector } from 'reselect';
 import { sortBy } from 'shared-base';
-import { IFilterParams, FlowType, IMetaParams } from '../types';
+import { FlowType, IFilterParams, IMetaParams } from '../types';
+import { getCurrentWeek } from '../utils/date';
 import { transformNodesToGraph } from '../utils/flows';
 import { charactersMaps } from '../utils/phonetics';
 import { getSpeechUrl } from '../utils/speech';
 import * as raw from './selectors.raw';
-import { getCurrentWeek } from '../utils/date';
-import { filterItems } from '../utils/filter';
-import { parseItemsRepeat } from '../utils/repeat';
-import { parseItemsBalance } from '../utils/balance';
 
 export const $logs = createSelector(raw.$rawLogs, (logs) => {
   return Object.values(logs).sort(sortBy('timestamp'));
@@ -376,7 +373,7 @@ export const $filterParams = createSelector(
   raw.$rawCurrentIds,
   (appState, currentIds) => {
     const { focusProject, focusTags, focusTiers, tags } = appState;
-    const { weekId, projectId, todayId } = currentIds;
+    const { weekId, projectId, todayId, newItemId } = currentIds;
 
     const output: IFilterParams = {
       focusTiers,
@@ -386,6 +383,7 @@ export const $filterParams = createSelector(
       globalTags: tags,
       weekId,
       todayId,
+      newItemId,
     };
 
     return output;
@@ -414,119 +412,3 @@ export const $metaParamsWithWeek = createSelector($metaParams, (metaParams) => {
     week: getCurrentWeek(),
   };
 });
-
-export const $externalEvents = createSelector(
-  raw.$rawExternalEvents,
-  $filterParams,
-  (items, filterParams) => {
-    const arr = Object.values(items);
-    return filterItems(arr, filterParams) //
-      .sort(sortBy('title', 'desc'));
-  }
-);
-
-export const $reminders = createSelector(
-  raw.$rawReminders,
-  $filterParams,
-  (items, filterParams) => {
-    const arr = Object.values(items);
-
-    return filterItems(arr, filterParams) //
-      .sort(sortBy('title', 'desc'));
-  }
-);
-
-export const $reads = createSelector(raw.$rawReads, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
-
-  return filterItems(arr, filterParams) //
-    .sort(sortBy('title', 'desc'));
-});
-
-export const $todos = createSelector(raw.$rawTodos, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
-
-  return filterItems(arr, filterParams) //
-    .sort(sortBy('title', 'desc'));
-});
-
-export const $lists = createSelector(raw.$rawLists, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
-
-  return filterItems(arr, filterParams) //
-    .sort(sortBy('title', 'desc'));
-});
-
-export const $listItems = createSelector(
-  raw.$rawCurrentIds,
-  raw.$rawListItems,
-  $filterParams,
-  (currentIds, items, filterParams) => {
-    const { listId } = currentIds;
-
-    const arr = Object.values(items).filter((item) => item.listId === listId);
-
-    return filterItems(arr, filterParams) //
-      .sort(sortBy('title', 'desc'));
-  }
-);
-
-export const $documents = createSelector(raw.$rawDocs, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
-
-  return filterItems(arr, filterParams) //
-    .sort(sortBy('title', 'desc'));
-});
-
-export const $posts = createSelector(raw.$rawPosts, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
-
-  return filterItems(arr, filterParams) //
-    .sort(sortBy('title', 'desc'));
-});
-
-export const $contacts = createSelector(raw.$rawContacts, $filterParams, (items, filterParams) => {
-  const arr = Object.values(items);
-
-  return filterItems(arr, filterParams) //
-    .map((item) => {
-      const { firstName, email } = item;
-
-      return {
-        ...item,
-        firstName: firstName || email,
-      };
-    })
-    .sort(sortBy('firstName', 'asc'));
-});
-
-export const $events = createSelector(raw.$rawEvents, $filterParams, (items, filterParams) => {
-  const arr = parseItemsRepeat(Object.values(items) as any) as any;
-
-  return filterItems(arr, filterParams) //
-    .map((item) => {
-      const { firstName, email, date, startTime = '00:00' } = item;
-
-      const dateFull = `${date} ${startTime}`;
-
-      return {
-        ...item,
-        firstName: firstName || email,
-        dateFull,
-      };
-    })
-    .sort(sortBy('dateFull', 'asc'));
-});
-
-export const $financeLines = createSelector(
-  raw.$rawFinanceLines,
-  $filterParams,
-  (items, filterParams) => {
-    let arr: any = Object.values(items);
-    arr = filterItems(arr, filterParams);
-    arr = parseItemsRepeat(arr).sort(sortBy(['date']));
-    arr = parseItemsBalance(arr);
-
-    return arr;
-  }
-);
