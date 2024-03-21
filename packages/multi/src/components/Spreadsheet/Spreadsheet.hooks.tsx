@@ -1,8 +1,7 @@
-import { useMemo, useState } from 'react';
-import { useKey, useLocalStorage, useMount, useSetState } from 'react-use';
-import { ICoord, ISheetCell, ISpreadsheetConfig, ITableField, Json } from '../../types';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
+import { useKey, useMount, useSetState } from 'react-use';
 import { addListener, getJson, setJson } from 'shared-base';
+import { ICoord, ISheetCell, ISpreadsheetConfig, ITableField, Json } from '../../types';
 
 export function useCustomEvent(
   eventName: string | undefined,
@@ -89,56 +88,32 @@ export function useArrows(id: string, initialCoord: ICoord, info: SheetInfo) {
     setCoord(savedCoord);
   });
 
-  const onNudge = (dx: number, dy: number) => {
-    setCoord((prevCoord) => {
-      if (!prevCoord) return initialCoord;
-      const { x, y } = prevCoord;
-      const nextX = Math.max(0, x + dx);
-      let nextY = Math.max(2, y + dy);
-      nextY = Math.min(nextY, count + 1);
+  const onNudge = useCallback(
+    (dx: number, dy: number) => {
+      setCoord((prevCoord) => {
+        if (!prevCoord) return initialCoord;
+        const { x, y } = prevCoord;
+        const nextX = Math.max(0, x + dx);
+        let nextY = Math.max(2, y + dy);
+        nextY = Math.min(nextY, count + 1);
 
-      return { x: nextX, y: nextY };
-    });
-  };
+        return { x: nextX, y: nextY };
+      });
+    },
+    [count]
+  );
 
-  useKey('ArrowUp', (ev) => {
-    ev.preventDefault();
-    onNudge(0, -1);
-  });
+  useKey('ArrowUp', (ev) => { ev.preventDefault(); onNudge(0, -1)}, {}, [onNudge]); // prettier-ignore
+  useKey('ArrowDown', (ev) => { ev.preventDefault(); onNudge(0, 1)}, {}, [onNudge]); // prettier-ignore
+  useKey('ArrowLeft', (ev) => { ev.preventDefault(); onNudge(-1, 0)} , {}, [onNudge]); // prettier-ignore
+  useKey('ArrowRight', (ev) => { ev.preventDefault(); onNudge(1, 0)} , {}, [onNudge]); // prettier-ignore
+  useKey('PageDown', () => onNudge(0, rowsPerPage - 1), {}, [rowsPerPage, onNudge]); // prettier-ignore
+  useKey('PageUp', () => onNudge(0, -rowsPerPage + 1), {}, [rowsPerPage, onNudge]); // prettier-ignore
 
-  useKey('ArrowDown', (ev) => {
-    ev.preventDefault();
-    onNudge(0, 1);
-  });
-
-  useKey('ArrowLeft', (ev) => {
-    ev.preventDefault();
-    onNudge(-1, 0);
-  });
-
-  useKey('ArrowRight', (ev) => {
-    ev.preventDefault();
-    onNudge(1, 0);
-  });
-
-  useKey('PageDown', () => onNudge(0, rowsPerPage - 1), {}, [rowsPerPage]);
-  useKey('PageUp', () => onNudge(0, -rowsPerPage + 1), {}, [rowsPerPage]);
-
-  useCustomEvent('sheet/move/down', () => {
-    onNudge(0, 1);
-  });
-
-  useCustomEvent('sheet/move/up', () => {
-    onNudge(0, -1);
-  });
-
-  useCustomEvent('sheet/move/left', () => {
-    onNudge(-1, 0);
-  });
-
-  useCustomEvent('sheet/move/right', () => {
-    onNudge(1, 0);
-  });
+  useCustomEvent('sheet/move/down', () => { onNudge(0, 1)}, [onNudge]); // prettier-ignore
+  useCustomEvent('sheet/move/up', () => { onNudge(0, -1)}, [onNudge]); // prettier-ignore
+  useCustomEvent('sheet/move/left', () => { onNudge(-1, 0)}, [onNudge]); // prettier-ignore
+  useCustomEvent('sheet/move/right', () => { onNudge(1, 0)}, [onNudge]); // prettier-ignore
 
   return [coord, setCoord] as const;
 }

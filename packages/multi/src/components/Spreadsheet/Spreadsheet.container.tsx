@@ -1,7 +1,9 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { ISpreadsheetCallbacks, ISpreadsheetConfig, Json } from '../../types';
 import { Spreadsheet } from './Spreadsheet';
 import { SpreadsheetProvider } from './Spreadsheet.context';
+import { useCustomEvent } from './Spreadsheet.hooks';
+import { invokeEvent } from 'shared-base';
 
 export type SpreadsheetContainerProps = {
   id: string;
@@ -24,6 +26,15 @@ export function SpreadsheetContainer(props: SpreadsheetContainerProps) {
     }),
     []
   );
+
+  // nasty hack to regain focus on new line
+  useCustomEvent('sheet/item/new', (ev: any) => {
+    const { id } = ev;
+
+    setTimeout(() => {
+      invokeEvent('sheet/newLine/focus', { id });
+    }, 50);
+  });
 
   return (
     <SpreadsheetProvider data={arr} callbacks={callbacks} state={initialState}>

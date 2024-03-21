@@ -10,3 +10,11 @@ export const getCurrentWeek = () => {
 export const add = (date: string | number | Date, value: number, unit: any) => {
   return dayjs(date).add(value, unit).format('YYYY-MM-DD');
 };
+
+export const today = () => {
+  return dayjs().format('YYYY-MM-DD');
+};
+
+export const getWeek = (date: string | number | Date) => {
+  return dayjs(date).week();
+};
