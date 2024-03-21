@@ -7,6 +7,7 @@ export type CtxWelcomeContainerProps = {};
 export function CtxWelcomeContainer(_props: CtxWelcomeContainerProps) {
   const dispatch = useDispatch();
   const appState = useSelector(selectors.raw.$rawAppState);
+  const multis = useSelector(selectors.raw.$rawMultis);
   const { is24Hours } = appState;
 
   const callbacks = useMemo(
@@ -19,7 +20,11 @@ export function CtxWelcomeContainer(_props: CtxWelcomeContainerProps) {
   );
 
   return (
-    <CtxWelcome is24Hours={is24Hours} onIconClick={callbacks.onIconClick} />
+    <CtxWelcome
+      multis={multis}
+      is24Hours={is24Hours}
+      onIconClick={callbacks.onIconClick}
+    />
   );
 }
 

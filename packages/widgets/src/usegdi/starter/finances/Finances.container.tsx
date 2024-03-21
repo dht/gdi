@@ -9,7 +9,7 @@ export type FinancesContainerProps = {
 
 export function FinancesContainer(props: FinancesContainerProps) {
   const dispatch = useDispatch();
-  const finances = useSelector(selectors.base.$financeLines);
+  const finances = useSelector(selectors.md.$financeLines);
 
   useSagas([
     'widgets.financeLines', //

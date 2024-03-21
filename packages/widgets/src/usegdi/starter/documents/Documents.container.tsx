@@ -9,7 +9,7 @@ export type DocumentsContainerProps = {
 
 export function DocumentsContainer(props: DocumentsContainerProps) {
   const dispatch = useDispatch();
-  const documents = useSelector(selectors.base.$documents);
+  const documents = useSelector(selectors.md.$documents);
 
   useSagas([
     'widgets.documents', //

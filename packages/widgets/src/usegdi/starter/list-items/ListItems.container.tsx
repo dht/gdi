@@ -9,7 +9,7 @@ export type ListItemsContainerProps = {
 
 export function ListItemsContainer(props: ListItemsContainerProps) {
   const dispatch = useDispatch();
-  const listItems = useSelector(selectors.base.$listItems);
+  const listItems = useSelector(selectors.md.$listItems);
 
   useSagas([
     'widgets.listItems', //

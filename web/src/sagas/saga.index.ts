@@ -10,6 +10,7 @@ import { saga as sagaLogs } from './saga.logs';
 import { saga as sagaMd } from './saga.md';
 import { saga as sagaNavigation } from './saga.navigation';
 import { saga as sagaOnboarding } from './saga.onboarding';
+import { saga as sagaPollinate } from './saga.pollinate';
 import { saga as sagaPredicates } from './saga.predicates';
 import { saga as sagaRoot } from './saga.root';
 import { saga as sagaSetup } from './saga.setup';
@@ -34,6 +35,7 @@ export const allSagas = {
   'gdi.logs': sagaLogs,
   'gdi.md': sagaMd,
   'gdi.navigation': sagaNavigation,
+  'gdi.pollinate': sagaPollinate,
   'gdi.predicates': sagaPredicates,
   'gdi.prompt': sagaPrompt,
   'gdi.root': sagaRoot,

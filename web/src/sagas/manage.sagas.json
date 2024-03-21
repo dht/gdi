@@ -21,6 +21,7 @@
     "gdi.assets",
     "gdi.bar",
     "gdi.board",
+    "gdi.pollinate",
     "gdi.persist",
     "gdi.gdi",
     "gdi.errors",

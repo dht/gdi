@@ -29,6 +29,7 @@ const map: Record<Verb, any> = {
 };
 
 export function* mergeContact(action: Action, item: IContact) {
+  if (!item) return;
   const { id, firstName, lastName } = item;
 
   const contacts = yield* select(selectors.raw.$rawContacts);

@@ -9,7 +9,7 @@ export type TodosContainerProps = {
 
 export function TodosContainer(props: TodosContainerProps) {
   const dispatch = useDispatch();
-  const todos = useSelector(selectors.base.$todos);
+  const todos = useSelector(selectors.md.$todos);
 
   useSagas([
     'widgets.todos', //

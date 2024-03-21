@@ -9,7 +9,7 @@ export type RemindersContainerProps = {
 
 export function RemindersContainer(props: RemindersContainerProps) {
   const dispatch = useDispatch();
-  const reminders = useSelector(selectors.base.$reminders);
+  const reminders = useSelector(selectors.md.$reminders);
 
   useSagas([
     'widgets.reminders', //

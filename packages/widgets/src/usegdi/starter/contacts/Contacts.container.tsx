@@ -9,7 +9,7 @@ export type ContactsContainerProps = {
 
 export function ContactsContainer(props: ContactsContainerProps) {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectors.base.$contacts);
+  const contacts = useSelector(selectors.md.$contacts);
 
   useSagas([
     'widgets.contacts', //
