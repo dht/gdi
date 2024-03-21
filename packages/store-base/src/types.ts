@@ -112,6 +112,7 @@ export type ICurrentIds = {
   boardId: string;
   requestId: string;
   assistantId: string;
+  todayId: string;
   voiceId: string;
   assetId: string;
   leftId: string;
@@ -737,6 +738,7 @@ export type IFilterParams = {
   focusProject: string;
   focusTags: string;
   weekId: string;
+  todayId: string;
   projectId: string;
   globalTags: string[];
 };

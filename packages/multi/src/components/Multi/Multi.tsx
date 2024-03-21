@@ -18,6 +18,7 @@ import FilterByProjectContainer from '../Filters/FilterByProject.container';
 import MultiCtasContainer from '../MultiCtas/MultiCtas.container';
 import { useCustomEvent } from '../Spreadsheet/Spreadsheet.hooks';
 import { useMeasure } from 'react-use';
+import FilterByTodayContainer from '../Filters/FilterByToday.container';
 
 export type MultiProps = {
   renderSummary?: () => React.ReactNode;
@@ -113,6 +114,7 @@ export function Multi(props: MultiProps) {
       {renderItemCtas()}
       <Content ref={ref}>{renderInner()}</Content>
       <Footer>
+        <FilterByTodayContainer />
         <FilterByTagsContainer />
         <FilterByProjectContainer />
         <FilterByWeekContainer />

@@ -1,23 +1,28 @@
 import { IFilterParams } from '../types';
 import { IItem } from '../types.md';
+import { today } from './date';
 
 const checkTags = (globalTags: string[] = [], itemTags: string[] = []) => {
   return globalTags.every((tag) => itemTags.includes(tag));
 };
 
+const now = today();
+
 export const filterItem = <T extends IItem>(item: T, params: IFilterParams) => {
-  const { focusTiers, weekId, projectId, globalTags, focusProject, focusTags } = params;
-  const { project, tier, week, tags = [] } = item;
+  const { focusTiers, weekId, projectId, todayId, globalTags, focusProject, focusTags } = params;
+  const { project, tier, week, tags = [], date } = item;
 
   const ok = {
     tier: false,
     week: false,
     project: false,
     tags: false,
+    today: false,
   };
 
   ok.tier = focusTiers.includes(String(tier)) || !tier;
   ok.week = weekId === String(week) || weekId === 'all' || (!week && weekId === 'none');
+  ok.today = !date || date === now || todayId === 'all';
 
   switch (focusProject) {
     case 'none':

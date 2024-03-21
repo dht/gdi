@@ -348,6 +348,13 @@ export const $filterByTier = createSelector(raw.$i, () => {
   ];
 });
 
+export const $filterByToday = createSelector(raw.$i, () => {
+  return [
+    { id: 'today', name: 'Today' },
+    { id: 'all', name: 'All Days' },
+  ];
+});
+
 export const $filterByProject = createSelector(raw.$i, () => {
   return [
     { id: 'none', name: 'None' },
@@ -369,7 +376,7 @@ export const $filterParams = createSelector(
   raw.$rawCurrentIds,
   (appState, currentIds) => {
     const { focusProject, focusTags, focusTiers, tags } = appState;
-    const { weekId, projectId } = currentIds;
+    const { weekId, projectId, todayId } = currentIds;
 
     const output: IFilterParams = {
       focusTiers,
@@ -378,6 +385,7 @@ export const $filterParams = createSelector(
       projectId,
       globalTags: tags,
       weekId,
+      todayId,
     };
 
     return output;

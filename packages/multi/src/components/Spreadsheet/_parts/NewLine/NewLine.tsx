@@ -1,7 +1,9 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { ITableField } from '../../../../types';
 import { SpreadsheetContext } from '../../Spreadsheet.context';
 import { Wrapper } from './NewLine.style';
+import { invokeEvent } from 'shared-base';
+import { useCustomEvent } from '../../Spreadsheet.hooks';
 
 export type NewLineProps = {
   field: ITableField;
@@ -12,6 +14,7 @@ export function NewLine(props: NewLineProps) {
   const { field, style } = props;
   const { callbacks } = useContext(SpreadsheetContext);
   const { id } = field;
+  const ref = useRef<HTMLInputElement>(null);
 
   function onNew(ev: React.KeyboardEvent<HTMLDivElement>) {
     if (!callbacks.onItemAction) return;
@@ -20,7 +23,16 @@ export function NewLine(props: NewLineProps) {
     callbacks.onItemAction('', 'add', { data: { [id]: value } });
 
     ev.currentTarget.textContent = '';
+
+    invokeEvent('sheet/item/new', { id });
   }
+
+  // nasty hack to regain focus on new line as it is re-rendered
+  // perhaps try memoizing the new line component
+  useCustomEvent('sheet/newLine/focus', (ev: any) => {
+    if (id !== ev.id || !ref.current) return;
+    ref.current.focus();
+  });
 
   function onKeyDown(ev: React.KeyboardEvent<HTMLDivElement>) {
     ev.stopPropagation();
@@ -40,12 +52,12 @@ export function NewLine(props: NewLineProps) {
 
   return (
     <Wrapper
+      ref={ref}
       style={style}
-      className='field'
+      className={`newLine-${id}`}
       contentEditable={true}
       suppressContentEditableWarning={true}
       onKeyDown={onKeyDown}
-      onBlur={onNew}
     />
   );
 }

@@ -1,6 +1,6 @@
 import { guid4 } from 'shared-base';
 import { Json } from '../types';
-import { add } from './date';
+import { add, getWeek } from './date';
 
 type Item = Json & {
   date: string;
@@ -38,12 +38,14 @@ export const parseItemsRepeat = <T extends Item>(items: T[], forceCount?: number
       const total = forceCount || Number(value) || defaultCount[unit] || 1;
       for (let i = 1; i <= total; i++) {
         const nextDate = add(date, Number(i), mapUnit[unit]);
+        const week = getWeek(nextDate);
 
         const clone: any = {
           ...item,
         };
 
         clone.date = nextDate;
+        clone.week = week;
         clone.isVirtual = true;
 
         output.push(clone as T);
