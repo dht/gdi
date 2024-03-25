@@ -16,12 +16,16 @@ export function SideBar(props: SideBarProps) {
     invokeEvent('nav', { path: '/' });
   }
 
-  const className = classnames('SideBar-wrapper', {
+  const className = classnames('SideBar-wrapper my-aug', {
     minimal,
   });
 
   return (
-    <Wrapper className={className} data-testid='SideBar-wrapper'>
+    <Wrapper
+      className={className}
+      data-testid='SideBar-wrapper'
+      data-augmented-ui='tr-clip bl-clip br-clip-y both'
+    >
       <Top>
         <Logo minimal={minimal} onClick={onLogoClick} />
         <Slogan className='slogan'>Work at the speed of AI</Slogan>

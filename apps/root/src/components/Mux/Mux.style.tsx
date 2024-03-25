@@ -21,6 +21,13 @@ export const Column = styled.div`
 
   &:last-child {
     max-width: 300px;
+    --aug-tl: 25px;
+    --aug-bl: 57px;
+    --aug-border-all: 3px;
+    --aug-inlay-all: 3px;
+    --aug-inlay-bg: #000;
+    /* background: linear-gradient(rgb(84, 199, 84), rgb(85, 125, 85)); */
+    /* color: rgb(84, 199, 84); */
 
     @media (max-width: 800px) {
       display: none;

@@ -20,6 +20,7 @@
   },
   "private": true,
   "dependencies": {
+    "@arwes/react": "^1.0.0-alpha.23",
     "@gdi/store-base": "^1.0.0",
     "@gdi/ui": "^1.0.0",
     "@gdi/widgets-starter": "^1.0.1",

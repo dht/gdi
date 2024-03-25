@@ -7,7 +7,11 @@ export type RootPageProps = {};
 
 export function RootPage(_props: RootPageProps) {
   return (
-    <Wrapper className='RootPage-wrapper' data-testid='RootPage-wrapper'>
+    <Wrapper
+      className='RootPage-wrapper'
+      data-testid='RootPage-wrapper'
+      data-augmented-ui='tr-clip bl-clip br-clip-y both'
+    >
       <Routes>
         <Route path='/' element={<groups.mux />} />
         <Route path='/browse/:id' element={<pages.details />} />
@@ -35,6 +39,11 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   color: #eee;
+  --aug-tl: 25px;
+  --aug-bl: 57px;
+  --aug-border-all: 3px;
+  --aug-inlay-all: 3px;
+  --aug-inlay-bg: #000;
 `;
 
 export default RootPage;

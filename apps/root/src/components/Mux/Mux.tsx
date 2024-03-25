@@ -52,7 +52,7 @@ export function Mux(props: MuxProps) {
           <MuxInput callbacks={callbacks} />
         </Bottom>
       </Column>
-      <Column>{props.children}</Column>
+      <Column data-augmented-ui='tl-clip both'>{props.children}</Column>
     </Wrapper>
   );
 }

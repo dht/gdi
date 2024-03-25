@@ -5,6 +5,7 @@ import { invokeEvent } from 'shared-base';
 import classnames from 'classnames';
 import { getSelectedIndex } from './Menu.utils';
 import Icon from '../../../Icon/Icon';
+import { playSfx, playSound } from '../../../../utils/audio';
 
 export type MenuProps = {
   minimal?: boolean;
@@ -29,7 +30,12 @@ export function Menu(props: MenuProps) {
     });
 
     return (
-      <Item key={item.id} className={className} onMouseDown={() => onClick(item)}>
+      <Item
+        key={item.id}
+        className={className}
+        onMouseDown={() => onClick(item)}
+        onMouseOver={onHover}
+      >
         <Icon name={icon} />
         {!minimal && <Title>{title}</Title>}
       </Item>

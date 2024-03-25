@@ -43,3 +43,4 @@ playground/*.ids.json
 playground/*.log.json
 Contacts.csv
 contacts.json
+hud/**

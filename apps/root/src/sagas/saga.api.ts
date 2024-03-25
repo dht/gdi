@@ -24,7 +24,7 @@ function* api() {
 
     const { allowSfx } = settings;
 
-    initSfx(allowSfx);
+    // initSfx(allowSfx);
 
     invokeEvent('settings/loaded');
 
