@@ -64,6 +64,7 @@ export default defineConfig(() => {
         'redux-connected': `${cwd}/packages/redux-connected/src`,
         'redux-store-generator': `${cwd}/packages/redux-store-generator/src`,
         igrid: `${cwd}/packages/igrid/src`,
+        guidance: `${cwd}/packages/guidance/src`,
         multi: `${cwd}/packages/multi/src`,
         isokit2: `${cwd}/packages/isokit2/src`,
         'react-redux/(.*)': `${cwd}node_modules/react-redux/$1`,

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "_ga",
+    "value": "GA1.1.61979500.1711113933",
+    "domain": "localhost",
+    "path": "/",
+    "expires": 1745685919.49143,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "YSC",
+    "value": "oLhy_IDbGxg",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "VISITOR_INFO1_LIVE",
+    "value": "_yAiMYM7qxE",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": 1726665935.354996,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "VISITOR_PRIVACY_METADATA",
+    "value": "CgJJTBIEGgAgQA%3D%3D",
+    "domain": ".youtube.com",
+    "path": "/",
+    "expires": 1726665935.35503,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "__cf_bm",
+    "value": "wXpxrKa6ObGUxSNJousfMCmnhZuVH8dKzCHkERLX2CY-1711125919-1.0.1.1-aLcmZuVe7HnMZzVKQwdc8JEKPeSQ6geZHHNFpqwM2rbB0xUoBpCMc7.o67tPf3bojTBbdxpnqchUdcVs8oOZXg",
+    "domain": ".vimeo.com",
+    "path": "/",
+    "expires": 1711127719.308498,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_cfuvid",
+    "value": "0WftcVREbavAaqn0qqAJ_Mskx9gNOJY.t2Bqq_5cVQY-1711125919350-0.0.1.1-604800000",
+    "domain": ".vimeo.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "None"
+  },
+  {
+    "name": "_ga_LKZJSTMCWM",
+    "value": "GS1.1.1711125911.2.1.1711125919.52.0.0",
+    "domain": "localhost",
+    "path": "/",
+    "expires": 1745685919.493616,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "Lax"
+  },
+  {
+    "name": "vuid",
+    "value": "pl635399649.1260019484",
+    "domain": ".vimeo.com",
+    "path": "/",
+    "expires": 1745685974.365258,
+    "httpOnly": false,
+    "secure": true,
+    "sameSite": "None"
+  }
+]

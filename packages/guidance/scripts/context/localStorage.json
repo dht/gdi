@@ -1,0 +1,8 @@
+{
+  "muxTabId": "contacts",
+  "muxTabs": "{\"contacts\":{\"id\":\"contacts\",\"name\":\"Contacts\",\"boardId\":\"B-008\"}}",
+  "onBoardingSeen": "true",
+  "INSTANCE_URL": "http://localhost:3005",
+  "landingPageSeen": "true",
+  "DEV_PANEL_LOCATION": "{\"x\":0,\"y\":0}"
+}

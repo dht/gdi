@@ -2,9 +2,8 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   flex: 1;
-  width: 302px;
   height: 326px;
-  width: var(--item-width);
+  width: 220px;
   cursor: pointer;
   position: relative;
 
@@ -159,7 +158,9 @@ export const Soon = styled.div`
   border-radius: 8px 0 0 8px;
   z-index: 999;
   border-right: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 5px 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.1),
+    inset 5px 0 10px rgba(0, 0, 0, 0.2);
   display: none;
 
   @media (max-width: 800px) {

@@ -9,6 +9,7 @@ import { Json } from '../types';
 import express from 'express';
 import path from 'path';
 import { midLogger } from '../middlewares/midLogger';
+import './utils/require';
 
 export type LocalParams = {
   rootPath: string;
