@@ -3,8 +3,6 @@ const chalk = require('chalk');
 const { allCommands } = require('../index');
 const p = require('../../package.json');
 
-console.log('gdi ' + chalk.green(p.version));
-
 let yargs = require('yargs')
   .command(
     'component',
@@ -15,8 +13,22 @@ let yargs = require('yargs')
       });
     },
     (argv) => {
+      console.log('gdi ' + chalk.green(p.version));
       const args = argv._.slice(1);
       allCommands.component(args);
+    }
+  )
+  .command(
+    'prompt',
+    'access prompt',
+    (yargs) => {
+      yargs.positional('prompt', {
+        describe: 'the prompt',
+      });
+    },
+    (argv) => {
+      const args = argv._.slice(1);
+      allCommands.prompt(args.join(' '));
     }
   )
   .command(
@@ -28,6 +40,7 @@ let yargs = require('yargs')
       });
     },
     (argv) => {
+      console.log('gdi ' + chalk.green(p.version));
       const args = argv._.slice(1);
       allCommands.init(args);
     }

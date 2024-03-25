@@ -4,7 +4,8 @@ import { oneShot } from './workflow.llm';
 import { basic } from './workflow.voice';
 import { get } from 'lodash';
 import { Json } from '../../types';
-import { main } from './workflow.mux';
+import { main as mux } from './workflow.mux';
+import { main as terminal } from './workflow.terminal';
 
 export const workflows: any = {
   llm: {
@@ -18,7 +19,10 @@ export const workflows: any = {
     basic: imageBasic,
   },
   mux: {
-    main,
+    main: mux,
+  },
+  terminal: {
+    main: terminal,
   },
 };
 
