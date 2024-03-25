@@ -12,6 +12,7 @@ import { router as routerPlaybacks } from './routes/playbacks';
 import { router as routerMusic } from './routes/music';
 import { router as routerSaves } from './routes/saves';
 import { router as routerTags } from './routes/tags';
+import { router as routerTerminal } from './routes/terminal';
 import { DBAdapter, StorageAdapter } from './types';
 import { setDbAdapter, setIsLocalInstance, setStorageAdapter } from './utils/globals';
 
@@ -66,6 +67,7 @@ export const initRunner = (params: Params) => {
   router.use('/saves', routerSaves);
   router.use('/echo', routerEcho);
   router.use('/tags', routerTags);
+  router.use('/terminal', routerTerminal);
 
   app.use(root, router);
 

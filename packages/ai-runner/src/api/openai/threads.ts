@@ -53,7 +53,7 @@ export const createRun = async (threadId: string, assistantId: string) => {
   return run;
 };
 
-export const createStreamedRun = (threadId: string, assistantId: string, callback: any) => {
+export const createStreamedRun = (threadId: string, assistantId: string, callback?: any) => {
   let run;
 
   return new Promise((resolve) => {
@@ -82,6 +82,7 @@ export const createStreamedRun = (threadId: string, assistantId: string, callbac
         })
         .on('textDelta', (textDelta, _snapshot) => {
           allContent += textDelta.value;
+          if (!callback) return;
           callback(allContent);
         })
         .on('toolCallCreated', (toolCall) => {
