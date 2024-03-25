@@ -22,10 +22,11 @@ import { isMobile } from '../../../../utils/mobile';
 export type GalleryItemProps = {
   board: Json;
   onClick: (board: Json) => void;
+  width: number;
 };
 
 export function GalleryItem(props: GalleryItemProps) {
-  const { board } = props;
+  const { board, width } = props;
   const { identifier, version, reviewInfo, isActive, isWip, boardInfo } = board;
   const { index, name, description, imageUrl, boardType, videoThumbUrl } = boardInfo;
   const [hover, setHover] = useState(false);
@@ -34,7 +35,15 @@ export function GalleryItem(props: GalleryItemProps) {
 
   const style: React.CSSProperties = useMemo(
     () => ({
+      width: width - 20,
+    }),
+    [width]
+  );
+
+  const styleImage: React.CSSProperties = useMemo(
+    () => ({
       backgroundImage: `url(${imageUrl})`,
+      width: width - 20,
     }),
     [imageUrl]
   );
@@ -45,7 +54,7 @@ export function GalleryItem(props: GalleryItemProps) {
   });
 
   function renderVideo() {
-    return <Video src={videoThumbUrl} autoPlay style={style} />;
+    return <Video src={videoThumbUrl} autoPlay style={styleImage} />;
   }
 
   function renderImage() {
@@ -54,7 +63,7 @@ export function GalleryItem(props: GalleryItemProps) {
     }
 
     return (
-      <Image className='image' style={style}>
+      <Image className='image' style={styleImage}>
         <Shape shape={boardType} />
       </Image>
     );
@@ -67,6 +76,7 @@ export function GalleryItem(props: GalleryItemProps) {
       onClick={() => props.onClick(board)}
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
+      style={style}
     >
       <Media>{renderImage()}</Media>
       <Soon className='soon'>Soon</Soon>

@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { pages } from '../pages';
 import { groups } from '../groups';
+import { Guidance } from 'guidance';
 
 export type RootPageProps = {};
 
@@ -26,6 +27,7 @@ export function RootPage(_props: RootPageProps) {
         <Route path='/report-issue' element={<pages.reportIssue />} />
         <Route path='/terms-of-use' element={<pages.termsOfUse />} />
       </Routes>
+      <Guidance />
     </Wrapper>
   );
 }

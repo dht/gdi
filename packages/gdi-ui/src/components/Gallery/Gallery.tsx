@@ -18,7 +18,7 @@ export function Gallery(props: GalleryProps) {
 
   const items = useItems(boards, q, filter);
 
-  const columnCount = 5;
+  const columnCount = Math.floor(width / 240);
   const columnWidth = (width - 10) / columnCount;
   const rowHeight = Math.min(columnWidth * 1.6, 326);
   const rowCount = Math.ceil(items.length / columnCount);
@@ -39,7 +39,7 @@ export function Gallery(props: GalleryProps) {
 
     return (
       <Item style={style}>
-        <GalleryItem board={data} onClick={() => props.onClick(data)} />
+        <GalleryItem board={data} onClick={() => props.onClick(data)} width={columnWidth} />
       </Item>
     );
   }

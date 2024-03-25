@@ -109,6 +109,7 @@ export function TableCellNumber(props: TableCellProps) {
   const { value } = data;
 
   const numberText = useMemo(() => {
+    if (isNaN(value)) return '';
     return parseFloat(value).toLocaleString('en-US', {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
